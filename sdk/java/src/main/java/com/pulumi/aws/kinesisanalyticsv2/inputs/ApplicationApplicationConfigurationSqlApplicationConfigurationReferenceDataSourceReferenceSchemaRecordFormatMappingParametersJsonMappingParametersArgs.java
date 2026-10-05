@@ -15,14 +15,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs();
 
     /**
-     * The path to the top-level parent that contains the records.
+     * Path to the top-level parent that contains the records.
      * 
      */
     @Import(name="recordRowPath", required=true)
     private Output<String> recordRowPath;
 
     /**
-     * @return The path to the top-level parent that contains the records.
+     * @return Path to the top-level parent that contains the records.
      * 
      */
     public Output<String> recordRowPath() {
@@ -54,7 +54,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordRowPath The path to the top-level parent that contains the records.
+         * @param recordRowPath Path to the top-level parent that contains the records.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordRowPath The path to the top-level parent that contains the records.
+         * @param recordRowPath Path to the top-level parent that contains the records.
          * 
          * @return builder
          * 

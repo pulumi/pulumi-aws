@@ -20,14 +20,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
     public static final PipeTargetParametersEcsTaskParametersOverridesArgs Empty = new PipeTargetParametersEcsTaskParametersOverridesArgs();
 
     /**
-     * One or more container overrides that are sent to a task. Detailed below.
+     * One or more container overrides that are sent to a task. See `containerOverride` Block for details.
      * 
      */
     @Import(name="containerOverrides")
     private @Nullable Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs>> containerOverrides;
 
     /**
-     * @return One or more container overrides that are sent to a task. Detailed below.
+     * @return One or more container overrides that are sent to a task. See `containerOverride` Block for details.
      * 
      */
     public Optional<Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs>>> containerOverrides() {
@@ -35,14 +35,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
     }
 
     /**
-     * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+     * CPU override for the task.
      * 
      */
     @Import(name="cpu")
     private @Nullable Output<String> cpu;
 
     /**
-     * @return The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+     * @return CPU override for the task.
      * 
      */
     public Optional<Output<String>> cpu() {
@@ -50,14 +50,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
     }
 
     /**
-     * The ephemeral storage setting override for the task.  Detailed below.
+     * Ephemeral storage setting override for the task. See `ephemeralStorage` Block for details.
      * 
      */
     @Import(name="ephemeralStorage")
     private @Nullable Output<PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs> ephemeralStorage;
 
     /**
-     * @return The ephemeral storage setting override for the task.  Detailed below.
+     * @return Ephemeral storage setting override for the task. See `ephemeralStorage` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs>> ephemeralStorage() {
@@ -80,14 +80,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
     }
 
     /**
-     * List of Elastic Inference accelerator overrides for the task. Detailed below.
+     * List of Elastic Inference accelerator overrides for the task. See `inferenceAcceleratorOverride` Block for details.
      * 
      */
     @Import(name="inferenceAcceleratorOverrides")
     private @Nullable Output<List<PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs>> inferenceAcceleratorOverrides;
 
     /**
-     * @return List of Elastic Inference accelerator overrides for the task. Detailed below.
+     * @return List of Elastic Inference accelerator overrides for the task. See `inferenceAcceleratorOverride` Block for details.
      * 
      */
     public Optional<Output<List<PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs>>> inferenceAcceleratorOverrides() {
@@ -95,14 +95,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
     }
 
     /**
-     * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+     * Memory override for the task.
      * 
      */
     @Import(name="memory")
     private @Nullable Output<String> memory;
 
     /**
-     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+     * @return Memory override for the task.
      * 
      */
     public Optional<Output<String>> memory() {
@@ -155,7 +155,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param containerOverrides One or more container overrides that are sent to a task. Detailed below.
+         * @param containerOverrides One or more container overrides that are sent to a task. See `containerOverride` Block for details.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param containerOverrides One or more container overrides that are sent to a task. Detailed below.
+         * @param containerOverrides One or more container overrides that are sent to a task. See `containerOverride` Block for details.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param containerOverrides One or more container overrides that are sent to a task. Detailed below.
+         * @param containerOverrides One or more container overrides that are sent to a task. See `containerOverride` Block for details.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+         * @param cpu CPU override for the task.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+         * @param cpu CPU override for the task.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param ephemeralStorage The ephemeral storage setting override for the task.  Detailed below.
+         * @param ephemeralStorage Ephemeral storage setting override for the task. See `ephemeralStorage` Block for details.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param ephemeralStorage The ephemeral storage setting override for the task.  Detailed below.
+         * @param ephemeralStorage Ephemeral storage setting override for the task. See `ephemeralStorage` Block for details.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param inferenceAcceleratorOverrides List of Elastic Inference accelerator overrides for the task. Detailed below.
+         * @param inferenceAcceleratorOverrides List of Elastic Inference accelerator overrides for the task. See `inferenceAcceleratorOverride` Block for details.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param inferenceAcceleratorOverrides List of Elastic Inference accelerator overrides for the task. Detailed below.
+         * @param inferenceAcceleratorOverrides List of Elastic Inference accelerator overrides for the task. See `inferenceAcceleratorOverride` Block for details.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param inferenceAcceleratorOverrides List of Elastic Inference accelerator overrides for the task. Detailed below.
+         * @param inferenceAcceleratorOverrides List of Elastic Inference accelerator overrides for the task. See `inferenceAcceleratorOverride` Block for details.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+         * @param memory Memory override for the task.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesArgs extends co
         }
 
         /**
-         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+         * @param memory Memory override for the task.
          * 
          * @return builder
          * 

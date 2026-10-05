@@ -23,14 +23,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
     public static final DataSourceConfigurationWebCrawlerConfigurationArgs Empty = new DataSourceConfigurationWebCrawlerConfigurationArgs();
 
     /**
-     * A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;` and the port is `443`, the standard port for HTTPS. Detailed below.
+     * Configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;` and the port is `443`, the standard port for HTTPS. Detailed below.
      * 
      */
     @Import(name="authenticationConfiguration")
     private @Nullable Output<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs> authenticationConfiguration;
 
     /**
-     * @return A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;` and the port is `443`, the standard port for HTTPS. Detailed below.
+     * @return Configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;` and the port is `443`, the standard port for HTTPS. Detailed below.
      * 
      */
     public Optional<Output<DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs>> authenticationConfiguration() {
@@ -38,14 +38,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
     }
 
     /**
-     * Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+     * Number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
      * 
      */
     @Import(name="crawlDepth")
     private @Nullable Output<Integer> crawlDepth;
 
     /**
-     * @return Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+     * @return Number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
      * 
      */
     public Optional<Output<Integer>> crawlDepth() {
@@ -53,14 +53,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
     }
 
     /**
-     * The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
+     * Maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
      * 
      */
     @Import(name="maxContentSizePerPageInMegaBytes")
     private @Nullable Output<Double> maxContentSizePerPageInMegaBytes;
 
     /**
-     * @return The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
+     * @return Maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
      * 
      */
     public Optional<Output<Double>> maxContentSizePerPageInMegaBytes() {
@@ -68,14 +68,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
     }
 
     /**
-     * The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
+     * Maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
      * 
      */
     @Import(name="maxLinksPerPage")
     private @Nullable Output<Integer> maxLinksPerPage;
 
     /**
-     * @return The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
+     * @return Maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
      * 
      */
     public Optional<Output<Integer>> maxLinksPerPage() {
@@ -83,14 +83,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
     }
 
     /**
-     * The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
+     * Maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
      * 
      */
     @Import(name="maxUrlsPerMinuteCrawlRate")
     private @Nullable Output<Integer> maxUrlsPerMinuteCrawlRate;
 
     /**
-     * @return The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
+     * @return Maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
      * 
      */
     public Optional<Output<Integer>> maxUrlsPerMinuteCrawlRate() {
@@ -113,14 +113,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
     }
 
     /**
-     * A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don&#39;t match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+     * List of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don&#39;t match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
      * 
      */
     @Import(name="urlExclusionPatterns")
     private @Nullable Output<List<String>> urlExclusionPatterns;
 
     /**
-     * @return A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don&#39;t match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+     * @return List of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don&#39;t match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
      * 
      */
     public Optional<Output<List<String>>> urlExclusionPatterns() {
@@ -128,14 +128,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
     }
 
     /**
-     * A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don&#39;t match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+     * List of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don&#39;t match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
      * 
      */
     @Import(name="urlInclusionPatterns")
     private @Nullable Output<List<String>> urlInclusionPatterns;
 
     /**
-     * @return A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don&#39;t match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+     * @return List of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don&#39;t match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
      * 
      */
     public Optional<Output<List<String>>> urlInclusionPatterns() {
@@ -190,7 +190,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param authenticationConfiguration A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;` and the port is `443`, the standard port for HTTPS. Detailed below.
+         * @param authenticationConfiguration Configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;` and the port is `443`, the standard port for HTTPS. Detailed below.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param authenticationConfiguration A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;` and the port is `443`, the standard port for HTTPS. Detailed below.
+         * @param authenticationConfiguration Configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;` and the port is `443`, the standard port for HTTPS. Detailed below.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param crawlDepth Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+         * @param crawlDepth Number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param crawlDepth Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+         * @param crawlDepth Number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param maxContentSizePerPageInMegaBytes The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
+         * @param maxContentSizePerPageInMegaBytes Maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param maxContentSizePerPageInMegaBytes The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
+         * @param maxContentSizePerPageInMegaBytes Maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param maxLinksPerPage The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
+         * @param maxLinksPerPage Maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param maxLinksPerPage The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
+         * @param maxLinksPerPage Maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param maxUrlsPerMinuteCrawlRate The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
+         * @param maxUrlsPerMinuteCrawlRate Maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param maxUrlsPerMinuteCrawlRate The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
+         * @param maxUrlsPerMinuteCrawlRate Maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param urlExclusionPatterns A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don&#39;t match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+         * @param urlExclusionPatterns List of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don&#39;t match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param urlExclusionPatterns A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don&#39;t match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+         * @param urlExclusionPatterns List of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don&#39;t match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param urlExclusionPatterns A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don&#39;t match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+         * @param urlExclusionPatterns List of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don&#39;t match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param urlInclusionPatterns A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don&#39;t match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+         * @param urlInclusionPatterns List of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don&#39;t match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param urlInclusionPatterns A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don&#39;t match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+         * @param urlInclusionPatterns List of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don&#39;t match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationArgs extends co
         }
 
         /**
-         * @param urlInclusionPatterns A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don&#39;t match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+         * @param urlInclusionPatterns List of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don&#39;t match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn&#39;t included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
          * 
          * @return builder
          * 

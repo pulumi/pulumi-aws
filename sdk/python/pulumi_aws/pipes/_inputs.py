@@ -128,7 +128,7 @@ __all__ = [
 class PipeEnrichmentParametersArgsDict(TypedDict):
     http_parameters: NotRequired[pulumi.Input[Optional['PipeEnrichmentParametersHttpParametersArgsDict']]]
     """
-    Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
+    HTTP parameters to use when the target is an API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. See `enrichment_parameters.http_parameters` Block for details.
     """
     input_template: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -141,7 +141,7 @@ class PipeEnrichmentParametersArgs:
                  http_parameters: pulumi.Input[Optional['PipeEnrichmentParametersHttpParametersArgs']] = None,
                  input_template: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['PipeEnrichmentParametersHttpParametersArgs'] http_parameters: Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
+        :param pulumi.Input['PipeEnrichmentParametersHttpParametersArgs'] http_parameters: HTTP parameters to use when the target is an API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. See `enrichment_parameters.http_parameters` Block for details.
         :param pulumi.Input[_builtins.str] input_template: Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
         """
         if http_parameters is not None:
@@ -153,7 +153,7 @@ class PipeEnrichmentParametersArgs:
     @pulumi.getter(name="httpParameters")
     def http_parameters(self) -> pulumi.Input[Optional['PipeEnrichmentParametersHttpParametersArgs']]:
         """
-        Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
+        HTTP parameters to use when the target is an API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. See `enrichment_parameters.http_parameters` Block for details.
         """
         return pulumi.get(self, "http_parameters")
 
@@ -223,15 +223,15 @@ class PipeEnrichmentParametersHttpParametersArgs:
 class PipeLogConfigurationArgsDict(TypedDict):
     level: pulumi.Input[_builtins.str]
     """
-    The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+    Level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
     """
     cloudwatch_logs_log_destination: NotRequired[pulumi.Input[Optional['PipeLogConfigurationCloudwatchLogsLogDestinationArgsDict']]]
     """
-    Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+    Amazon CloudWatch Logs logging configuration settings for the pipe. See `cloudwatch_logs_log_destination` Block for details.
     """
     firehose_log_destination: NotRequired[pulumi.Input[Optional['PipeLogConfigurationFirehoseLogDestinationArgsDict']]]
     """
-    Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+    Amazon Kinesis Data Firehose logging configuration settings for the pipe. See `firehose_log_destination` Block for details.
     """
     include_execution_datas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -239,7 +239,7 @@ class PipeLogConfigurationArgsDict(TypedDict):
     """
     s3_log_destination: NotRequired[pulumi.Input[Optional['PipeLogConfigurationS3LogDestinationArgsDict']]]
     """
-    Amazon S3 logging configuration settings for the pipe. Detailed below.
+    Amazon S3 logging configuration settings for the pipe. See `s3_log_destination` Block for details.
     """
 
 @pulumi.input_type
@@ -251,11 +251,11 @@ class PipeLogConfigurationArgs:
                  include_execution_datas: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  s3_log_destination: pulumi.Input[Optional['PipeLogConfigurationS3LogDestinationArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] level: The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
-        :param pulumi.Input['PipeLogConfigurationCloudwatchLogsLogDestinationArgs'] cloudwatch_logs_log_destination: Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
-        :param pulumi.Input['PipeLogConfigurationFirehoseLogDestinationArgs'] firehose_log_destination: Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+        :param pulumi.Input[_builtins.str] level: Level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+        :param pulumi.Input['PipeLogConfigurationCloudwatchLogsLogDestinationArgs'] cloudwatch_logs_log_destination: Amazon CloudWatch Logs logging configuration settings for the pipe. See `cloudwatch_logs_log_destination` Block for details.
+        :param pulumi.Input['PipeLogConfigurationFirehoseLogDestinationArgs'] firehose_log_destination: Amazon Kinesis Data Firehose logging configuration settings for the pipe. See `firehose_log_destination` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_execution_datas: String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
-        :param pulumi.Input['PipeLogConfigurationS3LogDestinationArgs'] s3_log_destination: Amazon S3 logging configuration settings for the pipe. Detailed below.
+        :param pulumi.Input['PipeLogConfigurationS3LogDestinationArgs'] s3_log_destination: Amazon S3 logging configuration settings for the pipe. See `s3_log_destination` Block for details.
         """
         pulumi.set(__self__, "level", level)
         if cloudwatch_logs_log_destination is not None:
@@ -271,7 +271,7 @@ class PipeLogConfigurationArgs:
     @pulumi.getter
     def level(self) -> pulumi.Input[_builtins.str]:
         """
-        The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+        Level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
         """
         return pulumi.get(self, "level")
 
@@ -283,7 +283,7 @@ class PipeLogConfigurationArgs:
     @pulumi.getter(name="cloudwatchLogsLogDestination")
     def cloudwatch_logs_log_destination(self) -> pulumi.Input[Optional['PipeLogConfigurationCloudwatchLogsLogDestinationArgs']]:
         """
-        Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+        Amazon CloudWatch Logs logging configuration settings for the pipe. See `cloudwatch_logs_log_destination` Block for details.
         """
         return pulumi.get(self, "cloudwatch_logs_log_destination")
 
@@ -295,7 +295,7 @@ class PipeLogConfigurationArgs:
     @pulumi.getter(name="firehoseLogDestination")
     def firehose_log_destination(self) -> pulumi.Input[Optional['PipeLogConfigurationFirehoseLogDestinationArgs']]:
         """
-        Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+        Amazon Kinesis Data Firehose logging configuration settings for the pipe. See `firehose_log_destination` Block for details.
         """
         return pulumi.get(self, "firehose_log_destination")
 
@@ -319,7 +319,7 @@ class PipeLogConfigurationArgs:
     @pulumi.getter(name="s3LogDestination")
     def s3_log_destination(self) -> pulumi.Input[Optional['PipeLogConfigurationS3LogDestinationArgs']]:
         """
-        Amazon S3 logging configuration settings for the pipe. Detailed below.
+        Amazon S3 logging configuration settings for the pipe. See `s3_log_destination` Block for details.
         """
         return pulumi.get(self, "s3_log_destination")
 
@@ -331,7 +331,7 @@ class PipeLogConfigurationArgs:
 class PipeLogConfigurationCloudwatchLogsLogDestinationArgsDict(TypedDict):
     log_group_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+    ARN for the CloudWatch log group to which EventBridge sends the log records.
     """
 
 @pulumi.input_type
@@ -339,7 +339,7 @@ class PipeLogConfigurationCloudwatchLogsLogDestinationArgs:
     def __init__(__self__, *,
                  log_group_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] log_group_arn: Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+        :param pulumi.Input[_builtins.str] log_group_arn: ARN for the CloudWatch log group to which EventBridge sends the log records.
         """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
@@ -347,7 +347,7 @@ class PipeLogConfigurationCloudwatchLogsLogDestinationArgs:
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+        ARN for the CloudWatch log group to which EventBridge sends the log records.
         """
         return pulumi.get(self, "log_group_arn")
 
@@ -474,35 +474,35 @@ class PipeLogConfigurationS3LogDestinationArgs:
 class PipeSourceParametersArgsDict(TypedDict):
     activemq_broker_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersActivemqBrokerParametersArgsDict']]]
     """
-    The parameters for using an Active MQ broker as a source. Detailed below.
+    Parameters for using an Active MQ broker as a source. See `activemq_broker_parameters` Block for details.
     """
     dynamodb_stream_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersDynamodbStreamParametersArgsDict']]]
     """
-    The parameters for using a DynamoDB stream as a source.  Detailed below.
+    Parameters for using a DynamoDB stream as a source. See `dynamodb_stream_parameters` Block for details.
     """
     filter_criteria: NotRequired[pulumi.Input[Optional['PipeSourceParametersFilterCriteriaArgsDict']]]
     """
-    The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
+    Collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). See `filter_criteria` Block for details.
     """
     kinesis_stream_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersKinesisStreamParametersArgsDict']]]
     """
-    The parameters for using a Kinesis stream as a source. Detailed below.
+    Parameters for using a Kinesis stream as a source. See `source_parameters.kinesis_stream_parameters` Block for details.
     """
     managed_streaming_kafka_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersManagedStreamingKafkaParametersArgsDict']]]
     """
-    The parameters for using an MSK stream as a source. Detailed below.
+    Parameters for using an MSK stream as a source. See `managed_streaming_kafka_parameters` Block for details.
     """
     rabbitmq_broker_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersRabbitmqBrokerParametersArgsDict']]]
     """
-    The parameters for using a Rabbit MQ broker as a source. Detailed below.
+    Parameters for using a Rabbit MQ broker as a source. See `rabbitmq_broker_parameters` Block for details.
     """
     self_managed_kafka_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersArgsDict']]]
     """
-    The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+    Parameters for using a self-managed Apache Kafka stream as a source. See `self_managed_kafka_parameters` Block for details.
     """
     sqs_queue_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersSqsQueueParametersArgsDict']]]
     """
-    The parameters for using a Amazon SQS stream as a source. Detailed below.
+    Parameters for using an Amazon SQS stream as a source. See `source_parameters.sqs_queue_parameters` Block for details.
     """
 
 @pulumi.input_type
@@ -517,14 +517,14 @@ class PipeSourceParametersArgs:
                  self_managed_kafka_parameters: pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersArgs']] = None,
                  sqs_queue_parameters: pulumi.Input[Optional['PipeSourceParametersSqsQueueParametersArgs']] = None):
         """
-        :param pulumi.Input['PipeSourceParametersActivemqBrokerParametersArgs'] activemq_broker_parameters: The parameters for using an Active MQ broker as a source. Detailed below.
-        :param pulumi.Input['PipeSourceParametersDynamodbStreamParametersArgs'] dynamodb_stream_parameters: The parameters for using a DynamoDB stream as a source.  Detailed below.
-        :param pulumi.Input['PipeSourceParametersFilterCriteriaArgs'] filter_criteria: The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
-        :param pulumi.Input['PipeSourceParametersKinesisStreamParametersArgs'] kinesis_stream_parameters: The parameters for using a Kinesis stream as a source. Detailed below.
-        :param pulumi.Input['PipeSourceParametersManagedStreamingKafkaParametersArgs'] managed_streaming_kafka_parameters: The parameters for using an MSK stream as a source. Detailed below.
-        :param pulumi.Input['PipeSourceParametersRabbitmqBrokerParametersArgs'] rabbitmq_broker_parameters: The parameters for using a Rabbit MQ broker as a source. Detailed below.
-        :param pulumi.Input['PipeSourceParametersSelfManagedKafkaParametersArgs'] self_managed_kafka_parameters: The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
-        :param pulumi.Input['PipeSourceParametersSqsQueueParametersArgs'] sqs_queue_parameters: The parameters for using a Amazon SQS stream as a source. Detailed below.
+        :param pulumi.Input['PipeSourceParametersActivemqBrokerParametersArgs'] activemq_broker_parameters: Parameters for using an Active MQ broker as a source. See `activemq_broker_parameters` Block for details.
+        :param pulumi.Input['PipeSourceParametersDynamodbStreamParametersArgs'] dynamodb_stream_parameters: Parameters for using a DynamoDB stream as a source. See `dynamodb_stream_parameters` Block for details.
+        :param pulumi.Input['PipeSourceParametersFilterCriteriaArgs'] filter_criteria: Collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). See `filter_criteria` Block for details.
+        :param pulumi.Input['PipeSourceParametersKinesisStreamParametersArgs'] kinesis_stream_parameters: Parameters for using a Kinesis stream as a source. See `source_parameters.kinesis_stream_parameters` Block for details.
+        :param pulumi.Input['PipeSourceParametersManagedStreamingKafkaParametersArgs'] managed_streaming_kafka_parameters: Parameters for using an MSK stream as a source. See `managed_streaming_kafka_parameters` Block for details.
+        :param pulumi.Input['PipeSourceParametersRabbitmqBrokerParametersArgs'] rabbitmq_broker_parameters: Parameters for using a Rabbit MQ broker as a source. See `rabbitmq_broker_parameters` Block for details.
+        :param pulumi.Input['PipeSourceParametersSelfManagedKafkaParametersArgs'] self_managed_kafka_parameters: Parameters for using a self-managed Apache Kafka stream as a source. See `self_managed_kafka_parameters` Block for details.
+        :param pulumi.Input['PipeSourceParametersSqsQueueParametersArgs'] sqs_queue_parameters: Parameters for using an Amazon SQS stream as a source. See `source_parameters.sqs_queue_parameters` Block for details.
         """
         if activemq_broker_parameters is not None:
             pulumi.set(__self__, "activemq_broker_parameters", activemq_broker_parameters)
@@ -547,7 +547,7 @@ class PipeSourceParametersArgs:
     @pulumi.getter(name="activemqBrokerParameters")
     def activemq_broker_parameters(self) -> pulumi.Input[Optional['PipeSourceParametersActivemqBrokerParametersArgs']]:
         """
-        The parameters for using an Active MQ broker as a source. Detailed below.
+        Parameters for using an Active MQ broker as a source. See `activemq_broker_parameters` Block for details.
         """
         return pulumi.get(self, "activemq_broker_parameters")
 
@@ -559,7 +559,7 @@ class PipeSourceParametersArgs:
     @pulumi.getter(name="dynamodbStreamParameters")
     def dynamodb_stream_parameters(self) -> pulumi.Input[Optional['PipeSourceParametersDynamodbStreamParametersArgs']]:
         """
-        The parameters for using a DynamoDB stream as a source.  Detailed below.
+        Parameters for using a DynamoDB stream as a source. See `dynamodb_stream_parameters` Block for details.
         """
         return pulumi.get(self, "dynamodb_stream_parameters")
 
@@ -571,7 +571,7 @@ class PipeSourceParametersArgs:
     @pulumi.getter(name="filterCriteria")
     def filter_criteria(self) -> pulumi.Input[Optional['PipeSourceParametersFilterCriteriaArgs']]:
         """
-        The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
+        Collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). See `filter_criteria` Block for details.
         """
         return pulumi.get(self, "filter_criteria")
 
@@ -583,7 +583,7 @@ class PipeSourceParametersArgs:
     @pulumi.getter(name="kinesisStreamParameters")
     def kinesis_stream_parameters(self) -> pulumi.Input[Optional['PipeSourceParametersKinesisStreamParametersArgs']]:
         """
-        The parameters for using a Kinesis stream as a source. Detailed below.
+        Parameters for using a Kinesis stream as a source. See `source_parameters.kinesis_stream_parameters` Block for details.
         """
         return pulumi.get(self, "kinesis_stream_parameters")
 
@@ -595,7 +595,7 @@ class PipeSourceParametersArgs:
     @pulumi.getter(name="managedStreamingKafkaParameters")
     def managed_streaming_kafka_parameters(self) -> pulumi.Input[Optional['PipeSourceParametersManagedStreamingKafkaParametersArgs']]:
         """
-        The parameters for using an MSK stream as a source. Detailed below.
+        Parameters for using an MSK stream as a source. See `managed_streaming_kafka_parameters` Block for details.
         """
         return pulumi.get(self, "managed_streaming_kafka_parameters")
 
@@ -607,7 +607,7 @@ class PipeSourceParametersArgs:
     @pulumi.getter(name="rabbitmqBrokerParameters")
     def rabbitmq_broker_parameters(self) -> pulumi.Input[Optional['PipeSourceParametersRabbitmqBrokerParametersArgs']]:
         """
-        The parameters for using a Rabbit MQ broker as a source. Detailed below.
+        Parameters for using a Rabbit MQ broker as a source. See `rabbitmq_broker_parameters` Block for details.
         """
         return pulumi.get(self, "rabbitmq_broker_parameters")
 
@@ -619,7 +619,7 @@ class PipeSourceParametersArgs:
     @pulumi.getter(name="selfManagedKafkaParameters")
     def self_managed_kafka_parameters(self) -> pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersArgs']]:
         """
-        The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+        Parameters for using a self-managed Apache Kafka stream as a source. See `self_managed_kafka_parameters` Block for details.
         """
         return pulumi.get(self, "self_managed_kafka_parameters")
 
@@ -631,7 +631,7 @@ class PipeSourceParametersArgs:
     @pulumi.getter(name="sqsQueueParameters")
     def sqs_queue_parameters(self) -> pulumi.Input[Optional['PipeSourceParametersSqsQueueParametersArgs']]:
         """
-        The parameters for using a Amazon SQS stream as a source. Detailed below.
+        Parameters for using an Amazon SQS stream as a source. See `source_parameters.sqs_queue_parameters` Block for details.
         """
         return pulumi.get(self, "sqs_queue_parameters")
 
@@ -643,19 +643,19 @@ class PipeSourceParametersArgs:
 class PipeSourceParametersActivemqBrokerParametersArgsDict(TypedDict):
     credentials: pulumi.Input['PipeSourceParametersActivemqBrokerParametersCredentialsArgsDict']
     """
-    The credentials needed to access the resource. Detailed below.
+    Credentials needed to access the resource. See `source_parameters.activemq_broker_parameters.credentials` Block for details.
     """
     queue_name: pulumi.Input[_builtins.str]
     """
-    The name of the destination queue to consume. Maximum length of 1000.
+    Name of the destination queue to consume. Maximum length of 1000.
     """
     batch_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum number of records to include in each batch. Maximum value of 10000.
+    Maximum number of records to include in each batch. Maximum value of 10000.
     """
     maximum_batching_window_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum length of a time to wait for events. Maximum value of 300.
+    Maximum length of a time to wait for events. Maximum value of 300.
     """
 
 @pulumi.input_type
@@ -666,10 +666,10 @@ class PipeSourceParametersActivemqBrokerParametersArgs:
                  batch_size: pulumi.Input[Optional[_builtins.int]] = None,
                  maximum_batching_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input['PipeSourceParametersActivemqBrokerParametersCredentialsArgs'] credentials: The credentials needed to access the resource. Detailed below.
-        :param pulumi.Input[_builtins.str] queue_name: The name of the destination queue to consume. Maximum length of 1000.
-        :param pulumi.Input[_builtins.int] batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
-        :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
+        :param pulumi.Input['PipeSourceParametersActivemqBrokerParametersCredentialsArgs'] credentials: Credentials needed to access the resource. See `source_parameters.activemq_broker_parameters.credentials` Block for details.
+        :param pulumi.Input[_builtins.str] queue_name: Name of the destination queue to consume. Maximum length of 1000.
+        :param pulumi.Input[_builtins.int] batch_size: Maximum number of records to include in each batch. Maximum value of 10000.
+        :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: Maximum length of a time to wait for events. Maximum value of 300.
         """
         pulumi.set(__self__, "credentials", credentials)
         pulumi.set(__self__, "queue_name", queue_name)
@@ -682,7 +682,7 @@ class PipeSourceParametersActivemqBrokerParametersArgs:
     @pulumi.getter
     def credentials(self) -> pulumi.Input['PipeSourceParametersActivemqBrokerParametersCredentialsArgs']:
         """
-        The credentials needed to access the resource. Detailed below.
+        Credentials needed to access the resource. See `source_parameters.activemq_broker_parameters.credentials` Block for details.
         """
         return pulumi.get(self, "credentials")
 
@@ -694,7 +694,7 @@ class PipeSourceParametersActivemqBrokerParametersArgs:
     @pulumi.getter(name="queueName")
     def queue_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the destination queue to consume. Maximum length of 1000.
+        Name of the destination queue to consume. Maximum length of 1000.
         """
         return pulumi.get(self, "queue_name")
 
@@ -706,7 +706,7 @@ class PipeSourceParametersActivemqBrokerParametersArgs:
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum number of records to include in each batch. Maximum value of 10000.
+        Maximum number of records to include in each batch. Maximum value of 10000.
         """
         return pulumi.get(self, "batch_size")
 
@@ -718,7 +718,7 @@ class PipeSourceParametersActivemqBrokerParametersArgs:
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum length of a time to wait for events. Maximum value of 300.
+        Maximum length of a time to wait for events. Maximum value of 300.
         """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
@@ -730,7 +730,7 @@ class PipeSourceParametersActivemqBrokerParametersArgs:
 class PipeSourceParametersActivemqBrokerParametersCredentialsArgsDict(TypedDict):
     basic_auth: pulumi.Input[_builtins.str]
     """
-    The ARN of the Secrets Manager secret containing the credentials.
+    ARN of the Secrets Manager secret containing the credentials.
     """
 
 @pulumi.input_type
@@ -738,7 +738,7 @@ class PipeSourceParametersActivemqBrokerParametersCredentialsArgs:
     def __init__(__self__, *,
                  basic_auth: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] basic_auth: The ARN of the Secrets Manager secret containing the credentials.
+        :param pulumi.Input[_builtins.str] basic_auth: ARN of the Secrets Manager secret containing the credentials.
         """
         pulumi.set(__self__, "basic_auth", basic_auth)
 
@@ -746,7 +746,7 @@ class PipeSourceParametersActivemqBrokerParametersCredentialsArgs:
     @pulumi.getter(name="basicAuth")
     def basic_auth(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the Secrets Manager secret containing the credentials.
+        ARN of the Secrets Manager secret containing the credentials.
         """
         return pulumi.get(self, "basic_auth")
 
@@ -758,19 +758,19 @@ class PipeSourceParametersActivemqBrokerParametersCredentialsArgs:
 class PipeSourceParametersDynamodbStreamParametersArgsDict(TypedDict):
     starting_position: pulumi.Input[_builtins.str]
     """
-    The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+    Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
     """
     batch_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum number of records to include in each batch. Maximum value of 10000.
+    Maximum number of records to include in each batch. Maximum value of 10000.
     """
     dead_letter_config: NotRequired[pulumi.Input[Optional['PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgsDict']]]
     """
-    Define the target queue to send dead-letter queue events to. Detailed below.
+    Define the target queue to send dead-letter queue events to. See `dead_letter_config` Block for details.
     """
     maximum_batching_window_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum length of a time to wait for events. Maximum value of 300.
+    Maximum length of a time to wait for events. Maximum value of 300.
     """
     maximum_record_age_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -786,7 +786,7 @@ class PipeSourceParametersDynamodbStreamParametersArgsDict(TypedDict):
     """
     parallelization_factor: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+    Number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
     """
 
 @pulumi.input_type
@@ -801,14 +801,14 @@ class PipeSourceParametersDynamodbStreamParametersArgs:
                  on_partial_batch_item_failure: pulumi.Input[Optional[_builtins.str]] = None,
                  parallelization_factor: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] starting_position: The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-        :param pulumi.Input[_builtins.int] batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
-        :param pulumi.Input['PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs'] dead_letter_config: Define the target queue to send dead-letter queue events to. Detailed below.
-        :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
+        :param pulumi.Input[_builtins.str] starting_position: Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+        :param pulumi.Input[_builtins.int] batch_size: Maximum number of records to include in each batch. Maximum value of 10000.
+        :param pulumi.Input['PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs'] dead_letter_config: Define the target queue to send dead-letter queue events to. See `dead_letter_config` Block for details.
+        :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: Maximum length of a time to wait for events. Maximum value of 300.
         :param pulumi.Input[_builtins.int] maximum_record_age_in_seconds: Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
         :param pulumi.Input[_builtins.int] maximum_retry_attempts: Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
         :param pulumi.Input[_builtins.str] on_partial_batch_item_failure: Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
-        :param pulumi.Input[_builtins.int] parallelization_factor: The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+        :param pulumi.Input[_builtins.int] parallelization_factor: Number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
         """
         pulumi.set(__self__, "starting_position", starting_position)
         if batch_size is not None:
@@ -830,7 +830,7 @@ class PipeSourceParametersDynamodbStreamParametersArgs:
     @pulumi.getter(name="startingPosition")
     def starting_position(self) -> pulumi.Input[_builtins.str]:
         """
-        The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+        Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         """
         return pulumi.get(self, "starting_position")
 
@@ -842,7 +842,7 @@ class PipeSourceParametersDynamodbStreamParametersArgs:
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum number of records to include in each batch. Maximum value of 10000.
+        Maximum number of records to include in each batch. Maximum value of 10000.
         """
         return pulumi.get(self, "batch_size")
 
@@ -854,7 +854,7 @@ class PipeSourceParametersDynamodbStreamParametersArgs:
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> pulumi.Input[Optional['PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs']]:
         """
-        Define the target queue to send dead-letter queue events to. Detailed below.
+        Define the target queue to send dead-letter queue events to. See `dead_letter_config` Block for details.
         """
         return pulumi.get(self, "dead_letter_config")
 
@@ -866,7 +866,7 @@ class PipeSourceParametersDynamodbStreamParametersArgs:
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum length of a time to wait for events. Maximum value of 300.
+        Maximum length of a time to wait for events. Maximum value of 300.
         """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
@@ -914,7 +914,7 @@ class PipeSourceParametersDynamodbStreamParametersArgs:
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+        Number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
         """
         return pulumi.get(self, "parallelization_factor")
 
@@ -926,7 +926,7 @@ class PipeSourceParametersDynamodbStreamParametersArgs:
 class PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgsDict(TypedDict):
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    ARN of this pipe.
+    ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
     """
 
 @pulumi.input_type
@@ -934,7 +934,7 @@ class PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: ARN of this pipe.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -943,7 +943,7 @@ class PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of this pipe.
+        ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
         """
         return pulumi.get(self, "arn")
 
@@ -955,7 +955,7 @@ class PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs:
 class PipeSourceParametersFilterCriteriaArgsDict(TypedDict):
     filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeSourceParametersFilterCriteriaFilterArgsDict']]]]]
     """
-    An array of up to 5 event patterns. Detailed below.
+    Array of up to 5 event patterns. See `filter` Block for details.
     """
 
 @pulumi.input_type
@@ -963,7 +963,7 @@ class PipeSourceParametersFilterCriteriaArgs:
     def __init__(__self__, *,
                  filters: pulumi.Input[Optional[Sequence[pulumi.Input['PipeSourceParametersFilterCriteriaFilterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PipeSourceParametersFilterCriteriaFilterArgs']]] filters: An array of up to 5 event patterns. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeSourceParametersFilterCriteriaFilterArgs']]] filters: Array of up to 5 event patterns. See `filter` Block for details.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -972,7 +972,7 @@ class PipeSourceParametersFilterCriteriaArgs:
     @pulumi.getter
     def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeSourceParametersFilterCriteriaFilterArgs']]]]:
         """
-        An array of up to 5 event patterns. Detailed below.
+        Array of up to 5 event patterns. See `filter` Block for details.
         """
         return pulumi.get(self, "filters")
 
@@ -984,7 +984,7 @@ class PipeSourceParametersFilterCriteriaArgs:
 class PipeSourceParametersFilterCriteriaFilterArgsDict(TypedDict):
     pattern: pulumi.Input[_builtins.str]
     """
-    The event pattern. At most 4096 characters.
+    Event pattern. At most 4096 characters.
     """
 
 @pulumi.input_type
@@ -992,7 +992,7 @@ class PipeSourceParametersFilterCriteriaFilterArgs:
     def __init__(__self__, *,
                  pattern: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] pattern: The event pattern. At most 4096 characters.
+        :param pulumi.Input[_builtins.str] pattern: Event pattern. At most 4096 characters.
         """
         pulumi.set(__self__, "pattern", pattern)
 
@@ -1000,7 +1000,7 @@ class PipeSourceParametersFilterCriteriaFilterArgs:
     @pulumi.getter
     def pattern(self) -> pulumi.Input[_builtins.str]:
         """
-        The event pattern. At most 4096 characters.
+        Event pattern. At most 4096 characters.
         """
         return pulumi.get(self, "pattern")
 
@@ -1011,37 +1011,13 @@ class PipeSourceParametersFilterCriteriaFilterArgs:
 
 class PipeSourceParametersKinesisStreamParametersArgsDict(TypedDict):
     starting_position: pulumi.Input[_builtins.str]
-    """
-    The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-    """
     batch_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    The maximum number of records to include in each batch. Maximum value of 10000.
-    """
     dead_letter_config: NotRequired[pulumi.Input[Optional['PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgsDict']]]
-    """
-    Define the target queue to send dead-letter queue events to. Detailed below.
-    """
     maximum_batching_window_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    The maximum length of a time to wait for events. Maximum value of 300.
-    """
     maximum_record_age_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
-    """
     maximum_retry_attempts: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
-    """
     on_partial_batch_item_failure: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
-    """
     parallelization_factor: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
-    """
     starting_position_timestamp: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
@@ -1060,14 +1036,6 @@ class PipeSourceParametersKinesisStreamParametersArgs:
                  parallelization_factor: pulumi.Input[Optional[_builtins.int]] = None,
                  starting_position_timestamp: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] starting_position: The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-        :param pulumi.Input[_builtins.int] batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
-        :param pulumi.Input['PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs'] dead_letter_config: Define the target queue to send dead-letter queue events to. Detailed below.
-        :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
-        :param pulumi.Input[_builtins.int] maximum_record_age_in_seconds: Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
-        :param pulumi.Input[_builtins.int] maximum_retry_attempts: Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
-        :param pulumi.Input[_builtins.str] on_partial_batch_item_failure: Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
-        :param pulumi.Input[_builtins.int] parallelization_factor: The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
         :param pulumi.Input[_builtins.str] starting_position_timestamp: With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
         """
         pulumi.set(__self__, "starting_position", starting_position)
@@ -1091,9 +1059,6 @@ class PipeSourceParametersKinesisStreamParametersArgs:
     @_builtins.property
     @pulumi.getter(name="startingPosition")
     def starting_position(self) -> pulumi.Input[_builtins.str]:
-        """
-        The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-        """
         return pulumi.get(self, "starting_position")
 
     @starting_position.setter
@@ -1103,9 +1068,6 @@ class PipeSourceParametersKinesisStreamParametersArgs:
     @_builtins.property
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        The maximum number of records to include in each batch. Maximum value of 10000.
-        """
         return pulumi.get(self, "batch_size")
 
     @batch_size.setter
@@ -1115,9 +1077,6 @@ class PipeSourceParametersKinesisStreamParametersArgs:
     @_builtins.property
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> pulumi.Input[Optional['PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs']]:
-        """
-        Define the target queue to send dead-letter queue events to. Detailed below.
-        """
         return pulumi.get(self, "dead_letter_config")
 
     @dead_letter_config.setter
@@ -1127,9 +1086,6 @@ class PipeSourceParametersKinesisStreamParametersArgs:
     @_builtins.property
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        The maximum length of a time to wait for events. Maximum value of 300.
-        """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
     @maximum_batching_window_in_seconds.setter
@@ -1139,9 +1095,6 @@ class PipeSourceParametersKinesisStreamParametersArgs:
     @_builtins.property
     @pulumi.getter(name="maximumRecordAgeInSeconds")
     def maximum_record_age_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
-        """
         return pulumi.get(self, "maximum_record_age_in_seconds")
 
     @maximum_record_age_in_seconds.setter
@@ -1151,9 +1104,6 @@ class PipeSourceParametersKinesisStreamParametersArgs:
     @_builtins.property
     @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
-        """
         return pulumi.get(self, "maximum_retry_attempts")
 
     @maximum_retry_attempts.setter
@@ -1163,9 +1113,6 @@ class PipeSourceParametersKinesisStreamParametersArgs:
     @_builtins.property
     @pulumi.getter(name="onPartialBatchItemFailure")
     def on_partial_batch_item_failure(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
-        """
         return pulumi.get(self, "on_partial_batch_item_failure")
 
     @on_partial_batch_item_failure.setter
@@ -1175,9 +1122,6 @@ class PipeSourceParametersKinesisStreamParametersArgs:
     @_builtins.property
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
-        """
         return pulumi.get(self, "parallelization_factor")
 
     @parallelization_factor.setter
@@ -1200,7 +1144,7 @@ class PipeSourceParametersKinesisStreamParametersArgs:
 class PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgsDict(TypedDict):
     arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    ARN of this pipe.
+    ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
     """
 
 @pulumi.input_type
@@ -1208,7 +1152,7 @@ class PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: ARN of this pipe.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -1217,7 +1161,7 @@ class PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of this pipe.
+        ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
         """
         return pulumi.get(self, "arn")
 
@@ -1229,27 +1173,27 @@ class PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs:
 class PipeSourceParametersManagedStreamingKafkaParametersArgsDict(TypedDict):
     topic_name: pulumi.Input[_builtins.str]
     """
-    The name of the topic that the pipe will read from. Maximum length of 249.
+    Name of the topic that the pipe will read from. Maximum length of 249.
     """
     batch_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum number of records to include in each batch. Maximum value of 10000.
+    Maximum number of records to include in each batch. Maximum value of 10000.
     """
     consumer_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name of the destination queue to consume. Maximum value of 200.
+    Name of the destination queue to consume. Maximum value of 200.
     """
     credentials: NotRequired[pulumi.Input[Optional['PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgsDict']]]
     """
-    The credentials needed to access the resource. Detailed below.
+    Credentials needed to access the resource. See `source_parameters.managed_streaming_kafka_parameters.credentials` Block for details.
     """
     maximum_batching_window_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum length of a time to wait for events. Maximum value of 300.
+    Maximum length of a time to wait for events. Maximum value of 300.
     """
     starting_position: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+    Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
     """
 
 @pulumi.input_type
@@ -1262,12 +1206,12 @@ class PipeSourceParametersManagedStreamingKafkaParametersArgs:
                  maximum_batching_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  starting_position: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] topic_name: The name of the topic that the pipe will read from. Maximum length of 249.
-        :param pulumi.Input[_builtins.int] batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
-        :param pulumi.Input[_builtins.str] consumer_group_id: The name of the destination queue to consume. Maximum value of 200.
-        :param pulumi.Input['PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs'] credentials: The credentials needed to access the resource. Detailed below.
-        :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
-        :param pulumi.Input[_builtins.str] starting_position: The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+        :param pulumi.Input[_builtins.str] topic_name: Name of the topic that the pipe will read from. Maximum length of 249.
+        :param pulumi.Input[_builtins.int] batch_size: Maximum number of records to include in each batch. Maximum value of 10000.
+        :param pulumi.Input[_builtins.str] consumer_group_id: Name of the destination queue to consume. Maximum value of 200.
+        :param pulumi.Input['PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs'] credentials: Credentials needed to access the resource. See `source_parameters.managed_streaming_kafka_parameters.credentials` Block for details.
+        :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: Maximum length of a time to wait for events. Maximum value of 300.
+        :param pulumi.Input[_builtins.str] starting_position: Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         """
         pulumi.set(__self__, "topic_name", topic_name)
         if batch_size is not None:
@@ -1285,7 +1229,7 @@ class PipeSourceParametersManagedStreamingKafkaParametersArgs:
     @pulumi.getter(name="topicName")
     def topic_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the topic that the pipe will read from. Maximum length of 249.
+        Name of the topic that the pipe will read from. Maximum length of 249.
         """
         return pulumi.get(self, "topic_name")
 
@@ -1297,7 +1241,7 @@ class PipeSourceParametersManagedStreamingKafkaParametersArgs:
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum number of records to include in each batch. Maximum value of 10000.
+        Maximum number of records to include in each batch. Maximum value of 10000.
         """
         return pulumi.get(self, "batch_size")
 
@@ -1309,7 +1253,7 @@ class PipeSourceParametersManagedStreamingKafkaParametersArgs:
     @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the destination queue to consume. Maximum value of 200.
+        Name of the destination queue to consume. Maximum value of 200.
         """
         return pulumi.get(self, "consumer_group_id")
 
@@ -1321,7 +1265,7 @@ class PipeSourceParametersManagedStreamingKafkaParametersArgs:
     @pulumi.getter
     def credentials(self) -> pulumi.Input[Optional['PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs']]:
         """
-        The credentials needed to access the resource. Detailed below.
+        Credentials needed to access the resource. See `source_parameters.managed_streaming_kafka_parameters.credentials` Block for details.
         """
         return pulumi.get(self, "credentials")
 
@@ -1333,7 +1277,7 @@ class PipeSourceParametersManagedStreamingKafkaParametersArgs:
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum length of a time to wait for events. Maximum value of 300.
+        Maximum length of a time to wait for events. Maximum value of 300.
         """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
@@ -1345,7 +1289,7 @@ class PipeSourceParametersManagedStreamingKafkaParametersArgs:
     @pulumi.getter(name="startingPosition")
     def starting_position(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+        Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         """
         return pulumi.get(self, "starting_position")
 
@@ -1357,11 +1301,11 @@ class PipeSourceParametersManagedStreamingKafkaParametersArgs:
 class PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgsDict(TypedDict):
     client_certificate_tls_auth: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the Secrets Manager secret containing the credentials.
+    ARN of the Secrets Manager secret containing the credentials.
     """
     sasl_scram512_auth: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the Secrets Manager secret containing the credentials.
+    ARN of the Secrets Manager secret containing the credentials.
     """
 
 @pulumi.input_type
@@ -1370,8 +1314,8 @@ class PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs:
                  client_certificate_tls_auth: pulumi.Input[Optional[_builtins.str]] = None,
                  sasl_scram512_auth: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] client_certificate_tls_auth: The ARN of the Secrets Manager secret containing the credentials.
-        :param pulumi.Input[_builtins.str] sasl_scram512_auth: The ARN of the Secrets Manager secret containing the credentials.
+        :param pulumi.Input[_builtins.str] client_certificate_tls_auth: ARN of the Secrets Manager secret containing the credentials.
+        :param pulumi.Input[_builtins.str] sasl_scram512_auth: ARN of the Secrets Manager secret containing the credentials.
         """
         if client_certificate_tls_auth is not None:
             pulumi.set(__self__, "client_certificate_tls_auth", client_certificate_tls_auth)
@@ -1382,7 +1326,7 @@ class PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs:
     @pulumi.getter(name="clientCertificateTlsAuth")
     def client_certificate_tls_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Secrets Manager secret containing the credentials.
+        ARN of the Secrets Manager secret containing the credentials.
         """
         return pulumi.get(self, "client_certificate_tls_auth")
 
@@ -1394,7 +1338,7 @@ class PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs:
     @pulumi.getter(name="saslScram512Auth")
     def sasl_scram512_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Secrets Manager secret containing the credentials.
+        ARN of the Secrets Manager secret containing the credentials.
         """
         return pulumi.get(self, "sasl_scram512_auth")
 
@@ -1406,23 +1350,23 @@ class PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs:
 class PipeSourceParametersRabbitmqBrokerParametersArgsDict(TypedDict):
     credentials: pulumi.Input['PipeSourceParametersRabbitmqBrokerParametersCredentialsArgsDict']
     """
-    The credentials needed to access the resource. Detailed below.
+    Credentials needed to access the resource. See `source_parameters.rabbitmq_broker_parameters.credentials` Block for details.
     """
     queue_name: pulumi.Input[_builtins.str]
     """
-    The name of the destination queue to consume. Maximum length of 1000.
+    Name of the destination queue to consume. Maximum length of 1000.
     """
     batch_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum number of records to include in each batch. Maximum value of 10000.
+    Maximum number of records to include in each batch. Maximum value of 10000.
     """
     maximum_batching_window_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum length of a time to wait for events. Maximum value of 300.
+    Maximum length of a time to wait for events. Maximum value of 300.
     """
     virtual_host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name of the virtual host associated with the source broker. Maximum length of 200.
+    Name of the virtual host associated with the source broker. Maximum length of 200.
     """
 
 @pulumi.input_type
@@ -1434,11 +1378,11 @@ class PipeSourceParametersRabbitmqBrokerParametersArgs:
                  maximum_batching_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  virtual_host: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs'] credentials: The credentials needed to access the resource. Detailed below.
-        :param pulumi.Input[_builtins.str] queue_name: The name of the destination queue to consume. Maximum length of 1000.
-        :param pulumi.Input[_builtins.int] batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
-        :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
-        :param pulumi.Input[_builtins.str] virtual_host: The name of the virtual host associated with the source broker. Maximum length of 200.
+        :param pulumi.Input['PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs'] credentials: Credentials needed to access the resource. See `source_parameters.rabbitmq_broker_parameters.credentials` Block for details.
+        :param pulumi.Input[_builtins.str] queue_name: Name of the destination queue to consume. Maximum length of 1000.
+        :param pulumi.Input[_builtins.int] batch_size: Maximum number of records to include in each batch. Maximum value of 10000.
+        :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: Maximum length of a time to wait for events. Maximum value of 300.
+        :param pulumi.Input[_builtins.str] virtual_host: Name of the virtual host associated with the source broker. Maximum length of 200.
         """
         pulumi.set(__self__, "credentials", credentials)
         pulumi.set(__self__, "queue_name", queue_name)
@@ -1453,7 +1397,7 @@ class PipeSourceParametersRabbitmqBrokerParametersArgs:
     @pulumi.getter
     def credentials(self) -> pulumi.Input['PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs']:
         """
-        The credentials needed to access the resource. Detailed below.
+        Credentials needed to access the resource. See `source_parameters.rabbitmq_broker_parameters.credentials` Block for details.
         """
         return pulumi.get(self, "credentials")
 
@@ -1465,7 +1409,7 @@ class PipeSourceParametersRabbitmqBrokerParametersArgs:
     @pulumi.getter(name="queueName")
     def queue_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the destination queue to consume. Maximum length of 1000.
+        Name of the destination queue to consume. Maximum length of 1000.
         """
         return pulumi.get(self, "queue_name")
 
@@ -1477,7 +1421,7 @@ class PipeSourceParametersRabbitmqBrokerParametersArgs:
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum number of records to include in each batch. Maximum value of 10000.
+        Maximum number of records to include in each batch. Maximum value of 10000.
         """
         return pulumi.get(self, "batch_size")
 
@@ -1489,7 +1433,7 @@ class PipeSourceParametersRabbitmqBrokerParametersArgs:
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum length of a time to wait for events. Maximum value of 300.
+        Maximum length of a time to wait for events. Maximum value of 300.
         """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
@@ -1501,7 +1445,7 @@ class PipeSourceParametersRabbitmqBrokerParametersArgs:
     @pulumi.getter(name="virtualHost")
     def virtual_host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the virtual host associated with the source broker. Maximum length of 200.
+        Name of the virtual host associated with the source broker. Maximum length of 200.
         """
         return pulumi.get(self, "virtual_host")
 
@@ -1513,7 +1457,7 @@ class PipeSourceParametersRabbitmqBrokerParametersArgs:
 class PipeSourceParametersRabbitmqBrokerParametersCredentialsArgsDict(TypedDict):
     basic_auth: pulumi.Input[_builtins.str]
     """
-    The ARN of the Secrets Manager secret containing the credentials.
+    ARN of the Secrets Manager secret containing the credentials.
     """
 
 @pulumi.input_type
@@ -1521,7 +1465,7 @@ class PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs:
     def __init__(__self__, *,
                  basic_auth: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] basic_auth: The ARN of the Secrets Manager secret containing the credentials.
+        :param pulumi.Input[_builtins.str] basic_auth: ARN of the Secrets Manager secret containing the credentials.
         """
         pulumi.set(__self__, "basic_auth", basic_auth)
 
@@ -1529,7 +1473,7 @@ class PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs:
     @pulumi.getter(name="basicAuth")
     def basic_auth(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the Secrets Manager secret containing the credentials.
+        ARN of the Secrets Manager secret containing the credentials.
         """
         return pulumi.get(self, "basic_auth")
 
@@ -1541,39 +1485,39 @@ class PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs:
 class PipeSourceParametersSelfManagedKafkaParametersArgsDict(TypedDict):
     topic_name: pulumi.Input[_builtins.str]
     """
-    The name of the topic that the pipe will read from. Maximum length of 249.
+    Name of the topic that the pipe will read from. Maximum length of 249.
     """
     additional_bootstrap_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+    Array of server URLs. Maximum number of 2 items, each of maximum length 300.
     """
     batch_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum number of records to include in each batch. Maximum value of 10000.
+    Maximum number of records to include in each batch. Maximum value of 10000.
     """
     consumer_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name of the destination queue to consume. Maximum value of 200.
+    Name of the destination queue to consume. Maximum value of 200.
     """
     credentials: NotRequired[pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersCredentialsArgsDict']]]
     """
-    The credentials needed to access the resource. Detailed below.
+    Credentials needed to access the resource. See `source_parameters.self_managed_kafka_parameters.credentials` Block for details.
     """
     maximum_batching_window_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum length of a time to wait for events. Maximum value of 300.
+    Maximum length of a time to wait for events. Maximum value of 300.
     """
     server_root_ca_certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the Secrets Manager secret used for certification.
+    ARN of the Secrets Manager secret used for certification.
     """
     starting_position: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+    Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
     """
     vpc: NotRequired[pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersVpcArgsDict']]]
     """
-    This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+    VPC subnets and security groups for the stream, and whether a public IP address is to be used. See `vpc` Block for details.
     """
 
 @pulumi.input_type
@@ -1589,15 +1533,15 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
                  starting_position: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc: pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersVpcArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] topic_name: The name of the topic that the pipe will read from. Maximum length of 249.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_bootstrap_servers: An array of server URLs. Maximum number of 2 items, each of maximum length 300.
-        :param pulumi.Input[_builtins.int] batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
-        :param pulumi.Input[_builtins.str] consumer_group_id: The name of the destination queue to consume. Maximum value of 200.
-        :param pulumi.Input['PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs'] credentials: The credentials needed to access the resource. Detailed below.
-        :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
-        :param pulumi.Input[_builtins.str] server_root_ca_certificate: The ARN of the Secrets Manager secret used for certification.
-        :param pulumi.Input[_builtins.str] starting_position: The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-        :param pulumi.Input['PipeSourceParametersSelfManagedKafkaParametersVpcArgs'] vpc: This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+        :param pulumi.Input[_builtins.str] topic_name: Name of the topic that the pipe will read from. Maximum length of 249.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_bootstrap_servers: Array of server URLs. Maximum number of 2 items, each of maximum length 300.
+        :param pulumi.Input[_builtins.int] batch_size: Maximum number of records to include in each batch. Maximum value of 10000.
+        :param pulumi.Input[_builtins.str] consumer_group_id: Name of the destination queue to consume. Maximum value of 200.
+        :param pulumi.Input['PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs'] credentials: Credentials needed to access the resource. See `source_parameters.self_managed_kafka_parameters.credentials` Block for details.
+        :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: Maximum length of a time to wait for events. Maximum value of 300.
+        :param pulumi.Input[_builtins.str] server_root_ca_certificate: ARN of the Secrets Manager secret used for certification.
+        :param pulumi.Input[_builtins.str] starting_position: Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+        :param pulumi.Input['PipeSourceParametersSelfManagedKafkaParametersVpcArgs'] vpc: VPC subnets and security groups for the stream, and whether a public IP address is to be used. See `vpc` Block for details.
         """
         pulumi.set(__self__, "topic_name", topic_name)
         if additional_bootstrap_servers is not None:
@@ -1621,7 +1565,7 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
     @pulumi.getter(name="topicName")
     def topic_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the topic that the pipe will read from. Maximum length of 249.
+        Name of the topic that the pipe will read from. Maximum length of 249.
         """
         return pulumi.get(self, "topic_name")
 
@@ -1633,7 +1577,7 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
     @pulumi.getter(name="additionalBootstrapServers")
     def additional_bootstrap_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+        Array of server URLs. Maximum number of 2 items, each of maximum length 300.
         """
         return pulumi.get(self, "additional_bootstrap_servers")
 
@@ -1645,7 +1589,7 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum number of records to include in each batch. Maximum value of 10000.
+        Maximum number of records to include in each batch. Maximum value of 10000.
         """
         return pulumi.get(self, "batch_size")
 
@@ -1657,7 +1601,7 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
     @pulumi.getter(name="consumerGroupId")
     def consumer_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the destination queue to consume. Maximum value of 200.
+        Name of the destination queue to consume. Maximum value of 200.
         """
         return pulumi.get(self, "consumer_group_id")
 
@@ -1669,7 +1613,7 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
     @pulumi.getter
     def credentials(self) -> pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs']]:
         """
-        The credentials needed to access the resource. Detailed below.
+        Credentials needed to access the resource. See `source_parameters.self_managed_kafka_parameters.credentials` Block for details.
         """
         return pulumi.get(self, "credentials")
 
@@ -1681,7 +1625,7 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum length of a time to wait for events. Maximum value of 300.
+        Maximum length of a time to wait for events. Maximum value of 300.
         """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
@@ -1693,7 +1637,7 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
     @pulumi.getter(name="serverRootCaCertificate")
     def server_root_ca_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Secrets Manager secret used for certification.
+        ARN of the Secrets Manager secret used for certification.
         """
         return pulumi.get(self, "server_root_ca_certificate")
 
@@ -1705,7 +1649,7 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
     @pulumi.getter(name="startingPosition")
     def starting_position(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+        Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         """
         return pulumi.get(self, "starting_position")
 
@@ -1717,7 +1661,7 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
     @pulumi.getter
     def vpc(self) -> pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersVpcArgs']]:
         """
-        This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+        VPC subnets and security groups for the stream, and whether a public IP address is to be used. See `vpc` Block for details.
         """
         return pulumi.get(self, "vpc")
 
@@ -1729,19 +1673,19 @@ class PipeSourceParametersSelfManagedKafkaParametersArgs:
 class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgsDict(TypedDict):
     basic_auth: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the Secrets Manager secret containing the credentials.
+    ARN of the Secrets Manager secret containing the credentials.
     """
     client_certificate_tls_auth: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the Secrets Manager secret containing the credentials.
+    ARN of the Secrets Manager secret containing the credentials.
     """
     sasl_scram256_auth: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the Secrets Manager secret containing the credentials.
+    ARN of the Secrets Manager secret containing the credentials.
     """
     sasl_scram512_auth: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the Secrets Manager secret containing the credentials.
+    ARN of the Secrets Manager secret containing the credentials.
     """
 
 @pulumi.input_type
@@ -1752,10 +1696,10 @@ class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs:
                  sasl_scram256_auth: pulumi.Input[Optional[_builtins.str]] = None,
                  sasl_scram512_auth: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] basic_auth: The ARN of the Secrets Manager secret containing the credentials.
-        :param pulumi.Input[_builtins.str] client_certificate_tls_auth: The ARN of the Secrets Manager secret containing the credentials.
-        :param pulumi.Input[_builtins.str] sasl_scram256_auth: The ARN of the Secrets Manager secret containing the credentials.
-        :param pulumi.Input[_builtins.str] sasl_scram512_auth: The ARN of the Secrets Manager secret containing the credentials.
+        :param pulumi.Input[_builtins.str] basic_auth: ARN of the Secrets Manager secret containing the credentials.
+        :param pulumi.Input[_builtins.str] client_certificate_tls_auth: ARN of the Secrets Manager secret containing the credentials.
+        :param pulumi.Input[_builtins.str] sasl_scram256_auth: ARN of the Secrets Manager secret containing the credentials.
+        :param pulumi.Input[_builtins.str] sasl_scram512_auth: ARN of the Secrets Manager secret containing the credentials.
         """
         if basic_auth is not None:
             pulumi.set(__self__, "basic_auth", basic_auth)
@@ -1770,7 +1714,7 @@ class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs:
     @pulumi.getter(name="basicAuth")
     def basic_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Secrets Manager secret containing the credentials.
+        ARN of the Secrets Manager secret containing the credentials.
         """
         return pulumi.get(self, "basic_auth")
 
@@ -1782,7 +1726,7 @@ class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs:
     @pulumi.getter(name="clientCertificateTlsAuth")
     def client_certificate_tls_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Secrets Manager secret containing the credentials.
+        ARN of the Secrets Manager secret containing the credentials.
         """
         return pulumi.get(self, "client_certificate_tls_auth")
 
@@ -1794,7 +1738,7 @@ class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs:
     @pulumi.getter(name="saslScram256Auth")
     def sasl_scram256_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Secrets Manager secret containing the credentials.
+        ARN of the Secrets Manager secret containing the credentials.
         """
         return pulumi.get(self, "sasl_scram256_auth")
 
@@ -1806,7 +1750,7 @@ class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs:
     @pulumi.getter(name="saslScram512Auth")
     def sasl_scram512_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Secrets Manager secret containing the credentials.
+        ARN of the Secrets Manager secret containing the credentials.
         """
         return pulumi.get(self, "sasl_scram512_auth")
 
@@ -1817,13 +1761,23 @@ class PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs:
 
 class PipeSourceParametersSelfManagedKafkaParametersVpcArgsDict(TypedDict):
     security_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+    """
     subnets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+    """
 
 @pulumi.input_type
 class PipeSourceParametersSelfManagedKafkaParametersVpcArgs:
     def __init__(__self__, *,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+        """
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
         if subnets is not None:
@@ -1832,6 +1786,9 @@ class PipeSourceParametersSelfManagedKafkaParametersVpcArgs:
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -1841,6 +1798,9 @@ class PipeSourceParametersSelfManagedKafkaParametersVpcArgs:
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -1850,23 +1810,13 @@ class PipeSourceParametersSelfManagedKafkaParametersVpcArgs:
 
 class PipeSourceParametersSqsQueueParametersArgsDict(TypedDict):
     batch_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    The maximum number of records to include in each batch. Maximum value of 10000.
-    """
     maximum_batching_window_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    The maximum length of a time to wait for events. Maximum value of 300.
-    """
 
 @pulumi.input_type
 class PipeSourceParametersSqsQueueParametersArgs:
     def __init__(__self__, *,
                  batch_size: pulumi.Input[Optional[_builtins.int]] = None,
                  maximum_batching_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
-        """
-        :param pulumi.Input[_builtins.int] batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
-        :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
-        """
         if batch_size is not None:
             pulumi.set(__self__, "batch_size", batch_size)
         if maximum_batching_window_in_seconds is not None:
@@ -1875,9 +1825,6 @@ class PipeSourceParametersSqsQueueParametersArgs:
     @_builtins.property
     @pulumi.getter(name="batchSize")
     def batch_size(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        The maximum number of records to include in each batch. Maximum value of 10000.
-        """
         return pulumi.get(self, "batch_size")
 
     @batch_size.setter
@@ -1887,9 +1834,6 @@ class PipeSourceParametersSqsQueueParametersArgs:
     @_builtins.property
     @pulumi.getter(name="maximumBatchingWindowInSeconds")
     def maximum_batching_window_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        The maximum length of a time to wait for events. Maximum value of 300.
-        """
         return pulumi.get(self, "maximum_batching_window_in_seconds")
 
     @maximum_batching_window_in_seconds.setter
@@ -1900,23 +1844,23 @@ class PipeSourceParametersSqsQueueParametersArgs:
 class PipeTargetParametersArgsDict(TypedDict):
     batch_job_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersBatchJobParametersArgsDict']]]
     """
-    The parameters for using an AWS Batch job as a target. Detailed below.
+    Parameters for using an AWS Batch job as a target. See `batch_job_parameters` Block for details.
     """
     cloudwatch_logs_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersCloudwatchLogsParametersArgsDict']]]
     """
-    The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+    Parameters for using a CloudWatch Logs log stream as a target. See `cloudwatch_logs_parameters` Block for details.
     """
     ecs_task_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersArgsDict']]]
     """
-    The parameters for using an Amazon ECS task as a target. Detailed below.
+    Parameters for using an Amazon ECS task as a target. See `ecs_task_parameters` Block for details.
     """
     eventbridge_event_bus_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersEventbridgeEventBusParametersArgsDict']]]
     """
-    The parameters for using an EventBridge event bus as a target. Detailed below.
+    Parameters for using an EventBridge event bus as a target. See `eventbridge_event_bus_parameters` Block for details.
     """
     http_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersHttpParametersArgsDict']]]
     """
-    These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+    Custom parameters used when the target is an API Gateway REST API or EventBridge ApiDestination. See `target_parameters.http_parameters` Block for details.
     """
     input_template: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1924,27 +1868,27 @@ class PipeTargetParametersArgsDict(TypedDict):
     """
     kinesis_stream_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersKinesisStreamParametersArgsDict']]]
     """
-    The parameters for using a Kinesis stream as a source. Detailed below.
+    Parameters for using a Kinesis stream as a target. See `target_parameters.kinesis_stream_parameters` Block for details.
     """
     lambda_function_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersLambdaFunctionParametersArgsDict']]]
     """
-    The parameters for using a Lambda function as a target. Detailed below.
+    Parameters for using a Lambda function as a target. See `lambda_function_parameters` Block for details.
     """
     redshift_data_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersRedshiftDataParametersArgsDict']]]
     """
-    These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+    Custom parameters used when the target is an Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. See `redshift_data_parameters` Block for details.
     """
     sagemaker_pipeline_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersSagemakerPipelineParametersArgsDict']]]
     """
-    The parameters for using a SageMaker AI pipeline as a target. Detailed below.
+    Parameters for using a SageMaker AI pipeline as a target. See `sagemaker_pipeline_parameters` Block for details.
     """
     sqs_queue_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersSqsQueueParametersArgsDict']]]
     """
-    The parameters for using a Amazon SQS stream as a target. Detailed below.
+    Parameters for using an Amazon SQS stream as a target. See `target_parameters.sqs_queue_parameters` Block for details.
     """
     step_function_state_machine_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersStepFunctionStateMachineParametersArgsDict']]]
     """
-    The parameters for using a Step Functions state machine as a target. Detailed below.
+    Parameters for using a Step Functions state machine as a target. See `step_function_state_machine_parameters` Block for details.
     """
 
 @pulumi.input_type
@@ -1963,18 +1907,18 @@ class PipeTargetParametersArgs:
                  sqs_queue_parameters: pulumi.Input[Optional['PipeTargetParametersSqsQueueParametersArgs']] = None,
                  step_function_state_machine_parameters: pulumi.Input[Optional['PipeTargetParametersStepFunctionStateMachineParametersArgs']] = None):
         """
-        :param pulumi.Input['PipeTargetParametersBatchJobParametersArgs'] batch_job_parameters: The parameters for using an AWS Batch job as a target. Detailed below.
-        :param pulumi.Input['PipeTargetParametersCloudwatchLogsParametersArgs'] cloudwatch_logs_parameters: The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
-        :param pulumi.Input['PipeTargetParametersEcsTaskParametersArgs'] ecs_task_parameters: The parameters for using an Amazon ECS task as a target. Detailed below.
-        :param pulumi.Input['PipeTargetParametersEventbridgeEventBusParametersArgs'] eventbridge_event_bus_parameters: The parameters for using an EventBridge event bus as a target. Detailed below.
-        :param pulumi.Input['PipeTargetParametersHttpParametersArgs'] http_parameters: These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+        :param pulumi.Input['PipeTargetParametersBatchJobParametersArgs'] batch_job_parameters: Parameters for using an AWS Batch job as a target. See `batch_job_parameters` Block for details.
+        :param pulumi.Input['PipeTargetParametersCloudwatchLogsParametersArgs'] cloudwatch_logs_parameters: Parameters for using a CloudWatch Logs log stream as a target. See `cloudwatch_logs_parameters` Block for details.
+        :param pulumi.Input['PipeTargetParametersEcsTaskParametersArgs'] ecs_task_parameters: Parameters for using an Amazon ECS task as a target. See `ecs_task_parameters` Block for details.
+        :param pulumi.Input['PipeTargetParametersEventbridgeEventBusParametersArgs'] eventbridge_event_bus_parameters: Parameters for using an EventBridge event bus as a target. See `eventbridge_event_bus_parameters` Block for details.
+        :param pulumi.Input['PipeTargetParametersHttpParametersArgs'] http_parameters: Custom parameters used when the target is an API Gateway REST API or EventBridge ApiDestination. See `target_parameters.http_parameters` Block for details.
         :param pulumi.Input[_builtins.str] input_template: Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
-        :param pulumi.Input['PipeTargetParametersKinesisStreamParametersArgs'] kinesis_stream_parameters: The parameters for using a Kinesis stream as a source. Detailed below.
-        :param pulumi.Input['PipeTargetParametersLambdaFunctionParametersArgs'] lambda_function_parameters: The parameters for using a Lambda function as a target. Detailed below.
-        :param pulumi.Input['PipeTargetParametersRedshiftDataParametersArgs'] redshift_data_parameters: These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
-        :param pulumi.Input['PipeTargetParametersSagemakerPipelineParametersArgs'] sagemaker_pipeline_parameters: The parameters for using a SageMaker AI pipeline as a target. Detailed below.
-        :param pulumi.Input['PipeTargetParametersSqsQueueParametersArgs'] sqs_queue_parameters: The parameters for using a Amazon SQS stream as a target. Detailed below.
-        :param pulumi.Input['PipeTargetParametersStepFunctionStateMachineParametersArgs'] step_function_state_machine_parameters: The parameters for using a Step Functions state machine as a target. Detailed below.
+        :param pulumi.Input['PipeTargetParametersKinesisStreamParametersArgs'] kinesis_stream_parameters: Parameters for using a Kinesis stream as a target. See `target_parameters.kinesis_stream_parameters` Block for details.
+        :param pulumi.Input['PipeTargetParametersLambdaFunctionParametersArgs'] lambda_function_parameters: Parameters for using a Lambda function as a target. See `lambda_function_parameters` Block for details.
+        :param pulumi.Input['PipeTargetParametersRedshiftDataParametersArgs'] redshift_data_parameters: Custom parameters used when the target is an Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. See `redshift_data_parameters` Block for details.
+        :param pulumi.Input['PipeTargetParametersSagemakerPipelineParametersArgs'] sagemaker_pipeline_parameters: Parameters for using a SageMaker AI pipeline as a target. See `sagemaker_pipeline_parameters` Block for details.
+        :param pulumi.Input['PipeTargetParametersSqsQueueParametersArgs'] sqs_queue_parameters: Parameters for using an Amazon SQS stream as a target. See `target_parameters.sqs_queue_parameters` Block for details.
+        :param pulumi.Input['PipeTargetParametersStepFunctionStateMachineParametersArgs'] step_function_state_machine_parameters: Parameters for using a Step Functions state machine as a target. See `step_function_state_machine_parameters` Block for details.
         """
         if batch_job_parameters is not None:
             pulumi.set(__self__, "batch_job_parameters", batch_job_parameters)
@@ -2005,7 +1949,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="batchJobParameters")
     def batch_job_parameters(self) -> pulumi.Input[Optional['PipeTargetParametersBatchJobParametersArgs']]:
         """
-        The parameters for using an AWS Batch job as a target. Detailed below.
+        Parameters for using an AWS Batch job as a target. See `batch_job_parameters` Block for details.
         """
         return pulumi.get(self, "batch_job_parameters")
 
@@ -2017,7 +1961,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="cloudwatchLogsParameters")
     def cloudwatch_logs_parameters(self) -> pulumi.Input[Optional['PipeTargetParametersCloudwatchLogsParametersArgs']]:
         """
-        The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+        Parameters for using a CloudWatch Logs log stream as a target. See `cloudwatch_logs_parameters` Block for details.
         """
         return pulumi.get(self, "cloudwatch_logs_parameters")
 
@@ -2029,7 +1973,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="ecsTaskParameters")
     def ecs_task_parameters(self) -> pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersArgs']]:
         """
-        The parameters for using an Amazon ECS task as a target. Detailed below.
+        Parameters for using an Amazon ECS task as a target. See `ecs_task_parameters` Block for details.
         """
         return pulumi.get(self, "ecs_task_parameters")
 
@@ -2041,7 +1985,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="eventbridgeEventBusParameters")
     def eventbridge_event_bus_parameters(self) -> pulumi.Input[Optional['PipeTargetParametersEventbridgeEventBusParametersArgs']]:
         """
-        The parameters for using an EventBridge event bus as a target. Detailed below.
+        Parameters for using an EventBridge event bus as a target. See `eventbridge_event_bus_parameters` Block for details.
         """
         return pulumi.get(self, "eventbridge_event_bus_parameters")
 
@@ -2053,7 +1997,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="httpParameters")
     def http_parameters(self) -> pulumi.Input[Optional['PipeTargetParametersHttpParametersArgs']]:
         """
-        These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+        Custom parameters used when the target is an API Gateway REST API or EventBridge ApiDestination. See `target_parameters.http_parameters` Block for details.
         """
         return pulumi.get(self, "http_parameters")
 
@@ -2077,7 +2021,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="kinesisStreamParameters")
     def kinesis_stream_parameters(self) -> pulumi.Input[Optional['PipeTargetParametersKinesisStreamParametersArgs']]:
         """
-        The parameters for using a Kinesis stream as a source. Detailed below.
+        Parameters for using a Kinesis stream as a target. See `target_parameters.kinesis_stream_parameters` Block for details.
         """
         return pulumi.get(self, "kinesis_stream_parameters")
 
@@ -2089,7 +2033,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="lambdaFunctionParameters")
     def lambda_function_parameters(self) -> pulumi.Input[Optional['PipeTargetParametersLambdaFunctionParametersArgs']]:
         """
-        The parameters for using a Lambda function as a target. Detailed below.
+        Parameters for using a Lambda function as a target. See `lambda_function_parameters` Block for details.
         """
         return pulumi.get(self, "lambda_function_parameters")
 
@@ -2101,7 +2045,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="redshiftDataParameters")
     def redshift_data_parameters(self) -> pulumi.Input[Optional['PipeTargetParametersRedshiftDataParametersArgs']]:
         """
-        These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+        Custom parameters used when the target is an Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. See `redshift_data_parameters` Block for details.
         """
         return pulumi.get(self, "redshift_data_parameters")
 
@@ -2113,7 +2057,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="sagemakerPipelineParameters")
     def sagemaker_pipeline_parameters(self) -> pulumi.Input[Optional['PipeTargetParametersSagemakerPipelineParametersArgs']]:
         """
-        The parameters for using a SageMaker AI pipeline as a target. Detailed below.
+        Parameters for using a SageMaker AI pipeline as a target. See `sagemaker_pipeline_parameters` Block for details.
         """
         return pulumi.get(self, "sagemaker_pipeline_parameters")
 
@@ -2125,7 +2069,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="sqsQueueParameters")
     def sqs_queue_parameters(self) -> pulumi.Input[Optional['PipeTargetParametersSqsQueueParametersArgs']]:
         """
-        The parameters for using a Amazon SQS stream as a target. Detailed below.
+        Parameters for using an Amazon SQS stream as a target. See `target_parameters.sqs_queue_parameters` Block for details.
         """
         return pulumi.get(self, "sqs_queue_parameters")
 
@@ -2137,7 +2081,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="stepFunctionStateMachineParameters")
     def step_function_state_machine_parameters(self) -> pulumi.Input[Optional['PipeTargetParametersStepFunctionStateMachineParametersArgs']]:
         """
-        The parameters for using a Step Functions state machine as a target. Detailed below.
+        Parameters for using a Step Functions state machine as a target. See `step_function_state_machine_parameters` Block for details.
         """
         return pulumi.get(self, "step_function_state_machine_parameters")
 
@@ -2153,27 +2097,27 @@ class PipeTargetParametersBatchJobParametersArgsDict(TypedDict):
     """
     job_name: pulumi.Input[_builtins.str]
     """
-    The name of the job. It can be up to 128 letters long.
+    Name of the job. It can be up to 128 letters long.
     """
     array_properties: NotRequired[pulumi.Input[Optional['PipeTargetParametersBatchJobParametersArrayPropertiesArgsDict']]]
     """
-    The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+    Array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. See `array_properties` Block for details.
     """
     container_overrides: NotRequired[pulumi.Input[Optional['PipeTargetParametersBatchJobParametersContainerOverridesArgsDict']]]
     """
-    The overrides that are sent to a container. Detailed below.
+    Overrides that are sent to a container. See `container_overrides` Block for details.
     """
     depends_ons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersDependsOnArgsDict']]]]]
     """
-    A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+    List of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. See `depends_on` Block for details.
     """
     parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
-    Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
+    Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition.
     """
     retry_strategy: NotRequired[pulumi.Input[Optional['PipeTargetParametersBatchJobParametersRetryStrategyArgsDict']]]
     """
-    The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+    Retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. See `retry_strategy` Block for details.
     """
 
 @pulumi.input_type
@@ -2188,12 +2132,12 @@ class PipeTargetParametersBatchJobParametersArgs:
                  retry_strategy: pulumi.Input[Optional['PipeTargetParametersBatchJobParametersRetryStrategyArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] job_definition: Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
-        :param pulumi.Input[_builtins.str] job_name: The name of the job. It can be up to 128 letters long.
-        :param pulumi.Input['PipeTargetParametersBatchJobParametersArrayPropertiesArgs'] array_properties: The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
-        :param pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesArgs'] container_overrides: The overrides that are sent to a container. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersDependsOnArgs']]] depends_ons: A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
-        :param pulumi.Input['PipeTargetParametersBatchJobParametersRetryStrategyArgs'] retry_strategy: The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+        :param pulumi.Input[_builtins.str] job_name: Name of the job. It can be up to 128 letters long.
+        :param pulumi.Input['PipeTargetParametersBatchJobParametersArrayPropertiesArgs'] array_properties: Array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. See `array_properties` Block for details.
+        :param pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesArgs'] container_overrides: Overrides that are sent to a container. See `container_overrides` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersDependsOnArgs']]] depends_ons: List of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. See `depends_on` Block for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition.
+        :param pulumi.Input['PipeTargetParametersBatchJobParametersRetryStrategyArgs'] retry_strategy: Retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. See `retry_strategy` Block for details.
         """
         pulumi.set(__self__, "job_definition", job_definition)
         pulumi.set(__self__, "job_name", job_name)
@@ -2224,7 +2168,7 @@ class PipeTargetParametersBatchJobParametersArgs:
     @pulumi.getter(name="jobName")
     def job_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the job. It can be up to 128 letters long.
+        Name of the job. It can be up to 128 letters long.
         """
         return pulumi.get(self, "job_name")
 
@@ -2236,7 +2180,7 @@ class PipeTargetParametersBatchJobParametersArgs:
     @pulumi.getter(name="arrayProperties")
     def array_properties(self) -> pulumi.Input[Optional['PipeTargetParametersBatchJobParametersArrayPropertiesArgs']]:
         """
-        The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+        Array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. See `array_properties` Block for details.
         """
         return pulumi.get(self, "array_properties")
 
@@ -2248,7 +2192,7 @@ class PipeTargetParametersBatchJobParametersArgs:
     @pulumi.getter(name="containerOverrides")
     def container_overrides(self) -> pulumi.Input[Optional['PipeTargetParametersBatchJobParametersContainerOverridesArgs']]:
         """
-        The overrides that are sent to a container. Detailed below.
+        Overrides that are sent to a container. See `container_overrides` Block for details.
         """
         return pulumi.get(self, "container_overrides")
 
@@ -2260,7 +2204,7 @@ class PipeTargetParametersBatchJobParametersArgs:
     @pulumi.getter(name="dependsOns")
     def depends_ons(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersDependsOnArgs']]]]:
         """
-        A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+        List of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. See `depends_on` Block for details.
         """
         return pulumi.get(self, "depends_ons")
 
@@ -2272,7 +2216,7 @@ class PipeTargetParametersBatchJobParametersArgs:
     @pulumi.getter
     def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
+        Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition.
         """
         return pulumi.get(self, "parameters")
 
@@ -2284,7 +2228,7 @@ class PipeTargetParametersBatchJobParametersArgs:
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> pulumi.Input[Optional['PipeTargetParametersBatchJobParametersRetryStrategyArgs']]:
         """
-        The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+        Retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. See `retry_strategy` Block for details.
         """
         return pulumi.get(self, "retry_strategy")
 
@@ -2296,7 +2240,7 @@ class PipeTargetParametersBatchJobParametersArgs:
 class PipeTargetParametersBatchJobParametersArrayPropertiesArgsDict(TypedDict):
     size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+    Size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
     """
 
 @pulumi.input_type
@@ -2304,7 +2248,7 @@ class PipeTargetParametersBatchJobParametersArrayPropertiesArgs:
     def __init__(__self__, *,
                  size: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] size: The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+        :param pulumi.Input[_builtins.int] size: Size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
         """
         if size is not None:
             pulumi.set(__self__, "size", size)
@@ -2313,7 +2257,7 @@ class PipeTargetParametersBatchJobParametersArrayPropertiesArgs:
     @pulumi.getter
     def size(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+        Size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
         """
         return pulumi.get(self, "size")
 
@@ -2325,19 +2269,19 @@ class PipeTargetParametersBatchJobParametersArrayPropertiesArgs:
 class PipeTargetParametersBatchJobParametersContainerOverridesArgsDict(TypedDict):
     commands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+    List of commands to send to the container that overrides the default command from the Docker image or the task definition.
     """
     environments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgsDict']]]]]
     """
-    The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+    Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. See `target_parameters.batch_job_parameters.container_overrides.environment` Block for details.
     """
     instance_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
+    Instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
     """
     resource_requirements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgsDict']]]]]
     """
-    The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+    Type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. See `target_parameters.batch_job_parameters.container_overrides.resource_requirement` Block for details.
     """
 
 @pulumi.input_type
@@ -2348,10 +2292,10 @@ class PipeTargetParametersBatchJobParametersContainerOverridesArgs:
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_requirements: pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs']]] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-        :param pulumi.Input[_builtins.str] instance_type: The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs']]] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: List of commands to send to the container that overrides the default command from the Docker image or the task definition.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs']]] environments: Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. See `target_parameters.batch_job_parameters.container_overrides.environment` Block for details.
+        :param pulumi.Input[_builtins.str] instance_type: Instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs']]] resource_requirements: Type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. See `target_parameters.batch_job_parameters.container_overrides.resource_requirement` Block for details.
         """
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
@@ -2366,7 +2310,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesArgs:
     @pulumi.getter
     def commands(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+        List of commands to send to the container that overrides the default command from the Docker image or the task definition.
         """
         return pulumi.get(self, "commands")
 
@@ -2378,7 +2322,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesArgs:
     @pulumi.getter
     def environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs']]]]:
         """
-        The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+        Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. See `target_parameters.batch_job_parameters.container_overrides.environment` Block for details.
         """
         return pulumi.get(self, "environments")
 
@@ -2390,7 +2334,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
+        Instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2402,7 +2346,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesArgs:
     @pulumi.getter(name="resourceRequirements")
     def resource_requirements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs']]]]:
         """
-        The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+        Type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. See `target_parameters.batch_job_parameters.container_overrides.resource_requirement` Block for details.
         """
         return pulumi.get(self, "resource_requirements")
 
@@ -2417,9 +2361,6 @@ class PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgsDic
     Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
     """
     value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-    """
 
 @pulumi.input_type
 class PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs:
@@ -2428,7 +2369,6 @@ class PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs:
                  value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -2450,9 +2390,6 @@ class PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs:
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2462,32 +2399,19 @@ class PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs:
 
 class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    """
-    The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-    """
     value: pulumi.Input[_builtins.str]
-    """
-    Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-    """
 
 @pulumi.input_type
 class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-        :param pulumi.Input[_builtins.str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -2497,9 +2421,6 @@ class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequiremen
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -2510,11 +2431,11 @@ class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequiremen
 class PipeTargetParametersBatchJobParametersDependsOnArgsDict(TypedDict):
     job_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The job ID of the AWS Batch job that's associated with this dependency.
+    Job ID of the AWS Batch job that's associated with this dependency.
     """
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+    Type of the job dependency. Valid Values: N_TO_N, SEQUENTIAL.
     """
 
 @pulumi.input_type
@@ -2523,8 +2444,8 @@ class PipeTargetParametersBatchJobParametersDependsOnArgs:
                  job_id: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] job_id: The job ID of the AWS Batch job that's associated with this dependency.
-        :param pulumi.Input[_builtins.str] type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+        :param pulumi.Input[_builtins.str] job_id: Job ID of the AWS Batch job that's associated with this dependency.
+        :param pulumi.Input[_builtins.str] type: Type of the job dependency. Valid Values: N_TO_N, SEQUENTIAL.
         """
         if job_id is not None:
             pulumi.set(__self__, "job_id", job_id)
@@ -2535,7 +2456,7 @@ class PipeTargetParametersBatchJobParametersDependsOnArgs:
     @pulumi.getter(name="jobId")
     def job_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The job ID of the AWS Batch job that's associated with this dependency.
+        Job ID of the AWS Batch job that's associated with this dependency.
         """
         return pulumi.get(self, "job_id")
 
@@ -2547,7 +2468,7 @@ class PipeTargetParametersBatchJobParametersDependsOnArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+        Type of the job dependency. Valid Values: N_TO_N, SEQUENTIAL.
         """
         return pulumi.get(self, "type")
 
@@ -2559,7 +2480,7 @@ class PipeTargetParametersBatchJobParametersDependsOnArgs:
 class PipeTargetParametersBatchJobParametersRetryStrategyArgsDict(TypedDict):
     attempts: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
+    Number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
     """
 
 @pulumi.input_type
@@ -2567,7 +2488,7 @@ class PipeTargetParametersBatchJobParametersRetryStrategyArgs:
     def __init__(__self__, *,
                  attempts: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] attempts: The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
+        :param pulumi.Input[_builtins.int] attempts: Number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
         """
         if attempts is not None:
             pulumi.set(__self__, "attempts", attempts)
@@ -2576,7 +2497,7 @@ class PipeTargetParametersBatchJobParametersRetryStrategyArgs:
     @pulumi.getter
     def attempts(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
+        Number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
         """
         return pulumi.get(self, "attempts")
 
@@ -2588,11 +2509,11 @@ class PipeTargetParametersBatchJobParametersRetryStrategyArgs:
 class PipeTargetParametersCloudwatchLogsParametersArgsDict(TypedDict):
     log_stream_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name of the log stream.
+    Name of the log stream.
     """
     timestamp: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
+    Time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
     """
 
 @pulumi.input_type
@@ -2601,8 +2522,8 @@ class PipeTargetParametersCloudwatchLogsParametersArgs:
                  log_stream_name: pulumi.Input[Optional[_builtins.str]] = None,
                  timestamp: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] log_stream_name: The name of the log stream.
-        :param pulumi.Input[_builtins.str] timestamp: The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
+        :param pulumi.Input[_builtins.str] log_stream_name: Name of the log stream.
+        :param pulumi.Input[_builtins.str] timestamp: Time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
         """
         if log_stream_name is not None:
             pulumi.set(__self__, "log_stream_name", log_stream_name)
@@ -2613,7 +2534,7 @@ class PipeTargetParametersCloudwatchLogsParametersArgs:
     @pulumi.getter(name="logStreamName")
     def log_stream_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the log stream.
+        Name of the log stream.
         """
         return pulumi.get(self, "log_stream_name")
 
@@ -2625,7 +2546,7 @@ class PipeTargetParametersCloudwatchLogsParametersArgs:
     @pulumi.getter
     def timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
+        Time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
         """
         return pulumi.get(self, "timestamp")
 
@@ -2637,63 +2558,63 @@ class PipeTargetParametersCloudwatchLogsParametersArgs:
 class PipeTargetParametersEcsTaskParametersArgsDict(TypedDict):
     task_definition_arn: pulumi.Input[_builtins.str]
     """
-    The ARN of the task definition to use if the event target is an Amazon ECS task.
+    ARN of the task definition to use if the event target is an Amazon ECS task.
     """
     capacity_provider_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgsDict']]]]]
     """
-    List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
+    List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. See `capacity_provider_strategy` Block for details.
     """
     enable_ecs_managed_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
+    Whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
     """
     enable_execute_command: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
+    Whether to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
     """
     group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
+    Amazon ECS task group for the task. The maximum length is 255 characters.
     """
     launch_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
+    Launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
     """
     network_configuration: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersNetworkConfigurationArgsDict']]]
     """
-    Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
+    Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. See `network_configuration` Block for details.
     """
     overrides: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersOverridesArgsDict']]]
     """
-    The overrides that are associated with a task. Detailed below.
+    Overrides that are associated with a task. See `overrides` Block for details.
     """
     placement_constraints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementConstraintArgsDict']]]]]
     """
-    An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
+    Array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See `placement_constraint` Block for details.
     """
     placement_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementStrategyArgsDict']]]]]
     """
-    The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
+    Placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. See `placement_strategy` Block for details.
     """
     platform_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
+    Platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
     """
     propagate_tags: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
+    Whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
     """
     reference_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The reference ID to use for the task. Maximum length of 1,024.
+    Reference ID to use for the task. Maximum length of 1,024.
     """
     tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
-    Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+    Key-value map of tags that you apply to the task to help you categorize and organize them.
     """
     task_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The number of tasks to create based on TaskDefinition. The default is 1.
+    Number of tasks to create based on TaskDefinition. The default is 1.
     """
 
 @pulumi.input_type
@@ -2715,21 +2636,21 @@ class PipeTargetParametersEcsTaskParametersArgs:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  task_count: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] task_definition_arn: The ARN of the task definition to use if the event target is an Amazon ECS task.
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs']]] capacity_provider_strategies: List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
-        :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
-        :param pulumi.Input[_builtins.bool] enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
-        :param pulumi.Input[_builtins.str] group: Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
-        :param pulumi.Input[_builtins.str] launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
-        :param pulumi.Input['PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs'] network_configuration: Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
-        :param pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesArgs'] overrides: The overrides that are associated with a task. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementConstraintArgs']]] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementStrategyArgs']]] placement_strategies: The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
-        :param pulumi.Input[_builtins.str] platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
-        :param pulumi.Input[_builtins.str] propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
-        :param pulumi.Input[_builtins.str] reference_id: The reference ID to use for the task. Maximum length of 1,024.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.int] task_count: The number of tasks to create based on TaskDefinition. The default is 1.
+        :param pulumi.Input[_builtins.str] task_definition_arn: ARN of the task definition to use if the event target is an Amazon ECS task.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs']]] capacity_provider_strategies: List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. See `capacity_provider_strategy` Block for details.
+        :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
+        :param pulumi.Input[_builtins.bool] enable_execute_command: Whether to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
+        :param pulumi.Input[_builtins.str] group: Amazon ECS task group for the task. The maximum length is 255 characters.
+        :param pulumi.Input[_builtins.str] launch_type: Launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
+        :param pulumi.Input['PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs'] network_configuration: Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. See `network_configuration` Block for details.
+        :param pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesArgs'] overrides: Overrides that are associated with a task. See `overrides` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementConstraintArgs']]] placement_constraints: Array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See `placement_constraint` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementStrategyArgs']]] placement_strategies: Placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. See `placement_strategy` Block for details.
+        :param pulumi.Input[_builtins.str] platform_version: Platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
+        :param pulumi.Input[_builtins.str] propagate_tags: Whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
+        :param pulumi.Input[_builtins.str] reference_id: Reference ID to use for the task. Maximum length of 1,024.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags that you apply to the task to help you categorize and organize them.
+        :param pulumi.Input[_builtins.int] task_count: Number of tasks to create based on TaskDefinition. The default is 1.
         """
         pulumi.set(__self__, "task_definition_arn", task_definition_arn)
         if capacity_provider_strategies is not None:
@@ -2765,7 +2686,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter(name="taskDefinitionArn")
     def task_definition_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the task definition to use if the event target is an Amazon ECS task.
+        ARN of the task definition to use if the event target is an Amazon ECS task.
         """
         return pulumi.get(self, "task_definition_arn")
 
@@ -2777,7 +2698,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter(name="capacityProviderStrategies")
     def capacity_provider_strategies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs']]]]:
         """
-        List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
+        List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. See `capacity_provider_strategy` Block for details.
         """
         return pulumi.get(self, "capacity_provider_strategies")
 
@@ -2789,7 +2710,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter(name="enableEcsManagedTags")
     def enable_ecs_managed_tags(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
+        Whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
         """
         return pulumi.get(self, "enable_ecs_managed_tags")
 
@@ -2801,7 +2722,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter(name="enableExecuteCommand")
     def enable_execute_command(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
+        Whether to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
         """
         return pulumi.get(self, "enable_execute_command")
 
@@ -2813,7 +2734,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter
     def group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
+        Amazon ECS task group for the task. The maximum length is 255 characters.
         """
         return pulumi.get(self, "group")
 
@@ -2825,7 +2746,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter(name="launchType")
     def launch_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
+        Launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
         """
         return pulumi.get(self, "launch_type")
 
@@ -2837,7 +2758,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs']]:
         """
-        Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
+        Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. See `network_configuration` Block for details.
         """
         return pulumi.get(self, "network_configuration")
 
@@ -2849,7 +2770,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter
     def overrides(self) -> pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersOverridesArgs']]:
         """
-        The overrides that are associated with a task. Detailed below.
+        Overrides that are associated with a task. See `overrides` Block for details.
         """
         return pulumi.get(self, "overrides")
 
@@ -2861,7 +2782,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementConstraintArgs']]]]:
         """
-        An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
+        Array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See `placement_constraint` Block for details.
         """
         return pulumi.get(self, "placement_constraints")
 
@@ -2873,7 +2794,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter(name="placementStrategies")
     def placement_strategies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementStrategyArgs']]]]:
         """
-        The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
+        Placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. See `placement_strategy` Block for details.
         """
         return pulumi.get(self, "placement_strategies")
 
@@ -2885,7 +2806,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
+        Platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
         """
         return pulumi.get(self, "platform_version")
 
@@ -2897,7 +2818,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter(name="propagateTags")
     def propagate_tags(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
+        Whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
         """
         return pulumi.get(self, "propagate_tags")
 
@@ -2909,7 +2830,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter(name="referenceId")
     def reference_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The reference ID to use for the task. Maximum length of 1,024.
+        Reference ID to use for the task. Maximum length of 1,024.
         """
         return pulumi.get(self, "reference_id")
 
@@ -2921,7 +2842,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of tags that you apply to the task to help you categorize and organize them.
         """
         return pulumi.get(self, "tags")
 
@@ -2933,7 +2854,7 @@ class PipeTargetParametersEcsTaskParametersArgs:
     @pulumi.getter(name="taskCount")
     def task_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of tasks to create based on TaskDefinition. The default is 1.
+        Number of tasks to create based on TaskDefinition. The default is 1.
         """
         return pulumi.get(self, "task_count")
 
@@ -2945,15 +2866,15 @@ class PipeTargetParametersEcsTaskParametersArgs:
 class PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgsDict(TypedDict):
     capacity_provider: pulumi.Input[_builtins.str]
     """
-    The short name of the capacity provider. Maximum value of 255.
+    Short name of the capacity provider. Maximum value of 255.
     """
     base: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
+    Base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
     """
     weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
+    Weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
     """
 
 @pulumi.input_type
@@ -2963,9 +2884,9 @@ class PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs:
                  base: pulumi.Input[Optional[_builtins.int]] = None,
                  weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] capacity_provider: The short name of the capacity provider. Maximum value of 255.
-        :param pulumi.Input[_builtins.int] base: The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
-        :param pulumi.Input[_builtins.int] weight: The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
+        :param pulumi.Input[_builtins.str] capacity_provider: Short name of the capacity provider. Maximum value of 255.
+        :param pulumi.Input[_builtins.int] base: Base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
+        :param pulumi.Input[_builtins.int] weight: Weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
         """
         pulumi.set(__self__, "capacity_provider", capacity_provider)
         if base is not None:
@@ -2977,7 +2898,7 @@ class PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs:
     @pulumi.getter(name="capacityProvider")
     def capacity_provider(self) -> pulumi.Input[_builtins.str]:
         """
-        The short name of the capacity provider. Maximum value of 255.
+        Short name of the capacity provider. Maximum value of 255.
         """
         return pulumi.get(self, "capacity_provider")
 
@@ -2989,7 +2910,7 @@ class PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs:
     @pulumi.getter
     def base(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
+        Base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
         """
         return pulumi.get(self, "base")
 
@@ -3001,7 +2922,7 @@ class PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs:
     @pulumi.getter
     def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
+        Weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
         """
         return pulumi.get(self, "weight")
 
@@ -3013,7 +2934,7 @@ class PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs:
 class PipeTargetParametersEcsTaskParametersNetworkConfigurationArgsDict(TypedDict):
     aws_vpc_configuration: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgsDict']]]
     """
-    Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+    Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. See `aws_vpc_configuration` Block for details.
     """
 
 @pulumi.input_type
@@ -3021,7 +2942,7 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs:
     def __init__(__self__, *,
                  aws_vpc_configuration: pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs']] = None):
         """
-        :param pulumi.Input['PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs'] aws_vpc_configuration: Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+        :param pulumi.Input['PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs'] aws_vpc_configuration: Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. See `aws_vpc_configuration` Block for details.
         """
         if aws_vpc_configuration is not None:
             pulumi.set(__self__, "aws_vpc_configuration", aws_vpc_configuration)
@@ -3030,7 +2951,7 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs:
     @pulumi.getter(name="awsVpcConfiguration")
     def aws_vpc_configuration(self) -> pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs']]:
         """
-        Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+        Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. See `aws_vpc_configuration` Block for details.
         """
         return pulumi.get(self, "aws_vpc_configuration")
 
@@ -3042,10 +2963,16 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs:
 class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgsDict(TypedDict):
     assign_public_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+    Whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
     """
     security_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+    """
     subnets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+    """
 
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs:
@@ -3054,7 +2981,9 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurati
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[_builtins.str] assign_public_ip: Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+        :param pulumi.Input[_builtins.str] assign_public_ip: Whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: Security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnets: Subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
         """
         if assign_public_ip is not None:
             pulumi.set(__self__, "assign_public_ip", assign_public_ip)
@@ -3067,7 +2996,7 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurati
     @pulumi.getter(name="assignPublicIp")
     def assign_public_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+        Whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -3078,6 +3007,9 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurati
     @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+        """
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
@@ -3087,6 +3019,9 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurati
     @_builtins.property
     @pulumi.getter
     def subnets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+        """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
@@ -3097,15 +3032,15 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurati
 class PipeTargetParametersEcsTaskParametersOverridesArgsDict(TypedDict):
     container_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgsDict']]]]]
     """
-    One or more container overrides that are sent to a task. Detailed below.
+    One or more container overrides that are sent to a task. See `container_override` Block for details.
     """
     cpu: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+    CPU override for the task.
     """
     ephemeral_storage: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgsDict']]]
     """
-    The ephemeral storage setting override for the task.  Detailed below.
+    Ephemeral storage setting override for the task. See `ephemeral_storage` Block for details.
     """
     execution_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -3113,11 +3048,11 @@ class PipeTargetParametersEcsTaskParametersOverridesArgsDict(TypedDict):
     """
     inference_accelerator_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgsDict']]]]]
     """
-    List of Elastic Inference accelerator overrides for the task. Detailed below.
+    List of Elastic Inference accelerator overrides for the task. See `inference_accelerator_override` Block for details.
     """
     memory: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+    Memory override for the task.
     """
     task_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -3135,12 +3070,12 @@ class PipeTargetParametersEcsTaskParametersOverridesArgs:
                  memory: pulumi.Input[Optional[_builtins.str]] = None,
                  task_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs']]] container_overrides: One or more container overrides that are sent to a task. Detailed below.
-        :param pulumi.Input[_builtins.str] cpu: The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-        :param pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs'] ephemeral_storage: The ephemeral storage setting override for the task.  Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs']]] container_overrides: One or more container overrides that are sent to a task. See `container_override` Block for details.
+        :param pulumi.Input[_builtins.str] cpu: CPU override for the task.
+        :param pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs'] ephemeral_storage: Ephemeral storage setting override for the task. See `ephemeral_storage` Block for details.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution IAM role override for the task.
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs']]] inference_accelerator_overrides: List of Elastic Inference accelerator overrides for the task. Detailed below.
-        :param pulumi.Input[_builtins.str] memory: The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs']]] inference_accelerator_overrides: List of Elastic Inference accelerator overrides for the task. See `inference_accelerator_override` Block for details.
+        :param pulumi.Input[_builtins.str] memory: Memory override for the task.
         :param pulumi.Input[_builtins.str] task_role_arn: ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
         """
         if container_overrides is not None:
@@ -3162,7 +3097,7 @@ class PipeTargetParametersEcsTaskParametersOverridesArgs:
     @pulumi.getter(name="containerOverrides")
     def container_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs']]]]:
         """
-        One or more container overrides that are sent to a task. Detailed below.
+        One or more container overrides that are sent to a task. See `container_override` Block for details.
         """
         return pulumi.get(self, "container_overrides")
 
@@ -3174,7 +3109,7 @@ class PipeTargetParametersEcsTaskParametersOverridesArgs:
     @pulumi.getter
     def cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+        CPU override for the task.
         """
         return pulumi.get(self, "cpu")
 
@@ -3186,7 +3121,7 @@ class PipeTargetParametersEcsTaskParametersOverridesArgs:
     @pulumi.getter(name="ephemeralStorage")
     def ephemeral_storage(self) -> pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs']]:
         """
-        The ephemeral storage setting override for the task.  Detailed below.
+        Ephemeral storage setting override for the task. See `ephemeral_storage` Block for details.
         """
         return pulumi.get(self, "ephemeral_storage")
 
@@ -3210,7 +3145,7 @@ class PipeTargetParametersEcsTaskParametersOverridesArgs:
     @pulumi.getter(name="inferenceAcceleratorOverrides")
     def inference_accelerator_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs']]]]:
         """
-        List of Elastic Inference accelerator overrides for the task. Detailed below.
+        List of Elastic Inference accelerator overrides for the task. See `inference_accelerator_override` Block for details.
         """
         return pulumi.get(self, "inference_accelerator_overrides")
 
@@ -3222,7 +3157,7 @@ class PipeTargetParametersEcsTaskParametersOverridesArgs:
     @pulumi.getter
     def memory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+        Memory override for the task.
         """
         return pulumi.get(self, "memory")
 
@@ -3250,31 +3185,31 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgsDict(Ty
     """
     cpu: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+    Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
     """
     environment_files: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgsDict']]]]]
     """
-    A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
+    List of files containing the environment variables to pass to a container, instead of the value from the container definition. See `environment_file` Block for details.
     """
     environments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgsDict']]]]]
     """
-    The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+    Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. See `target_parameters.ecs_task_parameters.overrides.container_override.environment` Block for details.
     """
     memory: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+    Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
     """
     memory_reservation: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+    Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+    Name of the container that receives the override. This parameter is required if any override is specified.
     """
     resource_requirements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgsDict']]]]]
     """
-    The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+    Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See `target_parameters.ecs_task_parameters.overrides.container_override.resource_requirement` Block for details.
     """
 
 @pulumi.input_type
@@ -3290,13 +3225,13 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs:
                  resource_requirements: pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] commands: List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-        :param pulumi.Input[_builtins.int] cpu: The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs']]] environment_files: A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs']]] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
-        :param pulumi.Input[_builtins.int] memory: The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
-        :param pulumi.Input[_builtins.int] memory_reservation: The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
-        :param pulumi.Input[_builtins.str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs']]] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+        :param pulumi.Input[_builtins.int] cpu: Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs']]] environment_files: List of files containing the environment variables to pass to a container, instead of the value from the container definition. See `environment_file` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs']]] environments: Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. See `target_parameters.ecs_task_parameters.overrides.container_override.environment` Block for details.
+        :param pulumi.Input[_builtins.int] memory: Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+        :param pulumi.Input[_builtins.int] memory_reservation: Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+        :param pulumi.Input[_builtins.str] name: Name of the container that receives the override. This parameter is required if any override is specified.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs']]] resource_requirements: Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See `target_parameters.ecs_task_parameters.overrides.container_override.resource_requirement` Block for details.
         """
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
@@ -3331,7 +3266,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs:
     @pulumi.getter
     def cpu(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+        Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         """
         return pulumi.get(self, "cpu")
 
@@ -3343,7 +3278,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs:
     @pulumi.getter(name="environmentFiles")
     def environment_files(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs']]]]:
         """
-        A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
+        List of files containing the environment variables to pass to a container, instead of the value from the container definition. See `environment_file` Block for details.
         """
         return pulumi.get(self, "environment_files")
 
@@ -3355,7 +3290,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs:
     @pulumi.getter
     def environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs']]]]:
         """
-        The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+        Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. See `target_parameters.ecs_task_parameters.overrides.container_override.environment` Block for details.
         """
         return pulumi.get(self, "environments")
 
@@ -3367,7 +3302,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs:
     @pulumi.getter
     def memory(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+        Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
         """
         return pulumi.get(self, "memory")
 
@@ -3379,7 +3314,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs:
     @pulumi.getter(name="memoryReservation")
     def memory_reservation(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+        Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
         """
         return pulumi.get(self, "memory_reservation")
 
@@ -3391,7 +3326,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        Name of the container that receives the override. This parameter is required if any override is specified.
         """
         return pulumi.get(self, "name")
 
@@ -3403,7 +3338,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs:
     @pulumi.getter(name="resourceRequirements")
     def resource_requirements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs']]]]:
         """
-        The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+        Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See `target_parameters.ecs_task_parameters.overrides.container_override.resource_requirement` Block for details.
         """
         return pulumi.get(self, "resource_requirements")
 
@@ -3418,9 +3353,6 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
     Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
     """
     value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-    """
 
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs:
@@ -3429,7 +3361,6 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
                  value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[_builtins.str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -3451,9 +3382,6 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3464,11 +3392,11 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
 class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
-    The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+    File type to use. The only supported value is s3.
     """
     value: pulumi.Input[_builtins.str]
     """
-    Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
+    ARN of the Amazon S3 object containing the environment variable file.
     """
 
 @pulumi.input_type
@@ -3477,8 +3405,8 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
                  type: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-        :param pulumi.Input[_builtins.str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
+        :param pulumi.Input[_builtins.str] type: File type to use. The only supported value is s3.
+        :param pulumi.Input[_builtins.str] value: ARN of the Amazon S3 object containing the environment variable file.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -3487,7 +3415,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+        File type to use. The only supported value is s3.
         """
         return pulumi.get(self, "type")
 
@@ -3499,7 +3427,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
+        ARN of the Amazon S3 object containing the environment variable file.
         """
         return pulumi.get(self, "value")
 
@@ -3510,32 +3438,19 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
 
 class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    """
-    The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-    """
     value: pulumi.Input[_builtins.str]
-    """
-    Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-    """
 
 @pulumi.input_type
 class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
-        """
-        :param pulumi.Input[_builtins.str] type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-        :param pulumi.Input[_builtins.str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-        """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3545,9 +3460,6 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceReq
     @_builtins.property
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
-        """
-        Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -3558,7 +3470,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceReq
 class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgsDict(TypedDict):
     size_in_gib: pulumi.Input[_builtins.int]
     """
-    The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
+    Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
     """
 
 @pulumi.input_type
@@ -3566,7 +3478,7 @@ class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs:
     def __init__(__self__, *,
                  size_in_gib: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.int] size_in_gib: The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
+        :param pulumi.Input[_builtins.int] size_in_gib: Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
         """
         pulumi.set(__self__, "size_in_gib", size_in_gib)
 
@@ -3574,7 +3486,7 @@ class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs:
     @pulumi.getter(name="sizeInGib")
     def size_in_gib(self) -> pulumi.Input[_builtins.int]:
         """
-        The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
+        Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
         """
         return pulumi.get(self, "size_in_gib")
 
@@ -3586,11 +3498,11 @@ class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs:
 class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgsDict(TypedDict):
     device_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+    Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
     """
     device_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Elastic Inference accelerator type to use.
+    Elastic Inference accelerator type to use.
     """
 
 @pulumi.input_type
@@ -3599,8 +3511,8 @@ class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride
                  device_name: pulumi.Input[Optional[_builtins.str]] = None,
                  device_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] device_name: The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
-        :param pulumi.Input[_builtins.str] device_type: The Elastic Inference accelerator type to use.
+        :param pulumi.Input[_builtins.str] device_name: Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+        :param pulumi.Input[_builtins.str] device_type: Elastic Inference accelerator type to use.
         """
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
@@ -3611,7 +3523,7 @@ class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+        Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
         """
         return pulumi.get(self, "device_name")
 
@@ -3623,7 +3535,7 @@ class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride
     @pulumi.getter(name="deviceType")
     def device_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Elastic Inference accelerator type to use.
+        Elastic Inference accelerator type to use.
         """
         return pulumi.get(self, "device_type")
 
@@ -3635,11 +3547,11 @@ class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride
 class PipeTargetParametersEcsTaskParametersPlacementConstraintArgsDict(TypedDict):
     expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
+    Cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
     """
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+    Type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates. Valid Values: distinctInstance, memberOf.
     """
 
 @pulumi.input_type
@@ -3648,8 +3560,8 @@ class PipeTargetParametersEcsTaskParametersPlacementConstraintArgs:
                  expression: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] expression: A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
-        :param pulumi.Input[_builtins.str] type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+        :param pulumi.Input[_builtins.str] expression: Cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
+        :param pulumi.Input[_builtins.str] type: Type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates. Valid Values: distinctInstance, memberOf.
         """
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
@@ -3660,7 +3572,7 @@ class PipeTargetParametersEcsTaskParametersPlacementConstraintArgs:
     @pulumi.getter
     def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
+        Cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
         """
         return pulumi.get(self, "expression")
 
@@ -3672,7 +3584,7 @@ class PipeTargetParametersEcsTaskParametersPlacementConstraintArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+        Type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates. Valid Values: distinctInstance, memberOf.
         """
         return pulumi.get(self, "type")
 
@@ -3684,11 +3596,11 @@ class PipeTargetParametersEcsTaskParametersPlacementConstraintArgs:
 class PipeTargetParametersEcsTaskParametersPlacementStrategyArgsDict(TypedDict):
     field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
+    Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
     """
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+    Type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
     """
 
 @pulumi.input_type
@@ -3697,8 +3609,8 @@ class PipeTargetParametersEcsTaskParametersPlacementStrategyArgs:
                  field: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] field: The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
-        :param pulumi.Input[_builtins.str] type: The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+        :param pulumi.Input[_builtins.str] field: Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
+        :param pulumi.Input[_builtins.str] type: Type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
         """
         if field is not None:
             pulumi.set(__self__, "field", field)
@@ -3709,7 +3621,7 @@ class PipeTargetParametersEcsTaskParametersPlacementStrategyArgs:
     @pulumi.getter
     def field(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
+        Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
         """
         return pulumi.get(self, "field")
 
@@ -3721,7 +3633,7 @@ class PipeTargetParametersEcsTaskParametersPlacementStrategyArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+        Type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
         """
         return pulumi.get(self, "type")
 
@@ -3733,11 +3645,11 @@ class PipeTargetParametersEcsTaskParametersPlacementStrategyArgs:
 class PipeTargetParametersEventbridgeEventBusParametersArgsDict(TypedDict):
     detail_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+    Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
     """
     endpoint_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+    URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
     """
     resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -3745,11 +3657,11 @@ class PipeTargetParametersEventbridgeEventBusParametersArgsDict(TypedDict):
     """
     source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+    Source of the event. Maximum length of 256.
     """
     time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+    Time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
     """
 
 @pulumi.input_type
@@ -3761,11 +3673,11 @@ class PipeTargetParametersEventbridgeEventBusParametersArgs:
                  source: pulumi.Input[Optional[_builtins.str]] = None,
                  time: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] detail_type: A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
-        :param pulumi.Input[_builtins.str] endpoint_id: The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+        :param pulumi.Input[_builtins.str] detail_type: Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+        :param pulumi.Input[_builtins.str] endpoint_id: URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resources: List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
-        :param pulumi.Input[_builtins.str] source: Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
-        :param pulumi.Input[_builtins.str] time: The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+        :param pulumi.Input[_builtins.str] source: Source of the event. Maximum length of 256.
+        :param pulumi.Input[_builtins.str] time: Time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
         """
         if detail_type is not None:
             pulumi.set(__self__, "detail_type", detail_type)
@@ -3782,7 +3694,7 @@ class PipeTargetParametersEventbridgeEventBusParametersArgs:
     @pulumi.getter(name="detailType")
     def detail_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+        Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
         """
         return pulumi.get(self, "detail_type")
 
@@ -3794,7 +3706,7 @@ class PipeTargetParametersEventbridgeEventBusParametersArgs:
     @pulumi.getter(name="endpointId")
     def endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+        URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
         """
         return pulumi.get(self, "endpoint_id")
 
@@ -3818,7 +3730,7 @@ class PipeTargetParametersEventbridgeEventBusParametersArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        Source of the event. Maximum length of 256.
         """
         return pulumi.get(self, "source")
 
@@ -3830,7 +3742,7 @@ class PipeTargetParametersEventbridgeEventBusParametersArgs:
     @pulumi.getter
     def time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+        Time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
         """
         return pulumi.get(self, "time")
 
@@ -3888,7 +3800,7 @@ class PipeTargetParametersHttpParametersArgs:
 class PipeTargetParametersKinesisStreamParametersArgsDict(TypedDict):
     partition_key: pulumi.Input[_builtins.str]
     """
-    Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
+    Value used to determine which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
     """
 
 @pulumi.input_type
@@ -3896,7 +3808,7 @@ class PipeTargetParametersKinesisStreamParametersArgs:
     def __init__(__self__, *,
                  partition_key: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] partition_key: Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
+        :param pulumi.Input[_builtins.str] partition_key: Value used to determine which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
         """
         pulumi.set(__self__, "partition_key", partition_key)
 
@@ -3904,7 +3816,7 @@ class PipeTargetParametersKinesisStreamParametersArgs:
     @pulumi.getter(name="partitionKey")
     def partition_key(self) -> pulumi.Input[_builtins.str]:
         """
-        Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
+        Value used to determine which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
         """
         return pulumi.get(self, "partition_key")
 
@@ -3916,7 +3828,7 @@ class PipeTargetParametersKinesisStreamParametersArgs:
 class PipeTargetParametersLambdaFunctionParametersArgsDict(TypedDict):
     invocation_type: pulumi.Input[_builtins.str]
     """
-    Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+    Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
     """
 
 @pulumi.input_type
@@ -3924,7 +3836,7 @@ class PipeTargetParametersLambdaFunctionParametersArgs:
     def __init__(__self__, *,
                  invocation_type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] invocation_type: Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+        :param pulumi.Input[_builtins.str] invocation_type: Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
         """
         pulumi.set(__self__, "invocation_type", invocation_type)
 
@@ -3932,7 +3844,7 @@ class PipeTargetParametersLambdaFunctionParametersArgs:
     @pulumi.getter(name="invocationType")
     def invocation_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+        Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
         """
         return pulumi.get(self, "invocation_type")
 
@@ -3944,7 +3856,7 @@ class PipeTargetParametersLambdaFunctionParametersArgs:
 class PipeTargetParametersRedshiftDataParametersArgsDict(TypedDict):
     database: pulumi.Input[_builtins.str]
     """
-    The name of the database. Required when authenticating using temporary credentials.
+    Name of the database. Required when authenticating using temporary credentials.
     """
     sqls: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
@@ -3952,19 +3864,19 @@ class PipeTargetParametersRedshiftDataParametersArgsDict(TypedDict):
     """
     db_user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The database user name. Required when authenticating using temporary credentials.
+    Database user name. Required when authenticating using temporary credentials.
     """
     secret_manager_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+    Name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
     """
     statement_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+    Name of the SQL statement. You can name the SQL statement when you create it to identify the query.
     """
     with_event: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Indicates whether to send an event back to EventBridge after the SQL statement runs.
+    Whether to send an event back to EventBridge after the SQL statement runs.
     """
 
 @pulumi.input_type
@@ -3977,12 +3889,12 @@ class PipeTargetParametersRedshiftDataParametersArgs:
                  statement_name: pulumi.Input[Optional[_builtins.str]] = None,
                  with_event: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] database: The name of the database. Required when authenticating using temporary credentials.
+        :param pulumi.Input[_builtins.str] database: Name of the database. Required when authenticating using temporary credentials.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sqls: List of SQL statements text to run, each of maximum length of 100,000.
-        :param pulumi.Input[_builtins.str] db_user: The database user name. Required when authenticating using temporary credentials.
-        :param pulumi.Input[_builtins.str] secret_manager_arn: The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
-        :param pulumi.Input[_builtins.str] statement_name: The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        :param pulumi.Input[_builtins.bool] with_event: Indicates whether to send an event back to EventBridge after the SQL statement runs.
+        :param pulumi.Input[_builtins.str] db_user: Database user name. Required when authenticating using temporary credentials.
+        :param pulumi.Input[_builtins.str] secret_manager_arn: Name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+        :param pulumi.Input[_builtins.str] statement_name: Name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+        :param pulumi.Input[_builtins.bool] with_event: Whether to send an event back to EventBridge after the SQL statement runs.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "sqls", sqls)
@@ -3999,7 +3911,7 @@ class PipeTargetParametersRedshiftDataParametersArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the database. Required when authenticating using temporary credentials.
+        Name of the database. Required when authenticating using temporary credentials.
         """
         return pulumi.get(self, "database")
 
@@ -4023,7 +3935,7 @@ class PipeTargetParametersRedshiftDataParametersArgs:
     @pulumi.getter(name="dbUser")
     def db_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The database user name. Required when authenticating using temporary credentials.
+        Database user name. Required when authenticating using temporary credentials.
         """
         return pulumi.get(self, "db_user")
 
@@ -4035,7 +3947,7 @@ class PipeTargetParametersRedshiftDataParametersArgs:
     @pulumi.getter(name="secretManagerArn")
     def secret_manager_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+        Name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
         """
         return pulumi.get(self, "secret_manager_arn")
 
@@ -4047,7 +3959,7 @@ class PipeTargetParametersRedshiftDataParametersArgs:
     @pulumi.getter(name="statementName")
     def statement_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+        Name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         """
         return pulumi.get(self, "statement_name")
 
@@ -4059,7 +3971,7 @@ class PipeTargetParametersRedshiftDataParametersArgs:
     @pulumi.getter(name="withEvent")
     def with_event(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether to send an event back to EventBridge after the SQL statement runs.
+        Whether to send an event back to EventBridge after the SQL statement runs.
         """
         return pulumi.get(self, "with_event")
 
@@ -4071,7 +3983,7 @@ class PipeTargetParametersRedshiftDataParametersArgs:
 class PipeTargetParametersSagemakerPipelineParametersArgsDict(TypedDict):
     pipeline_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgsDict']]]]]
     """
-    List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
+    List of Parameter names and values for SageMaker AI Model Building Pipeline execution. See `pipeline_parameter` Block for details.
     """
 
 @pulumi.input_type
@@ -4079,7 +3991,7 @@ class PipeTargetParametersSagemakerPipelineParametersArgs:
     def __init__(__self__, *,
                  pipeline_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs']]] pipeline_parameters: List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs']]] pipeline_parameters: List of Parameter names and values for SageMaker AI Model Building Pipeline execution. See `pipeline_parameter` Block for details.
         """
         if pipeline_parameters is not None:
             pulumi.set(__self__, "pipeline_parameters", pipeline_parameters)
@@ -4088,7 +4000,7 @@ class PipeTargetParametersSagemakerPipelineParametersArgs:
     @pulumi.getter(name="pipelineParameters")
     def pipeline_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs']]]]:
         """
-        List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
+        List of Parameter names and values for SageMaker AI Model Building Pipeline execution. See `pipeline_parameter` Block for details.
         """
         return pulumi.get(self, "pipeline_parameters")
 
@@ -4100,7 +4012,7 @@ class PipeTargetParametersSagemakerPipelineParametersArgs:
 class PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+    Name of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 256.
     """
     value: pulumi.Input[_builtins.str]
     """
@@ -4113,7 +4025,7 @@ class PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs:
                  name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        :param pulumi.Input[_builtins.str] name: Name of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 256.
         :param pulumi.Input[_builtins.str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
         """
         pulumi.set(__self__, "name", name)
@@ -4123,7 +4035,7 @@ class PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
+        Name of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 256.
         """
         return pulumi.get(self, "name")
 
@@ -4147,11 +4059,11 @@ class PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs:
 class PipeTargetParametersSqsQueueParametersArgsDict(TypedDict):
     message_deduplication_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+    Token used for deduplication of sent messages. This parameter applies only to FIFO (first-in-first-out) queues.
     """
     message_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The FIFO message group ID to use as the target.
+    FIFO message group ID to use as the target.
     """
 
 @pulumi.input_type
@@ -4160,8 +4072,8 @@ class PipeTargetParametersSqsQueueParametersArgs:
                  message_deduplication_id: pulumi.Input[Optional[_builtins.str]] = None,
                  message_group_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] message_deduplication_id: This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
-        :param pulumi.Input[_builtins.str] message_group_id: The FIFO message group ID to use as the target.
+        :param pulumi.Input[_builtins.str] message_deduplication_id: Token used for deduplication of sent messages. This parameter applies only to FIFO (first-in-first-out) queues.
+        :param pulumi.Input[_builtins.str] message_group_id: FIFO message group ID to use as the target.
         """
         if message_deduplication_id is not None:
             pulumi.set(__self__, "message_deduplication_id", message_deduplication_id)
@@ -4172,7 +4084,7 @@ class PipeTargetParametersSqsQueueParametersArgs:
     @pulumi.getter(name="messageDeduplicationId")
     def message_deduplication_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+        Token used for deduplication of sent messages. This parameter applies only to FIFO (first-in-first-out) queues.
         """
         return pulumi.get(self, "message_deduplication_id")
 
@@ -4184,7 +4096,7 @@ class PipeTargetParametersSqsQueueParametersArgs:
     @pulumi.getter(name="messageGroupId")
     def message_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The FIFO message group ID to use as the target.
+        FIFO message group ID to use as the target.
         """
         return pulumi.get(self, "message_group_id")
 
@@ -4196,7 +4108,7 @@ class PipeTargetParametersSqsQueueParametersArgs:
 class PipeTargetParametersStepFunctionStateMachineParametersArgsDict(TypedDict):
     invocation_type: pulumi.Input[_builtins.str]
     """
-    Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+    Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
     """
 
 @pulumi.input_type
@@ -4204,7 +4116,7 @@ class PipeTargetParametersStepFunctionStateMachineParametersArgs:
     def __init__(__self__, *,
                  invocation_type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] invocation_type: Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+        :param pulumi.Input[_builtins.str] invocation_type: Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
         """
         pulumi.set(__self__, "invocation_type", invocation_type)
 
@@ -4212,7 +4124,7 @@ class PipeTargetParametersStepFunctionStateMachineParametersArgs:
     @pulumi.getter(name="invocationType")
     def invocation_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+        Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
         """
         return pulumi.get(self, "invocation_type")
 

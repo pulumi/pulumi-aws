@@ -78,12 +78,16 @@ public final class RouteTablePropagationState extends com.pulumi.resources.Resou
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="transitGatewayRouteTableId")
     private @Nullable Output<String> transitGatewayRouteTableId;
 
     /**
      * @return Identifier of EC2 Transit Gateway Route Table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> transitGatewayRouteTableId() {
@@ -205,6 +209,8 @@ public final class RouteTablePropagationState extends com.pulumi.resources.Resou
         /**
          * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -215,6 +221,8 @@ public final class RouteTablePropagationState extends com.pulumi.resources.Resou
 
         /**
          * @param transitGatewayRouteTableId Identifier of EC2 Transit Gateway Route Table.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

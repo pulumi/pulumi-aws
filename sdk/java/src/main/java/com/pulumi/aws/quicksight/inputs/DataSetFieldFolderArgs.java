@@ -18,14 +18,14 @@ public final class DataSetFieldFolderArgs extends com.pulumi.resources.ResourceA
     public static final DataSetFieldFolderArgs Empty = new DataSetFieldFolderArgs();
 
     /**
-     * An array of column names to add to the folder. A column can only be in one folder.
+     * Array of column names to add to the folder. A column can only be in one folder.
      * 
      */
     @Import(name="columns")
     private @Nullable Output<List<String>> columns;
 
     /**
-     * @return An array of column names to add to the folder. A column can only be in one folder.
+     * @return Array of column names to add to the folder. A column can only be in one folder.
      * 
      */
     public Optional<Output<List<String>>> columns() {
@@ -89,7 +89,7 @@ public final class DataSetFieldFolderArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param columns An array of column names to add to the folder. A column can only be in one folder.
+         * @param columns Array of column names to add to the folder. A column can only be in one folder.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DataSetFieldFolderArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param columns An array of column names to add to the folder. A column can only be in one folder.
+         * @param columns Array of column names to add to the folder. A column can only be in one folder.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class DataSetFieldFolderArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param columns An array of column names to add to the folder. A column can only be in one folder.
+         * @param columns Array of column names to add to the folder. A column can only be in one folder.
          * 
          * @return builder
          * 

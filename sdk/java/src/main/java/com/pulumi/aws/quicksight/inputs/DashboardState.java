@@ -53,14 +53,14 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time that the dashboard was created.
+     * Time that the dashboard was created.
      * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
-     * @return The time that the dashboard was created.
+     * @return Time that the dashboard was created.
      * 
      */
     public Optional<Output<String>> createdTime() {
@@ -83,36 +83,44 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Options for publishing the dashboard. See dashboard_publish_options.
+     * Options for publishing the dashboard. See `dashboardPublishOptions`.
      * 
      */
     @Import(name="dashboardPublishOptions")
     private @Nullable Output<DashboardDashboardPublishOptionsArgs> dashboardPublishOptions;
 
     /**
-     * @return Options for publishing the dashboard. See dashboard_publish_options.
+     * @return Options for publishing the dashboard. See `dashboardPublishOptions`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsArgs>> dashboardPublishOptions() {
         return Optional.ofNullable(this.dashboardPublishOptions);
     }
 
+    /**
+     * Time that the dashboard was last published.
+     * 
+     */
     @Import(name="lastPublishedTime")
     private @Nullable Output<String> lastPublishedTime;
 
+    /**
+     * @return Time that the dashboard was last published.
+     * 
+     */
     public Optional<Output<String>> lastPublishedTime() {
         return Optional.ofNullable(this.lastPublishedTime);
     }
 
     /**
-     * The time that the dashboard was last updated.
+     * Time that the dashboard was last updated.
      * 
      */
     @Import(name="lastUpdatedTime")
     private @Nullable Output<String> lastUpdatedTime;
 
     /**
-     * @return The time that the dashboard was last updated.
+     * @return Time that the dashboard was last updated.
      * 
      */
     public Optional<Output<String>> lastUpdatedTime() {
@@ -135,14 +143,14 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<DashboardParametersArgs> parameters;
 
     /**
-     * @return The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * @return Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
      * 
      */
     public Optional<Output<DashboardParametersArgs>> parameters() {
@@ -150,14 +158,14 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<DashboardPermissionArgs>> permissions;
 
     /**
-     * @return A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
      * 
      */
     public Optional<Output<List<DashboardPermissionArgs>>> permissions() {
@@ -180,14 +188,14 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
      * 
      */
     @Import(name="sourceEntity")
     private @Nullable Output<DashboardSourceEntityArgs> sourceEntity;
 
     /**
-     * @return The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * @return Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
      * 
      */
     public Optional<Output<DashboardSourceEntityArgs>> sourceEntity() {
@@ -210,14 +218,14 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The dashboard creation status.
+     * Dashboard creation status.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The dashboard creation status.
+     * @return Dashboard creation status.
      * 
      */
     public Optional<Output<String>> status() {
@@ -240,14 +248,14 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -270,7 +278,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the current dashboard version being created/updated.
+     * Description of the current dashboard version being created/updated.
      * 
      * The following arguments are optional:
      * 
@@ -279,7 +287,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> versionDescription;
 
     /**
-     * @return A description of the current dashboard version being created/updated.
+     * @return Description of the current dashboard version being created/updated.
      * 
      * The following arguments are optional:
      * 
@@ -289,14 +297,14 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version number of the dashboard version.
+     * Version number of the dashboard version.
      * 
      */
     @Import(name="versionNumber")
     private @Nullable Output<Integer> versionNumber;
 
     /**
-     * @return The version number of the dashboard version.
+     * @return Version number of the dashboard version.
      * 
      */
     public Optional<Output<Integer>> versionNumber() {
@@ -388,7 +396,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime The time that the dashboard was created.
+         * @param createdTime Time that the dashboard was created.
          * 
          * @return builder
          * 
@@ -399,7 +407,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime The time that the dashboard was created.
+         * @param createdTime Time that the dashboard was created.
          * 
          * @return builder
          * 
@@ -430,7 +438,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardPublishOptions Options for publishing the dashboard. See dashboard_publish_options.
+         * @param dashboardPublishOptions Options for publishing the dashboard. See `dashboardPublishOptions`.
          * 
          * @return builder
          * 
@@ -441,7 +449,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardPublishOptions Options for publishing the dashboard. See dashboard_publish_options.
+         * @param dashboardPublishOptions Options for publishing the dashboard. See `dashboardPublishOptions`.
          * 
          * @return builder
          * 
@@ -450,17 +458,29 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
             return dashboardPublishOptions(Output.of(dashboardPublishOptions));
         }
 
+        /**
+         * @param lastPublishedTime Time that the dashboard was last published.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastPublishedTime(@Nullable Output<String> lastPublishedTime) {
             $.lastPublishedTime = lastPublishedTime;
             return this;
         }
 
+        /**
+         * @param lastPublishedTime Time that the dashboard was last published.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastPublishedTime(String lastPublishedTime) {
             return lastPublishedTime(Output.of(lastPublishedTime));
         }
 
         /**
-         * @param lastUpdatedTime The time that the dashboard was last updated.
+         * @param lastUpdatedTime Time that the dashboard was last updated.
          * 
          * @return builder
          * 
@@ -471,7 +491,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedTime The time that the dashboard was last updated.
+         * @param lastUpdatedTime Time that the dashboard was last updated.
          * 
          * @return builder
          * 
@@ -502,7 +522,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+         * @param parameters Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
          * 
          * @return builder
          * 
@@ -513,7 +533,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+         * @param parameters Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
          * 
          * @return builder
          * 
@@ -523,7 +543,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
          * 
          * @return builder
          * 
@@ -534,7 +554,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
          * 
          * @return builder
          * 
@@ -544,7 +564,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
          * 
          * @return builder
          * 
@@ -575,7 +595,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntity The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+         * @param sourceEntity Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
          * 
          * @return builder
          * 
@@ -586,7 +606,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntity The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+         * @param sourceEntity Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
          * 
          * @return builder
          * 
@@ -617,7 +637,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The dashboard creation status.
+         * @param status Dashboard creation status.
          * 
          * @return builder
          * 
@@ -628,7 +648,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The dashboard creation status.
+         * @param status Dashboard creation status.
          * 
          * @return builder
          * 
@@ -659,7 +679,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -670,7 +690,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -701,7 +721,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionDescription A description of the current dashboard version being created/updated.
+         * @param versionDescription Description of the current dashboard version being created/updated.
          * 
          * The following arguments are optional:
          * 
@@ -714,7 +734,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionDescription A description of the current dashboard version being created/updated.
+         * @param versionDescription Description of the current dashboard version being created/updated.
          * 
          * The following arguments are optional:
          * 
@@ -726,7 +746,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionNumber The version number of the dashboard version.
+         * @param versionNumber Version number of the dashboard version.
          * 
          * @return builder
          * 
@@ -737,7 +757,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionNumber The version number of the dashboard version.
+         * @param versionNumber Version number of the dashboard version.
          * 
          * @return builder
          * 

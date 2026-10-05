@@ -70,7 +70,7 @@ export class KeyRegistration extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * Registered keys. See key_registration.
+     * Registered keys. See `keyRegistration` Block.
      */
     declare public readonly keyRegistrations: pulumi.Output<outputs.quicksight.KeyRegistrationKeyRegistration[]>;
     /**
@@ -117,7 +117,7 @@ export interface KeyRegistrationState {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * Registered keys. See key_registration.
+     * Registered keys. See `keyRegistration` Block.
      */
     keyRegistrations?: pulumi.Input<pulumi.Input<inputs.quicksight.KeyRegistrationKeyRegistration>[] | undefined>;
     /**
@@ -135,7 +135,7 @@ export interface KeyRegistrationArgs {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * Registered keys. See key_registration.
+     * Registered keys. See `keyRegistration` Block.
      */
     keyRegistrations: pulumi.Input<pulumi.Input<inputs.quicksight.KeyRegistrationKeyRegistration>[]>;
     /**

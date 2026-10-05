@@ -42,6 +42,9 @@ namespace Pulumi.Aws.Quicksight
     [AwsResourceType("aws:quicksight/groupMembership:GroupMembership")]
     public partial class GroupMembership : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the group membership.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -52,19 +55,19 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the group in which the member will be added.
+        /// Name of the group in which the member will be added.
         /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the member to add to the group.
+        /// Name of the member to add to the group.
         /// </summary>
         [Output("memberName")]
         public Output<string> MemberName { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace that you want the user to be a part of. Defaults to `Default`.
+        /// Namespace that you want the user to be a part of. Defaults to `Default`.
         /// </summary>
         [Output("namespace")]
         public Output<string?> Namespace { get; private set; } = null!;
@@ -128,19 +131,19 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The name of the group in which the member will be added.
+        /// Name of the group in which the member will be added.
         /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the member to add to the group.
+        /// Name of the member to add to the group.
         /// </summary>
         [Input("memberName", required: true)]
         public Input<string> MemberName { get; set; } = null!;
 
         /// <summary>
-        /// The namespace that you want the user to be a part of. Defaults to `Default`.
+        /// Namespace that you want the user to be a part of. Defaults to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
@@ -159,6 +162,9 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GroupMembershipState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the group membership.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
@@ -169,19 +175,19 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The name of the group in which the member will be added.
+        /// Name of the group in which the member will be added.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
 
         /// <summary>
-        /// The name of the member to add to the group.
+        /// Name of the member to add to the group.
         /// </summary>
         [Input("memberName")]
         public Input<string>? MemberName { get; set; }
 
         /// <summary>
-        /// The namespace that you want the user to be a part of. Defaults to `Default`.
+        /// Namespace that you want the user to be a part of. Defaults to `Default`.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }

@@ -45,7 +45,7 @@ export function getCipherText(args: GetCipherTextArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetCipherTextArgs {
     /**
-     * An optional mapping that makes up the encryption context.
+     * Mapping that makes up the encryption context.
      */
     context?: {[key: string]: string};
     /**
@@ -120,7 +120,7 @@ export function getCipherTextOutput(args: GetCipherTextOutputArgs, opts?: pulumi
  */
 export interface GetCipherTextOutputArgs {
     /**
-     * An optional mapping that makes up the encryption context.
+     * Mapping that makes up the encryption context.
      */
     context?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**

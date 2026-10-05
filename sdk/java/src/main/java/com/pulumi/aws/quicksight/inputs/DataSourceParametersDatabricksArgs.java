@@ -16,14 +16,14 @@ public final class DataSourceParametersDatabricksArgs extends com.pulumi.resourc
     public static final DataSourceParametersDatabricksArgs Empty = new DataSourceParametersDatabricksArgs();
 
     /**
-     * The host name of the Databricks data source.
+     * Host name of the Databricks data source.
      * 
      */
     @Import(name="host", required=true)
     private Output<String> host;
 
     /**
-     * @return The host name of the Databricks data source.
+     * @return Host name of the Databricks data source.
      * 
      */
     public Output<String> host() {
@@ -31,14 +31,14 @@ public final class DataSourceParametersDatabricksArgs extends com.pulumi.resourc
     }
 
     /**
-     * The port for the Databricks data source.
+     * Port for the Databricks data source.
      * 
      */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
     /**
-     * @return The port for the Databricks data source.
+     * @return Port for the Databricks data source.
      * 
      */
     public Output<Integer> port() {
@@ -46,14 +46,14 @@ public final class DataSourceParametersDatabricksArgs extends com.pulumi.resourc
     }
 
     /**
-     * The HTTP path of the Databricks data source.
+     * HTTP path of the Databricks data source.
      * 
      */
     @Import(name="sqlEndpointPath", required=true)
     private Output<String> sqlEndpointPath;
 
     /**
-     * @return The HTTP path of the Databricks data source.
+     * @return HTTP path of the Databricks data source.
      * 
      */
     public Output<String> sqlEndpointPath() {
@@ -87,7 +87,7 @@ public final class DataSourceParametersDatabricksArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param host The host name of the Databricks data source.
+         * @param host Host name of the Databricks data source.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class DataSourceParametersDatabricksArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param host The host name of the Databricks data source.
+         * @param host Host name of the Databricks data source.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class DataSourceParametersDatabricksArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param port The port for the Databricks data source.
+         * @param port Port for the Databricks data source.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class DataSourceParametersDatabricksArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param port The port for the Databricks data source.
+         * @param port Port for the Databricks data source.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class DataSourceParametersDatabricksArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sqlEndpointPath The HTTP path of the Databricks data source.
+         * @param sqlEndpointPath HTTP path of the Databricks data source.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DataSourceParametersDatabricksArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sqlEndpointPath The HTTP path of the Databricks data source.
+         * @param sqlEndpointPath HTTP path of the Databricks data source.
          * 
          * @return builder
          * 

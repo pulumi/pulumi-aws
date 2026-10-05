@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeTargetParametersRedshiftDataParameters
     {
         /// <summary>
-        /// The name of the database. Required when authenticating using temporary credentials.
+        /// Name of the database. Required when authenticating using temporary credentials.
         /// </summary>
         public readonly string Database;
         /// <summary>
-        /// The database user name. Required when authenticating using temporary credentials.
+        /// Database user name. Required when authenticating using temporary credentials.
         /// </summary>
         public readonly string? DbUser;
         /// <summary>
-        /// The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+        /// Name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
         /// </summary>
         public readonly string? SecretManagerArn;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Sqls;
         /// <summary>
-        /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+        /// Name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         /// </summary>
         public readonly string? StatementName;
         /// <summary>
-        /// Indicates whether to send an event back to EventBridge after the SQL statement runs.
+        /// Whether to send an event back to EventBridge after the SQL statement runs.
         /// </summary>
         public readonly bool? WithEvent;
 

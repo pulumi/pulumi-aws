@@ -62,7 +62,7 @@ type KeyRegistration struct {
 
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Registered keys. See key_registration.
+	// Registered keys. See `keyRegistration` Block.
 	KeyRegistrations KeyRegistrationKeyRegistrationArrayOutput `pulumi:"keyRegistrations"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -103,7 +103,7 @@ func GetKeyRegistration(ctx *pulumi.Context,
 type keyRegistrationState struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Registered keys. See key_registration.
+	// Registered keys. See `keyRegistration` Block.
 	KeyRegistrations []KeyRegistrationKeyRegistration `pulumi:"keyRegistrations"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -112,7 +112,7 @@ type keyRegistrationState struct {
 type KeyRegistrationState struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// Registered keys. See key_registration.
+	// Registered keys. See `keyRegistration` Block.
 	KeyRegistrations KeyRegistrationKeyRegistrationArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -125,7 +125,7 @@ func (KeyRegistrationState) ElementType() reflect.Type {
 type keyRegistrationArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Registered keys. See key_registration.
+	// Registered keys. See `keyRegistration` Block.
 	KeyRegistrations []KeyRegistrationKeyRegistration `pulumi:"keyRegistrations"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -135,7 +135,7 @@ type keyRegistrationArgs struct {
 type KeyRegistrationArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// Registered keys. See key_registration.
+	// Registered keys. See `keyRegistration` Block.
 	KeyRegistrations KeyRegistrationKeyRegistrationArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -233,7 +233,7 @@ func (o KeyRegistrationOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyRegistration) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Registered keys. See key_registration.
+// Registered keys. See `keyRegistration` Block.
 func (o KeyRegistrationOutput) KeyRegistrations() KeyRegistrationKeyRegistrationArrayOutput {
 	return o.ApplyT(func(v *KeyRegistration) KeyRegistrationKeyRegistrationArrayOutput { return v.KeyRegistrations }).(KeyRegistrationKeyRegistrationArrayOutput)
 }

@@ -20,14 +20,14 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
     public static final DataSetLogicalTableMapArgs Empty = new DataSetLogicalTableMapArgs();
 
     /**
-     * A display name for the logical table.
+     * Display name for the logical table.
      * 
      */
     @Import(name="alias", required=true)
     private Output<String> alias;
 
     /**
-     * @return A display name for the logical table.
+     * @return Display name for the logical table.
      * 
      */
     public Output<String> alias() {
@@ -35,14 +35,14 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+     * Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `dataTransforms` Block below.
      * 
      */
     @Import(name="dataTransforms")
     private @Nullable Output<List<DataSetLogicalTableMapDataTransformArgs>> dataTransforms;
 
     /**
-     * @return Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+     * @return Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `dataTransforms` Block below.
      * 
      */
     public Optional<Output<List<DataSetLogicalTableMapDataTransformArgs>>> dataTransforms() {
@@ -65,14 +65,14 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Source of this logical table. See source.
+     * Source of this logical table. See `source` Block below.
      * 
      */
     @Import(name="source", required=true)
     private Output<DataSetLogicalTableMapSourceArgs> source;
 
     /**
-     * @return Source of this logical table. See source.
+     * @return Source of this logical table. See `source` Block below.
      * 
      */
     public Output<DataSetLogicalTableMapSourceArgs> source() {
@@ -107,7 +107,7 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param alias A display name for the logical table.
+         * @param alias Display name for the logical table.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param alias A display name for the logical table.
+         * @param alias Display name for the logical table.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataTransforms Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+         * @param dataTransforms Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `dataTransforms` Block below.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataTransforms Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+         * @param dataTransforms Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `dataTransforms` Block below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param dataTransforms Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+         * @param dataTransforms Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `dataTransforms` Block below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param source Source of this logical table. See source.
+         * @param source Source of this logical table. See `source` Block below.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class DataSetLogicalTableMapArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param source Source of this logical table. See source.
+         * @param source Source of this logical table. See `source` Block below.
          * 
          * @return builder
          * 

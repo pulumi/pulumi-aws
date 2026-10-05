@@ -404,14 +404,14 @@ public class DbCluster extends com.pulumi.resources.CustomResource {
         return this.dbStorageType;
     }
     /**
-     * Specifies the type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     * Type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
     @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output<String> deploymentType;
 
     /**
-     * @return Specifies the type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     * @return Type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
     public Output<String> deploymentType() {
@@ -446,14 +446,14 @@ public class DbCluster extends com.pulumi.resources.CustomResource {
         return this.engineType;
     }
     /**
-     * Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
+     * Behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
      * 
      */
     @Export(name="failoverMode", refs={String.class}, tree="[0]")
     private Output<String> failoverMode;
 
     /**
-     * @return Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
+     * @return Behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
      * 
      */
     public Output<String> failoverMode() {
@@ -516,14 +516,14 @@ public class DbCluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * Network type of the Timestream for InfluxDB cluster. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
      * 
      */
     @Export(name="networkType", refs={String.class}, tree="[0]")
     private Output<String> networkType;
 
     /**
-     * @return Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * @return Network type of the Timestream for InfluxDB cluster. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
      * 
      */
     public Output<String> networkType() {
@@ -558,42 +558,42 @@ public class DbCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.password);
     }
     /**
-     * The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * Port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
-     * @return The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * @return Port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
      * 
      */
     public Output<Integer> port() {
         return this.port;
     }
     /**
-     * Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
+     * Whether to configure the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
      * 
      */
     @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> publiclyAccessible;
 
     /**
-     * @return Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
+     * @return Whether to configure the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
      * 
      */
     public Output<Boolean> publiclyAccessible() {
         return this.publiclyAccessible;
     }
     /**
-     * The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
+     * Endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
      * 
      */
     @Export(name="readerEndpoint", refs={String.class}, tree="[0]")
     private Output<String> readerEndpoint;
 
     /**
-     * @return The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
+     * @return Endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
      * 
      */
     public Output<String> readerEndpoint() {

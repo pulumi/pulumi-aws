@@ -65,15 +65,13 @@ namespace Pulumi.Aws.Ec2
     public partial class ProxyProtocolPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of instance ports to which the policy
-        /// should be applied. This can be specified if the protocol is SSL or TCP.
+        /// List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
         /// </summary>
         [Output("instancePorts")]
         public Output<ImmutableArray<string>> InstancePorts { get; private set; } = null!;
 
         /// <summary>
-        /// The load balancer to which the policy
-        /// should be attached.
+        /// Load balancer to which the policy should be attached.
         /// </summary>
         [Output("loadBalancer")]
         public Output<string> LoadBalancer { get; private set; } = null!;
@@ -134,8 +132,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _instancePorts;
 
         /// <summary>
-        /// List of instance ports to which the policy
-        /// should be applied. This can be specified if the protocol is SSL or TCP.
+        /// List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
         /// </summary>
         public InputList<string> InstancePorts
         {
@@ -144,8 +141,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The load balancer to which the policy
-        /// should be attached.
+        /// Load balancer to which the policy should be attached.
         /// </summary>
         [Input("loadBalancer", required: true)]
         public Input<string> LoadBalancer { get; set; } = null!;
@@ -168,8 +164,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _instancePorts;
 
         /// <summary>
-        /// List of instance ports to which the policy
-        /// should be applied. This can be specified if the protocol is SSL or TCP.
+        /// List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
         /// </summary>
         public InputList<string> InstancePorts
         {
@@ -178,8 +173,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The load balancer to which the policy
-        /// should be attached.
+        /// Load balancer to which the policy should be attached.
         /// </summary>
         [Input("loadBalancer")]
         public Input<string>? LoadBalancer { get; set; }

@@ -26,8 +26,8 @@ class DatabaseArgs:
         """
         The set of arguments for constructing a Database resource.
 
-        :param pulumi.Input[_builtins.str] database_name: The name of the Timestream database. Minimum length of 3. Maximum length of 64.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
+        :param pulumi.Input[_builtins.str] database_name: Name of the Timestream database. Minimum length of 3. Maximum length of 64.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -43,7 +43,7 @@ class DatabaseArgs:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Timestream database. Minimum length of 3. Maximum length of 64.
+        Name of the Timestream database. Minimum length of 3. Maximum length of 64.
         """
         return pulumi.get(self, "database_name")
 
@@ -55,7 +55,7 @@ class DatabaseArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
+        ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -101,13 +101,13 @@ class _DatabaseState:
         """
         Input properties used for looking up and filtering Database resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN that uniquely identifies this database.
-        :param pulumi.Input[_builtins.str] database_name: The name of the Timestream database. Minimum length of 3. Maximum length of 64.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
+        :param pulumi.Input[_builtins.str] arn: ARN that uniquely identifies this database.
+        :param pulumi.Input[_builtins.str] database_name: Name of the Timestream database. Minimum length of 3. Maximum length of 64.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] table_count: The total number of tables found within the Timestream database.
+        :param pulumi.Input[_builtins.int] table_count: Total number of tables found within the Timestream database.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -128,7 +128,7 @@ class _DatabaseState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN that uniquely identifies this database.
+        ARN that uniquely identifies this database.
         """
         return pulumi.get(self, "arn")
 
@@ -140,7 +140,7 @@ class _DatabaseState:
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the Timestream database. Minimum length of 3. Maximum length of 64.
+        Name of the Timestream database. Minimum length of 3. Maximum length of 64.
         """
         return pulumi.get(self, "database_name")
 
@@ -152,7 +152,7 @@ class _DatabaseState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
+        ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -176,7 +176,7 @@ class _DatabaseState:
     @pulumi.getter(name="tableCount")
     def table_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The total number of tables found within the Timestream database.
+        Total number of tables found within the Timestream database.
         """
         return pulumi.get(self, "table_count")
 
@@ -200,7 +200,7 @@ class _DatabaseState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -259,8 +259,8 @@ class Database(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] database_name: The name of the Timestream database. Minimum length of 3. Maximum length of 64.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
+        :param pulumi.Input[_builtins.str] database_name: Name of the Timestream database. Minimum length of 3. Maximum length of 64.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -368,13 +368,13 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN that uniquely identifies this database.
-        :param pulumi.Input[_builtins.str] database_name: The name of the Timestream database. Minimum length of 3. Maximum length of 64.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
+        :param pulumi.Input[_builtins.str] arn: ARN that uniquely identifies this database.
+        :param pulumi.Input[_builtins.str] database_name: Name of the Timestream database. Minimum length of 3. Maximum length of 64.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] table_count: The total number of tables found within the Timestream database.
+        :param pulumi.Input[_builtins.int] table_count: Total number of tables found within the Timestream database.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -393,7 +393,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN that uniquely identifies this database.
+        ARN that uniquely identifies this database.
         """
         return pulumi.get(self, "arn")
 
@@ -401,7 +401,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the Timestream database. Minimum length of 3. Maximum length of 64.
+        Name of the Timestream database. Minimum length of 3. Maximum length of 64.
         """
         return pulumi.get(self, "database_name")
 
@@ -409,7 +409,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
+        ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -425,7 +425,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="tableCount")
     def table_count(self) -> pulumi.Output[_builtins.int]:
         """
-        The total number of tables found within the Timestream database.
+        Total number of tables found within the Timestream database.
         """
         return pulumi.get(self, "table_count")
 
@@ -441,7 +441,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

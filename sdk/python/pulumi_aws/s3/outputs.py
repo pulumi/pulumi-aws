@@ -7031,7 +7031,7 @@ class BucketV2Website(dict):
                  routing_rules: Optional[_builtins.str] = None):
         """
         :param _builtins.str error_document: Absolute path to the document to return in case of a 4XX error.
-        :param _builtins.str index_document: Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+        :param _builtins.str index_document: Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirect_all_requests_to`.
         :param _builtins.str redirect_all_requests_to: Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
         :param _builtins.str routing_rules: JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
         """
@@ -7056,7 +7056,7 @@ class BucketV2Website(dict):
     @pulumi.getter(name="indexDocument")
     def index_document(self) -> Optional[_builtins.str]:
         """
-        Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+        Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirect_all_requests_to`.
         """
         return pulumi.get(self, "index_document")
 
@@ -7251,7 +7251,7 @@ class BucketWebsite(dict):
                  routing_rules: Optional[_builtins.str] = None):
         """
         :param _builtins.str error_document: Absolute path to the document to return in case of a 4XX error.
-        :param _builtins.str index_document: Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+        :param _builtins.str index_document: Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirect_all_requests_to`.
         :param _builtins.str redirect_all_requests_to: Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
         :param _builtins.str routing_rules: JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html) describing redirect behavior and when redirects are applied.
         """
@@ -7276,7 +7276,7 @@ class BucketWebsite(dict):
     @pulumi.getter(name="indexDocument")
     def index_document(self) -> Optional[_builtins.str]:
         """
-        Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+        Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirect_all_requests_to`.
         """
         return pulumi.get(self, "index_document")
 

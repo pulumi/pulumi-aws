@@ -16,14 +16,14 @@ public final class GetCustomKeyStoreArgs extends com.pulumi.resources.InvokeArgs
     public static final GetCustomKeyStoreArgs Empty = new GetCustomKeyStoreArgs();
 
     /**
-     * The ID for the custom key store.
+     * ID for the custom key store.
      * 
      */
     @Import(name="customKeyStoreId")
     private @Nullable Output<String> customKeyStoreId;
 
     /**
-     * @return The ID for the custom key store.
+     * @return ID for the custom key store.
      * 
      */
     public Optional<Output<String>> customKeyStoreId() {
@@ -31,14 +31,14 @@ public final class GetCustomKeyStoreArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * The user-specified friendly name for the custom key store.
+     * User-specified friendly name for the custom key store.
      * 
      */
     @Import(name="customKeyStoreName")
     private @Nullable Output<String> customKeyStoreName;
 
     /**
-     * @return The user-specified friendly name for the custom key store.
+     * @return User-specified friendly name for the custom key store.
      * 
      */
     public Optional<Output<String>> customKeyStoreName() {
@@ -87,7 +87,7 @@ public final class GetCustomKeyStoreArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param customKeyStoreId The ID for the custom key store.
+         * @param customKeyStoreId ID for the custom key store.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GetCustomKeyStoreArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param customKeyStoreId The ID for the custom key store.
+         * @param customKeyStoreId ID for the custom key store.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GetCustomKeyStoreArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param customKeyStoreName The user-specified friendly name for the custom key store.
+         * @param customKeyStoreName User-specified friendly name for the custom key store.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class GetCustomKeyStoreArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param customKeyStoreName The user-specified friendly name for the custom key store.
+         * @param customKeyStoreName User-specified friendly name for the custom key store.
          * 
          * @return builder
          * 

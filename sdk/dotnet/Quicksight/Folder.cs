@@ -120,39 +120,39 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The time that the folder was created.
+        /// Time that the folder was created.
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Identifier for the folder.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("folderId")]
         public Output<string> FolderId { get; private set; } = null!;
 
         /// <summary>
-        /// An array of ancestor ARN strings for the folder. Empty for root-level folders.
+        /// Array of ancestor ARN strings for the folder. Empty for root-level folders.
         /// </summary>
         [Output("folderPaths")]
         public Output<ImmutableArray<string>> FolderPaths { get; private set; } = null!;
 
         /// <summary>
-        /// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+        /// Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         /// </summary>
         [Output("folderType")]
         public Output<string?> FolderType { get; private set; } = null!;
 
         /// <summary>
-        /// The time that the folder was last updated.
+        /// Time that the folder was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
         /// Display name for the folder.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string?> ParentFolderArn { get; private set; } = null!;
 
         /// <summary>
-        /// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the folder. Maximum of 64 items. See `Permissions` Block.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.FolderPermission>> Permissions { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -241,20 +241,20 @@ namespace Pulumi.Aws.Quicksight
 
         /// <summary>
         /// Identifier for the folder.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("folderId", required: true)]
         public Input<string> FolderId { get; set; } = null!;
 
         /// <summary>
-        /// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+        /// Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         /// </summary>
         [Input("folderType")]
         public Input<string>? FolderType { get; set; }
 
         /// <summary>
         /// Display name for the folder.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.FolderPermissionArgs>? _permissions;
 
         /// <summary>
-        /// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the folder. Maximum of 64 items. See `Permissions` Block.
         /// </summary>
         public InputList<Inputs.FolderPermissionArgs> Permissions
         {
@@ -316,13 +316,15 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The time that the folder was created.
+        /// Time that the folder was created.
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
         /// Identifier for the folder.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("folderId")]
         public Input<string>? FolderId { get; set; }
@@ -331,7 +333,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<string>? _folderPaths;
 
         /// <summary>
-        /// An array of ancestor ARN strings for the folder. Empty for root-level folders.
+        /// Array of ancestor ARN strings for the folder. Empty for root-level folders.
         /// </summary>
         public InputList<string> FolderPaths
         {
@@ -340,21 +342,19 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+        /// Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         /// </summary>
         [Input("folderType")]
         public Input<string>? FolderType { get; set; }
 
         /// <summary>
-        /// The time that the folder was last updated.
+        /// Time that the folder was last updated.
         /// </summary>
         [Input("lastUpdatedTime")]
         public Input<string>? LastUpdatedTime { get; set; }
 
         /// <summary>
         /// Display name for the folder.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.FolderPermissionGetArgs>? _permissions;
 
         /// <summary>
-        /// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the folder. Maximum of 64 items. See `Permissions` Block.
         /// </summary>
         public InputList<Inputs.FolderPermissionGetArgs> Permissions
         {
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

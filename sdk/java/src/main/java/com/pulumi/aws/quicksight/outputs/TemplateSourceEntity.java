@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TemplateSourceEntity {
     /**
-     * @return The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
+     * @return Source analysis, if it is based on an analysis. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceAnalysis` Block.
      * 
      */
     private @Nullable TemplateSourceEntitySourceAnalysis sourceAnalysis;
     /**
-     * @return The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
+     * @return Source template, if it is based on a template. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceTemplate` Block.
      * 
      */
     private @Nullable TemplateSourceEntitySourceTemplate sourceTemplate;
 
     private TemplateSourceEntity() {}
     /**
-     * @return The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
+     * @return Source analysis, if it is based on an analysis. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceAnalysis` Block.
      * 
      */
     public Optional<TemplateSourceEntitySourceAnalysis> sourceAnalysis() {
         return Optional.ofNullable(this.sourceAnalysis);
     }
     /**
-     * @return The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
+     * @return Source template, if it is based on a template. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceTemplate` Block.
      * 
      */
     public Optional<TemplateSourceEntitySourceTemplate> sourceTemplate() {

@@ -14,38 +14,38 @@ import java.util.Objects;
 @CustomType
 public final class GetKeyMultiRegionConfiguration {
     /**
-     * @return Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
+     * @return Whether the KMS key is a `PRIMARY` or `REPLICA` key.
      * 
      */
     private String multiRegionKeyType;
     /**
-     * @return The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
+     * @return Key ARN and Region of the primary key. This is the current KMS key if it is the primary key. See `multi_region_configuration.primary_key` Block below.
      * 
      */
     private List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys;
     /**
-     * @return The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
+     * @return Key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key. See `multi_region_configuration.replica_keys` Block below.
      * 
      */
     private List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys;
 
     private GetKeyMultiRegionConfiguration() {}
     /**
-     * @return Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
+     * @return Whether the KMS key is a `PRIMARY` or `REPLICA` key.
      * 
      */
     public String multiRegionKeyType() {
         return this.multiRegionKeyType;
     }
     /**
-     * @return The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
+     * @return Key ARN and Region of the primary key. This is the current KMS key if it is the primary key. See `multi_region_configuration.primary_key` Block below.
      * 
      */
     public List<GetKeyMultiRegionConfigurationPrimaryKey> primaryKeys() {
         return this.primaryKeys;
     }
     /**
-     * @return The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
+     * @return Key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key. See `multi_region_configuration.replica_keys` Block below.
      * 
      */
     public List<GetKeyMultiRegionConfigurationReplicaKey> replicaKeys() {

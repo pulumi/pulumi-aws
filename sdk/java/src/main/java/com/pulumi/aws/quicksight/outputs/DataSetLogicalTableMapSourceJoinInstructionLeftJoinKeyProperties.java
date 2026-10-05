@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties {
     /**
-     * @return A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+     * @return Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
      * 
      */
     private @Nullable Boolean uniqueKey;
 
     private DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties() {}
     /**
-     * @return A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+     * @return Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
      * 
      */
     public Optional<Boolean> uniqueKey() {

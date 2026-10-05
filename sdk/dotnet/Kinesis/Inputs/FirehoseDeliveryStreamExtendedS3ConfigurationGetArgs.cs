@@ -13,28 +13,37 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the S3 bucket
+        /// ARN of the S3 bucket.
         /// </summary>
         [Input("bucketArn", required: true)]
         public Input<string> BucketArn { get; set; } = null!;
 
+        /// <summary>
+        /// Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+        /// </summary>
         [Input("bufferingInterval")]
         public Input<int>? BufferingInterval { get; set; }
 
+        /// <summary>
+        /// Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
+        /// </summary>
         [Input("bufferingSize")]
         public Input<int>? BufferingSize { get; set; }
 
+        /// <summary>
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
 
         /// <summary>
-        /// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+        /// Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
         /// </summary>
         [Input("compressionFormat")]
         public Input<string>? CompressionFormat { get; set; }
 
         /// <summary>
-        /// The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+        /// Time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
         /// </summary>
         [Input("customTimeZone")]
         public Input<string>? CustomTimeZone { get; set; }
@@ -46,7 +55,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationGetArgs>? DataFormatConversionConfiguration { get; set; }
 
         /// <summary>
-        /// The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `DynamicPartitioningConfiguration` block below for details.
+        /// Configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `DynamicPartitioningConfiguration` block below for details.
         /// </summary>
         [Input("dynamicPartitioningConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationGetArgs>? DynamicPartitioningConfiguration { get; set; }
@@ -58,41 +67,43 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? ErrorOutputPrefix { get; set; }
 
         /// <summary>
-        /// The file extension to override the default file extension (for example, `.json`).
+        /// File extension to override the default file extension (for example, `.json`).
         /// </summary>
         [Input("fileExtension")]
         public Input<string>? FileExtension { get; set; }
 
         /// <summary>
-        /// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-        /// be used.
+        /// KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+        /// Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
-        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
+        /// Data processing configuration. See `ProcessingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
 
+        /// <summary>
+        /// ARN of the AWS credentials.
+        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The configuration for backup in Amazon S3. Required if `S3BackupMode` is `Enabled`. Supports the same fields as `S3Configuration` object.
+        /// Configuration for backup in Amazon S3. Required if `S3BackupMode` is `Enabled`. See `S3BackupConfiguration` block below for details.
         /// </summary>
         [Input("s3BackupConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationGetArgs>? S3BackupConfiguration { get; set; }
 
         /// <summary>
-        /// The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+        /// Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }

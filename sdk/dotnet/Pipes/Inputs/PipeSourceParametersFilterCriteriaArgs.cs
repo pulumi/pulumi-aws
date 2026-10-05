@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<Inputs.PipeSourceParametersFilterCriteriaFilterArgs>? _filters;
 
         /// <summary>
-        /// An array of up to 5 event patterns. Detailed below.
+        /// Array of up to 5 event patterns. See `Filter` Block for details.
         /// </summary>
         public InputList<Inputs.PipeSourceParametersFilterCriteriaFilterArgs> Filters
         {

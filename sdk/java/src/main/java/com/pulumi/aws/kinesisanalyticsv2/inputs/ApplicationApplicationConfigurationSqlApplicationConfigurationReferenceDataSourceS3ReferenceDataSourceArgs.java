@@ -15,14 +15,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs();
 
     /**
-     * The ARN of the S3 bucket.
+     * ARN of the S3 bucket.
      * 
      */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
     /**
-     * @return The ARN of the S3 bucket.
+     * @return ARN of the S3 bucket.
      * 
      */
     public Output<String> bucketArn() {
@@ -30,14 +30,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * The object key name containing the reference data.
+     * Object key name containing the reference data.
      * 
      */
     @Import(name="fileKey", required=true)
     private Output<String> fileKey;
 
     /**
-     * @return The object key name containing the reference data.
+     * @return Object key name containing the reference data.
      * 
      */
     public Output<String> fileKey() {
@@ -70,7 +70,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param bucketArn The ARN of the S3 bucket.
+         * @param bucketArn ARN of the S3 bucket.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param bucketArn The ARN of the S3 bucket.
+         * @param bucketArn ARN of the S3 bucket.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param fileKey The object key name containing the reference data.
+         * @param fileKey Object key name containing the reference data.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param fileKey The object key name containing the reference data.
+         * @param fileKey Object key name containing the reference data.
          * 
          * @return builder
          * 

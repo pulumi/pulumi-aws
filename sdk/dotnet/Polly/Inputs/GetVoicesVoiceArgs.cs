@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Polly.Inputs
         private InputList<string>? _supportedEngines;
 
         /// <summary>
-        /// Specifies which engines are supported by a given voice.
+        /// Engines supported by a given voice.
         /// </summary>
         public InputList<string> SupportedEngines
         {

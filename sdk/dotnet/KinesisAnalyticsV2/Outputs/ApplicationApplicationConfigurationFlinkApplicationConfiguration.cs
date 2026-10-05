@@ -14,15 +14,15 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     public sealed class ApplicationApplicationConfigurationFlinkApplicationConfiguration
     {
         /// <summary>
-        /// Describes an application's checkpointing configuration.
+        /// Application's checkpointing configuration. See `CheckpointConfiguration` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration? CheckpointConfiguration;
         /// <summary>
-        /// Describes configuration parameters for CloudWatch logging for an application.
+        /// Configuration parameters for CloudWatch logging for an application. See `MonitoringConfiguration` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration? MonitoringConfiguration;
         /// <summary>
-        /// Describes parameters for how an application executes multiple tasks simultaneously.
+        /// Parameters for how an application executes multiple tasks simultaneously. See `ParallelismConfiguration` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration? ParallelismConfiguration;
 

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         }
 
         /// <summary>
-        /// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+        /// Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
         /// </summary>
         [Input("emptyFillColor")]
         public Input<string>? EmptyFillColor { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<string>? _minMaxGradients;
 
         /// <summary>
-        /// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+        /// Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
         /// </summary>
         public InputList<string> MinMaxGradients
         {

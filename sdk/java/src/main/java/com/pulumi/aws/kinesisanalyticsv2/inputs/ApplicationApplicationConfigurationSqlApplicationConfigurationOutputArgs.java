@@ -21,14 +21,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs();
 
     /**
-     * Describes the data format when records are written to the destination.
+     * Data format when records are written to the destination. See `destinationSchema` Block below.
      * 
      */
     @Import(name="destinationSchema", required=true)
     private Output<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs> destinationSchema;
 
     /**
-     * @return Describes the data format when records are written to the destination.
+     * @return Data format when records are written to the destination. See `destinationSchema` Block below.
      * 
      */
     public Output<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs> destinationSchema() {
@@ -36,14 +36,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * Identifies a Kinesis Data Firehose delivery stream as the destination.
+     * Destination Kinesis Data Firehose delivery stream. See `kinesisFirehoseOutput` Block below.
      * 
      */
     @Import(name="kinesisFirehoseOutput")
     private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs> kinesisFirehoseOutput;
 
     /**
-     * @return Identifies a Kinesis Data Firehose delivery stream as the destination.
+     * @return Destination Kinesis Data Firehose delivery stream. See `kinesisFirehoseOutput` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs>> kinesisFirehoseOutput() {
@@ -51,14 +51,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * Identifies a Kinesis data stream as the destination.
+     * Destination Kinesis data stream. See `kinesisStreamsOutput` Block below.
      * 
      */
     @Import(name="kinesisStreamsOutput")
     private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs> kinesisStreamsOutput;
 
     /**
-     * @return Identifies a Kinesis data stream as the destination.
+     * @return Destination Kinesis data stream. See `kinesisStreamsOutput` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs>> kinesisStreamsOutput() {
@@ -66,14 +66,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * Identifies a Lambda function as the destination.
+     * Destination Lambda function. See `lambdaOutput` Block below.
      * 
      */
     @Import(name="lambdaOutput")
     private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs> lambdaOutput;
 
     /**
-     * @return Identifies a Lambda function as the destination.
+     * @return Destination Lambda function. See `lambdaOutput` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs>> lambdaOutput() {
@@ -81,23 +81,31 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * The name of the in-application stream.
+     * Name of the in-application stream.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the in-application stream.
+     * @return Name of the in-application stream.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Identifier of the output configuration.
+     * 
+     */
     @Import(name="outputId")
     private @Nullable Output<String> outputId;
 
+    /**
+     * @return Identifier of the output configuration.
+     * 
+     */
     public Optional<Output<String>> outputId() {
         return Optional.ofNullable(this.outputId);
     }
@@ -132,7 +140,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param destinationSchema Describes the data format when records are written to the destination.
+         * @param destinationSchema Data format when records are written to the destination. See `destinationSchema` Block below.
          * 
          * @return builder
          * 
@@ -143,7 +151,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param destinationSchema Describes the data format when records are written to the destination.
+         * @param destinationSchema Data format when records are written to the destination. See `destinationSchema` Block below.
          * 
          * @return builder
          * 
@@ -153,7 +161,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param kinesisFirehoseOutput Identifies a Kinesis Data Firehose delivery stream as the destination.
+         * @param kinesisFirehoseOutput Destination Kinesis Data Firehose delivery stream. See `kinesisFirehoseOutput` Block below.
          * 
          * @return builder
          * 
@@ -164,7 +172,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param kinesisFirehoseOutput Identifies a Kinesis Data Firehose delivery stream as the destination.
+         * @param kinesisFirehoseOutput Destination Kinesis Data Firehose delivery stream. See `kinesisFirehoseOutput` Block below.
          * 
          * @return builder
          * 
@@ -174,7 +182,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param kinesisStreamsOutput Identifies a Kinesis data stream as the destination.
+         * @param kinesisStreamsOutput Destination Kinesis data stream. See `kinesisStreamsOutput` Block below.
          * 
          * @return builder
          * 
@@ -185,7 +193,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param kinesisStreamsOutput Identifies a Kinesis data stream as the destination.
+         * @param kinesisStreamsOutput Destination Kinesis data stream. See `kinesisStreamsOutput` Block below.
          * 
          * @return builder
          * 
@@ -195,7 +203,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param lambdaOutput Identifies a Lambda function as the destination.
+         * @param lambdaOutput Destination Lambda function. See `lambdaOutput` Block below.
          * 
          * @return builder
          * 
@@ -206,7 +214,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param lambdaOutput Identifies a Lambda function as the destination.
+         * @param lambdaOutput Destination Lambda function. See `lambdaOutput` Block below.
          * 
          * @return builder
          * 
@@ -216,7 +224,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param name The name of the in-application stream.
+         * @param name Name of the in-application stream.
          * 
          * @return builder
          * 
@@ -227,7 +235,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param name The name of the in-application stream.
+         * @param name Name of the in-application stream.
          * 
          * @return builder
          * 
@@ -236,11 +244,23 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             return name(Output.of(name));
         }
 
+        /**
+         * @param outputId Identifier of the output configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputId(@Nullable Output<String> outputId) {
             $.outputId = outputId;
             return this;
         }
 
+        /**
+         * @param outputId Identifier of the output configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outputId(String outputId) {
             return outputId(Output.of(outputId));
         }

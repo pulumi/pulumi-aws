@@ -91,7 +91,7 @@ class GetThemeResult:
     @pulumi.getter(name="baseThemeId")
     def base_theme_id(self) -> _builtins.str:
         """
-        The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
+        ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
         """
         return pulumi.get(self, "base_theme_id")
 
@@ -99,7 +99,7 @@ class GetThemeResult:
     @pulumi.getter
     def configurations(self) -> Sequence['outputs.GetThemeConfigurationResult']:
         """
-        The theme configuration, which contains the theme display properties. See configuration.
+        Theme configuration, which contains the theme display properties. See configuration.
         """
         return pulumi.get(self, "configurations")
 
@@ -107,7 +107,7 @@ class GetThemeResult:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> _builtins.str:
         """
-        The time that the theme was created.
+        Time that the theme was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -123,7 +123,7 @@ class GetThemeResult:
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> _builtins.str:
         """
-        The time that the theme was last updated.
+        Time that the theme was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
@@ -139,7 +139,7 @@ class GetThemeResult:
     @pulumi.getter
     def permissions(self) -> Sequence['outputs.GetThemePermissionResult']:
         """
-        A set of resource permissions on the theme. See permissions.
+        Set of resource permissions on the theme. See permissions.
         """
         return pulumi.get(self, "permissions")
 
@@ -152,7 +152,7 @@ class GetThemeResult:
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        The theme creation status.
+        Theme creation status.
         """
         return pulumi.get(self, "status")
 
@@ -160,7 +160,7 @@ class GetThemeResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags")
 
@@ -173,7 +173,7 @@ class GetThemeResult:
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> _builtins.str:
         """
-        A description of the current theme version being created/updated.
+        Description of the current theme version being created/updated.
         """
         return pulumi.get(self, "version_description")
 
@@ -181,7 +181,7 @@ class GetThemeResult:
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> _builtins.int:
         """
-        The version number of the theme version.
+        Version number of the theme version.
         """
         return pulumi.get(self, "version_number")
 
@@ -231,7 +231,7 @@ def get_theme(aws_account_id: Optional[_builtins.str] = None,
 
     :param _builtins.str aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     :param _builtins.str theme_id: Identifier of the theme.
            
            The following arguments are optional:
@@ -282,7 +282,7 @@ def get_theme_output(aws_account_id: pulumi.Input[Optional[Optional[_builtins.st
 
     :param _builtins.str aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     :param _builtins.str theme_id: Identifier of the theme.
            
            The following arguments are optional:

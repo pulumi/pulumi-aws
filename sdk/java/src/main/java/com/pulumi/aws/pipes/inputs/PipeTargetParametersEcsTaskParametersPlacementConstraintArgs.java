@@ -16,14 +16,14 @@ public final class PipeTargetParametersEcsTaskParametersPlacementConstraintArgs 
     public static final PipeTargetParametersEcsTaskParametersPlacementConstraintArgs Empty = new PipeTargetParametersEcsTaskParametersPlacementConstraintArgs();
 
     /**
-     * A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
+     * Cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
      * 
      */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
     /**
-     * @return A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
+     * @return Cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
      * 
      */
     public Optional<Output<String>> expression() {
@@ -31,14 +31,14 @@ public final class PipeTargetParametersEcsTaskParametersPlacementConstraintArgs 
     }
 
     /**
-     * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+     * Type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates. Valid Values: distinctInstance, memberOf.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+     * @return Type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates. Valid Values: distinctInstance, memberOf.
      * 
      */
     public Optional<Output<String>> type() {
@@ -71,7 +71,7 @@ public final class PipeTargetParametersEcsTaskParametersPlacementConstraintArgs 
         }
 
         /**
-         * @param expression A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
+         * @param expression Cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PipeTargetParametersEcsTaskParametersPlacementConstraintArgs 
         }
 
         /**
-         * @param expression A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
+         * @param expression Cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PipeTargetParametersEcsTaskParametersPlacementConstraintArgs 
         }
 
         /**
-         * @param type The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         * @param type Type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates. Valid Values: distinctInstance, memberOf.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PipeTargetParametersEcsTaskParametersPlacementConstraintArgs 
         }
 
         /**
-         * @param type The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         * @param type Type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates. Valid Values: distinctInstance, memberOf.
          * 
          * @return builder
          * 

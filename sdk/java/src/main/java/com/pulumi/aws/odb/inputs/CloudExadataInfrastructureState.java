@@ -490,12 +490,16 @@ public final class CloudExadataInfrastructureState extends com.pulumi.resources.
     /**
      * Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="shape")
     private @Nullable Output<String> shape;
 
     /**
      * @return Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> shape() {
@@ -535,16 +539,12 @@ public final class CloudExadataInfrastructureState extends com.pulumi.resources.
     /**
      * Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="storageCount")
     private @Nullable Output<Integer> storageCount;
 
     /**
      * @return Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<Integer>> storageCount() {
@@ -1353,6 +1353,8 @@ public final class CloudExadataInfrastructureState extends com.pulumi.resources.
         /**
          * @param shape Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -1363,6 +1365,8 @@ public final class CloudExadataInfrastructureState extends com.pulumi.resources.
 
         /**
          * @param shape Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -1416,8 +1420,6 @@ public final class CloudExadataInfrastructureState extends com.pulumi.resources.
         /**
          * @param storageCount Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -1428,8 +1430,6 @@ public final class CloudExadataInfrastructureState extends com.pulumi.resources.
 
         /**
          * @param storageCount Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

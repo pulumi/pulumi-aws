@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSourceParametersSparkGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The host to which to connect.
+        /// Host to which to connect.
         /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
         /// <summary>
-        /// The warehouse to which to connect.
+        /// Port to which to connect.
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;

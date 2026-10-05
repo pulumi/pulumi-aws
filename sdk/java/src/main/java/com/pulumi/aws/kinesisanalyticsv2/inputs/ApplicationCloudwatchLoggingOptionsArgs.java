@@ -16,22 +16,30 @@ public final class ApplicationCloudwatchLoggingOptionsArgs extends com.pulumi.re
 
     public static final ApplicationCloudwatchLoggingOptionsArgs Empty = new ApplicationCloudwatchLoggingOptionsArgs();
 
+    /**
+     * Identifier of the CloudWatch logging option.
+     * 
+     */
     @Import(name="cloudwatchLoggingOptionId")
     private @Nullable Output<String> cloudwatchLoggingOptionId;
 
+    /**
+     * @return Identifier of the CloudWatch logging option.
+     * 
+     */
     public Optional<Output<String>> cloudwatchLoggingOptionId() {
         return Optional.ofNullable(this.cloudwatchLoggingOptionId);
     }
 
     /**
-     * The ARN of the CloudWatch log stream to receive application messages.
+     * ARN of the CloudWatch log stream to receive application messages.
      * 
      */
     @Import(name="logStreamArn", required=true)
     private Output<String> logStreamArn;
 
     /**
-     * @return The ARN of the CloudWatch log stream to receive application messages.
+     * @return ARN of the CloudWatch log stream to receive application messages.
      * 
      */
     public Output<String> logStreamArn() {
@@ -63,17 +71,29 @@ public final class ApplicationCloudwatchLoggingOptionsArgs extends com.pulumi.re
             $ = new ApplicationCloudwatchLoggingOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param cloudwatchLoggingOptionId Identifier of the CloudWatch logging option.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudwatchLoggingOptionId(@Nullable Output<String> cloudwatchLoggingOptionId) {
             $.cloudwatchLoggingOptionId = cloudwatchLoggingOptionId;
             return this;
         }
 
+        /**
+         * @param cloudwatchLoggingOptionId Identifier of the CloudWatch logging option.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudwatchLoggingOptionId(String cloudwatchLoggingOptionId) {
             return cloudwatchLoggingOptionId(Output.of(cloudwatchLoggingOptionId));
         }
 
         /**
-         * @param logStreamArn The ARN of the CloudWatch log stream to receive application messages.
+         * @param logStreamArn ARN of the CloudWatch log stream to receive application messages.
          * 
          * @return builder
          * 
@@ -84,7 +104,7 @@ public final class ApplicationCloudwatchLoggingOptionsArgs extends com.pulumi.re
         }
 
         /**
-         * @param logStreamArn The ARN of the CloudWatch log stream to receive application messages.
+         * @param logStreamArn ARN of the CloudWatch log stream to receive application messages.
          * 
          * @return builder
          * 

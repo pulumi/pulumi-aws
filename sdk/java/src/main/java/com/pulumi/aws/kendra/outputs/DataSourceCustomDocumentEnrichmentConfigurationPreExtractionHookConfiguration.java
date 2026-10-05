@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration {
     /**
-     * @return A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
+     * @return Condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
      * 
      */
     private @Nullable DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition invocationCondition;
@@ -31,7 +31,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
 
     private DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration() {}
     /**
-     * @return A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
+     * @return Condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
      * 
      */
     public Optional<DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition> invocationCondition() {

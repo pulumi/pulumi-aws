@@ -15,25 +15,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSecretsSecret {
     /**
-     * @return An optional mapping that makes up the Encryption Context for the secret.
+     * @return Mapping that makes up the Encryption Context for the secret.
      * 
      */
     private @Nullable Map<String,String> context;
     /**
-     * @return The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+     * @return Encryption algorithm used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
      * 
      */
     private @Nullable String encryptionAlgorithm;
     /**
-     * @return An optional list of Grant Tokens for the secret.
+     * @return List of Grant Tokens for the secret.
      * 
      */
     private @Nullable List<String> grantTokens;
     /**
-     * @return Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
-     * 
-     * For more information on `context` and `grantTokens` see the [KMS
-     * Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+     * @return KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
      * 
      */
     private @Nullable String keyId;
@@ -50,31 +47,28 @@ public final class GetSecretsSecret {
 
     private GetSecretsSecret() {}
     /**
-     * @return An optional mapping that makes up the Encryption Context for the secret.
+     * @return Mapping that makes up the Encryption Context for the secret.
      * 
      */
     public Map<String,String> context() {
         return this.context == null ? Map.of() : this.context;
     }
     /**
-     * @return The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+     * @return Encryption algorithm used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
      * 
      */
     public Optional<String> encryptionAlgorithm() {
         return Optional.ofNullable(this.encryptionAlgorithm);
     }
     /**
-     * @return An optional list of Grant Tokens for the secret.
+     * @return List of Grant Tokens for the secret.
      * 
      */
     public List<String> grantTokens() {
         return this.grantTokens == null ? List.of() : this.grantTokens;
     }
     /**
-     * @return Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
-     * 
-     * For more information on `context` and `grantTokens` see the [KMS
-     * Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+     * @return KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
      * 
      */
     public Optional<String> keyId() {

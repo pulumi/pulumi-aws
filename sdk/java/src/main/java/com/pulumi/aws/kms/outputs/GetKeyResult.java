@@ -17,27 +17,27 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetKeyResult {
     /**
-     * @return The key ARN of a primary or replica key of a multi-Region key.
+     * @return Key ARN of a primary or replica key of a multi-Region key.
      * 
      */
     private String arn;
     /**
-     * @return The twelve-digit account ID of the AWS account that owns the key
+     * @return Twelve-digit account ID of the AWS account that owns the key.
      * 
      */
     private String awsAccountId;
     /**
-     * @return The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
+     * @return Cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
      * 
      */
     private String cloudHsmClusterId;
     /**
-     * @return The date and time when the key was created
+     * @return Date and time when the key was created.
      * 
      */
     private String creationDate;
     /**
-     * @return A unique identifier for the custom key store that contains the KMS key.
+     * @return Unique identifier for the custom key store that contains the KMS key.
      * 
      */
     private String customKeyStoreId;
@@ -47,22 +47,22 @@ public final class GetKeyResult {
      */
     private String customerMasterKeySpec;
     /**
-     * @return The date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0
+     * @return Date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0.
      * 
      */
     private String deletionDate;
     /**
-     * @return The description of the key.
+     * @return Description of the key.
      * 
      */
     private String description;
     /**
-     * @return Specifies whether the key is enabled. When `keyState` is `Enabled` this value is true, otherwise it is false
+     * @return Whether the key is enabled. When `keyState` is `Enabled` this value is true, otherwise it is false.
      * 
      */
     private Boolean enabled;
     /**
-     * @return Specifies whether the Key&#39;s key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty
+     * @return Whether the key&#39;s key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty.
      * 
      */
     private String expirationModel;
@@ -74,92 +74,92 @@ public final class GetKeyResult {
     private String id;
     private String keyId;
     /**
-     * @return The key&#39;s manager
+     * @return Manager of the key.
      * 
      */
     private String keyManager;
     /**
-     * @return Describes the type of key material in the KMS key.
+     * @return Type of key material in the KMS key.
      * 
      */
     private String keySpec;
     /**
-     * @return The state of the key
+     * @return State of the key.
      * 
      */
     private String keyState;
     /**
-     * @return Specifies the intended use of the key
+     * @return Intended use of the key.
      * 
      */
     private String keyUsage;
     /**
-     * @return Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
+     * @return Whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
      * 
      */
     private Boolean multiRegion;
     /**
-     * @return Lists the primary and replica keys in same multi-Region key. Present only when the value of `multiRegion` is `true`.
+     * @return Primary and replica keys in same multi-Region key. Present only when the value of `multiRegion` is `true`. See `multiRegionConfiguration` Block below.
      * 
      */
     private List<GetKeyMultiRegionConfiguration> multiRegionConfigurations;
     /**
-     * @return When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
+     * @return Source of the key material. When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material.
      * 
      */
     private String origin;
     /**
-     * @return The waiting period before the primary key in a multi-Region key is deleted.
+     * @return Waiting period before the primary key in a multi-Region key is deleted.
      * 
      */
     private Integer pendingDeletionWindowInDays;
     /**
-     * @return The AWS Region of a primary or replica key in a multi-Region key.
+     * @return AWS Region of a primary or replica key in a multi-Region key.
      * 
      */
     private String region;
     /**
-     * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
+     * @return Time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0.
      * 
      */
     private String validTo;
     /**
-     * @return Information about the external key that is associated with a KMS key in an external key store.
+     * @return Information about the external key that is associated with a KMS key in an external key store. See `xksKeyConfiguration` Block below.
      * 
      */
     private List<GetKeyXksKeyConfiguration> xksKeyConfigurations;
 
     private GetKeyResult() {}
     /**
-     * @return The key ARN of a primary or replica key of a multi-Region key.
+     * @return Key ARN of a primary or replica key of a multi-Region key.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The twelve-digit account ID of the AWS account that owns the key
+     * @return Twelve-digit account ID of the AWS account that owns the key.
      * 
      */
     public String awsAccountId() {
         return this.awsAccountId;
     }
     /**
-     * @return The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
+     * @return Cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
      * 
      */
     public String cloudHsmClusterId() {
         return this.cloudHsmClusterId;
     }
     /**
-     * @return The date and time when the key was created
+     * @return Date and time when the key was created.
      * 
      */
     public String creationDate() {
         return this.creationDate;
     }
     /**
-     * @return A unique identifier for the custom key store that contains the KMS key.
+     * @return Unique identifier for the custom key store that contains the KMS key.
      * 
      */
     public String customKeyStoreId() {
@@ -173,28 +173,28 @@ public final class GetKeyResult {
         return this.customerMasterKeySpec;
     }
     /**
-     * @return The date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0
+     * @return Date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0.
      * 
      */
     public String deletionDate() {
         return this.deletionDate;
     }
     /**
-     * @return The description of the key.
+     * @return Description of the key.
      * 
      */
     public String description() {
         return this.description;
     }
     /**
-     * @return Specifies whether the key is enabled. When `keyState` is `Enabled` this value is true, otherwise it is false
+     * @return Whether the key is enabled. When `keyState` is `Enabled` this value is true, otherwise it is false.
      * 
      */
     public Boolean enabled() {
         return this.enabled;
     }
     /**
-     * @return Specifies whether the Key&#39;s key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty
+     * @return Whether the key&#39;s key material expires. This value is present only when `origin` is `EXTERNAL`, otherwise this value is empty.
      * 
      */
     public String expirationModel() {
@@ -214,77 +214,77 @@ public final class GetKeyResult {
         return this.keyId;
     }
     /**
-     * @return The key&#39;s manager
+     * @return Manager of the key.
      * 
      */
     public String keyManager() {
         return this.keyManager;
     }
     /**
-     * @return Describes the type of key material in the KMS key.
+     * @return Type of key material in the KMS key.
      * 
      */
     public String keySpec() {
         return this.keySpec;
     }
     /**
-     * @return The state of the key
+     * @return State of the key.
      * 
      */
     public String keyState() {
         return this.keyState;
     }
     /**
-     * @return Specifies the intended use of the key
+     * @return Intended use of the key.
      * 
      */
     public String keyUsage() {
         return this.keyUsage;
     }
     /**
-     * @return Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
+     * @return Whether the KMS key is a multi-Region (`true`) or regional (`false`) key.
      * 
      */
     public Boolean multiRegion() {
         return this.multiRegion;
     }
     /**
-     * @return Lists the primary and replica keys in same multi-Region key. Present only when the value of `multiRegion` is `true`.
+     * @return Primary and replica keys in same multi-Region key. Present only when the value of `multiRegion` is `true`. See `multiRegionConfiguration` Block below.
      * 
      */
     public List<GetKeyMultiRegionConfiguration> multiRegionConfigurations() {
         return this.multiRegionConfigurations;
     }
     /**
-     * @return When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
+     * @return Source of the key material. When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material.
      * 
      */
     public String origin() {
         return this.origin;
     }
     /**
-     * @return The waiting period before the primary key in a multi-Region key is deleted.
+     * @return Waiting period before the primary key in a multi-Region key is deleted.
      * 
      */
     public Integer pendingDeletionWindowInDays() {
         return this.pendingDeletionWindowInDays;
     }
     /**
-     * @return The AWS Region of a primary or replica key in a multi-Region key.
+     * @return AWS Region of a primary or replica key in a multi-Region key.
      * 
      */
     public String region() {
         return this.region;
     }
     /**
-     * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
+     * @return Time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0.
      * 
      */
     public String validTo() {
         return this.validTo;
     }
     /**
-     * @return Information about the external key that is associated with a KMS key in an external key store.
+     * @return Information about the external key that is associated with a KMS key in an external key store. See `xksKeyConfiguration` Block below.
      * 
      */
     public List<GetKeyXksKeyConfiguration> xksKeyConfigurations() {

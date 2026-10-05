@@ -41,15 +41,11 @@ export function getPublicKey(args: GetPublicKeyArgs, opts?: pulumi.InvokeOptions
  */
 export interface GetPublicKeyArgs {
     /**
-     * List of grant tokens
+     * List of grant tokens.
      */
     grantTokens?: string[];
     /**
-     * Key identifier which can be one of the following format:
-     * * Key ID. E.g - `1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Alias name. E.g. - `alias/my-key`
-     * * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+     * Key identifier which can be one of the following formats: key ID (e.g., `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g., `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g., `alias/my-key`), or alias ARN (e.g., `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
      */
     keyId: string;
     /**
@@ -135,15 +131,11 @@ export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.I
  */
 export interface GetPublicKeyOutputArgs {
     /**
-     * List of grant tokens
+     * List of grant tokens.
      */
     grantTokens?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Key identifier which can be one of the following format:
-     * * Key ID. E.g - `1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-     * * Alias name. E.g. - `alias/my-key`
-     * * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+     * Key identifier which can be one of the following formats: key ID (e.g., `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g., `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g., `alias/my-key`), or alias ARN (e.g., `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
      */
     keyId: pulumi.Input<string>;
     /**

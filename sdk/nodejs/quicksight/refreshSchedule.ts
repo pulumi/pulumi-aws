@@ -121,7 +121,7 @@ export class RefreshSchedule extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * The ID of the dataset.
+     * ID of the dataset.
      */
     declare public readonly dataSetId: pulumi.Output<string>;
     /**
@@ -129,13 +129,13 @@ export class RefreshSchedule extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-     *
-     * The following arguments are optional:
+     * [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
      */
     declare public readonly schedule: pulumi.Output<outputs.quicksight.RefreshScheduleSchedule>;
     /**
-     * The ID of the refresh schedule.
+     * ID of the refresh schedule.
+     *
+     * The following arguments are optional:
      */
     declare public readonly scheduleId: pulumi.Output<string>;
 
@@ -194,7 +194,7 @@ export interface RefreshScheduleState {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the dataset.
+     * ID of the dataset.
      */
     dataSetId?: pulumi.Input<string | undefined>;
     /**
@@ -202,13 +202,13 @@ export interface RefreshScheduleState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-     *
-     * The following arguments are optional:
+     * [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
      */
     schedule?: pulumi.Input<inputs.quicksight.RefreshScheduleSchedule | undefined>;
     /**
-     * The ID of the refresh schedule.
+     * ID of the refresh schedule.
+     *
+     * The following arguments are optional:
      */
     scheduleId?: pulumi.Input<string | undefined>;
 }
@@ -222,7 +222,7 @@ export interface RefreshScheduleArgs {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the dataset.
+     * ID of the dataset.
      */
     dataSetId: pulumi.Input<string>;
     /**
@@ -230,13 +230,13 @@ export interface RefreshScheduleArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-     *
-     * The following arguments are optional:
+     * [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
      */
     schedule: pulumi.Input<inputs.quicksight.RefreshScheduleSchedule>;
     /**
-     * The ID of the refresh schedule.
+     * ID of the refresh schedule.
+     *
+     * The following arguments are optional:
      */
     scheduleId: pulumi.Input<string>;
 }

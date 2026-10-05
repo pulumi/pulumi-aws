@@ -18,14 +18,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     public static final WorkspaceState Empty = new WorkspaceState();
 
     /**
-     * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+     * Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      * 
      */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
     /**
-     * @return The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+     * @return Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      * 
      */
     public Optional<Output<String>> alias() {
@@ -48,14 +48,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     * ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     * @return ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -63,14 +63,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Logging configuration for the workspace. See Logging Configuration below for details.
+     * Logging configuration for the workspace. See `loggingConfiguration` Block below for details.
      * 
      */
     @Import(name="loggingConfiguration")
     private @Nullable Output<WorkspaceLoggingConfigurationArgs> loggingConfiguration;
 
     /**
-     * @return Logging configuration for the workspace. See Logging Configuration below for details.
+     * @return Logging configuration for the workspace. See `loggingConfiguration` Block below for details.
      * 
      */
     public Optional<Output<WorkspaceLoggingConfigurationArgs>> loggingConfiguration() {
@@ -108,14 +108,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -123,14 +123,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -169,7 +169,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+         * @param alias Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+         * @param alias Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+         * @param kmsKeyArn ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+         * @param kmsKeyArn ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingConfiguration Logging configuration for the workspace. See Logging Configuration below for details.
+         * @param loggingConfiguration Logging configuration for the workspace. See `loggingConfiguration` Block below for details.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingConfiguration Logging configuration for the workspace. See Logging Configuration below for details.
+         * @param loggingConfiguration Logging configuration for the workspace. See `loggingConfiguration` Block below for details.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     public sealed class ApplicationApplicationConfigurationApplicationSnapshotConfiguration
     {
         /// <summary>
-        /// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+        /// Whether snapshots are enabled for a Flink-based application.
         /// </summary>
         public readonly bool SnapshotsEnabled;
 

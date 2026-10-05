@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs>? _capacityProviderStrategies;
 
         /// <summary>
-        /// List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
+        /// List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. See `CapacityProviderStrategy` Block for details.
         /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs> CapacityProviderStrategies
         {
@@ -25,37 +25,37 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
+        /// Whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
         /// </summary>
         [Input("enableEcsManagedTags")]
         public Input<bool>? EnableEcsManagedTags { get; set; }
 
         /// <summary>
-        /// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
+        /// Whether to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
         /// </summary>
         [Input("enableExecuteCommand")]
         public Input<bool>? EnableExecuteCommand { get; set; }
 
         /// <summary>
-        /// Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
+        /// Amazon ECS task group for the task. The maximum length is 255 characters.
         /// </summary>
         [Input("group")]
         public Input<string>? Group { get; set; }
 
         /// <summary>
-        /// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
+        /// Launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
         /// </summary>
         [Input("launchType")]
         public Input<string>? LaunchType { get; set; }
 
         /// <summary>
-        /// Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
+        /// Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. See `NetworkConfiguration` Block for details.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
-        /// The overrides that are associated with a task. Detailed below.
+        /// Overrides that are associated with a task. See `Overrides` Block for details.
         /// </summary>
         [Input("overrides")]
         public Input<Inputs.PipeTargetParametersEcsTaskParametersOverridesArgs>? Overrides { get; set; }
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersPlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
-        /// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
+        /// Array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See `PlacementConstraint` Block for details.
         /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersPlacementConstraintArgs> PlacementConstraints
         {
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersPlacementStrategyArgs>? _placementStrategies;
 
         /// <summary>
-        /// The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
+        /// Placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. See `PlacementStrategy` Block for details.
         /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersPlacementStrategyArgs> PlacementStrategies
         {
@@ -85,19 +85,19 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
+        /// Platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
-        /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
+        /// Whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
         /// </summary>
         [Input("propagateTags")]
         public Input<string>? PropagateTags { get; set; }
 
         /// <summary>
-        /// The reference ID to use for the task. Maximum length of 1,024.
+        /// Reference ID to use for the task. Maximum length of 1,024.
         /// </summary>
         [Input("referenceId")]
         public Input<string>? ReferenceId { get; set; }
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags that you apply to the task to help you categorize and organize them.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -115,13 +115,13 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// The number of tasks to create based on TaskDefinition. The default is 1.
+        /// Number of tasks to create based on TaskDefinition. The default is 1.
         /// </summary>
         [Input("taskCount")]
         public Input<int>? TaskCount { get; set; }
 
         /// <summary>
-        /// The ARN of the task definition to use if the event target is an Amazon ECS task.
+        /// ARN of the task definition to use if the event target is an Amazon ECS task.
         /// </summary>
         [Input("taskDefinitionArn", required: true)]
         public Input<string> TaskDefinitionArn { get; set; } = null!;

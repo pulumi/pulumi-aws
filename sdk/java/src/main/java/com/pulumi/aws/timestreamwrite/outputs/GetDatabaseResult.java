@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDatabaseResult {
     /**
-     * @return The ARN that uniquely identifies this database.
+     * @return ARN that uniquely identifies this database.
      * 
      */
     private String arn;
@@ -22,7 +22,7 @@ public final class GetDatabaseResult {
      */
     private String createdTime;
     /**
-     * @return The ARN of the KMS key used to encrypt the data stored in the database.
+     * @return ARN of the KMS key used to encrypt the data stored in the database.
      * 
      */
     private String kmsKeyId;
@@ -41,7 +41,7 @@ public final class GetDatabaseResult {
 
     private GetDatabaseResult() {}
     /**
-     * @return The ARN that uniquely identifies this database.
+     * @return ARN that uniquely identifies this database.
      * 
      */
     public String arn() {
@@ -55,7 +55,7 @@ public final class GetDatabaseResult {
         return this.createdTime;
     }
     /**
-     * @return The ARN of the KMS key used to encrypt the data stored in the database.
+     * @return ARN of the KMS key used to encrypt the data stored in the database.
      * 
      */
     public String kmsKeyId() {

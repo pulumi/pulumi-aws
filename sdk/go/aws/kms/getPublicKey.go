@@ -68,13 +68,9 @@ func GetPublicKey(ctx *pulumi.Context, args *GetPublicKeyArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getPublicKey.
 type GetPublicKeyArgs struct {
-	// List of grant tokens
+	// List of grant tokens.
 	GrantTokens []string `pulumi:"grantTokens"`
-	// Key identifier which can be one of the following format:
-	// * Key ID. E.g - `1234abcd-12ab-34cd-56ef-1234567890ab`
-	// * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-	// * Alias name. E.g. - `alias/my-key`
-	// * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+	// Key identifier which can be one of the following formats: key ID (e.g., `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g., `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g., `alias/my-key`), or alias ARN (e.g., `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
 	KeyId string `pulumi:"keyId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -110,13 +106,9 @@ func GetPublicKeyOutput(ctx *pulumi.Context, args GetPublicKeyOutputArgs, opts .
 
 // A collection of arguments for invoking getPublicKey.
 type GetPublicKeyOutputArgs struct {
-	// List of grant tokens
+	// List of grant tokens.
 	GrantTokens pulumi.StringArrayInput `pulumi:"grantTokens"`
-	// Key identifier which can be one of the following format:
-	// * Key ID. E.g - `1234abcd-12ab-34cd-56ef-1234567890ab`
-	// * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-	// * Alias name. E.g. - `alias/my-key`
-	// * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+	// Key identifier which can be one of the following formats: key ID (e.g., `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g., `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g., `alias/my-key`), or alias ARN (e.g., `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

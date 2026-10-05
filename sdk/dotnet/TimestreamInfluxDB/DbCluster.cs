@@ -314,7 +314,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<string> DbStorageType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         /// </summary>
         [Output("deploymentType")]
         public Output<string> DeploymentType { get; private set; } = null!;
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<string> EngineType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
+        /// Behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
         /// </summary>
         [Output("failoverMode")]
         public Output<string> FailoverMode { get; private set; } = null!;
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+        /// Network type of the Timestream for InfluxDB cluster. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
         /// </summary>
         [Output("networkType")]
         public Output<string> NetworkType { get; private set; } = null!;
@@ -380,19 +380,19 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+        /// Port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
         /// </summary>
         [Output("port")]
         public Output<int> Port { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
+        /// Whether to configure the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
+        /// Endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
         /// </summary>
         [Output("readerEndpoint")]
         public Output<string> ReaderEndpoint { get; private set; } = null!;
@@ -519,13 +519,13 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? DbStorageType { get; set; }
 
         /// <summary>
-        /// Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
+        /// Behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
         /// </summary>
         [Input("failoverMode")]
         public Input<string>? FailoverMode { get; set; }
@@ -549,7 +549,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+        /// Network type of the Timestream for InfluxDB cluster. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
         /// </summary>
         [Input("networkType")]
         public Input<string>? NetworkType { get; set; }
@@ -577,13 +577,13 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         }
 
         /// <summary>
-        /// The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+        /// Port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
+        /// Whether to configure the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
@@ -686,7 +686,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? DbStorageType { get; set; }
 
         /// <summary>
-        /// Specifies the type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+        /// Type of cluster to create. Valid options are: `"MULTI_NODE_READ_REPLICAS"`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
@@ -704,7 +704,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? EngineType { get; set; }
 
         /// <summary>
-        /// Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
+        /// Behavior of failure recovery when the primary node of the cluster fails. Valid options are: `"AUTOMATIC"` and `"NO_FAILOVER"`.
         /// </summary>
         [Input("failoverMode")]
         public Input<string>? FailoverMode { get; set; }
@@ -734,7 +734,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+        /// Network type of the Timestream for InfluxDB cluster. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
         /// </summary>
         [Input("networkType")]
         public Input<string>? NetworkType { get; set; }
@@ -762,19 +762,19 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         }
 
         /// <summary>
-        /// The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+        /// Port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
+        /// Whether to configure the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
-        /// The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
+        /// Endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
         /// </summary>
         [Input("readerEndpoint")]
         public Input<string>? ReaderEndpoint { get; set; }

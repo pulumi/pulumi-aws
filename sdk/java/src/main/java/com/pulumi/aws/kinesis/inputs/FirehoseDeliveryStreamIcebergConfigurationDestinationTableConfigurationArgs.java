@@ -18,14 +18,14 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
     public static final FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs Empty = new FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs();
 
     /**
-     * The name of the Apache Iceberg database.
+     * Name of the Apache Iceberg database.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return The name of the Apache Iceberg database.
+     * @return Name of the Apache Iceberg database.
      * 
      */
     public Output<String> databaseName() {
@@ -33,14 +33,14 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
     }
 
     /**
-     * The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+     * Table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
      * 
      */
     @Import(name="s3ErrorOutputPrefix")
     private @Nullable Output<String> s3ErrorOutputPrefix;
 
     /**
-     * @return The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+     * @return Table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
      * 
      */
     public Optional<Output<String>> s3ErrorOutputPrefix() {
@@ -48,14 +48,14 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
     }
 
     /**
-     * The name of the Apache Iceberg Table.
+     * Name of the Apache Iceberg Table.
      * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
-     * @return The name of the Apache Iceberg Table.
+     * @return Name of the Apache Iceberg Table.
      * 
      */
     public Output<String> tableName() {
@@ -63,14 +63,14 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
     }
 
     /**
-     * A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+     * List of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
      * 
      */
     @Import(name="uniqueKeys")
     private @Nullable Output<List<String>> uniqueKeys;
 
     /**
-     * @return A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+     * @return List of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
      * 
      */
     public Optional<Output<List<String>>> uniqueKeys() {
@@ -105,7 +105,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
         }
 
         /**
-         * @param databaseName The name of the Apache Iceberg database.
+         * @param databaseName Name of the Apache Iceberg database.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
         }
 
         /**
-         * @param databaseName The name of the Apache Iceberg database.
+         * @param databaseName Name of the Apache Iceberg database.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
         }
 
         /**
-         * @param s3ErrorOutputPrefix The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+         * @param s3ErrorOutputPrefix Table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
         }
 
         /**
-         * @param s3ErrorOutputPrefix The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+         * @param s3ErrorOutputPrefix Table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
         }
 
         /**
-         * @param tableName The name of the Apache Iceberg Table.
+         * @param tableName Name of the Apache Iceberg Table.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
         }
 
         /**
-         * @param tableName The name of the Apache Iceberg Table.
+         * @param tableName Name of the Apache Iceberg Table.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
         }
 
         /**
-         * @param uniqueKeys A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+         * @param uniqueKeys List of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
         }
 
         /**
-         * @param uniqueKeys A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+         * @param uniqueKeys List of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationDestinationTableCon
         }
 
         /**
-         * @param uniqueKeys A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+         * @param uniqueKeys List of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
          * 
          * @return builder
          * 

@@ -18,22 +18,30 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
 
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs();
 
+    /**
+     * Identifier of the reference data source.
+     * 
+     */
     @Import(name="referenceId")
     private @Nullable Output<String> referenceId;
 
+    /**
+     * @return Identifier of the reference data source.
+     * 
+     */
     public Optional<Output<String>> referenceId() {
         return Optional.ofNullable(this.referenceId);
     }
 
     /**
-     * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+     * Format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. See `referenceSchema` Block below.
      * 
      */
     @Import(name="referenceSchema", required=true)
     private Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs> referenceSchema;
 
     /**
-     * @return Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+     * @return Format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. See `referenceSchema` Block below.
      * 
      */
     public Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs> referenceSchema() {
@@ -41,14 +49,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * Identifies the S3 bucket and object that contains the reference data.
+     * S3 bucket and object that contains the reference data. See `s3ReferenceDataSource` Block below.
      * 
      */
     @Import(name="s3ReferenceDataSource", required=true)
     private Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs> s3ReferenceDataSource;
 
     /**
-     * @return Identifies the S3 bucket and object that contains the reference data.
+     * @return S3 bucket and object that contains the reference data. See `s3ReferenceDataSource` Block below.
      * 
      */
     public Output<ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs> s3ReferenceDataSource() {
@@ -56,14 +64,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * The name of the in-application table to create.
+     * Name of the in-application table to create.
      * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
-     * @return The name of the in-application table to create.
+     * @return Name of the in-application table to create.
      * 
      */
     public Output<String> tableName() {
@@ -97,17 +105,29 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
             $ = new ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param referenceId Identifier of the reference data source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder referenceId(@Nullable Output<String> referenceId) {
             $.referenceId = referenceId;
             return this;
         }
 
+        /**
+         * @param referenceId Identifier of the reference data source.
+         * 
+         * @return builder
+         * 
+         */
         public Builder referenceId(String referenceId) {
             return referenceId(Output.of(referenceId));
         }
 
         /**
-         * @param referenceSchema Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+         * @param referenceSchema Format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. See `referenceSchema` Block below.
          * 
          * @return builder
          * 
@@ -118,7 +138,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param referenceSchema Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+         * @param referenceSchema Format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. See `referenceSchema` Block below.
          * 
          * @return builder
          * 
@@ -128,7 +148,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param s3ReferenceDataSource Identifies the S3 bucket and object that contains the reference data.
+         * @param s3ReferenceDataSource S3 bucket and object that contains the reference data. See `s3ReferenceDataSource` Block below.
          * 
          * @return builder
          * 
@@ -139,7 +159,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param s3ReferenceDataSource Identifies the S3 bucket and object that contains the reference data.
+         * @param s3ReferenceDataSource S3 bucket and object that contains the reference data. See `s3ReferenceDataSource` Block below.
          * 
          * @return builder
          * 
@@ -149,7 +169,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param tableName The name of the in-application table to create.
+         * @param tableName Name of the in-application table to create.
          * 
          * @return builder
          * 
@@ -160,7 +180,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param tableName The name of the in-application table to create.
+         * @param tableName Name of the in-application table to create.
          * 
          * @return builder
          * 

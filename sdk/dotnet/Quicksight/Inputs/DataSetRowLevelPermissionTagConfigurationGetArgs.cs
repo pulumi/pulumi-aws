@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSetRowLevelPermissionTagConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+        /// Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<Inputs.DataSetRowLevelPermissionTagConfigurationTagRuleGetArgs>? _tagRules;
 
         /// <summary>
-        /// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+        /// Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `TagRules` Block below.
         /// </summary>
         public InputList<Inputs.DataSetRowLevelPermissionTagConfigurationTagRuleGetArgs> TagRules
         {

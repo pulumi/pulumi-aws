@@ -23,50 +23,74 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     public static final FirehoseDeliveryStreamExtendedS3ConfigurationArgs Empty = new FirehoseDeliveryStreamExtendedS3ConfigurationArgs();
 
     /**
-     * The ARN of the S3 bucket
+     * ARN of the S3 bucket.
      * 
      */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
     /**
-     * @return The ARN of the S3 bucket
+     * @return ARN of the S3 bucket.
      * 
      */
     public Output<String> bucketArn() {
         return this.bucketArn;
     }
 
+    /**
+     * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+     * 
+     */
     @Import(name="bufferingInterval")
     private @Nullable Output<Integer> bufferingInterval;
 
+    /**
+     * @return Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+     * 
+     */
     public Optional<Output<Integer>> bufferingInterval() {
         return Optional.ofNullable(this.bufferingInterval);
     }
 
+    /**
+     * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
+     * 
+     */
     @Import(name="bufferingSize")
     private @Nullable Output<Integer> bufferingSize;
 
+    /**
+     * @return Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
+     * 
+     */
     public Optional<Output<Integer>> bufferingSize() {
         return Optional.ofNullable(this.bufferingSize);
     }
 
+    /**
+     * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * 
+     */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
+    /**
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * 
+     */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
 
     /**
-     * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+     * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
      * 
      */
     @Import(name="compressionFormat")
     private @Nullable Output<String> compressionFormat;
 
     /**
-     * @return The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+     * @return Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
      * 
      */
     public Optional<Output<String>> compressionFormat() {
@@ -74,14 +98,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+     * Time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
      * 
      */
     @Import(name="customTimeZone")
     private @Nullable Output<String> customTimeZone;
 
     /**
-     * @return The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+     * @return Time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
      * 
      */
     public Optional<Output<String>> customTimeZone() {
@@ -104,14 +128,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
+     * Configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
      * 
      */
     @Import(name="dynamicPartitioningConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs> dynamicPartitioningConfiguration;
 
     /**
-     * @return The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
+     * @return Configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs>> dynamicPartitioningConfiguration() {
@@ -134,14 +158,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * The file extension to override the default file extension (for example, `.json`).
+     * File extension to override the default file extension (for example, `.json`).
      * 
      */
     @Import(name="fileExtension")
     private @Nullable Output<String> fileExtension;
 
     /**
-     * @return The file extension to override the default file extension (for example, `.json`).
+     * @return File extension to override the default file extension (for example, `.json`).
      * 
      */
     public Optional<Output<String>> fileExtension() {
@@ -149,16 +173,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-     * be used.
+     * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-     * be used.
+     * @return KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -166,14 +188,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+     * Extra prefix added in front of the &#34;YYYY/MM/DD/HH&#34; time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+     * @return Extra prefix added in front of the &#34;YYYY/MM/DD/HH&#34; time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -181,36 +203,44 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * The data processing configuration.  See `processingConfiguration` block below for details.
+     * Data processing configuration. See `processingConfiguration` block below for details.
      * 
      */
     @Import(name="processingConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs> processingConfiguration;
 
     /**
-     * @return The data processing configuration.  See `processingConfiguration` block below for details.
+     * @return Data processing configuration. See `processingConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs>> processingConfiguration() {
         return Optional.ofNullable(this.processingConfiguration);
     }
 
+    /**
+     * ARN of the AWS credentials.
+     * 
+     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
+    /**
+     * @return ARN of the AWS credentials.
+     * 
+     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
 
     /**
-     * The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+     * Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
      * 
      */
     @Import(name="s3BackupConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs> s3BackupConfiguration;
 
     /**
-     * @return The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+     * @return Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs>> s3BackupConfiguration() {
@@ -218,14 +248,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
     }
 
     /**
-     * The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+     * Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
      * 
      */
     @Import(name="s3BackupMode")
     private @Nullable Output<String> s3BackupMode;
 
     /**
-     * @return The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+     * @return Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
      * 
      */
     public Optional<Output<String>> s3BackupMode() {
@@ -272,7 +302,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param bucketArn The ARN of the S3 bucket
+         * @param bucketArn ARN of the S3 bucket.
          * 
          * @return builder
          * 
@@ -283,7 +313,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param bucketArn The ARN of the S3 bucket
+         * @param bucketArn ARN of the S3 bucket.
          * 
          * @return builder
          * 
@@ -292,35 +322,71 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
             return bucketArn(Output.of(bucketArn));
         }
 
+        /**
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bufferingInterval(@Nullable Output<Integer> bufferingInterval) {
             $.bufferingInterval = bufferingInterval;
             return this;
         }
 
+        /**
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bufferingInterval(Integer bufferingInterval) {
             return bufferingInterval(Output.of(bufferingInterval));
         }
 
+        /**
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bufferingSize(@Nullable Output<Integer> bufferingSize) {
             $.bufferingSize = bufferingSize;
             return this;
         }
 
+        /**
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bufferingSize(Integer bufferingSize) {
             return bufferingSize(Output.of(bufferingSize));
         }
 
+        /**
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudwatchLoggingOptions(@Nullable Output<FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions) {
             $.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
 
+        /**
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudwatchLoggingOptions(FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs cloudwatchLoggingOptions) {
             return cloudwatchLoggingOptions(Output.of(cloudwatchLoggingOptions));
         }
 
         /**
-         * @param compressionFormat The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+         * @param compressionFormat Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
          * 
          * @return builder
          * 
@@ -331,7 +397,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param compressionFormat The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+         * @param compressionFormat Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
          * 
          * @return builder
          * 
@@ -341,7 +407,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param customTimeZone The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+         * @param customTimeZone Time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
          * 
          * @return builder
          * 
@@ -352,7 +418,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param customTimeZone The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+         * @param customTimeZone Time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
          * 
          * @return builder
          * 
@@ -383,7 +449,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param dynamicPartitioningConfiguration The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
+         * @param dynamicPartitioningConfiguration Configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -394,7 +460,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param dynamicPartitioningConfiguration The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
+         * @param dynamicPartitioningConfiguration Configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -425,7 +491,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param fileExtension The file extension to override the default file extension (for example, `.json`).
+         * @param fileExtension File extension to override the default file extension (for example, `.json`).
          * 
          * @return builder
          * 
@@ -436,7 +502,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param fileExtension The file extension to override the default file extension (for example, `.json`).
+         * @param fileExtension File extension to override the default file extension (for example, `.json`).
          * 
          * @return builder
          * 
@@ -446,8 +512,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param kmsKeyArn Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * @param kmsKeyArn KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          * 
          * @return builder
          * 
@@ -458,8 +523,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param kmsKeyArn Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * @param kmsKeyArn KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          * 
          * @return builder
          * 
@@ -469,7 +533,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param prefix The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * @param prefix Extra prefix added in front of the &#34;YYYY/MM/DD/HH&#34; time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          * 
          * @return builder
          * 
@@ -480,7 +544,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param prefix The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * @param prefix Extra prefix added in front of the &#34;YYYY/MM/DD/HH&#34; time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          * 
          * @return builder
          * 
@@ -490,7 +554,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration. See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -501,7 +565,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param processingConfiguration The data processing configuration.  See `processingConfiguration` block below for details.
+         * @param processingConfiguration Data processing configuration. See `processingConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -510,17 +574,29 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
             return processingConfiguration(Output.of(processingConfiguration));
         }
 
+        /**
+         * @param roleArn ARN of the AWS credentials.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
+        /**
+         * @param roleArn ARN of the AWS credentials.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }
 
         /**
-         * @param s3BackupConfiguration The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+         * @param s3BackupConfiguration Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -531,7 +607,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param s3BackupConfiguration The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+         * @param s3BackupConfiguration Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -541,7 +617,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param s3BackupMode The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+         * @param s3BackupMode Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
          * 
          * @return builder
          * 
@@ -552,7 +628,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationArgs extends com
         }
 
         /**
-         * @param s3BackupMode The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+         * @param s3BackupMode Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
          * 
          * @return builder
          * 

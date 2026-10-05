@@ -19,14 +19,14 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
     public static final GetSecretsSecretArgs Empty = new GetSecretsSecretArgs();
 
     /**
-     * An optional mapping that makes up the Encryption Context for the secret.
+     * Mapping that makes up the Encryption Context for the secret.
      * 
      */
     @Import(name="context")
     private @Nullable Output<Map<String,String>> context;
 
     /**
-     * @return An optional mapping that makes up the Encryption Context for the secret.
+     * @return Mapping that makes up the Encryption Context for the secret.
      * 
      */
     public Optional<Output<Map<String,String>>> context() {
@@ -34,14 +34,14 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+     * Encryption algorithm used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
      * 
      */
     @Import(name="encryptionAlgorithm")
     private @Nullable Output<String> encryptionAlgorithm;
 
     /**
-     * @return The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+     * @return Encryption algorithm used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
      * 
      */
     public Optional<Output<String>> encryptionAlgorithm() {
@@ -49,14 +49,14 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * An optional list of Grant Tokens for the secret.
+     * List of Grant Tokens for the secret.
      * 
      */
     @Import(name="grantTokens")
     private @Nullable Output<List<String>> grantTokens;
 
     /**
-     * @return An optional list of Grant Tokens for the secret.
+     * @return List of Grant Tokens for the secret.
      * 
      */
     public Optional<Output<List<String>>> grantTokens() {
@@ -64,20 +64,14 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
-     * 
-     * For more information on `context` and `grantTokens` see the [KMS
-     * Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+     * KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
      * 
      */
     @Import(name="keyId")
     private @Nullable Output<String> keyId;
 
     /**
-     * @return Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
-     * 
-     * For more information on `context` and `grantTokens` see the [KMS
-     * Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+     * @return KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
      * 
      */
     public Optional<Output<String>> keyId() {
@@ -144,7 +138,7 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param context An optional mapping that makes up the Encryption Context for the secret.
+         * @param context Mapping that makes up the Encryption Context for the secret.
          * 
          * @return builder
          * 
@@ -155,7 +149,7 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param context An optional mapping that makes up the Encryption Context for the secret.
+         * @param context Mapping that makes up the Encryption Context for the secret.
          * 
          * @return builder
          * 
@@ -165,7 +159,7 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param encryptionAlgorithm The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+         * @param encryptionAlgorithm Encryption algorithm used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
          * 
          * @return builder
          * 
@@ -176,7 +170,7 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param encryptionAlgorithm The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+         * @param encryptionAlgorithm Encryption algorithm used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
          * 
          * @return builder
          * 
@@ -186,7 +180,7 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param grantTokens An optional list of Grant Tokens for the secret.
+         * @param grantTokens List of Grant Tokens for the secret.
          * 
          * @return builder
          * 
@@ -197,7 +191,7 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param grantTokens An optional list of Grant Tokens for the secret.
+         * @param grantTokens List of Grant Tokens for the secret.
          * 
          * @return builder
          * 
@@ -207,7 +201,7 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param grantTokens An optional list of Grant Tokens for the secret.
+         * @param grantTokens List of Grant Tokens for the secret.
          * 
          * @return builder
          * 
@@ -217,10 +211,7 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyId Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
-         * 
-         * For more information on `context` and `grantTokens` see the [KMS
-         * Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+         * @param keyId KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
          * 
          * @return builder
          * 
@@ -231,10 +222,7 @@ public final class GetSecretsSecretArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyId Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
-         * 
-         * For more information on `context` and `grantTokens` see the [KMS
-         * Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+         * @param keyId KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSetRefreshPropertiesRefreshConfiguration
     {
         /// <summary>
-        /// The incremental refresh for the data set. See incremental_refresh.
+        /// Incremental refresh for the data set. See `IncrementalRefresh` Block below.
         /// </summary>
         public readonly Outputs.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh IncrementalRefresh;
 

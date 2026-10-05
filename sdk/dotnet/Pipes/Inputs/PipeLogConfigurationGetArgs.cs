@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Pipes.Inputs
     public sealed class PipeLogConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+        /// Amazon CloudWatch Logs logging configuration settings for the pipe. See `CloudwatchLogsLogDestination` Block for details.
         /// </summary>
         [Input("cloudwatchLogsLogDestination")]
         public Input<Inputs.PipeLogConfigurationCloudwatchLogsLogDestinationGetArgs>? CloudwatchLogsLogDestination { get; set; }
 
         /// <summary>
-        /// Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+        /// Amazon Kinesis Data Firehose logging configuration settings for the pipe. See `FirehoseLogDestination` Block for details.
         /// </summary>
         [Input("firehoseLogDestination")]
         public Input<Inputs.PipeLogConfigurationFirehoseLogDestinationGetArgs>? FirehoseLogDestination { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+        /// Level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
         /// </summary>
         [Input("level", required: true)]
         public Input<string> Level { get; set; } = null!;
 
         /// <summary>
-        /// Amazon S3 logging configuration settings for the pipe. Detailed below.
+        /// Amazon S3 logging configuration settings for the pipe. See `S3LogDestination` Block for details.
         /// </summary>
         [Input("s3LogDestination")]
         public Input<Inputs.PipeLogConfigurationS3LogDestinationGetArgs>? S3LogDestination { get; set; }

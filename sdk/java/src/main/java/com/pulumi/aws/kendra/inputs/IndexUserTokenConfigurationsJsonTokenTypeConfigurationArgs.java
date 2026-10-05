@@ -15,14 +15,14 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs ex
     public static final IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs Empty = new IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs();
 
     /**
-     * The group attribute field. Minimum length of 1. Maximum length of 2048.
+     * Group attribute field. Minimum length of 1. Maximum length of 2048.
      * 
      */
     @Import(name="groupAttributeField", required=true)
     private Output<String> groupAttributeField;
 
     /**
-     * @return The group attribute field. Minimum length of 1. Maximum length of 2048.
+     * @return Group attribute field. Minimum length of 1. Maximum length of 2048.
      * 
      */
     public Output<String> groupAttributeField() {
@@ -30,14 +30,14 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs ex
     }
 
     /**
-     * The user name attribute field. Minimum length of 1. Maximum length of 2048.
+     * User name attribute field. Minimum length of 1. Maximum length of 2048.
      * 
      */
     @Import(name="userNameAttributeField", required=true)
     private Output<String> userNameAttributeField;
 
     /**
-     * @return The user name attribute field. Minimum length of 1. Maximum length of 2048.
+     * @return User name attribute field. Minimum length of 1. Maximum length of 2048.
      * 
      */
     public Output<String> userNameAttributeField() {
@@ -70,7 +70,7 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs ex
         }
 
         /**
-         * @param groupAttributeField The group attribute field. Minimum length of 1. Maximum length of 2048.
+         * @param groupAttributeField Group attribute field. Minimum length of 1. Maximum length of 2048.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs ex
         }
 
         /**
-         * @param groupAttributeField The group attribute field. Minimum length of 1. Maximum length of 2048.
+         * @param groupAttributeField Group attribute field. Minimum length of 1. Maximum length of 2048.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs ex
         }
 
         /**
-         * @param userNameAttributeField The user name attribute field. Minimum length of 1. Maximum length of 2048.
+         * @param userNameAttributeField User name attribute field. Minimum length of 1. Maximum length of 2048.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs ex
         }
 
         /**
-         * @param userNameAttributeField The user name attribute field. Minimum length of 1. Maximum length of 2048.
+         * @param userNameAttributeField User name attribute field. Minimum length of 1. Maximum length of 2048.
          * 
          * @return builder
          * 

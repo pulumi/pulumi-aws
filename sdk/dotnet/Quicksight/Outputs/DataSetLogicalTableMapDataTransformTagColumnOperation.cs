@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string ColumnName;
         /// <summary>
-        /// The dataset column tag, currently only used for geospatial type tagging. See tags.
+        /// Dataset column tag, currently only used for geospatial type tagging. See `Tags` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetLogicalTableMapDataTransformTagColumnOperationTag> Tags;
 

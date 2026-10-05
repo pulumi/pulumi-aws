@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
     /**
-     * @return Determines whether the field is returned in the query response. The default is `true`.
+     * @return Whether the field is returned in the query response. The default is `true`.
      * 
      */
     private Boolean displayable;
@@ -21,19 +21,19 @@ public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
      */
     private Boolean facetable;
     /**
-     * @return Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
+     * @return Whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
      * 
      */
     private Boolean searchable;
     /**
-     * @return Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
+     * @return Whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
      * 
      */
     private Boolean sortable;
 
     private GetIndexDocumentMetadataConfigurationUpdateSearch() {}
     /**
-     * @return Determines whether the field is returned in the query response. The default is `true`.
+     * @return Whether the field is returned in the query response. The default is `true`.
      * 
      */
     public Boolean displayable() {
@@ -47,14 +47,14 @@ public final class GetIndexDocumentMetadataConfigurationUpdateSearch {
         return this.facetable;
     }
     /**
-     * @return Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
+     * @return Whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
      * 
      */
     public Boolean searchable() {
         return this.searchable;
     }
     /**
-     * @return Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
+     * @return Whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
      * 
      */
     public Boolean sortable() {

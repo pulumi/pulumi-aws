@@ -138,14 +138,14 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
     @Import(name="contactNumber")
     private @Nullable Output<String> contactNumber;
 
     /**
-     * @return A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * @return 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
     public Optional<Output<String>> contactNumber() {
@@ -573,7 +573,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param contactNumber A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+         * @param contactNumber 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class AccountSubscriptionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param contactNumber A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+         * @param contactNumber 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
          * 
          * @return builder
          * 

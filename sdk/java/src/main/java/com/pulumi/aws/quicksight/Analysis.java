@@ -190,34 +190,42 @@ public class Analysis extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * The time that the analysis was created.
+     * Time that the analysis was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
-     * @return The time that the analysis was created.
+     * @return Time that the analysis was created.
      * 
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
+    /**
+     * Time that the analysis was last published.
+     * 
+     */
     @Export(name="lastPublishedTime", refs={String.class}, tree="[0]")
     private Output<String> lastPublishedTime;
 
+    /**
+     * @return Time that the analysis was last published.
+     * 
+     */
     public Output<String> lastPublishedTime() {
         return this.lastPublishedTime;
     }
     /**
-     * The time that the analysis was last updated.
+     * Time that the analysis was last updated.
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
     /**
-     * @return The time that the analysis was last updated.
+     * @return Time that the analysis was last updated.
      * 
      */
     public Output<String> lastUpdatedTime() {
@@ -242,42 +250,42 @@ public class Analysis extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      * 
      */
     @Export(name="parameters", refs={AnalysisParameters.class}, tree="[0]")
     private Output<AnalysisParameters> parameters;
 
     /**
-     * @return The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * @return Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      * 
      */
     public Output<AnalysisParameters> parameters() {
         return this.parameters;
     }
     /**
-     * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      * 
      */
     @Export(name="permissions", refs={List.class,AnalysisPermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AnalysisPermission>> permissions;
 
     /**
-     * @return A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      * 
      */
     public Output<Optional<List<AnalysisPermission>>> permissions() {
         return Codegen.optional(this.permissions);
     }
     /**
-     * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+     * Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      * 
      */
     @Export(name="recoveryWindowInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> recoveryWindowInDays;
 
     /**
-     * @return A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+     * @return Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      * 
      */
     public Output<Optional<Integer>> recoveryWindowInDays() {
@@ -298,28 +306,28 @@ public class Analysis extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      * 
      */
     @Export(name="sourceEntity", refs={AnalysisSourceEntity.class}, tree="[0]")
     private Output</* @Nullable */ AnalysisSourceEntity> sourceEntity;
 
     /**
-     * @return The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * @return Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      * 
      */
     public Output<Optional<AnalysisSourceEntity>> sourceEntity() {
         return Codegen.optional(this.sourceEntity);
     }
     /**
-     * The analysis creation status.
+     * Analysis creation status.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The analysis creation status.
+     * @return Analysis creation status.
      * 
      */
     public Output<String> status() {
@@ -340,14 +348,14 @@ public class Analysis extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

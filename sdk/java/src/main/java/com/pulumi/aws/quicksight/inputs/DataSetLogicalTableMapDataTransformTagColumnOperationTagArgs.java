@@ -17,14 +17,14 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs 
     public static final DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs Empty = new DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs();
 
     /**
-     * A description for a column. See column_description.
+     * Description for a column. See `columnDescription` Block below.
      * 
      */
     @Import(name="columnDescription")
     private @Nullable Output<DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs> columnDescription;
 
     /**
-     * @return A description for a column. See column_description.
+     * @return Description for a column. See `columnDescription` Block below.
      * 
      */
     public Optional<Output<DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs>> columnDescription() {
@@ -32,14 +32,14 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs 
     }
 
     /**
-     * A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+     * Geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
      * 
      */
     @Import(name="columnGeographicRole")
     private @Nullable Output<String> columnGeographicRole;
 
     /**
-     * @return A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+     * @return Geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
      * 
      */
     public Optional<Output<String>> columnGeographicRole() {
@@ -72,7 +72,7 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs 
         }
 
         /**
-         * @param columnDescription A description for a column. See column_description.
+         * @param columnDescription Description for a column. See `columnDescription` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs 
         }
 
         /**
-         * @param columnDescription A description for a column. See column_description.
+         * @param columnDescription Description for a column. See `columnDescription` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs 
         }
 
         /**
-         * @param columnGeographicRole A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+         * @param columnGeographicRole Geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs 
         }
 
         /**
-         * @param columnGeographicRole A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+         * @param columnGeographicRole Geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
          * 
          * @return builder
          * 

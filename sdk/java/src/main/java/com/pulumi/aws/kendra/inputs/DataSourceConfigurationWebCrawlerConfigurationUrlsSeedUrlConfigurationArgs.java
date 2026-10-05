@@ -18,14 +18,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
     public static final DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs Empty = new DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs();
 
     /**
-     * The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
+     * List of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
      * 
      */
     @Import(name="seedUrls", required=true)
     private Output<List<String>> seedUrls;
 
     /**
-     * @return The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
+     * @return List of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
      * 
      */
     public Output<List<String>> seedUrls() {
@@ -33,20 +33,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
     }
 
     /**
-     * The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-     * * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `&#34;abc.example.com&#34;`, then only URLs with host name `&#34;abc.example.com&#34;` are crawled.
-     * * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `&#34;abc.example.com&#34;`, then `&#34;a.abc.example.com&#34;` and `&#34;b.abc.example.com&#34;` are also crawled.
-     * * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
+     * Default mode is set to `HOST_ONLY`. Valid values are `EVERYTHING`, `HOST_ONLY`, and `SUBDOMAINS`. `HOST_ONLY` crawls only the website host names. For example, if the seed URL is `&#34;abc.example.com&#34;`, then only URLs with host name `&#34;abc.example.com&#34;` are crawled. `SUBDOMAINS` crawls the website host names with subdomains. For example, if the seed URL is `&#34;abc.example.com&#34;`, then `&#34;a.abc.example.com&#34;` and `&#34;b.abc.example.com&#34;` are also crawled. `EVERYTHING` crawls the website host names with subdomains and other domains that the webpages link to.
      * 
      */
     @Import(name="webCrawlerMode")
     private @Nullable Output<String> webCrawlerMode;
 
     /**
-     * @return The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-     * * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `&#34;abc.example.com&#34;`, then only URLs with host name `&#34;abc.example.com&#34;` are crawled.
-     * * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `&#34;abc.example.com&#34;`, then `&#34;a.abc.example.com&#34;` and `&#34;b.abc.example.com&#34;` are also crawled.
-     * * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
+     * @return Default mode is set to `HOST_ONLY`. Valid values are `EVERYTHING`, `HOST_ONLY`, and `SUBDOMAINS`. `HOST_ONLY` crawls only the website host names. For example, if the seed URL is `&#34;abc.example.com&#34;`, then only URLs with host name `&#34;abc.example.com&#34;` are crawled. `SUBDOMAINS` crawls the website host names with subdomains. For example, if the seed URL is `&#34;abc.example.com&#34;`, then `&#34;a.abc.example.com&#34;` and `&#34;b.abc.example.com&#34;` are also crawled. `EVERYTHING` crawls the website host names with subdomains and other domains that the webpages link to.
      * 
      */
     public Optional<Output<String>> webCrawlerMode() {
@@ -79,7 +73,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
         }
 
         /**
-         * @param seedUrls The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
+         * @param seedUrls List of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
          * 
          * @return builder
          * 
@@ -90,7 +84,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
         }
 
         /**
-         * @param seedUrls The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
+         * @param seedUrls List of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
          * 
          * @return builder
          * 
@@ -100,7 +94,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
         }
 
         /**
-         * @param seedUrls The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
+         * @param seedUrls List of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
          * 
          * @return builder
          * 
@@ -110,10 +104,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
         }
 
         /**
-         * @param webCrawlerMode The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-         * * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `&#34;abc.example.com&#34;`, then only URLs with host name `&#34;abc.example.com&#34;` are crawled.
-         * * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `&#34;abc.example.com&#34;`, then `&#34;a.abc.example.com&#34;` and `&#34;b.abc.example.com&#34;` are also crawled.
-         * * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
+         * @param webCrawlerMode Default mode is set to `HOST_ONLY`. Valid values are `EVERYTHING`, `HOST_ONLY`, and `SUBDOMAINS`. `HOST_ONLY` crawls only the website host names. For example, if the seed URL is `&#34;abc.example.com&#34;`, then only URLs with host name `&#34;abc.example.com&#34;` are crawled. `SUBDOMAINS` crawls the website host names with subdomains. For example, if the seed URL is `&#34;abc.example.com&#34;`, then `&#34;a.abc.example.com&#34;` and `&#34;b.abc.example.com&#34;` are also crawled. `EVERYTHING` crawls the website host names with subdomains and other domains that the webpages link to.
          * 
          * @return builder
          * 
@@ -124,10 +115,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConf
         }
 
         /**
-         * @param webCrawlerMode The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-         * * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `&#34;abc.example.com&#34;`, then only URLs with host name `&#34;abc.example.com&#34;` are crawled.
-         * * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `&#34;abc.example.com&#34;`, then `&#34;a.abc.example.com&#34;` and `&#34;b.abc.example.com&#34;` are also crawled.
-         * * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
+         * @param webCrawlerMode Default mode is set to `HOST_ONLY`. Valid values are `EVERYTHING`, `HOST_ONLY`, and `SUBDOMAINS`. `HOST_ONLY` crawls only the website host names. For example, if the seed URL is `&#34;abc.example.com&#34;`, then only URLs with host name `&#34;abc.example.com&#34;` are crawled. `SUBDOMAINS` crawls the website host names with subdomains. For example, if the seed URL is `&#34;abc.example.com&#34;`, then `&#34;a.abc.example.com&#34;` and `&#34;b.abc.example.com&#34;` are also crawled. `EVERYTHING` crawls the website host names with subdomains and other domains that the webpages link to.
          * 
          * @return builder
          * 

@@ -39,14 +39,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+     * Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
     @Import(name="capacityUnits")
     private @Nullable Output<IndexCapacityUnitsArgs> capacityUnits;
 
     /**
-     * @return A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+     * @return Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
     public Optional<Output<IndexCapacityUnitsArgs>> capacityUnits() {
@@ -54,14 +54,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Unix datetime that the index was created.
+     * Unix datetime that the index was created.
      * 
      */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
     /**
-     * @return The Unix datetime that the index was created.
+     * @return Unix datetime that the index was created.
      * 
      */
     public Optional<Output<String>> createdAt() {
@@ -69,14 +69,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the Index.
+     * Description of the Index.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the Index.
+     * @return Description of the Index.
      * 
      */
     public Optional<Output<String>> description() {
@@ -99,14 +99,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
+     * Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
      * 
      */
     @Import(name="edition")
     private @Nullable Output<String> edition;
 
     /**
-     * @return The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
+     * @return Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
      * 
      */
     public Optional<Output<String>> edition() {
@@ -129,14 +129,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+     * Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
     @Import(name="indexStatistics")
     private @Nullable Output<List<IndexIndexStatisticArgs>> indexStatistics;
 
     /**
-     * @return A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+     * @return Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
     public Optional<Output<List<IndexIndexStatisticArgs>>> indexStatistics() {
@@ -144,14 +144,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the Index.
+     * Name of the Index.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Index.
+     * @return Name of the Index.
      * 
      */
     public Optional<Output<String>> name() {
@@ -174,14 +174,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+     * AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+     * @return AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -189,14 +189,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
+     * Block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
      * 
      */
     @Import(name="serverSideEncryptionConfiguration")
     private @Nullable Output<IndexServerSideEncryptionConfigurationArgs> serverSideEncryptionConfiguration;
 
     /**
-     * @return A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
+     * @return Block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
      * 
      */
     public Optional<Output<IndexServerSideEncryptionConfigurationArgs>> serverSideEncryptionConfiguration() {
@@ -204,14 +204,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
+     * Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
+     * @return Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      * 
      */
     public Optional<Output<String>> status() {
@@ -219,16 +219,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Tags to apply to the Index. If configured with a provider
-     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Tags to apply to the Index. If configured with a provider
-     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the Index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -236,14 +234,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -251,14 +249,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Unix datetime that the index was last updated.
+     * Unix datetime that the index was last updated.
      * 
      */
     @Import(name="updatedAt")
     private @Nullable Output<String> updatedAt;
 
     /**
-     * @return The Unix datetime that the index was last updated.
+     * @return Unix datetime that the index was last updated.
      * 
      */
     public Optional<Output<String>> updatedAt() {
@@ -266,14 +264,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+     * User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
      * 
      */
     @Import(name="userContextPolicy")
     private @Nullable Output<String> userContextPolicy;
 
     /**
-     * @return The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+     * @return User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
      * 
      */
     public Optional<Output<String>> userContextPolicy() {
@@ -281,14 +279,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+     * Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      * 
      */
     @Import(name="userGroupResolutionConfiguration")
     private @Nullable Output<IndexUserGroupResolutionConfigurationArgs> userGroupResolutionConfiguration;
 
     /**
-     * @return A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+     * @return Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      * 
      */
     public Optional<Output<IndexUserGroupResolutionConfigurationArgs>> userGroupResolutionConfiguration() {
@@ -296,14 +294,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that specifies the user token configuration. Detailed below.
+     * Block that specifies the user token configuration. Detailed below.
      * 
      */
     @Import(name="userTokenConfigurations")
     private @Nullable Output<IndexUserTokenConfigurationsArgs> userTokenConfigurations;
 
     /**
-     * @return A block that specifies the user token configuration. Detailed below.
+     * @return Block that specifies the user token configuration. Detailed below.
      * 
      */
     public Optional<Output<IndexUserTokenConfigurationsArgs>> userTokenConfigurations() {
@@ -374,7 +372,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityUnits A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+         * @param capacityUnits Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
          * 
          * @return builder
          * 
@@ -385,7 +383,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacityUnits A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+         * @param capacityUnits Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
          * 
          * @return builder
          * 
@@ -395,7 +393,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The Unix datetime that the index was created.
+         * @param createdAt Unix datetime that the index was created.
          * 
          * @return builder
          * 
@@ -406,7 +404,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdAt The Unix datetime that the index was created.
+         * @param createdAt Unix datetime that the index was created.
          * 
          * @return builder
          * 
@@ -416,7 +414,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the Index.
+         * @param description Description of the Index.
          * 
          * @return builder
          * 
@@ -427,7 +425,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the Index.
+         * @param description Description of the Index.
          * 
          * @return builder
          * 
@@ -468,7 +466,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param edition The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
+         * @param edition Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
          * 
          * @return builder
          * 
@@ -479,7 +477,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param edition The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
+         * @param edition Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
          * 
          * @return builder
          * 
@@ -510,7 +508,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexStatistics A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+         * @param indexStatistics Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
          * 
          * @return builder
          * 
@@ -521,7 +519,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexStatistics A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+         * @param indexStatistics Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
          * 
          * @return builder
          * 
@@ -531,7 +529,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexStatistics A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+         * @param indexStatistics Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
          * 
          * @return builder
          * 
@@ -541,7 +539,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Index.
+         * @param name Name of the Index.
          * 
          * @return builder
          * 
@@ -552,7 +550,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the name of the Index.
+         * @param name Name of the Index.
          * 
          * @return builder
          * 
@@ -583,7 +581,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+         * @param roleArn AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -594,7 +592,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+         * @param roleArn AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -604,7 +602,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryptionConfiguration A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
+         * @param serverSideEncryptionConfiguration Block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
          * 
          * @return builder
          * 
@@ -615,7 +613,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryptionConfiguration A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
+         * @param serverSideEncryptionConfiguration Block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
          * 
          * @return builder
          * 
@@ -625,7 +623,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
+         * @param status Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
          * 
          * @return builder
          * 
@@ -636,7 +634,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
+         * @param status Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
          * 
          * @return builder
          * 
@@ -646,8 +644,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Tags to apply to the Index. If configured with a provider
-         * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the Index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -658,8 +655,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Tags to apply to the Index. If configured with a provider
-         * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the Index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -669,7 +665,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -680,7 +676,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -690,7 +686,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedAt The Unix datetime that the index was last updated.
+         * @param updatedAt Unix datetime that the index was last updated.
          * 
          * @return builder
          * 
@@ -701,7 +697,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updatedAt The Unix datetime that the index was last updated.
+         * @param updatedAt Unix datetime that the index was last updated.
          * 
          * @return builder
          * 
@@ -711,7 +707,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userContextPolicy The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+         * @param userContextPolicy User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
          * 
          * @return builder
          * 
@@ -722,7 +718,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userContextPolicy The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+         * @param userContextPolicy User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
          * 
          * @return builder
          * 
@@ -732,7 +728,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userGroupResolutionConfiguration A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+         * @param userGroupResolutionConfiguration Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
          * 
          * @return builder
          * 
@@ -743,7 +739,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userGroupResolutionConfiguration A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+         * @param userGroupResolutionConfiguration Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
          * 
          * @return builder
          * 
@@ -753,7 +749,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTokenConfigurations A block that specifies the user token configuration. Detailed below.
+         * @param userTokenConfigurations Block that specifies the user token configuration. Detailed below.
          * 
          * @return builder
          * 
@@ -764,7 +760,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTokenConfigurations A block that specifies the user token configuration. Detailed below.
+         * @param userTokenConfigurations Block that specifies the user token configuration. Detailed below.
          * 
          * @return builder
          * 

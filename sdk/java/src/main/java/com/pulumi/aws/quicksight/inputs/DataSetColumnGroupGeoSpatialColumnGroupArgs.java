@@ -46,14 +46,14 @@ public final class DataSetColumnGroupGeoSpatialColumnGroupArgs extends com.pulum
     }
 
     /**
-     * A display name for the hierarchy.
+     * Display name for the hierarchy.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A display name for the hierarchy.
+     * @return Display name for the hierarchy.
      * 
      */
     public Output<String> name() {
@@ -139,7 +139,7 @@ public final class DataSetColumnGroupGeoSpatialColumnGroupArgs extends com.pulum
         }
 
         /**
-         * @param name A display name for the hierarchy.
+         * @param name Display name for the hierarchy.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class DataSetColumnGroupGeoSpatialColumnGroupArgs extends com.pulum
         }
 
         /**
-         * @param name A display name for the hierarchy.
+         * @param name Display name for the hierarchy.
          * 
          * @return builder
          * 

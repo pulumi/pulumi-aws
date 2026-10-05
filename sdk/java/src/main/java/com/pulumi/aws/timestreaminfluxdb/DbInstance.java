@@ -392,14 +392,14 @@ public class DbInstance extends com.pulumi.resources.CustomResource {
         return this.dbStorageType;
     }
     /**
-     * Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
+     * Whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
      * 
      */
     @Export(name="deploymentType", refs={String.class}, tree="[0]")
     private Output<String> deploymentType;
 
     /**
-     * @return Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
+     * @return Whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability. Valid options are: `&#34;SINGLE_AZ&#34;`, `&#34;WITH_MULTIAZ_STANDBY&#34;`. This argument is updatable.
      * 
      */
     public Output<String> deploymentType() {
@@ -476,14 +476,14 @@ public class DbInstance extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * Network type of the Timestream for InfluxDB instance. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
      * 
      */
     @Export(name="networkType", refs={String.class}, tree="[0]")
     private Output<String> networkType;
 
     /**
-     * @return Specifies whether the networkType of the Timestream for InfluxDB instance is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * @return Network type of the Timestream for InfluxDB instance. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
      * 
      */
     public Output<String> networkType() {
@@ -518,28 +518,28 @@ public class DbInstance extends com.pulumi.resources.CustomResource {
         return this.password;
     }
     /**
-     * The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * Port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
-     * @return The port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * @return Port on which the instance accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
      * 
      */
     public Output<Integer> port() {
         return this.port;
     }
     /**
-     * Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
+     * Whether to configure the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
      * 
      */
     @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> publiclyAccessible;
 
     /**
-     * @return Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
+     * @return Whether to configure the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
      * 
      */
     public Output<Boolean> publiclyAccessible() {

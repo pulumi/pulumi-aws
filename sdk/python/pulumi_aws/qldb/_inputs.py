@@ -26,7 +26,7 @@ class StreamKinesisConfigurationArgsDict(TypedDict):
     """
     aggregation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+    Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
     """
 
 @pulumi.input_type
@@ -36,7 +36,7 @@ class StreamKinesisConfigurationArgs:
                  aggregation_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] stream_arn: ARN of the Kinesis Data Streams resource.
-        :param pulumi.Input[_builtins.bool] aggregation_enabled: Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+        :param pulumi.Input[_builtins.bool] aggregation_enabled: Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
         """
         pulumi.set(__self__, "stream_arn", stream_arn)
         if aggregation_enabled is not None:
@@ -58,7 +58,7 @@ class StreamKinesisConfigurationArgs:
     @pulumi.getter(name="aggregationEnabled")
     def aggregation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+        Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
         """
         return pulumi.get(self, "aggregation_enabled")
 

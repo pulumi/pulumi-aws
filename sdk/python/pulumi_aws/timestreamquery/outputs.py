@@ -187,11 +187,11 @@ class ScheduledQueryLastRunSummary(dict):
                  run_status: Optional[_builtins.str] = None,
                  trigger_time: Optional[_builtins.str] = None):
         """
-        :param Sequence['ScheduledQueryLastRunSummaryErrorReportLocationArgs'] error_report_locations: S3 location for error report.
-        :param Sequence['ScheduledQueryLastRunSummaryExecutionStatArgs'] execution_stats: Statistics for a single scheduled query run.
+        :param Sequence['ScheduledQueryLastRunSummaryErrorReportLocationArgs'] error_report_locations: S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
+        :param Sequence['ScheduledQueryLastRunSummaryExecutionStatArgs'] execution_stats: Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
         :param _builtins.str failure_reason: Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
         :param _builtins.str invocation_time: InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
-        :param Sequence['ScheduledQueryLastRunSummaryQueryInsightsResponseArgs'] query_insights_responses: Various insights and metrics related to the run summary of the scheduled query.
+        :param Sequence['ScheduledQueryLastRunSummaryQueryInsightsResponseArgs'] query_insights_responses: Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
         :param _builtins.str run_status: Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
         :param _builtins.str trigger_time: Actual time when the query was run.
         """
@@ -214,7 +214,7 @@ class ScheduledQueryLastRunSummary(dict):
     @pulumi.getter(name="errorReportLocations")
     def error_report_locations(self) -> Optional[Sequence['outputs.ScheduledQueryLastRunSummaryErrorReportLocation']]:
         """
-        S3 location for error report.
+        S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
         """
         return pulumi.get(self, "error_report_locations")
 
@@ -222,7 +222,7 @@ class ScheduledQueryLastRunSummary(dict):
     @pulumi.getter(name="executionStats")
     def execution_stats(self) -> Optional[Sequence['outputs.ScheduledQueryLastRunSummaryExecutionStat']]:
         """
-        Statistics for a single scheduled query run.
+        Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
         """
         return pulumi.get(self, "execution_stats")
 
@@ -246,7 +246,7 @@ class ScheduledQueryLastRunSummary(dict):
     @pulumi.getter(name="queryInsightsResponses")
     def query_insights_responses(self) -> Optional[Sequence['outputs.ScheduledQueryLastRunSummaryQueryInsightsResponse']]:
         """
-        Various insights and metrics related to the run summary of the scheduled query.
+        Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
         """
         return pulumi.get(self, "query_insights_responses")
 
@@ -289,7 +289,7 @@ class ScheduledQueryLastRunSummaryErrorReportLocation(dict):
     def __init__(__self__, *,
                  s3_report_locations: Optional[Sequence['outputs.ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation']] = None):
         """
-        :param Sequence['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs'] s3_report_locations: S3 location where error reports are written.
+        :param Sequence['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs'] s3_report_locations: S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
         """
         if s3_report_locations is not None:
             pulumi.set(__self__, "s3_report_locations", s3_report_locations)
@@ -298,7 +298,7 @@ class ScheduledQueryLastRunSummaryErrorReportLocation(dict):
     @pulumi.getter(name="s3ReportLocations")
     def s3_report_locations(self) -> Optional[Sequence['outputs.ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation']]:
         """
-        S3 location where error reports are written.
+        S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
         """
         return pulumi.get(self, "s3_report_locations")
 
@@ -495,9 +495,9 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponse(dict):
         """
         :param _builtins.int output_bytes: Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
         :param _builtins.int output_rows: Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
-        :param Sequence['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs'] query_spatial_coverages: Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+        :param Sequence['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs'] query_spatial_coverages: Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
         :param _builtins.int query_table_count: Number of tables in the query.
-        :param Sequence['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs'] query_temporal_ranges: Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+        :param Sequence['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs'] query_temporal_ranges: Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
         """
         if output_bytes is not None:
             pulumi.set(__self__, "output_bytes", output_bytes)
@@ -530,7 +530,7 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponse(dict):
     @pulumi.getter(name="querySpatialCoverages")
     def query_spatial_coverages(self) -> Optional[Sequence['outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage']]:
         """
-        Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+        Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
         """
         return pulumi.get(self, "query_spatial_coverages")
 
@@ -546,7 +546,7 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponse(dict):
     @pulumi.getter(name="queryTemporalRanges")
     def query_temporal_ranges(self) -> Optional[Sequence['outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange']]:
         """
-        Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+        Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
         """
         return pulumi.get(self, "query_temporal_ranges")
 
@@ -556,7 +556,7 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage(dict
     def __init__(__self__, *,
                  maxes: Optional[Sequence['outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis']] = None):
         """
-        :param Sequence['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs'] maxes: Insights into the most sub-optimal performing table on the temporal axis:
+        :param Sequence['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs'] maxes: Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
         """
         if maxes is not None:
             pulumi.set(__self__, "maxes", maxes)
@@ -565,7 +565,7 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage(dict
     @pulumi.getter
     def maxes(self) -> Optional[Sequence['outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis']]:
         """
-        Insights into the most sub-optimal performing table on the temporal axis:
+        Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
         """
         return pulumi.get(self, "maxes")
 
@@ -637,7 +637,7 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange(dict):
     def __init__(__self__, *,
                  maxes: Optional[Sequence['outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis']] = None):
         """
-        :param Sequence['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs'] maxes: Insights into the most sub-optimal performing table on the temporal axis:
+        :param Sequence['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs'] maxes: Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
         """
         if maxes is not None:
             pulumi.set(__self__, "maxes", maxes)
@@ -646,7 +646,7 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange(dict):
     @pulumi.getter
     def maxes(self) -> Optional[Sequence['outputs.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis']]:
         """
-        Insights into the most sub-optimal performing table on the temporal axis:
+        Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
         """
         return pulumi.get(self, "maxes")
 
@@ -809,11 +809,11 @@ class ScheduledQueryRecentlyFailedRun(dict):
                  run_status: Optional[_builtins.str] = None,
                  trigger_time: Optional[_builtins.str] = None):
         """
-        :param Sequence['ScheduledQueryRecentlyFailedRunErrorReportLocationArgs'] error_report_locations: S3 location for error report.
-        :param Sequence['ScheduledQueryRecentlyFailedRunExecutionStatArgs'] execution_stats: Statistics for a single scheduled query run.
+        :param Sequence['ScheduledQueryRecentlyFailedRunErrorReportLocationArgs'] error_report_locations: S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
+        :param Sequence['ScheduledQueryRecentlyFailedRunExecutionStatArgs'] execution_stats: Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
         :param _builtins.str failure_reason: Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
         :param _builtins.str invocation_time: InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
-        :param Sequence['ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs'] query_insights_responses: Various insights and metrics related to the run summary of the scheduled query.
+        :param Sequence['ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs'] query_insights_responses: Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
         :param _builtins.str run_status: Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
         :param _builtins.str trigger_time: Actual time when the query was run.
         """
@@ -836,7 +836,7 @@ class ScheduledQueryRecentlyFailedRun(dict):
     @pulumi.getter(name="errorReportLocations")
     def error_report_locations(self) -> Optional[Sequence['outputs.ScheduledQueryRecentlyFailedRunErrorReportLocation']]:
         """
-        S3 location for error report.
+        S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
         """
         return pulumi.get(self, "error_report_locations")
 
@@ -844,7 +844,7 @@ class ScheduledQueryRecentlyFailedRun(dict):
     @pulumi.getter(name="executionStats")
     def execution_stats(self) -> Optional[Sequence['outputs.ScheduledQueryRecentlyFailedRunExecutionStat']]:
         """
-        Statistics for a single scheduled query run.
+        Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
         """
         return pulumi.get(self, "execution_stats")
 
@@ -868,7 +868,7 @@ class ScheduledQueryRecentlyFailedRun(dict):
     @pulumi.getter(name="queryInsightsResponses")
     def query_insights_responses(self) -> Optional[Sequence['outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponse']]:
         """
-        Various insights and metrics related to the run summary of the scheduled query.
+        Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
         """
         return pulumi.get(self, "query_insights_responses")
 
@@ -911,7 +911,7 @@ class ScheduledQueryRecentlyFailedRunErrorReportLocation(dict):
     def __init__(__self__, *,
                  s3_report_locations: Optional[Sequence['outputs.ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation']] = None):
         """
-        :param Sequence['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs'] s3_report_locations: S3 location where error reports are written.
+        :param Sequence['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs'] s3_report_locations: S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
         """
         if s3_report_locations is not None:
             pulumi.set(__self__, "s3_report_locations", s3_report_locations)
@@ -920,7 +920,7 @@ class ScheduledQueryRecentlyFailedRunErrorReportLocation(dict):
     @pulumi.getter(name="s3ReportLocations")
     def s3_report_locations(self) -> Optional[Sequence['outputs.ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation']]:
         """
-        S3 location where error reports are written.
+        S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
         """
         return pulumi.get(self, "s3_report_locations")
 
@@ -1117,9 +1117,9 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponse(dict):
         """
         :param _builtins.int output_bytes: Size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.
         :param _builtins.int output_rows: Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
-        :param Sequence['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs'] query_spatial_coverages: Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+        :param Sequence['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs'] query_spatial_coverages: Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
         :param _builtins.int query_table_count: Number of tables in the query.
-        :param Sequence['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs'] query_temporal_ranges: Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+        :param Sequence['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs'] query_temporal_ranges: Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
         """
         if output_bytes is not None:
             pulumi.set(__self__, "output_bytes", output_bytes)
@@ -1152,7 +1152,7 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponse(dict):
     @pulumi.getter(name="querySpatialCoverages")
     def query_spatial_coverages(self) -> Optional[Sequence['outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage']]:
         """
-        Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+        Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
         """
         return pulumi.get(self, "query_spatial_coverages")
 
@@ -1168,7 +1168,7 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponse(dict):
     @pulumi.getter(name="queryTemporalRanges")
     def query_temporal_ranges(self) -> Optional[Sequence['outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange']]:
         """
-        Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+        Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
         """
         return pulumi.get(self, "query_temporal_ranges")
 
@@ -1178,7 +1178,7 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage(d
     def __init__(__self__, *,
                  maxes: Optional[Sequence['outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis']] = None):
         """
-        :param Sequence['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs'] maxes: Insights into the most sub-optimal performing table on the temporal axis:
+        :param Sequence['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs'] maxes: Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
         """
         if maxes is not None:
             pulumi.set(__self__, "maxes", maxes)
@@ -1187,7 +1187,7 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage(d
     @pulumi.getter
     def maxes(self) -> Optional[Sequence['outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis']]:
         """
-        Insights into the most sub-optimal performing table on the temporal axis:
+        Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
         """
         return pulumi.get(self, "maxes")
 
@@ -1259,7 +1259,7 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange(dic
     def __init__(__self__, *,
                  maxes: Optional[Sequence['outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis']] = None):
         """
-        :param Sequence['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs'] maxes: Insights into the most sub-optimal performing table on the temporal axis:
+        :param Sequence['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs'] maxes: Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
         """
         if maxes is not None:
             pulumi.set(__self__, "maxes", maxes)
@@ -1268,7 +1268,7 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange(dic
     @pulumi.getter
     def maxes(self) -> Optional[Sequence['outputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis']]:
         """
-        Insights into the most sub-optimal performing table on the temporal axis:
+        Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
         """
         return pulumi.get(self, "maxes")
 

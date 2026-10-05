@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     name: "example.com",
  *     forceDestroy: true,
  * });
- * const test = new aws.route53.RecordsExclusive("test", {
+ * const exampleRecordsExclusive = new aws.route53.RecordsExclusive("example", {
  *     resourceRecordSets: [{
  *         resourceRecords: [
  *             {
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *         type: "A",
  *         ttl: 30,
  *     }],
- *     zoneId: testAwsRoute53Zone.zoneId,
+ *     zoneId: example.zoneId,
  * });
  * ```
  *
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.route53.RecordsExclusive("test", {zoneId: testAwsRoute53Zone.zoneId});
+ * const example = new aws.route53.RecordsExclusive("example", {zoneId: exampleAwsRoute53Zone.zoneId});
  * ```
  *
  * ## Import

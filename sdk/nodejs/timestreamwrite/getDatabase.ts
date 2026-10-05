@@ -32,6 +32,9 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getDatabase.
  */
 export interface GetDatabaseArgs {
+    /**
+     * Name of the Timestream database. Minimum length of 3. Maximum length of 256.
+     */
     name: string;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -44,7 +47,7 @@ export interface GetDatabaseArgs {
  */
 export interface GetDatabaseResult {
     /**
-     * The ARN that uniquely identifies this database.
+     * ARN that uniquely identifies this database.
      */
     readonly arn: string;
     /**
@@ -52,7 +55,7 @@ export interface GetDatabaseResult {
      */
     readonly createdTime: string;
     /**
-     * The ARN of the KMS key used to encrypt the data stored in the database.
+     * ARN of the KMS key used to encrypt the data stored in the database.
      */
     readonly kmsKeyId: string;
     /**
@@ -94,6 +97,9 @@ export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getDatabase.
  */
 export interface GetDatabaseOutputArgs {
+    /**
+     * Name of the Timestream database. Minimum length of 3. Maximum length of 256.
+     */
     name: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

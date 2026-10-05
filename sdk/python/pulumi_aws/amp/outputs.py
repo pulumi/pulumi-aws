@@ -346,8 +346,8 @@ class QueryLoggingConfigurationDestination(dict):
                  cloudwatch_logs: 'outputs.QueryLoggingConfigurationDestinationCloudwatchLogs',
                  filters: 'outputs.QueryLoggingConfigurationDestinationFilters'):
         """
-        :param 'QueryLoggingConfigurationDestinationCloudwatchLogsArgs' cloudwatch_logs: Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
-        :param 'QueryLoggingConfigurationDestinationFiltersArgs' filters: A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+        :param 'QueryLoggingConfigurationDestinationCloudwatchLogsArgs' cloudwatch_logs: Configuration block for CloudWatch Logs destination. See `cloudwatch_logs` Block.
+        :param 'QueryLoggingConfigurationDestinationFiltersArgs' filters: List of filter configurations that specify which logs should be sent to the destination. See `filters` Block.
         """
         pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
         pulumi.set(__self__, "filters", filters)
@@ -356,7 +356,7 @@ class QueryLoggingConfigurationDestination(dict):
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> 'outputs.QueryLoggingConfigurationDestinationCloudwatchLogs':
         """
-        Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
+        Configuration block for CloudWatch Logs destination. See `cloudwatch_logs` Block.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
@@ -364,7 +364,7 @@ class QueryLoggingConfigurationDestination(dict):
     @pulumi.getter
     def filters(self) -> 'outputs.QueryLoggingConfigurationDestinationFilters':
         """
-        A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+        List of filter configurations that specify which logs should be sent to the destination. See `filters` Block.
         """
         return pulumi.get(self, "filters")
 
@@ -391,7 +391,7 @@ class QueryLoggingConfigurationDestinationCloudwatchLogs(dict):
     def __init__(__self__, *,
                  log_group_arn: _builtins.str):
         """
-        :param _builtins.str log_group_arn: The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
+        :param _builtins.str log_group_arn: ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
         """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
@@ -399,7 +399,7 @@ class QueryLoggingConfigurationDestinationCloudwatchLogs(dict):
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> _builtins.str:
         """
-        The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
+        ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_group_arn")
 
@@ -426,7 +426,7 @@ class QueryLoggingConfigurationDestinationFilters(dict):
     def __init__(__self__, *,
                  qsp_threshold: _builtins.int):
         """
-        :param _builtins.int qsp_threshold: The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+        :param _builtins.int qsp_threshold: Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
         """
         pulumi.set(__self__, "qsp_threshold", qsp_threshold)
 
@@ -434,7 +434,7 @@ class QueryLoggingConfigurationDestinationFilters(dict):
     @pulumi.getter(name="qspThreshold")
     def qsp_threshold(self) -> _builtins.int:
         """
-        The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+        Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
         """
         return pulumi.get(self, "qsp_threshold")
 
@@ -1168,7 +1168,7 @@ class WorkspaceLoggingConfiguration(dict):
     def __init__(__self__, *,
                  log_group_arn: _builtins.str):
         """
-        :param _builtins.str log_group_arn: The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
+        :param _builtins.str log_group_arn: ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
         """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
@@ -1176,7 +1176,7 @@ class WorkspaceLoggingConfiguration(dict):
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> _builtins.str:
         """
-        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
+        ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_group_arn")
 

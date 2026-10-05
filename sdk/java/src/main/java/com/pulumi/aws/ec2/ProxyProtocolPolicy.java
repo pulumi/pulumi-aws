@@ -78,32 +78,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")
 public class ProxyProtocolPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * List of instance ports to which the policy
-     * should be applied. This can be specified if the protocol is SSL or TCP.
+     * List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
      * 
      */
     @Export(name="instancePorts", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> instancePorts;
 
     /**
-     * @return List of instance ports to which the policy
-     * should be applied. This can be specified if the protocol is SSL or TCP.
+     * @return List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
      * 
      */
     public Output<List<String>> instancePorts() {
         return this.instancePorts;
     }
     /**
-     * The load balancer to which the policy
-     * should be attached.
+     * Load balancer to which the policy should be attached.
      * 
      */
     @Export(name="loadBalancer", refs={String.class}, tree="[0]")
     private Output<String> loadBalancer;
 
     /**
-     * @return The load balancer to which the policy
-     * should be attached.
+     * @return Load balancer to which the policy should be attached.
      * 
      */
     public Output<String> loadBalancer() {

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationSheetResult> Sheets;
         /// <summary>
-        /// Determines the typography options. See typography.
+        /// Typography options. See typography.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationTypographyResult> Typographies;
         /// <summary>

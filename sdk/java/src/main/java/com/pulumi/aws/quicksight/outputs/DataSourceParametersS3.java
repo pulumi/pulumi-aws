@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceParametersS3 {
     /**
-     * @return An object containing the S3 location of the S3 manifest file.
+     * @return S3 location of the S3 manifest file. See `manifestFileLocation` Block below for more details.
      * 
      */
     private DataSourceParametersS3ManifestFileLocation manifestFileLocation;
@@ -26,7 +26,7 @@ public final class DataSourceParametersS3 {
 
     private DataSourceParametersS3() {}
     /**
-     * @return An object containing the S3 location of the S3 manifest file.
+     * @return S3 location of the S3 manifest file. See `manifestFileLocation` Block below for more details.
      * 
      */
     public DataSourceParametersS3ManifestFileLocation manifestFileLocation() {

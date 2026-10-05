@@ -18,7 +18,7 @@ public final class DashboardSourceEntitySourceTemplate {
      */
     private String arn;
     /**
-     * @return List of dataset references. See data_set_references.
+     * @return List of dataset references. See `dataSetReferences`.
      * 
      */
     private List<DashboardSourceEntitySourceTemplateDataSetReference> dataSetReferences;
@@ -32,7 +32,7 @@ public final class DashboardSourceEntitySourceTemplate {
         return this.arn;
     }
     /**
-     * @return List of dataset references. See data_set_references.
+     * @return List of dataset references. See `dataSetReferences`.
      * 
      */
     public List<DashboardSourceEntitySourceTemplateDataSetReference> dataSetReferences() {

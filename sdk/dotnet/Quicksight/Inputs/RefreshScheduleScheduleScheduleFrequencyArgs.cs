@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class RefreshScheduleScheduleScheduleFrequencyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+        /// Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
         /// </summary>
         [Input("interval", required: true)]
         public Input<string> Interval { get; set; } = null!;
 
         /// <summary>
-        /// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+        /// [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `RefreshOnDay` Block.
         /// </summary>
         [Input("refreshOnDay")]
         public Input<Inputs.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs>? RefreshOnDay { get; set; }
 
         /// <summary>
-        /// The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+        /// Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
         /// </summary>
         [Input("timeOfTheDay")]
         public Input<string>? TimeOfTheDay { get; set; }
 
         /// <summary>
-        /// The timezone that you want the refresh schedule to use.
+        /// Timezone that you want the refresh schedule to use.
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }

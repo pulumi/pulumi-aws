@@ -15,14 +15,14 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
     public static final PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs Empty = new PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs();
 
     /**
-     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 256.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * @return Name of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 256.
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
         }
 
         /**
-         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Name of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 256.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class PipeTargetParametersSagemakerPipelineParametersPipelineParame
         }
 
         /**
-         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Name of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 256.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ExperienceConfigurationContentSourceConfiguration {
     /**
-     * @return The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+     * @return Identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
      */
     private @Nullable List<String> dataSourceIds;
@@ -24,14 +24,14 @@ public final class ExperienceConfigurationContentSourceConfiguration {
      */
     private @Nullable Boolean directPutContent;
     /**
-     * @return The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+     * @return Identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
      */
     private @Nullable List<String> faqIds;
 
     private ExperienceConfigurationContentSourceConfiguration() {}
     /**
-     * @return The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+     * @return Identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
      */
     public List<String> dataSourceIds() {
@@ -45,7 +45,7 @@ public final class ExperienceConfigurationContentSourceConfiguration {
         return Optional.ofNullable(this.directPutContent);
     }
     /**
-     * @return The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+     * @return Identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
      */
     public List<String> faqIds() {

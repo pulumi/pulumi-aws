@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class GetThemeConfigurationTypography {
     /**
-     * @return Determines the list of font families. Maximum number of 5 items. See font_families.
+     * @return List of font families. Maximum number of 5 items. See font_families.
      * 
      */
     private List<GetThemeConfigurationTypographyFontFamily> fontFamilies;
 
     private GetThemeConfigurationTypography() {}
     /**
-     * @return Determines the list of font families. Maximum number of 5 items. See font_families.
+     * @return List of font families. Maximum number of 5 items. See font_families.
      * 
      */
     public List<GetThemeConfigurationTypographyFontFamily> fontFamilies() {

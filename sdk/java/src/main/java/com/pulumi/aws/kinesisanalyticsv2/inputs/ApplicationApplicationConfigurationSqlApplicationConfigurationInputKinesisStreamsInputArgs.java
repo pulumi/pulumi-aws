@@ -15,14 +15,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs();
 
     /**
-     * The ARN of the input Kinesis data stream to read.
+     * ARN of the input Kinesis data stream to read.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return The ARN of the input Kinesis data stream to read.
+     * @return ARN of the input Kinesis data stream to read.
      * 
      */
     public Output<String> resourceArn() {
@@ -54,7 +54,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param resourceArn The ARN of the input Kinesis data stream to read.
+         * @param resourceArn ARN of the input Kinesis data stream to read.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param resourceArn The ARN of the input Kinesis data stream to read.
+         * @param resourceArn ARN of the input Kinesis data stream to read.
          * 
          * @return builder
          * 

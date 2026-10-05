@@ -30,9 +30,9 @@ class AccountSettingsArgs:
         The set of arguments for constructing a AccountSettings resource.
 
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] default_namespace: The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+        :param pulumi.Input[_builtins.str] default_namespace: Default namespace for this Amazon Web Services account. Currently, the default is `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] termination_protection_enabled: A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+        :param pulumi.Input[_builtins.bool] termination_protection_enabled: Whether to prevent the Amazon QuickSight account from being deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -61,7 +61,7 @@ class AccountSettingsArgs:
     @pulumi.getter(name="defaultNamespace")
     def default_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+        Default namespace for this Amazon Web Services account. Currently, the default is `default`.
         """
         return pulumi.get(self, "default_namespace")
 
@@ -85,7 +85,7 @@ class AccountSettingsArgs:
     @pulumi.getter(name="terminationProtectionEnabled")
     def termination_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+        Whether to prevent the Amazon QuickSight account from being deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
         """
         return pulumi.get(self, "termination_protection_enabled")
 
@@ -115,9 +115,9 @@ class _AccountSettingsState:
         Input properties used for looking up and filtering AccountSettings resources.
 
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] default_namespace: The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+        :param pulumi.Input[_builtins.str] default_namespace: Default namespace for this Amazon Web Services account. Currently, the default is `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] termination_protection_enabled: A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+        :param pulumi.Input[_builtins.bool] termination_protection_enabled: Whether to prevent the Amazon QuickSight account from being deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -146,7 +146,7 @@ class _AccountSettingsState:
     @pulumi.getter(name="defaultNamespace")
     def default_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+        Default namespace for this Amazon Web Services account. Currently, the default is `default`.
         """
         return pulumi.get(self, "default_namespace")
 
@@ -170,7 +170,7 @@ class _AccountSettingsState:
     @pulumi.getter(name="terminationProtectionEnabled")
     def termination_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+        Whether to prevent the Amazon QuickSight account from being deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
         """
         return pulumi.get(self, "termination_protection_enabled")
 
@@ -232,9 +232,9 @@ class AccountSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] default_namespace: The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+        :param pulumi.Input[_builtins.str] default_namespace: Default namespace for this Amazon Web Services account. Currently, the default is `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] termination_protection_enabled: A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+        :param pulumi.Input[_builtins.bool] termination_protection_enabled: Whether to prevent the Amazon QuickSight account from being deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
         """
         ...
     @overload
@@ -328,9 +328,9 @@ class AccountSettings(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] default_namespace: The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+        :param pulumi.Input[_builtins.str] default_namespace: Default namespace for this Amazon Web Services account. Currently, the default is `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] termination_protection_enabled: A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+        :param pulumi.Input[_builtins.bool] termination_protection_enabled: Whether to prevent the Amazon QuickSight account from being deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -355,7 +355,7 @@ class AccountSettings(pulumi.CustomResource):
     @pulumi.getter(name="defaultNamespace")
     def default_namespace(self) -> pulumi.Output[_builtins.str]:
         """
-        The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+        Default namespace for this Amazon Web Services account. Currently, the default is `default`.
         """
         return pulumi.get(self, "default_namespace")
 
@@ -371,7 +371,7 @@ class AccountSettings(pulumi.CustomResource):
     @pulumi.getter(name="terminationProtectionEnabled")
     def termination_protection_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
-        A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+        Whether to prevent the Amazon QuickSight account from being deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
         """
         return pulumi.get(self, "termination_protection_enabled")
 

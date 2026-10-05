@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class IndexDocumentMetadataConfigurationUpdate
     {
         /// <summary>
-        /// The name of the index field. Minimum length of 1. Maximum length of 30.
+        /// Name of the index field. Minimum length of 1. Maximum length of 30.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+        /// Block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
         /// </summary>
         public readonly Outputs.IndexDocumentMetadataConfigurationUpdateRelevance? Relevance;
         /// <summary>
-        /// A block that provides information about how the field is used during a search. Documented below. Detailed below
+        /// Block that provides information about how the field is used during a search. Detailed below
         /// </summary>
         public readonly Outputs.IndexDocumentMetadataConfigurationUpdateSearch? Search;
         /// <summary>
-        /// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+        /// Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
         /// </summary>
         public readonly string Type;
 

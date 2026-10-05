@@ -13,6 +13,9 @@ namespace Pulumi.Aws.TimestreamWrite.Outputs
     [OutputType]
     public sealed class GetTableSchemaResult
     {
+        /// <summary>
+        /// Object containing the attributes to describe a composite partition key for the table.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetTableSchemaCompositePartitionKeyResult> CompositePartitionKeys;
 
         [OutputConstructor]

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     public sealed class TableSchemaDefinitionStaticColumn
     {
         /// <summary>
-        /// The name of the static column.
+        /// Name of the static column.
         /// </summary>
         public readonly string Name;
 

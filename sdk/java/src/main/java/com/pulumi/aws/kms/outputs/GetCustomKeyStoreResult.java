@@ -10,14 +10,18 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCustomKeyStoreResult {
+    /**
+     * @return ID for the CloudHSM cluster that is associated with the custom key store.
+     * 
+     */
     private String cloudHsmClusterId;
     /**
-     * @return Indicates whether the custom key store is connected to its CloudHSM cluster.
+     * @return Whether the custom key store is connected to its CloudHSM cluster.
      * 
      */
     private String connectionState;
     /**
-     * @return The date and time when the custom key store was created.
+     * @return Date and time when the custom key store was created.
      * 
      */
     private String creationDate;
@@ -30,24 +34,28 @@ public final class GetCustomKeyStoreResult {
     private String id;
     private String region;
     /**
-     * @return The trust anchor certificate of the associated CloudHSM cluster.
+     * @return Trust anchor certificate of the associated CloudHSM cluster.
      * 
      */
     private String trustAnchorCertificate;
 
     private GetCustomKeyStoreResult() {}
+    /**
+     * @return ID for the CloudHSM cluster that is associated with the custom key store.
+     * 
+     */
     public String cloudHsmClusterId() {
         return this.cloudHsmClusterId;
     }
     /**
-     * @return Indicates whether the custom key store is connected to its CloudHSM cluster.
+     * @return Whether the custom key store is connected to its CloudHSM cluster.
      * 
      */
     public String connectionState() {
         return this.connectionState;
     }
     /**
-     * @return The date and time when the custom key store was created.
+     * @return Date and time when the custom key store was created.
      * 
      */
     public String creationDate() {
@@ -70,7 +78,7 @@ public final class GetCustomKeyStoreResult {
         return this.region;
     }
     /**
-     * @return The trust anchor certificate of the associated CloudHSM cluster.
+     * @return Trust anchor certificate of the associated CloudHSM cluster.
      * 
      */
     public String trustAnchorCertificate() {

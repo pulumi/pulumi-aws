@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration
     {
         /// <summary>
-        /// The VPCE ID for Firehose to privately connect with Snowflake.
+        /// VPCE ID for Firehose to privately connect with Snowflake.
         /// </summary>
         public readonly string PrivateLinkVpceId;
 

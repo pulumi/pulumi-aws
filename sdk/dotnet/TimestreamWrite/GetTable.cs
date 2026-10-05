@@ -171,7 +171,7 @@ namespace Pulumi.Aws.TimestreamWrite
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTableMagneticStoreWritePropertyResult> MagneticStoreWriteProperties;
         /// <summary>
-        /// Name of the table.
+        /// Name of the timestream attribute used for a dimension key.
         /// </summary>
         public readonly string Name;
         public readonly string Region;

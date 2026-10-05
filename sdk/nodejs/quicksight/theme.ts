@@ -91,19 +91,19 @@ export class Theme extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+     * ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      */
     declare public readonly baseThemeId: pulumi.Output<string>;
     /**
-     * The theme configuration, which contains the theme display properties. See configuration.
+     * Theme configuration, which contains the theme display properties. See configuration.
      */
     declare public readonly configuration: pulumi.Output<outputs.quicksight.ThemeConfiguration | undefined>;
     /**
-     * The time that the theme was created.
+     * Time that the theme was created.
      */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
-     * The time that the theme was last updated.
+     * Time that the theme was last updated.
      */
     declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
@@ -111,7 +111,7 @@ export class Theme extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the theme. Maximum of 64 items. See permissions.
      */
     declare public readonly permissions: pulumi.Output<outputs.quicksight.ThemePermission[] | undefined>;
     /**
@@ -119,7 +119,7 @@ export class Theme extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The theme creation status.
+     * Theme creation status.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -127,7 +127,7 @@ export class Theme extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -137,11 +137,11 @@ export class Theme extends pulumi.CustomResource {
      */
     declare public readonly themeId: pulumi.Output<string>;
     /**
-     * A description of the current theme version being created/updated.
+     * Description of the current theme version being created/updated.
      */
     declare public readonly versionDescription: pulumi.Output<string | undefined>;
     /**
-     * The version number of the theme version.
+     * Version number of the theme version.
      */
     declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
 
@@ -215,19 +215,19 @@ export interface ThemeState {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+     * ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      */
     baseThemeId?: pulumi.Input<string | undefined>;
     /**
-     * The theme configuration, which contains the theme display properties. See configuration.
+     * Theme configuration, which contains the theme display properties. See configuration.
      */
     configuration?: pulumi.Input<inputs.quicksight.ThemeConfiguration | undefined>;
     /**
-     * The time that the theme was created.
+     * Time that the theme was created.
      */
     createdTime?: pulumi.Input<string | undefined>;
     /**
-     * The time that the theme was last updated.
+     * Time that the theme was last updated.
      */
     lastUpdatedTime?: pulumi.Input<string | undefined>;
     /**
@@ -235,7 +235,7 @@ export interface ThemeState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the theme. Maximum of 64 items. See permissions.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemePermission>[] | undefined>;
     /**
@@ -243,7 +243,7 @@ export interface ThemeState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The theme creation status.
+     * Theme creation status.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -251,7 +251,7 @@ export interface ThemeState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -261,11 +261,11 @@ export interface ThemeState {
      */
     themeId?: pulumi.Input<string | undefined>;
     /**
-     * A description of the current theme version being created/updated.
+     * Description of the current theme version being created/updated.
      */
     versionDescription?: pulumi.Input<string | undefined>;
     /**
-     * The version number of the theme version.
+     * Version number of the theme version.
      */
     versionNumber?: pulumi.Input<number | undefined>;
 }
@@ -279,11 +279,11 @@ export interface ThemeArgs {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+     * ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      */
     baseThemeId: pulumi.Input<string>;
     /**
-     * The theme configuration, which contains the theme display properties. See configuration.
+     * Theme configuration, which contains the theme display properties. See configuration.
      */
     configuration?: pulumi.Input<inputs.quicksight.ThemeConfiguration | undefined>;
     /**
@@ -291,7 +291,7 @@ export interface ThemeArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the theme. Maximum of 64 items. See permissions.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemePermission>[] | undefined>;
     /**
@@ -309,7 +309,7 @@ export interface ThemeArgs {
      */
     themeId: pulumi.Input<string>;
     /**
-     * A description of the current theme version being created/updated.
+     * Description of the current theme version being created/updated.
      */
     versionDescription?: pulumi.Input<string | undefined>;
 }

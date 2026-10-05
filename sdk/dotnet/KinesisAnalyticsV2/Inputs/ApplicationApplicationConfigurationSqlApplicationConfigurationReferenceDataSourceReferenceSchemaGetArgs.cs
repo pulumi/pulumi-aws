@@ -16,7 +16,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         private InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnGetArgs>? _recordColumns;
 
         /// <summary>
-        /// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+        /// Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `RecordColumn` Block above.
         /// </summary>
         public InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnGetArgs> RecordColumns
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         }
 
         /// <summary>
-        /// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+        /// Encoding of the records in the streaming source. For example, `UTF-8`.
         /// </summary>
         [Input("recordEncoding")]
         public Input<string>? RecordEncoding { get; set; }
 
         /// <summary>
-        /// Specifies the format of the records on the streaming source.
+        /// Format of the records on the streaming source. See `RecordFormat` Block above.
         /// </summary>
         [Input("recordFormat", required: true)]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatGetArgs> RecordFormat { get; set; } = null!;

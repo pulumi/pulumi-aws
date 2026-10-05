@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSourceParametersAwsIotAnalyticsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the data set to which to connect.
+        /// Name of the data set to which to connect.
         /// </summary>
         [Input("dataSetName", required: true)]
         public Input<string> DataSetName { get; set; } = null!;

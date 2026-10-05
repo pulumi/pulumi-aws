@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSetColumnGroup {
     /**
-     * @return Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+     * @return Geospatial column group that denotes a hierarchy. See `geoSpatialColumnGroup` Block below.
      * 
      */
     private @Nullable DataSetColumnGroupGeoSpatialColumnGroup geoSpatialColumnGroup;
 
     private DataSetColumnGroup() {}
     /**
-     * @return Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+     * @return Geospatial column group that denotes a hierarchy. See `geoSpatialColumnGroup` Block below.
      * 
      */
     public Optional<DataSetColumnGroupGeoSpatialColumnGroup> geoSpatialColumnGroup() {

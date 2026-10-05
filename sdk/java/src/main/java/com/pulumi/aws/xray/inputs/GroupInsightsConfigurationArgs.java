@@ -17,14 +17,14 @@ public final class GroupInsightsConfigurationArgs extends com.pulumi.resources.R
     public static final GroupInsightsConfigurationArgs Empty = new GroupInsightsConfigurationArgs();
 
     /**
-     * Specifies whether insights are enabled.
+     * Whether insights are enabled.
      * 
      */
     @Import(name="insightsEnabled", required=true)
     private Output<Boolean> insightsEnabled;
 
     /**
-     * @return Specifies whether insights are enabled.
+     * @return Whether insights are enabled.
      * 
      */
     public Output<Boolean> insightsEnabled() {
@@ -32,14 +32,14 @@ public final class GroupInsightsConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies whether insight notifications are enabled.
+     * Whether insight notifications are enabled.
      * 
      */
     @Import(name="notificationsEnabled")
     private @Nullable Output<Boolean> notificationsEnabled;
 
     /**
-     * @return Specifies whether insight notifications are enabled.
+     * @return Whether insight notifications are enabled.
      * 
      */
     public Optional<Output<Boolean>> notificationsEnabled() {
@@ -72,7 +72,7 @@ public final class GroupInsightsConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param insightsEnabled Specifies whether insights are enabled.
+         * @param insightsEnabled Whether insights are enabled.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GroupInsightsConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param insightsEnabled Specifies whether insights are enabled.
+         * @param insightsEnabled Whether insights are enabled.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class GroupInsightsConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param notificationsEnabled Specifies whether insight notifications are enabled.
+         * @param notificationsEnabled Whether insight notifications are enabled.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GroupInsightsConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param notificationsEnabled Specifies whether insight notifications are enabled.
+         * @param notificationsEnabled Whether insight notifications are enabled.
          * 
          * @return builder
          * 

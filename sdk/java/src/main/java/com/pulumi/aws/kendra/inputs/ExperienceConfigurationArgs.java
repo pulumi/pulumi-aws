@@ -17,14 +17,14 @@ public final class ExperienceConfigurationArgs extends com.pulumi.resources.Reso
     public static final ExperienceConfigurationArgs Empty = new ExperienceConfigurationArgs();
 
     /**
-     * The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     * Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
     @Import(name="contentSourceConfiguration")
     private @Nullable Output<ExperienceConfigurationContentSourceConfigurationArgs> contentSourceConfiguration;
 
     /**
-     * @return The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+     * @return Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
     public Optional<Output<ExperienceConfigurationContentSourceConfigurationArgs>> contentSourceConfiguration() {
@@ -32,14 +32,14 @@ public final class ExperienceConfigurationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+     * AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
      * 
      */
     @Import(name="userIdentityConfiguration")
     private @Nullable Output<ExperienceConfigurationUserIdentityConfigurationArgs> userIdentityConfiguration;
 
     /**
-     * @return The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+     * @return AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
      * 
      */
     public Optional<Output<ExperienceConfigurationUserIdentityConfigurationArgs>> userIdentityConfiguration() {
@@ -72,7 +72,7 @@ public final class ExperienceConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param contentSourceConfiguration The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+         * @param contentSourceConfiguration Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ExperienceConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param contentSourceConfiguration The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+         * @param contentSourceConfiguration Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ExperienceConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param userIdentityConfiguration The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+         * @param userIdentityConfiguration AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ExperienceConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param userIdentityConfiguration The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+         * @param userIdentityConfiguration AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
          * 
          * @return builder
          * 

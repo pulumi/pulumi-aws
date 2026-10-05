@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeTargetParametersLambdaFunctionParameters
     {
         /// <summary>
-        /// Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+        /// Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
         /// </summary>
         public readonly string InvocationType;
 

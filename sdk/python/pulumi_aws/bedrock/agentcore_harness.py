@@ -52,7 +52,7 @@ class AgentcoreHarnessArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tools: List of tool names allowed for the harness. Use `["*"]` to allow all tools.
         :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
         :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactArgs'] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         :param pulumi.Input[_builtins.int] max_iterations: Maximum number of iterations the agent loop can perform.
         :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens in the model response.
@@ -189,7 +189,7 @@ class AgentcoreHarnessArgs:
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of environment variables.
+        Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -362,7 +362,7 @@ class _AgentcoreHarnessState:
         :param pulumi.Input['AgentcoreHarnessAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentActualArgs']]] environment_actuals: Actual deployed environment configuration. See `environment_actual` Block below.
         :param pulumi.Input['AgentcoreHarnessEnvironmentArtifactArgs'] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreHarnessEnvironmentArgs']]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_id: Unique identifier of the Harness.
@@ -496,7 +496,7 @@ class _AgentcoreHarnessState:
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of environment variables.
+        Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -901,7 +901,7 @@ class AgentcoreHarness(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tools: List of tool names allowed for the harness. Use `["*"]` to allow all tools.
         :param pulumi.Input[Union['AgentcoreHarnessAuthorizerConfigurationArgs', 'AgentcoreHarnessAuthorizerConfigurationArgsDict', 'outputs.AgentcoreHarnessAuthorizerConfiguration']] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
         :param pulumi.Input[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict', 'outputs.AgentcoreHarnessEnvironmentArtifact']] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict', 'outputs.AgentcoreHarnessEnvironment']]]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_name: Name of the harness. Must be 1-40 characters, alphanumeric and underscores only.
@@ -1198,7 +1198,7 @@ class AgentcoreHarness(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreHarnessAuthorizerConfigurationArgs', 'AgentcoreHarnessAuthorizerConfigurationArgsDict', 'outputs.AgentcoreHarnessAuthorizerConfiguration']] authorizer_configuration: Authorization configuration for authenticating requests. See `authorizer_configuration` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentActualArgs', 'AgentcoreHarnessEnvironmentActualArgsDict', 'outputs.AgentcoreHarnessEnvironmentActual']]]] environment_actuals: Actual deployed environment configuration. See `environment_actual` Block below.
         :param pulumi.Input[Union['AgentcoreHarnessEnvironmentArtifactArgs', 'AgentcoreHarnessEnvironmentArtifactArgsDict', 'outputs.AgentcoreHarnessEnvironmentArtifact']] environment_artifact: Environment artifact configuration. See `environment_artifact` Block below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreHarnessEnvironmentArgs', 'AgentcoreHarnessEnvironmentArgsDict', 'outputs.AgentcoreHarnessEnvironment']]]] environments: Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environment_actual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the harness assumes to access AWS services.
         :param pulumi.Input[_builtins.str] harness_id: Unique identifier of the Harness.
@@ -1291,9 +1291,9 @@ class AgentcoreHarness(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+    def environment_variables(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        Map of environment variables.
+        Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
         """
         return pulumi.get(self, "environment_variables")
 

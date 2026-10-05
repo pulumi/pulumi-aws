@@ -41,14 +41,14 @@ class CloudExadataInfrastructureArgs:
         :param pulumi.Input[_builtins.str] display_name: User-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
         :param pulumi.Input['CloudExadataInfrastructureMaintenanceWindowArgs'] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
         :param pulumi.Input[_builtins.str] shape: Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] compute_count: Number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactsToSendToOciArgs']]] customer_contacts_to_send_to_ocis: Email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource. See `customer_contacts_to_send_to_oci` Block below.
         :param pulumi.Input[_builtins.str] database_server_type: Database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] storage_count: Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] storage_server_type: Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -116,6 +116,8 @@ class CloudExadataInfrastructureArgs:
     def shape(self) -> pulumi.Input[_builtins.str]:
         """
         Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "shape")
 
@@ -188,8 +190,6 @@ class CloudExadataInfrastructureArgs:
     def storage_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "storage_count")
 
@@ -310,11 +310,11 @@ class _CloudExadataInfrastructureState:
         :param pulumi.Input[_builtins.float] percent_progress: Amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] shape: Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] status: Current status of the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] status_reason: Additional information about the status of the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] storage_count: Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] storage_server_type: Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] storage_server_version: Software version of the storage servers on the Exadata infrastructure.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -780,6 +780,8 @@ class _CloudExadataInfrastructureState:
     def shape(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "shape")
 
@@ -816,8 +818,6 @@ class _CloudExadataInfrastructureState:
     def storage_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "storage_count")
 
@@ -937,9 +937,9 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict', 'outputs.CloudExadataInfrastructureMaintenanceWindow']] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] shape: Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
-        :param pulumi.Input[_builtins.int] storage_count: Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.int] storage_count: Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] storage_server_type: Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -1139,11 +1139,11 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[_builtins.float] percent_progress: Amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] shape: Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] status: Current status of the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] status_reason: Additional information about the status of the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] storage_count: Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-               
-               The following arguments are optional:
         :param pulumi.Input[_builtins.str] storage_server_type: Storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] storage_server_version: Software version of the storage servers on the Exadata infrastructure.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1449,6 +1449,8 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     def shape(self) -> pulumi.Output[_builtins.str]:
         """
         Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "shape")
 
@@ -1473,8 +1475,6 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     def storage_count(self) -> pulumi.Output[_builtins.int]:
         """
         Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "storage_count")
 

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration
     {
         /// <summary>
-        /// The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+        /// ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
         /// </summary>
         public readonly string? CatalogId;
         /// <summary>
-        /// Specifies the name of the AWS Glue database that contains the schema for the output data.
+        /// Name of the AWS Glue database that contains the schema for the output data.
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
@@ -26,15 +26,15 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? Region;
         /// <summary>
-        /// The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+        /// Role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+        /// AWS Glue table that contains the column information that constitutes your data schema.
         /// </summary>
         public readonly string TableName;
         /// <summary>
-        /// Specifies the table version for the output data schema. Defaults to `LATEST`.
+        /// Table version for the output data schema. Defaults to `LATEST`.
         /// </summary>
         public readonly string? VersionId;
 

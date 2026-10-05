@@ -16,32 +16,22 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArg
 
     public static final AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs Empty = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs();
 
-    /**
-     * The Mapping Information for the record format.
-     * See Mapping Parameters below for more details.
-     * 
-     */
     @Import(name="mappingParameters")
     private @Nullable Output<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs> mappingParameters;
 
-    /**
-     * @return The Mapping Information for the record format.
-     * See Mapping Parameters below for more details.
-     * 
-     */
     public Optional<Output<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs>> mappingParameters() {
         return Optional.ofNullable(this.mappingParameters);
     }
 
     /**
-     * The type of Record Format. Can be `CSV` or `JSON`.
+     * Type of Record Format of the reference data source.
      * 
      */
     @Import(name="recordFormatType")
     private @Nullable Output<String> recordFormatType;
 
     /**
-     * @return The type of Record Format. Can be `CSV` or `JSON`.
+     * @return Type of Record Format of the reference data source.
      * 
      */
     public Optional<Output<String>> recordFormatType() {
@@ -73,31 +63,17 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArg
             $ = new AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param mappingParameters The Mapping Information for the record format.
-         * See Mapping Parameters below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mappingParameters(@Nullable Output<AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs> mappingParameters) {
             $.mappingParameters = mappingParameters;
             return this;
         }
 
-        /**
-         * @param mappingParameters The Mapping Information for the record format.
-         * See Mapping Parameters below for more details.
-         * 
-         * @return builder
-         * 
-         */
         public Builder mappingParameters(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs mappingParameters) {
             return mappingParameters(Output.of(mappingParameters));
         }
 
         /**
-         * @param recordFormatType The type of Record Format. Can be `CSV` or `JSON`.
+         * @param recordFormatType Type of Record Format of the reference data source.
          * 
          * @return builder
          * 
@@ -108,7 +84,7 @@ public final class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArg
         }
 
         /**
-         * @param recordFormatType The type of Record Format. Can be `CSV` or `JSON`.
+         * @param recordFormatType Type of Record Format of the reference data source.
          * 
          * @return builder
          * 

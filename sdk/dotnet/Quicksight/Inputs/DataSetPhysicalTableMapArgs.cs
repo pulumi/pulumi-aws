@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSetPhysicalTableMapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A physical table type built from the results of the custom SQL query. See custom_sql.
+        /// Physical table type built from the results of the custom SQL query. See `CustomSql` Block below.
         /// </summary>
         [Input("customSql")]
         public Input<Inputs.DataSetPhysicalTableMapCustomSqlArgs>? CustomSql { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Quicksight.Inputs
         public Input<string> PhysicalTableMapId { get; set; } = null!;
 
         /// <summary>
-        /// A physical table type for relational data sources. See relational_table.
+        /// Physical table type for relational data sources. See `RelationalTable` Block below.
         /// </summary>
         [Input("relationalTable")]
         public Input<Inputs.DataSetPhysicalTableMapRelationalTableArgs>? RelationalTable { get; set; }
 
         /// <summary>
-        /// A physical table type for as S3 data source. See s3_source.
+        /// Physical table type for an S3 data source. See `S3Source` Block below.
         /// </summary>
         [Input("s3Source")]
         public Input<Inputs.DataSetPhysicalTableMapS3SourceArgs>? S3Source { get; set; }

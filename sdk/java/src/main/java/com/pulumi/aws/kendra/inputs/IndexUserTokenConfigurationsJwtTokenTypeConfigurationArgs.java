@@ -17,14 +17,14 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
     public static final IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs Empty = new IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs();
 
     /**
-     * The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
+     * Regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
      * 
      */
     @Import(name="claimRegex")
     private @Nullable Output<String> claimRegex;
 
     /**
-     * @return The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
+     * @return Regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
      * 
      */
     public Optional<Output<String>> claimRegex() {
@@ -32,14 +32,14 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
     }
 
     /**
-     * The group attribute field. Minimum length of 1. Maximum length of 100.
+     * Group attribute field. Minimum length of 1. Maximum length of 100.
      * 
      */
     @Import(name="groupAttributeField")
     private @Nullable Output<String> groupAttributeField;
 
     /**
-     * @return The group attribute field. Minimum length of 1. Maximum length of 100.
+     * @return Group attribute field. Minimum length of 1. Maximum length of 100.
      * 
      */
     public Optional<Output<String>> groupAttributeField() {
@@ -47,14 +47,14 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
     }
 
     /**
-     * The issuer of the token. Minimum length of 1. Maximum length of 65.
+     * Issuer of the token. Minimum length of 1. Maximum length of 65.
      * 
      */
     @Import(name="issuer")
     private @Nullable Output<String> issuer;
 
     /**
-     * @return The issuer of the token. Minimum length of 1. Maximum length of 65.
+     * @return Issuer of the token. Minimum length of 1. Maximum length of 65.
      * 
      */
     public Optional<Output<String>> issuer() {
@@ -62,14 +62,14 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
     }
 
     /**
-     * The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+     * Location of the key. Valid values are `URL` or `SECRET_MANAGER`.
      * 
      */
     @Import(name="keyLocation", required=true)
     private Output<String> keyLocation;
 
     /**
-     * @return The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+     * @return Location of the key. Valid values are `URL` or `SECRET_MANAGER`.
      * 
      */
     public Output<String> keyLocation() {
@@ -92,14 +92,14 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
     }
 
     /**
-     * The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
+     * Signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`.
      * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
-     * @return The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
+     * @return Signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`.
      * 
      */
     public Optional<Output<String>> url() {
@@ -107,14 +107,14 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
     }
 
     /**
-     * The user name attribute field. Minimum length of 1. Maximum length of 100.
+     * User name attribute field. Minimum length of 1. Maximum length of 100.
      * 
      */
     @Import(name="userNameAttributeField")
     private @Nullable Output<String> userNameAttributeField;
 
     /**
-     * @return The user name attribute field. Minimum length of 1. Maximum length of 100.
+     * @return User name attribute field. Minimum length of 1. Maximum length of 100.
      * 
      */
     public Optional<Output<String>> userNameAttributeField() {
@@ -152,7 +152,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param claimRegex The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
+         * @param claimRegex Regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param claimRegex The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
+         * @param claimRegex Regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param groupAttributeField The group attribute field. Minimum length of 1. Maximum length of 100.
+         * @param groupAttributeField Group attribute field. Minimum length of 1. Maximum length of 100.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param groupAttributeField The group attribute field. Minimum length of 1. Maximum length of 100.
+         * @param groupAttributeField Group attribute field. Minimum length of 1. Maximum length of 100.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param issuer The issuer of the token. Minimum length of 1. Maximum length of 65.
+         * @param issuer Issuer of the token. Minimum length of 1. Maximum length of 65.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param issuer The issuer of the token. Minimum length of 1. Maximum length of 65.
+         * @param issuer Issuer of the token. Minimum length of 1. Maximum length of 65.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param keyLocation The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+         * @param keyLocation Location of the key. Valid values are `URL` or `SECRET_MANAGER`.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param keyLocation The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+         * @param keyLocation Location of the key. Valid values are `URL` or `SECRET_MANAGER`.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param url The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
+         * @param url Signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param url The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
+         * @param url Signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param userNameAttributeField The user name attribute field. Minimum length of 1. Maximum length of 100.
+         * @param userNameAttributeField User name attribute field. Minimum length of 1. Maximum length of 100.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs ext
         }
 
         /**
-         * @param userNameAttributeField The user name attribute field. Minimum length of 1. Maximum length of 100.
+         * @param userNameAttributeField User name attribute field. Minimum length of 1. Maximum length of 100.
          * 
          * @return builder
          * 

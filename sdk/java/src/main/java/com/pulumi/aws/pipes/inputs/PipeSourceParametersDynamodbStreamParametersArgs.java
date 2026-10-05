@@ -19,14 +19,14 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
     public static final PipeSourceParametersDynamodbStreamParametersArgs Empty = new PipeSourceParametersDynamodbStreamParametersArgs();
 
     /**
-     * The maximum number of records to include in each batch. Maximum value of 10000.
+     * Maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
     @Import(name="batchSize")
     private @Nullable Output<Integer> batchSize;
 
     /**
-     * @return The maximum number of records to include in each batch. Maximum value of 10000.
+     * @return Maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
     public Optional<Output<Integer>> batchSize() {
@@ -34,14 +34,14 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
     }
 
     /**
-     * Define the target queue to send dead-letter queue events to. Detailed below.
+     * Define the target queue to send dead-letter queue events to. See `deadLetterConfig` Block for details.
      * 
      */
     @Import(name="deadLetterConfig")
     private @Nullable Output<PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs> deadLetterConfig;
 
     /**
-     * @return Define the target queue to send dead-letter queue events to. Detailed below.
+     * @return Define the target queue to send dead-letter queue events to. See `deadLetterConfig` Block for details.
      * 
      */
     public Optional<Output<PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs>> deadLetterConfig() {
@@ -49,14 +49,14 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
     }
 
     /**
-     * The maximum length of a time to wait for events. Maximum value of 300.
+     * Maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
     @Import(name="maximumBatchingWindowInSeconds")
     private @Nullable Output<Integer> maximumBatchingWindowInSeconds;
 
     /**
-     * @return The maximum length of a time to wait for events. Maximum value of 300.
+     * @return Maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
     public Optional<Output<Integer>> maximumBatchingWindowInSeconds() {
@@ -109,14 +109,14 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
     }
 
     /**
-     * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+     * Number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
      * 
      */
     @Import(name="parallelizationFactor")
     private @Nullable Output<Integer> parallelizationFactor;
 
     /**
-     * @return The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+     * @return Number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
      * 
      */
     public Optional<Output<Integer>> parallelizationFactor() {
@@ -124,14 +124,14 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
     }
 
     /**
-     * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+     * Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
      * 
      */
     @Import(name="startingPosition", required=true)
     private Output<String> startingPosition;
 
     /**
-     * @return The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+     * @return Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
      * 
      */
     public Output<String> startingPosition() {
@@ -170,7 +170,7 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
         }
 
         /**
-         * @param batchSize The maximum number of records to include in each batch. Maximum value of 10000.
+         * @param batchSize Maximum number of records to include in each batch. Maximum value of 10000.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
         }
 
         /**
-         * @param batchSize The maximum number of records to include in each batch. Maximum value of 10000.
+         * @param batchSize Maximum number of records to include in each batch. Maximum value of 10000.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
         }
 
         /**
-         * @param deadLetterConfig Define the target queue to send dead-letter queue events to. Detailed below.
+         * @param deadLetterConfig Define the target queue to send dead-letter queue events to. See `deadLetterConfig` Block for details.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
         }
 
         /**
-         * @param deadLetterConfig Define the target queue to send dead-letter queue events to. Detailed below.
+         * @param deadLetterConfig Define the target queue to send dead-letter queue events to. See `deadLetterConfig` Block for details.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
         }
 
         /**
-         * @param maximumBatchingWindowInSeconds The maximum length of a time to wait for events. Maximum value of 300.
+         * @param maximumBatchingWindowInSeconds Maximum length of a time to wait for events. Maximum value of 300.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
         }
 
         /**
-         * @param maximumBatchingWindowInSeconds The maximum length of a time to wait for events. Maximum value of 300.
+         * @param maximumBatchingWindowInSeconds Maximum length of a time to wait for events. Maximum value of 300.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
         }
 
         /**
-         * @param parallelizationFactor The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+         * @param parallelizationFactor Number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
         }
 
         /**
-         * @param parallelizationFactor The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+         * @param parallelizationFactor Number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
          * 
          * @return builder
          * 
@@ -317,7 +317,7 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
         }
 
         /**
-         * @param startingPosition The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         * @param startingPosition Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class PipeSourceParametersDynamodbStreamParametersArgs extends com.
         }
 
         /**
-         * @param startingPosition The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         * @param startingPosition Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
          * 
          * @return builder
          * 

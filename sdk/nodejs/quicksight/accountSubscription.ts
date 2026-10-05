@@ -96,7 +96,7 @@ export class AccountSubscription extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     declare public readonly contactNumber: pulumi.Output<string | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface AccountSubscriptionState {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     contactNumber?: pulumi.Input<string | undefined>;
     /**
@@ -350,7 +350,7 @@ export interface AccountSubscriptionArgs {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      */
     contactNumber?: pulumi.Input<string | undefined>;
     /**

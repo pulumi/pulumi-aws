@@ -68,6 +68,8 @@ type View struct {
 	// Description of the custom billing view.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the custom billing view to be created.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Account owner of the billing view.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
@@ -76,8 +78,6 @@ type View struct {
 	// Number of source views associated with this billing view.
 	SourceViewCount pulumi.IntOutput `pulumi:"sourceViewCount"`
 	// List of ARNs of the source data views for the custom billing view.
-	//
-	// The following arguments are optional:
 	SourceViews pulumi.StringArrayOutput `pulumi:"sourceViews"`
 	// Key-value map of tags associated with the billing view being created.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -133,6 +133,8 @@ type viewState struct {
 	// Description of the custom billing view.
 	Description *string `pulumi:"description"`
 	// Name of the custom billing view to be created.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Account owner of the billing view.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
@@ -141,8 +143,6 @@ type viewState struct {
 	// Number of source views associated with this billing view.
 	SourceViewCount *int `pulumi:"sourceViewCount"`
 	// List of ARNs of the source data views for the custom billing view.
-	//
-	// The following arguments are optional:
 	SourceViews []string `pulumi:"sourceViews"`
 	// Key-value map of tags associated with the billing view being created.
 	Tags map[string]string `pulumi:"tags"`
@@ -169,6 +169,8 @@ type ViewState struct {
 	// Description of the custom billing view.
 	Description pulumi.StringPtrInput
 	// Name of the custom billing view to be created.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Account owner of the billing view.
 	OwnerAccountId pulumi.StringPtrInput
@@ -177,8 +179,6 @@ type ViewState struct {
 	// Number of source views associated with this billing view.
 	SourceViewCount pulumi.IntPtrInput
 	// List of ARNs of the source data views for the custom billing view.
-	//
-	// The following arguments are optional:
 	SourceViews pulumi.StringArrayInput
 	// Key-value map of tags associated with the billing view being created.
 	Tags pulumi.StringMapInput
@@ -201,10 +201,10 @@ type viewArgs struct {
 	// Description of the custom billing view.
 	Description *string `pulumi:"description"`
 	// Name of the custom billing view to be created.
-	Name *string `pulumi:"name"`
-	// List of ARNs of the source data views for the custom billing view.
 	//
 	// The following arguments are optional:
+	Name *string `pulumi:"name"`
+	// List of ARNs of the source data views for the custom billing view.
 	SourceViews []string `pulumi:"sourceViews"`
 	// Key-value map of tags associated with the billing view being created.
 	Tags     map[string]string `pulumi:"tags"`
@@ -218,10 +218,10 @@ type ViewArgs struct {
 	// Description of the custom billing view.
 	Description pulumi.StringPtrInput
 	// Name of the custom billing view to be created.
-	Name pulumi.StringPtrInput
-	// List of ARNs of the source data views for the custom billing view.
 	//
 	// The following arguments are optional:
+	Name pulumi.StringPtrInput
+	// List of ARNs of the source data views for the custom billing view.
 	SourceViews pulumi.StringArrayInput
 	// Key-value map of tags associated with the billing view being created.
 	Tags     pulumi.StringMapInput
@@ -346,6 +346,8 @@ func (o ViewOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Name of the custom billing view to be created.
+//
+// The following arguments are optional:
 func (o ViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -366,8 +368,6 @@ func (o ViewOutput) SourceViewCount() pulumi.IntOutput {
 }
 
 // List of ARNs of the source data views for the custom billing view.
-//
-// The following arguments are optional:
 func (o ViewOutput) SourceViews() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *View) pulumi.StringArrayOutput { return v.SourceViews }).(pulumi.StringArrayOutput)
 }

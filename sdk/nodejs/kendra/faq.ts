@@ -109,30 +109,39 @@ export class Faq extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The Unix datetime that the FAQ was created.
+     * Unix datetime that the FAQ was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    /**
+     * Description for a FAQ.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
      */
     declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
     /**
-     * The identifier of the FAQ.
+     * Identifier of the FAQ.
      */
     declare public /*out*/ readonly faqId: pulumi.Output<string>;
+    /**
+     * File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+     */
     declare public readonly fileFormat: pulumi.Output<string | undefined>;
     /**
-     * The identifier of the index for a FAQ.
+     * Identifier of the index for a FAQ.
      */
     declare public readonly indexId: pulumi.Output<string>;
+    /**
+     * Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     */
     declare public readonly languageCode: pulumi.Output<string>;
     /**
-     * The name that should be associated with the FAQ.
+     * Name that should be associated with the FAQ.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
@@ -140,20 +149,25 @@ export class Faq extends pulumi.CustomResource {
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
-     * The S3 location of the FAQ input data. Detailed below.
+     * S3 location of the FAQ input data. Detailed below.
+     *
+     * The following arguments are optional:
      */
     declare public readonly s3Path: pulumi.Output<outputs.kendra.FaqS3Path>;
     /**
-     * The status of the FAQ. It is ready to use when the status is ACTIVE.
+     * Status of the FAQ. It is ready to use when the status is ACTIVE.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The date and time that the FAQ was last updated.
+     * Date and time that the FAQ was last updated.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
@@ -228,30 +242,39 @@ export interface FaqState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The Unix datetime that the FAQ was created.
+     * Unix datetime that the FAQ was created.
      */
     createdAt?: pulumi.Input<string | undefined>;
+    /**
+     * Description for a FAQ.
+     */
     description?: pulumi.Input<string | undefined>;
     /**
      * When the Status field value is `FAILED`, this contains a message that explains why.
      */
     errorMessage?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the FAQ.
+     * Identifier of the FAQ.
      */
     faqId?: pulumi.Input<string | undefined>;
+    /**
+     * File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+     */
     fileFormat?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the index for a FAQ.
+     * Identifier of the index for a FAQ.
      */
     indexId?: pulumi.Input<string | undefined>;
+    /**
+     * Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     */
     languageCode?: pulumi.Input<string | undefined>;
     /**
-     * The name that should be associated with the FAQ.
+     * Name that should be associated with the FAQ.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     /**
@@ -259,20 +282,25 @@ export interface FaqState {
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * The S3 location of the FAQ input data. Detailed below.
+     * S3 location of the FAQ input data. Detailed below.
+     *
+     * The following arguments are optional:
      */
     s3Path?: pulumi.Input<inputs.kendra.FaqS3Path | undefined>;
     /**
-     * The status of the FAQ. It is ready to use when the status is ACTIVE.
+     * Status of the FAQ. It is ready to use when the status is ACTIVE.
      */
     status?: pulumi.Input<string | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The date and time that the FAQ was last updated.
+     * Date and time that the FAQ was last updated.
      */
     updatedAt?: pulumi.Input<string | undefined>;
 }
@@ -281,19 +309,28 @@ export interface FaqState {
  * The set of arguments for constructing a Faq resource.
  */
 export interface FaqArgs {
+    /**
+     * Description for a FAQ.
+     */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+     */
     fileFormat?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the index for a FAQ.
+     * Identifier of the index for a FAQ.
      */
     indexId: pulumi.Input<string>;
+    /**
+     * Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     */
     languageCode?: pulumi.Input<string | undefined>;
     /**
-     * The name that should be associated with the FAQ.
+     * Name that should be associated with the FAQ.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     /**
@@ -301,8 +338,13 @@ export interface FaqArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * The S3 location of the FAQ input data. Detailed below.
+     * S3 location of the FAQ input data. Detailed below.
+     *
+     * The following arguments are optional:
      */
     s3Path: pulumi.Input<inputs.kendra.FaqS3Path>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

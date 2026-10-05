@@ -507,14 +507,14 @@ public class ScheduledQuery extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyId);
     }
     /**
-     * Runtime summary for the last scheduled query run.
+     * Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
      * 
      */
     @Export(name="lastRunSummaries", refs={List.class,ScheduledQueryLastRunSummary.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScheduledQueryLastRunSummary>> lastRunSummaries;
 
     /**
-     * @return Runtime summary for the last scheduled query run.
+     * @return Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
      * 
      */
     public Output<Optional<List<ScheduledQueryLastRunSummary>>> lastRunSummaries() {
@@ -591,14 +591,14 @@ public class ScheduledQuery extends com.pulumi.resources.CustomResource {
         return this.queryString;
     }
     /**
-     * Runtime summary for the last five failed scheduled query runs.
+     * Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
      * 
      */
     @Export(name="recentlyFailedRuns", refs={List.class,ScheduledQueryRecentlyFailedRun.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ScheduledQueryRecentlyFailedRun>> recentlyFailedRuns;
 
     /**
-     * @return Runtime summary for the last five failed scheduled query runs.
+     * @return Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
      * 
      */
     public Output<Optional<List<ScheduledQueryRecentlyFailedRun>>> recentlyFailedRuns() {

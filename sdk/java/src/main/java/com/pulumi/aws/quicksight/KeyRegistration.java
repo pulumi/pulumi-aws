@@ -87,14 +87,14 @@ public class KeyRegistration extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * Registered keys. See key_registration.
+     * Registered keys. See `keyRegistration` Block.
      * 
      */
     @Export(name="keyRegistrations", refs={List.class,KeyRegistrationKeyRegistration.class}, tree="[0,1]")
     private Output<List<KeyRegistrationKeyRegistration>> keyRegistrations;
 
     /**
-     * @return Registered keys. See key_registration.
+     * @return Registered keys. See `keyRegistration` Block.
      * 
      */
     public Output<List<KeyRegistrationKeyRegistration>> keyRegistrations() {

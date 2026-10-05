@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScheduledQueryRecentlyFailedRunErrorReportLocation {
     /**
-     * @return S3 location where error reports are written.
+     * @return S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
      * 
      */
     private @Nullable List<ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation> s3ReportLocations;
 
     private ScheduledQueryRecentlyFailedRunErrorReportLocation() {}
     /**
-     * @return S3 location where error reports are written.
+     * @return S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
      * 
      */
     public List<ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation> s3ReportLocations() {

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DataSetRefreshProperties {
     /**
-     * @return The refresh configuration for the data set. See refresh_configuration.
+     * @return Refresh configuration for the data set. See `refreshConfiguration` Block below.
      * 
      */
     private DataSetRefreshPropertiesRefreshConfiguration refreshConfiguration;
 
     private DataSetRefreshProperties() {}
     /**
-     * @return The refresh configuration for the data set. See refresh_configuration.
+     * @return Refresh configuration for the data set. See `refreshConfiguration` Block below.
      * 
      */
     public DataSetRefreshPropertiesRefreshConfiguration refreshConfiguration() {

@@ -18,16 +18,14 @@ public final class ProxyProtocolPolicyArgs extends com.pulumi.resources.Resource
     public static final ProxyProtocolPolicyArgs Empty = new ProxyProtocolPolicyArgs();
 
     /**
-     * List of instance ports to which the policy
-     * should be applied. This can be specified if the protocol is SSL or TCP.
+     * List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
      * 
      */
     @Import(name="instancePorts", required=true)
     private Output<List<String>> instancePorts;
 
     /**
-     * @return List of instance ports to which the policy
-     * should be applied. This can be specified if the protocol is SSL or TCP.
+     * @return List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
      * 
      */
     public Output<List<String>> instancePorts() {
@@ -35,16 +33,14 @@ public final class ProxyProtocolPolicyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The load balancer to which the policy
-     * should be attached.
+     * Load balancer to which the policy should be attached.
      * 
      */
     @Import(name="loadBalancer", required=true)
     private Output<String> loadBalancer;
 
     /**
-     * @return The load balancer to which the policy
-     * should be attached.
+     * @return Load balancer to which the policy should be attached.
      * 
      */
     public Output<String> loadBalancer() {
@@ -93,8 +89,7 @@ public final class ProxyProtocolPolicyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instancePorts List of instance ports to which the policy
-         * should be applied. This can be specified if the protocol is SSL or TCP.
+         * @param instancePorts List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
          * 
          * @return builder
          * 
@@ -105,8 +100,7 @@ public final class ProxyProtocolPolicyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instancePorts List of instance ports to which the policy
-         * should be applied. This can be specified if the protocol is SSL or TCP.
+         * @param instancePorts List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
          * 
          * @return builder
          * 
@@ -116,8 +110,7 @@ public final class ProxyProtocolPolicyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param instancePorts List of instance ports to which the policy
-         * should be applied. This can be specified if the protocol is SSL or TCP.
+         * @param instancePorts List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
          * 
          * @return builder
          * 
@@ -127,8 +120,7 @@ public final class ProxyProtocolPolicyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param loadBalancer The load balancer to which the policy
-         * should be attached.
+         * @param loadBalancer Load balancer to which the policy should be attached.
          * 
          * @return builder
          * 
@@ -139,8 +131,7 @@ public final class ProxyProtocolPolicyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param loadBalancer The load balancer to which the policy
-         * should be attached.
+         * @param loadBalancer Load balancer to which the policy should be attached.
          * 
          * @return builder
          * 

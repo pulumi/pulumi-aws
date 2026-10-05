@@ -47,14 +47,14 @@ public final class RefreshScheduleState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the dataset.
+     * ID of the dataset.
      * 
      */
     @Import(name="dataSetId")
     private @Nullable Output<String> dataSetId;
 
     /**
-     * @return The ID of the dataset.
+     * @return ID of the dataset.
      * 
      */
     public Optional<Output<String>> dataSetId() {
@@ -77,18 +77,14 @@ public final class RefreshScheduleState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-     * 
-     * The following arguments are optional:
+     * [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
      * 
      */
     @Import(name="schedule")
     private @Nullable Output<RefreshScheduleScheduleArgs> schedule;
 
     /**
-     * @return The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-     * 
-     * The following arguments are optional:
+     * @return [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
      * 
      */
     public Optional<Output<RefreshScheduleScheduleArgs>> schedule() {
@@ -96,14 +92,18 @@ public final class RefreshScheduleState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the refresh schedule.
+     * ID of the refresh schedule.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="scheduleId")
     private @Nullable Output<String> scheduleId;
 
     /**
-     * @return The ID of the refresh schedule.
+     * @return ID of the refresh schedule.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> scheduleId() {
@@ -182,7 +182,7 @@ public final class RefreshScheduleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dataSetId The ID of the dataset.
+         * @param dataSetId ID of the dataset.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class RefreshScheduleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dataSetId The ID of the dataset.
+         * @param dataSetId ID of the dataset.
          * 
          * @return builder
          * 
@@ -224,9 +224,7 @@ public final class RefreshScheduleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param schedule The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-         * 
-         * The following arguments are optional:
+         * @param schedule [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
          * 
          * @return builder
          * 
@@ -237,9 +235,7 @@ public final class RefreshScheduleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param schedule The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-         * 
-         * The following arguments are optional:
+         * @param schedule [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
          * 
          * @return builder
          * 
@@ -249,7 +245,9 @@ public final class RefreshScheduleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scheduleId The ID of the refresh schedule.
+         * @param scheduleId ID of the refresh schedule.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -260,7 +258,9 @@ public final class RefreshScheduleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param scheduleId The ID of the refresh schedule.
+         * @param scheduleId ID of the refresh schedule.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

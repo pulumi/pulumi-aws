@@ -24,14 +24,14 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
     public static final ApplicationApplicationConfigurationArgs Empty = new ApplicationApplicationConfigurationArgs();
 
     /**
-     * The code location and type parameters for the application.
+     * Code location and type parameters for the application. See `applicationCodeConfiguration` Block below.
      * 
      */
     @Import(name="applicationCodeConfiguration", required=true)
     private Output<ApplicationApplicationConfigurationApplicationCodeConfigurationArgs> applicationCodeConfiguration;
 
     /**
-     * @return The code location and type parameters for the application.
+     * @return Code location and type parameters for the application. See `applicationCodeConfiguration` Block below.
      * 
      */
     public Output<ApplicationApplicationConfigurationApplicationCodeConfigurationArgs> applicationCodeConfiguration() {
@@ -39,14 +39,14 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
     }
 
     /**
-     * The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+     * Encryption configuration for the application. Use this to encrypt data at rest in the application. See `applicationEncryptionConfiguration` Block below.
      * 
      */
     @Import(name="applicationEncryptionConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs> applicationEncryptionConfiguration;
 
     /**
-     * @return The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+     * @return Encryption configuration for the application. Use this to encrypt data at rest in the application. See `applicationEncryptionConfiguration` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs>> applicationEncryptionConfiguration() {
@@ -54,14 +54,14 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
     }
 
     /**
-     * Describes whether snapshots are enabled for a Flink-based application.
+     * Snapshot configuration for a Flink-based application. See `applicationSnapshotConfiguration` Block below.
      * 
      */
     @Import(name="applicationSnapshotConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs> applicationSnapshotConfiguration;
 
     /**
-     * @return Describes whether snapshots are enabled for a Flink-based application.
+     * @return Snapshot configuration for a Flink-based application. See `applicationSnapshotConfiguration` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs>> applicationSnapshotConfiguration() {
@@ -69,14 +69,14 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
     }
 
     /**
-     * Describes execution properties for a Flink-based application.
+     * Execution properties for a Flink-based application. See `environmentProperties` Block below.
      * 
      */
     @Import(name="environmentProperties")
     private @Nullable Output<ApplicationApplicationConfigurationEnvironmentPropertiesArgs> environmentProperties;
 
     /**
-     * @return Describes execution properties for a Flink-based application.
+     * @return Execution properties for a Flink-based application. See `environmentProperties` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationEnvironmentPropertiesArgs>> environmentProperties() {
@@ -84,14 +84,14 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
     }
 
     /**
-     * The configuration of a Flink-based application.
+     * Configuration of a Flink-based application. See `flinkApplicationConfiguration` Block below.
      * 
      */
     @Import(name="flinkApplicationConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs> flinkApplicationConfiguration;
 
     /**
-     * @return The configuration of a Flink-based application.
+     * @return Configuration of a Flink-based application. See `flinkApplicationConfiguration` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs>> flinkApplicationConfiguration() {
@@ -99,14 +99,14 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
     }
 
     /**
-     * Describes the starting properties for a Flink-based application.
+     * Starting properties for a Flink-based application. See `runConfiguration` Block below.
      * 
      */
     @Import(name="runConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationRunConfigurationArgs> runConfiguration;
 
     /**
-     * @return Describes the starting properties for a Flink-based application.
+     * @return Starting properties for a Flink-based application. See `runConfiguration` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationRunConfigurationArgs>> runConfiguration() {
@@ -114,14 +114,14 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
     }
 
     /**
-     * The configuration of a SQL-based application.
+     * Configuration of a SQL-based application. See `sqlApplicationConfiguration` Block below.
      * 
      */
     @Import(name="sqlApplicationConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationSqlApplicationConfigurationArgs> sqlApplicationConfiguration;
 
     /**
-     * @return The configuration of a SQL-based application.
+     * @return Configuration of a SQL-based application. See `sqlApplicationConfiguration` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationSqlApplicationConfigurationArgs>> sqlApplicationConfiguration() {
@@ -129,14 +129,14 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
     }
 
     /**
-     * The VPC configuration of a Flink-based application.
+     * VPC configuration of a Flink-based application. See `vpcConfiguration` Block below.
      * 
      */
     @Import(name="vpcConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationVpcConfigurationArgs> vpcConfiguration;
 
     /**
-     * @return The VPC configuration of a Flink-based application.
+     * @return VPC configuration of a Flink-based application. See `vpcConfiguration` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationVpcConfigurationArgs>> vpcConfiguration() {
@@ -175,7 +175,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param applicationCodeConfiguration The code location and type parameters for the application.
+         * @param applicationCodeConfiguration Code location and type parameters for the application. See `applicationCodeConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param applicationCodeConfiguration The code location and type parameters for the application.
+         * @param applicationCodeConfiguration Code location and type parameters for the application. See `applicationCodeConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param applicationEncryptionConfiguration The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+         * @param applicationEncryptionConfiguration Encryption configuration for the application. Use this to encrypt data at rest in the application. See `applicationEncryptionConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param applicationEncryptionConfiguration The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+         * @param applicationEncryptionConfiguration Encryption configuration for the application. Use this to encrypt data at rest in the application. See `applicationEncryptionConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param applicationSnapshotConfiguration Describes whether snapshots are enabled for a Flink-based application.
+         * @param applicationSnapshotConfiguration Snapshot configuration for a Flink-based application. See `applicationSnapshotConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param applicationSnapshotConfiguration Describes whether snapshots are enabled for a Flink-based application.
+         * @param applicationSnapshotConfiguration Snapshot configuration for a Flink-based application. See `applicationSnapshotConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param environmentProperties Describes execution properties for a Flink-based application.
+         * @param environmentProperties Execution properties for a Flink-based application. See `environmentProperties` Block below.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param environmentProperties Describes execution properties for a Flink-based application.
+         * @param environmentProperties Execution properties for a Flink-based application. See `environmentProperties` Block below.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param flinkApplicationConfiguration The configuration of a Flink-based application.
+         * @param flinkApplicationConfiguration Configuration of a Flink-based application. See `flinkApplicationConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param flinkApplicationConfiguration The configuration of a Flink-based application.
+         * @param flinkApplicationConfiguration Configuration of a Flink-based application. See `flinkApplicationConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param runConfiguration Describes the starting properties for a Flink-based application.
+         * @param runConfiguration Starting properties for a Flink-based application. See `runConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param runConfiguration Describes the starting properties for a Flink-based application.
+         * @param runConfiguration Starting properties for a Flink-based application. See `runConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param sqlApplicationConfiguration The configuration of a SQL-based application.
+         * @param sqlApplicationConfiguration Configuration of a SQL-based application. See `sqlApplicationConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param sqlApplicationConfiguration The configuration of a SQL-based application.
+         * @param sqlApplicationConfiguration Configuration of a SQL-based application. See `sqlApplicationConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param vpcConfiguration The VPC configuration of a Flink-based application.
+         * @param vpcConfiguration VPC configuration of a Flink-based application. See `vpcConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class ApplicationApplicationConfigurationArgs extends com.pulumi.re
         }
 
         /**
-         * @param vpcConfiguration The VPC configuration of a Flink-based application.
+         * @param vpcConfiguration VPC configuration of a Flink-based application. See `vpcConfiguration` Block below.
          * 
          * @return builder
          * 

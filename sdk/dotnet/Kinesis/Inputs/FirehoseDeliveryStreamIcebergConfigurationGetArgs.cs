@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class FirehoseDeliveryStreamIcebergConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
+        /// </summary>
         [Input("appendOnly")]
         public Input<bool>? AppendOnly { get; set; }
 
@@ -28,13 +31,13 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+        /// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
         /// </summary>
         [Input("catalogArn", required: true)]
         public Input<string> CatalogArn { get; set; } = null!;
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -52,28 +55,31 @@ namespace Pulumi.Aws.Kinesis.Inputs
         }
 
         /// <summary>
-        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
+        /// Data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+        /// Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
         /// </summary>
         [Input("retryDuration")]
         public Input<int>? RetryDuration { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        /// ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
+        /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See `S3Configuration` block below for details.
+        /// S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationGetArgs> S3Configuration { get; set; } = null!;

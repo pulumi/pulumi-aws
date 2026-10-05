@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapFileSystemDiskIopsConfigurationResult> DiskIopsConfigurations;
         /// <summary>
-        /// DNS name for the file system.
+        /// File system's DNS name. You can mount your file system using its DNS name.
         /// </summary>
         public readonly string DnsName;
         /// <summary>
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string EndpointIpAddressRange;
         /// <summary>
-        /// Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+        /// Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `Endpoints` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapFileSystemEndpointResult> Endpoints;
         /// <summary>

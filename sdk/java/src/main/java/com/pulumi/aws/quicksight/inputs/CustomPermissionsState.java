@@ -48,14 +48,14 @@ public final class CustomPermissionsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Actions to include in the custom permissions profile. See capabilities.
+     * Actions to include in the custom permissions profile. See `capabilities` Block.
      * 
      */
     @Import(name="capabilities")
     private @Nullable Output<CustomPermissionsCapabilitiesArgs> capabilities;
 
     /**
-     * @return Actions to include in the custom permissions profile. See capabilities.
+     * @return Actions to include in the custom permissions profile. See `capabilities` Block.
      * 
      */
     public Optional<Output<CustomPermissionsCapabilitiesArgs>> capabilities() {
@@ -112,14 +112,14 @@ public final class CustomPermissionsState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -199,7 +199,7 @@ public final class CustomPermissionsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param capabilities Actions to include in the custom permissions profile. See capabilities.
+         * @param capabilities Actions to include in the custom permissions profile. See `capabilities` Block.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class CustomPermissionsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param capabilities Actions to include in the custom permissions profile. See capabilities.
+         * @param capabilities Actions to include in the custom permissions profile. See `capabilities` Block.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class CustomPermissionsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class CustomPermissionsState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

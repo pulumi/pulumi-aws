@@ -18,14 +18,14 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
     public static final StreamState Empty = new StreamState();
 
     /**
-     * The ARN of the QLDB Stream.
+     * ARN of the QLDB Stream.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the QLDB Stream.
+     * @return ARN of the QLDB Stream.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
+     * Exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
      * 
      */
     @Import(name="exclusiveEndTime")
     private @Nullable Output<String> exclusiveEndTime;
 
     /**
-     * @return The exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
+     * @return Exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
      * 
      */
     public Optional<Output<String>> exclusiveEndTime() {
@@ -48,14 +48,14 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
+     * Inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
      * 
      */
     @Import(name="inclusiveStartTime")
     private @Nullable Output<String> inclusiveStartTime;
 
     /**
-     * @return The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
+     * @return Inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
      * 
      */
     public Optional<Output<String>> inclusiveStartTime() {
@@ -63,14 +63,14 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+     * Configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      * 
      */
     @Import(name="kinesisConfiguration")
     private @Nullable Output<StreamKinesisConfigurationArgs> kinesisConfiguration;
 
     /**
-     * @return The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+     * @return Configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      * 
      */
     public Optional<Output<StreamKinesisConfigurationArgs>> kinesisConfiguration() {
@@ -78,14 +78,14 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the QLDB ledger.
+     * Name of the QLDB ledger.
      * 
      */
     @Import(name="ledgerName")
     private @Nullable Output<String> ledgerName;
 
     /**
-     * @return The name of the QLDB ledger.
+     * @return Name of the QLDB ledger.
      * 
      */
     public Optional<Output<String>> ledgerName() {
@@ -123,14 +123,14 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+     * Name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
      * 
      */
     @Import(name="streamName")
     private @Nullable Output<String> streamName;
 
     /**
-     * @return The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+     * @return Name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
      * 
      */
     public Optional<Output<String>> streamName() {
@@ -153,14 +153,14 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -201,7 +201,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the QLDB Stream.
+         * @param arn ARN of the QLDB Stream.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the QLDB Stream.
+         * @param arn ARN of the QLDB Stream.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exclusiveEndTime The exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
+         * @param exclusiveEndTime Exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exclusiveEndTime The exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
+         * @param exclusiveEndTime Exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inclusiveStartTime The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
+         * @param inclusiveStartTime Inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inclusiveStartTime The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
+         * @param inclusiveStartTime Inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kinesisConfiguration The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+         * @param kinesisConfiguration Configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kinesisConfiguration The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+         * @param kinesisConfiguration Configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ledgerName The name of the QLDB ledger.
+         * @param ledgerName Name of the QLDB ledger.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ledgerName The name of the QLDB ledger.
+         * @param ledgerName Name of the QLDB ledger.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamName The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+         * @param streamName Name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamName The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+         * @param streamName Name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

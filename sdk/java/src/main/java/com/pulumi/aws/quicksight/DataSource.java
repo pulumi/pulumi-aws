@@ -251,70 +251,70 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+     * Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
      * 
      */
     @Export(name="credentials", refs={DataSourceCredentials.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceCredentials> credentials;
 
     /**
-     * @return The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+     * @return Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
      * 
      */
     public Output<Optional<DataSourceCredentials>> credentials() {
         return Codegen.optional(this.credentials);
     }
     /**
-     * An identifier for the data source.
+     * Identifier for the data source.
      * 
      */
     @Export(name="dataSourceId", refs={String.class}, tree="[0]")
     private Output<String> dataSourceId;
 
     /**
-     * @return An identifier for the data source.
+     * @return Identifier for the data source.
      * 
      */
     public Output<String> dataSourceId() {
         return this.dataSourceId;
     }
     /**
-     * A name for the data source, maximum of 128 characters.
+     * Name for the data source, maximum of 128 characters.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name for the data source, maximum of 128 characters.
+     * @return Name for the data source, maximum of 128 characters.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The parameters used to connect to this data source (exactly one).
+     * Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
      * 
      */
     @Export(name="parameters", refs={DataSourceParameters.class}, tree="[0]")
     private Output<DataSourceParameters> parameters;
 
     /**
-     * @return The parameters used to connect to this data source (exactly one).
+     * @return Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
      * 
      */
     public Output<DataSourceParameters> parameters() {
         return this.parameters;
     }
     /**
-     * A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+     * Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
      * 
      */
     @Export(name="permissions", refs={List.class,DataSourcePermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DataSourcePermission>> permissions;
 
     /**
-     * @return A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+     * @return Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
      * 
      */
     public Output<Optional<List<DataSourcePermission>>> permissions() {
@@ -335,14 +335,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
      * 
      */
     @Export(name="sslProperties", refs={DataSourceSslProperties.class}, tree="[0]")
     private Output<DataSourceSslProperties> sslProperties;
 
     /**
-     * @return Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+     * @return Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
      * 
      */
     public Output<DataSourceSslProperties> sslProperties() {
@@ -363,21 +363,21 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+     * Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
      * 
      * The following arguments are optional:
      * 
@@ -386,7 +386,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
     private Output<String> type;
 
     /**
-     * @return The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+     * @return Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
      * 
      * The following arguments are optional:
      * 
@@ -395,14 +395,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.type;
     }
     /**
-     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
      * 
      */
     @Export(name="vpcConnectionProperties", refs={DataSourceVpcConnectionProperties.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceVpcConnectionProperties> vpcConnectionProperties;
 
     /**
-     * @return Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+     * @return Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
      * 
      */
     public Output<Optional<DataSourceVpcConnectionProperties>> vpcConnectionProperties() {

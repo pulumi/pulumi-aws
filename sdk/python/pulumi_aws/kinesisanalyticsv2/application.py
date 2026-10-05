@@ -35,17 +35,19 @@ class ApplicationArgs:
         """
         The set of arguments for constructing a Application resource.
 
-        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
-        :param pulumi.Input[_builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
-        :param pulumi.Input['ApplicationApplicationConfigurationArgs'] application_configuration: The application's configuration
-        :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        :param pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
-        :param pulumi.Input[_builtins.str] description: A summary description of the application.
+        :param pulumi.Input[_builtins.str] runtime_environment: Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        :param pulumi.Input[_builtins.str] service_execution_role: ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+               
+               The following arguments are optional:
+        :param pulumi.Input['ApplicationApplicationConfigurationArgs'] application_configuration: Application configuration. See `application_configuration` Block below.
+        :param pulumi.Input[_builtins.str] application_mode: Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        :param pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: CloudWatch log stream to monitor application configuration errors. See `cloudwatch_logging_options` Block below.
+        :param pulumi.Input[_builtins.str] description: Summary description of the application.
         :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
-        :param pulumi.Input[_builtins.str] name: The name of the application.
+        :param pulumi.Input[_builtins.str] name: Name of the application.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "runtime_environment", runtime_environment)
         pulumi.set(__self__, "service_execution_role", service_execution_role)
@@ -72,7 +74,7 @@ class ApplicationArgs:
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Input[_builtins.str]:
         """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
         """
         return pulumi.get(self, "runtime_environment")
 
@@ -84,7 +86,9 @@ class ApplicationArgs:
     @pulumi.getter(name="serviceExecutionRole")
     def service_execution_role(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "service_execution_role")
 
@@ -96,7 +100,7 @@ class ApplicationArgs:
     @pulumi.getter(name="applicationConfiguration")
     def application_configuration(self) -> pulumi.Input[Optional['ApplicationApplicationConfigurationArgs']]:
         """
-        The application's configuration
+        Application configuration. See `application_configuration` Block below.
         """
         return pulumi.get(self, "application_configuration")
 
@@ -108,7 +112,7 @@ class ApplicationArgs:
     @pulumi.getter(name="applicationMode")
     def application_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         """
         return pulumi.get(self, "application_mode")
 
@@ -120,7 +124,7 @@ class ApplicationArgs:
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> pulumi.Input[Optional['ApplicationCloudwatchLoggingOptionsArgs']]:
         """
-        A CloudWatch log stream to monitor application configuration errors.
+        CloudWatch log stream to monitor application configuration errors. See `cloudwatch_logging_options` Block below.
         """
         return pulumi.get(self, "cloudwatch_logging_options")
 
@@ -132,7 +136,7 @@ class ApplicationArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A summary description of the application.
+        Summary description of the application.
         """
         return pulumi.get(self, "description")
 
@@ -156,7 +160,7 @@ class ApplicationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the application.
+        Name of the application.
         """
         return pulumi.get(self, "name")
 
@@ -192,7 +196,7 @@ class ApplicationArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        Map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -224,23 +228,25 @@ class _ApplicationState:
         """
         Input properties used for looking up and filtering Application resources.
 
-        :param pulumi.Input['ApplicationApplicationConfigurationArgs'] application_configuration: The application's configuration
-        :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the application.
-        :param pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
-        :param pulumi.Input[_builtins.str] create_timestamp: The current timestamp when the application was created.
-        :param pulumi.Input[_builtins.str] description: A summary description of the application.
+        :param pulumi.Input['ApplicationApplicationConfigurationArgs'] application_configuration: Application configuration. See `application_configuration` Block below.
+        :param pulumi.Input[_builtins.str] application_mode: Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        :param pulumi.Input[_builtins.str] arn: ARN of the application.
+        :param pulumi.Input['ApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: CloudWatch log stream to monitor application configuration errors. See `cloudwatch_logging_options` Block below.
+        :param pulumi.Input[_builtins.str] create_timestamp: Current timestamp when the application was created.
+        :param pulumi.Input[_builtins.str] description: Summary description of the application.
         :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
-        :param pulumi.Input[_builtins.str] last_update_timestamp: The current timestamp when the application was last updated.
-        :param pulumi.Input[_builtins.str] name: The name of the application.
+        :param pulumi.Input[_builtins.str] last_update_timestamp: Current timestamp when the application was last updated.
+        :param pulumi.Input[_builtins.str] name: Name of the application.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
-        :param pulumi.Input[_builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        :param pulumi.Input[_builtins.str] runtime_environment: Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        :param pulumi.Input[_builtins.str] service_execution_role: ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the application.
-        :param pulumi.Input[_builtins.str] status: The status of the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] version_id: The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
+        :param pulumi.Input[_builtins.str] status: Status of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.int] version_id: Current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
         if application_configuration is not None:
             pulumi.set(__self__, "application_configuration", application_configuration)
@@ -281,7 +287,7 @@ class _ApplicationState:
     @pulumi.getter(name="applicationConfiguration")
     def application_configuration(self) -> pulumi.Input[Optional['ApplicationApplicationConfigurationArgs']]:
         """
-        The application's configuration
+        Application configuration. See `application_configuration` Block below.
         """
         return pulumi.get(self, "application_configuration")
 
@@ -293,7 +299,7 @@ class _ApplicationState:
     @pulumi.getter(name="applicationMode")
     def application_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         """
         return pulumi.get(self, "application_mode")
 
@@ -305,7 +311,7 @@ class _ApplicationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the application.
+        ARN of the application.
         """
         return pulumi.get(self, "arn")
 
@@ -317,7 +323,7 @@ class _ApplicationState:
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> pulumi.Input[Optional['ApplicationCloudwatchLoggingOptionsArgs']]:
         """
-        A CloudWatch log stream to monitor application configuration errors.
+        CloudWatch log stream to monitor application configuration errors. See `cloudwatch_logging_options` Block below.
         """
         return pulumi.get(self, "cloudwatch_logging_options")
 
@@ -329,7 +335,7 @@ class _ApplicationState:
     @pulumi.getter(name="createTimestamp")
     def create_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The current timestamp when the application was created.
+        Current timestamp when the application was created.
         """
         return pulumi.get(self, "create_timestamp")
 
@@ -341,7 +347,7 @@ class _ApplicationState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A summary description of the application.
+        Summary description of the application.
         """
         return pulumi.get(self, "description")
 
@@ -365,7 +371,7 @@ class _ApplicationState:
     @pulumi.getter(name="lastUpdateTimestamp")
     def last_update_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The current timestamp when the application was last updated.
+        Current timestamp when the application was last updated.
         """
         return pulumi.get(self, "last_update_timestamp")
 
@@ -377,7 +383,7 @@ class _ApplicationState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the application.
+        Name of the application.
         """
         return pulumi.get(self, "name")
 
@@ -401,7 +407,7 @@ class _ApplicationState:
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
         """
         return pulumi.get(self, "runtime_environment")
 
@@ -413,7 +419,9 @@ class _ApplicationState:
     @pulumi.getter(name="serviceExecutionRole")
     def service_execution_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "service_execution_role")
 
@@ -437,7 +445,7 @@ class _ApplicationState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of the application.
+        Status of the application.
         """
         return pulumi.get(self, "status")
 
@@ -449,7 +457,7 @@ class _ApplicationState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        Map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -461,7 +469,7 @@ class _ApplicationState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -473,7 +481,7 @@ class _ApplicationState:
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
+        Current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
         return pulumi.get(self, "version_id")
 
@@ -720,17 +728,19 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']] application_configuration: The application's configuration
-        :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
-        :param pulumi.Input[_builtins.str] description: A summary description of the application.
+        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']] application_configuration: Application configuration. See `application_configuration` Block below.
+        :param pulumi.Input[_builtins.str] application_mode: Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: CloudWatch log stream to monitor application configuration errors. See `cloudwatch_logging_options` Block below.
+        :param pulumi.Input[_builtins.str] description: Summary description of the application.
         :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
-        :param pulumi.Input[_builtins.str] name: The name of the application.
+        :param pulumi.Input[_builtins.str] name: Name of the application.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
-        :param pulumi.Input[_builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        :param pulumi.Input[_builtins.str] runtime_environment: Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        :param pulumi.Input[_builtins.str] service_execution_role: ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -1046,23 +1056,25 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']] application_configuration: The application's configuration
-        :param pulumi.Input[_builtins.str] application_mode: The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the application.
-        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: A CloudWatch log stream to monitor application configuration errors.
-        :param pulumi.Input[_builtins.str] create_timestamp: The current timestamp when the application was created.
-        :param pulumi.Input[_builtins.str] description: A summary description of the application.
+        :param pulumi.Input[Union['ApplicationApplicationConfigurationArgs', 'ApplicationApplicationConfigurationArgsDict', 'outputs.ApplicationApplicationConfiguration']] application_configuration: Application configuration. See `application_configuration` Block below.
+        :param pulumi.Input[_builtins.str] application_mode: Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        :param pulumi.Input[_builtins.str] arn: ARN of the application.
+        :param pulumi.Input[Union['ApplicationCloudwatchLoggingOptionsArgs', 'ApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.ApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: CloudWatch log stream to monitor application configuration errors. See `cloudwatch_logging_options` Block below.
+        :param pulumi.Input[_builtins.str] create_timestamp: Current timestamp when the application was created.
+        :param pulumi.Input[_builtins.str] description: Summary description of the application.
         :param pulumi.Input[_builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
-        :param pulumi.Input[_builtins.str] last_update_timestamp: The current timestamp when the application was last updated.
-        :param pulumi.Input[_builtins.str] name: The name of the application.
+        :param pulumi.Input[_builtins.str] last_update_timestamp: Current timestamp when the application was last updated.
+        :param pulumi.Input[_builtins.str] name: Name of the application.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
-        :param pulumi.Input[_builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        :param pulumi.Input[_builtins.str] runtime_environment: Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        :param pulumi.Input[_builtins.str] service_execution_role: ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the application.
-        :param pulumi.Input[_builtins.str] status: The status of the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] version_id: The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
+        :param pulumi.Input[_builtins.str] status: Status of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.int] version_id: Current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1091,7 +1103,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="applicationConfiguration")
     def application_configuration(self) -> pulumi.Output['outputs.ApplicationApplicationConfiguration']:
         """
-        The application's configuration
+        Application configuration. See `application_configuration` Block below.
         """
         return pulumi.get(self, "application_configuration")
 
@@ -1099,7 +1111,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="applicationMode")
     def application_mode(self) -> pulumi.Output[_builtins.str]:
         """
-        The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         """
         return pulumi.get(self, "application_mode")
 
@@ -1107,7 +1119,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the application.
+        ARN of the application.
         """
         return pulumi.get(self, "arn")
 
@@ -1115,7 +1127,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> pulumi.Output[Optional['outputs.ApplicationCloudwatchLoggingOptions']]:
         """
-        A CloudWatch log stream to monitor application configuration errors.
+        CloudWatch log stream to monitor application configuration errors. See `cloudwatch_logging_options` Block below.
         """
         return pulumi.get(self, "cloudwatch_logging_options")
 
@@ -1123,7 +1135,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="createTimestamp")
     def create_timestamp(self) -> pulumi.Output[_builtins.str]:
         """
-        The current timestamp when the application was created.
+        Current timestamp when the application was created.
         """
         return pulumi.get(self, "create_timestamp")
 
@@ -1131,7 +1143,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A summary description of the application.
+        Summary description of the application.
         """
         return pulumi.get(self, "description")
 
@@ -1147,7 +1159,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="lastUpdateTimestamp")
     def last_update_timestamp(self) -> pulumi.Output[_builtins.str]:
         """
-        The current timestamp when the application was last updated.
+        Current timestamp when the application was last updated.
         """
         return pulumi.get(self, "last_update_timestamp")
 
@@ -1155,7 +1167,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the application.
+        Name of the application.
         """
         return pulumi.get(self, "name")
 
@@ -1171,7 +1183,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Output[_builtins.str]:
         """
-        The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
         """
         return pulumi.get(self, "runtime_environment")
 
@@ -1179,7 +1191,9 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="serviceExecutionRole")
     def service_execution_role(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "service_execution_role")
 
@@ -1195,7 +1209,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The status of the application.
+        Status of the application.
         """
         return pulumi.get(self, "status")
 
@@ -1203,7 +1217,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        Map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1211,7 +1225,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1219,7 +1233,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[_builtins.int]:
         """
-        The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
+        Current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
         return pulumi.get(self, "version_id")
 

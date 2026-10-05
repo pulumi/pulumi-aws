@@ -49,14 +49,14 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time that the folder was created.
+     * Time that the folder was created.
      * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
-     * @return The time that the folder was created.
+     * @return Time that the folder was created.
      * 
      */
     public Optional<Output<String>> createdTime() {
@@ -66,6 +66,8 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
     /**
      * Identifier for the folder.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="folderId")
     private @Nullable Output<String> folderId;
@@ -73,20 +75,22 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Identifier for the folder.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Optional<Output<String>> folderId() {
         return Optional.ofNullable(this.folderId);
     }
 
     /**
-     * An array of ancestor ARN strings for the folder. Empty for root-level folders.
+     * Array of ancestor ARN strings for the folder. Empty for root-level folders.
      * 
      */
     @Import(name="folderPaths")
     private @Nullable Output<List<String>> folderPaths;
 
     /**
-     * @return An array of ancestor ARN strings for the folder. Empty for root-level folders.
+     * @return Array of ancestor ARN strings for the folder. Empty for root-level folders.
      * 
      */
     public Optional<Output<List<String>>> folderPaths() {
@@ -94,14 +98,14 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+     * Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      * 
      */
     @Import(name="folderType")
     private @Nullable Output<String> folderType;
 
     /**
-     * @return The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+     * @return Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      * 
      */
     public Optional<Output<String>> folderType() {
@@ -109,14 +113,14 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time that the folder was last updated.
+     * Time that the folder was last updated.
      * 
      */
     @Import(name="lastUpdatedTime")
     private @Nullable Output<String> lastUpdatedTime;
 
     /**
-     * @return The time that the folder was last updated.
+     * @return Time that the folder was last updated.
      * 
      */
     public Optional<Output<String>> lastUpdatedTime() {
@@ -126,16 +130,12 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
     /**
      * Display name for the folder.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Display name for the folder.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -158,14 +158,14 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<FolderPermissionArgs>> permissions;
 
     /**
-     * @return A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
      * 
      */
     public Optional<Output<List<FolderPermissionArgs>>> permissions() {
@@ -203,14 +203,14 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -296,7 +296,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime The time that the folder was created.
+         * @param createdTime Time that the folder was created.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime The time that the folder was created.
+         * @param createdTime Time that the folder was created.
          * 
          * @return builder
          * 
@@ -318,6 +318,8 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param folderId Identifier for the folder.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -330,6 +332,8 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param folderId Identifier for the folder.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -338,7 +342,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param folderPaths An array of ancestor ARN strings for the folder. Empty for root-level folders.
+         * @param folderPaths Array of ancestor ARN strings for the folder. Empty for root-level folders.
          * 
          * @return builder
          * 
@@ -349,7 +353,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param folderPaths An array of ancestor ARN strings for the folder. Empty for root-level folders.
+         * @param folderPaths Array of ancestor ARN strings for the folder. Empty for root-level folders.
          * 
          * @return builder
          * 
@@ -359,7 +363,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param folderPaths An array of ancestor ARN strings for the folder. Empty for root-level folders.
+         * @param folderPaths Array of ancestor ARN strings for the folder. Empty for root-level folders.
          * 
          * @return builder
          * 
@@ -369,7 +373,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param folderType The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+         * @param folderType Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
          * 
          * @return builder
          * 
@@ -380,7 +384,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param folderType The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+         * @param folderType Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
          * 
          * @return builder
          * 
@@ -390,7 +394,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedTime The time that the folder was last updated.
+         * @param lastUpdatedTime Time that the folder was last updated.
          * 
          * @return builder
          * 
@@ -401,7 +405,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedTime The time that the folder was last updated.
+         * @param lastUpdatedTime Time that the folder was last updated.
          * 
          * @return builder
          * 
@@ -413,8 +417,6 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Display name for the folder.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -425,8 +427,6 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Display name for the folder.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
          * 
          * @return builder
          * 
@@ -530,7 +530,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class FolderState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

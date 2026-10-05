@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeTargetParametersBatchJobParametersContainerOverrides
     {
         /// <summary>
-        /// List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+        /// List of commands to send to the container that overrides the default command from the Docker image or the task definition.
         /// </summary>
         public readonly ImmutableArray<string> Commands;
         /// <summary>
-        /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+        /// Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. See `target_parameters.batch_job_parameters.container_overrides.environment` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeTargetParametersBatchJobParametersContainerOverridesEnvironment> Environments;
         /// <summary>
-        /// The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
+        /// Instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
-        /// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+        /// Type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. See `target_parameters.batch_job_parameters.container_overrides.resource_requirement` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement> ResourceRequirements;
 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB.Inputs
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether log delivery to the S3 bucket is enabled.
+        /// Whether log delivery to the S3 bucket is enabled.
         /// 
         /// **Note**: The following arguments do updates in-place: `DbParameterGroupIdentifier`, `LogDeliveryConfiguration`, `MaintenanceSchedule`, `Port`, `DeploymentType`, `DbInstanceType`, and `Tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `DbParameterGroupIdentifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `DbParameterGroupIdentifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
         /// </summary>

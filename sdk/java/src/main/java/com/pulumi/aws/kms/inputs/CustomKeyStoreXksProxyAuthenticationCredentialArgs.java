@@ -15,14 +15,14 @@ public final class CustomKeyStoreXksProxyAuthenticationCredentialArgs extends co
     public static final CustomKeyStoreXksProxyAuthenticationCredentialArgs Empty = new CustomKeyStoreXksProxyAuthenticationCredentialArgs();
 
     /**
-     * A unique identifier for the raw secret access key.
+     * Unique identifier for the raw secret access key.
      * 
      */
     @Import(name="accessKeyId", required=true)
     private Output<String> accessKeyId;
 
     /**
-     * @return A unique identifier for the raw secret access key.
+     * @return Unique identifier for the raw secret access key.
      * 
      */
     public Output<String> accessKeyId() {
@@ -30,14 +30,14 @@ public final class CustomKeyStoreXksProxyAuthenticationCredentialArgs extends co
     }
 
     /**
-     * A secret string of 43-64 characters.
+     * Secret string of 43-64 characters.
      * 
      */
     @Import(name="rawSecretAccessKey", required=true)
     private Output<String> rawSecretAccessKey;
 
     /**
-     * @return A secret string of 43-64 characters.
+     * @return Secret string of 43-64 characters.
      * 
      */
     public Output<String> rawSecretAccessKey() {
@@ -70,7 +70,7 @@ public final class CustomKeyStoreXksProxyAuthenticationCredentialArgs extends co
         }
 
         /**
-         * @param accessKeyId A unique identifier for the raw secret access key.
+         * @param accessKeyId Unique identifier for the raw secret access key.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class CustomKeyStoreXksProxyAuthenticationCredentialArgs extends co
         }
 
         /**
-         * @param accessKeyId A unique identifier for the raw secret access key.
+         * @param accessKeyId Unique identifier for the raw secret access key.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class CustomKeyStoreXksProxyAuthenticationCredentialArgs extends co
         }
 
         /**
-         * @param rawSecretAccessKey A secret string of 43-64 characters.
+         * @param rawSecretAccessKey Secret string of 43-64 characters.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class CustomKeyStoreXksProxyAuthenticationCredentialArgs extends co
         }
 
         /**
-         * @param rawSecretAccessKey A secret string of 43-64 characters.
+         * @param rawSecretAccessKey Secret string of 43-64 characters.
          * 
          * @return builder
          * 

@@ -204,9 +204,7 @@ namespace Pulumi.Aws.Amp
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-        /// 
-        /// The following arguments are optional:
+        /// JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
         /// </summary>
         [Output("policyDocument")]
         public Output<string> PolicyDocument { get; private set; } = null!;
@@ -218,7 +216,7 @@ namespace Pulumi.Aws.Amp
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The revision ID of the current resource-based policy.
+        /// Revision ID of the current resource-based policy.
         /// </summary>
         [Output("revisionId")]
         public Output<string> RevisionId { get; private set; } = null!;
@@ -227,7 +225,9 @@ namespace Pulumi.Aws.Amp
         public Output<Outputs.ResourcePolicyTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the workspace to attach the resource-based policy to.
+        /// ID of the workspace to attach the resource-based policy to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
@@ -279,9 +279,7 @@ namespace Pulumi.Aws.Amp
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-        /// 
-        /// The following arguments are optional:
+        /// JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
         /// </summary>
         [Input("policyDocument", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
@@ -293,7 +291,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The revision ID of the current resource-based policy.
+        /// Revision ID of the current resource-based policy.
         /// </summary>
         [Input("revisionId")]
         public Input<string>? RevisionId { get; set; }
@@ -302,7 +300,9 @@ namespace Pulumi.Aws.Amp
         public Input<Inputs.ResourcePolicyTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The ID of the workspace to attach the resource-based policy to.
+        /// ID of the workspace to attach the resource-based policy to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("workspaceId", required: true)]
         public Input<string> WorkspaceId { get; set; } = null!;
@@ -316,9 +316,7 @@ namespace Pulumi.Aws.Amp
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-        /// 
-        /// The following arguments are optional:
+        /// JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
         /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
@@ -330,7 +328,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The revision ID of the current resource-based policy.
+        /// Revision ID of the current resource-based policy.
         /// </summary>
         [Input("revisionId")]
         public Input<string>? RevisionId { get; set; }
@@ -339,7 +337,9 @@ namespace Pulumi.Aws.Amp
         public Input<Inputs.ResourcePolicyTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The ID of the workspace to attach the resource-based policy to.
+        /// ID of the workspace to attach the resource-based policy to.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }

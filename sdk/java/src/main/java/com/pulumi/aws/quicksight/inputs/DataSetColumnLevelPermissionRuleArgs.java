@@ -17,14 +17,14 @@ public final class DataSetColumnLevelPermissionRuleArgs extends com.pulumi.resou
     public static final DataSetColumnLevelPermissionRuleArgs Empty = new DataSetColumnLevelPermissionRuleArgs();
 
     /**
-     * An array of column names.
+     * Array of column names.
      * 
      */
     @Import(name="columnNames")
     private @Nullable Output<List<String>> columnNames;
 
     /**
-     * @return An array of column names.
+     * @return Array of column names.
      * 
      */
     public Optional<Output<List<String>>> columnNames() {
@@ -32,14 +32,14 @@ public final class DataSetColumnLevelPermissionRuleArgs extends com.pulumi.resou
     }
 
     /**
-     * An array of ARNs for Amazon QuickSight users or groups.
+     * Array of ARNs for Amazon QuickSight users or groups.
      * 
      */
     @Import(name="principals")
     private @Nullable Output<List<String>> principals;
 
     /**
-     * @return An array of ARNs for Amazon QuickSight users or groups.
+     * @return Array of ARNs for Amazon QuickSight users or groups.
      * 
      */
     public Optional<Output<List<String>>> principals() {
@@ -72,7 +72,7 @@ public final class DataSetColumnLevelPermissionRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param columnNames An array of column names.
+         * @param columnNames Array of column names.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DataSetColumnLevelPermissionRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param columnNames An array of column names.
+         * @param columnNames Array of column names.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class DataSetColumnLevelPermissionRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param columnNames An array of column names.
+         * @param columnNames Array of column names.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DataSetColumnLevelPermissionRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param principals An array of ARNs for Amazon QuickSight users or groups.
+         * @param principals Array of ARNs for Amazon QuickSight users or groups.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class DataSetColumnLevelPermissionRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param principals An array of ARNs for Amazon QuickSight users or groups.
+         * @param principals Array of ARNs for Amazon QuickSight users or groups.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class DataSetColumnLevelPermissionRuleArgs extends com.pulumi.resou
         }
 
         /**
-         * @param principals An array of ARNs for Amazon QuickSight users or groups.
+         * @param principals Array of ARNs for Amazon QuickSight users or groups.
          * 
          * @return builder
          * 

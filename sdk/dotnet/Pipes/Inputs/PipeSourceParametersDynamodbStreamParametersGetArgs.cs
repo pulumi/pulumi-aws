@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Pipes.Inputs
     public sealed class PipeSourceParametersDynamodbStreamParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of records to include in each batch. Maximum value of 10000.
+        /// Maximum number of records to include in each batch. Maximum value of 10000.
         /// </summary>
         [Input("batchSize")]
         public Input<int>? BatchSize { get; set; }
 
         /// <summary>
-        /// Define the target queue to send dead-letter queue events to. Detailed below.
+        /// Define the target queue to send dead-letter queue events to. See `DeadLetterConfig` Block for details.
         /// </summary>
         [Input("deadLetterConfig")]
         public Input<Inputs.PipeSourceParametersDynamodbStreamParametersDeadLetterConfigGetArgs>? DeadLetterConfig { get; set; }
 
         /// <summary>
-        /// The maximum length of a time to wait for events. Maximum value of 300.
+        /// Maximum length of a time to wait for events. Maximum value of 300.
         /// </summary>
         [Input("maximumBatchingWindowInSeconds")]
         public Input<int>? MaximumBatchingWindowInSeconds { get; set; }
@@ -49,13 +49,13 @@ namespace Pulumi.Aws.Pipes.Inputs
         public Input<string>? OnPartialBatchItemFailure { get; set; }
 
         /// <summary>
-        /// The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+        /// Number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
         /// </summary>
         [Input("parallelizationFactor")]
         public Input<int>? ParallelizationFactor { get; set; }
 
         /// <summary>
-        /// The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+        /// Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         /// </summary>
         [Input("startingPosition", required: true)]
         public Input<string> StartingPosition { get; set; } = null!;

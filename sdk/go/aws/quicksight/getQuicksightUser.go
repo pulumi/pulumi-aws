@@ -60,7 +60,7 @@ type GetQuicksightUserArgs struct {
 	Namespace *string `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The name of the user that you want to match.
+	// Name of the user that you want to match.
 	//
 	// The following arguments are optional:
 	UserName string `pulumi:"userName"`
@@ -68,28 +68,25 @@ type GetQuicksightUserArgs struct {
 
 // A collection of values returned by getQuicksightUser.
 type GetQuicksightUserResult struct {
-	// The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
+	// Active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
 	Active bool `pulumi:"active"`
 	// ARN for the user.
 	Arn          string `pulumi:"arn"`
 	AwsAccountId string `pulumi:"awsAccountId"`
-	// The custom permissions profile associated with this user.
+	// Custom permissions profile associated with this user.
 	CustomPermissionsName string `pulumi:"customPermissionsName"`
-	// The user's email address.
+	// User's email address.
 	Email string `pulumi:"email"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The type of identity authentication used by the user.
+	// Type of identity authentication used by the user.
 	IdentityType string  `pulumi:"identityType"`
 	Namespace    *string `pulumi:"namespace"`
-	// The principal ID of the user.
+	// Principal ID of the user.
 	PrincipalId string `pulumi:"principalId"`
 	Region      string `pulumi:"region"`
 	UserName    string `pulumi:"userName"`
-	// The Amazon QuickSight role for the user. The user role can be one of the following:.
-	// - `READER`: A user who has read-only access to dashboards.
-	// - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
-	// - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
+	// Amazon QuickSight role for the user. Valid values are `READER` (read-only access to dashboards), `AUTHOR` (can create data sources, datasets, analyses, and dashboards), and `ADMIN` (an author who can also manage Amazon QuickSight settings).
 	UserRole string `pulumi:"userRole"`
 }
 
@@ -106,7 +103,7 @@ type GetQuicksightUserOutputArgs struct {
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The name of the user that you want to match.
+	// Name of the user that you want to match.
 	//
 	// The following arguments are optional:
 	UserName pulumi.StringInput `pulumi:"userName"`
@@ -131,7 +128,7 @@ func (o GetQuicksightUserResultOutput) ToGetQuicksightUserResultOutputWithContex
 	return o
 }
 
-// The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
+// Active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
 func (o GetQuicksightUserResultOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) bool { return v.Active }).(pulumi.BoolOutput)
 }
@@ -145,12 +142,12 @@ func (o GetQuicksightUserResultOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The custom permissions profile associated with this user.
+// Custom permissions profile associated with this user.
 func (o GetQuicksightUserResultOutput) CustomPermissionsName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.CustomPermissionsName }).(pulumi.StringOutput)
 }
 
-// The user's email address.
+// User's email address.
 func (o GetQuicksightUserResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.Email }).(pulumi.StringOutput)
 }
@@ -160,7 +157,7 @@ func (o GetQuicksightUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The type of identity authentication used by the user.
+// Type of identity authentication used by the user.
 func (o GetQuicksightUserResultOutput) IdentityType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.IdentityType }).(pulumi.StringOutput)
 }
@@ -169,7 +166,7 @@ func (o GetQuicksightUserResultOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// The principal ID of the user.
+// Principal ID of the user.
 func (o GetQuicksightUserResultOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -182,10 +179,7 @@ func (o GetQuicksightUserResultOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.UserName }).(pulumi.StringOutput)
 }
 
-// The Amazon QuickSight role for the user. The user role can be one of the following:.
-// - `READER`: A user who has read-only access to dashboards.
-// - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
-// - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
+// Amazon QuickSight role for the user. Valid values are `READER` (read-only access to dashboards), `AUTHOR` (can create data sources, datasets, analyses, and dashboards), and `ADMIN` (an author who can also manage Amazon QuickSight settings).
 func (o GetQuicksightUserResultOutput) UserRole() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQuicksightUserResult) string { return v.UserRole }).(pulumi.StringOutput)
 }

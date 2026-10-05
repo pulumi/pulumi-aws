@@ -15,14 +15,14 @@ public final class FirehoseDeliveryStreamKinesisSourceConfigurationArgs extends 
     public static final FirehoseDeliveryStreamKinesisSourceConfigurationArgs Empty = new FirehoseDeliveryStreamKinesisSourceConfigurationArgs();
 
     /**
-     * The kinesis stream used as the source of the firehose delivery stream.
+     * Kinesis stream used as the source of the firehose delivery stream.
      * 
      */
     @Import(name="kinesisStreamArn", required=true)
     private Output<String> kinesisStreamArn;
 
     /**
-     * @return The kinesis stream used as the source of the firehose delivery stream.
+     * @return Kinesis stream used as the source of the firehose delivery stream.
      * 
      */
     public Output<String> kinesisStreamArn() {
@@ -30,14 +30,14 @@ public final class FirehoseDeliveryStreamKinesisSourceConfigurationArgs extends 
     }
 
     /**
-     * The ARN of the role that provides access to the source Kinesis stream.
+     * ARN of the role that provides access to the source Kinesis stream.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the role that provides access to the source Kinesis stream.
+     * @return ARN of the role that provides access to the source Kinesis stream.
      * 
      */
     public Output<String> roleArn() {
@@ -70,7 +70,7 @@ public final class FirehoseDeliveryStreamKinesisSourceConfigurationArgs extends 
         }
 
         /**
-         * @param kinesisStreamArn The kinesis stream used as the source of the firehose delivery stream.
+         * @param kinesisStreamArn Kinesis stream used as the source of the firehose delivery stream.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class FirehoseDeliveryStreamKinesisSourceConfigurationArgs extends 
         }
 
         /**
-         * @param kinesisStreamArn The kinesis stream used as the source of the firehose delivery stream.
+         * @param kinesisStreamArn Kinesis stream used as the source of the firehose delivery stream.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class FirehoseDeliveryStreamKinesisSourceConfigurationArgs extends 
         }
 
         /**
-         * @param roleArn The ARN of the role that provides access to the source Kinesis stream.
+         * @param roleArn ARN of the role that provides access to the source Kinesis stream.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class FirehoseDeliveryStreamKinesisSourceConfigurationArgs extends 
         }
 
         /**
-         * @param roleArn The ARN of the role that provides access to the source Kinesis stream.
+         * @param roleArn ARN of the role that provides access to the source Kinesis stream.
          * 
          * @return builder
          * 

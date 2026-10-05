@@ -16,14 +16,14 @@ public final class DataSourceParametersSqlServerArgs extends com.pulumi.resource
     public static final DataSourceParametersSqlServerArgs Empty = new DataSourceParametersSqlServerArgs();
 
     /**
-     * The database to which to connect.
+     * Database to which to connect.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database to which to connect.
+     * @return Database to which to connect.
      * 
      */
     public Output<String> database() {
@@ -31,14 +31,14 @@ public final class DataSourceParametersSqlServerArgs extends com.pulumi.resource
     }
 
     /**
-     * The host to which to connect.
+     * Host to which to connect.
      * 
      */
     @Import(name="host", required=true)
     private Output<String> host;
 
     /**
-     * @return The host to which to connect.
+     * @return Host to which to connect.
      * 
      */
     public Output<String> host() {
@@ -46,14 +46,14 @@ public final class DataSourceParametersSqlServerArgs extends com.pulumi.resource
     }
 
     /**
-     * The warehouse to which to connect.
+     * Port to which to connect.
      * 
      */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
     /**
-     * @return The warehouse to which to connect.
+     * @return Port to which to connect.
      * 
      */
     public Output<Integer> port() {
@@ -87,7 +87,7 @@ public final class DataSourceParametersSqlServerArgs extends com.pulumi.resource
         }
 
         /**
-         * @param database The database to which to connect.
+         * @param database Database to which to connect.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class DataSourceParametersSqlServerArgs extends com.pulumi.resource
         }
 
         /**
-         * @param database The database to which to connect.
+         * @param database Database to which to connect.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class DataSourceParametersSqlServerArgs extends com.pulumi.resource
         }
 
         /**
-         * @param host The host to which to connect.
+         * @param host Host to which to connect.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class DataSourceParametersSqlServerArgs extends com.pulumi.resource
         }
 
         /**
-         * @param host The host to which to connect.
+         * @param host Host to which to connect.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class DataSourceParametersSqlServerArgs extends com.pulumi.resource
         }
 
         /**
-         * @param port The warehouse to which to connect.
+         * @param port Port to which to connect.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DataSourceParametersSqlServerArgs extends com.pulumi.resource
         }
 
         /**
-         * @param port The warehouse to which to connect.
+         * @param port Port to which to connect.
          * 
          * @return builder
          * 

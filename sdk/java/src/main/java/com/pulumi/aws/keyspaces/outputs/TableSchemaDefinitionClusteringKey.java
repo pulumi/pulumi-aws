@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class TableSchemaDefinitionClusteringKey {
     /**
-     * @return The name of the clustering key column.
+     * @return Name of the clustering key column.
      * 
      */
     private String name;
     /**
-     * @return The order modifier. Valid values: `ASC`, `DESC`.
+     * @return Order modifier. Valid values: `ASC`, `DESC`.
      * 
      */
     private String orderBy;
 
     private TableSchemaDefinitionClusteringKey() {}
     /**
-     * @return The name of the clustering key column.
+     * @return Name of the clustering key column.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The order modifier. Valid values: `ASC`, `DESC`.
+     * @return Order modifier. Valid values: `ASC`, `DESC`.
      * 
      */
     public String orderBy() {

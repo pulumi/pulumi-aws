@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSetFieldFolder {
     /**
-     * @return An array of column names to add to the folder. A column can only be in one folder.
+     * @return Array of column names to add to the folder. A column can only be in one folder.
      * 
      */
     private @Nullable List<String> columns;
@@ -31,7 +31,7 @@ public final class DataSetFieldFolder {
 
     private DataSetFieldFolder() {}
     /**
-     * @return An array of column names to add to the folder. A column can only be in one folder.
+     * @return Array of column names to add to the folder. A column can only be in one folder.
      * 
      */
     public List<String> columns() {

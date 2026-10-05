@@ -213,6 +213,8 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("shape")]
         public Output<string> Shape { get; private set; } = null!;
@@ -231,8 +233,6 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("storageCount")]
         public Output<int> StorageCount { get; private set; } = null!;
@@ -369,14 +369,14 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("shape", required: true)]
         public Input<string> Shape { get; set; } = null!;
 
         /// <summary>
         /// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("storageCount")]
         public Input<int>? StorageCount { get; set; }
@@ -604,6 +604,8 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("shape")]
         public Input<string>? Shape { get; set; }
@@ -622,8 +624,6 @@ namespace Pulumi.Aws.Odb
 
         /// <summary>
         /// Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("storageCount")]
         public Input<int>? StorageCount { get; set; }

@@ -17,14 +17,14 @@ public final class PipeEnrichmentParametersArgs extends com.pulumi.resources.Res
     public static final PipeEnrichmentParametersArgs Empty = new PipeEnrichmentParametersArgs();
 
     /**
-     * Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
+     * HTTP parameters to use when the target is an API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. See `enrichment_parameters.http_parameters` Block for details.
      * 
      */
     @Import(name="httpParameters")
     private @Nullable Output<PipeEnrichmentParametersHttpParametersArgs> httpParameters;
 
     /**
-     * @return Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
+     * @return HTTP parameters to use when the target is an API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. See `enrichment_parameters.http_parameters` Block for details.
      * 
      */
     public Optional<Output<PipeEnrichmentParametersHttpParametersArgs>> httpParameters() {
@@ -72,7 +72,7 @@ public final class PipeEnrichmentParametersArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param httpParameters Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
+         * @param httpParameters HTTP parameters to use when the target is an API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. See `enrichment_parameters.http_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class PipeEnrichmentParametersArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param httpParameters Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
+         * @param httpParameters HTTP parameters to use when the target is an API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you&#39;re using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. See `enrichment_parameters.http_parameters` Block for details.
          * 
          * @return builder
          * 

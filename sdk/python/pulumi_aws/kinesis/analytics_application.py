@@ -34,19 +34,16 @@ class AnalyticsApplicationArgs:
         """
         The set of arguments for constructing a AnalyticsApplication resource.
 
-        :param pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
-               See CloudWatch Logging Options below for more details.
+        :param pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: CloudWatch log stream options to monitor application errors. See `cloudwatch_logging_options` Block below for details.
         :param pulumi.Input[_builtins.str] code: SQL Code to transform input data, and generate output.
         :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input['AnalyticsApplicationInputsArgs'] inputs: Input configuration of the application. See Inputs below for more details.
+        :param pulumi.Input['AnalyticsApplicationInputsArgs'] inputs: Input configuration of the application. See `inputs` Block below for details.
         :param pulumi.Input[_builtins.str] name: Name of the Kinesis Analytics Application.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]] outputs: Output destination configuration of the application. See Outputs below for more details.
-        :param pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs'] reference_data_sources: An S3 Reference Data Source for the application.
-               See Reference Data Sources below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]] outputs: Output destination configuration of the application. See `outputs` Block below for details.
+        :param pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs'] reference_data_sources: S3 Reference Data Source for the application. See `reference_data_sources` Block below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
-               To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured. To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cloudwatch_logging_options is not None:
             pulumi.set(__self__, "cloudwatch_logging_options", cloudwatch_logging_options)
@@ -73,8 +70,7 @@ class AnalyticsApplicationArgs:
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> pulumi.Input[Optional['AnalyticsApplicationCloudwatchLoggingOptionsArgs']]:
         """
-        The CloudWatch log stream options to monitor application errors.
-        See CloudWatch Logging Options below for more details.
+        CloudWatch log stream options to monitor application errors. See `cloudwatch_logging_options` Block below for details.
         """
         return pulumi.get(self, "cloudwatch_logging_options")
 
@@ -110,7 +106,7 @@ class AnalyticsApplicationArgs:
     @pulumi.getter
     def inputs(self) -> pulumi.Input[Optional['AnalyticsApplicationInputsArgs']]:
         """
-        Input configuration of the application. See Inputs below for more details.
+        Input configuration of the application. See `inputs` Block below for details.
         """
         return pulumi.get(self, "inputs")
 
@@ -134,7 +130,7 @@ class AnalyticsApplicationArgs:
     @pulumi.getter
     def outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]]:
         """
-        Output destination configuration of the application. See Outputs below for more details.
+        Output destination configuration of the application. See `outputs` Block below for details.
         """
         return pulumi.get(self, "outputs")
 
@@ -146,8 +142,7 @@ class AnalyticsApplicationArgs:
     @pulumi.getter(name="referenceDataSources")
     def reference_data_sources(self) -> pulumi.Input[Optional['AnalyticsApplicationReferenceDataSourcesArgs']]:
         """
-        An S3 Reference Data Source for the application.
-        See Reference Data Sources below for more details.
+        S3 Reference Data Source for the application. See `reference_data_sources` Block below for details.
         """
         return pulumi.get(self, "reference_data_sources")
 
@@ -171,8 +166,7 @@ class AnalyticsApplicationArgs:
     @pulumi.getter(name="startApplication")
     def start_application(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
-        To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured. To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         """
         return pulumi.get(self, "start_application")
 
@@ -184,7 +178,7 @@ class AnalyticsApplicationArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -215,25 +209,22 @@ class _AnalyticsApplicationState:
         """
         Input properties used for looking up and filtering AnalyticsApplication resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Kinesis Analytics Appliation.
-        :param pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
-               See CloudWatch Logging Options below for more details.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Kinesis Analytics Application.
+        :param pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: CloudWatch log stream options to monitor application errors. See `cloudwatch_logging_options` Block below for details.
         :param pulumi.Input[_builtins.str] code: SQL Code to transform input data, and generate output.
-        :param pulumi.Input[_builtins.str] create_timestamp: The Timestamp when the application version was created.
+        :param pulumi.Input[_builtins.str] create_timestamp: Timestamp when the application version was created.
         :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input['AnalyticsApplicationInputsArgs'] inputs: Input configuration of the application. See Inputs below for more details.
-        :param pulumi.Input[_builtins.str] last_update_timestamp: The Timestamp when the application was last updated.
+        :param pulumi.Input['AnalyticsApplicationInputsArgs'] inputs: Input configuration of the application. See `inputs` Block below for details.
+        :param pulumi.Input[_builtins.str] last_update_timestamp: Timestamp when the application was last updated.
         :param pulumi.Input[_builtins.str] name: Name of the Kinesis Analytics Application.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]] outputs: Output destination configuration of the application. See Outputs below for more details.
-        :param pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs'] reference_data_sources: An S3 Reference Data Source for the application.
-               See Reference Data Sources below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]] outputs: Output destination configuration of the application. See `outputs` Block below for details.
+        :param pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs'] reference_data_sources: S3 Reference Data Source for the application. See `reference_data_sources` Block below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
-               To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
-        :param pulumi.Input[_builtins.str] status: The Status of the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] version: The Version of the application.
+        :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured. To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        :param pulumi.Input[_builtins.str] status: Status of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.int] version: Version of the application.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -272,7 +263,7 @@ class _AnalyticsApplicationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Kinesis Analytics Appliation.
+        ARN of the Kinesis Analytics Application.
         """
         return pulumi.get(self, "arn")
 
@@ -284,8 +275,7 @@ class _AnalyticsApplicationState:
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> pulumi.Input[Optional['AnalyticsApplicationCloudwatchLoggingOptionsArgs']]:
         """
-        The CloudWatch log stream options to monitor application errors.
-        See CloudWatch Logging Options below for more details.
+        CloudWatch log stream options to monitor application errors. See `cloudwatch_logging_options` Block below for details.
         """
         return pulumi.get(self, "cloudwatch_logging_options")
 
@@ -309,7 +299,7 @@ class _AnalyticsApplicationState:
     @pulumi.getter(name="createTimestamp")
     def create_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Timestamp when the application version was created.
+        Timestamp when the application version was created.
         """
         return pulumi.get(self, "create_timestamp")
 
@@ -333,7 +323,7 @@ class _AnalyticsApplicationState:
     @pulumi.getter
     def inputs(self) -> pulumi.Input[Optional['AnalyticsApplicationInputsArgs']]:
         """
-        Input configuration of the application. See Inputs below for more details.
+        Input configuration of the application. See `inputs` Block below for details.
         """
         return pulumi.get(self, "inputs")
 
@@ -345,7 +335,7 @@ class _AnalyticsApplicationState:
     @pulumi.getter(name="lastUpdateTimestamp")
     def last_update_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Timestamp when the application was last updated.
+        Timestamp when the application was last updated.
         """
         return pulumi.get(self, "last_update_timestamp")
 
@@ -369,7 +359,7 @@ class _AnalyticsApplicationState:
     @pulumi.getter
     def outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]]:
         """
-        Output destination configuration of the application. See Outputs below for more details.
+        Output destination configuration of the application. See `outputs` Block below for details.
         """
         return pulumi.get(self, "outputs")
 
@@ -381,8 +371,7 @@ class _AnalyticsApplicationState:
     @pulumi.getter(name="referenceDataSources")
     def reference_data_sources(self) -> pulumi.Input[Optional['AnalyticsApplicationReferenceDataSourcesArgs']]:
         """
-        An S3 Reference Data Source for the application.
-        See Reference Data Sources below for more details.
+        S3 Reference Data Source for the application. See `reference_data_sources` Block below for details.
         """
         return pulumi.get(self, "reference_data_sources")
 
@@ -406,8 +395,7 @@ class _AnalyticsApplicationState:
     @pulumi.getter(name="startApplication")
     def start_application(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
-        To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured. To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         """
         return pulumi.get(self, "start_application")
 
@@ -419,7 +407,7 @@ class _AnalyticsApplicationState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Status of the application.
+        Status of the application.
         """
         return pulumi.get(self, "status")
 
@@ -431,7 +419,7 @@ class _AnalyticsApplicationState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -443,7 +431,7 @@ class _AnalyticsApplicationState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -455,7 +443,7 @@ class _AnalyticsApplicationState:
     @pulumi.getter
     def version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The Version of the application.
+        Version of the application.
         """
         return pulumi.get(self, "version")
 
@@ -605,19 +593,16 @@ class AnalyticsApplication(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.AnalyticsApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
-               See CloudWatch Logging Options below for more details.
+        :param pulumi.Input[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.AnalyticsApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: CloudWatch log stream options to monitor application errors. See `cloudwatch_logging_options` Block below for details.
         :param pulumi.Input[_builtins.str] code: SQL Code to transform input data, and generate output.
         :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict', 'outputs.AnalyticsApplicationInputs']] inputs: Input configuration of the application. See Inputs below for more details.
+        :param pulumi.Input[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict', 'outputs.AnalyticsApplicationInputs']] inputs: Input configuration of the application. See `inputs` Block below for details.
         :param pulumi.Input[_builtins.str] name: Name of the Kinesis Analytics Application.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict', 'outputs.AnalyticsApplicationOutput']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
-        :param pulumi.Input[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict', 'outputs.AnalyticsApplicationReferenceDataSources']] reference_data_sources: An S3 Reference Data Source for the application.
-               See Reference Data Sources below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict', 'outputs.AnalyticsApplicationOutput']]]] outputs: Output destination configuration of the application. See `outputs` Block below for details.
+        :param pulumi.Input[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict', 'outputs.AnalyticsApplicationReferenceDataSources']] reference_data_sources: S3 Reference Data Source for the application. See `reference_data_sources` Block below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
-               To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured. To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -830,25 +815,22 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Kinesis Analytics Appliation.
-        :param pulumi.Input[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.AnalyticsApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
-               See CloudWatch Logging Options below for more details.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Kinesis Analytics Application.
+        :param pulumi.Input[Union['AnalyticsApplicationCloudwatchLoggingOptionsArgs', 'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict', 'outputs.AnalyticsApplicationCloudwatchLoggingOptions']] cloudwatch_logging_options: CloudWatch log stream options to monitor application errors. See `cloudwatch_logging_options` Block below for details.
         :param pulumi.Input[_builtins.str] code: SQL Code to transform input data, and generate output.
-        :param pulumi.Input[_builtins.str] create_timestamp: The Timestamp when the application version was created.
+        :param pulumi.Input[_builtins.str] create_timestamp: Timestamp when the application version was created.
         :param pulumi.Input[_builtins.str] description: Description of the application.
-        :param pulumi.Input[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict', 'outputs.AnalyticsApplicationInputs']] inputs: Input configuration of the application. See Inputs below for more details.
-        :param pulumi.Input[_builtins.str] last_update_timestamp: The Timestamp when the application was last updated.
+        :param pulumi.Input[Union['AnalyticsApplicationInputsArgs', 'AnalyticsApplicationInputsArgsDict', 'outputs.AnalyticsApplicationInputs']] inputs: Input configuration of the application. See `inputs` Block below for details.
+        :param pulumi.Input[_builtins.str] last_update_timestamp: Timestamp when the application was last updated.
         :param pulumi.Input[_builtins.str] name: Name of the Kinesis Analytics Application.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict', 'outputs.AnalyticsApplicationOutput']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
-        :param pulumi.Input[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict', 'outputs.AnalyticsApplicationReferenceDataSources']] reference_data_sources: An S3 Reference Data Source for the application.
-               See Reference Data Sources below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnalyticsApplicationOutputArgs', 'AnalyticsApplicationOutputArgsDict', 'outputs.AnalyticsApplicationOutput']]]] outputs: Output destination configuration of the application. See `outputs` Block below for details.
+        :param pulumi.Input[Union['AnalyticsApplicationReferenceDataSourcesArgs', 'AnalyticsApplicationReferenceDataSourcesArgsDict', 'outputs.AnalyticsApplicationReferenceDataSources']] reference_data_sources: S3 Reference Data Source for the application. See `reference_data_sources` Block below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
-               To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
-        :param pulumi.Input[_builtins.str] status: The Status of the application.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.int] version: The Version of the application.
+        :param pulumi.Input[_builtins.bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured. To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        :param pulumi.Input[_builtins.str] status: Status of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.int] version: Version of the application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -876,7 +858,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the Kinesis Analytics Appliation.
+        ARN of the Kinesis Analytics Application.
         """
         return pulumi.get(self, "arn")
 
@@ -884,8 +866,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @pulumi.getter(name="cloudwatchLoggingOptions")
     def cloudwatch_logging_options(self) -> pulumi.Output[Optional['outputs.AnalyticsApplicationCloudwatchLoggingOptions']]:
         """
-        The CloudWatch log stream options to monitor application errors.
-        See CloudWatch Logging Options below for more details.
+        CloudWatch log stream options to monitor application errors. See `cloudwatch_logging_options` Block below for details.
         """
         return pulumi.get(self, "cloudwatch_logging_options")
 
@@ -901,7 +882,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @pulumi.getter(name="createTimestamp")
     def create_timestamp(self) -> pulumi.Output[_builtins.str]:
         """
-        The Timestamp when the application version was created.
+        Timestamp when the application version was created.
         """
         return pulumi.get(self, "create_timestamp")
 
@@ -917,7 +898,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @pulumi.getter
     def inputs(self) -> pulumi.Output[Optional['outputs.AnalyticsApplicationInputs']]:
         """
-        Input configuration of the application. See Inputs below for more details.
+        Input configuration of the application. See `inputs` Block below for details.
         """
         return pulumi.get(self, "inputs")
 
@@ -925,7 +906,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @pulumi.getter(name="lastUpdateTimestamp")
     def last_update_timestamp(self) -> pulumi.Output[_builtins.str]:
         """
-        The Timestamp when the application was last updated.
+        Timestamp when the application was last updated.
         """
         return pulumi.get(self, "last_update_timestamp")
 
@@ -941,7 +922,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @pulumi.getter
     def outputs(self) -> pulumi.Output[Optional[Sequence['outputs.AnalyticsApplicationOutput']]]:
         """
-        Output destination configuration of the application. See Outputs below for more details.
+        Output destination configuration of the application. See `outputs` Block below for details.
         """
         return pulumi.get(self, "outputs")
 
@@ -949,8 +930,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @pulumi.getter(name="referenceDataSources")
     def reference_data_sources(self) -> pulumi.Output[Optional['outputs.AnalyticsApplicationReferenceDataSources']]:
         """
-        An S3 Reference Data Source for the application.
-        See Reference Data Sources below for more details.
+        S3 Reference Data Source for the application. See `reference_data_sources` Block below for details.
         """
         return pulumi.get(self, "reference_data_sources")
 
@@ -966,8 +946,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @pulumi.getter(name="startApplication")
     def start_application(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
-        To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
+        Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured. To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         """
         return pulumi.get(self, "start_application")
 
@@ -975,7 +954,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The Status of the application.
+        Status of the application.
         """
         return pulumi.get(self, "status")
 
@@ -983,7 +962,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -991,7 +970,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -999,7 +978,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[_builtins.int]:
         """
-        The Version of the application.
+        Version of the application.
         """
         return pulumi.get(self, "version")
 

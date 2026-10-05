@@ -23,14 +23,14 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
     public static final PipeSourceParametersArgs Empty = new PipeSourceParametersArgs();
 
     /**
-     * The parameters for using an Active MQ broker as a source. Detailed below.
+     * Parameters for using an Active MQ broker as a source. See `activemqBrokerParameters` Block for details.
      * 
      */
     @Import(name="activemqBrokerParameters")
     private @Nullable Output<PipeSourceParametersActivemqBrokerParametersArgs> activemqBrokerParameters;
 
     /**
-     * @return The parameters for using an Active MQ broker as a source. Detailed below.
+     * @return Parameters for using an Active MQ broker as a source. See `activemqBrokerParameters` Block for details.
      * 
      */
     public Optional<Output<PipeSourceParametersActivemqBrokerParametersArgs>> activemqBrokerParameters() {
@@ -38,14 +38,14 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using a DynamoDB stream as a source.  Detailed below.
+     * Parameters for using a DynamoDB stream as a source. See `dynamodbStreamParameters` Block for details.
      * 
      */
     @Import(name="dynamodbStreamParameters")
     private @Nullable Output<PipeSourceParametersDynamodbStreamParametersArgs> dynamodbStreamParameters;
 
     /**
-     * @return The parameters for using a DynamoDB stream as a source.  Detailed below.
+     * @return Parameters for using a DynamoDB stream as a source. See `dynamodbStreamParameters` Block for details.
      * 
      */
     public Optional<Output<PipeSourceParametersDynamodbStreamParametersArgs>> dynamodbStreamParameters() {
@@ -53,14 +53,14 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
+     * Collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). See `filterCriteria` Block for details.
      * 
      */
     @Import(name="filterCriteria")
     private @Nullable Output<PipeSourceParametersFilterCriteriaArgs> filterCriteria;
 
     /**
-     * @return The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
+     * @return Collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). See `filterCriteria` Block for details.
      * 
      */
     public Optional<Output<PipeSourceParametersFilterCriteriaArgs>> filterCriteria() {
@@ -68,14 +68,14 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using a Kinesis stream as a source. Detailed below.
+     * Parameters for using a Kinesis stream as a source. See `source_parameters.kinesis_stream_parameters` Block for details.
      * 
      */
     @Import(name="kinesisStreamParameters")
     private @Nullable Output<PipeSourceParametersKinesisStreamParametersArgs> kinesisStreamParameters;
 
     /**
-     * @return The parameters for using a Kinesis stream as a source. Detailed below.
+     * @return Parameters for using a Kinesis stream as a source. See `source_parameters.kinesis_stream_parameters` Block for details.
      * 
      */
     public Optional<Output<PipeSourceParametersKinesisStreamParametersArgs>> kinesisStreamParameters() {
@@ -83,14 +83,14 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using an MSK stream as a source. Detailed below.
+     * Parameters for using an MSK stream as a source. See `managedStreamingKafkaParameters` Block for details.
      * 
      */
     @Import(name="managedStreamingKafkaParameters")
     private @Nullable Output<PipeSourceParametersManagedStreamingKafkaParametersArgs> managedStreamingKafkaParameters;
 
     /**
-     * @return The parameters for using an MSK stream as a source. Detailed below.
+     * @return Parameters for using an MSK stream as a source. See `managedStreamingKafkaParameters` Block for details.
      * 
      */
     public Optional<Output<PipeSourceParametersManagedStreamingKafkaParametersArgs>> managedStreamingKafkaParameters() {
@@ -98,14 +98,14 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using a Rabbit MQ broker as a source. Detailed below.
+     * Parameters for using a Rabbit MQ broker as a source. See `rabbitmqBrokerParameters` Block for details.
      * 
      */
     @Import(name="rabbitmqBrokerParameters")
     private @Nullable Output<PipeSourceParametersRabbitmqBrokerParametersArgs> rabbitmqBrokerParameters;
 
     /**
-     * @return The parameters for using a Rabbit MQ broker as a source. Detailed below.
+     * @return Parameters for using a Rabbit MQ broker as a source. See `rabbitmqBrokerParameters` Block for details.
      * 
      */
     public Optional<Output<PipeSourceParametersRabbitmqBrokerParametersArgs>> rabbitmqBrokerParameters() {
@@ -113,14 +113,14 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+     * Parameters for using a self-managed Apache Kafka stream as a source. See `selfManagedKafkaParameters` Block for details.
      * 
      */
     @Import(name="selfManagedKafkaParameters")
     private @Nullable Output<PipeSourceParametersSelfManagedKafkaParametersArgs> selfManagedKafkaParameters;
 
     /**
-     * @return The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+     * @return Parameters for using a self-managed Apache Kafka stream as a source. See `selfManagedKafkaParameters` Block for details.
      * 
      */
     public Optional<Output<PipeSourceParametersSelfManagedKafkaParametersArgs>> selfManagedKafkaParameters() {
@@ -128,14 +128,14 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using a Amazon SQS stream as a source. Detailed below.
+     * Parameters for using an Amazon SQS stream as a source. See `source_parameters.sqs_queue_parameters` Block for details.
      * 
      */
     @Import(name="sqsQueueParameters")
     private @Nullable Output<PipeSourceParametersSqsQueueParametersArgs> sqsQueueParameters;
 
     /**
-     * @return The parameters for using a Amazon SQS stream as a source. Detailed below.
+     * @return Parameters for using an Amazon SQS stream as a source. See `source_parameters.sqs_queue_parameters` Block for details.
      * 
      */
     public Optional<Output<PipeSourceParametersSqsQueueParametersArgs>> sqsQueueParameters() {
@@ -174,7 +174,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param activemqBrokerParameters The parameters for using an Active MQ broker as a source. Detailed below.
+         * @param activemqBrokerParameters Parameters for using an Active MQ broker as a source. See `activemqBrokerParameters` Block for details.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param activemqBrokerParameters The parameters for using an Active MQ broker as a source. Detailed below.
+         * @param activemqBrokerParameters Parameters for using an Active MQ broker as a source. See `activemqBrokerParameters` Block for details.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dynamodbStreamParameters The parameters for using a DynamoDB stream as a source.  Detailed below.
+         * @param dynamodbStreamParameters Parameters for using a DynamoDB stream as a source. See `dynamodbStreamParameters` Block for details.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dynamodbStreamParameters The parameters for using a DynamoDB stream as a source.  Detailed below.
+         * @param dynamodbStreamParameters Parameters for using a DynamoDB stream as a source. See `dynamodbStreamParameters` Block for details.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param filterCriteria The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
+         * @param filterCriteria Collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). See `filterCriteria` Block for details.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param filterCriteria The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
+         * @param filterCriteria Collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). See `filterCriteria` Block for details.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kinesisStreamParameters The parameters for using a Kinesis stream as a source. Detailed below.
+         * @param kinesisStreamParameters Parameters for using a Kinesis stream as a source. See `source_parameters.kinesis_stream_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kinesisStreamParameters The parameters for using a Kinesis stream as a source. Detailed below.
+         * @param kinesisStreamParameters Parameters for using a Kinesis stream as a source. See `source_parameters.kinesis_stream_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param managedStreamingKafkaParameters The parameters for using an MSK stream as a source. Detailed below.
+         * @param managedStreamingKafkaParameters Parameters for using an MSK stream as a source. See `managedStreamingKafkaParameters` Block for details.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param managedStreamingKafkaParameters The parameters for using an MSK stream as a source. Detailed below.
+         * @param managedStreamingKafkaParameters Parameters for using an MSK stream as a source. See `managedStreamingKafkaParameters` Block for details.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rabbitmqBrokerParameters The parameters for using a Rabbit MQ broker as a source. Detailed below.
+         * @param rabbitmqBrokerParameters Parameters for using a Rabbit MQ broker as a source. See `rabbitmqBrokerParameters` Block for details.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param rabbitmqBrokerParameters The parameters for using a Rabbit MQ broker as a source. Detailed below.
+         * @param rabbitmqBrokerParameters Parameters for using a Rabbit MQ broker as a source. See `rabbitmqBrokerParameters` Block for details.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param selfManagedKafkaParameters The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+         * @param selfManagedKafkaParameters Parameters for using a self-managed Apache Kafka stream as a source. See `selfManagedKafkaParameters` Block for details.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param selfManagedKafkaParameters The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+         * @param selfManagedKafkaParameters Parameters for using a self-managed Apache Kafka stream as a source. See `selfManagedKafkaParameters` Block for details.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sqsQueueParameters The parameters for using a Amazon SQS stream as a source. Detailed below.
+         * @param sqsQueueParameters Parameters for using an Amazon SQS stream as a source. See `source_parameters.sqs_queue_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class PipeSourceParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sqsQueueParameters The parameters for using a Amazon SQS stream as a source. Detailed below.
+         * @param sqsQueueParameters Parameters for using an Amazon SQS stream as a source. See `source_parameters.sqs_queue_parameters` Block for details.
          * 
          * @return builder
          * 

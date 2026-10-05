@@ -18,7 +18,7 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
     public static final DataSourceConfigurationArgs Empty = new DataSourceConfigurationArgs();
 
     /**
-     * A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+     * Configuration information to connect to an Amazon S3 bucket as your data source. Required when `type` is set to `S3`. Detailed below.
      * 
      * @deprecated
      * s3_configuration is deprecated. Use templateConfiguration instead.
@@ -29,7 +29,7 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
     private @Nullable Output<DataSourceConfigurationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+     * @return Configuration information to connect to an Amazon S3 bucket as your data source. Required when `type` is set to `S3`. Detailed below.
      * 
      * @deprecated
      * s3_configuration is deprecated. Use templateConfiguration instead.
@@ -41,14 +41,14 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `TEMPLATE`. Detailed below.
      * 
      */
     @Import(name="templateConfiguration")
     private @Nullable Output<DataSourceConfigurationTemplateConfigurationArgs> templateConfiguration;
 
     /**
-     * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * @return Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `TEMPLATE`. Detailed below.
      * 
      */
     public Optional<Output<DataSourceConfigurationTemplateConfigurationArgs>> templateConfiguration() {
@@ -56,7 +56,7 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `WEBCRAWLER`. Detailed below.
      * 
      * @deprecated
      * web_crawler_configuration is deprecated. Use templateConfiguration instead.
@@ -67,7 +67,7 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
     private @Nullable Output<DataSourceConfigurationWebCrawlerConfigurationArgs> webCrawlerConfiguration;
 
     /**
-     * @return A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+     * @return Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `WEBCRAWLER`. Detailed below.
      * 
      * @deprecated
      * web_crawler_configuration is deprecated. Use templateConfiguration instead.
@@ -105,7 +105,7 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param s3Configuration A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+         * @param s3Configuration Configuration information to connect to an Amazon S3 bucket as your data source. Required when `type` is set to `S3`. Detailed below.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param s3Configuration A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+         * @param s3Configuration Configuration information to connect to an Amazon S3 bucket as your data source. Required when `type` is set to `S3`. Detailed below.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param templateConfiguration A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+         * @param templateConfiguration Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `TEMPLATE`. Detailed below.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param templateConfiguration A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+         * @param templateConfiguration Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `TEMPLATE`. Detailed below.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param webCrawlerConfiguration A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+         * @param webCrawlerConfiguration Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `WEBCRAWLER`. Detailed below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class DataSourceConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param webCrawlerConfiguration A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+         * @param webCrawlerConfiguration Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `WEBCRAWLER`. Detailed below.
          * 
          * @return builder
          * 

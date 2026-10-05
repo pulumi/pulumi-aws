@@ -19,8 +19,6 @@ namespace Pulumi.Aws.Kendra.Outputs
         public readonly string Bucket;
         /// <summary>
         /// Name of the file.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public readonly string Key;
 

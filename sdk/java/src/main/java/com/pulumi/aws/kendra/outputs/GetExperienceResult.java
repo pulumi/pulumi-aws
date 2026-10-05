@@ -19,7 +19,7 @@ public final class GetExperienceResult {
      */
     private String arn;
     /**
-     * @return Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+     * @return Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience.
      * 
      */
     private List<GetExperienceConfiguration> configurations;
@@ -34,7 +34,7 @@ public final class GetExperienceResult {
      */
     private String description;
     /**
-     * @return Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
+     * @return Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS.
      * 
      */
     private List<GetExperienceEndpoint> endpoints;
@@ -81,7 +81,7 @@ public final class GetExperienceResult {
         return this.arn;
     }
     /**
-     * @return Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+     * @return Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience.
      * 
      */
     public List<GetExperienceConfiguration> configurations() {
@@ -102,7 +102,7 @@ public final class GetExperienceResult {
         return this.description;
     }
     /**
-     * @return Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
+     * @return Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS.
      * 
      */
     public List<GetExperienceEndpoint> endpoints() {

@@ -804,42 +804,42 @@ public class Index extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+     * Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
     @Export(name="capacityUnits", refs={IndexCapacityUnits.class}, tree="[0]")
     private Output<IndexCapacityUnits> capacityUnits;
 
     /**
-     * @return A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+     * @return Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
      * 
      */
     public Output<IndexCapacityUnits> capacityUnits() {
         return this.capacityUnits;
     }
     /**
-     * The Unix datetime that the index was created.
+     * Unix datetime that the index was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The Unix datetime that the index was created.
+     * @return Unix datetime that the index was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The description of the Index.
+     * Description of the Index.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the Index.
+     * @return Description of the Index.
      * 
      */
     public Output<Optional<String>> description() {
@@ -860,14 +860,14 @@ public class Index extends com.pulumi.resources.CustomResource {
         return this.documentMetadataConfigurationUpdates;
     }
     /**
-     * The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
+     * Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
      * 
      */
     @Export(name="edition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> edition;
 
     /**
-     * @return The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
+     * @return Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can&#39;t be changed. Defaults to `ENTERPRISE_EDITION`.
      * 
      */
     public Output<Optional<String>> edition() {
@@ -888,28 +888,28 @@ public class Index extends com.pulumi.resources.CustomResource {
         return this.errorMessage;
     }
     /**
-     * A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+     * Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
     @Export(name="indexStatistics", refs={List.class,IndexIndexStatistic.class}, tree="[0,1]")
     private Output<List<IndexIndexStatistic>> indexStatistics;
 
     /**
-     * @return A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+     * @return Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
      * 
      */
     public Output<List<IndexIndexStatistic>> indexStatistics() {
         return this.indexStatistics;
     }
     /**
-     * Specifies the name of the Index.
+     * Name of the Index.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Index.
+     * @return Name of the Index.
      * 
      */
     public Output<String> name() {
@@ -930,128 +930,126 @@ public class Index extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+     * AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+     * @return AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
     /**
-     * A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
+     * Block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
      * 
      */
     @Export(name="serverSideEncryptionConfiguration", refs={IndexServerSideEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ IndexServerSideEncryptionConfiguration> serverSideEncryptionConfiguration;
 
     /**
-     * @return A block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
+     * @return Block that specifies the identifier of the AWS KMS customer managed key (CMK) that&#39;s used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn&#39;t support asymmetric CMKs. Detailed below.
      * 
      */
     public Output<Optional<IndexServerSideEncryptionConfiguration>> serverSideEncryptionConfiguration() {
         return Codegen.optional(this.serverSideEncryptionConfiguration);
     }
     /**
-     * The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
+     * Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
+     * @return Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * Tags to apply to the Index. If configured with a provider
-     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the Index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Tags to apply to the Index. If configured with a provider
-     * `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the Index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The Unix datetime that the index was last updated.
+     * Unix datetime that the index was last updated.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return The Unix datetime that the index was last updated.
+     * @return Unix datetime that the index was last updated.
      * 
      */
     public Output<String> updatedAt() {
         return this.updatedAt;
     }
     /**
-     * The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+     * User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
      * 
      */
     @Export(name="userContextPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userContextPolicy;
 
     /**
-     * @return The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+     * @return User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
      * 
      */
     public Output<Optional<String>> userContextPolicy() {
         return Codegen.optional(this.userContextPolicy);
     }
     /**
-     * A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+     * Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      * 
      */
     @Export(name="userGroupResolutionConfiguration", refs={IndexUserGroupResolutionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ IndexUserGroupResolutionConfiguration> userGroupResolutionConfiguration;
 
     /**
-     * @return A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+     * @return Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
      * 
      */
     public Output<Optional<IndexUserGroupResolutionConfiguration>> userGroupResolutionConfiguration() {
         return Codegen.optional(this.userGroupResolutionConfiguration);
     }
     /**
-     * A block that specifies the user token configuration. Detailed below.
+     * Block that specifies the user token configuration. Detailed below.
      * 
      */
     @Export(name="userTokenConfigurations", refs={IndexUserTokenConfigurations.class}, tree="[0]")
     private Output</* @Nullable */ IndexUserTokenConfigurations> userTokenConfigurations;
 
     /**
-     * @return A block that specifies the user token configuration. Detailed below.
+     * @return Block that specifies the user token configuration. Detailed below.
      * 
      */
     public Output<Optional<IndexUserTokenConfigurations>> userTokenConfigurations() {

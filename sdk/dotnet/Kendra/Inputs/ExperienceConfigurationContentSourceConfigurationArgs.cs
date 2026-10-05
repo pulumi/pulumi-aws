@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         private InputList<string>? _dataSourceIds;
 
         /// <summary>
-        /// The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+        /// Identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
         /// </summary>
         public InputList<string> DataSourceIds
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         private InputList<string>? _faqIds;
 
         /// <summary>
-        /// The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+        /// Identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
         /// </summary>
         public InputList<string> FaqIds
         {

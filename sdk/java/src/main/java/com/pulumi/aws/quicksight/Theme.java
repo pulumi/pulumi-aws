@@ -120,56 +120,56 @@ public class Theme extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+     * ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      * 
      */
     @Export(name="baseThemeId", refs={String.class}, tree="[0]")
     private Output<String> baseThemeId;
 
     /**
-     * @return The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+     * @return ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      * 
      */
     public Output<String> baseThemeId() {
         return this.baseThemeId;
     }
     /**
-     * The theme configuration, which contains the theme display properties. See configuration.
+     * Theme configuration, which contains the theme display properties. See configuration.
      * 
      */
     @Export(name="configuration", refs={ThemeConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ ThemeConfiguration> configuration;
 
     /**
-     * @return The theme configuration, which contains the theme display properties. See configuration.
+     * @return Theme configuration, which contains the theme display properties. See configuration.
      * 
      */
     public Output<Optional<ThemeConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
     /**
-     * The time that the theme was created.
+     * Time that the theme was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
-     * @return The time that the theme was created.
+     * @return Time that the theme was created.
      * 
      */
     public Output<String> createdTime() {
         return this.createdTime;
     }
     /**
-     * The time that the theme was last updated.
+     * Time that the theme was last updated.
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
     /**
-     * @return The time that the theme was last updated.
+     * @return Time that the theme was last updated.
      * 
      */
     public Output<String> lastUpdatedTime() {
@@ -190,14 +190,14 @@ public class Theme extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the theme. Maximum of 64 items. See permissions.
      * 
      */
     @Export(name="permissions", refs={List.class,ThemePermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ThemePermission>> permissions;
 
     /**
-     * @return A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the theme. Maximum of 64 items. See permissions.
      * 
      */
     public Output<Optional<List<ThemePermission>>> permissions() {
@@ -218,14 +218,14 @@ public class Theme extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The theme creation status.
+     * Theme creation status.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The theme creation status.
+     * @return Theme creation status.
      * 
      */
     public Output<String> status() {
@@ -246,14 +246,14 @@ public class Theme extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -278,28 +278,28 @@ public class Theme extends com.pulumi.resources.CustomResource {
         return this.themeId;
     }
     /**
-     * A description of the current theme version being created/updated.
+     * Description of the current theme version being created/updated.
      * 
      */
     @Export(name="versionDescription", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> versionDescription;
 
     /**
-     * @return A description of the current theme version being created/updated.
+     * @return Description of the current theme version being created/updated.
      * 
      */
     public Output<Optional<String>> versionDescription() {
         return Codegen.optional(this.versionDescription);
     }
     /**
-     * The version number of the theme version.
+     * Version number of the theme version.
      * 
      */
     @Export(name="versionNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> versionNumber;
 
     /**
-     * @return The version number of the theme version.
+     * @return Version number of the theme version.
      * 
      */
     public Output<Integer> versionNumber() {

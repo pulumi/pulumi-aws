@@ -412,6 +412,433 @@ func (o DirectoryVpcSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type IpRouteTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// IpRouteTimeoutsInput is an input type that accepts IpRouteTimeoutsArgs and IpRouteTimeoutsOutput values.
+// You can construct a concrete instance of `IpRouteTimeoutsInput` via:
+//
+//	IpRouteTimeoutsArgs{...}
+type IpRouteTimeoutsInput interface {
+	pulumi.Input
+
+	ToIpRouteTimeoutsOutput() IpRouteTimeoutsOutput
+	ToIpRouteTimeoutsOutputWithContext(context.Context) IpRouteTimeoutsOutput
+}
+
+type IpRouteTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (IpRouteTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpRouteTimeouts)(nil)).Elem()
+}
+
+func (i IpRouteTimeoutsArgs) ToIpRouteTimeoutsOutput() IpRouteTimeoutsOutput {
+	return i.ToIpRouteTimeoutsOutputWithContext(context.Background())
+}
+
+func (i IpRouteTimeoutsArgs) ToIpRouteTimeoutsOutputWithContext(ctx context.Context) IpRouteTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpRouteTimeoutsOutput)
+}
+
+func (i IpRouteTimeoutsArgs) ToIpRouteTimeoutsPtrOutput() IpRouteTimeoutsPtrOutput {
+	return i.ToIpRouteTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i IpRouteTimeoutsArgs) ToIpRouteTimeoutsPtrOutputWithContext(ctx context.Context) IpRouteTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpRouteTimeoutsOutput).ToIpRouteTimeoutsPtrOutputWithContext(ctx)
+}
+
+// IpRouteTimeoutsPtrInput is an input type that accepts IpRouteTimeoutsArgs, IpRouteTimeoutsPtr and IpRouteTimeoutsPtrOutput values.
+// You can construct a concrete instance of `IpRouteTimeoutsPtrInput` via:
+//
+//	        IpRouteTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IpRouteTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToIpRouteTimeoutsPtrOutput() IpRouteTimeoutsPtrOutput
+	ToIpRouteTimeoutsPtrOutputWithContext(context.Context) IpRouteTimeoutsPtrOutput
+}
+
+type ipRouteTimeoutsPtrType IpRouteTimeoutsArgs
+
+func IpRouteTimeoutsPtr(v *IpRouteTimeoutsArgs) IpRouteTimeoutsPtrInput {
+	return (*ipRouteTimeoutsPtrType)(v)
+}
+
+func (*ipRouteTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpRouteTimeouts)(nil)).Elem()
+}
+
+func (i *ipRouteTimeoutsPtrType) ToIpRouteTimeoutsPtrOutput() IpRouteTimeoutsPtrOutput {
+	return i.ToIpRouteTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipRouteTimeoutsPtrType) ToIpRouteTimeoutsPtrOutputWithContext(ctx context.Context) IpRouteTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpRouteTimeoutsPtrOutput)
+}
+
+type IpRouteTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (IpRouteTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpRouteTimeouts)(nil)).Elem()
+}
+
+func (o IpRouteTimeoutsOutput) ToIpRouteTimeoutsOutput() IpRouteTimeoutsOutput {
+	return o
+}
+
+func (o IpRouteTimeoutsOutput) ToIpRouteTimeoutsOutputWithContext(ctx context.Context) IpRouteTimeoutsOutput {
+	return o
+}
+
+func (o IpRouteTimeoutsOutput) ToIpRouteTimeoutsPtrOutput() IpRouteTimeoutsPtrOutput {
+	return o.ToIpRouteTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o IpRouteTimeoutsOutput) ToIpRouteTimeoutsPtrOutputWithContext(ctx context.Context) IpRouteTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpRouteTimeouts) *IpRouteTimeouts {
+		return &v
+	}).(IpRouteTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IpRouteTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpRouteTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o IpRouteTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpRouteTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type IpRouteTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (IpRouteTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpRouteTimeouts)(nil)).Elem()
+}
+
+func (o IpRouteTimeoutsPtrOutput) ToIpRouteTimeoutsPtrOutput() IpRouteTimeoutsPtrOutput {
+	return o
+}
+
+func (o IpRouteTimeoutsPtrOutput) ToIpRouteTimeoutsPtrOutputWithContext(ctx context.Context) IpRouteTimeoutsPtrOutput {
+	return o
+}
+
+func (o IpRouteTimeoutsPtrOutput) Elem() IpRouteTimeoutsOutput {
+	return o.ApplyT(func(v *IpRouteTimeouts) IpRouteTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret IpRouteTimeouts
+		return ret
+	}).(IpRouteTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IpRouteTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpRouteTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o IpRouteTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpRouteTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpRoutesExclusiveIpRoute struct {
+	// IPv4 CIDR block, such as `10.0.0.0/24`. For a single address, use a `/32` block, such as `10.0.0.0/32`. Must be unique across all `ipRoute` blocks.
+	CidrIp *string `pulumi:"cidrIp"`
+	// IPv6 CIDR block, such as `2001:db8::/64`. For a single address, use a `/128` block. Must be unique across all `ipRoute` blocks.
+	CidrIpv6 *string `pulumi:"cidrIpv6"`
+	// Description of the address block.
+	Description *string `pulumi:"description"`
+}
+
+// IpRoutesExclusiveIpRouteInput is an input type that accepts IpRoutesExclusiveIpRouteArgs and IpRoutesExclusiveIpRouteOutput values.
+// You can construct a concrete instance of `IpRoutesExclusiveIpRouteInput` via:
+//
+//	IpRoutesExclusiveIpRouteArgs{...}
+type IpRoutesExclusiveIpRouteInput interface {
+	pulumi.Input
+
+	ToIpRoutesExclusiveIpRouteOutput() IpRoutesExclusiveIpRouteOutput
+	ToIpRoutesExclusiveIpRouteOutputWithContext(context.Context) IpRoutesExclusiveIpRouteOutput
+}
+
+type IpRoutesExclusiveIpRouteArgs struct {
+	// IPv4 CIDR block, such as `10.0.0.0/24`. For a single address, use a `/32` block, such as `10.0.0.0/32`. Must be unique across all `ipRoute` blocks.
+	CidrIp pulumi.StringPtrInput `pulumi:"cidrIp"`
+	// IPv6 CIDR block, such as `2001:db8::/64`. For a single address, use a `/128` block. Must be unique across all `ipRoute` blocks.
+	CidrIpv6 pulumi.StringPtrInput `pulumi:"cidrIpv6"`
+	// Description of the address block.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+}
+
+func (IpRoutesExclusiveIpRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpRoutesExclusiveIpRoute)(nil)).Elem()
+}
+
+func (i IpRoutesExclusiveIpRouteArgs) ToIpRoutesExclusiveIpRouteOutput() IpRoutesExclusiveIpRouteOutput {
+	return i.ToIpRoutesExclusiveIpRouteOutputWithContext(context.Background())
+}
+
+func (i IpRoutesExclusiveIpRouteArgs) ToIpRoutesExclusiveIpRouteOutputWithContext(ctx context.Context) IpRoutesExclusiveIpRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpRoutesExclusiveIpRouteOutput)
+}
+
+// IpRoutesExclusiveIpRouteArrayInput is an input type that accepts IpRoutesExclusiveIpRouteArray and IpRoutesExclusiveIpRouteArrayOutput values.
+// You can construct a concrete instance of `IpRoutesExclusiveIpRouteArrayInput` via:
+//
+//	IpRoutesExclusiveIpRouteArray{ IpRoutesExclusiveIpRouteArgs{...} }
+type IpRoutesExclusiveIpRouteArrayInput interface {
+	pulumi.Input
+
+	ToIpRoutesExclusiveIpRouteArrayOutput() IpRoutesExclusiveIpRouteArrayOutput
+	ToIpRoutesExclusiveIpRouteArrayOutputWithContext(context.Context) IpRoutesExclusiveIpRouteArrayOutput
+}
+
+type IpRoutesExclusiveIpRouteArray []IpRoutesExclusiveIpRouteInput
+
+func (IpRoutesExclusiveIpRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpRoutesExclusiveIpRoute)(nil)).Elem()
+}
+
+func (i IpRoutesExclusiveIpRouteArray) ToIpRoutesExclusiveIpRouteArrayOutput() IpRoutesExclusiveIpRouteArrayOutput {
+	return i.ToIpRoutesExclusiveIpRouteArrayOutputWithContext(context.Background())
+}
+
+func (i IpRoutesExclusiveIpRouteArray) ToIpRoutesExclusiveIpRouteArrayOutputWithContext(ctx context.Context) IpRoutesExclusiveIpRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpRoutesExclusiveIpRouteArrayOutput)
+}
+
+type IpRoutesExclusiveIpRouteOutput struct{ *pulumi.OutputState }
+
+func (IpRoutesExclusiveIpRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpRoutesExclusiveIpRoute)(nil)).Elem()
+}
+
+func (o IpRoutesExclusiveIpRouteOutput) ToIpRoutesExclusiveIpRouteOutput() IpRoutesExclusiveIpRouteOutput {
+	return o
+}
+
+func (o IpRoutesExclusiveIpRouteOutput) ToIpRoutesExclusiveIpRouteOutputWithContext(ctx context.Context) IpRoutesExclusiveIpRouteOutput {
+	return o
+}
+
+// IPv4 CIDR block, such as `10.0.0.0/24`. For a single address, use a `/32` block, such as `10.0.0.0/32`. Must be unique across all `ipRoute` blocks.
+func (o IpRoutesExclusiveIpRouteOutput) CidrIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpRoutesExclusiveIpRoute) *string { return v.CidrIp }).(pulumi.StringPtrOutput)
+}
+
+// IPv6 CIDR block, such as `2001:db8::/64`. For a single address, use a `/128` block. Must be unique across all `ipRoute` blocks.
+func (o IpRoutesExclusiveIpRouteOutput) CidrIpv6() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpRoutesExclusiveIpRoute) *string { return v.CidrIpv6 }).(pulumi.StringPtrOutput)
+}
+
+// Description of the address block.
+func (o IpRoutesExclusiveIpRouteOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpRoutesExclusiveIpRoute) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+type IpRoutesExclusiveIpRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (IpRoutesExclusiveIpRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IpRoutesExclusiveIpRoute)(nil)).Elem()
+}
+
+func (o IpRoutesExclusiveIpRouteArrayOutput) ToIpRoutesExclusiveIpRouteArrayOutput() IpRoutesExclusiveIpRouteArrayOutput {
+	return o
+}
+
+func (o IpRoutesExclusiveIpRouteArrayOutput) ToIpRoutesExclusiveIpRouteArrayOutputWithContext(ctx context.Context) IpRoutesExclusiveIpRouteArrayOutput {
+	return o
+}
+
+func (o IpRoutesExclusiveIpRouteArrayOutput) Index(i pulumi.IntInput) IpRoutesExclusiveIpRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IpRoutesExclusiveIpRoute {
+		return vs[0].([]IpRoutesExclusiveIpRoute)[vs[1].(int)]
+	}).(IpRoutesExclusiveIpRouteOutput)
+}
+
+type IpRoutesExclusiveTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// IpRoutesExclusiveTimeoutsInput is an input type that accepts IpRoutesExclusiveTimeoutsArgs and IpRoutesExclusiveTimeoutsOutput values.
+// You can construct a concrete instance of `IpRoutesExclusiveTimeoutsInput` via:
+//
+//	IpRoutesExclusiveTimeoutsArgs{...}
+type IpRoutesExclusiveTimeoutsInput interface {
+	pulumi.Input
+
+	ToIpRoutesExclusiveTimeoutsOutput() IpRoutesExclusiveTimeoutsOutput
+	ToIpRoutesExclusiveTimeoutsOutputWithContext(context.Context) IpRoutesExclusiveTimeoutsOutput
+}
+
+type IpRoutesExclusiveTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (IpRoutesExclusiveTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpRoutesExclusiveTimeouts)(nil)).Elem()
+}
+
+func (i IpRoutesExclusiveTimeoutsArgs) ToIpRoutesExclusiveTimeoutsOutput() IpRoutesExclusiveTimeoutsOutput {
+	return i.ToIpRoutesExclusiveTimeoutsOutputWithContext(context.Background())
+}
+
+func (i IpRoutesExclusiveTimeoutsArgs) ToIpRoutesExclusiveTimeoutsOutputWithContext(ctx context.Context) IpRoutesExclusiveTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpRoutesExclusiveTimeoutsOutput)
+}
+
+func (i IpRoutesExclusiveTimeoutsArgs) ToIpRoutesExclusiveTimeoutsPtrOutput() IpRoutesExclusiveTimeoutsPtrOutput {
+	return i.ToIpRoutesExclusiveTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i IpRoutesExclusiveTimeoutsArgs) ToIpRoutesExclusiveTimeoutsPtrOutputWithContext(ctx context.Context) IpRoutesExclusiveTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpRoutesExclusiveTimeoutsOutput).ToIpRoutesExclusiveTimeoutsPtrOutputWithContext(ctx)
+}
+
+// IpRoutesExclusiveTimeoutsPtrInput is an input type that accepts IpRoutesExclusiveTimeoutsArgs, IpRoutesExclusiveTimeoutsPtr and IpRoutesExclusiveTimeoutsPtrOutput values.
+// You can construct a concrete instance of `IpRoutesExclusiveTimeoutsPtrInput` via:
+//
+//	        IpRoutesExclusiveTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IpRoutesExclusiveTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToIpRoutesExclusiveTimeoutsPtrOutput() IpRoutesExclusiveTimeoutsPtrOutput
+	ToIpRoutesExclusiveTimeoutsPtrOutputWithContext(context.Context) IpRoutesExclusiveTimeoutsPtrOutput
+}
+
+type ipRoutesExclusiveTimeoutsPtrType IpRoutesExclusiveTimeoutsArgs
+
+func IpRoutesExclusiveTimeoutsPtr(v *IpRoutesExclusiveTimeoutsArgs) IpRoutesExclusiveTimeoutsPtrInput {
+	return (*ipRoutesExclusiveTimeoutsPtrType)(v)
+}
+
+func (*ipRoutesExclusiveTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpRoutesExclusiveTimeouts)(nil)).Elem()
+}
+
+func (i *ipRoutesExclusiveTimeoutsPtrType) ToIpRoutesExclusiveTimeoutsPtrOutput() IpRoutesExclusiveTimeoutsPtrOutput {
+	return i.ToIpRoutesExclusiveTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *ipRoutesExclusiveTimeoutsPtrType) ToIpRoutesExclusiveTimeoutsPtrOutputWithContext(ctx context.Context) IpRoutesExclusiveTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IpRoutesExclusiveTimeoutsPtrOutput)
+}
+
+type IpRoutesExclusiveTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (IpRoutesExclusiveTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpRoutesExclusiveTimeouts)(nil)).Elem()
+}
+
+func (o IpRoutesExclusiveTimeoutsOutput) ToIpRoutesExclusiveTimeoutsOutput() IpRoutesExclusiveTimeoutsOutput {
+	return o
+}
+
+func (o IpRoutesExclusiveTimeoutsOutput) ToIpRoutesExclusiveTimeoutsOutputWithContext(ctx context.Context) IpRoutesExclusiveTimeoutsOutput {
+	return o
+}
+
+func (o IpRoutesExclusiveTimeoutsOutput) ToIpRoutesExclusiveTimeoutsPtrOutput() IpRoutesExclusiveTimeoutsPtrOutput {
+	return o.ToIpRoutesExclusiveTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o IpRoutesExclusiveTimeoutsOutput) ToIpRoutesExclusiveTimeoutsPtrOutputWithContext(ctx context.Context) IpRoutesExclusiveTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpRoutesExclusiveTimeouts) *IpRoutesExclusiveTimeouts {
+		return &v
+	}).(IpRoutesExclusiveTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IpRoutesExclusiveTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpRoutesExclusiveTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IpRoutesExclusiveTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IpRoutesExclusiveTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type IpRoutesExclusiveTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (IpRoutesExclusiveTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpRoutesExclusiveTimeouts)(nil)).Elem()
+}
+
+func (o IpRoutesExclusiveTimeoutsPtrOutput) ToIpRoutesExclusiveTimeoutsPtrOutput() IpRoutesExclusiveTimeoutsPtrOutput {
+	return o
+}
+
+func (o IpRoutesExclusiveTimeoutsPtrOutput) ToIpRoutesExclusiveTimeoutsPtrOutputWithContext(ctx context.Context) IpRoutesExclusiveTimeoutsPtrOutput {
+	return o
+}
+
+func (o IpRoutesExclusiveTimeoutsPtrOutput) Elem() IpRoutesExclusiveTimeoutsOutput {
+	return o.ApplyT(func(v *IpRoutesExclusiveTimeouts) IpRoutesExclusiveTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret IpRoutesExclusiveTimeouts
+		return ret
+	}).(IpRoutesExclusiveTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IpRoutesExclusiveTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpRoutesExclusiveTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o IpRoutesExclusiveTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpRoutesExclusiveTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceRegionVpcSettings struct {
 	// The identifiers of the subnets for the directory servers.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -1131,6 +1558,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConnectSettingsPtrInput)(nil)).Elem(), DirectoryConnectSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryVpcSettingsInput)(nil)).Elem(), DirectoryVpcSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryVpcSettingsPtrInput)(nil)).Elem(), DirectoryVpcSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpRouteTimeoutsInput)(nil)).Elem(), IpRouteTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpRouteTimeoutsPtrInput)(nil)).Elem(), IpRouteTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpRoutesExclusiveIpRouteInput)(nil)).Elem(), IpRoutesExclusiveIpRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpRoutesExclusiveIpRouteArrayInput)(nil)).Elem(), IpRoutesExclusiveIpRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpRoutesExclusiveTimeoutsInput)(nil)).Elem(), IpRoutesExclusiveTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpRoutesExclusiveTimeoutsPtrInput)(nil)).Elem(), IpRoutesExclusiveTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceRegionVpcSettingsInput)(nil)).Elem(), ServiceRegionVpcSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceRegionVpcSettingsPtrInput)(nil)).Elem(), ServiceRegionVpcSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SharedDirectoryTargetInput)(nil)).Elem(), SharedDirectoryTargetArgs{})
@@ -1145,6 +1578,12 @@ func init() {
 	pulumi.RegisterOutputType(DirectoryConnectSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryVpcSettingsOutput{})
 	pulumi.RegisterOutputType(DirectoryVpcSettingsPtrOutput{})
+	pulumi.RegisterOutputType(IpRouteTimeoutsOutput{})
+	pulumi.RegisterOutputType(IpRouteTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(IpRoutesExclusiveIpRouteOutput{})
+	pulumi.RegisterOutputType(IpRoutesExclusiveIpRouteArrayOutput{})
+	pulumi.RegisterOutputType(IpRoutesExclusiveTimeoutsOutput{})
+	pulumi.RegisterOutputType(IpRoutesExclusiveTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceRegionVpcSettingsOutput{})
 	pulumi.RegisterOutputType(ServiceRegionVpcSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SharedDirectoryTargetOutput{})

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class AnalyticsApplicationInputsParallelismGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Count of streams.
+        /// Count of streams.
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }

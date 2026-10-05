@@ -18,14 +18,14 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
     public static final VideoStreamArgs Empty = new VideoStreamArgs();
 
     /**
-     * The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+     * Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      * 
      */
     @Import(name="dataRetentionInHours")
     private @Nullable Output<Integer> dataRetentionInHours;
 
     /**
-     * @return The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+     * @return Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      * 
      */
     public Optional<Output<Integer>> dataRetentionInHours() {
@@ -33,14 +33,14 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+     * Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      * 
      */
     @Import(name="deviceName")
     private @Nullable Output<String> deviceName;
 
     /**
-     * @return The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+     * @return Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      * 
      */
     public Optional<Output<String>> deviceName() {
@@ -63,14 +63,14 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+     * Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      * 
      */
     @Import(name="mediaType")
     private @Nullable Output<String> mediaType;
 
     /**
-     * @return The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+     * @return Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      * 
      */
     public Optional<Output<String>> mediaType() {
@@ -78,16 +78,14 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * Name to identify the stream. Unique to the AWS account and region the stream is created in.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * @return Name to identify the stream. Unique to the AWS account and region the stream is created in.
      * 
      */
     public Optional<Output<String>> name() {
@@ -110,14 +108,14 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -155,7 +153,7 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRetentionInHours The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+         * @param dataRetentionInHours Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
          * 
          * @return builder
          * 
@@ -166,7 +164,7 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRetentionInHours The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+         * @param dataRetentionInHours Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
          * 
          * @return builder
          * 
@@ -176,7 +174,7 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceName The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+         * @param deviceName Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
          * 
          * @return builder
          * 
@@ -187,7 +185,7 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceName The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+         * @param deviceName Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
          * 
          * @return builder
          * 
@@ -218,7 +216,7 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mediaType The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+         * @param mediaType Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
          * 
          * @return builder
          * 
@@ -229,7 +227,7 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mediaType The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+         * @param mediaType Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
          * 
          * @return builder
          * 
@@ -239,8 +237,7 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name to identify the stream. This is unique to the
-         * AWS account and region the Stream is created in.
+         * @param name Name to identify the stream. Unique to the AWS account and region the stream is created in.
          * 
          * @return builder
          * 
@@ -251,8 +248,7 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name to identify the stream. This is unique to the
-         * AWS account and region the Stream is created in.
+         * @param name Name to identify the stream. Unique to the AWS account and region the stream is created in.
          * 
          * @return builder
          * 
@@ -283,7 +279,7 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -294,7 +290,7 @@ public final class VideoStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

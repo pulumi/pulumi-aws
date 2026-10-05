@@ -70,11 +70,9 @@ import (
 type ProxyProtocolPolicy struct {
 	pulumi.CustomResourceState
 
-	// List of instance ports to which the policy
-	// should be applied. This can be specified if the protocol is SSL or TCP.
+	// List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
 	InstancePorts pulumi.StringArrayOutput `pulumi:"instancePorts"`
-	// The load balancer to which the policy
-	// should be attached.
+	// Load balancer to which the policy should be attached.
 	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -116,22 +114,18 @@ func GetProxyProtocolPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProxyProtocolPolicy resources.
 type proxyProtocolPolicyState struct {
-	// List of instance ports to which the policy
-	// should be applied. This can be specified if the protocol is SSL or TCP.
+	// List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
 	InstancePorts []string `pulumi:"instancePorts"`
-	// The load balancer to which the policy
-	// should be attached.
+	// Load balancer to which the policy should be attached.
 	LoadBalancer *string `pulumi:"loadBalancer"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type ProxyProtocolPolicyState struct {
-	// List of instance ports to which the policy
-	// should be applied. This can be specified if the protocol is SSL or TCP.
+	// List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
 	InstancePorts pulumi.StringArrayInput
-	// The load balancer to which the policy
-	// should be attached.
+	// Load balancer to which the policy should be attached.
 	LoadBalancer pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -142,11 +136,9 @@ func (ProxyProtocolPolicyState) ElementType() reflect.Type {
 }
 
 type proxyProtocolPolicyArgs struct {
-	// List of instance ports to which the policy
-	// should be applied. This can be specified if the protocol is SSL or TCP.
+	// List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
 	InstancePorts []string `pulumi:"instancePorts"`
-	// The load balancer to which the policy
-	// should be attached.
+	// Load balancer to which the policy should be attached.
 	LoadBalancer string `pulumi:"loadBalancer"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -154,11 +146,9 @@ type proxyProtocolPolicyArgs struct {
 
 // The set of arguments for constructing a ProxyProtocolPolicy resource.
 type ProxyProtocolPolicyArgs struct {
-	// List of instance ports to which the policy
-	// should be applied. This can be specified if the protocol is SSL or TCP.
+	// List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
 	InstancePorts pulumi.StringArrayInput
-	// The load balancer to which the policy
-	// should be attached.
+	// Load balancer to which the policy should be attached.
 	LoadBalancer pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -251,14 +241,12 @@ func (o ProxyProtocolPolicyOutput) ToProxyProtocolPolicyOutputWithContext(ctx co
 	return o
 }
 
-// List of instance ports to which the policy
-// should be applied. This can be specified if the protocol is SSL or TCP.
+// List of instance ports to which the policy should be applied. This can be specified if the protocol is SSL or TCP.
 func (o ProxyProtocolPolicyOutput) InstancePorts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProxyProtocolPolicy) pulumi.StringArrayOutput { return v.InstancePorts }).(pulumi.StringArrayOutput)
 }
 
-// The load balancer to which the policy
-// should be attached.
+// Load balancer to which the policy should be attached.
 func (o ProxyProtocolPolicyOutput) LoadBalancer() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyProtocolPolicy) pulumi.StringOutput { return v.LoadBalancer }).(pulumi.StringOutput)
 }

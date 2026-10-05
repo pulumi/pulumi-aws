@@ -14,13 +14,13 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CustomDomainAssociationCertificateValidationRecord struct {
-	// Certificate CNAME record name.
+	// Certificate `CNAME` record name.
 	Name *string `pulumi:"name"`
-	// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+	// Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
 	Status *string `pulumi:"status"`
 	// Record type, always `CNAME`.
 	Type *string `pulumi:"type"`
-	// Certificate CNAME record value.
+	// Certificate `CNAME` record value.
 	Value *string `pulumi:"value"`
 }
 
@@ -36,13 +36,13 @@ type CustomDomainAssociationCertificateValidationRecordInput interface {
 }
 
 type CustomDomainAssociationCertificateValidationRecordArgs struct {
-	// Certificate CNAME record name.
+	// Certificate `CNAME` record name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+	// Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Record type, always `CNAME`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Certificate CNAME record value.
+	// Certificate `CNAME` record value.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -97,12 +97,12 @@ func (o CustomDomainAssociationCertificateValidationRecordOutput) ToCustomDomain
 	return o
 }
 
-// Certificate CNAME record name.
+// Certificate `CNAME` record name.
 func (o CustomDomainAssociationCertificateValidationRecordOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainAssociationCertificateValidationRecord) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+// Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
 func (o CustomDomainAssociationCertificateValidationRecordOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainAssociationCertificateValidationRecord) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -112,7 +112,7 @@ func (o CustomDomainAssociationCertificateValidationRecordOutput) Type() pulumi.
 	return o.ApplyT(func(v CustomDomainAssociationCertificateValidationRecord) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Certificate CNAME record value.
+// Certificate `CNAME` record value.
 func (o CustomDomainAssociationCertificateValidationRecordOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainAssociationCertificateValidationRecord) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

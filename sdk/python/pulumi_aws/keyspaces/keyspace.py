@@ -28,10 +28,10 @@ class KeyspaceArgs:
         """
         The set of arguments for constructing a Keyspace resource.
 
-        :param pulumi.Input[_builtins.str] name: The name of the keyspace to be created.
+        :param pulumi.Input[_builtins.str] name: Name of the keyspace to be created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['KeyspaceReplicationSpecificationArgs'] replication_specification: The replication specification of the keyspace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['KeyspaceReplicationSpecificationArgs'] replication_specification: Replication specification of the keyspace. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -46,7 +46,7 @@ class KeyspaceArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the keyspace to be created.
+        Name of the keyspace to be created.
         """
         return pulumi.get(self, "name")
 
@@ -70,7 +70,7 @@ class KeyspaceArgs:
     @pulumi.getter(name="replicationSpecification")
     def replication_specification(self) -> pulumi.Input[Optional['KeyspaceReplicationSpecificationArgs']]:
         """
-        The replication specification of the keyspace.
+        Replication specification of the keyspace. See below.
         """
         return pulumi.get(self, "replication_specification")
 
@@ -82,7 +82,7 @@ class KeyspaceArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -103,12 +103,12 @@ class _KeyspaceState:
         """
         Input properties used for looking up and filtering Keyspace resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the keyspace.
-        :param pulumi.Input[_builtins.str] name: The name of the keyspace to be created.
+        :param pulumi.Input[_builtins.str] arn: ARN of the keyspace.
+        :param pulumi.Input[_builtins.str] name: Name of the keyspace to be created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['KeyspaceReplicationSpecificationArgs'] replication_specification: The replication specification of the keyspace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input['KeyspaceReplicationSpecificationArgs'] replication_specification: Replication specification of the keyspace. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -127,7 +127,7 @@ class _KeyspaceState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the keyspace.
+        ARN of the keyspace.
         """
         return pulumi.get(self, "arn")
 
@@ -139,7 +139,7 @@ class _KeyspaceState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the keyspace to be created.
+        Name of the keyspace to be created.
         """
         return pulumi.get(self, "name")
 
@@ -163,7 +163,7 @@ class _KeyspaceState:
     @pulumi.getter(name="replicationSpecification")
     def replication_specification(self) -> pulumi.Input[Optional['KeyspaceReplicationSpecificationArgs']]:
         """
-        The replication specification of the keyspace.
+        Replication specification of the keyspace. See below.
         """
         return pulumi.get(self, "replication_specification")
 
@@ -175,7 +175,7 @@ class _KeyspaceState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -187,7 +187,7 @@ class _KeyspaceState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -232,10 +232,10 @@ class Keyspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] name: The name of the keyspace to be created.
+        :param pulumi.Input[_builtins.str] name: Name of the keyspace to be created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict', 'outputs.KeyspaceReplicationSpecification']] replication_specification: The replication specification of the keyspace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict', 'outputs.KeyspaceReplicationSpecification']] replication_specification: Replication specification of the keyspace. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -323,12 +323,12 @@ class Keyspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the keyspace.
-        :param pulumi.Input[_builtins.str] name: The name of the keyspace to be created.
+        :param pulumi.Input[_builtins.str] arn: ARN of the keyspace.
+        :param pulumi.Input[_builtins.str] name: Name of the keyspace to be created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict', 'outputs.KeyspaceReplicationSpecification']] replication_specification: The replication specification of the keyspace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict', 'outputs.KeyspaceReplicationSpecification']] replication_specification: Replication specification of the keyspace. See below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -346,7 +346,7 @@ class Keyspace(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the keyspace.
+        ARN of the keyspace.
         """
         return pulumi.get(self, "arn")
 
@@ -354,7 +354,7 @@ class Keyspace(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the keyspace to be created.
+        Name of the keyspace to be created.
         """
         return pulumi.get(self, "name")
 
@@ -370,7 +370,7 @@ class Keyspace(pulumi.CustomResource):
     @pulumi.getter(name="replicationSpecification")
     def replication_specification(self) -> pulumi.Output['outputs.KeyspaceReplicationSpecification']:
         """
-        The replication specification of the keyspace.
+        Replication specification of the keyspace. See below.
         """
         return pulumi.get(self, "replication_specification")
 
@@ -378,7 +378,7 @@ class Keyspace(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -386,7 +386,7 @@ class Keyspace(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

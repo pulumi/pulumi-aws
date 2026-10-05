@@ -121,7 +121,7 @@ type User struct {
 	IamArn pulumi.StringPtrOutput `pulumi:"iamArn"`
 	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
 	IdentityType pulumi.StringOutput `pulumi:"identityType"`
-	// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+	// Amazon Quicksight namespace to create the user in. Defaults to `default`.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -186,7 +186,7 @@ type userState struct {
 	IamArn *string `pulumi:"iamArn"`
 	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
 	IdentityType *string `pulumi:"identityType"`
-	// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+	// Amazon Quicksight namespace to create the user in. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -213,7 +213,7 @@ type UserState struct {
 	IamArn pulumi.StringPtrInput
 	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
 	IdentityType pulumi.StringPtrInput
-	// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+	// Amazon Quicksight namespace to create the user in. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -242,7 +242,7 @@ type userArgs struct {
 	IamArn *string `pulumi:"iamArn"`
 	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
 	IdentityType string `pulumi:"identityType"`
-	// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+	// Amazon Quicksight namespace to create the user in. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -266,7 +266,7 @@ type UserArgs struct {
 	IamArn pulumi.StringPtrInput
 	// Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
 	IdentityType pulumi.StringInput
-	// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+	// Amazon Quicksight namespace to create the user in. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -392,7 +392,7 @@ func (o UserOutput) IdentityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.IdentityType }).(pulumi.StringOutput)
 }
 
-// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+// Amazon Quicksight namespace to create the user in. Defaults to `default`.
 func (o UserOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
 }

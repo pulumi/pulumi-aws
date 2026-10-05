@@ -19,12 +19,12 @@ public final class DataSetPhysicalTableMapS3Source {
      */
     private String dataSourceArn;
     /**
-     * @return Column schema of the table. See input_columns.
+     * @return Column schema of the table. See `inputColumns` Block below.
      * 
      */
     private List<DataSetPhysicalTableMapS3SourceInputColumn> inputColumns;
     /**
-     * @return Information about the format for the S3 source file or files. See upload_settings.
+     * @return Information about the format for the S3 source file or files. See `uploadSettings` Block below.
      * 
      */
     private DataSetPhysicalTableMapS3SourceUploadSettings uploadSettings;
@@ -38,14 +38,14 @@ public final class DataSetPhysicalTableMapS3Source {
         return this.dataSourceArn;
     }
     /**
-     * @return Column schema of the table. See input_columns.
+     * @return Column schema of the table. See `inputColumns` Block below.
      * 
      */
     public List<DataSetPhysicalTableMapS3SourceInputColumn> inputColumns() {
         return this.inputColumns;
     }
     /**
-     * @return Information about the format for the S3 source file or files. See upload_settings.
+     * @return Information about the format for the S3 source file or files. See `uploadSettings` Block below.
      * 
      */
     public DataSetPhysicalTableMapS3SourceUploadSettings uploadSettings() {

@@ -17,30 +17,46 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
     public static final PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs Empty = new PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs();
 
     /**
-     * Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+     * Whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
      * 
      */
     @Import(name="assignPublicIp")
     private @Nullable Output<String> assignPublicIp;
 
     /**
-     * @return Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+     * @return Whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
      * 
      */
     public Optional<Output<String>> assignPublicIp() {
         return Optional.ofNullable(this.assignPublicIp);
     }
 
+    /**
+     * Security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+     * 
+     */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
+    /**
+     * @return Security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+     * 
+     */
     public Optional<Output<List<String>>> securityGroups() {
         return Optional.ofNullable(this.securityGroups);
     }
 
+    /**
+     * Subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+     * 
+     */
     @Import(name="subnets")
     private @Nullable Output<List<String>> subnets;
 
+    /**
+     * @return Subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+     * 
+     */
     public Optional<Output<List<String>>> subnets() {
         return Optional.ofNullable(this.subnets);
     }
@@ -72,7 +88,7 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
         }
 
         /**
-         * @param assignPublicIp Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+         * @param assignPublicIp Whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
          * 
          * @return builder
          * 
@@ -83,7 +99,7 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
         }
 
         /**
-         * @param assignPublicIp Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+         * @param assignPublicIp Whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
          * 
          * @return builder
          * 
@@ -92,28 +108,64 @@ public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsV
             return assignPublicIp(Output.of(assignPublicIp));
         }
 
+        /**
+         * @param securityGroups Security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(@Nullable Output<List<String>> securityGroups) {
             $.securityGroups = securityGroups;
             return this;
         }
 
+        /**
+         * @param securityGroups Security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(List<String> securityGroups) {
             return securityGroups(Output.of(securityGroups));
         }
 
+        /**
+         * @param securityGroups Security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
         }
 
+        /**
+         * @param subnets Subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnets(@Nullable Output<List<String>> subnets) {
             $.subnets = subnets;
             return this;
         }
 
+        /**
+         * @param subnets Subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnets(List<String> subnets) {
             return subnets(Output.of(subnets));
         }
 
+        /**
+         * @param subnets Subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }

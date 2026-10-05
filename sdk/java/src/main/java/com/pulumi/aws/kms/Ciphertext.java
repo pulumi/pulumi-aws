@@ -86,14 +86,14 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
         return this.ciphertextBlob;
     }
     /**
-     * An optional mapping that makes up the encryption context.
+     * Mapping that makes up the encryption context.
      * 
      */
     @Export(name="context", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> context;
 
     /**
-     * @return An optional mapping that makes up the encryption context.
+     * @return Mapping that makes up the encryption context.
      * 
      */
     public Output<Optional<Map<String,String>>> context() {
@@ -144,14 +144,14 @@ public class Ciphertext extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.plaintextWo);
     }
     /**
-     * Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     * Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
      * 
      */
     @Export(name="plaintextWoVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> plaintextWoVersion;
 
     /**
-     * @return Used together with `plaintextWo` to trigger a replacement. Modify this value when a replacement is required.
+     * @return Triggers a replacement together with `plaintextWo`. Modify this value when a replacement is required.
      * 
      */
     public Output<Optional<String>> plaintextWoVersion() {

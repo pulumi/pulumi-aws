@@ -14,7 +14,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema
     {
         /// <summary>
-        /// Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
+        /// Format of the records on the output stream. Valid values: `CSV`, `JSON`.
         /// </summary>
         public readonly string RecordFormatType;
 

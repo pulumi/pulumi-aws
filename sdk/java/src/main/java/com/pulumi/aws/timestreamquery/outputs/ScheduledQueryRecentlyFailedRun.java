@@ -16,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScheduledQueryRecentlyFailedRun {
     /**
-     * @return S3 location for error report.
+     * @return S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
      * 
      */
     private @Nullable List<ScheduledQueryRecentlyFailedRunErrorReportLocation> errorReportLocations;
     /**
-     * @return Statistics for a single scheduled query run.
+     * @return Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
      * 
      */
     private @Nullable List<ScheduledQueryRecentlyFailedRunExecutionStat> executionStats;
@@ -36,7 +36,7 @@ public final class ScheduledQueryRecentlyFailedRun {
      */
     private @Nullable String invocationTime;
     /**
-     * @return Various insights and metrics related to the run summary of the scheduled query.
+     * @return Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
      * 
      */
     private @Nullable List<ScheduledQueryRecentlyFailedRunQueryInsightsResponse> queryInsightsResponses;
@@ -53,14 +53,14 @@ public final class ScheduledQueryRecentlyFailedRun {
 
     private ScheduledQueryRecentlyFailedRun() {}
     /**
-     * @return S3 location for error report.
+     * @return S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
      * 
      */
     public List<ScheduledQueryRecentlyFailedRunErrorReportLocation> errorReportLocations() {
         return this.errorReportLocations == null ? List.of() : this.errorReportLocations;
     }
     /**
-     * @return Statistics for a single scheduled query run.
+     * @return Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
      * 
      */
     public List<ScheduledQueryRecentlyFailedRunExecutionStat> executionStats() {
@@ -81,7 +81,7 @@ public final class ScheduledQueryRecentlyFailedRun {
         return Optional.ofNullable(this.invocationTime);
     }
     /**
-     * @return Various insights and metrics related to the run summary of the scheduled query.
+     * @return Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
      * 
      */
     public List<ScheduledQueryRecentlyFailedRunQueryInsightsResponse> queryInsightsResponses() {

@@ -39,6 +39,9 @@ export interface GetLedgerArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -46,16 +49,31 @@ export interface GetLedgerArgs {
  * A collection of values returned by getLedger.
  */
 export interface GetLedgerResult {
+    /**
+     * ARN of the QLDB Ledger.
+     */
     readonly arn: string;
+    /**
+     * Deletion protection setting of the QLDB Ledger.
+     */
     readonly deletionProtection: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * KMS key used for encryption of data at rest in the ledger.
+     */
     readonly kmsKey: string;
     readonly name: string;
+    /**
+     * Permissions mode of the QLDB Ledger.
+     */
     readonly permissionsMode: string;
     readonly region: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     readonly tags: {[key: string]: string};
 }
 /**
@@ -93,5 +111,8 @@ export interface GetLedgerOutputArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Map of tags assigned to the resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

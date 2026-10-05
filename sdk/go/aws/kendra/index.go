@@ -704,42 +704,41 @@ type Index struct {
 
 	// ARN of the Index.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+	// Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
 	CapacityUnits IndexCapacityUnitsOutput `pulumi:"capacityUnits"`
-	// The Unix datetime that the index was created.
+	// Unix datetime that the index was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The description of the Index.
+	// Description of the Index.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
 	DocumentMetadataConfigurationUpdates IndexDocumentMetadataConfigurationUpdateArrayOutput `pulumi:"documentMetadataConfigurationUpdates"`
-	// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
+	// Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
 	Edition pulumi.StringPtrOutput `pulumi:"edition"`
 	// When the Status field value is `FAILED`, this contains a message that explains why.
 	ErrorMessage pulumi.StringOutput `pulumi:"errorMessage"`
-	// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+	// Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
 	IndexStatistics IndexIndexStatisticArrayOutput `pulumi:"indexStatistics"`
-	// Specifies the name of the Index.
+	// Name of the Index.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+	// AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+	// Block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
 	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
-	// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
+	// Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// Tags to apply to the Index. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the Index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Unix datetime that the index was last updated.
+	// Unix datetime that the index was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+	// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
 	UserContextPolicy pulumi.StringPtrOutput `pulumi:"userContextPolicy"`
-	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+	// Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
 	UserGroupResolutionConfiguration IndexUserGroupResolutionConfigurationPtrOutput `pulumi:"userGroupResolutionConfiguration"`
-	// A block that specifies the user token configuration. Detailed below.
+	// Block that specifies the user token configuration. Detailed below.
 	UserTokenConfigurations IndexUserTokenConfigurationsPtrOutput `pulumi:"userTokenConfigurations"`
 }
 
@@ -778,84 +777,82 @@ func GetIndex(ctx *pulumi.Context,
 type indexState struct {
 	// ARN of the Index.
 	Arn *string `pulumi:"arn"`
-	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+	// Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
 	CapacityUnits *IndexCapacityUnits `pulumi:"capacityUnits"`
-	// The Unix datetime that the index was created.
+	// Unix datetime that the index was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// The description of the Index.
+	// Description of the Index.
 	Description *string `pulumi:"description"`
 	// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
 	DocumentMetadataConfigurationUpdates []IndexDocumentMetadataConfigurationUpdate `pulumi:"documentMetadataConfigurationUpdates"`
-	// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
+	// Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
 	Edition *string `pulumi:"edition"`
 	// When the Status field value is `FAILED`, this contains a message that explains why.
 	ErrorMessage *string `pulumi:"errorMessage"`
-	// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+	// Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
 	IndexStatistics []IndexIndexStatistic `pulumi:"indexStatistics"`
-	// Specifies the name of the Index.
+	// Name of the Index.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+	// AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
 	RoleArn *string `pulumi:"roleArn"`
-	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+	// Block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
 	ServerSideEncryptionConfiguration *IndexServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
+	// Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
 	Status *string `pulumi:"status"`
-	// Tags to apply to the Index. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the Index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Unix datetime that the index was last updated.
+	// Unix datetime that the index was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
-	// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+	// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
 	UserContextPolicy *string `pulumi:"userContextPolicy"`
-	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+	// Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
 	UserGroupResolutionConfiguration *IndexUserGroupResolutionConfiguration `pulumi:"userGroupResolutionConfiguration"`
-	// A block that specifies the user token configuration. Detailed below.
+	// Block that specifies the user token configuration. Detailed below.
 	UserTokenConfigurations *IndexUserTokenConfigurations `pulumi:"userTokenConfigurations"`
 }
 
 type IndexState struct {
 	// ARN of the Index.
 	Arn pulumi.StringPtrInput
-	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+	// Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
 	CapacityUnits IndexCapacityUnitsPtrInput
-	// The Unix datetime that the index was created.
+	// Unix datetime that the index was created.
 	CreatedAt pulumi.StringPtrInput
-	// The description of the Index.
+	// Description of the Index.
 	Description pulumi.StringPtrInput
 	// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
 	DocumentMetadataConfigurationUpdates IndexDocumentMetadataConfigurationUpdateArrayInput
-	// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
+	// Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
 	Edition pulumi.StringPtrInput
 	// When the Status field value is `FAILED`, this contains a message that explains why.
 	ErrorMessage pulumi.StringPtrInput
-	// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+	// Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
 	IndexStatistics IndexIndexStatisticArrayInput
-	// Specifies the name of the Index.
+	// Name of the Index.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+	// AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
 	RoleArn pulumi.StringPtrInput
-	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+	// Block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
 	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrInput
-	// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
+	// Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
 	Status pulumi.StringPtrInput
-	// Tags to apply to the Index. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the Index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The Unix datetime that the index was last updated.
+	// Unix datetime that the index was last updated.
 	UpdatedAt pulumi.StringPtrInput
-	// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+	// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
 	UserContextPolicy pulumi.StringPtrInput
-	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+	// Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
 	UserGroupResolutionConfiguration IndexUserGroupResolutionConfigurationPtrInput
-	// A block that specifies the user token configuration. Detailed below.
+	// Block that specifies the user token configuration. Detailed below.
 	UserTokenConfigurations IndexUserTokenConfigurationsPtrInput
 }
 
@@ -864,59 +861,57 @@ func (IndexState) ElementType() reflect.Type {
 }
 
 type indexArgs struct {
-	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+	// Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
 	CapacityUnits *IndexCapacityUnits `pulumi:"capacityUnits"`
-	// The description of the Index.
+	// Description of the Index.
 	Description *string `pulumi:"description"`
 	// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
 	DocumentMetadataConfigurationUpdates []IndexDocumentMetadataConfigurationUpdate `pulumi:"documentMetadataConfigurationUpdates"`
-	// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
+	// Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
 	Edition *string `pulumi:"edition"`
-	// Specifies the name of the Index.
+	// Name of the Index.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+	// AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
 	RoleArn string `pulumi:"roleArn"`
-	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+	// Block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
 	ServerSideEncryptionConfiguration *IndexServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	// Tags to apply to the Index. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the Index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+	// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
 	UserContextPolicy *string `pulumi:"userContextPolicy"`
-	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+	// Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
 	UserGroupResolutionConfiguration *IndexUserGroupResolutionConfiguration `pulumi:"userGroupResolutionConfiguration"`
-	// A block that specifies the user token configuration. Detailed below.
+	// Block that specifies the user token configuration. Detailed below.
 	UserTokenConfigurations *IndexUserTokenConfigurations `pulumi:"userTokenConfigurations"`
 }
 
 // The set of arguments for constructing a Index resource.
 type IndexArgs struct {
-	// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+	// Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
 	CapacityUnits IndexCapacityUnitsPtrInput
-	// The description of the Index.
+	// Description of the Index.
 	Description pulumi.StringPtrInput
 	// One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Minimum number of 0 items. Maximum number of 500 items. If specified, you must define all elements, including those that are provided by default. These index fields are documented at [Amazon Kendra Index documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html). For an example resource that defines these default index fields, refer to the default example above. For an example resource that appends additional index fields, refer to the append example above. All arguments for each block must be specified. Note that blocks cannot be removed since index fields cannot be deleted. This argument is detailed below.
 	DocumentMetadataConfigurationUpdates IndexDocumentMetadataConfigurationUpdateArrayInput
-	// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
+	// Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
 	Edition pulumi.StringPtrInput
-	// Specifies the name of the Index.
+	// Name of the Index.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+	// AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
 	RoleArn pulumi.StringInput
-	// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+	// Block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
 	ServerSideEncryptionConfiguration IndexServerSideEncryptionConfigurationPtrInput
-	// Tags to apply to the Index. If configured with a provider
-	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the Index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+	// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
 	UserContextPolicy pulumi.StringPtrInput
-	// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+	// Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
 	UserGroupResolutionConfiguration IndexUserGroupResolutionConfigurationPtrInput
-	// A block that specifies the user token configuration. Detailed below.
+	// Block that specifies the user token configuration. Detailed below.
 	UserTokenConfigurations IndexUserTokenConfigurationsPtrInput
 }
 
@@ -1012,17 +1007,17 @@ func (o IndexOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+// Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
 func (o IndexOutput) CapacityUnits() IndexCapacityUnitsOutput {
 	return o.ApplyT(func(v *Index) IndexCapacityUnitsOutput { return v.CapacityUnits }).(IndexCapacityUnitsOutput)
 }
 
-// The Unix datetime that the index was created.
+// Unix datetime that the index was created.
 func (o IndexOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The description of the Index.
+// Description of the Index.
 func (o IndexOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -1034,7 +1029,7 @@ func (o IndexOutput) DocumentMetadataConfigurationUpdates() IndexDocumentMetadat
 	}).(IndexDocumentMetadataConfigurationUpdateArrayOutput)
 }
 
-// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
+// Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
 func (o IndexOutput) Edition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringPtrOutput { return v.Edition }).(pulumi.StringPtrOutput)
 }
@@ -1044,12 +1039,12 @@ func (o IndexOutput) ErrorMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.ErrorMessage }).(pulumi.StringOutput)
 }
 
-// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+// Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
 func (o IndexOutput) IndexStatistics() IndexIndexStatisticArrayOutput {
 	return o.ApplyT(func(v *Index) IndexIndexStatisticArrayOutput { return v.IndexStatistics }).(IndexIndexStatisticArrayOutput)
 }
 
-// Specifies the name of the Index.
+// Name of the Index.
 func (o IndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -1059,52 +1054,51 @@ func (o IndexOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+// AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
 func (o IndexOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+// Block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
 func (o IndexOutput) ServerSideEncryptionConfiguration() IndexServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Index) IndexServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration
 	}).(IndexServerSideEncryptionConfigurationPtrOutput)
 }
 
-// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
+// Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `errorMessage` field contains a message that explains why.
 func (o IndexOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the Index. If configured with a provider
-// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the Index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o IndexOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o IndexOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Unix datetime that the index was last updated.
+// Unix datetime that the index was last updated.
 func (o IndexOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
 func (o IndexOutput) UserContextPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringPtrOutput { return v.UserContextPolicy }).(pulumi.StringPtrOutput)
 }
 
-// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+// Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
 func (o IndexOutput) UserGroupResolutionConfiguration() IndexUserGroupResolutionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Index) IndexUserGroupResolutionConfigurationPtrOutput {
 		return v.UserGroupResolutionConfiguration
 	}).(IndexUserGroupResolutionConfigurationPtrOutput)
 }
 
-// A block that specifies the user token configuration. Detailed below.
+// Block that specifies the user token configuration. Detailed below.
 func (o IndexOutput) UserTokenConfigurations() IndexUserTokenConfigurationsPtrOutput {
 	return o.ApplyT(func(v *Index) IndexUserTokenConfigurationsPtrOutput { return v.UserTokenConfigurations }).(IndexUserTokenConfigurationsPtrOutput)
 }

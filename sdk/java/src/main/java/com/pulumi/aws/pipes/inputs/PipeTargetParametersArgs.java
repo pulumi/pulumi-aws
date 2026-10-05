@@ -27,14 +27,14 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
     public static final PipeTargetParametersArgs Empty = new PipeTargetParametersArgs();
 
     /**
-     * The parameters for using an AWS Batch job as a target. Detailed below.
+     * Parameters for using an AWS Batch job as a target. See `batchJobParameters` Block for details.
      * 
      */
     @Import(name="batchJobParameters")
     private @Nullable Output<PipeTargetParametersBatchJobParametersArgs> batchJobParameters;
 
     /**
-     * @return The parameters for using an AWS Batch job as a target. Detailed below.
+     * @return Parameters for using an AWS Batch job as a target. See `batchJobParameters` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersBatchJobParametersArgs>> batchJobParameters() {
@@ -42,14 +42,14 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+     * Parameters for using a CloudWatch Logs log stream as a target. See `cloudwatchLogsParameters` Block for details.
      * 
      */
     @Import(name="cloudwatchLogsParameters")
     private @Nullable Output<PipeTargetParametersCloudwatchLogsParametersArgs> cloudwatchLogsParameters;
 
     /**
-     * @return The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+     * @return Parameters for using a CloudWatch Logs log stream as a target. See `cloudwatchLogsParameters` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersCloudwatchLogsParametersArgs>> cloudwatchLogsParameters() {
@@ -57,14 +57,14 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using an Amazon ECS task as a target. Detailed below.
+     * Parameters for using an Amazon ECS task as a target. See `ecsTaskParameters` Block for details.
      * 
      */
     @Import(name="ecsTaskParameters")
     private @Nullable Output<PipeTargetParametersEcsTaskParametersArgs> ecsTaskParameters;
 
     /**
-     * @return The parameters for using an Amazon ECS task as a target. Detailed below.
+     * @return Parameters for using an Amazon ECS task as a target. See `ecsTaskParameters` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersEcsTaskParametersArgs>> ecsTaskParameters() {
@@ -72,14 +72,14 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using an EventBridge event bus as a target. Detailed below.
+     * Parameters for using an EventBridge event bus as a target. See `eventbridgeEventBusParameters` Block for details.
      * 
      */
     @Import(name="eventbridgeEventBusParameters")
     private @Nullable Output<PipeTargetParametersEventbridgeEventBusParametersArgs> eventbridgeEventBusParameters;
 
     /**
-     * @return The parameters for using an EventBridge event bus as a target. Detailed below.
+     * @return Parameters for using an EventBridge event bus as a target. See `eventbridgeEventBusParameters` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersEventbridgeEventBusParametersArgs>> eventbridgeEventBusParameters() {
@@ -87,14 +87,14 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+     * Custom parameters used when the target is an API Gateway REST API or EventBridge ApiDestination. See `target_parameters.http_parameters` Block for details.
      * 
      */
     @Import(name="httpParameters")
     private @Nullable Output<PipeTargetParametersHttpParametersArgs> httpParameters;
 
     /**
-     * @return These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+     * @return Custom parameters used when the target is an API Gateway REST API or EventBridge ApiDestination. See `target_parameters.http_parameters` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersHttpParametersArgs>> httpParameters() {
@@ -117,14 +117,14 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using a Kinesis stream as a source. Detailed below.
+     * Parameters for using a Kinesis stream as a target. See `target_parameters.kinesis_stream_parameters` Block for details.
      * 
      */
     @Import(name="kinesisStreamParameters")
     private @Nullable Output<PipeTargetParametersKinesisStreamParametersArgs> kinesisStreamParameters;
 
     /**
-     * @return The parameters for using a Kinesis stream as a source. Detailed below.
+     * @return Parameters for using a Kinesis stream as a target. See `target_parameters.kinesis_stream_parameters` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersKinesisStreamParametersArgs>> kinesisStreamParameters() {
@@ -132,14 +132,14 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using a Lambda function as a target. Detailed below.
+     * Parameters for using a Lambda function as a target. See `lambdaFunctionParameters` Block for details.
      * 
      */
     @Import(name="lambdaFunctionParameters")
     private @Nullable Output<PipeTargetParametersLambdaFunctionParametersArgs> lambdaFunctionParameters;
 
     /**
-     * @return The parameters for using a Lambda function as a target. Detailed below.
+     * @return Parameters for using a Lambda function as a target. See `lambdaFunctionParameters` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersLambdaFunctionParametersArgs>> lambdaFunctionParameters() {
@@ -147,14 +147,14 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+     * Custom parameters used when the target is an Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. See `redshiftDataParameters` Block for details.
      * 
      */
     @Import(name="redshiftDataParameters")
     private @Nullable Output<PipeTargetParametersRedshiftDataParametersArgs> redshiftDataParameters;
 
     /**
-     * @return These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+     * @return Custom parameters used when the target is an Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. See `redshiftDataParameters` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersRedshiftDataParametersArgs>> redshiftDataParameters() {
@@ -162,14 +162,14 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using a SageMaker AI pipeline as a target. Detailed below.
+     * Parameters for using a SageMaker AI pipeline as a target. See `sagemakerPipelineParameters` Block for details.
      * 
      */
     @Import(name="sagemakerPipelineParameters")
     private @Nullable Output<PipeTargetParametersSagemakerPipelineParametersArgs> sagemakerPipelineParameters;
 
     /**
-     * @return The parameters for using a SageMaker AI pipeline as a target. Detailed below.
+     * @return Parameters for using a SageMaker AI pipeline as a target. See `sagemakerPipelineParameters` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersSagemakerPipelineParametersArgs>> sagemakerPipelineParameters() {
@@ -177,14 +177,14 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using a Amazon SQS stream as a target. Detailed below.
+     * Parameters for using an Amazon SQS stream as a target. See `target_parameters.sqs_queue_parameters` Block for details.
      * 
      */
     @Import(name="sqsQueueParameters")
     private @Nullable Output<PipeTargetParametersSqsQueueParametersArgs> sqsQueueParameters;
 
     /**
-     * @return The parameters for using a Amazon SQS stream as a target. Detailed below.
+     * @return Parameters for using an Amazon SQS stream as a target. See `target_parameters.sqs_queue_parameters` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersSqsQueueParametersArgs>> sqsQueueParameters() {
@@ -192,14 +192,14 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The parameters for using a Step Functions state machine as a target. Detailed below.
+     * Parameters for using a Step Functions state machine as a target. See `stepFunctionStateMachineParameters` Block for details.
      * 
      */
     @Import(name="stepFunctionStateMachineParameters")
     private @Nullable Output<PipeTargetParametersStepFunctionStateMachineParametersArgs> stepFunctionStateMachineParameters;
 
     /**
-     * @return The parameters for using a Step Functions state machine as a target. Detailed below.
+     * @return Parameters for using a Step Functions state machine as a target. See `stepFunctionStateMachineParameters` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersStepFunctionStateMachineParametersArgs>> stepFunctionStateMachineParameters() {
@@ -242,7 +242,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param batchJobParameters The parameters for using an AWS Batch job as a target. Detailed below.
+         * @param batchJobParameters Parameters for using an AWS Batch job as a target. See `batchJobParameters` Block for details.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param batchJobParameters The parameters for using an AWS Batch job as a target. Detailed below.
+         * @param batchJobParameters Parameters for using an AWS Batch job as a target. See `batchJobParameters` Block for details.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cloudwatchLogsParameters The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+         * @param cloudwatchLogsParameters Parameters for using a CloudWatch Logs log stream as a target. See `cloudwatchLogsParameters` Block for details.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cloudwatchLogsParameters The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+         * @param cloudwatchLogsParameters Parameters for using a CloudWatch Logs log stream as a target. See `cloudwatchLogsParameters` Block for details.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ecsTaskParameters The parameters for using an Amazon ECS task as a target. Detailed below.
+         * @param ecsTaskParameters Parameters for using an Amazon ECS task as a target. See `ecsTaskParameters` Block for details.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ecsTaskParameters The parameters for using an Amazon ECS task as a target. Detailed below.
+         * @param ecsTaskParameters Parameters for using an Amazon ECS task as a target. See `ecsTaskParameters` Block for details.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eventbridgeEventBusParameters The parameters for using an EventBridge event bus as a target. Detailed below.
+         * @param eventbridgeEventBusParameters Parameters for using an EventBridge event bus as a target. See `eventbridgeEventBusParameters` Block for details.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eventbridgeEventBusParameters The parameters for using an EventBridge event bus as a target. Detailed below.
+         * @param eventbridgeEventBusParameters Parameters for using an EventBridge event bus as a target. See `eventbridgeEventBusParameters` Block for details.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param httpParameters These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+         * @param httpParameters Custom parameters used when the target is an API Gateway REST API or EventBridge ApiDestination. See `target_parameters.http_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param httpParameters These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+         * @param httpParameters Custom parameters used when the target is an API Gateway REST API or EventBridge ApiDestination. See `target_parameters.http_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kinesisStreamParameters The parameters for using a Kinesis stream as a source. Detailed below.
+         * @param kinesisStreamParameters Parameters for using a Kinesis stream as a target. See `target_parameters.kinesis_stream_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param kinesisStreamParameters The parameters for using a Kinesis stream as a source. Detailed below.
+         * @param kinesisStreamParameters Parameters for using a Kinesis stream as a target. See `target_parameters.kinesis_stream_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param lambdaFunctionParameters The parameters for using a Lambda function as a target. Detailed below.
+         * @param lambdaFunctionParameters Parameters for using a Lambda function as a target. See `lambdaFunctionParameters` Block for details.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param lambdaFunctionParameters The parameters for using a Lambda function as a target. Detailed below.
+         * @param lambdaFunctionParameters Parameters for using a Lambda function as a target. See `lambdaFunctionParameters` Block for details.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param redshiftDataParameters These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+         * @param redshiftDataParameters Custom parameters used when the target is an Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. See `redshiftDataParameters` Block for details.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param redshiftDataParameters These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+         * @param redshiftDataParameters Custom parameters used when the target is an Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. See `redshiftDataParameters` Block for details.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sagemakerPipelineParameters The parameters for using a SageMaker AI pipeline as a target. Detailed below.
+         * @param sagemakerPipelineParameters Parameters for using a SageMaker AI pipeline as a target. See `sagemakerPipelineParameters` Block for details.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sagemakerPipelineParameters The parameters for using a SageMaker AI pipeline as a target. Detailed below.
+         * @param sagemakerPipelineParameters Parameters for using a SageMaker AI pipeline as a target. See `sagemakerPipelineParameters` Block for details.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sqsQueueParameters The parameters for using a Amazon SQS stream as a target. Detailed below.
+         * @param sqsQueueParameters Parameters for using an Amazon SQS stream as a target. See `target_parameters.sqs_queue_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sqsQueueParameters The parameters for using a Amazon SQS stream as a target. Detailed below.
+         * @param sqsQueueParameters Parameters for using an Amazon SQS stream as a target. See `target_parameters.sqs_queue_parameters` Block for details.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param stepFunctionStateMachineParameters The parameters for using a Step Functions state machine as a target. Detailed below.
+         * @param stepFunctionStateMachineParameters Parameters for using a Step Functions state machine as a target. See `stepFunctionStateMachineParameters` Block for details.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class PipeTargetParametersArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param stepFunctionStateMachineParameters The parameters for using a Step Functions state machine as a target. Detailed below.
+         * @param stepFunctionStateMachineParameters Parameters for using a Step Functions state machine as a target. See `stepFunctionStateMachineParameters` Block for details.
          * 
          * @return builder
          * 

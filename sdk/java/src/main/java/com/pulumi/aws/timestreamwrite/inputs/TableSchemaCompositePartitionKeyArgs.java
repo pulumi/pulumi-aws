@@ -17,14 +17,14 @@ public final class TableSchemaCompositePartitionKeyArgs extends com.pulumi.resou
     public static final TableSchemaCompositePartitionKeyArgs Empty = new TableSchemaCompositePartitionKeyArgs();
 
     /**
-     * The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+     * Level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
      * 
      */
     @Import(name="enforcementInRecord")
     private @Nullable Output<String> enforcementInRecord;
 
     /**
-     * @return The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+     * @return Level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
      * 
      */
     public Optional<Output<String>> enforcementInRecord() {
@@ -32,14 +32,14 @@ public final class TableSchemaCompositePartitionKeyArgs extends com.pulumi.resou
     }
 
     /**
-     * The name of the attribute used for a dimension key.
+     * Name of the attribute used for a dimension key.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the attribute used for a dimension key.
+     * @return Name of the attribute used for a dimension key.
      * 
      */
     public Optional<Output<String>> name() {
@@ -47,14 +47,14 @@ public final class TableSchemaCompositePartitionKeyArgs extends com.pulumi.resou
     }
 
     /**
-     * The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+     * Type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+     * @return Type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
      * 
      */
     public Output<String> type() {
@@ -88,7 +88,7 @@ public final class TableSchemaCompositePartitionKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enforcementInRecord The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+         * @param enforcementInRecord Level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class TableSchemaCompositePartitionKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enforcementInRecord The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+         * @param enforcementInRecord Level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class TableSchemaCompositePartitionKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the attribute used for a dimension key.
+         * @param name Name of the attribute used for a dimension key.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class TableSchemaCompositePartitionKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name The name of the attribute used for a dimension key.
+         * @param name Name of the attribute used for a dimension key.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class TableSchemaCompositePartitionKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+         * @param type Type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class TableSchemaCompositePartitionKeyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param type The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+         * @param type Type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
          * 
          * @return builder
          * 

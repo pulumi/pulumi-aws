@@ -85,119 +85,147 @@ public class Thesaurus extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Description for a thesaurus.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description for a thesaurus.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The identifier of the index for a thesaurus.
+     * Identifier of the index for a thesaurus.
      * 
      */
     @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
     /**
-     * @return The identifier of the index for a thesaurus.
+     * @return Identifier of the index for a thesaurus.
      * 
      */
     public Output<String> indexId() {
         return this.indexId;
     }
     /**
-     * The name for the thesaurus.
+     * Name for the thesaurus.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name for the thesaurus.
+     * @return Name for the thesaurus.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
         return this.region;
     }
     /**
-     * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+     * IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+     * @return IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      * 
      */
     public Output<String> roleArn() {
         return this.roleArn;
     }
     /**
-     * The S3 path where your thesaurus file sits in S3. Detailed below.
+     * S3 path where your thesaurus file sits in S3. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="sourceS3Path", refs={ThesaurusSourceS3Path.class}, tree="[0]")
     private Output<ThesaurusSourceS3Path> sourceS3Path;
 
     /**
-     * @return The S3 path where your thesaurus file sits in S3. Detailed below.
+     * @return S3 path where your thesaurus file sits in S3. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<ThesaurusSourceS3Path> sourceS3Path() {
         return this.sourceS3Path;
     }
     /**
-     * The current status of the thesaurus.
+     * Current status of the thesaurus.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The current status of the thesaurus.
+     * @return Current status of the thesaurus.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Unique identifier of the thesaurus.
+     * 
+     */
     @Export(name="thesaurusId", refs={String.class}, tree="[0]")
     private Output<String> thesaurusId;
 
+    /**
+     * @return Unique identifier of the thesaurus.
+     * 
+     */
     public Output<String> thesaurusId() {
         return this.thesaurusId;
     }

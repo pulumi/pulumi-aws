@@ -19,14 +19,14 @@ public final class PipeSourceParametersActivemqBrokerParametersArgs extends com.
     public static final PipeSourceParametersActivemqBrokerParametersArgs Empty = new PipeSourceParametersActivemqBrokerParametersArgs();
 
     /**
-     * The maximum number of records to include in each batch. Maximum value of 10000.
+     * Maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
     @Import(name="batchSize")
     private @Nullable Output<Integer> batchSize;
 
     /**
-     * @return The maximum number of records to include in each batch. Maximum value of 10000.
+     * @return Maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
     public Optional<Output<Integer>> batchSize() {
@@ -34,14 +34,14 @@ public final class PipeSourceParametersActivemqBrokerParametersArgs extends com.
     }
 
     /**
-     * The credentials needed to access the resource. Detailed below.
+     * Credentials needed to access the resource. See `source_parameters.activemq_broker_parameters.credentials` Block for details.
      * 
      */
     @Import(name="credentials", required=true)
     private Output<PipeSourceParametersActivemqBrokerParametersCredentialsArgs> credentials;
 
     /**
-     * @return The credentials needed to access the resource. Detailed below.
+     * @return Credentials needed to access the resource. See `source_parameters.activemq_broker_parameters.credentials` Block for details.
      * 
      */
     public Output<PipeSourceParametersActivemqBrokerParametersCredentialsArgs> credentials() {
@@ -49,14 +49,14 @@ public final class PipeSourceParametersActivemqBrokerParametersArgs extends com.
     }
 
     /**
-     * The maximum length of a time to wait for events. Maximum value of 300.
+     * Maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
     @Import(name="maximumBatchingWindowInSeconds")
     private @Nullable Output<Integer> maximumBatchingWindowInSeconds;
 
     /**
-     * @return The maximum length of a time to wait for events. Maximum value of 300.
+     * @return Maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
     public Optional<Output<Integer>> maximumBatchingWindowInSeconds() {
@@ -64,14 +64,14 @@ public final class PipeSourceParametersActivemqBrokerParametersArgs extends com.
     }
 
     /**
-     * The name of the destination queue to consume. Maximum length of 1000.
+     * Name of the destination queue to consume. Maximum length of 1000.
      * 
      */
     @Import(name="queueName", required=true)
     private Output<String> queueName;
 
     /**
-     * @return The name of the destination queue to consume. Maximum length of 1000.
+     * @return Name of the destination queue to consume. Maximum length of 1000.
      * 
      */
     public Output<String> queueName() {
@@ -106,7 +106,7 @@ public final class PipeSourceParametersActivemqBrokerParametersArgs extends com.
         }
 
         /**
-         * @param batchSize The maximum number of records to include in each batch. Maximum value of 10000.
+         * @param batchSize Maximum number of records to include in each batch. Maximum value of 10000.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class PipeSourceParametersActivemqBrokerParametersArgs extends com.
         }
 
         /**
-         * @param batchSize The maximum number of records to include in each batch. Maximum value of 10000.
+         * @param batchSize Maximum number of records to include in each batch. Maximum value of 10000.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class PipeSourceParametersActivemqBrokerParametersArgs extends com.
         }
 
         /**
-         * @param credentials The credentials needed to access the resource. Detailed below.
+         * @param credentials Credentials needed to access the resource. See `source_parameters.activemq_broker_parameters.credentials` Block for details.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class PipeSourceParametersActivemqBrokerParametersArgs extends com.
         }
 
         /**
-         * @param credentials The credentials needed to access the resource. Detailed below.
+         * @param credentials Credentials needed to access the resource. See `source_parameters.activemq_broker_parameters.credentials` Block for details.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class PipeSourceParametersActivemqBrokerParametersArgs extends com.
         }
 
         /**
-         * @param maximumBatchingWindowInSeconds The maximum length of a time to wait for events. Maximum value of 300.
+         * @param maximumBatchingWindowInSeconds Maximum length of a time to wait for events. Maximum value of 300.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class PipeSourceParametersActivemqBrokerParametersArgs extends com.
         }
 
         /**
-         * @param maximumBatchingWindowInSeconds The maximum length of a time to wait for events. Maximum value of 300.
+         * @param maximumBatchingWindowInSeconds Maximum length of a time to wait for events. Maximum value of 300.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class PipeSourceParametersActivemqBrokerParametersArgs extends com.
         }
 
         /**
-         * @param queueName The name of the destination queue to consume. Maximum length of 1000.
+         * @param queueName Name of the destination queue to consume. Maximum length of 1000.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class PipeSourceParametersActivemqBrokerParametersArgs extends com.
         }
 
         /**
-         * @param queueName The name of the destination queue to consume. Maximum length of 1000.
+         * @param queueName Name of the destination queue to consume. Maximum length of 1000.
          * 
          * @return builder
          * 

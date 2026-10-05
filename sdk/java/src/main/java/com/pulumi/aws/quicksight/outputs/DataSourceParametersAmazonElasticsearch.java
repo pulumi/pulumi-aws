@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DataSourceParametersAmazonElasticsearch {
     /**
-     * @return The OpenSearch domain.
+     * @return OpenSearch domain.
      * 
      */
     private String domain;
 
     private DataSourceParametersAmazonElasticsearch() {}
     /**
-     * @return The OpenSearch domain.
+     * @return OpenSearch domain.
      * 
      */
     public String domain() {

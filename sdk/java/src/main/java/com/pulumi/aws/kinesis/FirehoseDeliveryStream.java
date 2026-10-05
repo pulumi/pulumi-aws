@@ -1093,6 +1093,69 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Data Format Conversion
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new FirehoseDeliveryStream("example", FirehoseDeliveryStreamArgs.builder()
+ *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
+ *                 .dataFormatConversionConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs.builder()
+ *                     .inputFormatConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationArgs.builder()
+ *                         .deserializer(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgs.builder()
+ *                             .hiveJsonSerDe(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs.builder()
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .outputFormatConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationArgs.builder()
+ *                         .serializer(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgs.builder()
+ *                             .orcSerDe(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs.builder()
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .schemaConfiguration(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs.builder()
+ *                         .databaseName(exampleAwsGlueCatalogTable.databaseName())
+ *                         .roleArn(exampleAwsIamRole.arn())
+ *                         .tableName(exampleAwsGlueCatalogTable.name())
+ *                         .build())
+ *                     .build())
+ *                 .bufferingSize(128)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema
@@ -1127,22 +1190,30 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return this.arn;
     }
     /**
-     * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+     * Destination where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      * 
      */
     @Export(name="destination", refs={String.class}, tree="[0]")
     private Output<String> destination;
 
     /**
-     * @return This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+     * @return Destination where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, `httpEndpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
      * 
      */
     public Output<String> destination() {
         return this.destination;
     }
+    /**
+     * Identifier of the destination for the delivery stream.
+     * 
+     */
     @Export(name="destinationId", refs={String.class}, tree="[0]")
     private Output<String> destinationId;
 
+    /**
+     * @return Identifier of the destination for the delivery stream.
+     * 
+     */
     public Output<String> destinationId() {
         return this.destinationId;
     }
@@ -1217,28 +1288,28 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.kinesisSourceConfiguration);
     }
     /**
-     * The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
+     * Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
      * 
      */
     @Export(name="mskSourceConfiguration", refs={FirehoseDeliveryStreamMskSourceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamMskSourceConfiguration> mskSourceConfiguration;
 
     /**
-     * @return The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
+     * @return Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `mskSourceConfiguration` block below for details.
      * 
      */
     public Output<Optional<FirehoseDeliveryStreamMskSourceConfiguration>> mskSourceConfiguration() {
         return Codegen.optional(this.mskSourceConfiguration);
     }
     /**
-     * A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+     * Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+     * @return Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
      * 
      */
     public Output<String> name() {
@@ -1331,8 +1402,6 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
     /**
      * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
      * 
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-     * 
      */
     @Export(name="splunkConfiguration", refs={FirehoseDeliveryStreamSplunkConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ FirehoseDeliveryStreamSplunkConfiguration> splunkConfiguration;
@@ -1340,43 +1409,53 @@ public class FirehoseDeliveryStream extends com.pulumi.resources.CustomResource 
     /**
      * @return Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
      * 
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-     * 
      */
     public Output<Optional<FirehoseDeliveryStreamSplunkConfiguration>> splunkConfiguration() {
         return Codegen.optional(this.splunkConfiguration);
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Version identifier of the delivery stream.
+     * 
+     * &gt; **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     * 
+     */
     @Export(name="versionId", refs={String.class}, tree="[0]")
     private Output<String> versionId;
 
+    /**
+     * @return Version identifier of the delivery stream.
+     * 
+     * &gt; **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     * 
+     */
     public Output<String> versionId() {
         return this.versionId;
     }

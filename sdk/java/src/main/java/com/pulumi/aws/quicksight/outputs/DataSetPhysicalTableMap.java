@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSetPhysicalTableMap {
     /**
-     * @return A physical table type built from the results of the custom SQL query. See custom_sql.
+     * @return Physical table type built from the results of the custom SQL query. See `customSql` Block below.
      * 
      */
     private @Nullable DataSetPhysicalTableMapCustomSql customSql;
@@ -26,19 +26,19 @@ public final class DataSetPhysicalTableMap {
      */
     private String physicalTableMapId;
     /**
-     * @return A physical table type for relational data sources. See relational_table.
+     * @return Physical table type for relational data sources. See `relationalTable` Block below.
      * 
      */
     private @Nullable DataSetPhysicalTableMapRelationalTable relationalTable;
     /**
-     * @return A physical table type for as S3 data source. See s3_source.
+     * @return Physical table type for an S3 data source. See `s3Source` Block below.
      * 
      */
     private @Nullable DataSetPhysicalTableMapS3Source s3Source;
 
     private DataSetPhysicalTableMap() {}
     /**
-     * @return A physical table type built from the results of the custom SQL query. See custom_sql.
+     * @return Physical table type built from the results of the custom SQL query. See `customSql` Block below.
      * 
      */
     public Optional<DataSetPhysicalTableMapCustomSql> customSql() {
@@ -52,14 +52,14 @@ public final class DataSetPhysicalTableMap {
         return this.physicalTableMapId;
     }
     /**
-     * @return A physical table type for relational data sources. See relational_table.
+     * @return Physical table type for relational data sources. See `relationalTable` Block below.
      * 
      */
     public Optional<DataSetPhysicalTableMapRelationalTable> relationalTable() {
         return Optional.ofNullable(this.relationalTable);
     }
     /**
-     * @return A physical table type for as S3 data source. See s3_source.
+     * @return Physical table type for an S3 data source. See `s3Source` Block below.
      * 
      */
     public Optional<DataSetPhysicalTableMapS3Source> s3Source() {

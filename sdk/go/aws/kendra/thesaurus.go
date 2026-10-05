@@ -60,24 +60,29 @@ type Thesaurus struct {
 	pulumi.CustomResourceState
 
 	// ARN of the thesaurus.
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Description for a thesaurus.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The identifier of the index for a thesaurus.
+	// Identifier of the index for a thesaurus.
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
-	// The name for the thesaurus.
+	// Name for the thesaurus.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+	// IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	// S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The following arguments are optional:
 	SourceS3Path ThesaurusSourceS3PathOutput `pulumi:"sourceS3Path"`
-	// The current status of the thesaurus.
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
-	ThesaurusId pulumi.StringOutput    `pulumi:"thesaurusId"`
+	// Current status of the thesaurus.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Unique identifier of the thesaurus.
+	ThesaurusId pulumi.StringOutput `pulumi:"thesaurusId"`
 }
 
 // NewThesaurus registers a new resource with the given unique name, arguments, and options.
@@ -120,45 +125,55 @@ func GetThesaurus(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Thesaurus resources.
 type thesaurusState struct {
 	// ARN of the thesaurus.
-	Arn         *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Description for a thesaurus.
 	Description *string `pulumi:"description"`
-	// The identifier of the index for a thesaurus.
+	// Identifier of the index for a thesaurus.
 	IndexId *string `pulumi:"indexId"`
-	// The name for the thesaurus.
+	// Name for the thesaurus.
 	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+	// IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn *string `pulumi:"roleArn"`
-	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	// S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The following arguments are optional:
 	SourceS3Path *ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
-	// The current status of the thesaurus.
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll     map[string]string `pulumi:"tagsAll"`
-	ThesaurusId *string           `pulumi:"thesaurusId"`
+	// Current status of the thesaurus.
+	Status *string `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Unique identifier of the thesaurus.
+	ThesaurusId *string `pulumi:"thesaurusId"`
 }
 
 type ThesaurusState struct {
 	// ARN of the thesaurus.
-	Arn         pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// Description for a thesaurus.
 	Description pulumi.StringPtrInput
-	// The identifier of the index for a thesaurus.
+	// Identifier of the index for a thesaurus.
 	IndexId pulumi.StringPtrInput
-	// The name for the thesaurus.
+	// Name for the thesaurus.
 	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+	// IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringPtrInput
-	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	// S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The following arguments are optional:
 	SourceS3Path ThesaurusSourceS3PathPtrInput
-	// The current status of the thesaurus.
+	// Current status of the thesaurus.
 	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll     pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
+	// Unique identifier of the thesaurus.
 	ThesaurusId pulumi.StringPtrInput
 }
 
@@ -167,34 +182,42 @@ func (ThesaurusState) ElementType() reflect.Type {
 }
 
 type thesaurusArgs struct {
+	// Description for a thesaurus.
 	Description *string `pulumi:"description"`
-	// The identifier of the index for a thesaurus.
+	// Identifier of the index for a thesaurus.
 	IndexId string `pulumi:"indexId"`
-	// The name for the thesaurus.
+	// Name for the thesaurus.
 	Name *string `pulumi:"name"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+	// IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn string `pulumi:"roleArn"`
-	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	// S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The following arguments are optional:
 	SourceS3Path ThesaurusSourceS3Path `pulumi:"sourceS3Path"`
-	Tags         map[string]string     `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Thesaurus resource.
 type ThesaurusArgs struct {
+	// Description for a thesaurus.
 	Description pulumi.StringPtrInput
-	// The identifier of the index for a thesaurus.
+	// Identifier of the index for a thesaurus.
 	IndexId pulumi.StringInput
-	// The name for the thesaurus.
+	// Name for the thesaurus.
 	Name pulumi.StringPtrInput
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+	// IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringInput
-	// The S3 path where your thesaurus file sits in S3. Detailed below.
+	// S3 path where your thesaurus file sits in S3. Detailed below.
+	//
+	// The following arguments are optional:
 	SourceS3Path ThesaurusSourceS3PathInput
-	Tags         pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ThesaurusArgs) ElementType() reflect.Type {
@@ -289,49 +312,54 @@ func (o ThesaurusOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Description for a thesaurus.
 func (o ThesaurusOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the index for a thesaurus.
+// Identifier of the index for a thesaurus.
 func (o ThesaurusOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
 
-// The name for the thesaurus.
+// Name for the thesaurus.
 func (o ThesaurusOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ThesaurusOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+// IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 func (o ThesaurusOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The S3 path where your thesaurus file sits in S3. Detailed below.
+// S3 path where your thesaurus file sits in S3. Detailed below.
+//
+// The following arguments are optional:
 func (o ThesaurusOutput) SourceS3Path() ThesaurusSourceS3PathOutput {
 	return o.ApplyT(func(v *Thesaurus) ThesaurusSourceS3PathOutput { return v.SourceS3Path }).(ThesaurusSourceS3PathOutput)
 }
 
-// The current status of the thesaurus.
+// Current status of the thesaurus.
 func (o ThesaurusOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ThesaurusOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ThesaurusOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+// Unique identifier of the thesaurus.
 func (o ThesaurusOutput) ThesaurusId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.ThesaurusId }).(pulumi.StringOutput)
 }

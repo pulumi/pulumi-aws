@@ -51,14 +51,14 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time that the template was created.
+     * Time that the template was created.
      * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
-     * @return The time that the template was created.
+     * @return Time that the template was created.
      * 
      */
     public Optional<Output<String>> createdTime() {
@@ -66,14 +66,14 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time that the template was last updated.
+     * Time that the template was last updated.
      * 
      */
     @Import(name="lastUpdatedTime")
     private @Nullable Output<String> lastUpdatedTime;
 
     /**
-     * @return The time that the template was last updated.
+     * @return Time that the template was last updated.
      * 
      */
     public Optional<Output<String>> lastUpdatedTime() {
@@ -96,14 +96,14 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of resource permissions on the template. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<TemplatePermissionArgs>> permissions;
 
     /**
-     * @return A set of resource permissions on the template. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
      * 
      */
     public Optional<Output<List<TemplatePermissionArgs>>> permissions() {
@@ -126,14 +126,14 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
      * 
      */
     @Import(name="sourceEntity")
     private @Nullable Output<TemplateSourceEntityArgs> sourceEntity;
 
     /**
-     * @return The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * @return Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
      * 
      */
     public Optional<Output<TemplateSourceEntityArgs>> sourceEntity() {
@@ -156,14 +156,14 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The template creation status.
+     * Template creation status.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The template creation status.
+     * @return Template creation status.
      * 
      */
     public Optional<Output<String>> status() {
@@ -186,14 +186,14 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -216,7 +216,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the current template version being created/updated.
+     * Description of the current template version being created/updated.
      * 
      * The following arguments are optional:
      * 
@@ -225,7 +225,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> versionDescription;
 
     /**
-     * @return A description of the current template version being created/updated.
+     * @return Description of the current template version being created/updated.
      * 
      * The following arguments are optional:
      * 
@@ -235,14 +235,14 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version number of the template version.
+     * Version number of the template version.
      * 
      */
     @Import(name="versionNumber")
     private @Nullable Output<Integer> versionNumber;
 
     /**
-     * @return The version number of the template version.
+     * @return Version number of the template version.
      * 
      */
     public Optional<Output<Integer>> versionNumber() {
@@ -330,7 +330,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime The time that the template was created.
+         * @param createdTime Time that the template was created.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime The time that the template was created.
+         * @param createdTime Time that the template was created.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedTime The time that the template was last updated.
+         * @param lastUpdatedTime Time that the template was last updated.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedTime The time that the template was last updated.
+         * @param lastUpdatedTime Time that the template was last updated.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the template. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the template. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the template. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntity The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+         * @param sourceEntity Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntity The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+         * @param sourceEntity Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The template creation status.
+         * @param status Template creation status.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The template creation status.
+         * @param status Template creation status.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionDescription A description of the current template version being created/updated.
+         * @param versionDescription Description of the current template version being created/updated.
          * 
          * The following arguments are optional:
          * 
@@ -584,7 +584,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionDescription A description of the current template version being created/updated.
+         * @param versionDescription Description of the current template version being created/updated.
          * 
          * The following arguments are optional:
          * 
@@ -596,7 +596,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionNumber The version number of the template version.
+         * @param versionNumber Version number of the template version.
          * 
          * @return builder
          * 
@@ -607,7 +607,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionNumber The version number of the template version.
+         * @param versionNumber Version number of the template version.
          * 
          * @return builder
          * 

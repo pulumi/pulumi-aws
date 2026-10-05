@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget {
     /**
-     * @return The identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+     * @return Identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
      * 
      */
     private @Nullable String targetDocumentAttributeKey;
     /**
-     * @return The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
+     * @return Target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
      * 
      */
     private @Nullable DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue targetDocumentAttributeValue;
@@ -31,14 +31,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigur
 
     private DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget() {}
     /**
-     * @return The identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+     * @return Identifier of the target document attribute or metadata field. For example, &#39;Department&#39; could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
      * 
      */
     public Optional<String> targetDocumentAttributeKey() {
         return Optional.ofNullable(this.targetDocumentAttributeKey);
     }
     /**
-     * @return The target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
+     * @return Target value you want to create for the target attribute. For example, &#39;Finance&#39; could be the target value for the target attribute key &#39;Department&#39;. See target_document_attribute_value.
      * 
      */
     public Optional<DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue> targetDocumentAttributeValue() {

@@ -31,11 +31,15 @@ class ThesaurusArgs:
         """
         The set of arguments for constructing a Thesaurus resource.
 
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a thesaurus.
-        :param pulumi.Input[_builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
-        :param pulumi.Input[_builtins.str] name: The name for the thesaurus.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a thesaurus.
+        :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+        :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: S3 path where your thesaurus file sits in S3. Detailed below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] description: Description for a thesaurus.
+        :param pulumi.Input[_builtins.str] name: Name for the thesaurus.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -53,7 +57,7 @@ class ThesaurusArgs:
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The identifier of the index for a thesaurus.
+        Identifier of the index for a thesaurus.
         """
         return pulumi.get(self, "index_id")
 
@@ -65,7 +69,7 @@ class ThesaurusArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+        IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         """
         return pulumi.get(self, "role_arn")
 
@@ -77,7 +81,9 @@ class ThesaurusArgs:
     @pulumi.getter(name="sourceS3Path")
     def source_s3_path(self) -> pulumi.Input['ThesaurusSourceS3PathArgs']:
         """
-        The S3 path where your thesaurus file sits in S3. Detailed below.
+        S3 path where your thesaurus file sits in S3. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "source_s3_path")
 
@@ -88,6 +94,9 @@ class ThesaurusArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description for a thesaurus.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -98,7 +107,7 @@ class ThesaurusArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name for the thesaurus.
+        Name for the thesaurus.
         """
         return pulumi.get(self, "name")
 
@@ -110,7 +119,7 @@ class ThesaurusArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -121,6 +130,9 @@ class ThesaurusArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -146,13 +158,18 @@ class _ThesaurusState:
         Input properties used for looking up and filtering Thesaurus resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the thesaurus.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a thesaurus.
-        :param pulumi.Input[_builtins.str] name: The name for the thesaurus.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
-        :param pulumi.Input[_builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
-        :param pulumi.Input[_builtins.str] status: The current status of the thesaurus.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] description: Description for a thesaurus.
+        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a thesaurus.
+        :param pulumi.Input[_builtins.str] name: Name for the thesaurus.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+        :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: S3 path where your thesaurus file sits in S3. Detailed below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] status: Current status of the thesaurus.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] thesaurus_id: Unique identifier of the thesaurus.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -192,6 +209,9 @@ class _ThesaurusState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description for a thesaurus.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -202,7 +222,7 @@ class _ThesaurusState:
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of the index for a thesaurus.
+        Identifier of the index for a thesaurus.
         """
         return pulumi.get(self, "index_id")
 
@@ -214,7 +234,7 @@ class _ThesaurusState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name for the thesaurus.
+        Name for the thesaurus.
         """
         return pulumi.get(self, "name")
 
@@ -226,7 +246,7 @@ class _ThesaurusState:
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -238,7 +258,7 @@ class _ThesaurusState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+        IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         """
         return pulumi.get(self, "role_arn")
 
@@ -250,7 +270,9 @@ class _ThesaurusState:
     @pulumi.getter(name="sourceS3Path")
     def source_s3_path(self) -> pulumi.Input[Optional['ThesaurusSourceS3PathArgs']]:
         """
-        The S3 path where your thesaurus file sits in S3. Detailed below.
+        S3 path where your thesaurus file sits in S3. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "source_s3_path")
 
@@ -262,7 +284,7 @@ class _ThesaurusState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The current status of the thesaurus.
+        Current status of the thesaurus.
         """
         return pulumi.get(self, "status")
 
@@ -273,6 +295,9 @@ class _ThesaurusState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -283,7 +308,7 @@ class _ThesaurusState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -294,6 +319,9 @@ class _ThesaurusState:
     @_builtins.property
     @pulumi.getter(name="thesaurusId")
     def thesaurus_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Unique identifier of the thesaurus.
+        """
         return pulumi.get(self, "thesaurus_id")
 
     @thesaurus_id.setter
@@ -348,11 +376,15 @@ class Thesaurus(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a thesaurus.
-        :param pulumi.Input[_builtins.str] name: The name for the thesaurus.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
-        :param pulumi.Input[_builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict', 'outputs.ThesaurusSourceS3Path']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+        :param pulumi.Input[_builtins.str] description: Description for a thesaurus.
+        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a thesaurus.
+        :param pulumi.Input[_builtins.str] name: Name for the thesaurus.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+        :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict', 'outputs.ThesaurusSourceS3Path']] source_s3_path: S3 path where your thesaurus file sits in S3. Detailed below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -468,13 +500,18 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the thesaurus.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a thesaurus.
-        :param pulumi.Input[_builtins.str] name: The name for the thesaurus.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
-        :param pulumi.Input[_builtins.str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict', 'outputs.ThesaurusSourceS3Path']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
-        :param pulumi.Input[_builtins.str] status: The current status of the thesaurus.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] description: Description for a thesaurus.
+        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a thesaurus.
+        :param pulumi.Input[_builtins.str] name: Name for the thesaurus.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+        :param pulumi.Input[Union['ThesaurusSourceS3PathArgs', 'ThesaurusSourceS3PathArgsDict', 'outputs.ThesaurusSourceS3Path']] source_s3_path: S3 path where your thesaurus file sits in S3. Detailed below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] status: Current status of the thesaurus.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] thesaurus_id: Unique identifier of the thesaurus.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -504,13 +541,16 @@ class Thesaurus(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Description for a thesaurus.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The identifier of the index for a thesaurus.
+        Identifier of the index for a thesaurus.
         """
         return pulumi.get(self, "index_id")
 
@@ -518,7 +558,7 @@ class Thesaurus(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name for the thesaurus.
+        Name for the thesaurus.
         """
         return pulumi.get(self, "name")
 
@@ -526,7 +566,7 @@ class Thesaurus(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -534,7 +574,7 @@ class Thesaurus(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+        IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         """
         return pulumi.get(self, "role_arn")
 
@@ -542,7 +582,9 @@ class Thesaurus(pulumi.CustomResource):
     @pulumi.getter(name="sourceS3Path")
     def source_s3_path(self) -> pulumi.Output['outputs.ThesaurusSourceS3Path']:
         """
-        The S3 path where your thesaurus file sits in S3. Detailed below.
+        S3 path where your thesaurus file sits in S3. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "source_s3_path")
 
@@ -550,25 +592,31 @@ class Thesaurus(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The current status of the thesaurus.
+        Current status of the thesaurus.
         """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="thesaurusId")
     def thesaurus_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Unique identifier of the thesaurus.
+        """
         return pulumi.get(self, "thesaurus_id")
 

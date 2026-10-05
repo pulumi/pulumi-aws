@@ -55,11 +55,17 @@ class GetLedgerResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
+        """
+        ARN of the QLDB Ledger.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> _builtins.bool:
+        """
+        Deletion protection setting of the QLDB Ledger.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
@@ -73,6 +79,9 @@ class GetLedgerResult:
     @_builtins.property
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> _builtins.str:
+        """
+        KMS key used for encryption of data at rest in the ledger.
+        """
         return pulumi.get(self, "kms_key")
 
     @_builtins.property
@@ -83,6 +92,9 @@ class GetLedgerResult:
     @_builtins.property
     @pulumi.getter(name="permissionsMode")
     def permissions_mode(self) -> _builtins.str:
+        """
+        Permissions mode of the QLDB Ledger.
+        """
         return pulumi.get(self, "permissions_mode")
 
     @_builtins.property
@@ -93,6 +105,9 @@ class GetLedgerResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of tags assigned to the resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -131,6 +146,7 @@ def get_ledger(name: Optional[_builtins.str] = None,
 
     :param _builtins.str name: Friendly name of the ledger to match.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -167,6 +183,7 @@ def get_ledger_output(name: pulumi.Input[Optional[_builtins.str]] = None,
 
     :param _builtins.str name: Friendly name of the ledger to match.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name

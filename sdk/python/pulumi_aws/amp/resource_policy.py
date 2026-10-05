@@ -29,12 +29,12 @@ class ResourcePolicyArgs:
         """
         The set of arguments for constructing a ResourcePolicy resource.
 
-        :param pulumi.Input[_builtins.str] policy_document: The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
+        :param pulumi.Input[_builtins.str] policy_document: JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
+        :param pulumi.Input[_builtins.str] workspace_id: ID of the workspace to attach the resource-based policy to.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] workspace_id: The ID of the workspace to attach the resource-based policy to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision_id: The revision ID of the current resource-based policy.
+        :param pulumi.Input[_builtins.str] revision_id: Revision ID of the current resource-based policy.
         """
         pulumi.set(__self__, "policy_document", policy_document)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -49,9 +49,7 @@ class ResourcePolicyArgs:
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Input[_builtins.str]:
         """
-        The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-
-        The following arguments are optional:
+        JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
         """
         return pulumi.get(self, "policy_document")
 
@@ -63,7 +61,9 @@ class ResourcePolicyArgs:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the workspace to attach the resource-based policy to.
+        ID of the workspace to attach the resource-based policy to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "workspace_id")
 
@@ -87,7 +87,7 @@ class ResourcePolicyArgs:
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The revision ID of the current resource-based policy.
+        Revision ID of the current resource-based policy.
         """
         return pulumi.get(self, "revision_id")
 
@@ -116,12 +116,12 @@ class _ResourcePolicyState:
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
 
-        :param pulumi.Input[_builtins.str] policy_document: The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
+        :param pulumi.Input[_builtins.str] policy_document: JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] revision_id: Revision ID of the current resource-based policy.
+        :param pulumi.Input[_builtins.str] workspace_id: ID of the workspace to attach the resource-based policy to.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision_id: The revision ID of the current resource-based policy.
-        :param pulumi.Input[_builtins.str] workspace_id: The ID of the workspace to attach the resource-based policy to.
         """
         if policy_document is not None:
             pulumi.set(__self__, "policy_document", policy_document)
@@ -138,9 +138,7 @@ class _ResourcePolicyState:
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-
-        The following arguments are optional:
+        JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
         """
         return pulumi.get(self, "policy_document")
 
@@ -164,7 +162,7 @@ class _ResourcePolicyState:
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The revision ID of the current resource-based policy.
+        Revision ID of the current resource-based policy.
         """
         return pulumi.get(self, "revision_id")
 
@@ -185,7 +183,9 @@ class _ResourcePolicyState:
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the workspace to attach the resource-based policy to.
+        ID of the workspace to attach the resource-based policy to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "workspace_id")
 
@@ -306,12 +306,12 @@ class ResourcePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_document: The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
+        :param pulumi.Input[_builtins.str] policy_document: JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] revision_id: Revision ID of the current resource-based policy.
+        :param pulumi.Input[_builtins.str] workspace_id: ID of the workspace to attach the resource-based policy to.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision_id: The revision ID of the current resource-based policy.
-        :param pulumi.Input[_builtins.str] workspace_id: The ID of the workspace to attach the resource-based policy to.
         """
         ...
     @overload
@@ -477,12 +477,12 @@ class ResourcePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] policy_document: The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
+        :param pulumi.Input[_builtins.str] policy_document: JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] revision_id: Revision ID of the current resource-based policy.
+        :param pulumi.Input[_builtins.str] workspace_id: ID of the workspace to attach the resource-based policy to.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] revision_id: The revision ID of the current resource-based policy.
-        :param pulumi.Input[_builtins.str] workspace_id: The ID of the workspace to attach the resource-based policy to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -499,9 +499,7 @@ class ResourcePolicy(pulumi.CustomResource):
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[_builtins.str]:
         """
-        The JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
-
-        The following arguments are optional:
+        JSON policy document to use as the resource-based policy. This policy defines the permissions that other AWS accounts or services have to access your workspace.
         """
         return pulumi.get(self, "policy_document")
 
@@ -517,7 +515,7 @@ class ResourcePolicy(pulumi.CustomResource):
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The revision ID of the current resource-based policy.
+        Revision ID of the current resource-based policy.
         """
         return pulumi.get(self, "revision_id")
 
@@ -530,7 +528,9 @@ class ResourcePolicy(pulumi.CustomResource):
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the workspace to attach the resource-based policy to.
+        ID of the workspace to attach the resource-based policy to.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "workspace_id")
 

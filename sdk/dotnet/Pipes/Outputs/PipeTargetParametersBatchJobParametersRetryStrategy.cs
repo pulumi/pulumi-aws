@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeTargetParametersBatchJobParametersRetryStrategy
     {
         /// <summary>
-        /// The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
+        /// Number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
         /// </summary>
         public readonly int? Attempts;
 

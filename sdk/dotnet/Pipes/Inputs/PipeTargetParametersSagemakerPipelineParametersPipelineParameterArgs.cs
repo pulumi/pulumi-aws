@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Pipes.Inputs
     public sealed class PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
+        /// Name of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 256.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

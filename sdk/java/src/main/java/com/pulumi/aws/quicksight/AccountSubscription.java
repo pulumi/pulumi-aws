@@ -194,14 +194,14 @@ public class AccountSubscription extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
     @Export(name="contactNumber", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contactNumber;
 
     /**
-     * @return A 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
+     * @return 10-digit phone number for the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
      * 
      */
     public Output<Optional<String>> contactNumber() {

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string CountryCode;
         /// <summary>
-        /// A display name for the hierarchy.
+        /// Display name for the hierarchy.
         /// </summary>
         public readonly string Name;
 

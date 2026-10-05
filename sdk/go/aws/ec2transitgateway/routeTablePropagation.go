@@ -173,6 +173,18 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `transitGatewayAttachmentId` (String) EC2 Transit Gateway Attachment identifier.
+// * `transitGatewayRouteTableId` (String) EC2 Transit Gateway Route Table identifier.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import `ec2transitgateway.RouteTablePropagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
 //
 // ```sh
@@ -190,6 +202,8 @@ type RouteTablePropagation struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringOutput `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -238,6 +252,8 @@ type routeTablePropagationState struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId *string `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -251,6 +267,8 @@ type RouteTablePropagationState struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringPtrInput
 }
 
@@ -264,6 +282,8 @@ type routeTablePropagationArgs struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -274,6 +294,8 @@ type RouteTablePropagationArgs struct {
 	// Identifier of EC2 Transit Gateway Attachment.
 	TransitGatewayAttachmentId pulumi.StringInput
 	// Identifier of EC2 Transit Gateway Route Table.
+	//
+	// The following arguments are optional:
 	TransitGatewayRouteTableId pulumi.StringInput
 }
 
@@ -385,6 +407,8 @@ func (o RouteTablePropagationOutput) TransitGatewayAttachmentId() pulumi.StringO
 }
 
 // Identifier of EC2 Transit Gateway Route Table.
+//
+// The following arguments are optional:
 func (o RouteTablePropagationOutput) TransitGatewayRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTablePropagation) pulumi.StringOutput { return v.TransitGatewayRouteTableId }).(pulumi.StringOutput)
 }

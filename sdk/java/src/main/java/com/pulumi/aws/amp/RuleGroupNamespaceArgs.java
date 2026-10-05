@@ -33,14 +33,14 @@ public final class RuleGroupNamespaceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The name of the rule group namespace.
+     * Name of the rule group namespace.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the rule group namespace.
+     * @return Name of the rule group namespace.
      * 
      */
     public Optional<Output<String>> name() {
@@ -142,7 +142,7 @@ public final class RuleGroupNamespaceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the rule group namespace.
+         * @param name Name of the rule group namespace.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class RuleGroupNamespaceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name The name of the rule group namespace.
+         * @param name Name of the rule group namespace.
          * 
          * @return builder
          * 

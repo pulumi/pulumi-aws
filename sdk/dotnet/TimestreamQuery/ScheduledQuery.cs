@@ -439,7 +439,7 @@ namespace Pulumi.Aws.TimestreamQuery
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Runtime summary for the last scheduled query run.
+        /// Runtime summary for the last scheduled query run. See `LastRunSummary` Block for details.
         /// </summary>
         [Output("lastRunSummaries")]
         public Output<ImmutableArray<Outputs.ScheduledQueryLastRunSummary>> LastRunSummaries { get; private set; } = null!;
@@ -475,7 +475,7 @@ namespace Pulumi.Aws.TimestreamQuery
         public Output<string> QueryString { get; private set; } = null!;
 
         /// <summary>
-        /// Runtime summary for the last five failed scheduled query runs.
+        /// Runtime summary for the last five failed scheduled query runs. See `RecentlyFailedRuns` Block for details.
         /// </summary>
         [Output("recentlyFailedRuns")]
         public Output<ImmutableArray<Outputs.ScheduledQueryRecentlyFailedRun>> RecentlyFailedRuns { get; private set; } = null!;
@@ -589,7 +589,7 @@ namespace Pulumi.Aws.TimestreamQuery
         private InputList<Inputs.ScheduledQueryLastRunSummaryArgs>? _lastRunSummaries;
 
         /// <summary>
-        /// Runtime summary for the last scheduled query run.
+        /// Runtime summary for the last scheduled query run. See `LastRunSummary` Block for details.
         /// </summary>
         public InputList<Inputs.ScheduledQueryLastRunSummaryArgs> LastRunSummaries
         {
@@ -619,7 +619,7 @@ namespace Pulumi.Aws.TimestreamQuery
         private InputList<Inputs.ScheduledQueryRecentlyFailedRunArgs>? _recentlyFailedRuns;
 
         /// <summary>
-        /// Runtime summary for the last five failed scheduled query runs.
+        /// Runtime summary for the last five failed scheduled query runs. See `RecentlyFailedRuns` Block for details.
         /// </summary>
         public InputList<Inputs.ScheduledQueryRecentlyFailedRunArgs> RecentlyFailedRuns
         {
@@ -704,7 +704,7 @@ namespace Pulumi.Aws.TimestreamQuery
         private InputList<Inputs.ScheduledQueryLastRunSummaryGetArgs>? _lastRunSummaries;
 
         /// <summary>
-        /// Runtime summary for the last scheduled query run.
+        /// Runtime summary for the last scheduled query run. See `LastRunSummary` Block for details.
         /// </summary>
         public InputList<Inputs.ScheduledQueryLastRunSummaryGetArgs> LastRunSummaries
         {
@@ -746,7 +746,7 @@ namespace Pulumi.Aws.TimestreamQuery
         private InputList<Inputs.ScheduledQueryRecentlyFailedRunGetArgs>? _recentlyFailedRuns;
 
         /// <summary>
-        /// Runtime summary for the last five failed scheduled query runs.
+        /// Runtime summary for the last five failed scheduled query runs. See `RecentlyFailedRuns` Block for details.
         /// </summary>
         public InputList<Inputs.ScheduledQueryRecentlyFailedRunGetArgs> RecentlyFailedRuns
         {

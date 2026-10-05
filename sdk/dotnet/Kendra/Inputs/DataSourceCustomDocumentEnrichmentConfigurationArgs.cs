@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         }
 
         /// <summary>
-        /// A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+        /// Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
         /// </summary>
         [Input("postExtractionHookConfiguration")]
         public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs>? PostExtractionHookConfiguration { get; set; }

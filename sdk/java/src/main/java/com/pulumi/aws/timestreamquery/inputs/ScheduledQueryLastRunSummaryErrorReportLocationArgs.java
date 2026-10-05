@@ -17,14 +17,14 @@ public final class ScheduledQueryLastRunSummaryErrorReportLocationArgs extends c
     public static final ScheduledQueryLastRunSummaryErrorReportLocationArgs Empty = new ScheduledQueryLastRunSummaryErrorReportLocationArgs();
 
     /**
-     * S3 location where error reports are written.
+     * S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
      * 
      */
     @Import(name="s3ReportLocations")
     private @Nullable Output<List<ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs>> s3ReportLocations;
 
     /**
-     * @return S3 location where error reports are written.
+     * @return S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
      * 
      */
     public Optional<Output<List<ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs>>> s3ReportLocations() {
@@ -56,7 +56,7 @@ public final class ScheduledQueryLastRunSummaryErrorReportLocationArgs extends c
         }
 
         /**
-         * @param s3ReportLocations S3 location where error reports are written.
+         * @param s3ReportLocations S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ScheduledQueryLastRunSummaryErrorReportLocationArgs extends c
         }
 
         /**
-         * @param s3ReportLocations S3 location where error reports are written.
+         * @param s3ReportLocations S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ScheduledQueryLastRunSummaryErrorReportLocationArgs extends c
         }
 
         /**
-         * @param s3ReportLocations S3 location where error reports are written.
+         * @param s3ReportLocations S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
          * 
          * @return builder
          * 

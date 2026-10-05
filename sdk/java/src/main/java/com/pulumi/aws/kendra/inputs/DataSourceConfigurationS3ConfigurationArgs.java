@@ -20,14 +20,14 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
     public static final DataSourceConfigurationS3ConfigurationArgs Empty = new DataSourceConfigurationS3ConfigurationArgs();
 
     /**
-     * A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
+     * Path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
      * 
      */
     @Import(name="accessControlListConfiguration")
     private @Nullable Output<DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs> accessControlListConfiguration;
 
     /**
-     * @return A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
+     * @return Path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
      * 
      */
     public Optional<Output<DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs>> accessControlListConfiguration() {
@@ -35,14 +35,14 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
     }
 
     /**
-     * The name of the bucket that contains the documents.
+     * Name of the bucket that contains the documents.
      * 
      */
     @Import(name="bucketName", required=true)
     private Output<String> bucketName;
 
     /**
-     * @return The name of the bucket that contains the documents.
+     * @return Name of the bucket that contains the documents.
      * 
      */
     public Output<String> bucketName() {
@@ -50,14 +50,14 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
     }
 
     /**
-     * A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+     * Block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
      * 
      */
     @Import(name="documentsMetadataConfiguration")
     private @Nullable Output<DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs> documentsMetadataConfiguration;
 
     /**
-     * @return A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+     * @return Block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
      * 
      */
     public Optional<Output<DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs>> documentsMetadataConfiguration() {
@@ -65,14 +65,14 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
     }
 
     /**
-     * A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
+     * List of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
      * 
      */
     @Import(name="exclusionPatterns")
     private @Nullable Output<List<String>> exclusionPatterns;
 
     /**
-     * @return A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
+     * @return List of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
      * 
      */
     public Optional<Output<List<String>>> exclusionPatterns() {
@@ -80,14 +80,14 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
     }
 
     /**
-     * A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
+     * List of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
      * 
      */
     @Import(name="inclusionPatterns")
     private @Nullable Output<List<String>> inclusionPatterns;
 
     /**
-     * @return A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
+     * @return List of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
      * 
      */
     public Optional<Output<List<String>>> inclusionPatterns() {
@@ -95,14 +95,14 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
     }
 
     /**
-     * A list of S3 prefixes for the documents that should be included in the index.
+     * List of S3 prefixes for the documents that should be included in the index.
      * 
      */
     @Import(name="inclusionPrefixes")
     private @Nullable Output<List<String>> inclusionPrefixes;
 
     /**
-     * @return A list of S3 prefixes for the documents that should be included in the index.
+     * @return List of S3 prefixes for the documents that should be included in the index.
      * 
      */
     public Optional<Output<List<String>>> inclusionPrefixes() {
@@ -139,7 +139,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param accessControlListConfiguration A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
+         * @param accessControlListConfiguration Path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param accessControlListConfiguration A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
+         * @param accessControlListConfiguration Path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param bucketName The name of the bucket that contains the documents.
+         * @param bucketName Name of the bucket that contains the documents.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param bucketName The name of the bucket that contains the documents.
+         * @param bucketName Name of the bucket that contains the documents.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param documentsMetadataConfiguration A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+         * @param documentsMetadataConfiguration Block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param documentsMetadataConfiguration A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+         * @param documentsMetadataConfiguration Block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param exclusionPatterns A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
+         * @param exclusionPatterns List of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param exclusionPatterns A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
+         * @param exclusionPatterns List of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param exclusionPatterns A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
+         * @param exclusionPatterns List of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param inclusionPatterns A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
+         * @param inclusionPatterns List of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param inclusionPatterns A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
+         * @param inclusionPatterns List of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param inclusionPatterns A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
+         * @param inclusionPatterns List of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param inclusionPrefixes A list of S3 prefixes for the documents that should be included in the index.
+         * @param inclusionPrefixes List of S3 prefixes for the documents that should be included in the index.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param inclusionPrefixes A list of S3 prefixes for the documents that should be included in the index.
+         * @param inclusionPrefixes List of S3 prefixes for the documents that should be included in the index.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class DataSourceConfigurationS3ConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param inclusionPrefixes A list of S3 prefixes for the documents that should be included in the index.
+         * @param inclusionPrefixes List of S3 prefixes for the documents that should be included in the index.
          * 
          * @return builder
          * 

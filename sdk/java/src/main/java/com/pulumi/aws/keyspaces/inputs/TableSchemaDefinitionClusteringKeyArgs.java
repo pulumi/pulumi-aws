@@ -15,14 +15,14 @@ public final class TableSchemaDefinitionClusteringKeyArgs extends com.pulumi.res
     public static final TableSchemaDefinitionClusteringKeyArgs Empty = new TableSchemaDefinitionClusteringKeyArgs();
 
     /**
-     * The name of the clustering key column.
+     * Name of the clustering key column.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the clustering key column.
+     * @return Name of the clustering key column.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class TableSchemaDefinitionClusteringKeyArgs extends com.pulumi.res
     }
 
     /**
-     * The order modifier. Valid values: `ASC`, `DESC`.
+     * Order modifier. Valid values: `ASC`, `DESC`.
      * 
      */
     @Import(name="orderBy", required=true)
     private Output<String> orderBy;
 
     /**
-     * @return The order modifier. Valid values: `ASC`, `DESC`.
+     * @return Order modifier. Valid values: `ASC`, `DESC`.
      * 
      */
     public Output<String> orderBy() {
@@ -70,7 +70,7 @@ public final class TableSchemaDefinitionClusteringKeyArgs extends com.pulumi.res
         }
 
         /**
-         * @param name The name of the clustering key column.
+         * @param name Name of the clustering key column.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class TableSchemaDefinitionClusteringKeyArgs extends com.pulumi.res
         }
 
         /**
-         * @param name The name of the clustering key column.
+         * @param name Name of the clustering key column.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class TableSchemaDefinitionClusteringKeyArgs extends com.pulumi.res
         }
 
         /**
-         * @param orderBy The order modifier. Valid values: `ASC`, `DESC`.
+         * @param orderBy Order modifier. Valid values: `ASC`, `DESC`.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class TableSchemaDefinitionClusteringKeyArgs extends com.pulumi.res
         }
 
         /**
-         * @param orderBy The order modifier. Valid values: `ASC`, `DESC`.
+         * @param orderBy Order modifier. Valid values: `ASC`, `DESC`.
          * 
          * @return builder
          * 

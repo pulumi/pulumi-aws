@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration {
     /**
-     * @return The VPCE ID for Firehose to privately connect with Snowflake.
+     * @return VPCE ID for Firehose to privately connect with Snowflake.
      * 
      */
     private String privateLinkVpceId;
 
     private FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration() {}
     /**
-     * @return The VPCE ID for Firehose to privately connect with Snowflake.
+     * @return VPCE ID for Firehose to privately connect with Snowflake.
      * 
      */
     public String privateLinkVpceId() {

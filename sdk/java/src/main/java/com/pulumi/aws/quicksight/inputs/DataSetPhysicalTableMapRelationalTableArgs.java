@@ -49,14 +49,14 @@ public final class DataSetPhysicalTableMapRelationalTableArgs extends com.pulumi
     }
 
     /**
-     * Column schema of the table. See input_columns.
+     * Column schema of the table. See `inputColumns` Block below.
      * 
      */
     @Import(name="inputColumns", required=true)
     private Output<List<DataSetPhysicalTableMapRelationalTableInputColumnArgs>> inputColumns;
 
     /**
-     * @return Column schema of the table. See input_columns.
+     * @return Column schema of the table. See `inputColumns` Block below.
      * 
      */
     public Output<List<DataSetPhysicalTableMapRelationalTableInputColumnArgs>> inputColumns() {
@@ -164,7 +164,7 @@ public final class DataSetPhysicalTableMapRelationalTableArgs extends com.pulumi
         }
 
         /**
-         * @param inputColumns Column schema of the table. See input_columns.
+         * @param inputColumns Column schema of the table. See `inputColumns` Block below.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class DataSetPhysicalTableMapRelationalTableArgs extends com.pulumi
         }
 
         /**
-         * @param inputColumns Column schema of the table. See input_columns.
+         * @param inputColumns Column schema of the table. See `inputColumns` Block below.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class DataSetPhysicalTableMapRelationalTableArgs extends com.pulumi
         }
 
         /**
-         * @param inputColumns Column schema of the table. See input_columns.
+         * @param inputColumns Column schema of the table. See `inputColumns` Block below.
          * 
          * @return builder
          * 

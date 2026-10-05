@@ -52,15 +52,15 @@ import (
 type ApplicationSnapshot struct {
 	pulumi.CustomResourceState
 
-	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+	// Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
-	// The current application version ID when the snapshot was created.
+	// Current application version ID when the snapshot was created.
 	ApplicationVersionId pulumi.IntOutput `pulumi:"applicationVersionId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The timestamp of the application snapshot.
+	// Timestamp of the application snapshot.
 	SnapshotCreationTimestamp pulumi.StringOutput `pulumi:"snapshotCreationTimestamp"`
-	// The name of the application snapshot.
+	// Name of the application snapshot.
 	SnapshotName pulumi.StringOutput `pulumi:"snapshotName"`
 }
 
@@ -100,28 +100,28 @@ func GetApplicationSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationSnapshot resources.
 type applicationSnapshotState struct {
-	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+	// Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName *string `pulumi:"applicationName"`
-	// The current application version ID when the snapshot was created.
+	// Current application version ID when the snapshot was created.
 	ApplicationVersionId *int `pulumi:"applicationVersionId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The timestamp of the application snapshot.
+	// Timestamp of the application snapshot.
 	SnapshotCreationTimestamp *string `pulumi:"snapshotCreationTimestamp"`
-	// The name of the application snapshot.
+	// Name of the application snapshot.
 	SnapshotName *string `pulumi:"snapshotName"`
 }
 
 type ApplicationSnapshotState struct {
-	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+	// Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName pulumi.StringPtrInput
-	// The current application version ID when the snapshot was created.
+	// Current application version ID when the snapshot was created.
 	ApplicationVersionId pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The timestamp of the application snapshot.
+	// Timestamp of the application snapshot.
 	SnapshotCreationTimestamp pulumi.StringPtrInput
-	// The name of the application snapshot.
+	// Name of the application snapshot.
 	SnapshotName pulumi.StringPtrInput
 }
 
@@ -130,21 +130,21 @@ func (ApplicationSnapshotState) ElementType() reflect.Type {
 }
 
 type applicationSnapshotArgs struct {
-	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+	// Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName string `pulumi:"applicationName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The name of the application snapshot.
+	// Name of the application snapshot.
 	SnapshotName string `pulumi:"snapshotName"`
 }
 
 // The set of arguments for constructing a ApplicationSnapshot resource.
 type ApplicationSnapshotArgs struct {
-	// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+	// Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 	ApplicationName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The name of the application snapshot.
+	// Name of the application snapshot.
 	SnapshotName pulumi.StringInput
 }
 
@@ -235,12 +235,12 @@ func (o ApplicationSnapshotOutput) ToApplicationSnapshotOutputWithContext(ctx co
 	return o
 }
 
-// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+// Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
 func (o ApplicationSnapshotOutput) ApplicationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
 }
 
-// The current application version ID when the snapshot was created.
+// Current application version ID when the snapshot was created.
 func (o ApplicationSnapshotOutput) ApplicationVersionId() pulumi.IntOutput {
 	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.IntOutput { return v.ApplicationVersionId }).(pulumi.IntOutput)
 }
@@ -250,12 +250,12 @@ func (o ApplicationSnapshotOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The timestamp of the application snapshot.
+// Timestamp of the application snapshot.
 func (o ApplicationSnapshotOutput) SnapshotCreationTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.StringOutput { return v.SnapshotCreationTimestamp }).(pulumi.StringOutput)
 }
 
-// The name of the application snapshot.
+// Name of the application snapshot.
 func (o ApplicationSnapshotOutput) SnapshotName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationSnapshot) pulumi.StringOutput { return v.SnapshotName }).(pulumi.StringOutput)
 }

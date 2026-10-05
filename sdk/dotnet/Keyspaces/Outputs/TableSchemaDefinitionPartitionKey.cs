@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     public sealed class TableSchemaDefinitionPartitionKey
     {
         /// <summary>
-        /// The name of the partition key column.
+        /// Name of the partition key column.
         /// </summary>
         public readonly string Name;
 

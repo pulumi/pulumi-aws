@@ -55,21 +55,24 @@ export class GroupMembership extends pulumi.CustomResource {
         return obj['__pulumiType'] === GroupMembership.__pulumiType;
     }
 
+    /**
+     * ARN of the group membership.
+     */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * The name of the group in which the member will be added.
+     * Name of the group in which the member will be added.
      */
     declare public readonly groupName: pulumi.Output<string>;
     /**
-     * The name of the member to add to the group.
+     * Name of the member to add to the group.
      */
     declare public readonly memberName: pulumi.Output<string>;
     /**
-     * The namespace that you want the user to be a part of. Defaults to `default`.
+     * Namespace that you want the user to be a part of. Defaults to `default`.
      */
     declare public readonly namespace: pulumi.Output<string | undefined>;
     /**
@@ -120,21 +123,24 @@ export class GroupMembership extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GroupMembership resources.
  */
 export interface GroupMembershipState {
+    /**
+     * ARN of the group membership.
+     */
     arn?: pulumi.Input<string | undefined>;
     /**
      * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the group in which the member will be added.
+     * Name of the group in which the member will be added.
      */
     groupName?: pulumi.Input<string | undefined>;
     /**
-     * The name of the member to add to the group.
+     * Name of the member to add to the group.
      */
     memberName?: pulumi.Input<string | undefined>;
     /**
-     * The namespace that you want the user to be a part of. Defaults to `default`.
+     * Namespace that you want the user to be a part of. Defaults to `default`.
      */
     namespace?: pulumi.Input<string | undefined>;
     /**
@@ -152,15 +158,15 @@ export interface GroupMembershipArgs {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the group in which the member will be added.
+     * Name of the group in which the member will be added.
      */
     groupName: pulumi.Input<string>;
     /**
-     * The name of the member to add to the group.
+     * Name of the member to add to the group.
      */
     memberName: pulumi.Input<string>;
     /**
-     * The namespace that you want the user to be a part of. Defaults to `default`.
+     * Namespace that you want the user to be a part of. Defaults to `default`.
      */
     namespace?: pulumi.Input<string | undefined>;
     /**

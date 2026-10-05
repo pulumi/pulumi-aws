@@ -179,14 +179,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * The time that the dashboard was created.
+     * Time that the dashboard was created.
      * 
      */
     @Export(name="createdTime", refs={String.class}, tree="[0]")
     private Output<String> createdTime;
 
     /**
-     * @return The time that the dashboard was created.
+     * @return Time that the dashboard was created.
      * 
      */
     public Output<String> createdTime() {
@@ -207,34 +207,42 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return this.dashboardId;
     }
     /**
-     * Options for publishing the dashboard. See dashboard_publish_options.
+     * Options for publishing the dashboard. See `dashboardPublishOptions`.
      * 
      */
     @Export(name="dashboardPublishOptions", refs={DashboardDashboardPublishOptions.class}, tree="[0]")
     private Output<DashboardDashboardPublishOptions> dashboardPublishOptions;
 
     /**
-     * @return Options for publishing the dashboard. See dashboard_publish_options.
+     * @return Options for publishing the dashboard. See `dashboardPublishOptions`.
      * 
      */
     public Output<DashboardDashboardPublishOptions> dashboardPublishOptions() {
         return this.dashboardPublishOptions;
     }
+    /**
+     * Time that the dashboard was last published.
+     * 
+     */
     @Export(name="lastPublishedTime", refs={String.class}, tree="[0]")
     private Output<String> lastPublishedTime;
 
+    /**
+     * @return Time that the dashboard was last published.
+     * 
+     */
     public Output<String> lastPublishedTime() {
         return this.lastPublishedTime;
     }
     /**
-     * The time that the dashboard was last updated.
+     * Time that the dashboard was last updated.
      * 
      */
     @Export(name="lastUpdatedTime", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedTime;
 
     /**
-     * @return The time that the dashboard was last updated.
+     * @return Time that the dashboard was last updated.
      * 
      */
     public Output<String> lastUpdatedTime() {
@@ -255,28 +263,28 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
      * 
      */
     @Export(name="parameters", refs={DashboardParameters.class}, tree="[0]")
     private Output<DashboardParameters> parameters;
 
     /**
-     * @return The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * @return Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
      * 
      */
     public Output<DashboardParameters> parameters() {
         return this.parameters;
     }
     /**
-     * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
      * 
      */
     @Export(name="permissions", refs={List.class,DashboardPermission.class}, tree="[0,1]")
     private Output</* @Nullable */ List<DashboardPermission>> permissions;
 
     /**
-     * @return A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
      * 
      */
     public Output<Optional<List<DashboardPermission>>> permissions() {
@@ -297,14 +305,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
      * 
      */
     @Export(name="sourceEntity", refs={DashboardSourceEntity.class}, tree="[0]")
     private Output</* @Nullable */ DashboardSourceEntity> sourceEntity;
 
     /**
-     * @return The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * @return Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
      * 
      */
     public Output<Optional<DashboardSourceEntity>> sourceEntity() {
@@ -325,14 +333,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return this.sourceEntityArn;
     }
     /**
-     * The dashboard creation status.
+     * Dashboard creation status.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The dashboard creation status.
+     * @return Dashboard creation status.
      * 
      */
     public Output<String> status() {
@@ -353,14 +361,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -381,7 +389,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.themeArn);
     }
     /**
-     * A description of the current dashboard version being created/updated.
+     * Description of the current dashboard version being created/updated.
      * 
      * The following arguments are optional:
      * 
@@ -390,7 +398,7 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
     private Output<String> versionDescription;
 
     /**
-     * @return A description of the current dashboard version being created/updated.
+     * @return Description of the current dashboard version being created/updated.
      * 
      * The following arguments are optional:
      * 
@@ -399,14 +407,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return this.versionDescription;
     }
     /**
-     * The version number of the dashboard version.
+     * Version number of the dashboard version.
      * 
      */
     @Export(name="versionNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> versionNumber;
 
     /**
-     * @return The version number of the dashboard version.
+     * @return Version number of the dashboard version.
      * 
      */
     public Output<Integer> versionNumber() {

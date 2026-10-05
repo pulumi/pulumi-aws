@@ -16,14 +16,14 @@ public final class PipeTargetParametersBatchJobParametersDependsOnArgs extends c
     public static final PipeTargetParametersBatchJobParametersDependsOnArgs Empty = new PipeTargetParametersBatchJobParametersDependsOnArgs();
 
     /**
-     * The job ID of the AWS Batch job that&#39;s associated with this dependency.
+     * Job ID of the AWS Batch job that&#39;s associated with this dependency.
      * 
      */
     @Import(name="jobId")
     private @Nullable Output<String> jobId;
 
     /**
-     * @return The job ID of the AWS Batch job that&#39;s associated with this dependency.
+     * @return Job ID of the AWS Batch job that&#39;s associated with this dependency.
      * 
      */
     public Optional<Output<String>> jobId() {
@@ -31,14 +31,14 @@ public final class PipeTargetParametersBatchJobParametersDependsOnArgs extends c
     }
 
     /**
-     * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+     * Type of the job dependency. Valid Values: N_TO_N, SEQUENTIAL.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+     * @return Type of the job dependency. Valid Values: N_TO_N, SEQUENTIAL.
      * 
      */
     public Optional<Output<String>> type() {
@@ -71,7 +71,7 @@ public final class PipeTargetParametersBatchJobParametersDependsOnArgs extends c
         }
 
         /**
-         * @param jobId The job ID of the AWS Batch job that&#39;s associated with this dependency.
+         * @param jobId Job ID of the AWS Batch job that&#39;s associated with this dependency.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PipeTargetParametersBatchJobParametersDependsOnArgs extends c
         }
 
         /**
-         * @param jobId The job ID of the AWS Batch job that&#39;s associated with this dependency.
+         * @param jobId Job ID of the AWS Batch job that&#39;s associated with this dependency.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PipeTargetParametersBatchJobParametersDependsOnArgs extends c
         }
 
         /**
-         * @param type The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         * @param type Type of the job dependency. Valid Values: N_TO_N, SEQUENTIAL.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PipeTargetParametersBatchJobParametersDependsOnArgs extends c
         }
 
         /**
-         * @param type The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         * @param type Type of the job dependency. Valid Values: N_TO_N, SEQUENTIAL.
          * 
          * @return builder
          * 

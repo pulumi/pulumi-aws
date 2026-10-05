@@ -50,21 +50,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the placement group.
+        /// Name of the placement group.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The number of partitions to create in the
-        /// placement group.  Can only be specified when the `Strategy` is set to
-        /// `Partition`.  Must be at least `1`. (default is `2`).
+        /// Number of partitions to create in the placement group. Can only be specified when the `Strategy` is set to `Partition`. Must be at least `1`. (default is `2`).
         /// </summary>
         [Output("partitionCount")]
         public Output<int> PartitionCount { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the placement group.
+        /// ID of the placement group.
         /// </summary>
         [Output("placementGroupId")]
         public Output<string> PlacementGroupId { get; private set; } = null!;
@@ -76,14 +74,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Determines how placement groups spread instances. Can only be used
-        /// when the `Strategy` is set to `Spread`. Can be `Host` or `Rack`. `Host` can only be used for Outpost placement groups. Defaults to `Rack`.
+        /// How placement groups spread instances. Can only be used when the `Strategy` is set to `Spread`. Can be `Host` or `Rack`. `Host` can only be used for Outpost placement groups. Defaults to `Rack`.
         /// </summary>
         [Output("spreadLevel")]
         public Output<string> SpreadLevel { get; private set; } = null!;
 
         /// <summary>
-        /// The placement strategy. Can be `Cluster`, `Partition` or `Spread`.
+        /// Placement strategy. Can be `Cluster`, `Partition` or `Spread`.
         /// </summary>
         [Output("strategy")]
         public Output<string> Strategy { get; private set; } = null!;
@@ -95,7 +92,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -147,15 +144,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class PlacementGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the placement group.
+        /// Name of the placement group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of partitions to create in the
-        /// placement group.  Can only be specified when the `Strategy` is set to
-        /// `Partition`.  Must be at least `1`. (default is `2`).
+        /// Number of partitions to create in the placement group. Can only be specified when the `Strategy` is set to `Partition`. Must be at least `1`. (default is `2`).
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
@@ -167,14 +162,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Determines how placement groups spread instances. Can only be used
-        /// when the `Strategy` is set to `Spread`. Can be `Host` or `Rack`. `Host` can only be used for Outpost placement groups. Defaults to `Rack`.
+        /// How placement groups spread instances. Can only be used when the `Strategy` is set to `Spread`. Can be `Host` or `Rack`. `Host` can only be used for Outpost placement groups. Defaults to `Rack`.
         /// </summary>
         [Input("spreadLevel")]
         public Input<string>? SpreadLevel { get; set; }
 
         /// <summary>
-        /// The placement strategy. Can be `Cluster`, `Partition` or `Spread`.
+        /// Placement strategy. Can be `Cluster`, `Partition` or `Spread`.
         /// </summary>
         [Input("strategy", required: true)]
         public InputUnion<string, Pulumi.Aws.Ec2.PlacementStrategy> Strategy { get; set; } = null!;
@@ -206,21 +200,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the placement group.
+        /// Name of the placement group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The number of partitions to create in the
-        /// placement group.  Can only be specified when the `Strategy` is set to
-        /// `Partition`.  Must be at least `1`. (default is `2`).
+        /// Number of partitions to create in the placement group. Can only be specified when the `Strategy` is set to `Partition`. Must be at least `1`. (default is `2`).
         /// </summary>
         [Input("partitionCount")]
         public Input<int>? PartitionCount { get; set; }
 
         /// <summary>
-        /// The ID of the placement group.
+        /// ID of the placement group.
         /// </summary>
         [Input("placementGroupId")]
         public Input<string>? PlacementGroupId { get; set; }
@@ -232,14 +224,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Determines how placement groups spread instances. Can only be used
-        /// when the `Strategy` is set to `Spread`. Can be `Host` or `Rack`. `Host` can only be used for Outpost placement groups. Defaults to `Rack`.
+        /// How placement groups spread instances. Can only be used when the `Strategy` is set to `Spread`. Can be `Host` or `Rack`. `Host` can only be used for Outpost placement groups. Defaults to `Rack`.
         /// </summary>
         [Input("spreadLevel")]
         public Input<string>? SpreadLevel { get; set; }
 
         /// <summary>
-        /// The placement strategy. Can be `Cluster`, `Partition` or `Spread`.
+        /// Placement strategy. Can be `Cluster`, `Partition` or `Spread`.
         /// </summary>
         [Input("strategy")]
         public InputUnion<string, Pulumi.Aws.Ec2.PlacementStrategy>? Strategy { get; set; }
@@ -260,7 +251,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

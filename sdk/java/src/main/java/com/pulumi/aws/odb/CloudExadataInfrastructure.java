@@ -474,12 +474,16 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
     /**
      * Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="shape", refs={String.class}, tree="[0]")
     private Output<String> shape;
 
     /**
      * @return Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> shape() {
@@ -516,16 +520,12 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
     /**
      * Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="storageCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> storageCount;
 
     /**
      * @return Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Integer> storageCount() {

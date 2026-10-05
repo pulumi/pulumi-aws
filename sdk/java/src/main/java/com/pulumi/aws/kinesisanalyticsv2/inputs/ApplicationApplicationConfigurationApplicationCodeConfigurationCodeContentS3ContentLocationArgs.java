@@ -17,14 +17,14 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     public static final ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs Empty = new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs();
 
     /**
-     * The ARN for the S3 bucket containing the application code.
+     * ARN for the S3 bucket containing the application code.
      * 
      */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
     /**
-     * @return The ARN for the S3 bucket containing the application code.
+     * @return ARN for the S3 bucket containing the application code.
      * 
      */
     public Output<String> bucketArn() {
@@ -32,14 +32,14 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     }
 
     /**
-     * The file key for the object containing the application code.
+     * File key for the object containing the application code.
      * 
      */
     @Import(name="fileKey", required=true)
     private Output<String> fileKey;
 
     /**
-     * @return The file key for the object containing the application code.
+     * @return File key for the object containing the application code.
      * 
      */
     public Output<String> fileKey() {
@@ -47,14 +47,14 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     }
 
     /**
-     * The version of the object containing the application code.
+     * Version of the object containing the application code.
      * 
      */
     @Import(name="objectVersion")
     private @Nullable Output<String> objectVersion;
 
     /**
-     * @return The version of the object containing the application code.
+     * @return Version of the object containing the application code.
      * 
      */
     public Optional<Output<String>> objectVersion() {
@@ -88,7 +88,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param bucketArn The ARN for the S3 bucket containing the application code.
+         * @param bucketArn ARN for the S3 bucket containing the application code.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param bucketArn The ARN for the S3 bucket containing the application code.
+         * @param bucketArn ARN for the S3 bucket containing the application code.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param fileKey The file key for the object containing the application code.
+         * @param fileKey File key for the object containing the application code.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param fileKey The file key for the object containing the application code.
+         * @param fileKey File key for the object containing the application code.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param objectVersion The version of the object containing the application code.
+         * @param objectVersion Version of the object containing the application code.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param objectVersion The version of the object containing the application code.
+         * @param objectVersion Version of the object containing the application code.
          * 
          * @return builder
          * 
