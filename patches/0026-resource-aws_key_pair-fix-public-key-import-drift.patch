@@ -176,7 +176,7 @@ index c7c8e00a5e5c..3798e8e04ca7 100644
  
  	output, err := findKeyPair(ctx, conn, &input)
 diff --git a/website/docs/r/key_pair.html.markdown b/website/docs/r/key_pair.html.markdown
-index adcccb77265c..09f7ee5770a8 100644
+index 77d903d582d5..772bed01699d 100644
 --- a/website/docs/r/key_pair.html.markdown
 +++ b/website/docs/r/key_pair.html.markdown
 @@ -91,5 +91,3 @@ Using `terraform import`, import Key Pairs using the `key_name`. For example:
