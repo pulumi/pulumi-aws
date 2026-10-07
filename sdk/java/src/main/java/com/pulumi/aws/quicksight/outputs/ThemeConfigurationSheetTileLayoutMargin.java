@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ThemeConfigurationSheetTileLayoutMargin {
     /**
-     * @return This Boolean value controls whether to display sheet margins.
+     * @return Whether to display sheet margins.
      * 
      */
     private @Nullable Boolean show;
 
     private ThemeConfigurationSheetTileLayoutMargin() {}
     /**
-     * @return This Boolean value controls whether to display sheet margins.
+     * @return Whether to display sheet margins.
      * 
      */
     public Optional<Boolean> show() {

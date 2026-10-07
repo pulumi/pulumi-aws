@@ -32,14 +32,14 @@ public final class DashboardSourceEntitySourceTemplateArgs extends com.pulumi.re
     }
 
     /**
-     * List of dataset references. See data_set_references.
+     * List of dataset references. See `dataSetReferences`.
      * 
      */
     @Import(name="dataSetReferences", required=true)
     private Output<List<DashboardSourceEntitySourceTemplateDataSetReferenceArgs>> dataSetReferences;
 
     /**
-     * @return List of dataset references. See data_set_references.
+     * @return List of dataset references. See `dataSetReferences`.
      * 
      */
     public Output<List<DashboardSourceEntitySourceTemplateDataSetReferenceArgs>> dataSetReferences() {
@@ -93,7 +93,7 @@ public final class DashboardSourceEntitySourceTemplateArgs extends com.pulumi.re
         }
 
         /**
-         * @param dataSetReferences List of dataset references. See data_set_references.
+         * @param dataSetReferences List of dataset references. See `dataSetReferences`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class DashboardSourceEntitySourceTemplateArgs extends com.pulumi.re
         }
 
         /**
-         * @param dataSetReferences List of dataset references. See data_set_references.
+         * @param dataSetReferences List of dataset references. See `dataSetReferences`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class DashboardSourceEntitySourceTemplateArgs extends com.pulumi.re
         }
 
         /**
-         * @param dataSetReferences List of dataset references. See data_set_references.
+         * @param dataSetReferences List of dataset references. See `dataSetReferences`.
          * 
          * @return builder
          * 

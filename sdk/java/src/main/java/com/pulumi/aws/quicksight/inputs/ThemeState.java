@@ -51,14 +51,14 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+     * ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      * 
      */
     @Import(name="baseThemeId")
     private @Nullable Output<String> baseThemeId;
 
     /**
-     * @return The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+     * @return ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      * 
      */
     public Optional<Output<String>> baseThemeId() {
@@ -66,14 +66,14 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The theme configuration, which contains the theme display properties. See configuration.
+     * Theme configuration, which contains the theme display properties. See configuration.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<ThemeConfigurationArgs> configuration;
 
     /**
-     * @return The theme configuration, which contains the theme display properties. See configuration.
+     * @return Theme configuration, which contains the theme display properties. See configuration.
      * 
      */
     public Optional<Output<ThemeConfigurationArgs>> configuration() {
@@ -81,14 +81,14 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time that the theme was created.
+     * Time that the theme was created.
      * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
-     * @return The time that the theme was created.
+     * @return Time that the theme was created.
      * 
      */
     public Optional<Output<String>> createdTime() {
@@ -96,14 +96,14 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time that the theme was last updated.
+     * Time that the theme was last updated.
      * 
      */
     @Import(name="lastUpdatedTime")
     private @Nullable Output<String> lastUpdatedTime;
 
     /**
-     * @return The time that the theme was last updated.
+     * @return Time that the theme was last updated.
      * 
      */
     public Optional<Output<String>> lastUpdatedTime() {
@@ -126,14 +126,14 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the theme. Maximum of 64 items. See permissions.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<ThemePermissionArgs>> permissions;
 
     /**
-     * @return A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the theme. Maximum of 64 items. See permissions.
      * 
      */
     public Optional<Output<List<ThemePermissionArgs>>> permissions() {
@@ -156,14 +156,14 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The theme creation status.
+     * Theme creation status.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The theme creation status.
+     * @return Theme creation status.
      * 
      */
     public Optional<Output<String>> status() {
@@ -186,14 +186,14 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -220,14 +220,14 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the current theme version being created/updated.
+     * Description of the current theme version being created/updated.
      * 
      */
     @Import(name="versionDescription")
     private @Nullable Output<String> versionDescription;
 
     /**
-     * @return A description of the current theme version being created/updated.
+     * @return Description of the current theme version being created/updated.
      * 
      */
     public Optional<Output<String>> versionDescription() {
@@ -235,14 +235,14 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version number of the theme version.
+     * Version number of the theme version.
      * 
      */
     @Import(name="versionNumber")
     private @Nullable Output<Integer> versionNumber;
 
     /**
-     * @return The version number of the theme version.
+     * @return Version number of the theme version.
      * 
      */
     public Optional<Output<Integer>> versionNumber() {
@@ -330,7 +330,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param baseThemeId The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+         * @param baseThemeId ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
          * 
          * @return builder
          * 
@@ -341,7 +341,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param baseThemeId The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+         * @param baseThemeId ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration The theme configuration, which contains the theme display properties. See configuration.
+         * @param configuration Theme configuration, which contains the theme display properties. See configuration.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration The theme configuration, which contains the theme display properties. See configuration.
+         * @param configuration Theme configuration, which contains the theme display properties. See configuration.
          * 
          * @return builder
          * 
@@ -372,7 +372,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime The time that the theme was created.
+         * @param createdTime Time that the theme was created.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime The time that the theme was created.
+         * @param createdTime Time that the theme was created.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedTime The time that the theme was last updated.
+         * @param lastUpdatedTime Time that the theme was last updated.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedTime The time that the theme was last updated.
+         * @param lastUpdatedTime Time that the theme was last updated.
          * 
          * @return builder
          * 
@@ -435,7 +435,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the theme. Maximum of 64 items. See permissions.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the theme. Maximum of 64 items. See permissions.
          * 
          * @return builder
          * 
@@ -456,7 +456,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the theme. Maximum of 64 items. See permissions.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The theme creation status.
+         * @param status Theme creation status.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The theme creation status.
+         * @param status Theme creation status.
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionDescription A description of the current theme version being created/updated.
+         * @param versionDescription Description of the current theme version being created/updated.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionDescription A description of the current theme version being created/updated.
+         * @param versionDescription Description of the current theme version being created/updated.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionNumber The version number of the theme version.
+         * @param versionNumber Version number of the theme version.
          * 
          * @return builder
          * 
@@ -607,7 +607,7 @@ public final class ThemeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionNumber The version number of the theme version.
+         * @param versionNumber Version number of the theme version.
          * 
          * @return builder
          * 

@@ -15,14 +15,14 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationAuthenticationCon
     public static final FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs Empty = new FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfigurationArgs();
 
     /**
-     * The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+     * Type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
      * 
      */
     @Import(name="connectivity", required=true)
     private Output<String> connectivity;
 
     /**
-     * @return The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+     * @return Type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
      * 
      */
     public Output<String> connectivity() {
@@ -30,14 +30,14 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationAuthenticationCon
     }
 
     /**
-     * The ARN of the role used to access the Amazon MSK cluster.
+     * ARN of the role used to access the Amazon MSK cluster.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the role used to access the Amazon MSK cluster.
+     * @return ARN of the role used to access the Amazon MSK cluster.
      * 
      */
     public Output<String> roleArn() {
@@ -70,7 +70,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationAuthenticationCon
         }
 
         /**
-         * @param connectivity The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+         * @param connectivity Type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationAuthenticationCon
         }
 
         /**
-         * @param connectivity The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+         * @param connectivity Type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationAuthenticationCon
         }
 
         /**
-         * @param roleArn The ARN of the role used to access the Amazon MSK cluster.
+         * @param roleArn ARN of the role used to access the Amazon MSK cluster.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class FirehoseDeliveryStreamMskSourceConfigurationAuthenticationCon
         }
 
         /**
-         * @param roleArn The ARN of the role used to access the Amazon MSK cluster.
+         * @param roleArn ARN of the role used to access the Amazon MSK cluster.
          * 
          * @return builder
          * 

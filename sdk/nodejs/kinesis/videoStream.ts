@@ -63,19 +63,19 @@ export class VideoStream extends pulumi.CustomResource {
     }
 
     /**
-     * ARN specifying the Stream (same as `id`)
+     * ARN specifying the Stream (same as `id`).
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A time stamp that indicates when the stream was created.
+     * Time stamp that indicates when the stream was created.
      */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
-     * The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+     * Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      */
     declare public readonly dataRetentionInHours: pulumi.Output<number | undefined>;
     /**
-     * The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+     * Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      */
     declare public readonly deviceName: pulumi.Output<string | undefined>;
     /**
@@ -83,12 +83,11 @@ export class VideoStream extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
-     * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+     * Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      */
     declare public readonly mediaType: pulumi.Output<string | undefined>;
     /**
-     * A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * Name to identify the stream. Unique to the AWS account and region the stream is created in.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -96,15 +95,15 @@ export class VideoStream extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The version of the stream.
+     * Version of the stream.
      */
     declare public /*out*/ readonly version: pulumi.Output<string>;
 
@@ -156,19 +155,19 @@ export class VideoStream extends pulumi.CustomResource {
  */
 export interface VideoStreamState {
     /**
-     * ARN specifying the Stream (same as `id`)
+     * ARN specifying the Stream (same as `id`).
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A time stamp that indicates when the stream was created.
+     * Time stamp that indicates when the stream was created.
      */
     creationTime?: pulumi.Input<string | undefined>;
     /**
-     * The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+     * Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      */
     dataRetentionInHours?: pulumi.Input<number | undefined>;
     /**
-     * The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+     * Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      */
     deviceName?: pulumi.Input<string | undefined>;
     /**
@@ -176,12 +175,11 @@ export interface VideoStreamState {
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+     * Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      */
     mediaType?: pulumi.Input<string | undefined>;
     /**
-     * A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * Name to identify the stream. Unique to the AWS account and region the stream is created in.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -189,15 +187,15 @@ export interface VideoStreamState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The version of the stream.
+     * Version of the stream.
      */
     version?: pulumi.Input<string | undefined>;
 }
@@ -207,11 +205,11 @@ export interface VideoStreamState {
  */
 export interface VideoStreamArgs {
     /**
-     * The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+     * Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      */
     dataRetentionInHours?: pulumi.Input<number | undefined>;
     /**
-     * The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+     * Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      */
     deviceName?: pulumi.Input<string | undefined>;
     /**
@@ -219,12 +217,11 @@ export interface VideoStreamArgs {
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+     * Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      */
     mediaType?: pulumi.Input<string | undefined>;
     /**
-     * A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * Name to identify the stream. Unique to the AWS account and region the stream is created in.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -232,7 +229,7 @@ export interface VideoStreamArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

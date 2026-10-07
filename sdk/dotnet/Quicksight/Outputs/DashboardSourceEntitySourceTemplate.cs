@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// List of dataset references. See data_set_references.
+        /// List of dataset references. See `DataSetReferences`.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardSourceEntitySourceTemplateDataSetReference> DataSetReferences;
 

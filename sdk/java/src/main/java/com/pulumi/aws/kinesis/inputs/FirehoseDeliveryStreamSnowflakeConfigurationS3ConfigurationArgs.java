@@ -19,14 +19,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
     public static final FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs Empty = new FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs();
 
     /**
-     * The ARN of the S3 bucket
+     * ARN of the S3 bucket.
      * 
      */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
     /**
-     * @return The ARN of the S3 bucket
+     * @return ARN of the S3 bucket.
      * 
      */
     public Output<String> bucketArn() {
@@ -49,16 +49,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
     }
 
     /**
-     * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-     * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+     * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
      * 
      */
     @Import(name="bufferingSize")
     private @Nullable Output<Integer> bufferingSize;
 
     /**
-     * @return Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-     * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+     * @return Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
      * 
      */
     public Optional<Output<Integer>> bufferingSize() {
@@ -66,14 +64,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
     }
 
     /**
-     * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -81,14 +79,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
     }
 
     /**
-     * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+     * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
      * 
      */
     @Import(name="compressionFormat")
     private @Nullable Output<String> compressionFormat;
 
     /**
-     * @return The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+     * @return Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
      * 
      */
     public Optional<Output<String>> compressionFormat() {
@@ -111,16 +109,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
     }
 
     /**
-     * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-     * be used.
+     * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-     * be used.
+     * @return KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -128,14 +124,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
     }
 
     /**
-     * The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+     * Extra prefix added in front of the &#34;YYYY/MM/DD/HH&#34; time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+     * @return Extra prefix added in front of the &#34;YYYY/MM/DD/HH&#34; time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -143,14 +139,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
     }
 
     /**
-     * The ARN of the AWS credentials.
+     * ARN of the AWS credentials.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the AWS credentials.
+     * @return ARN of the AWS credentials.
      * 
      */
     public Output<String> roleArn() {
@@ -190,7 +186,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param bucketArn The ARN of the S3 bucket
+         * @param bucketArn ARN of the S3 bucket.
          * 
          * @return builder
          * 
@@ -201,7 +197,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param bucketArn The ARN of the S3 bucket
+         * @param bucketArn ARN of the S3 bucket.
          * 
          * @return builder
          * 
@@ -232,8 +228,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param bufferingSize Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
          * 
          * @return builder
          * 
@@ -244,8 +239,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param bufferingSize Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
          * 
          * @return builder
          * 
@@ -255,7 +249,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -266,7 +260,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          * 
          * @return builder
          * 
@@ -276,7 +270,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param compressionFormat The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+         * @param compressionFormat Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
          * 
          * @return builder
          * 
@@ -287,7 +281,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param compressionFormat The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+         * @param compressionFormat Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
          * 
          * @return builder
          * 
@@ -318,8 +312,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param kmsKeyArn Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * @param kmsKeyArn KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          * 
          * @return builder
          * 
@@ -330,8 +323,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param kmsKeyArn Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * @param kmsKeyArn KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          * 
          * @return builder
          * 
@@ -341,7 +333,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param prefix The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * @param prefix Extra prefix added in front of the &#34;YYYY/MM/DD/HH&#34; time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          * 
          * @return builder
          * 
@@ -352,7 +344,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param prefix The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * @param prefix Extra prefix added in front of the &#34;YYYY/MM/DD/HH&#34; time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          * 
          * @return builder
          * 
@@ -362,7 +354,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param roleArn The ARN of the AWS credentials.
+         * @param roleArn ARN of the AWS credentials.
          * 
          * @return builder
          * 
@@ -373,7 +365,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationAr
         }
 
         /**
-         * @param roleArn The ARN of the AWS credentials.
+         * @param roleArn ARN of the AWS credentials.
          * 
          * @return builder
          * 

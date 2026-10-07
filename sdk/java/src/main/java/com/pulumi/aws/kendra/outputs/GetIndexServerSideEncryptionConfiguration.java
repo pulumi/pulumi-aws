@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetIndexServerSideEncryptionConfiguration {
     /**
-     * @return Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
+     * @return Identifier of the AWS KMS customer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
      * 
      */
     private String kmsKeyId;
 
     private GetIndexServerSideEncryptionConfiguration() {}
     /**
-     * @return Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
+     * @return Identifier of the AWS KMS customer master key (CMK). Amazon Kendra doesn&#39;t support asymmetric CMKs.
      * 
      */
     public String kmsKeyId() {

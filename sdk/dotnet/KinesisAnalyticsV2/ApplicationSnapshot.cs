@@ -44,13 +44,13 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     public partial class ApplicationSnapshot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        /// Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         /// </summary>
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
 
         /// <summary>
-        /// The current application version ID when the snapshot was created.
+        /// Current application version ID when the snapshot was created.
         /// </summary>
         [Output("applicationVersionId")]
         public Output<int> ApplicationVersionId { get; private set; } = null!;
@@ -62,13 +62,13 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp of the application snapshot.
+        /// Timestamp of the application snapshot.
         /// </summary>
         [Output("snapshotCreationTimestamp")]
         public Output<string> SnapshotCreationTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the application snapshot.
+        /// Name of the application snapshot.
         /// </summary>
         [Output("snapshotName")]
         public Output<string> SnapshotName { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     public sealed class ApplicationSnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        /// Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         /// </summary>
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name of the application snapshot.
+        /// Name of the application snapshot.
         /// </summary>
         [Input("snapshotName", required: true)]
         public Input<string> SnapshotName { get; set; } = null!;
@@ -146,13 +146,13 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     public sealed class ApplicationSnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        /// Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         /// </summary>
         [Input("applicationName")]
         public Input<string>? ApplicationName { get; set; }
 
         /// <summary>
-        /// The current application version ID when the snapshot was created.
+        /// Current application version ID when the snapshot was created.
         /// </summary>
         [Input("applicationVersionId")]
         public Input<int>? ApplicationVersionId { get; set; }
@@ -164,13 +164,13 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The timestamp of the application snapshot.
+        /// Timestamp of the application snapshot.
         /// </summary>
         [Input("snapshotCreationTimestamp")]
         public Input<string>? SnapshotCreationTimestamp { get; set; }
 
         /// <summary>
-        /// The name of the application snapshot.
+        /// Name of the application snapshot.
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }

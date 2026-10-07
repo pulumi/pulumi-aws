@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSetLogicalTableMapSourceJoinInstruction
     {
         /// <summary>
-        /// Join key properties of the left operand. See left_join_key_properties.
+        /// Join key properties of the left operand. See `LeftJoinKeyProperties` Block below.
         /// </summary>
         public readonly Outputs.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties? LeftJoinKeyProperties;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string OnClause;
         /// <summary>
-        /// Join key properties of the right operand. See right_join_key_properties.
+        /// Join key properties of the right operand. See `RightJoinKeyProperties` Block below.
         /// </summary>
         public readonly Outputs.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties? RightJoinKeyProperties;
         /// <summary>

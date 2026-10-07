@@ -235,30 +235,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:kinesis/analyticsApplication:AnalyticsApplication")
 public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Kinesis Analytics Appliation.
+     * ARN of the Kinesis Analytics Application.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Kinesis Analytics Appliation.
+     * @return ARN of the Kinesis Analytics Application.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The CloudWatch log stream options to monitor application errors.
-     * See CloudWatch Logging Options below for more details.
+     * CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
      * 
      */
     @Export(name="cloudwatchLoggingOptions", refs={AnalyticsApplicationCloudwatchLoggingOptions.class}, tree="[0]")
     private Output</* @Nullable */ AnalyticsApplicationCloudwatchLoggingOptions> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch log stream options to monitor application errors.
-     * See CloudWatch Logging Options below for more details.
+     * @return CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
      * 
      */
     public Output<Optional<AnalyticsApplicationCloudwatchLoggingOptions>> cloudwatchLoggingOptions() {
@@ -279,14 +277,14 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.code);
     }
     /**
-     * The Timestamp when the application version was created.
+     * Timestamp when the application version was created.
      * 
      */
     @Export(name="createTimestamp", refs={String.class}, tree="[0]")
     private Output<String> createTimestamp;
 
     /**
-     * @return The Timestamp when the application version was created.
+     * @return Timestamp when the application version was created.
      * 
      */
     public Output<String> createTimestamp() {
@@ -307,28 +305,28 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Input configuration of the application. See Inputs below for more details.
+     * Input configuration of the application. See `inputs` Block below for details.
      * 
      */
     @Export(name="inputs", refs={AnalyticsApplicationInputs.class}, tree="[0]")
     private Output</* @Nullable */ AnalyticsApplicationInputs> inputs;
 
     /**
-     * @return Input configuration of the application. See Inputs below for more details.
+     * @return Input configuration of the application. See `inputs` Block below for details.
      * 
      */
     public Output<Optional<AnalyticsApplicationInputs>> inputs() {
         return Codegen.optional(this.inputs);
     }
     /**
-     * The Timestamp when the application was last updated.
+     * Timestamp when the application was last updated.
      * 
      */
     @Export(name="lastUpdateTimestamp", refs={String.class}, tree="[0]")
     private Output<String> lastUpdateTimestamp;
 
     /**
-     * @return The Timestamp when the application was last updated.
+     * @return Timestamp when the application was last updated.
      * 
      */
     public Output<String> lastUpdateTimestamp() {
@@ -349,30 +347,28 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Output destination configuration of the application. See Outputs below for more details.
+     * Output destination configuration of the application. See `outputs` Block below for details.
      * 
      */
     @Export(name="outputs", refs={List.class,AnalyticsApplicationOutput.class}, tree="[0,1]")
     private Output</* @Nullable */ List<AnalyticsApplicationOutput>> outputs;
 
     /**
-     * @return Output destination configuration of the application. See Outputs below for more details.
+     * @return Output destination configuration of the application. See `outputs` Block below for details.
      * 
      */
     public Output<Optional<List<AnalyticsApplicationOutput>>> outputs() {
         return Codegen.optional(this.outputs);
     }
     /**
-     * An S3 Reference Data Source for the application.
-     * See Reference Data Sources below for more details.
+     * S3 Reference Data Source for the application. See `referenceDataSources` Block below for details.
      * 
      */
     @Export(name="referenceDataSources", refs={AnalyticsApplicationReferenceDataSources.class}, tree="[0]")
     private Output</* @Nullable */ AnalyticsApplicationReferenceDataSources> referenceDataSources;
 
     /**
-     * @return An S3 Reference Data Source for the application.
-     * See Reference Data Sources below for more details.
+     * @return S3 Reference Data Source for the application. See `referenceDataSources` Block below for details.
      * 
      */
     public Output<Optional<AnalyticsApplicationReferenceDataSources>> referenceDataSources() {
@@ -393,72 +389,70 @@ public class AnalyticsApplication extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
-     * To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+     * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured. To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      * 
      */
     @Export(name="startApplication", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> startApplication;
 
     /**
-     * @return Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
-     * To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+     * @return Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured. To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      * 
      */
     public Output<Optional<Boolean>> startApplication() {
         return Codegen.optional(this.startApplication);
     }
     /**
-     * The Status of the application.
+     * Status of the application.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The Status of the application.
+     * @return Status of the application.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The Version of the application.
+     * Version of the application.
      * 
      */
     @Export(name="version", refs={Integer.class}, tree="[0]")
     private Output<Integer> version;
 
     /**
-     * @return The Version of the application.
+     * @return Version of the application.
      * 
      */
     public Output<Integer> version() {

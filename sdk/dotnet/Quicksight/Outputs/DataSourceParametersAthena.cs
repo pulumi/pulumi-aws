@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSourceParametersAthena
     {
         /// <summary>
-        /// Use the `RoleArn` to override an account-wide role for a specific athena data source.
+        /// Use the `RoleArn` to override an account-wide role for a specific Athena data source.
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>
-        /// The work-group to which to connect.
+        /// Work-group to which to connect.
         /// </summary>
         public readonly string? WorkGroup;
 

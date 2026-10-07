@@ -68,15 +68,13 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-        /// 
-        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `Name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `False` if not already provided.
+        /// Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.ExperienceConfiguration> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// A description for your Amazon Kendra experience.
+        /// Description for your Amazon Kendra experience.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -88,25 +86,27 @@ namespace Pulumi.Aws.Kendra
         public Output<ImmutableArray<Outputs.ExperienceEndpoint>> Endpoints { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the experience.
+        /// Unique identifier of the experience.
         /// </summary>
         [Output("experienceId")]
         public Output<string> ExperienceId { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the index for your Amazon Kendra experience.
+        /// Identifier of the index for your Amazon Kendra experience.
         /// </summary>
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
         /// <summary>
-        /// A name for your Amazon Kendra experience.
+        /// Name for your Amazon Kendra experience.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// 
+        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `Name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `False` if not already provided.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The current processing status of your Amazon Kendra experience.
+        /// Current processing status of your Amazon Kendra experience.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -172,33 +172,33 @@ namespace Pulumi.Aws.Kendra
     public sealed class ExperienceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-        /// 
-        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `Name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `False` if not already provided.
+        /// Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ExperienceConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// A description for your Amazon Kendra experience.
+        /// Description for your Amazon Kendra experience.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The identifier of the index for your Amazon Kendra experience.
+        /// Identifier of the index for your Amazon Kendra experience.
         /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
         /// <summary>
-        /// A name for your Amazon Kendra experience.
+        /// Name for your Amazon Kendra experience.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// 
+        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `Name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `False` if not already provided.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -226,15 +226,13 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-        /// 
-        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `Name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `False` if not already provided.
+        /// Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ExperienceConfigurationGetArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// A description for your Amazon Kendra experience.
+        /// Description for your Amazon Kendra experience.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -252,25 +250,27 @@ namespace Pulumi.Aws.Kendra
         }
 
         /// <summary>
-        /// The unique identifier of the experience.
+        /// Unique identifier of the experience.
         /// </summary>
         [Input("experienceId")]
         public Input<string>? ExperienceId { get; set; }
 
         /// <summary>
-        /// The identifier of the index for your Amazon Kendra experience.
+        /// Identifier of the index for your Amazon Kendra experience.
         /// </summary>
         [Input("indexId")]
         public Input<string>? IndexId { get; set; }
 
         /// <summary>
-        /// A name for your Amazon Kendra experience.
+        /// Name for your Amazon Kendra experience.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// 
+        /// &gt; **NOTE:** By default of the AWS Kendra API, updates to an existing `aws.kendra.Experience` resource (e.g. updating the `Name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `False` if not already provided.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The current processing status of your Amazon Kendra experience.
+        /// Current processing status of your Amazon Kendra experience.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

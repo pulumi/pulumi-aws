@@ -25,37 +25,37 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
 
         /// <summary>
-        /// The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+        /// Amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
         /// </summary>
         [Input("hecAcknowledgmentTimeout")]
         public Input<int>? HecAcknowledgmentTimeout { get; set; }
 
         /// <summary>
-        /// The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+        /// HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
         /// </summary>
         [Input("hecEndpoint", required: true)]
         public Input<string> HecEndpoint { get; set; } = null!;
 
         /// <summary>
-        /// The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+        /// HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
         /// </summary>
         [Input("hecEndpointType")]
         public Input<string>? HecEndpointType { get; set; }
 
         /// <summary>
-        /// The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `SecretsManagerConfiguration` is not provided.
+        /// GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `SecretsManagerConfiguration` is not provided.
         /// </summary>
         [Input("hecToken")]
         public Input<string>? HecToken { get; set; }
 
         /// <summary>
-        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
+        /// Data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationGetArgs>? ProcessingConfiguration { get; set; }
@@ -67,18 +67,20 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? RetryDuration { get; set; }
 
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-        /// `SecretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `SecretsManagerConfiguration` block below for details. This value is required if `HecToken` is not provided.
+        /// How documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 Configuration. See `S3Configuration` block below for details.
+        /// S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationGetArgs> S3Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// Secrets Manager configuration. See `SecretsManagerConfiguration` block below for details. This value is required if `HecToken` is not provided.
+        /// </summary>
         [Input("secretsManagerConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationGetArgs>? SecretsManagerConfiguration { get; set; }
 

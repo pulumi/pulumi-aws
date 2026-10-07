@@ -20,6 +20,16 @@ export const getDirectory: typeof import("./getDirectory").getDirectory = null a
 export const getDirectoryOutput: typeof import("./getDirectory").getDirectoryOutput = null as any;
 utilities.lazyLoad(exports, ["getDirectory","getDirectoryOutput"], () => require("./getDirectory"));
 
+export { IpRouteArgs, IpRouteState } from "./ipRoute";
+export type IpRoute = import("./ipRoute").IpRoute;
+export const IpRoute: typeof import("./ipRoute").IpRoute = null as any;
+utilities.lazyLoad(exports, ["IpRoute"], () => require("./ipRoute"));
+
+export { IpRoutesExclusiveArgs, IpRoutesExclusiveState } from "./ipRoutesExclusive";
+export type IpRoutesExclusive = import("./ipRoutesExclusive").IpRoutesExclusive;
+export const IpRoutesExclusive: typeof import("./ipRoutesExclusive").IpRoutesExclusive = null as any;
+utilities.lazyLoad(exports, ["IpRoutesExclusive"], () => require("./ipRoutesExclusive"));
+
 export { LogSubscriptionArgs, LogSubscriptionState } from "./logSubscription";
 export type LogSubscription = import("./logSubscription").LogSubscription;
 export const LogSubscription: typeof import("./logSubscription").LogSubscription = null as any;
@@ -59,6 +69,10 @@ const _module = {
                 return new ConditionalForwarder(name, <any>undefined, { urn })
             case "aws:directoryservice/directory:Directory":
                 return new Directory(name, <any>undefined, { urn })
+            case "aws:directoryservice/ipRoute:IpRoute":
+                return new IpRoute(name, <any>undefined, { urn })
+            case "aws:directoryservice/ipRoutesExclusive:IpRoutesExclusive":
+                return new IpRoutesExclusive(name, <any>undefined, { urn })
             case "aws:directoryservice/logSubscription:LogSubscription":
                 return new LogSubscription(name, <any>undefined, { urn })
             case "aws:directoryservice/radiusSettings:RadiusSettings":
@@ -78,6 +92,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "directoryservice/conditionalForwarder", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/directory", _module)
+pulumi.runtime.registerResourceModule("aws", "directoryservice/ipRoute", _module)
+pulumi.runtime.registerResourceModule("aws", "directoryservice/ipRoutesExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/logSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/radiusSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "directoryservice/serviceRegion", _module)

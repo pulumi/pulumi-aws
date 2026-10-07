@@ -58,11 +58,11 @@ __all__ = [
 class CustomDomainAssociationCertificateValidationRecordArgsDict(TypedDict):
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Certificate CNAME record name.
+    Certificate `CNAME` record name.
     """
     status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+    Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
     """
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -70,7 +70,7 @@ class CustomDomainAssociationCertificateValidationRecordArgsDict(TypedDict):
     """
     value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Certificate CNAME record value.
+    Certificate `CNAME` record value.
     """
 
 @pulumi.input_type
@@ -81,10 +81,10 @@ class CustomDomainAssociationCertificateValidationRecordArgs:
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: Certificate CNAME record name.
-        :param pulumi.Input[_builtins.str] status: Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        :param pulumi.Input[_builtins.str] name: Certificate `CNAME` record name.
+        :param pulumi.Input[_builtins.str] status: Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         :param pulumi.Input[_builtins.str] type: Record type, always `CNAME`.
-        :param pulumi.Input[_builtins.str] value: Certificate CNAME record value.
+        :param pulumi.Input[_builtins.str] value: Certificate `CNAME` record value.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -99,7 +99,7 @@ class CustomDomainAssociationCertificateValidationRecordArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Certificate CNAME record name.
+        Certificate `CNAME` record name.
         """
         return pulumi.get(self, "name")
 
@@ -111,7 +111,7 @@ class CustomDomainAssociationCertificateValidationRecordArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+        Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
         """
         return pulumi.get(self, "status")
 
@@ -135,7 +135,7 @@ class CustomDomainAssociationCertificateValidationRecordArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Certificate CNAME record value.
+        Certificate `CNAME` record value.
         """
         return pulumi.get(self, "value")
 

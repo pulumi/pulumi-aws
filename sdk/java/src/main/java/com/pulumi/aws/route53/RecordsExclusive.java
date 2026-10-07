@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .forceDestroy(true)
  *             .build());
  * 
- *         var test = new RecordsExclusive("test", RecordsExclusiveArgs.builder()
+ *         var exampleRecordsExclusive = new RecordsExclusive("exampleRecordsExclusive", RecordsExclusiveArgs.builder()
  *             .resourceRecordSets(RecordsExclusiveResourceRecordSetArgs.builder()
  *                 .resourceRecords(                
  *                     RecordsExclusiveResourceRecordSetResourceRecordArgs.builder()
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *                 .type("A")
  *                 .ttl(30)
  *                 .build())
- *             .zoneId(testAwsRoute53Zone.zoneId())
+ *             .zoneId(example.zoneId())
  *             .build());
  * 
  *     }
@@ -110,8 +110,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new RecordsExclusive("test", RecordsExclusiveArgs.builder()
- *             .zoneId(testAwsRoute53Zone.zoneId())
+ *         var example = new RecordsExclusive("example", RecordsExclusiveArgs.builder()
+ *             .zoneId(exampleAwsRoute53Zone.zoneId())
  *             .build());
  * 
  *     }

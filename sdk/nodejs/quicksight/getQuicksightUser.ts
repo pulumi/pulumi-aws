@@ -49,7 +49,7 @@ export interface GetQuicksightUserArgs {
      */
     region?: string;
     /**
-     * The name of the user that you want to match.
+     * Name of the user that you want to match.
      *
      * The following arguments are optional:
      */
@@ -61,7 +61,7 @@ export interface GetQuicksightUserArgs {
  */
 export interface GetQuicksightUserResult {
     /**
-     * The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
+     * Active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
      */
     readonly active: boolean;
     /**
@@ -70,11 +70,11 @@ export interface GetQuicksightUserResult {
     readonly arn: string;
     readonly awsAccountId: string;
     /**
-     * The custom permissions profile associated with this user.
+     * Custom permissions profile associated with this user.
      */
     readonly customPermissionsName: string;
     /**
-     * The user's email address.
+     * User's email address.
      */
     readonly email: string;
     /**
@@ -82,21 +82,18 @@ export interface GetQuicksightUserResult {
      */
     readonly id: string;
     /**
-     * The type of identity authentication used by the user.
+     * Type of identity authentication used by the user.
      */
     readonly identityType: string;
     readonly namespace?: string;
     /**
-     * The principal ID of the user.
+     * Principal ID of the user.
      */
     readonly principalId: string;
     readonly region: string;
     readonly userName: string;
     /**
-     * The Amazon QuickSight role for the user. The user role can be one of the following:.
-     * - `READER`: A user who has read-only access to dashboards.
-     * - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
-     * - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
+     * Amazon QuickSight role for the user. Valid values are `READER` (read-only access to dashboards), `AUTHOR` (can create data sources, datasets, analyses, and dashboards), and `ADMIN` (an author who can also manage Amazon QuickSight settings).
      */
     readonly userRole: string;
 }
@@ -145,7 +142,7 @@ export interface GetQuicksightUserOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The name of the user that you want to match.
+     * Name of the user that you want to match.
      *
      * The following arguments are optional:
      */

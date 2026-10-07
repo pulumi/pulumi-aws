@@ -18,8 +18,6 @@ public final class QuerySuggestionsBlockListSourceS3Path {
     /**
      * @return Name of the file.
      * 
-     * The following arguments are optional:
-     * 
      */
     private String key;
 
@@ -33,8 +31,6 @@ public final class QuerySuggestionsBlockListSourceS3Path {
     }
     /**
      * @return Name of the file.
-     * 
-     * The following arguments are optional:
      * 
      */
     public String key() {

@@ -17,12 +17,12 @@ public final class GetThemeConfigurationDataColorPalette {
      */
     private List<String> colors;
     /**
-     * @return The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+     * @return Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
      * 
      */
     private String emptyFillColor;
     /**
-     * @return The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+     * @return Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
      * 
      */
     private List<String> minMaxGradients;
@@ -36,14 +36,14 @@ public final class GetThemeConfigurationDataColorPalette {
         return this.colors;
     }
     /**
-     * @return The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+     * @return Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
      * 
      */
     public String emptyFillColor() {
         return this.emptyFillColor;
     }
     /**
-     * @return The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+     * @return Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
      * 
      */
     public List<String> minMaxGradients() {

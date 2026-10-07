@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Pipes.Inputs
     public sealed class PipeTargetParametersBatchJobParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+        /// Array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. See `ArrayProperties` Block for details.
         /// </summary>
         [Input("arrayProperties")]
         public Input<Inputs.PipeTargetParametersBatchJobParametersArrayPropertiesGetArgs>? ArrayProperties { get; set; }
 
         /// <summary>
-        /// The overrides that are sent to a container. Detailed below.
+        /// Overrides that are sent to a container. See `ContainerOverrides` Block for details.
         /// </summary>
         [Input("containerOverrides")]
         public Input<Inputs.PipeTargetParametersBatchJobParametersContainerOverridesGetArgs>? ContainerOverrides { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<Inputs.PipeTargetParametersBatchJobParametersDependsOnGetArgs>? _dependsOns;
 
         /// <summary>
-        /// A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+        /// List of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. See `DependsOn` Block for details.
         /// </summary>
         public InputList<Inputs.PipeTargetParametersBatchJobParametersDependsOnGetArgs> DependsOns
         {
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         public Input<string> JobDefinition { get; set; } = null!;
 
         /// <summary>
-        /// The name of the job. It can be up to 128 letters long.
+        /// Name of the job. It can be up to 128 letters long.
         /// </summary>
         [Input("jobName", required: true)]
         public Input<string> JobName { get; set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
+        /// Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+        /// Retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. See `RetryStrategy` Block for details.
         /// </summary>
         [Input("retryStrategy")]
         public Input<Inputs.PipeTargetParametersBatchJobParametersRetryStrategyGetArgs>? RetryStrategy { get; set; }

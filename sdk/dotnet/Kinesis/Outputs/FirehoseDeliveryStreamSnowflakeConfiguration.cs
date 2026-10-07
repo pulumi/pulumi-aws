@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamSnowflakeConfiguration
     {
         /// <summary>
-        /// The URL of the Snowflake account. Format: https://[AccountIdentifier].snowflakecomputing.com.
+        /// URL of the Snowflake account. Format: https://[AccountIdentifier].snowflakecomputing.com.
         /// </summary>
         public readonly string AccountUrl;
         /// <summary>
@@ -26,35 +26,35 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
-        /// The name of the content column.
+        /// Name of the content column.
         /// </summary>
         public readonly string? ContentColumnName;
         /// <summary>
-        /// The data loading option.
+        /// Data loading option.
         /// </summary>
         public readonly string? DataLoadingOption;
         /// <summary>
-        /// The Snowflake database name.
+        /// Snowflake database name.
         /// </summary>
         public readonly string Database;
         /// <summary>
-        /// The passphrase for the private key.
+        /// Passphrase for the private key.
         /// </summary>
         public readonly string? KeyPassphrase;
         /// <summary>
-        /// The name of the metadata column.
+        /// Name of the metadata column.
         /// </summary>
         public readonly string? MetadataColumnName;
         /// <summary>
-        /// The private key for authentication. This value is required if `SecretsManagerConfiguration` is not provided.
+        /// Private key for authentication. This value is required if `SecretsManagerConfiguration` is not provided.
         /// </summary>
         public readonly string? PrivateKey;
         /// <summary>
-        /// The processing configuration. See `ProcessingConfiguration` block below for details.
+        /// Processing configuration. See `ProcessingConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -62,39 +62,39 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? RetryDuration;
         /// <summary>
-        /// The ARN of the IAM role.
+        /// ARN of the IAM role.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// The S3 backup mode.
+        /// S3 backup mode.
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 configuration. See `S3Configuration` block below for details.
+        /// S3 configuration. See `S3Configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration S3Configuration;
         /// <summary>
-        /// The Snowflake schema name.
+        /// Snowflake schema name.
         /// </summary>
         public readonly string Schema;
         /// <summary>
-        /// The Secrets Manager configuration. See `SecretsManagerConfiguration` block below for details. This value is required if `User` and `PrivateKey` are not provided.
+        /// Secrets Manager configuration. See `SecretsManagerConfiguration` block below for details. This value is required if `User` and `PrivateKey` are not provided.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration;
         /// <summary>
-        /// The configuration for Snowflake role.
+        /// Configuration for Snowflake role. See `SnowflakeRoleConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration? SnowflakeRoleConfiguration;
         /// <summary>
-        /// The VPC configuration for Snowflake.
+        /// VPC configuration for Snowflake. See `SnowflakeVpcConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration? SnowflakeVpcConfiguration;
         /// <summary>
-        /// The Snowflake table name.
+        /// Snowflake table name.
         /// </summary>
         public readonly string Table;
         /// <summary>
-        /// The user for authentication. This value is required if `SecretsManagerConfiguration` is not provided.
+        /// User for authentication. This value is required if `SecretsManagerConfiguration` is not provided.
         /// </summary>
         public readonly string? User;
 

@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class DataSourceParametersPresto {
     /**
-     * @return The catalog to which to connect.
+     * @return Catalog to which to connect.
      * 
      */
     private String catalog;
     /**
-     * @return The host to which to connect.
+     * @return Host to which to connect.
      * 
      */
     private String host;
     /**
-     * @return The port to which to connect.
+     * @return Port to which to connect.
      * 
      */
     private Integer port;
 
     private DataSourceParametersPresto() {}
     /**
-     * @return The catalog to which to connect.
+     * @return Catalog to which to connect.
      * 
      */
     public String catalog() {
         return this.catalog;
     }
     /**
-     * @return The host to which to connect.
+     * @return Host to which to connect.
      * 
      */
     public String host() {
         return this.host;
     }
     /**
-     * @return The port to which to connect.
+     * @return Port to which to connect.
      * 
      */
     public Integer port() {

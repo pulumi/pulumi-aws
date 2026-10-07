@@ -165,7 +165,7 @@ class RecordsExclusive(pulumi.CustomResource):
         example = aws.route53.Zone("example",
             name="example.com",
             force_destroy=True)
-        test = aws.route53.RecordsExclusive("test",
+        example_records_exclusive = aws.route53.RecordsExclusive("example",
             resource_record_sets=[{
                 "resource_records": [
                     {
@@ -179,7 +179,7 @@ class RecordsExclusive(pulumi.CustomResource):
                 "type": "A",
                 "ttl": 30,
             }],
-            zone_id=test_aws_route53_zone["zoneId"])
+            zone_id=example.zone_id)
         ```
 
         ### Disallow Record Sets
@@ -192,7 +192,7 @@ class RecordsExclusive(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.route53.RecordsExclusive("test", zone_id=test_aws_route53_zone["zoneId"])
+        example = aws.route53.RecordsExclusive("example", zone_id=example_aws_route53_zone["zoneId"])
         ```
 
         ## Import
@@ -238,7 +238,7 @@ class RecordsExclusive(pulumi.CustomResource):
         example = aws.route53.Zone("example",
             name="example.com",
             force_destroy=True)
-        test = aws.route53.RecordsExclusive("test",
+        example_records_exclusive = aws.route53.RecordsExclusive("example",
             resource_record_sets=[{
                 "resource_records": [
                     {
@@ -252,7 +252,7 @@ class RecordsExclusive(pulumi.CustomResource):
                 "type": "A",
                 "ttl": 30,
             }],
-            zone_id=test_aws_route53_zone["zoneId"])
+            zone_id=example.zone_id)
         ```
 
         ### Disallow Record Sets
@@ -265,7 +265,7 @@ class RecordsExclusive(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.route53.RecordsExclusive("test", zone_id=test_aws_route53_zone["zoneId"])
+        example = aws.route53.RecordsExclusive("example", zone_id=example_aws_route53_zone["zoneId"])
         ```
 
         ## Import

@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class PipeTargetParametersStepFunctionStateMachineParameters {
     /**
-     * @return Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+     * @return Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
      * 
      */
     private String invocationType;
 
     private PipeTargetParametersStepFunctionStateMachineParameters() {}
     /**
-     * @return Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+     * @return Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
      * 
      */
     public String invocationType() {

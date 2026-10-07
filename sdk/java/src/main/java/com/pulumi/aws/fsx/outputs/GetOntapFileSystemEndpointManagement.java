@@ -12,20 +12,28 @@ import java.util.Objects;
 @CustomType
 public final class GetOntapFileSystemEndpointManagement {
     /**
-     * @return DNS name for the file system.
+     * @return File system&#39;s DNS name. You can mount your file system using its DNS name.
      * 
      */
     private String dnsName;
+    /**
+     * @return IP addresses of the file system endpoint.
+     * 
+     */
     private List<String> ipAddresses;
 
     private GetOntapFileSystemEndpointManagement() {}
     /**
-     * @return DNS name for the file system.
+     * @return File system&#39;s DNS name. You can mount your file system using its DNS name.
      * 
      */
     public String dnsName() {
         return this.dnsName;
     }
+    /**
+     * @return IP addresses of the file system endpoint.
+     * 
+     */
     public List<String> ipAddresses() {
         return this.ipAddresses;
     }

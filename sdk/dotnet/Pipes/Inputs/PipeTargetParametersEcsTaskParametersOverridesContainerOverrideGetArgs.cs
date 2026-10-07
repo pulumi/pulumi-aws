@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+        /// Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
         /// </summary>
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileGetArgs>? _environmentFiles;
 
         /// <summary>
-        /// A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
+        /// List of files containing the environment variables to pass to a container, instead of the value from the container definition. See `EnvironmentFile` Block for details.
         /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileGetArgs> EnvironmentFiles
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentGetArgs>? _environments;
 
         /// <summary>
-        /// The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+        /// Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. See `target_parameters.ecs_task_parameters.overrides.container_override.environment` Block for details.
         /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentGetArgs> Environments
         {
@@ -55,19 +55,19 @@ namespace Pulumi.Aws.Pipes.Inputs
         }
 
         /// <summary>
-        /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+        /// Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
         /// </summary>
         [Input("memory")]
         public Input<int>? Memory { get; set; }
 
         /// <summary>
-        /// The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+        /// Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
         /// </summary>
         [Input("memoryReservation")]
         public Input<int>? MemoryReservation { get; set; }
 
         /// <summary>
-        /// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `NamePrefix`.
+        /// Name of the container that receives the override. This parameter is required if any override is specified.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Pipes.Inputs
         private InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementGetArgs>? _resourceRequirements;
 
         /// <summary>
-        /// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+        /// Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See `target_parameters.ecs_task_parameters.overrides.container_override.resource_requirement` Block for details.
         /// </summary>
         public InputList<Inputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementGetArgs> ResourceRequirements
         {

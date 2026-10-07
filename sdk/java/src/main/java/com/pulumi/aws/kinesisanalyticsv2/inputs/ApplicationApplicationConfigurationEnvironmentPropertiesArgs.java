@@ -16,14 +16,14 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesArgs 
     public static final ApplicationApplicationConfigurationEnvironmentPropertiesArgs Empty = new ApplicationApplicationConfigurationEnvironmentPropertiesArgs();
 
     /**
-     * Describes the execution property groups.
+     * Execution property groups. See `propertyGroup` Block below.
      * 
      */
     @Import(name="propertyGroups", required=true)
     private Output<List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs>> propertyGroups;
 
     /**
-     * @return Describes the execution property groups.
+     * @return Execution property groups. See `propertyGroup` Block below.
      * 
      */
     public Output<List<ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs>> propertyGroups() {
@@ -55,7 +55,7 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesArgs 
         }
 
         /**
-         * @param propertyGroups Describes the execution property groups.
+         * @param propertyGroups Execution property groups. See `propertyGroup` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesArgs 
         }
 
         /**
-         * @param propertyGroups Describes the execution property groups.
+         * @param propertyGroups Execution property groups. See `propertyGroup` Block below.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class ApplicationApplicationConfigurationEnvironmentPropertiesArgs 
         }
 
         /**
-         * @param propertyGroups Describes the execution property groups.
+         * @param propertyGroups Execution property groups. See `propertyGroup` Block below.
          * 
          * @return builder
          * 

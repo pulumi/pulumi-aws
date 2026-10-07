@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StreamKinesisConfiguration {
     /**
-     * @return Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+     * @return Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
      * 
      */
     private @Nullable Boolean aggregationEnabled;
@@ -26,7 +26,7 @@ public final class StreamKinesisConfiguration {
 
     private StreamKinesisConfiguration() {}
     /**
-     * @return Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+     * @return Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
      * 
      */
     public Optional<Boolean> aggregationEnabled() {

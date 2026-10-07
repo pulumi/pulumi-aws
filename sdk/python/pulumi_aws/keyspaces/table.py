@@ -36,20 +36,20 @@ class TableArgs:
         """
         The set of arguments for constructing a Table resource.
 
-        :param pulumi.Input[_builtins.str] keyspace_name: The name of the keyspace that the table is going to be created in.
-        :param pulumi.Input['TableSchemaDefinitionArgs'] schema_definition: Describes the schema of the table.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
+        :param pulumi.Input[_builtins.str] keyspace_name: Name of the keyspace that the table is going to be created in.
+        :param pulumi.Input['TableSchemaDefinitionArgs'] schema_definition: Schema of the table. See `schema_definition` below.
+        :param pulumi.Input[_builtins.str] table_name: Name of the table.
                
                The following arguments are optional:
-        :param pulumi.Input['TableCapacitySpecificationArgs'] capacity_specification: Specifies the read/write throughput capacity mode for the table.
-        :param pulumi.Input['TableClientSideTimestampsArgs'] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled.
-        :param pulumi.Input['TableCommentArgs'] comment: A description of the table.
-        :param pulumi.Input[_builtins.int] default_time_to_live: The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
-        :param pulumi.Input['TableEncryptionSpecificationArgs'] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
-        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        :param pulumi.Input['TableCapacitySpecificationArgs'] capacity_specification: Read/write throughput capacity mode for the table. See `capacity_specification` below.
+        :param pulumi.Input['TableClientSideTimestampsArgs'] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled. See `client_side_timestamps` below.
+        :param pulumi.Input['TableCommentArgs'] comment: Description of the table. See `comment` below.
+        :param pulumi.Input[_builtins.int] default_time_to_live: Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+        :param pulumi.Input['TableEncryptionSpecificationArgs'] encryption_specification: Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryption_specification` below.
+        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `point_in_time_recovery` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['TableTtlArgs'] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['TableTtlArgs'] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
         """
         pulumi.set(__self__, "keyspace_name", keyspace_name)
         pulumi.set(__self__, "schema_definition", schema_definition)
@@ -77,7 +77,7 @@ class TableArgs:
     @pulumi.getter(name="keyspaceName")
     def keyspace_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the keyspace that the table is going to be created in.
+        Name of the keyspace that the table is going to be created in.
         """
         return pulumi.get(self, "keyspace_name")
 
@@ -89,7 +89,7 @@ class TableArgs:
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Input['TableSchemaDefinitionArgs']:
         """
-        Describes the schema of the table.
+        Schema of the table. See `schema_definition` below.
         """
         return pulumi.get(self, "schema_definition")
 
@@ -101,7 +101,7 @@ class TableArgs:
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the table.
+        Name of the table.
 
         The following arguments are optional:
         """
@@ -115,7 +115,7 @@ class TableArgs:
     @pulumi.getter(name="capacitySpecification")
     def capacity_specification(self) -> pulumi.Input[Optional['TableCapacitySpecificationArgs']]:
         """
-        Specifies the read/write throughput capacity mode for the table.
+        Read/write throughput capacity mode for the table. See `capacity_specification` below.
         """
         return pulumi.get(self, "capacity_specification")
 
@@ -127,7 +127,7 @@ class TableArgs:
     @pulumi.getter(name="clientSideTimestamps")
     def client_side_timestamps(self) -> pulumi.Input[Optional['TableClientSideTimestampsArgs']]:
         """
-        Enables client-side timestamps for the table. By default, the setting is disabled.
+        Enables client-side timestamps for the table. By default, the setting is disabled. See `client_side_timestamps` below.
         """
         return pulumi.get(self, "client_side_timestamps")
 
@@ -139,7 +139,7 @@ class TableArgs:
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional['TableCommentArgs']]:
         """
-        A description of the table.
+        Description of the table. See `comment` below.
         """
         return pulumi.get(self, "comment")
 
@@ -151,7 +151,7 @@ class TableArgs:
     @pulumi.getter(name="defaultTimeToLive")
     def default_time_to_live(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+        Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         """
         return pulumi.get(self, "default_time_to_live")
 
@@ -163,7 +163,7 @@ class TableArgs:
     @pulumi.getter(name="encryptionSpecification")
     def encryption_specification(self) -> pulumi.Input[Optional['TableEncryptionSpecificationArgs']]:
         """
-        Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+        Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryption_specification` below.
         """
         return pulumi.get(self, "encryption_specification")
 
@@ -175,7 +175,7 @@ class TableArgs:
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> pulumi.Input[Optional['TablePointInTimeRecoveryArgs']]:
         """
-        Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `point_in_time_recovery` below.
         """
         return pulumi.get(self, "point_in_time_recovery")
 
@@ -199,7 +199,7 @@ class TableArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -211,7 +211,7 @@ class TableArgs:
     @pulumi.getter
     def ttl(self) -> pulumi.Input[Optional['TableTtlArgs']]:
         """
-        Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
         """
         return pulumi.get(self, "ttl")
 
@@ -240,22 +240,22 @@ class _TableState:
         """
         Input properties used for looking up and filtering Table resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the table.
-        :param pulumi.Input['TableCapacitySpecificationArgs'] capacity_specification: Specifies the read/write throughput capacity mode for the table.
-        :param pulumi.Input['TableClientSideTimestampsArgs'] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled.
-        :param pulumi.Input['TableCommentArgs'] comment: A description of the table.
-        :param pulumi.Input[_builtins.int] default_time_to_live: The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
-        :param pulumi.Input['TableEncryptionSpecificationArgs'] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
-        :param pulumi.Input[_builtins.str] keyspace_name: The name of the keyspace that the table is going to be created in.
-        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        :param pulumi.Input[_builtins.str] arn: ARN of the table.
+        :param pulumi.Input['TableCapacitySpecificationArgs'] capacity_specification: Read/write throughput capacity mode for the table. See `capacity_specification` below.
+        :param pulumi.Input['TableClientSideTimestampsArgs'] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled. See `client_side_timestamps` below.
+        :param pulumi.Input['TableCommentArgs'] comment: Description of the table. See `comment` below.
+        :param pulumi.Input[_builtins.int] default_time_to_live: Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+        :param pulumi.Input['TableEncryptionSpecificationArgs'] encryption_specification: Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryption_specification` below.
+        :param pulumi.Input[_builtins.str] keyspace_name: Name of the keyspace that the table is going to be created in.
+        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `point_in_time_recovery` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TableSchemaDefinitionArgs'] schema_definition: Describes the schema of the table.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
+        :param pulumi.Input['TableSchemaDefinitionArgs'] schema_definition: Schema of the table. See `schema_definition` below.
+        :param pulumi.Input[_builtins.str] table_name: Name of the table.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['TableTtlArgs'] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input['TableTtlArgs'] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -290,7 +290,7 @@ class _TableState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the table.
+        ARN of the table.
         """
         return pulumi.get(self, "arn")
 
@@ -302,7 +302,7 @@ class _TableState:
     @pulumi.getter(name="capacitySpecification")
     def capacity_specification(self) -> pulumi.Input[Optional['TableCapacitySpecificationArgs']]:
         """
-        Specifies the read/write throughput capacity mode for the table.
+        Read/write throughput capacity mode for the table. See `capacity_specification` below.
         """
         return pulumi.get(self, "capacity_specification")
 
@@ -314,7 +314,7 @@ class _TableState:
     @pulumi.getter(name="clientSideTimestamps")
     def client_side_timestamps(self) -> pulumi.Input[Optional['TableClientSideTimestampsArgs']]:
         """
-        Enables client-side timestamps for the table. By default, the setting is disabled.
+        Enables client-side timestamps for the table. By default, the setting is disabled. See `client_side_timestamps` below.
         """
         return pulumi.get(self, "client_side_timestamps")
 
@@ -326,7 +326,7 @@ class _TableState:
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional['TableCommentArgs']]:
         """
-        A description of the table.
+        Description of the table. See `comment` below.
         """
         return pulumi.get(self, "comment")
 
@@ -338,7 +338,7 @@ class _TableState:
     @pulumi.getter(name="defaultTimeToLive")
     def default_time_to_live(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+        Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         """
         return pulumi.get(self, "default_time_to_live")
 
@@ -350,7 +350,7 @@ class _TableState:
     @pulumi.getter(name="encryptionSpecification")
     def encryption_specification(self) -> pulumi.Input[Optional['TableEncryptionSpecificationArgs']]:
         """
-        Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+        Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryption_specification` below.
         """
         return pulumi.get(self, "encryption_specification")
 
@@ -362,7 +362,7 @@ class _TableState:
     @pulumi.getter(name="keyspaceName")
     def keyspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the keyspace that the table is going to be created in.
+        Name of the keyspace that the table is going to be created in.
         """
         return pulumi.get(self, "keyspace_name")
 
@@ -374,7 +374,7 @@ class _TableState:
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> pulumi.Input[Optional['TablePointInTimeRecoveryArgs']]:
         """
-        Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `point_in_time_recovery` below.
         """
         return pulumi.get(self, "point_in_time_recovery")
 
@@ -398,7 +398,7 @@ class _TableState:
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Input[Optional['TableSchemaDefinitionArgs']]:
         """
-        Describes the schema of the table.
+        Schema of the table. See `schema_definition` below.
         """
         return pulumi.get(self, "schema_definition")
 
@@ -410,7 +410,7 @@ class _TableState:
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the table.
+        Name of the table.
 
         The following arguments are optional:
         """
@@ -424,7 +424,7 @@ class _TableState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -436,7 +436,7 @@ class _TableState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -448,7 +448,7 @@ class _TableState:
     @pulumi.getter
     def ttl(self) -> pulumi.Input[Optional['TableTtlArgs']]:
         """
-        Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
         """
         return pulumi.get(self, "ttl")
 
@@ -512,20 +512,20 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict', 'outputs.TableCapacitySpecification']] capacity_specification: Specifies the read/write throughput capacity mode for the table.
-        :param pulumi.Input[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict', 'outputs.TableClientSideTimestamps']] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled.
-        :param pulumi.Input[Union['TableCommentArgs', 'TableCommentArgsDict', 'outputs.TableComment']] comment: A description of the table.
-        :param pulumi.Input[_builtins.int] default_time_to_live: The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
-        :param pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict', 'outputs.TableEncryptionSpecification']] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
-        :param pulumi.Input[_builtins.str] keyspace_name: The name of the keyspace that the table is going to be created in.
-        :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict', 'outputs.TablePointInTimeRecovery']] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        :param pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict', 'outputs.TableCapacitySpecification']] capacity_specification: Read/write throughput capacity mode for the table. See `capacity_specification` below.
+        :param pulumi.Input[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict', 'outputs.TableClientSideTimestamps']] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled. See `client_side_timestamps` below.
+        :param pulumi.Input[Union['TableCommentArgs', 'TableCommentArgsDict', 'outputs.TableComment']] comment: Description of the table. See `comment` below.
+        :param pulumi.Input[_builtins.int] default_time_to_live: Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+        :param pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict', 'outputs.TableEncryptionSpecification']] encryption_specification: Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryption_specification` below.
+        :param pulumi.Input[_builtins.str] keyspace_name: Name of the keyspace that the table is going to be created in.
+        :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict', 'outputs.TablePointInTimeRecovery']] point_in_time_recovery: Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `point_in_time_recovery` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict', 'outputs.TableSchemaDefinition']] schema_definition: Describes the schema of the table.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
+        :param pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict', 'outputs.TableSchemaDefinition']] schema_definition: Schema of the table. See `schema_definition` below.
+        :param pulumi.Input[_builtins.str] table_name: Name of the table.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict', 'outputs.TableTtl']] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict', 'outputs.TableTtl']] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
         """
         ...
     @overload
@@ -654,22 +654,22 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the table.
-        :param pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict', 'outputs.TableCapacitySpecification']] capacity_specification: Specifies the read/write throughput capacity mode for the table.
-        :param pulumi.Input[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict', 'outputs.TableClientSideTimestamps']] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled.
-        :param pulumi.Input[Union['TableCommentArgs', 'TableCommentArgsDict', 'outputs.TableComment']] comment: A description of the table.
-        :param pulumi.Input[_builtins.int] default_time_to_live: The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
-        :param pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict', 'outputs.TableEncryptionSpecification']] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
-        :param pulumi.Input[_builtins.str] keyspace_name: The name of the keyspace that the table is going to be created in.
-        :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict', 'outputs.TablePointInTimeRecovery']] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        :param pulumi.Input[_builtins.str] arn: ARN of the table.
+        :param pulumi.Input[Union['TableCapacitySpecificationArgs', 'TableCapacitySpecificationArgsDict', 'outputs.TableCapacitySpecification']] capacity_specification: Read/write throughput capacity mode for the table. See `capacity_specification` below.
+        :param pulumi.Input[Union['TableClientSideTimestampsArgs', 'TableClientSideTimestampsArgsDict', 'outputs.TableClientSideTimestamps']] client_side_timestamps: Enables client-side timestamps for the table. By default, the setting is disabled. See `client_side_timestamps` below.
+        :param pulumi.Input[Union['TableCommentArgs', 'TableCommentArgsDict', 'outputs.TableComment']] comment: Description of the table. See `comment` below.
+        :param pulumi.Input[_builtins.int] default_time_to_live: Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+        :param pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict', 'outputs.TableEncryptionSpecification']] encryption_specification: Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryption_specification` below.
+        :param pulumi.Input[_builtins.str] keyspace_name: Name of the keyspace that the table is going to be created in.
+        :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict', 'outputs.TablePointInTimeRecovery']] point_in_time_recovery: Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `point_in_time_recovery` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict', 'outputs.TableSchemaDefinition']] schema_definition: Describes the schema of the table.
-        :param pulumi.Input[_builtins.str] table_name: The name of the table.
+        :param pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict', 'outputs.TableSchemaDefinition']] schema_definition: Schema of the table. See `schema_definition` below.
+        :param pulumi.Input[_builtins.str] table_name: Name of the table.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict', 'outputs.TableTtl']] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Union['TableTtlArgs', 'TableTtlArgsDict', 'outputs.TableTtl']] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -695,7 +695,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the table.
+        ARN of the table.
         """
         return pulumi.get(self, "arn")
 
@@ -703,7 +703,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="capacitySpecification")
     def capacity_specification(self) -> pulumi.Output['outputs.TableCapacitySpecification']:
         """
-        Specifies the read/write throughput capacity mode for the table.
+        Read/write throughput capacity mode for the table. See `capacity_specification` below.
         """
         return pulumi.get(self, "capacity_specification")
 
@@ -711,7 +711,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="clientSideTimestamps")
     def client_side_timestamps(self) -> pulumi.Output[Optional['outputs.TableClientSideTimestamps']]:
         """
-        Enables client-side timestamps for the table. By default, the setting is disabled.
+        Enables client-side timestamps for the table. By default, the setting is disabled. See `client_side_timestamps` below.
         """
         return pulumi.get(self, "client_side_timestamps")
 
@@ -719,7 +719,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output['outputs.TableComment']:
         """
-        A description of the table.
+        Description of the table. See `comment` below.
         """
         return pulumi.get(self, "comment")
 
@@ -727,7 +727,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="defaultTimeToLive")
     def default_time_to_live(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+        Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         """
         return pulumi.get(self, "default_time_to_live")
 
@@ -735,7 +735,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="encryptionSpecification")
     def encryption_specification(self) -> pulumi.Output['outputs.TableEncryptionSpecification']:
         """
-        Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+        Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryption_specification` below.
         """
         return pulumi.get(self, "encryption_specification")
 
@@ -743,7 +743,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="keyspaceName")
     def keyspace_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the keyspace that the table is going to be created in.
+        Name of the keyspace that the table is going to be created in.
         """
         return pulumi.get(self, "keyspace_name")
 
@@ -751,7 +751,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> pulumi.Output['outputs.TablePointInTimeRecovery']:
         """
-        Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `point_in_time_recovery` below.
         """
         return pulumi.get(self, "point_in_time_recovery")
 
@@ -767,7 +767,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Output['outputs.TableSchemaDefinition']:
         """
-        Describes the schema of the table.
+        Schema of the table. See `schema_definition` below.
         """
         return pulumi.get(self, "schema_definition")
 
@@ -775,7 +775,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the table.
+        Name of the table.
 
         The following arguments are optional:
         """
@@ -785,7 +785,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -793,7 +793,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -801,7 +801,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def ttl(self) -> pulumi.Output[Optional['outputs.TableTtl']]:
         """
-        Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+        Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
         """
         return pulumi.get(self, "ttl")
 

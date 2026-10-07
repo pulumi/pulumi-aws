@@ -19,50 +19,74 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
     public static final FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs Empty = new FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs();
 
     /**
-     * The ARN of the S3 bucket
+     * ARN of the S3 bucket.
      * 
      */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
     /**
-     * @return The ARN of the S3 bucket
+     * @return ARN of the S3 bucket.
      * 
      */
     public Output<String> bucketArn() {
         return this.bucketArn;
     }
 
+    /**
+     * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+     * 
+     */
     @Import(name="bufferingInterval")
     private @Nullable Output<Integer> bufferingInterval;
 
+    /**
+     * @return Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+     * 
+     */
     public Optional<Output<Integer>> bufferingInterval() {
         return Optional.ofNullable(this.bufferingInterval);
     }
 
+    /**
+     * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+     * 
+     */
     @Import(name="bufferingSize")
     private @Nullable Output<Integer> bufferingSize;
 
+    /**
+     * @return Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+     * 
+     */
     public Optional<Output<Integer>> bufferingSize() {
         return Optional.ofNullable(this.bufferingSize);
     }
 
+    /**
+     * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * 
+     */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
+    /**
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * 
+     */
     public Optional<Output<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
 
     /**
-     * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+     * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
      * 
      */
     @Import(name="compressionFormat")
     private @Nullable Output<String> compressionFormat;
 
     /**
-     * @return The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+     * @return Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
      * 
      */
     public Optional<Output<String>> compressionFormat() {
@@ -70,14 +94,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
     }
 
     /**
-     * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+     * Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
      * 
      */
     @Import(name="errorOutputPrefix")
     private @Nullable Output<String> errorOutputPrefix;
 
     /**
-     * @return Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+     * @return Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
      * 
      */
     public Optional<Output<String>> errorOutputPrefix() {
@@ -85,16 +109,14 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
     }
 
     /**
-     * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-     * be used.
+     * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-     * be used.
+     * @return KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -102,23 +124,31 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
     }
 
     /**
-     * The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+     * Extra prefix added in front of the &#34;YYYY/MM/DD/HH&#34; time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+     * @return Extra prefix added in front of the &#34;YYYY/MM/DD/HH&#34; time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
      * 
      */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
 
+    /**
+     * ARN of the AWS credentials.
+     * 
+     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
+    /**
+     * @return ARN of the AWS credentials.
+     * 
+     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -156,7 +186,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
         }
 
         /**
-         * @param bucketArn The ARN of the S3 bucket
+         * @param bucketArn ARN of the S3 bucket.
          * 
          * @return builder
          * 
@@ -167,7 +197,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
         }
 
         /**
-         * @param bucketArn The ARN of the S3 bucket
+         * @param bucketArn ARN of the S3 bucket.
          * 
          * @return builder
          * 
@@ -176,35 +206,71 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
             return bucketArn(Output.of(bucketArn));
         }
 
+        /**
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bufferingInterval(@Nullable Output<Integer> bufferingInterval) {
             $.bufferingInterval = bufferingInterval;
             return this;
         }
 
+        /**
+         * @param bufferingInterval Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bufferingInterval(Integer bufferingInterval) {
             return bufferingInterval(Output.of(bufferingInterval));
         }
 
+        /**
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bufferingSize(@Nullable Output<Integer> bufferingSize) {
             $.bufferingSize = bufferingSize;
             return this;
         }
 
+        /**
+         * @param bufferingSize Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bufferingSize(Integer bufferingSize) {
             return bufferingSize(Output.of(bufferingSize));
         }
 
+        /**
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudwatchLoggingOptions(@Nullable Output<FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions) {
             $.cloudwatchLoggingOptions = cloudwatchLoggingOptions;
             return this;
         }
 
+        /**
+         * @param cloudwatchLoggingOptions CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudwatchLoggingOptions(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs cloudwatchLoggingOptions) {
             return cloudwatchLoggingOptions(Output.of(cloudwatchLoggingOptions));
         }
 
         /**
-         * @param compressionFormat The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+         * @param compressionFormat Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
          * 
          * @return builder
          * 
@@ -215,7 +281,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
         }
 
         /**
-         * @param compressionFormat The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
+         * @param compressionFormat Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, &amp; `HADOOP_SNAPPY`.
          * 
          * @return builder
          * 
@@ -225,7 +291,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
         }
 
         /**
-         * @param errorOutputPrefix Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         * @param errorOutputPrefix Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
          * 
          * @return builder
          * 
@@ -236,7 +302,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
         }
 
         /**
-         * @param errorOutputPrefix Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         * @param errorOutputPrefix Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
          * 
          * @return builder
          * 
@@ -246,8 +312,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
         }
 
         /**
-         * @param kmsKeyArn Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * @param kmsKeyArn KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          * 
          * @return builder
          * 
@@ -258,8 +323,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
         }
 
         /**
-         * @param kmsKeyArn Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * @param kmsKeyArn KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          * 
          * @return builder
          * 
@@ -269,7 +333,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
         }
 
         /**
-         * @param prefix The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * @param prefix Extra prefix added in front of the &#34;YYYY/MM/DD/HH&#34; time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          * 
          * @return builder
          * 
@@ -280,7 +344,7 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
         }
 
         /**
-         * @param prefix The &#34;YYYY/MM/DD/HH&#34; time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * @param prefix Extra prefix added in front of the &#34;YYYY/MM/DD/HH&#34; time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          * 
          * @return builder
          * 
@@ -289,11 +353,23 @@ public final class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurat
             return prefix(Output.of(prefix));
         }
 
+        /**
+         * @param roleArn ARN of the AWS credentials.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
+        /**
+         * @param roleArn ARN of the AWS credentials.
+         * 
+         * @return builder
+         * 
+         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

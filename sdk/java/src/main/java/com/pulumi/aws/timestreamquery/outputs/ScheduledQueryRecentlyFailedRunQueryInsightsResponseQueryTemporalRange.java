@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange {
     /**
-     * @return Insights into the most sub-optimal performing table on the temporal axis:
+     * @return Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
      * 
      */
     private @Nullable List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis> maxes;
 
     private ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange() {}
     /**
-     * @return Insights into the most sub-optimal performing table on the temporal axis:
+     * @return Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
      * 
      */
     public List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis> maxes() {

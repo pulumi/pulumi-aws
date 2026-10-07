@@ -105,70 +105,70 @@ public class Stream extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+     * Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
      * 
      */
     @Export(name="encryptionType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encryptionType;
 
     /**
-     * @return The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+     * @return Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
      * 
      */
     public Output<Optional<String>> encryptionType() {
         return Codegen.optional(this.encryptionType);
     }
     /**
-     * A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+     * Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
      * 
      */
     @Export(name="enforceConsumerDeletion", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enforceConsumerDeletion;
 
     /**
-     * @return A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+     * @return Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
      * 
      */
     public Output<Optional<Boolean>> enforceConsumerDeletion() {
         return Codegen.optional(this.enforceConsumerDeletion);
     }
     /**
-     * The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+     * Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyId;
 
     /**
-     * @return The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+     * @return Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
      * 
      */
     public Output<Optional<String>> kmsKeyId() {
         return Codegen.optional(this.kmsKeyId);
     }
     /**
-     * The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+     * Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
      * 
      */
     @Export(name="maxRecordSizeInKib", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxRecordSizeInKib;
 
     /**
-     * @return The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+     * @return Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
      * 
      */
     public Output<Integer> maxRecordSizeInKib() {
         return this.maxRecordSizeInKib;
     }
     /**
-     * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+     * Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+     * @return Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      * 
      */
     public Output<String> name() {
@@ -203,70 +203,70 @@ public class Stream extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retentionPeriod);
     }
     /**
-     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+     * Number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      * 
      */
     @Export(name="shardCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> shardCount;
 
     /**
-     * @return The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+     * @return Number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      * 
      */
     public Output<Optional<Integer>> shardCount() {
         return Codegen.optional(this.shardCount);
     }
     /**
-     * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+     * List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      * 
      */
     @Export(name="shardLevelMetrics", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> shardLevelMetrics;
 
     /**
-     * @return A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+     * @return List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      * 
      */
     public Output<Optional<List<String>>> shardLevelMetrics() {
         return Codegen.optional(this.shardLevelMetrics);
     }
     /**
-     * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+     * [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      * 
      */
     @Export(name="streamModeDetails", refs={StreamStreamModeDetails.class}, tree="[0]")
     private Output<StreamStreamModeDetails> streamModeDetails;
 
     /**
-     * @return Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+     * @return [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      * 
      */
     public Output<StreamStreamModeDetails> streamModeDetails() {
         return this.streamModeDetails;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

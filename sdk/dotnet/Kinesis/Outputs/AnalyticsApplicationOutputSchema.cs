@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class AnalyticsApplicationOutputSchema
     {
         /// <summary>
-        /// The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
+        /// Format Type of the records on the output stream. Can be `CSV` or `JSON`.
         /// </summary>
         public readonly string RecordFormatType;
 

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly string ClaimRegex;
         /// <summary>
-        /// The group attribute field.
+        /// Group attribute field.
         /// </summary>
         public readonly string GroupAttributeField;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly string Issuer;
         /// <summary>
-        /// Location of the key. Valid values are `URL` or `SECRET_MANAGER`
+        /// Location of the key. Valid values are `URL` or `SECRET_MANAGER`.
         /// </summary>
         public readonly string KeyLocation;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly string Url;
         /// <summary>
-        /// The user name attribute field.
+        /// User name attribute field.
         /// </summary>
         public readonly string UserNameAttributeField;
 

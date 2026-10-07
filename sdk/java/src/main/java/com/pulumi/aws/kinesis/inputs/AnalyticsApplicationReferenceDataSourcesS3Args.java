@@ -15,14 +15,14 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
     public static final AnalyticsApplicationReferenceDataSourcesS3Args Empty = new AnalyticsApplicationReferenceDataSourcesS3Args();
 
     /**
-     * The S3 Bucket ARN.
+     * S3 Bucket ARN.
      * 
      */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
     /**
-     * @return The S3 Bucket ARN.
+     * @return S3 Bucket ARN.
      * 
      */
     public Output<String> bucketArn() {
@@ -30,31 +30,23 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
     }
 
     /**
-     * The File Key name containing reference data.
+     * File Key name containing reference data.
      * 
      */
     @Import(name="fileKey", required=true)
     private Output<String> fileKey;
 
     /**
-     * @return The File Key name containing reference data.
+     * @return File Key name containing reference data.
      * 
      */
     public Output<String> fileKey() {
         return this.fileKey;
     }
 
-    /**
-     * The IAM Role ARN to read the data.
-     * 
-     */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
-    /**
-     * @return The IAM Role ARN to read the data.
-     * 
-     */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -86,7 +78,7 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
         }
 
         /**
-         * @param bucketArn The S3 Bucket ARN.
+         * @param bucketArn S3 Bucket ARN.
          * 
          * @return builder
          * 
@@ -97,7 +89,7 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
         }
 
         /**
-         * @param bucketArn The S3 Bucket ARN.
+         * @param bucketArn S3 Bucket ARN.
          * 
          * @return builder
          * 
@@ -107,7 +99,7 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
         }
 
         /**
-         * @param fileKey The File Key name containing reference data.
+         * @param fileKey File Key name containing reference data.
          * 
          * @return builder
          * 
@@ -118,7 +110,7 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
         }
 
         /**
-         * @param fileKey The File Key name containing reference data.
+         * @param fileKey File Key name containing reference data.
          * 
          * @return builder
          * 
@@ -127,23 +119,11 @@ public final class AnalyticsApplicationReferenceDataSourcesS3Args extends com.pu
             return fileKey(Output.of(fileKey));
         }
 
-        /**
-         * @param roleArn The IAM Role ARN to read the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
-        /**
-         * @param roleArn The IAM Role ARN to read the data.
-         * 
-         * @return builder
-         * 
-         */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

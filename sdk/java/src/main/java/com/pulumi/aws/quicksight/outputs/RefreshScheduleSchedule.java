@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RefreshScheduleSchedule {
     /**
-     * @return The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+     * @return Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
      * 
      */
     private String refreshType;
     /**
-     * @return The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+     * @return Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `scheduleFrequency` Block.
      * 
      */
     private RefreshScheduleScheduleScheduleFrequency scheduleFrequency;
@@ -31,14 +31,14 @@ public final class RefreshScheduleSchedule {
 
     private RefreshScheduleSchedule() {}
     /**
-     * @return The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+     * @return Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
      * 
      */
     public String refreshType() {
         return this.refreshType;
     }
     /**
-     * @return The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+     * @return Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `scheduleFrequency` Block.
      * 
      */
     public RefreshScheduleScheduleScheduleFrequency scheduleFrequency() {

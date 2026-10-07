@@ -54,19 +54,19 @@ namespace Pulumi.Aws.Xray
     public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Group.
+        /// ARN of the Group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+        /// Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         /// </summary>
         [Output("filterExpression")]
         public Output<string> FilterExpression { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the group.
+        /// Name of the group.
         /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Xray
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -142,13 +142,13 @@ namespace Pulumi.Aws.Xray
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+        /// Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         /// </summary>
         [Input("filterExpression", required: true)]
         public Input<string> FilterExpression { get; set; } = null!;
 
         /// <summary>
-        /// The name of the group.
+        /// Name of the group.
         /// </summary>
         [Input("groupName", required: true)]
         public Input<string> GroupName { get; set; } = null!;
@@ -186,19 +186,19 @@ namespace Pulumi.Aws.Xray
     public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Group.
+        /// ARN of the Group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+        /// Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         /// </summary>
         [Input("filterExpression")]
         public Input<string>? FilterExpression { get; set; }
 
         /// <summary>
-        /// The name of the group.
+        /// Name of the group.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Xray
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

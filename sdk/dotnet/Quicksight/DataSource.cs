@@ -212,31 +212,31 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+        /// Credentials Amazon QuickSight uses to connect to your underlying source. See `Credentials` Block below for more details.
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.DataSourceCredentials?> Credentials { get; private set; } = null!;
 
         /// <summary>
-        /// An identifier for the data source.
+        /// Identifier for the data source.
         /// </summary>
         [Output("dataSourceId")]
         public Output<string> DataSourceId { get; private set; } = null!;
 
         /// <summary>
-        /// A name for the data source, maximum of 128 characters.
+        /// Name for the data source, maximum of 128 characters.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The parameters used to connect to this data source (exactly one).
+        /// Parameters used to connect to this data source (exactly one). See `Parameters` Block for details.
         /// </summary>
         [Output("parameters")]
         public Output<Outputs.DataSourceParameters> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+        /// Set of resource permissions on the data source. Maximum of 64 items. See `Permission` Block below for more details.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.DataSourcePermission>> Permissions { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `SslProperties` Block below for more details.
         /// </summary>
         [Output("sslProperties")]
         public Output<Outputs.DataSourceSslProperties> SslProperties { get; private set; } = null!;
@@ -260,13 +260,13 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+        /// Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `VpcConnectionProperties` Block below for more details.
         /// </summary>
         [Output("vpcConnectionProperties")]
         public Output<Outputs.DataSourceVpcConnectionProperties?> VpcConnectionProperties { get; private set; } = null!;
@@ -332,25 +332,25 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+        /// Credentials Amazon QuickSight uses to connect to your underlying source. See `Credentials` Block below for more details.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.DataSourceCredentialsArgs>? Credentials { get; set; }
 
         /// <summary>
-        /// An identifier for the data source.
+        /// Identifier for the data source.
         /// </summary>
         [Input("dataSourceId", required: true)]
         public Input<string> DataSourceId { get; set; } = null!;
 
         /// <summary>
-        /// A name for the data source, maximum of 128 characters.
+        /// Name for the data source, maximum of 128 characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The parameters used to connect to this data source (exactly one).
+        /// Parameters used to connect to this data source (exactly one). See `Parameters` Block for details.
         /// </summary>
         [Input("parameters", required: true)]
         public Input<Inputs.DataSourceParametersArgs> Parameters { get; set; } = null!;
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSourcePermissionArgs>? _permissions;
 
         /// <summary>
-        /// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+        /// Set of resource permissions on the data source. Maximum of 64 items. See `Permission` Block below for more details.
         /// </summary>
         public InputList<Inputs.DataSourcePermissionArgs> Permissions
         {
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `SslProperties` Block below for more details.
         /// </summary>
         [Input("sslProperties")]
         public Input<Inputs.DataSourceSslPropertiesArgs>? SslProperties { get; set; }
@@ -392,7 +392,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+        /// Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -400,7 +400,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `VpcConnectionProperties` Block below for more details.
         /// </summary>
         [Input("vpcConnectionProperties")]
         public Input<Inputs.DataSourceVpcConnectionPropertiesArgs>? VpcConnectionProperties { get; set; }
@@ -426,25 +426,25 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+        /// Credentials Amazon QuickSight uses to connect to your underlying source. See `Credentials` Block below for more details.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.DataSourceCredentialsGetArgs>? Credentials { get; set; }
 
         /// <summary>
-        /// An identifier for the data source.
+        /// Identifier for the data source.
         /// </summary>
         [Input("dataSourceId")]
         public Input<string>? DataSourceId { get; set; }
 
         /// <summary>
-        /// A name for the data source, maximum of 128 characters.
+        /// Name for the data source, maximum of 128 characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The parameters used to connect to this data source (exactly one).
+        /// Parameters used to connect to this data source (exactly one). See `Parameters` Block for details.
         /// </summary>
         [Input("parameters")]
         public Input<Inputs.DataSourceParametersGetArgs>? Parameters { get; set; }
@@ -453,7 +453,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.DataSourcePermissionGetArgs>? _permissions;
 
         /// <summary>
-        /// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+        /// Set of resource permissions on the data source. Maximum of 64 items. See `Permission` Block below for more details.
         /// </summary>
         public InputList<Inputs.DataSourcePermissionGetArgs> Permissions
         {
@@ -468,7 +468,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `SslProperties` Block below for more details.
         /// </summary>
         [Input("sslProperties")]
         public Input<Inputs.DataSourceSslPropertiesGetArgs>? SslProperties { get; set; }
@@ -489,7 +489,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -498,7 +498,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+        /// Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -506,7 +506,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `VpcConnectionProperties` Block below for more details.
         /// </summary>
         [Input("vpcConnectionProperties")]
         public Input<Inputs.DataSourceVpcConnectionPropertiesGetArgs>? VpcConnectionProperties { get; set; }

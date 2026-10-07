@@ -18,7 +18,7 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperation {
      */
     private String columnName;
     /**
-     * @return The dataset column tag, currently only used for geospatial type tagging. See tags.
+     * @return Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
      * 
      */
     private List<DataSetLogicalTableMapDataTransformTagColumnOperationTag> tags;
@@ -32,7 +32,7 @@ public final class DataSetLogicalTableMapDataTransformTagColumnOperation {
         return this.columnName;
     }
     /**
-     * @return The dataset column tag, currently only used for geospatial type tagging. See tags.
+     * @return Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
      * 
      */
     public List<DataSetLogicalTableMapDataTransformTagColumnOperationTag> tags() {

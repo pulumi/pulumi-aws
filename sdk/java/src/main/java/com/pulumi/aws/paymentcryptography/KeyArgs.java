@@ -22,9 +22,17 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KeyArgs Empty = new KeyArgs();
 
+    /**
+     * Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+     * 
+     */
     @Import(name="deletionWindowInDays")
     private @Nullable Output<Integer> deletionWindowInDays;
 
+    /**
+     * @return Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+     * 
+     */
     public Optional<Output<Integer>> deletionWindowInDays() {
         return Optional.ofNullable(this.deletionWindowInDays);
     }
@@ -109,14 +117,14 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -161,11 +169,23 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new KeyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param deletionWindowInDays Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deletionWindowInDays(@Nullable Output<Integer> deletionWindowInDays) {
             $.deletionWindowInDays = deletionWindowInDays;
             return this;
         }
 
+        /**
+         * @param deletionWindowInDays Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deletionWindowInDays(Integer deletionWindowInDays) {
             return deletionWindowInDays(Output.of(deletionWindowInDays));
         }
@@ -292,7 +312,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -303,7 +323,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -313,19 +313,19 @@ class AccountSettingsTimeoutsArgs:
 class AnalysisParametersArgsDict(TypedDict):
     date_time_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersDateTimeParameterArgsDict']]]]]
     """
-    A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+    List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
     """
     decimal_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersDecimalParameterArgsDict']]]]]
     """
-    A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+    List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
     """
     integer_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersIntegerParameterArgsDict']]]]]
     """
-    A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+    List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
     """
     string_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersStringParameterArgsDict']]]]]
     """
-    A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+    List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
     """
 
 @pulumi.input_type
@@ -336,10 +336,10 @@ class AnalysisParametersArgs:
                  integer_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersIntegerParameterArgs']]]] = None,
                  string_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersStringParameterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDateTimeParameterArgs']]] date_time_parameters: A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDecimalParameterArgs']]] decimal_parameters: A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisParametersIntegerParameterArgs']]] integer_parameters: A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisParametersStringParameterArgs']]] string_parameters: A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDateTimeParameterArgs']]] date_time_parameters: List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisParametersDecimalParameterArgs']]] decimal_parameters: List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisParametersIntegerParameterArgs']]] integer_parameters: List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisParametersStringParameterArgs']]] string_parameters: List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
         """
         if date_time_parameters is not None:
             pulumi.set(__self__, "date_time_parameters", date_time_parameters)
@@ -354,7 +354,7 @@ class AnalysisParametersArgs:
     @pulumi.getter(name="dateTimeParameters")
     def date_time_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersDateTimeParameterArgs']]]]:
         """
-        A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
         """
         return pulumi.get(self, "date_time_parameters")
 
@@ -366,7 +366,7 @@ class AnalysisParametersArgs:
     @pulumi.getter(name="decimalParameters")
     def decimal_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersDecimalParameterArgs']]]]:
         """
-        A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
         """
         return pulumi.get(self, "decimal_parameters")
 
@@ -378,7 +378,7 @@ class AnalysisParametersArgs:
     @pulumi.getter(name="integerParameters")
     def integer_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersIntegerParameterArgs']]]]:
         """
-        A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
         """
         return pulumi.get(self, "integer_parameters")
 
@@ -390,7 +390,7 @@ class AnalysisParametersArgs:
     @pulumi.getter(name="stringParameters")
     def string_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersStringParameterArgs']]]]:
         """
-        A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
         """
         return pulumi.get(self, "string_parameters")
 
@@ -633,7 +633,7 @@ class AnalysisPermissionArgs:
 class AnalysisSourceEntityArgsDict(TypedDict):
     source_template: NotRequired[pulumi.Input[Optional['AnalysisSourceEntitySourceTemplateArgsDict']]]
     """
-    The source template. See source_template.
+    Source template. See source_template.
     """
 
 @pulumi.input_type
@@ -641,7 +641,7 @@ class AnalysisSourceEntityArgs:
     def __init__(__self__, *,
                  source_template: pulumi.Input[Optional['AnalysisSourceEntitySourceTemplateArgs']] = None):
         """
-        :param pulumi.Input['AnalysisSourceEntitySourceTemplateArgs'] source_template: The source template. See source_template.
+        :param pulumi.Input['AnalysisSourceEntitySourceTemplateArgs'] source_template: Source template. See source_template.
         """
         if source_template is not None:
             pulumi.set(__self__, "source_template", source_template)
@@ -650,7 +650,7 @@ class AnalysisSourceEntityArgs:
     @pulumi.getter(name="sourceTemplate")
     def source_template(self) -> pulumi.Input[Optional['AnalysisSourceEntitySourceTemplateArgs']]:
         """
-        The source template. See source_template.
+        Source template. See source_template.
         """
         return pulumi.get(self, "source_template")
 
@@ -756,95 +756,95 @@ class AnalysisSourceEntitySourceTemplateDataSetReferenceArgs:
 class CustomPermissionsCapabilitiesArgsDict(TypedDict):
     add_or_run_anomaly_detection_for_analyses: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to add or run anomaly detection. Valid values: `DENY`.
+    Ability to add or run anomaly detection. Valid values: `DENY`.
     """
     create_and_update_dashboard_email_reports: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to create and update email reports. Valid values: `DENY`.
+    Ability to create and update email reports. Valid values: `DENY`.
     """
     create_and_update_data_sources: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to create and update data sources. Valid values: `DENY`.
+    Ability to create and update data sources. Valid values: `DENY`.
     """
     create_and_update_datasets: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to create and update datasets. Valid values: `DENY`.
+    Ability to create and update datasets. Valid values: `DENY`.
     """
     create_and_update_themes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to export to create and update themes. Valid values: `DENY`.
+    Ability to create and update themes. Valid values: `DENY`.
     """
     create_and_update_threshold_alerts: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to create and update threshold alerts. Valid values: `DENY`.
+    Ability to create and update threshold alerts. Valid values: `DENY`.
     """
     create_shared_folders: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to create shared folders. Valid values: `DENY`.
+    Ability to create shared folders. Valid values: `DENY`.
     """
     create_spice_dataset: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to create a SPICE dataset. Valid values: `DENY`.
+    Ability to create a SPICE dataset. Valid values: `DENY`.
     """
     export_to_csv: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to export to CSV files from the UI. Valid values: `DENY`.
+    Ability to export to CSV files from the UI. Valid values: `DENY`.
     """
     export_to_csv_in_scheduled_reports: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+    Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
     """
     export_to_excel: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to export to Excel files from the UI. Valid values: `DENY`.
+    Ability to export to Excel files from the UI. Valid values: `DENY`.
     """
     export_to_excel_in_scheduled_reports: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+    Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
     """
     export_to_pdf: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to export to PDF files from the UI. Valid values: `DENY`.
+    Ability to export to PDF files from the UI. Valid values: `DENY`.
     """
     export_to_pdf_in_scheduled_reports: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+    Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
     """
     include_content_in_scheduled_reports_email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to include content in scheduled email reports. Valid values: `DENY`.
+    Ability to include content in scheduled email reports. Valid values: `DENY`.
     """
     print_reports: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to print reports. Valid values: `DENY`.
+    Ability to print reports. Valid values: `DENY`.
     """
     rename_shared_folders: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to rename shared folders. Valid values: `DENY`.
+    Ability to rename shared folders. Valid values: `DENY`.
     """
     share_analyses: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to share analyses. Valid values: `DENY`.
+    Ability to share analyses. Valid values: `DENY`.
     """
     share_dashboards: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to share dashboards. Valid values: `DENY`.
+    Ability to share dashboards. Valid values: `DENY`.
     """
     share_data_sources: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to share data sources. Valid values: `DENY`.
+    Ability to share data sources. Valid values: `DENY`.
     """
     share_datasets: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to share datasets. Valid values: `DENY`.
+    Ability to share datasets. Valid values: `DENY`.
     """
     subscribe_dashboard_email_reports: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to subscribe to email reports. Valid values: `DENY`.
+    Ability to subscribe to email reports. Valid values: `DENY`.
     """
     view_account_spice_capacity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ability to view account SPICE capacity. Valid values: `DENY`.
+    Ability to view account SPICE capacity. Valid values: `DENY`.
     """
 
 @pulumi.input_type
@@ -874,29 +874,29 @@ class CustomPermissionsCapabilitiesArgs:
                  subscribe_dashboard_email_reports: pulumi.Input[Optional[_builtins.str]] = None,
                  view_account_spice_capacity: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] add_or_run_anomaly_detection_for_analyses: The ability to add or run anomaly detection. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] create_and_update_dashboard_email_reports: The ability to create and update email reports. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] create_and_update_data_sources: The ability to create and update data sources. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] create_and_update_datasets: The ability to create and update datasets. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] create_and_update_themes: The ability to export to create and update themes. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] create_and_update_threshold_alerts: The ability to create and update threshold alerts. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] create_shared_folders: The ability to create shared folders. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] create_spice_dataset: The ability to create a SPICE dataset. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] export_to_csv: The ability to export to CSV files from the UI. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] export_to_csv_in_scheduled_reports: The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] export_to_excel: The ability to export to Excel files from the UI. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] export_to_excel_in_scheduled_reports: The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] export_to_pdf: The ability to export to PDF files from the UI. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] export_to_pdf_in_scheduled_reports: The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] include_content_in_scheduled_reports_email: The ability to include content in scheduled email reports. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] print_reports: The ability to print reports. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] rename_shared_folders: The ability to rename shared folders. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] share_analyses: The ability to share analyses. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] share_dashboards: The ability to share dashboards. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] share_data_sources: The ability to share data sources. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] share_datasets: The ability to share datasets. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] subscribe_dashboard_email_reports: The ability to subscribe to email reports. Valid values: `DENY`.
-        :param pulumi.Input[_builtins.str] view_account_spice_capacity: The ability to view account SPICE capacity. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] add_or_run_anomaly_detection_for_analyses: Ability to add or run anomaly detection. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] create_and_update_dashboard_email_reports: Ability to create and update email reports. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] create_and_update_data_sources: Ability to create and update data sources. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] create_and_update_datasets: Ability to create and update datasets. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] create_and_update_themes: Ability to create and update themes. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] create_and_update_threshold_alerts: Ability to create and update threshold alerts. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] create_shared_folders: Ability to create shared folders. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] create_spice_dataset: Ability to create a SPICE dataset. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] export_to_csv: Ability to export to CSV files from the UI. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] export_to_csv_in_scheduled_reports: Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] export_to_excel: Ability to export to Excel files from the UI. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] export_to_excel_in_scheduled_reports: Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] export_to_pdf: Ability to export to PDF files from the UI. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] export_to_pdf_in_scheduled_reports: Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] include_content_in_scheduled_reports_email: Ability to include content in scheduled email reports. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] print_reports: Ability to print reports. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] rename_shared_folders: Ability to rename shared folders. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] share_analyses: Ability to share analyses. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] share_dashboards: Ability to share dashboards. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] share_data_sources: Ability to share data sources. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] share_datasets: Ability to share datasets. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] subscribe_dashboard_email_reports: Ability to subscribe to email reports. Valid values: `DENY`.
+        :param pulumi.Input[_builtins.str] view_account_spice_capacity: Ability to view account SPICE capacity. Valid values: `DENY`.
         """
         if add_or_run_anomaly_detection_for_analyses is not None:
             pulumi.set(__self__, "add_or_run_anomaly_detection_for_analyses", add_or_run_anomaly_detection_for_analyses)
@@ -949,7 +949,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="addOrRunAnomalyDetectionForAnalyses")
     def add_or_run_anomaly_detection_for_analyses(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to add or run anomaly detection. Valid values: `DENY`.
+        Ability to add or run anomaly detection. Valid values: `DENY`.
         """
         return pulumi.get(self, "add_or_run_anomaly_detection_for_analyses")
 
@@ -961,7 +961,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="createAndUpdateDashboardEmailReports")
     def create_and_update_dashboard_email_reports(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to create and update email reports. Valid values: `DENY`.
+        Ability to create and update email reports. Valid values: `DENY`.
         """
         return pulumi.get(self, "create_and_update_dashboard_email_reports")
 
@@ -973,7 +973,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="createAndUpdateDataSources")
     def create_and_update_data_sources(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to create and update data sources. Valid values: `DENY`.
+        Ability to create and update data sources. Valid values: `DENY`.
         """
         return pulumi.get(self, "create_and_update_data_sources")
 
@@ -985,7 +985,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="createAndUpdateDatasets")
     def create_and_update_datasets(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to create and update datasets. Valid values: `DENY`.
+        Ability to create and update datasets. Valid values: `DENY`.
         """
         return pulumi.get(self, "create_and_update_datasets")
 
@@ -997,7 +997,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="createAndUpdateThemes")
     def create_and_update_themes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to export to create and update themes. Valid values: `DENY`.
+        Ability to create and update themes. Valid values: `DENY`.
         """
         return pulumi.get(self, "create_and_update_themes")
 
@@ -1009,7 +1009,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="createAndUpdateThresholdAlerts")
     def create_and_update_threshold_alerts(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to create and update threshold alerts. Valid values: `DENY`.
+        Ability to create and update threshold alerts. Valid values: `DENY`.
         """
         return pulumi.get(self, "create_and_update_threshold_alerts")
 
@@ -1021,7 +1021,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="createSharedFolders")
     def create_shared_folders(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to create shared folders. Valid values: `DENY`.
+        Ability to create shared folders. Valid values: `DENY`.
         """
         return pulumi.get(self, "create_shared_folders")
 
@@ -1033,7 +1033,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="createSpiceDataset")
     def create_spice_dataset(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to create a SPICE dataset. Valid values: `DENY`.
+        Ability to create a SPICE dataset. Valid values: `DENY`.
         """
         return pulumi.get(self, "create_spice_dataset")
 
@@ -1045,7 +1045,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="exportToCsv")
     def export_to_csv(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to export to CSV files from the UI. Valid values: `DENY`.
+        Ability to export to CSV files from the UI. Valid values: `DENY`.
         """
         return pulumi.get(self, "export_to_csv")
 
@@ -1057,7 +1057,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="exportToCsvInScheduledReports")
     def export_to_csv_in_scheduled_reports(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+        Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
         """
         return pulumi.get(self, "export_to_csv_in_scheduled_reports")
 
@@ -1069,7 +1069,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="exportToExcel")
     def export_to_excel(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to export to Excel files from the UI. Valid values: `DENY`.
+        Ability to export to Excel files from the UI. Valid values: `DENY`.
         """
         return pulumi.get(self, "export_to_excel")
 
@@ -1081,7 +1081,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="exportToExcelInScheduledReports")
     def export_to_excel_in_scheduled_reports(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+        Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
         """
         return pulumi.get(self, "export_to_excel_in_scheduled_reports")
 
@@ -1093,7 +1093,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="exportToPdf")
     def export_to_pdf(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to export to PDF files from the UI. Valid values: `DENY`.
+        Ability to export to PDF files from the UI. Valid values: `DENY`.
         """
         return pulumi.get(self, "export_to_pdf")
 
@@ -1105,7 +1105,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="exportToPdfInScheduledReports")
     def export_to_pdf_in_scheduled_reports(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+        Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
         """
         return pulumi.get(self, "export_to_pdf_in_scheduled_reports")
 
@@ -1117,7 +1117,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="includeContentInScheduledReportsEmail")
     def include_content_in_scheduled_reports_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to include content in scheduled email reports. Valid values: `DENY`.
+        Ability to include content in scheduled email reports. Valid values: `DENY`.
         """
         return pulumi.get(self, "include_content_in_scheduled_reports_email")
 
@@ -1129,7 +1129,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="printReports")
     def print_reports(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to print reports. Valid values: `DENY`.
+        Ability to print reports. Valid values: `DENY`.
         """
         return pulumi.get(self, "print_reports")
 
@@ -1141,7 +1141,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="renameSharedFolders")
     def rename_shared_folders(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to rename shared folders. Valid values: `DENY`.
+        Ability to rename shared folders. Valid values: `DENY`.
         """
         return pulumi.get(self, "rename_shared_folders")
 
@@ -1153,7 +1153,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="shareAnalyses")
     def share_analyses(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to share analyses. Valid values: `DENY`.
+        Ability to share analyses. Valid values: `DENY`.
         """
         return pulumi.get(self, "share_analyses")
 
@@ -1165,7 +1165,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="shareDashboards")
     def share_dashboards(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to share dashboards. Valid values: `DENY`.
+        Ability to share dashboards. Valid values: `DENY`.
         """
         return pulumi.get(self, "share_dashboards")
 
@@ -1177,7 +1177,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="shareDataSources")
     def share_data_sources(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to share data sources. Valid values: `DENY`.
+        Ability to share data sources. Valid values: `DENY`.
         """
         return pulumi.get(self, "share_data_sources")
 
@@ -1189,7 +1189,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="shareDatasets")
     def share_datasets(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to share datasets. Valid values: `DENY`.
+        Ability to share datasets. Valid values: `DENY`.
         """
         return pulumi.get(self, "share_datasets")
 
@@ -1201,7 +1201,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="subscribeDashboardEmailReports")
     def subscribe_dashboard_email_reports(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to subscribe to email reports. Valid values: `DENY`.
+        Ability to subscribe to email reports. Valid values: `DENY`.
         """
         return pulumi.get(self, "subscribe_dashboard_email_reports")
 
@@ -1213,7 +1213,7 @@ class CustomPermissionsCapabilitiesArgs:
     @pulumi.getter(name="viewAccountSpiceCapacity")
     def view_account_spice_capacity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ability to view account SPICE capacity. Valid values: `DENY`.
+        Ability to view account SPICE capacity. Valid values: `DENY`.
         """
         return pulumi.get(self, "view_account_spice_capacity")
 
@@ -1225,43 +1225,43 @@ class CustomPermissionsCapabilitiesArgs:
 class DashboardDashboardPublishOptionsArgsDict(TypedDict):
     ad_hoc_filtering_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsAdHocFilteringOptionArgsDict']]]
     """
-    Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+    Ad hoc (one-time) filtering option. See `ad_hoc_filtering_option`.
     """
     data_point_drill_up_down_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgsDict']]]
     """
-    The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+    Drill-down options of data points in a dashboard. See `data_point_drill_up_down_option`.
     """
     data_point_menu_label_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgsDict']]]
     """
-    The data point menu label options of a dashboard. See data_point_menu_label_option.
+    Data point menu label options of a dashboard. See `data_point_menu_label_option`.
     """
     data_point_tooltip_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsDataPointTooltipOptionArgsDict']]]
     """
-    The data point tool tip options of a dashboard. See data_point_tooltip_option.
+    Data point tool tip options of a dashboard. See `data_point_tooltip_option`.
     """
     export_to_csv_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsExportToCsvOptionArgsDict']]]
     """
-    Export to .csv option. See export_to_csv_option.
+    Export to .csv option. See `export_to_csv_option`.
     """
     export_with_hidden_fields_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgsDict']]]
     """
-    Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+    Whether hidden fields are exported with a dashboard. See `export_with_hidden_fields_option`.
     """
     sheet_controls_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsSheetControlsOptionArgsDict']]]
     """
-    Sheet controls option. See sheet_controls_option.
+    Sheet controls option. See `sheet_controls_option`.
     """
     sheet_layout_element_maximization_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgsDict']]]
     """
-    The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+    Sheet layout maximization options of a dashboard. See `sheet_layout_element_maximization_option`.
     """
     visual_axis_sort_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsVisualAxisSortOptionArgsDict']]]
     """
-    The axis sort options of a dashboard. See visual_axis_sort_option.
+    Axis sort options of a dashboard. See `visual_axis_sort_option`.
     """
     visual_menu_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsVisualMenuOptionArgsDict']]]
     """
-    The menu options of a visual in a dashboard. See visual_menu_option.
+    Menu options of a visual in a dashboard. See `visual_menu_option`.
     """
 
 @pulumi.input_type
@@ -1278,16 +1278,16 @@ class DashboardDashboardPublishOptionsArgs:
                  visual_axis_sort_option: pulumi.Input[Optional['DashboardDashboardPublishOptionsVisualAxisSortOptionArgs']] = None,
                  visual_menu_option: pulumi.Input[Optional['DashboardDashboardPublishOptionsVisualMenuOptionArgs']] = None):
         """
-        :param pulumi.Input['DashboardDashboardPublishOptionsAdHocFilteringOptionArgs'] ad_hoc_filtering_option: Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
-        :param pulumi.Input['DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs'] data_point_drill_up_down_option: The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
-        :param pulumi.Input['DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs'] data_point_menu_label_option: The data point menu label options of a dashboard. See data_point_menu_label_option.
-        :param pulumi.Input['DashboardDashboardPublishOptionsDataPointTooltipOptionArgs'] data_point_tooltip_option: The data point tool tip options of a dashboard. See data_point_tooltip_option.
-        :param pulumi.Input['DashboardDashboardPublishOptionsExportToCsvOptionArgs'] export_to_csv_option: Export to .csv option. See export_to_csv_option.
-        :param pulumi.Input['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs'] export_with_hidden_fields_option: Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
-        :param pulumi.Input['DashboardDashboardPublishOptionsSheetControlsOptionArgs'] sheet_controls_option: Sheet controls option. See sheet_controls_option.
-        :param pulumi.Input['DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs'] sheet_layout_element_maximization_option: The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
-        :param pulumi.Input['DashboardDashboardPublishOptionsVisualAxisSortOptionArgs'] visual_axis_sort_option: The axis sort options of a dashboard. See visual_axis_sort_option.
-        :param pulumi.Input['DashboardDashboardPublishOptionsVisualMenuOptionArgs'] visual_menu_option: The menu options of a visual in a dashboard. See visual_menu_option.
+        :param pulumi.Input['DashboardDashboardPublishOptionsAdHocFilteringOptionArgs'] ad_hoc_filtering_option: Ad hoc (one-time) filtering option. See `ad_hoc_filtering_option`.
+        :param pulumi.Input['DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs'] data_point_drill_up_down_option: Drill-down options of data points in a dashboard. See `data_point_drill_up_down_option`.
+        :param pulumi.Input['DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs'] data_point_menu_label_option: Data point menu label options of a dashboard. See `data_point_menu_label_option`.
+        :param pulumi.Input['DashboardDashboardPublishOptionsDataPointTooltipOptionArgs'] data_point_tooltip_option: Data point tool tip options of a dashboard. See `data_point_tooltip_option`.
+        :param pulumi.Input['DashboardDashboardPublishOptionsExportToCsvOptionArgs'] export_to_csv_option: Export to .csv option. See `export_to_csv_option`.
+        :param pulumi.Input['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs'] export_with_hidden_fields_option: Whether hidden fields are exported with a dashboard. See `export_with_hidden_fields_option`.
+        :param pulumi.Input['DashboardDashboardPublishOptionsSheetControlsOptionArgs'] sheet_controls_option: Sheet controls option. See `sheet_controls_option`.
+        :param pulumi.Input['DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs'] sheet_layout_element_maximization_option: Sheet layout maximization options of a dashboard. See `sheet_layout_element_maximization_option`.
+        :param pulumi.Input['DashboardDashboardPublishOptionsVisualAxisSortOptionArgs'] visual_axis_sort_option: Axis sort options of a dashboard. See `visual_axis_sort_option`.
+        :param pulumi.Input['DashboardDashboardPublishOptionsVisualMenuOptionArgs'] visual_menu_option: Menu options of a visual in a dashboard. See `visual_menu_option`.
         """
         if ad_hoc_filtering_option is not None:
             pulumi.set(__self__, "ad_hoc_filtering_option", ad_hoc_filtering_option)
@@ -1314,7 +1314,7 @@ class DashboardDashboardPublishOptionsArgs:
     @pulumi.getter(name="adHocFilteringOption")
     def ad_hoc_filtering_option(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsAdHocFilteringOptionArgs']]:
         """
-        Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+        Ad hoc (one-time) filtering option. See `ad_hoc_filtering_option`.
         """
         return pulumi.get(self, "ad_hoc_filtering_option")
 
@@ -1326,7 +1326,7 @@ class DashboardDashboardPublishOptionsArgs:
     @pulumi.getter(name="dataPointDrillUpDownOption")
     def data_point_drill_up_down_option(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs']]:
         """
-        The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+        Drill-down options of data points in a dashboard. See `data_point_drill_up_down_option`.
         """
         return pulumi.get(self, "data_point_drill_up_down_option")
 
@@ -1338,7 +1338,7 @@ class DashboardDashboardPublishOptionsArgs:
     @pulumi.getter(name="dataPointMenuLabelOption")
     def data_point_menu_label_option(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs']]:
         """
-        The data point menu label options of a dashboard. See data_point_menu_label_option.
+        Data point menu label options of a dashboard. See `data_point_menu_label_option`.
         """
         return pulumi.get(self, "data_point_menu_label_option")
 
@@ -1350,7 +1350,7 @@ class DashboardDashboardPublishOptionsArgs:
     @pulumi.getter(name="dataPointTooltipOption")
     def data_point_tooltip_option(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsDataPointTooltipOptionArgs']]:
         """
-        The data point tool tip options of a dashboard. See data_point_tooltip_option.
+        Data point tool tip options of a dashboard. See `data_point_tooltip_option`.
         """
         return pulumi.get(self, "data_point_tooltip_option")
 
@@ -1362,7 +1362,7 @@ class DashboardDashboardPublishOptionsArgs:
     @pulumi.getter(name="exportToCsvOption")
     def export_to_csv_option(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsExportToCsvOptionArgs']]:
         """
-        Export to .csv option. See export_to_csv_option.
+        Export to .csv option. See `export_to_csv_option`.
         """
         return pulumi.get(self, "export_to_csv_option")
 
@@ -1374,7 +1374,7 @@ class DashboardDashboardPublishOptionsArgs:
     @pulumi.getter(name="exportWithHiddenFieldsOption")
     def export_with_hidden_fields_option(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs']]:
         """
-        Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+        Whether hidden fields are exported with a dashboard. See `export_with_hidden_fields_option`.
         """
         return pulumi.get(self, "export_with_hidden_fields_option")
 
@@ -1386,7 +1386,7 @@ class DashboardDashboardPublishOptionsArgs:
     @pulumi.getter(name="sheetControlsOption")
     def sheet_controls_option(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsSheetControlsOptionArgs']]:
         """
-        Sheet controls option. See sheet_controls_option.
+        Sheet controls option. See `sheet_controls_option`.
         """
         return pulumi.get(self, "sheet_controls_option")
 
@@ -1398,7 +1398,7 @@ class DashboardDashboardPublishOptionsArgs:
     @pulumi.getter(name="sheetLayoutElementMaximizationOption")
     def sheet_layout_element_maximization_option(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs']]:
         """
-        The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+        Sheet layout maximization options of a dashboard. See `sheet_layout_element_maximization_option`.
         """
         return pulumi.get(self, "sheet_layout_element_maximization_option")
 
@@ -1410,7 +1410,7 @@ class DashboardDashboardPublishOptionsArgs:
     @pulumi.getter(name="visualAxisSortOption")
     def visual_axis_sort_option(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsVisualAxisSortOptionArgs']]:
         """
-        The axis sort options of a dashboard. See visual_axis_sort_option.
+        Axis sort options of a dashboard. See `visual_axis_sort_option`.
         """
         return pulumi.get(self, "visual_axis_sort_option")
 
@@ -1422,7 +1422,7 @@ class DashboardDashboardPublishOptionsArgs:
     @pulumi.getter(name="visualMenuOption")
     def visual_menu_option(self) -> pulumi.Input[Optional['DashboardDashboardPublishOptionsVisualMenuOptionArgs']]:
         """
-        The menu options of a visual in a dashboard. See visual_menu_option.
+        Menu options of a visual in a dashboard. See `visual_menu_option`.
         """
         return pulumi.get(self, "visual_menu_option")
 
@@ -1724,19 +1724,19 @@ class DashboardDashboardPublishOptionsVisualMenuOptionArgs:
 class DashboardParametersArgsDict(TypedDict):
     date_time_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersDateTimeParameterArgsDict']]]]]
     """
-    A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+    List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
     """
     decimal_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersDecimalParameterArgsDict']]]]]
     """
-    A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+    List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
     """
     integer_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersIntegerParameterArgsDict']]]]]
     """
-    A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+    List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
     """
     string_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersStringParameterArgsDict']]]]]
     """
-    A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+    List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
     """
 
 @pulumi.input_type
@@ -1747,10 +1747,10 @@ class DashboardParametersArgs:
                  integer_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersIntegerParameterArgs']]]] = None,
                  string_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersStringParameterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardParametersDateTimeParameterArgs']]] date_time_parameters: A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardParametersDecimalParameterArgs']]] decimal_parameters: A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardParametersIntegerParameterArgs']]] integer_parameters: A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardParametersStringParameterArgs']]] string_parameters: A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardParametersDateTimeParameterArgs']]] date_time_parameters: List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardParametersDecimalParameterArgs']]] decimal_parameters: List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardParametersIntegerParameterArgs']]] integer_parameters: List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardParametersStringParameterArgs']]] string_parameters: List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
         """
         if date_time_parameters is not None:
             pulumi.set(__self__, "date_time_parameters", date_time_parameters)
@@ -1765,7 +1765,7 @@ class DashboardParametersArgs:
     @pulumi.getter(name="dateTimeParameters")
     def date_time_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersDateTimeParameterArgs']]]]:
         """
-        A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+        List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
         """
         return pulumi.get(self, "date_time_parameters")
 
@@ -1777,7 +1777,7 @@ class DashboardParametersArgs:
     @pulumi.getter(name="decimalParameters")
     def decimal_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersDecimalParameterArgs']]]]:
         """
-        A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+        List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
         """
         return pulumi.get(self, "decimal_parameters")
 
@@ -1789,7 +1789,7 @@ class DashboardParametersArgs:
     @pulumi.getter(name="integerParameters")
     def integer_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersIntegerParameterArgs']]]]:
         """
-        A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+        List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
         """
         return pulumi.get(self, "integer_parameters")
 
@@ -1801,7 +1801,7 @@ class DashboardParametersArgs:
     @pulumi.getter(name="stringParameters")
     def string_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersStringParameterArgs']]]]:
         """
-        A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+        List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
         """
         return pulumi.get(self, "string_parameters")
 
@@ -2020,7 +2020,7 @@ class DashboardPermissionArgs:
 class DashboardSourceEntityArgsDict(TypedDict):
     source_template: NotRequired[pulumi.Input[Optional['DashboardSourceEntitySourceTemplateArgsDict']]]
     """
-    The source template. See source_template.
+    Source template. See `source_template`.
     """
 
 @pulumi.input_type
@@ -2028,7 +2028,7 @@ class DashboardSourceEntityArgs:
     def __init__(__self__, *,
                  source_template: pulumi.Input[Optional['DashboardSourceEntitySourceTemplateArgs']] = None):
         """
-        :param pulumi.Input['DashboardSourceEntitySourceTemplateArgs'] source_template: The source template. See source_template.
+        :param pulumi.Input['DashboardSourceEntitySourceTemplateArgs'] source_template: Source template. See `source_template`.
         """
         if source_template is not None:
             pulumi.set(__self__, "source_template", source_template)
@@ -2037,7 +2037,7 @@ class DashboardSourceEntityArgs:
     @pulumi.getter(name="sourceTemplate")
     def source_template(self) -> pulumi.Input[Optional['DashboardSourceEntitySourceTemplateArgs']]:
         """
-        The source template. See source_template.
+        Source template. See `source_template`.
         """
         return pulumi.get(self, "source_template")
 
@@ -2053,7 +2053,7 @@ class DashboardSourceEntitySourceTemplateArgsDict(TypedDict):
     """
     data_set_references: pulumi.Input[Sequence[pulumi.Input['DashboardSourceEntitySourceTemplateDataSetReferenceArgsDict']]]
     """
-    List of dataset references. See data_set_references.
+    List of dataset references. See `data_set_references`.
     """
 
 @pulumi.input_type
@@ -2063,7 +2063,7 @@ class DashboardSourceEntitySourceTemplateArgs:
                  data_set_references: pulumi.Input[Sequence[pulumi.Input['DashboardSourceEntitySourceTemplateDataSetReferenceArgs']]]):
         """
         :param pulumi.Input[_builtins.str] arn: ARN of the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['DashboardSourceEntitySourceTemplateDataSetReferenceArgs']]] data_set_references: List of dataset references. See data_set_references.
+        :param pulumi.Input[Sequence[pulumi.Input['DashboardSourceEntitySourceTemplateDataSetReferenceArgs']]] data_set_references: List of dataset references. See `data_set_references`.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
@@ -2084,7 +2084,7 @@ class DashboardSourceEntitySourceTemplateArgs:
     @pulumi.getter(name="dataSetReferences")
     def data_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['DashboardSourceEntitySourceTemplateDataSetReferenceArgs']]]:
         """
-        List of dataset references. See data_set_references.
+        List of dataset references. See `data_set_references`.
         """
         return pulumi.get(self, "data_set_references")
 
@@ -2143,7 +2143,7 @@ class DashboardSourceEntitySourceTemplateDataSetReferenceArgs:
 class DataSetColumnGroupArgsDict(TypedDict):
     geo_spatial_column_group: NotRequired[pulumi.Input[Optional['DataSetColumnGroupGeoSpatialColumnGroupArgsDict']]]
     """
-    Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+    Geospatial column group that denotes a hierarchy. See `geo_spatial_column_group` Block below.
     """
 
 @pulumi.input_type
@@ -2151,7 +2151,7 @@ class DataSetColumnGroupArgs:
     def __init__(__self__, *,
                  geo_spatial_column_group: pulumi.Input[Optional['DataSetColumnGroupGeoSpatialColumnGroupArgs']] = None):
         """
-        :param pulumi.Input['DataSetColumnGroupGeoSpatialColumnGroupArgs'] geo_spatial_column_group: Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+        :param pulumi.Input['DataSetColumnGroupGeoSpatialColumnGroupArgs'] geo_spatial_column_group: Geospatial column group that denotes a hierarchy. See `geo_spatial_column_group` Block below.
         """
         if geo_spatial_column_group is not None:
             pulumi.set(__self__, "geo_spatial_column_group", geo_spatial_column_group)
@@ -2160,7 +2160,7 @@ class DataSetColumnGroupArgs:
     @pulumi.getter(name="geoSpatialColumnGroup")
     def geo_spatial_column_group(self) -> pulumi.Input[Optional['DataSetColumnGroupGeoSpatialColumnGroupArgs']]:
         """
-        Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+        Geospatial column group that denotes a hierarchy. See `geo_spatial_column_group` Block below.
         """
         return pulumi.get(self, "geo_spatial_column_group")
 
@@ -2180,7 +2180,7 @@ class DataSetColumnGroupGeoSpatialColumnGroupArgsDict(TypedDict):
     """
     name: pulumi.Input[_builtins.str]
     """
-    A display name for the hierarchy.
+    Display name for the hierarchy.
     """
 
 @pulumi.input_type
@@ -2192,7 +2192,7 @@ class DataSetColumnGroupGeoSpatialColumnGroupArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Columns in this hierarchy.
         :param pulumi.Input[_builtins.str] country_code: Country code. Valid values are `US`.
-        :param pulumi.Input[_builtins.str] name: A display name for the hierarchy.
+        :param pulumi.Input[_builtins.str] name: Display name for the hierarchy.
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "country_code", country_code)
@@ -2226,7 +2226,7 @@ class DataSetColumnGroupGeoSpatialColumnGroupArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        A display name for the hierarchy.
+        Display name for the hierarchy.
         """
         return pulumi.get(self, "name")
 
@@ -2238,11 +2238,11 @@ class DataSetColumnGroupGeoSpatialColumnGroupArgs:
 class DataSetColumnLevelPermissionRuleArgsDict(TypedDict):
     column_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    An array of column names.
+    Array of column names.
     """
     principals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    An array of ARNs for Amazon QuickSight users or groups.
+    Array of ARNs for Amazon QuickSight users or groups.
     """
 
 @pulumi.input_type
@@ -2251,8 +2251,8 @@ class DataSetColumnLevelPermissionRuleArgs:
                  column_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] column_names: An array of column names.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: An array of ARNs for Amazon QuickSight users or groups.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] column_names: Array of column names.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: Array of ARNs for Amazon QuickSight users or groups.
         """
         if column_names is not None:
             pulumi.set(__self__, "column_names", column_names)
@@ -2263,7 +2263,7 @@ class DataSetColumnLevelPermissionRuleArgs:
     @pulumi.getter(name="columnNames")
     def column_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array of column names.
+        Array of column names.
         """
         return pulumi.get(self, "column_names")
 
@@ -2275,7 +2275,7 @@ class DataSetColumnLevelPermissionRuleArgs:
     @pulumi.getter
     def principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array of ARNs for Amazon QuickSight users or groups.
+        Array of ARNs for Amazon QuickSight users or groups.
         """
         return pulumi.get(self, "principals")
 
@@ -2287,11 +2287,11 @@ class DataSetColumnLevelPermissionRuleArgs:
 class DataSetDataSetUsageConfigurationArgsDict(TypedDict):
     disable_use_as_direct_query_source: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Controls whether a child dataset of a direct query can use this dataset as a source.
+    Whether to prevent a child dataset of a direct query from using this dataset as a source.
     """
     disable_use_as_imported_source: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+    Whether to prevent a child dataset that's stored in QuickSight from using this dataset as a source.
     """
 
 @pulumi.input_type
@@ -2300,8 +2300,8 @@ class DataSetDataSetUsageConfigurationArgs:
                  disable_use_as_direct_query_source: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_use_as_imported_source: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] disable_use_as_direct_query_source: Controls whether a child dataset of a direct query can use this dataset as a source.
-        :param pulumi.Input[_builtins.bool] disable_use_as_imported_source: Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+        :param pulumi.Input[_builtins.bool] disable_use_as_direct_query_source: Whether to prevent a child dataset of a direct query from using this dataset as a source.
+        :param pulumi.Input[_builtins.bool] disable_use_as_imported_source: Whether to prevent a child dataset that's stored in QuickSight from using this dataset as a source.
         """
         if disable_use_as_direct_query_source is not None:
             pulumi.set(__self__, "disable_use_as_direct_query_source", disable_use_as_direct_query_source)
@@ -2312,7 +2312,7 @@ class DataSetDataSetUsageConfigurationArgs:
     @pulumi.getter(name="disableUseAsDirectQuerySource")
     def disable_use_as_direct_query_source(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Controls whether a child dataset of a direct query can use this dataset as a source.
+        Whether to prevent a child dataset of a direct query from using this dataset as a source.
         """
         return pulumi.get(self, "disable_use_as_direct_query_source")
 
@@ -2324,7 +2324,7 @@ class DataSetDataSetUsageConfigurationArgs:
     @pulumi.getter(name="disableUseAsImportedSource")
     def disable_use_as_imported_source(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+        Whether to prevent a child dataset that's stored in QuickSight from using this dataset as a source.
         """
         return pulumi.get(self, "disable_use_as_imported_source")
 
@@ -2340,7 +2340,7 @@ class DataSetFieldFolderArgsDict(TypedDict):
     """
     columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    An array of column names to add to the folder. A column can only be in one folder.
+    Array of column names to add to the folder. A column can only be in one folder.
     """
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -2355,7 +2355,7 @@ class DataSetFieldFolderArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] field_folders_id: Key of the field folder map.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: An array of column names to add to the folder. A column can only be in one folder.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Array of column names to add to the folder. A column can only be in one folder.
         :param pulumi.Input[_builtins.str] description: Field folder description.
         """
         pulumi.set(__self__, "field_folders_id", field_folders_id)
@@ -2380,7 +2380,7 @@ class DataSetFieldFolderArgs:
     @pulumi.getter
     def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array of column names to add to the folder. A column can only be in one folder.
+        Array of column names to add to the folder. A column can only be in one folder.
         """
         return pulumi.get(self, "columns")
 
@@ -2404,7 +2404,7 @@ class DataSetFieldFolderArgs:
 class DataSetLogicalTableMapArgsDict(TypedDict):
     alias: pulumi.Input[_builtins.str]
     """
-    A display name for the logical table.
+    Display name for the logical table.
     """
     logical_table_map_id: pulumi.Input[_builtins.str]
     """
@@ -2412,11 +2412,11 @@ class DataSetLogicalTableMapArgsDict(TypedDict):
     """
     source: pulumi.Input['DataSetLogicalTableMapSourceArgsDict']
     """
-    Source of this logical table. See source.
+    Source of this logical table. See `source` Block below.
     """
     data_transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformArgsDict']]]]]
     """
-    Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+    Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `data_transforms` Block below.
     """
 
 @pulumi.input_type
@@ -2427,10 +2427,10 @@ class DataSetLogicalTableMapArgs:
                  source: pulumi.Input['DataSetLogicalTableMapSourceArgs'],
                  data_transforms: pulumi.Input[Optional[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] alias: A display name for the logical table.
+        :param pulumi.Input[_builtins.str] alias: Display name for the logical table.
         :param pulumi.Input[_builtins.str] logical_table_map_id: Key of the logical table map.
-        :param pulumi.Input['DataSetLogicalTableMapSourceArgs'] source: Source of this logical table. See source.
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformArgs']]] data_transforms: Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+        :param pulumi.Input['DataSetLogicalTableMapSourceArgs'] source: Source of this logical table. See `source` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformArgs']]] data_transforms: Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `data_transforms` Block below.
         """
         pulumi.set(__self__, "alias", alias)
         pulumi.set(__self__, "logical_table_map_id", logical_table_map_id)
@@ -2442,7 +2442,7 @@ class DataSetLogicalTableMapArgs:
     @pulumi.getter
     def alias(self) -> pulumi.Input[_builtins.str]:
         """
-        A display name for the logical table.
+        Display name for the logical table.
         """
         return pulumi.get(self, "alias")
 
@@ -2466,7 +2466,7 @@ class DataSetLogicalTableMapArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input['DataSetLogicalTableMapSourceArgs']:
         """
-        Source of this logical table. See source.
+        Source of this logical table. See `source` Block below.
         """
         return pulumi.get(self, "source")
 
@@ -2478,7 +2478,7 @@ class DataSetLogicalTableMapArgs:
     @pulumi.getter(name="dataTransforms")
     def data_transforms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformArgs']]]]:
         """
-        Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+        Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `data_transforms` Block below.
         """
         return pulumi.get(self, "data_transforms")
 
@@ -2490,31 +2490,31 @@ class DataSetLogicalTableMapArgs:
 class DataSetLogicalTableMapDataTransformArgsDict(TypedDict):
     cast_column_type_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgsDict']]]
     """
-    A transform operation that casts a column to a different type. See cast_column_type_operation.
+    Transform operation that casts a column to a different type. See `cast_column_type_operation` Block below.
     """
     create_columns_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformCreateColumnsOperationArgsDict']]]
     """
-    An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+    Operation that creates calculated columns. Columns created in one such operation form a lexical closure. See `create_columns_operation` Block below.
     """
     filter_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformFilterOperationArgsDict']]]
     """
-    An operation that filters rows based on some condition. See filter_operation.
+    Operation that filters rows based on some condition. See `filter_operation` Block below.
     """
     project_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformProjectOperationArgsDict']]]
     """
-    An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+    Operation that projects columns. Operations that come after a projection can only refer to projected columns. See `project_operation` Block below.
     """
     rename_column_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformRenameColumnOperationArgsDict']]]
     """
-    An operation that renames a column. See rename_column_operation.
+    Operation that renames a column. See `rename_column_operation` Block below.
     """
     tag_column_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformTagColumnOperationArgsDict']]]
     """
-    An operation that tags a column with additional information. See tag_column_operation.
+    Operation that tags a column with additional information. See `tag_column_operation` Block below.
     """
     untag_column_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformUntagColumnOperationArgsDict']]]
     """
-    A transform operation that removes tags associated with a column. See untag_column_operation.
+    Transform operation that removes tags associated with a column. See `untag_column_operation` Block below.
     """
 
 @pulumi.input_type
@@ -2528,13 +2528,13 @@ class DataSetLogicalTableMapDataTransformArgs:
                  tag_column_operation: pulumi.Input[Optional['DataSetLogicalTableMapDataTransformTagColumnOperationArgs']] = None,
                  untag_column_operation: pulumi.Input[Optional['DataSetLogicalTableMapDataTransformUntagColumnOperationArgs']] = None):
         """
-        :param pulumi.Input['DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs'] cast_column_type_operation: A transform operation that casts a column to a different type. See cast_column_type_operation.
-        :param pulumi.Input['DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs'] create_columns_operation: An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
-        :param pulumi.Input['DataSetLogicalTableMapDataTransformFilterOperationArgs'] filter_operation: An operation that filters rows based on some condition. See filter_operation.
-        :param pulumi.Input['DataSetLogicalTableMapDataTransformProjectOperationArgs'] project_operation: An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
-        :param pulumi.Input['DataSetLogicalTableMapDataTransformRenameColumnOperationArgs'] rename_column_operation: An operation that renames a column. See rename_column_operation.
-        :param pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationArgs'] tag_column_operation: An operation that tags a column with additional information. See tag_column_operation.
-        :param pulumi.Input['DataSetLogicalTableMapDataTransformUntagColumnOperationArgs'] untag_column_operation: A transform operation that removes tags associated with a column. See untag_column_operation.
+        :param pulumi.Input['DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs'] cast_column_type_operation: Transform operation that casts a column to a different type. See `cast_column_type_operation` Block below.
+        :param pulumi.Input['DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs'] create_columns_operation: Operation that creates calculated columns. Columns created in one such operation form a lexical closure. See `create_columns_operation` Block below.
+        :param pulumi.Input['DataSetLogicalTableMapDataTransformFilterOperationArgs'] filter_operation: Operation that filters rows based on some condition. See `filter_operation` Block below.
+        :param pulumi.Input['DataSetLogicalTableMapDataTransformProjectOperationArgs'] project_operation: Operation that projects columns. Operations that come after a projection can only refer to projected columns. See `project_operation` Block below.
+        :param pulumi.Input['DataSetLogicalTableMapDataTransformRenameColumnOperationArgs'] rename_column_operation: Operation that renames a column. See `rename_column_operation` Block below.
+        :param pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationArgs'] tag_column_operation: Operation that tags a column with additional information. See `tag_column_operation` Block below.
+        :param pulumi.Input['DataSetLogicalTableMapDataTransformUntagColumnOperationArgs'] untag_column_operation: Transform operation that removes tags associated with a column. See `untag_column_operation` Block below.
         """
         if cast_column_type_operation is not None:
             pulumi.set(__self__, "cast_column_type_operation", cast_column_type_operation)
@@ -2555,7 +2555,7 @@ class DataSetLogicalTableMapDataTransformArgs:
     @pulumi.getter(name="castColumnTypeOperation")
     def cast_column_type_operation(self) -> pulumi.Input[Optional['DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs']]:
         """
-        A transform operation that casts a column to a different type. See cast_column_type_operation.
+        Transform operation that casts a column to a different type. See `cast_column_type_operation` Block below.
         """
         return pulumi.get(self, "cast_column_type_operation")
 
@@ -2567,7 +2567,7 @@ class DataSetLogicalTableMapDataTransformArgs:
     @pulumi.getter(name="createColumnsOperation")
     def create_columns_operation(self) -> pulumi.Input[Optional['DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs']]:
         """
-        An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+        Operation that creates calculated columns. Columns created in one such operation form a lexical closure. See `create_columns_operation` Block below.
         """
         return pulumi.get(self, "create_columns_operation")
 
@@ -2579,7 +2579,7 @@ class DataSetLogicalTableMapDataTransformArgs:
     @pulumi.getter(name="filterOperation")
     def filter_operation(self) -> pulumi.Input[Optional['DataSetLogicalTableMapDataTransformFilterOperationArgs']]:
         """
-        An operation that filters rows based on some condition. See filter_operation.
+        Operation that filters rows based on some condition. See `filter_operation` Block below.
         """
         return pulumi.get(self, "filter_operation")
 
@@ -2591,7 +2591,7 @@ class DataSetLogicalTableMapDataTransformArgs:
     @pulumi.getter(name="projectOperation")
     def project_operation(self) -> pulumi.Input[Optional['DataSetLogicalTableMapDataTransformProjectOperationArgs']]:
         """
-        An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+        Operation that projects columns. Operations that come after a projection can only refer to projected columns. See `project_operation` Block below.
         """
         return pulumi.get(self, "project_operation")
 
@@ -2603,7 +2603,7 @@ class DataSetLogicalTableMapDataTransformArgs:
     @pulumi.getter(name="renameColumnOperation")
     def rename_column_operation(self) -> pulumi.Input[Optional['DataSetLogicalTableMapDataTransformRenameColumnOperationArgs']]:
         """
-        An operation that renames a column. See rename_column_operation.
+        Operation that renames a column. See `rename_column_operation` Block below.
         """
         return pulumi.get(self, "rename_column_operation")
 
@@ -2615,7 +2615,7 @@ class DataSetLogicalTableMapDataTransformArgs:
     @pulumi.getter(name="tagColumnOperation")
     def tag_column_operation(self) -> pulumi.Input[Optional['DataSetLogicalTableMapDataTransformTagColumnOperationArgs']]:
         """
-        An operation that tags a column with additional information. See tag_column_operation.
+        Operation that tags a column with additional information. See `tag_column_operation` Block below.
         """
         return pulumi.get(self, "tag_column_operation")
 
@@ -2627,7 +2627,7 @@ class DataSetLogicalTableMapDataTransformArgs:
     @pulumi.getter(name="untagColumnOperation")
     def untag_column_operation(self) -> pulumi.Input[Optional['DataSetLogicalTableMapDataTransformUntagColumnOperationArgs']]:
         """
-        A transform operation that removes tags associated with a column. See untag_column_operation.
+        Transform operation that removes tags associated with a column. See `untag_column_operation` Block below.
         """
         return pulumi.get(self, "untag_column_operation")
 
@@ -2706,7 +2706,7 @@ class DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs:
 class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgsDict(TypedDict):
     columns: pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgsDict']]]
     """
-    Calculated columns to create. See columns.
+    Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
     """
 
 @pulumi.input_type
@@ -2714,7 +2714,7 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs:
     def __init__(__self__, *,
                  columns: pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs']]] columns: Calculated columns to create. See columns.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs']]] columns: Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
         """
         pulumi.set(__self__, "columns", columns)
 
@@ -2722,7 +2722,7 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs:
     @pulumi.getter
     def columns(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs']]]:
         """
-        Calculated columns to create. See columns.
+        Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
         """
         return pulumi.get(self, "columns")
 
@@ -2734,15 +2734,12 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs:
 class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgsDict(TypedDict):
     column_id: pulumi.Input[_builtins.str]
     """
-    A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+    Unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
     """
     column_name: pulumi.Input[_builtins.str]
-    """
-    Column name.
-    """
     expression: pulumi.Input[_builtins.str]
     """
-    An expression that defines the calculated column.
+    Expression that defines the calculated column.
     """
 
 @pulumi.input_type
@@ -2752,9 +2749,8 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs:
                  column_name: pulumi.Input[_builtins.str],
                  expression: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] column_id: A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
-        :param pulumi.Input[_builtins.str] column_name: Column name.
-        :param pulumi.Input[_builtins.str] expression: An expression that defines the calculated column.
+        :param pulumi.Input[_builtins.str] column_id: Unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+        :param pulumi.Input[_builtins.str] expression: Expression that defines the calculated column.
         """
         pulumi.set(__self__, "column_id", column_id)
         pulumi.set(__self__, "column_name", column_name)
@@ -2764,7 +2760,7 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs:
     @pulumi.getter(name="columnId")
     def column_id(self) -> pulumi.Input[_builtins.str]:
         """
-        A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+        Unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
         """
         return pulumi.get(self, "column_id")
 
@@ -2775,9 +2771,6 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs:
     @_builtins.property
     @pulumi.getter(name="columnName")
     def column_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Column name.
-        """
         return pulumi.get(self, "column_name")
 
     @column_name.setter
@@ -2788,7 +2781,7 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs:
     @pulumi.getter
     def expression(self) -> pulumi.Input[_builtins.str]:
         """
-        An expression that defines the calculated column.
+        Expression that defines the calculated column.
         """
         return pulumi.get(self, "expression")
 
@@ -2800,7 +2793,7 @@ class DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs:
 class DataSetLogicalTableMapDataTransformFilterOperationArgsDict(TypedDict):
     condition_expression: pulumi.Input[_builtins.str]
     """
-    An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+    Expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
     """
 
 @pulumi.input_type
@@ -2808,7 +2801,7 @@ class DataSetLogicalTableMapDataTransformFilterOperationArgs:
     def __init__(__self__, *,
                  condition_expression: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] condition_expression: An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+        :param pulumi.Input[_builtins.str] condition_expression: Expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
         """
         pulumi.set(__self__, "condition_expression", condition_expression)
 
@@ -2816,7 +2809,7 @@ class DataSetLogicalTableMapDataTransformFilterOperationArgs:
     @pulumi.getter(name="conditionExpression")
     def condition_expression(self) -> pulumi.Input[_builtins.str]:
         """
-        An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+        Expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
         """
         return pulumi.get(self, "condition_expression")
 
@@ -2907,7 +2900,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationArgsDict(TypedDict):
     """
     tags: pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationTagArgsDict']]]
     """
-    The dataset column tag, currently only used for geospatial type tagging. See tags.
+    Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
     """
 
 @pulumi.input_type
@@ -2917,7 +2910,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationArgs:
                  tags: pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs']]]):
         """
         :param pulumi.Input[_builtins.str] column_name: Column name.
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs']]] tags: The dataset column tag, currently only used for geospatial type tagging. See tags.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs']]] tags: Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
         """
         pulumi.set(__self__, "column_name", column_name)
         pulumi.set(__self__, "tags", tags)
@@ -2938,7 +2931,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs']]]:
         """
-        The dataset column tag, currently only used for geospatial type tagging. See tags.
+        Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
         """
         return pulumi.get(self, "tags")
 
@@ -2950,11 +2943,11 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationArgs:
 class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgsDict(TypedDict):
     column_description: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgsDict']]]
     """
-    A description for a column. See column_description.
+    Description for a column. See `column_description` Block below.
     """
     column_geographic_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+    Geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
     """
 
 @pulumi.input_type
@@ -2963,8 +2956,8 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs:
                  column_description: pulumi.Input[Optional['DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs']] = None,
                  column_geographic_role: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs'] column_description: A description for a column. See column_description.
-        :param pulumi.Input[_builtins.str] column_geographic_role: A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+        :param pulumi.Input['DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs'] column_description: Description for a column. See `column_description` Block below.
+        :param pulumi.Input[_builtins.str] column_geographic_role: Geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
         """
         if column_description is not None:
             pulumi.set(__self__, "column_description", column_description)
@@ -2975,7 +2968,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs:
     @pulumi.getter(name="columnDescription")
     def column_description(self) -> pulumi.Input[Optional['DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs']]:
         """
-        A description for a column. See column_description.
+        Description for a column. See `column_description` Block below.
         """
         return pulumi.get(self, "column_description")
 
@@ -2987,7 +2980,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs:
     @pulumi.getter(name="columnGeographicRole")
     def column_geographic_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+        Geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
         """
         return pulumi.get(self, "column_geographic_role")
 
@@ -2999,7 +2992,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs:
 class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgsDict(TypedDict):
     text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The text of a description for a column.
+    Text of a description for a column.
     """
 
 @pulumi.input_type
@@ -3007,7 +3000,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionA
     def __init__(__self__, *,
                  text: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] text: The text of a description for a column.
+        :param pulumi.Input[_builtins.str] text: Text of a description for a column.
         """
         if text is not None:
             pulumi.set(__self__, "text", text)
@@ -3016,7 +3009,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionA
     @pulumi.getter
     def text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The text of a description for a column.
+        Text of a description for a column.
         """
         return pulumi.get(self, "text")
 
@@ -3032,7 +3025,7 @@ class DataSetLogicalTableMapDataTransformUntagColumnOperationArgsDict(TypedDict)
     """
     tag_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    The column tags to remove from this column.
+    Column tags to remove from this column.
     """
 
 @pulumi.input_type
@@ -3042,7 +3035,7 @@ class DataSetLogicalTableMapDataTransformUntagColumnOperationArgs:
                  tag_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
         :param pulumi.Input[_builtins.str] column_name: Column name.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tag_names: The column tags to remove from this column.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tag_names: Column tags to remove from this column.
         """
         pulumi.set(__self__, "column_name", column_name)
         pulumi.set(__self__, "tag_names", tag_names)
@@ -3063,7 +3056,7 @@ class DataSetLogicalTableMapDataTransformUntagColumnOperationArgs:
     @pulumi.getter(name="tagNames")
     def tag_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The column tags to remove from this column.
+        Column tags to remove from this column.
         """
         return pulumi.get(self, "tag_names")
 
@@ -3079,7 +3072,7 @@ class DataSetLogicalTableMapSourceArgsDict(TypedDict):
     """
     join_instruction: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapSourceJoinInstructionArgsDict']]]
     """
-    Specifies the result of a join of two logical tables. See join_instruction.
+    Result of a join of two logical tables. See `join_instruction` Block below.
     """
     physical_table_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -3094,7 +3087,7 @@ class DataSetLogicalTableMapSourceArgs:
                  physical_table_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] data_set_arn: ARN of the parent data set.
-        :param pulumi.Input['DataSetLogicalTableMapSourceJoinInstructionArgs'] join_instruction: Specifies the result of a join of two logical tables. See join_instruction.
+        :param pulumi.Input['DataSetLogicalTableMapSourceJoinInstructionArgs'] join_instruction: Result of a join of two logical tables. See `join_instruction` Block below.
         :param pulumi.Input[_builtins.str] physical_table_id: Physical table ID.
         """
         if data_set_arn is not None:
@@ -3120,7 +3113,7 @@ class DataSetLogicalTableMapSourceArgs:
     @pulumi.getter(name="joinInstruction")
     def join_instruction(self) -> pulumi.Input[Optional['DataSetLogicalTableMapSourceJoinInstructionArgs']]:
         """
-        Specifies the result of a join of two logical tables. See join_instruction.
+        Result of a join of two logical tables. See `join_instruction` Block below.
         """
         return pulumi.get(self, "join_instruction")
 
@@ -3160,11 +3153,11 @@ class DataSetLogicalTableMapSourceJoinInstructionArgsDict(TypedDict):
     """
     left_join_key_properties: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgsDict']]]
     """
-    Join key properties of the left operand. See left_join_key_properties.
+    Join key properties of the left operand. See `left_join_key_properties` Block below.
     """
     right_join_key_properties: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgsDict']]]
     """
-    Join key properties of the right operand. See right_join_key_properties.
+    Join key properties of the right operand. See `right_join_key_properties` Block below.
     """
 
 @pulumi.input_type
@@ -3181,8 +3174,8 @@ class DataSetLogicalTableMapSourceJoinInstructionArgs:
         :param pulumi.Input[_builtins.str] on_clause: Join instructions provided in the ON clause of a join.
         :param pulumi.Input[_builtins.str] right_operand: Operand on the right side of a join.
         :param pulumi.Input[_builtins.str] type: Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
-        :param pulumi.Input['DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs'] left_join_key_properties: Join key properties of the left operand. See left_join_key_properties.
-        :param pulumi.Input['DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs'] right_join_key_properties: Join key properties of the right operand. See right_join_key_properties.
+        :param pulumi.Input['DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs'] left_join_key_properties: Join key properties of the left operand. See `left_join_key_properties` Block below.
+        :param pulumi.Input['DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs'] right_join_key_properties: Join key properties of the right operand. See `right_join_key_properties` Block below.
         """
         pulumi.set(__self__, "left_operand", left_operand)
         pulumi.set(__self__, "on_clause", on_clause)
@@ -3245,7 +3238,7 @@ class DataSetLogicalTableMapSourceJoinInstructionArgs:
     @pulumi.getter(name="leftJoinKeyProperties")
     def left_join_key_properties(self) -> pulumi.Input[Optional['DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs']]:
         """
-        Join key properties of the left operand. See left_join_key_properties.
+        Join key properties of the left operand. See `left_join_key_properties` Block below.
         """
         return pulumi.get(self, "left_join_key_properties")
 
@@ -3257,7 +3250,7 @@ class DataSetLogicalTableMapSourceJoinInstructionArgs:
     @pulumi.getter(name="rightJoinKeyProperties")
     def right_join_key_properties(self) -> pulumi.Input[Optional['DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs']]:
         """
-        Join key properties of the right operand. See right_join_key_properties.
+        Join key properties of the right operand. See `right_join_key_properties` Block below.
         """
         return pulumi.get(self, "right_join_key_properties")
 
@@ -3269,7 +3262,7 @@ class DataSetLogicalTableMapSourceJoinInstructionArgs:
 class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgsDict(TypedDict):
     unique_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+    Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
     """
 
 @pulumi.input_type
@@ -3277,7 +3270,7 @@ class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs:
     def __init__(__self__, *,
                  unique_key: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] unique_key: A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+        :param pulumi.Input[_builtins.bool] unique_key: Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
         """
         if unique_key is not None:
             pulumi.set(__self__, "unique_key", unique_key)
@@ -3286,7 +3279,7 @@ class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs:
     @pulumi.getter(name="uniqueKey")
     def unique_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+        Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
         """
         return pulumi.get(self, "unique_key")
 
@@ -3298,7 +3291,7 @@ class DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs:
 class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgsDict(TypedDict):
     unique_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+    Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
     """
 
 @pulumi.input_type
@@ -3306,7 +3299,7 @@ class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs:
     def __init__(__self__, *,
                  unique_key: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] unique_key: A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+        :param pulumi.Input[_builtins.bool] unique_key: Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
         """
         if unique_key is not None:
             pulumi.set(__self__, "unique_key", unique_key)
@@ -3315,7 +3308,7 @@ class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs:
     @pulumi.getter(name="uniqueKey")
     def unique_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+        Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
         """
         return pulumi.get(self, "unique_key")
 
@@ -3327,7 +3320,7 @@ class DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs:
 class DataSetOutputColumnArgsDict(TypedDict):
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The description of the column.
+    Description of the column.
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -3337,7 +3330,7 @@ class DataSetOutputColumnArgsDict(TypedDict):
     """
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The data type of the column.
+    Data type of the column.
     """
 
 @pulumi.input_type
@@ -3347,11 +3340,11 @@ class DataSetOutputColumnArgs:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] description: The description of the column.
+        :param pulumi.Input[_builtins.str] description: Description of the column.
         :param pulumi.Input[_builtins.str] name: Display name for the dataset.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] type: The data type of the column.
+        :param pulumi.Input[_builtins.str] type: Data type of the column.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -3364,7 +3357,7 @@ class DataSetOutputColumnArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the column.
+        Description of the column.
         """
         return pulumi.get(self, "description")
 
@@ -3390,7 +3383,7 @@ class DataSetOutputColumnArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The data type of the column.
+        Data type of the column.
         """
         return pulumi.get(self, "type")
 
@@ -3453,15 +3446,15 @@ class DataSetPhysicalTableMapArgsDict(TypedDict):
     """
     custom_sql: NotRequired[pulumi.Input[Optional['DataSetPhysicalTableMapCustomSqlArgsDict']]]
     """
-    A physical table type built from the results of the custom SQL query. See custom_sql.
+    Physical table type built from the results of the custom SQL query. See `custom_sql` Block below.
     """
     relational_table: NotRequired[pulumi.Input[Optional['DataSetPhysicalTableMapRelationalTableArgsDict']]]
     """
-    A physical table type for relational data sources. See relational_table.
+    Physical table type for relational data sources. See `relational_table` Block below.
     """
     s3_source: NotRequired[pulumi.Input[Optional['DataSetPhysicalTableMapS3SourceArgsDict']]]
     """
-    A physical table type for as S3 data source. See s3_source.
+    Physical table type for an S3 data source. See `s3_source` Block below.
     """
 
 @pulumi.input_type
@@ -3473,9 +3466,9 @@ class DataSetPhysicalTableMapArgs:
                  s3_source: pulumi.Input[Optional['DataSetPhysicalTableMapS3SourceArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] physical_table_map_id: Key of the physical table map.
-        :param pulumi.Input['DataSetPhysicalTableMapCustomSqlArgs'] custom_sql: A physical table type built from the results of the custom SQL query. See custom_sql.
-        :param pulumi.Input['DataSetPhysicalTableMapRelationalTableArgs'] relational_table: A physical table type for relational data sources. See relational_table.
-        :param pulumi.Input['DataSetPhysicalTableMapS3SourceArgs'] s3_source: A physical table type for as S3 data source. See s3_source.
+        :param pulumi.Input['DataSetPhysicalTableMapCustomSqlArgs'] custom_sql: Physical table type built from the results of the custom SQL query. See `custom_sql` Block below.
+        :param pulumi.Input['DataSetPhysicalTableMapRelationalTableArgs'] relational_table: Physical table type for relational data sources. See `relational_table` Block below.
+        :param pulumi.Input['DataSetPhysicalTableMapS3SourceArgs'] s3_source: Physical table type for an S3 data source. See `s3_source` Block below.
         """
         pulumi.set(__self__, "physical_table_map_id", physical_table_map_id)
         if custom_sql is not None:
@@ -3501,7 +3494,7 @@ class DataSetPhysicalTableMapArgs:
     @pulumi.getter(name="customSql")
     def custom_sql(self) -> pulumi.Input[Optional['DataSetPhysicalTableMapCustomSqlArgs']]:
         """
-        A physical table type built from the results of the custom SQL query. See custom_sql.
+        Physical table type built from the results of the custom SQL query. See `custom_sql` Block below.
         """
         return pulumi.get(self, "custom_sql")
 
@@ -3513,7 +3506,7 @@ class DataSetPhysicalTableMapArgs:
     @pulumi.getter(name="relationalTable")
     def relational_table(self) -> pulumi.Input[Optional['DataSetPhysicalTableMapRelationalTableArgs']]:
         """
-        A physical table type for relational data sources. See relational_table.
+        Physical table type for relational data sources. See `relational_table` Block below.
         """
         return pulumi.get(self, "relational_table")
 
@@ -3525,7 +3518,7 @@ class DataSetPhysicalTableMapArgs:
     @pulumi.getter(name="s3Source")
     def s3_source(self) -> pulumi.Input[Optional['DataSetPhysicalTableMapS3SourceArgs']]:
         """
-        A physical table type for as S3 data source. See s3_source.
+        Physical table type for an S3 data source. See `s3_source` Block below.
         """
         return pulumi.get(self, "s3_source")
 
@@ -3549,7 +3542,7 @@ class DataSetPhysicalTableMapCustomSqlArgsDict(TypedDict):
     """
     columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSetPhysicalTableMapCustomSqlColumnArgsDict']]]]]
     """
-    Column schema from the SQL query result set. See columns.
+    Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
     """
 
 @pulumi.input_type
@@ -3563,7 +3556,7 @@ class DataSetPhysicalTableMapCustomSqlArgs:
         :param pulumi.Input[_builtins.str] data_source_arn: ARN of the data source.
         :param pulumi.Input[_builtins.str] name: Display name for the SQL query result.
         :param pulumi.Input[_builtins.str] sql_query: SQL query.
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapCustomSqlColumnArgs']]] columns: Column schema from the SQL query result set. See columns.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapCustomSqlColumnArgs']]] columns: Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
         """
         pulumi.set(__self__, "data_source_arn", data_source_arn)
         pulumi.set(__self__, "name", name)
@@ -3611,7 +3604,7 @@ class DataSetPhysicalTableMapCustomSqlArgs:
     @pulumi.getter
     def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataSetPhysicalTableMapCustomSqlColumnArgs']]]]:
         """
-        Column schema from the SQL query result set. See columns.
+        Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
         """
         return pulumi.get(self, "columns")
 
@@ -3623,7 +3616,9 @@ class DataSetPhysicalTableMapCustomSqlArgs:
 class DataSetPhysicalTableMapCustomSqlColumnArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    Name of this column in the underlying data source.
+    Display name for the dataset.
+
+    The following arguments are optional:
     """
     type: pulumi.Input[_builtins.str]
     """
@@ -3636,7 +3631,9 @@ class DataSetPhysicalTableMapCustomSqlColumnArgs:
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: Name of this column in the underlying data source.
+        :param pulumi.Input[_builtins.str] name: Display name for the dataset.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] type: Data type of the column.
         """
         pulumi.set(__self__, "name", name)
@@ -3646,7 +3643,9 @@ class DataSetPhysicalTableMapCustomSqlColumnArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of this column in the underlying data source.
+        Display name for the dataset.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -3674,7 +3673,7 @@ class DataSetPhysicalTableMapRelationalTableArgsDict(TypedDict):
     """
     input_columns: pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapRelationalTableInputColumnArgsDict']]]
     """
-    Column schema of the table. See input_columns.
+    Column schema of the table. See `input_columns` Block below.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -3699,7 +3698,7 @@ class DataSetPhysicalTableMapRelationalTableArgs:
                  schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] data_source_arn: ARN of the data source.
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapRelationalTableInputColumnArgs']]] input_columns: Column schema of the table. See input_columns.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapRelationalTableInputColumnArgs']]] input_columns: Column schema of the table. See `input_columns` Block below.
         :param pulumi.Input[_builtins.str] name: Name of the relational table.
         :param pulumi.Input[_builtins.str] catalog: Catalog associated with the table.
         :param pulumi.Input[_builtins.str] schema: Schema name. This name applies to certain relational database engines.
@@ -3728,7 +3727,7 @@ class DataSetPhysicalTableMapRelationalTableArgs:
     @pulumi.getter(name="inputColumns")
     def input_columns(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapRelationalTableInputColumnArgs']]]:
         """
-        Column schema of the table. See input_columns.
+        Column schema of the table. See `input_columns` Block below.
         """
         return pulumi.get(self, "input_columns")
 
@@ -3827,11 +3826,11 @@ class DataSetPhysicalTableMapS3SourceArgsDict(TypedDict):
     """
     input_columns: pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapS3SourceInputColumnArgsDict']]]
     """
-    Column schema of the table. See input_columns.
+    Column schema of the table. See `input_columns` Block below.
     """
     upload_settings: pulumi.Input['DataSetPhysicalTableMapS3SourceUploadSettingsArgsDict']
     """
-    Information about the format for the S3 source file or files. See upload_settings.
+    Information about the format for the S3 source file or files. See `upload_settings` Block below.
     """
 
 @pulumi.input_type
@@ -3842,8 +3841,8 @@ class DataSetPhysicalTableMapS3SourceArgs:
                  upload_settings: pulumi.Input['DataSetPhysicalTableMapS3SourceUploadSettingsArgs']):
         """
         :param pulumi.Input[_builtins.str] data_source_arn: ARN of the data source.
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapS3SourceInputColumnArgs']]] input_columns: Column schema of the table. See input_columns.
-        :param pulumi.Input['DataSetPhysicalTableMapS3SourceUploadSettingsArgs'] upload_settings: Information about the format for the S3 source file or files. See upload_settings.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapS3SourceInputColumnArgs']]] input_columns: Column schema of the table. See `input_columns` Block below.
+        :param pulumi.Input['DataSetPhysicalTableMapS3SourceUploadSettingsArgs'] upload_settings: Information about the format for the S3 source file or files. See `upload_settings` Block below.
         """
         pulumi.set(__self__, "data_source_arn", data_source_arn)
         pulumi.set(__self__, "input_columns", input_columns)
@@ -3865,7 +3864,7 @@ class DataSetPhysicalTableMapS3SourceArgs:
     @pulumi.getter(name="inputColumns")
     def input_columns(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetPhysicalTableMapS3SourceInputColumnArgs']]]:
         """
-        Column schema of the table. See input_columns.
+        Column schema of the table. See `input_columns` Block below.
         """
         return pulumi.get(self, "input_columns")
 
@@ -3877,7 +3876,7 @@ class DataSetPhysicalTableMapS3SourceArgs:
     @pulumi.getter(name="uploadSettings")
     def upload_settings(self) -> pulumi.Input['DataSetPhysicalTableMapS3SourceUploadSettingsArgs']:
         """
-        Information about the format for the S3 source file or files. See upload_settings.
+        Information about the format for the S3 source file or files. See `upload_settings` Block below.
         """
         return pulumi.get(self, "upload_settings")
 
@@ -3948,7 +3947,7 @@ class DataSetPhysicalTableMapS3SourceUploadSettingsArgsDict(TypedDict):
     """
     start_from_row: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    A row number to start reading data from.
+    Row number to start reading data from.
     """
     text_qualifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -3967,7 +3966,7 @@ class DataSetPhysicalTableMapS3SourceUploadSettingsArgs:
         :param pulumi.Input[_builtins.bool] contains_header: Whether the file has a header row, or the files each have a header row.
         :param pulumi.Input[_builtins.str] delimiter: Delimiter between values in the file.
         :param pulumi.Input[_builtins.str] format: File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
-        :param pulumi.Input[_builtins.int] start_from_row: A row number to start reading data from.
+        :param pulumi.Input[_builtins.int] start_from_row: Row number to start reading data from.
         :param pulumi.Input[_builtins.str] text_qualifier: Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
         """
         if contains_header is not None:
@@ -4021,7 +4020,7 @@ class DataSetPhysicalTableMapS3SourceUploadSettingsArgs:
     @pulumi.getter(name="startFromRow")
     def start_from_row(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        A row number to start reading data from.
+        Row number to start reading data from.
         """
         return pulumi.get(self, "start_from_row")
 
@@ -4045,7 +4044,7 @@ class DataSetPhysicalTableMapS3SourceUploadSettingsArgs:
 class DataSetRefreshPropertiesArgsDict(TypedDict):
     refresh_configuration: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationArgsDict']
     """
-    The refresh configuration for the data set. See refresh_configuration.
+    Refresh configuration for the data set. See `refresh_configuration` Block below.
     """
 
 @pulumi.input_type
@@ -4053,7 +4052,7 @@ class DataSetRefreshPropertiesArgs:
     def __init__(__self__, *,
                  refresh_configuration: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationArgs']):
         """
-        :param pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationArgs'] refresh_configuration: The refresh configuration for the data set. See refresh_configuration.
+        :param pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationArgs'] refresh_configuration: Refresh configuration for the data set. See `refresh_configuration` Block below.
         """
         pulumi.set(__self__, "refresh_configuration", refresh_configuration)
 
@@ -4061,7 +4060,7 @@ class DataSetRefreshPropertiesArgs:
     @pulumi.getter(name="refreshConfiguration")
     def refresh_configuration(self) -> pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationArgs']:
         """
-        The refresh configuration for the data set. See refresh_configuration.
+        Refresh configuration for the data set. See `refresh_configuration` Block below.
         """
         return pulumi.get(self, "refresh_configuration")
 
@@ -4073,7 +4072,7 @@ class DataSetRefreshPropertiesArgs:
 class DataSetRefreshPropertiesRefreshConfigurationArgsDict(TypedDict):
     incremental_refresh: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgsDict']
     """
-    The incremental refresh for the data set. See incremental_refresh.
+    Incremental refresh for the data set. See `incremental_refresh` Block below.
     """
 
 @pulumi.input_type
@@ -4081,7 +4080,7 @@ class DataSetRefreshPropertiesRefreshConfigurationArgs:
     def __init__(__self__, *,
                  incremental_refresh: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs']):
         """
-        :param pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs'] incremental_refresh: The incremental refresh for the data set. See incremental_refresh.
+        :param pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs'] incremental_refresh: Incremental refresh for the data set. See `incremental_refresh` Block below.
         """
         pulumi.set(__self__, "incremental_refresh", incremental_refresh)
 
@@ -4089,7 +4088,7 @@ class DataSetRefreshPropertiesRefreshConfigurationArgs:
     @pulumi.getter(name="incrementalRefresh")
     def incremental_refresh(self) -> pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs']:
         """
-        The incremental refresh for the data set. See incremental_refresh.
+        Incremental refresh for the data set. See `incremental_refresh` Block below.
         """
         return pulumi.get(self, "incremental_refresh")
 
@@ -4101,7 +4100,7 @@ class DataSetRefreshPropertiesRefreshConfigurationArgs:
 class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgsDict(TypedDict):
     lookback_window: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgsDict']
     """
-    The lookback window setup for an incremental refresh configuration. See lookback_window.
+    Lookback window setup for an incremental refresh configuration. See `lookback_window` Block below.
     """
 
 @pulumi.input_type
@@ -4109,7 +4108,7 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs:
     def __init__(__self__, *,
                  lookback_window: pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs']):
         """
-        :param pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs'] lookback_window: The lookback window setup for an incremental refresh configuration. See lookback_window.
+        :param pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs'] lookback_window: Lookback window setup for an incremental refresh configuration. See `lookback_window` Block below.
         """
         pulumi.set(__self__, "lookback_window", lookback_window)
 
@@ -4117,7 +4116,7 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs:
     @pulumi.getter(name="lookbackWindow")
     def lookback_window(self) -> pulumi.Input['DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs']:
         """
-        The lookback window setup for an incremental refresh configuration. See lookback_window.
+        Lookback window setup for an incremental refresh configuration. See `lookback_window` Block below.
         """
         return pulumi.get(self, "lookback_window")
 
@@ -4129,15 +4128,15 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs:
 class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgsDict(TypedDict):
     column_name: pulumi.Input[_builtins.str]
     """
-    The name of the lookback window column.
+    Name of the lookback window column.
     """
     size: pulumi.Input[_builtins.int]
     """
-    The lookback window column size.
+    Lookback window column size.
     """
     size_unit: pulumi.Input[_builtins.str]
     """
-    The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+    Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
     """
 
 @pulumi.input_type
@@ -4147,9 +4146,9 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWind
                  size: pulumi.Input[_builtins.int],
                  size_unit: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] column_name: The name of the lookback window column.
-        :param pulumi.Input[_builtins.int] size: The lookback window column size.
-        :param pulumi.Input[_builtins.str] size_unit: The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+        :param pulumi.Input[_builtins.str] column_name: Name of the lookback window column.
+        :param pulumi.Input[_builtins.int] size: Lookback window column size.
+        :param pulumi.Input[_builtins.str] size_unit: Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
         """
         pulumi.set(__self__, "column_name", column_name)
         pulumi.set(__self__, "size", size)
@@ -4159,7 +4158,7 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWind
     @pulumi.getter(name="columnName")
     def column_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the lookback window column.
+        Name of the lookback window column.
         """
         return pulumi.get(self, "column_name")
 
@@ -4171,7 +4170,7 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWind
     @pulumi.getter
     def size(self) -> pulumi.Input[_builtins.int]:
         """
-        The lookback window column size.
+        Lookback window column size.
         """
         return pulumi.get(self, "size")
 
@@ -4183,7 +4182,7 @@ class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWind
     @pulumi.getter(name="sizeUnit")
     def size_unit(self) -> pulumi.Input[_builtins.str]:
         """
-        The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+        Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
         """
         return pulumi.get(self, "size_unit")
 
@@ -4302,11 +4301,11 @@ class DataSetRowLevelPermissionDataSetArgs:
 class DataSetRowLevelPermissionTagConfigurationArgsDict(TypedDict):
     tag_rules: pulumi.Input[Sequence[pulumi.Input['DataSetRowLevelPermissionTagConfigurationTagRuleArgsDict']]]
     """
-    A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+    Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tag_rules` Block below.
     """
     status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+    Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
     """
 
 @pulumi.input_type
@@ -4315,8 +4314,8 @@ class DataSetRowLevelPermissionTagConfigurationArgs:
                  tag_rules: pulumi.Input[Sequence[pulumi.Input['DataSetRowLevelPermissionTagConfigurationTagRuleArgs']]],
                  status: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DataSetRowLevelPermissionTagConfigurationTagRuleArgs']]] tag_rules: A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
-        :param pulumi.Input[_builtins.str] status: The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSetRowLevelPermissionTagConfigurationTagRuleArgs']]] tag_rules: Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tag_rules` Block below.
+        :param pulumi.Input[_builtins.str] status: Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
         """
         pulumi.set(__self__, "tag_rules", tag_rules)
         if status is not None:
@@ -4326,7 +4325,7 @@ class DataSetRowLevelPermissionTagConfigurationArgs:
     @pulumi.getter(name="tagRules")
     def tag_rules(self) -> pulumi.Input[Sequence[pulumi.Input['DataSetRowLevelPermissionTagConfigurationTagRuleArgs']]]:
         """
-        A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+        Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tag_rules` Block below.
         """
         return pulumi.get(self, "tag_rules")
 
@@ -4338,7 +4337,7 @@ class DataSetRowLevelPermissionTagConfigurationArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+        Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
         """
         return pulumi.get(self, "status")
 
@@ -4358,11 +4357,11 @@ class DataSetRowLevelPermissionTagConfigurationTagRuleArgsDict(TypedDict):
     """
     match_all_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+    String that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
     """
     tag_multi_value_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A string that you want to use to delimit the values when you pass the values at run time.
+    String that you want to use to delimit the values when you pass the values at run time.
     """
 
 @pulumi.input_type
@@ -4375,8 +4374,8 @@ class DataSetRowLevelPermissionTagConfigurationTagRuleArgs:
         """
         :param pulumi.Input[_builtins.str] column_name: Column name that a tag key is assigned to.
         :param pulumi.Input[_builtins.str] tag_key: Unique key for a tag.
-        :param pulumi.Input[_builtins.str] match_all_value: A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
-        :param pulumi.Input[_builtins.str] tag_multi_value_delimiter: A string that you want to use to delimit the values when you pass the values at run time.
+        :param pulumi.Input[_builtins.str] match_all_value: String that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+        :param pulumi.Input[_builtins.str] tag_multi_value_delimiter: String that you want to use to delimit the values when you pass the values at run time.
         """
         pulumi.set(__self__, "column_name", column_name)
         pulumi.set(__self__, "tag_key", tag_key)
@@ -4413,7 +4412,7 @@ class DataSetRowLevelPermissionTagConfigurationTagRuleArgs:
     @pulumi.getter(name="matchAllValue")
     def match_all_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+        String that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
         """
         return pulumi.get(self, "match_all_value")
 
@@ -4425,7 +4424,7 @@ class DataSetRowLevelPermissionTagConfigurationTagRuleArgs:
     @pulumi.getter(name="tagMultiValueDelimiter")
     def tag_multi_value_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A string that you want to use to delimit the values when you pass the values at run time.
+        String that you want to use to delimit the values when you pass the values at run time.
         """
         return pulumi.get(self, "tag_multi_value_delimiter")
 
@@ -4437,16 +4436,15 @@ class DataSetRowLevelPermissionTagConfigurationTagRuleArgs:
 class DataSourceCredentialsArgsDict(TypedDict):
     copy_source_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of a data source that has the credential pair that you want to use.
-    When the value is not null, the `credential_pair` from the data source in the ARN is used.
+    ARN of a data source that has the credential pair to use. When the value is not null, the `credential_pair` from the data source in the ARN is used.
     """
     credential_pair: NotRequired[pulumi.Input[Optional['DataSourceCredentialsCredentialPairArgsDict']]]
     """
-    Credential pair. See Credential Pair below for more details.
+    Credential pair. See `credential_pair` Block below for more details.
     """
     secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the secret associated with the data source in Amazon Secrets Manager.
+    ARN of the secret associated with the data source in Amazon Secrets Manager.
     """
 
 @pulumi.input_type
@@ -4456,10 +4454,9 @@ class DataSourceCredentialsArgs:
                  credential_pair: pulumi.Input[Optional['DataSourceCredentialsCredentialPairArgs']] = None,
                  secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] copy_source_arn: The ARN of a data source that has the credential pair that you want to use.
-               When the value is not null, the `credential_pair` from the data source in the ARN is used.
-        :param pulumi.Input['DataSourceCredentialsCredentialPairArgs'] credential_pair: Credential pair. See Credential Pair below for more details.
-        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the secret associated with the data source in Amazon Secrets Manager.
+        :param pulumi.Input[_builtins.str] copy_source_arn: ARN of a data source that has the credential pair to use. When the value is not null, the `credential_pair` from the data source in the ARN is used.
+        :param pulumi.Input['DataSourceCredentialsCredentialPairArgs'] credential_pair: Credential pair. See `credential_pair` Block below for more details.
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the secret associated with the data source in Amazon Secrets Manager.
         """
         if copy_source_arn is not None:
             pulumi.set(__self__, "copy_source_arn", copy_source_arn)
@@ -4472,8 +4469,7 @@ class DataSourceCredentialsArgs:
     @pulumi.getter(name="copySourceArn")
     def copy_source_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of a data source that has the credential pair that you want to use.
-        When the value is not null, the `credential_pair` from the data source in the ARN is used.
+        ARN of a data source that has the credential pair to use. When the value is not null, the `credential_pair` from the data source in the ARN is used.
         """
         return pulumi.get(self, "copy_source_arn")
 
@@ -4485,7 +4481,7 @@ class DataSourceCredentialsArgs:
     @pulumi.getter(name="credentialPair")
     def credential_pair(self) -> pulumi.Input[Optional['DataSourceCredentialsCredentialPairArgs']]:
         """
-        Credential pair. See Credential Pair below for more details.
+        Credential pair. See `credential_pair` Block below for more details.
         """
         return pulumi.get(self, "credential_pair")
 
@@ -4497,7 +4493,7 @@ class DataSourceCredentialsArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the secret associated with the data source in Amazon Secrets Manager.
+        ARN of the secret associated with the data source in Amazon Secrets Manager.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -4985,7 +4981,7 @@ class DataSourceParametersArgs:
 class DataSourceParametersAmazonElasticsearchArgsDict(TypedDict):
     domain: pulumi.Input[_builtins.str]
     """
-    The OpenSearch domain.
+    OpenSearch domain.
     """
 
 @pulumi.input_type
@@ -4993,7 +4989,7 @@ class DataSourceParametersAmazonElasticsearchArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] domain: The OpenSearch domain.
+        :param pulumi.Input[_builtins.str] domain: OpenSearch domain.
         """
         pulumi.set(__self__, "domain", domain)
 
@@ -5001,7 +4997,7 @@ class DataSourceParametersAmazonElasticsearchArgs:
     @pulumi.getter
     def domain(self) -> pulumi.Input[_builtins.str]:
         """
-        The OpenSearch domain.
+        OpenSearch domain.
         """
         return pulumi.get(self, "domain")
 
@@ -5013,11 +5009,11 @@ class DataSourceParametersAmazonElasticsearchArgs:
 class DataSourceParametersAthenaArgsDict(TypedDict):
     role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Use the `role_arn` to override an account-wide role for a specific athena data source.
+    Use the `role_arn` to override an account-wide role for a specific Athena data source.
     """
     work_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The work-group to which to connect.
+    Work-group to which to connect.
     """
 
 @pulumi.input_type
@@ -5026,8 +5022,8 @@ class DataSourceParametersAthenaArgs:
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  work_group: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] role_arn: Use the `role_arn` to override an account-wide role for a specific athena data source.
-        :param pulumi.Input[_builtins.str] work_group: The work-group to which to connect.
+        :param pulumi.Input[_builtins.str] role_arn: Use the `role_arn` to override an account-wide role for a specific Athena data source.
+        :param pulumi.Input[_builtins.str] work_group: Work-group to which to connect.
         """
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
@@ -5038,7 +5034,7 @@ class DataSourceParametersAthenaArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Use the `role_arn` to override an account-wide role for a specific athena data source.
+        Use the `role_arn` to override an account-wide role for a specific Athena data source.
         """
         return pulumi.get(self, "role_arn")
 
@@ -5050,7 +5046,7 @@ class DataSourceParametersAthenaArgs:
     @pulumi.getter(name="workGroup")
     def work_group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The work-group to which to connect.
+        Work-group to which to connect.
         """
         return pulumi.get(self, "work_group")
 
@@ -5062,15 +5058,15 @@ class DataSourceParametersAthenaArgs:
 class DataSourceParametersAuroraArgsDict(TypedDict):
     database: pulumi.Input[_builtins.str]
     """
-    The database to which to connect.
+    Database to which to connect.
     """
     host: pulumi.Input[_builtins.str]
     """
-    The host to which to connect.
+    Host to which to connect.
     """
     port: pulumi.Input[_builtins.int]
     """
-    The port to which to connect.
+    Port to which to connect.
     """
 
 @pulumi.input_type
@@ -5080,9 +5076,9 @@ class DataSourceParametersAuroraArgs:
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] database: The database to which to connect.
-        :param pulumi.Input[_builtins.str] host: The host to which to connect.
-        :param pulumi.Input[_builtins.int] port: The port to which to connect.
+        :param pulumi.Input[_builtins.str] database: Database to which to connect.
+        :param pulumi.Input[_builtins.str] host: Host to which to connect.
+        :param pulumi.Input[_builtins.int] port: Port to which to connect.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -5092,7 +5088,7 @@ class DataSourceParametersAuroraArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database to which to connect.
+        Database to which to connect.
         """
         return pulumi.get(self, "database")
 
@@ -5104,7 +5100,7 @@ class DataSourceParametersAuroraArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        The host to which to connect.
+        Host to which to connect.
         """
         return pulumi.get(self, "host")
 
@@ -5116,7 +5112,7 @@ class DataSourceParametersAuroraArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        The port to which to connect.
+        Port to which to connect.
         """
         return pulumi.get(self, "port")
 
@@ -5128,15 +5124,15 @@ class DataSourceParametersAuroraArgs:
 class DataSourceParametersAuroraPostgresqlArgsDict(TypedDict):
     database: pulumi.Input[_builtins.str]
     """
-    The database to which to connect.
+    Database to which to connect.
     """
     host: pulumi.Input[_builtins.str]
     """
-    The host to which to connect.
+    Host to which to connect.
     """
     port: pulumi.Input[_builtins.int]
     """
-    The port to which to connect.
+    Port to which to connect.
     """
 
 @pulumi.input_type
@@ -5146,9 +5142,9 @@ class DataSourceParametersAuroraPostgresqlArgs:
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] database: The database to which to connect.
-        :param pulumi.Input[_builtins.str] host: The host to which to connect.
-        :param pulumi.Input[_builtins.int] port: The port to which to connect.
+        :param pulumi.Input[_builtins.str] database: Database to which to connect.
+        :param pulumi.Input[_builtins.str] host: Host to which to connect.
+        :param pulumi.Input[_builtins.int] port: Port to which to connect.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -5158,7 +5154,7 @@ class DataSourceParametersAuroraPostgresqlArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database to which to connect.
+        Database to which to connect.
         """
         return pulumi.get(self, "database")
 
@@ -5170,7 +5166,7 @@ class DataSourceParametersAuroraPostgresqlArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        The host to which to connect.
+        Host to which to connect.
         """
         return pulumi.get(self, "host")
 
@@ -5182,7 +5178,7 @@ class DataSourceParametersAuroraPostgresqlArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        The port to which to connect.
+        Port to which to connect.
         """
         return pulumi.get(self, "port")
 
@@ -5194,7 +5190,7 @@ class DataSourceParametersAuroraPostgresqlArgs:
 class DataSourceParametersAwsIotAnalyticsArgsDict(TypedDict):
     data_set_name: pulumi.Input[_builtins.str]
     """
-    The name of the data set to which to connect.
+    Name of the data set to which to connect.
     """
 
 @pulumi.input_type
@@ -5202,7 +5198,7 @@ class DataSourceParametersAwsIotAnalyticsArgs:
     def __init__(__self__, *,
                  data_set_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] data_set_name: The name of the data set to which to connect.
+        :param pulumi.Input[_builtins.str] data_set_name: Name of the data set to which to connect.
         """
         pulumi.set(__self__, "data_set_name", data_set_name)
 
@@ -5210,7 +5206,7 @@ class DataSourceParametersAwsIotAnalyticsArgs:
     @pulumi.getter(name="dataSetName")
     def data_set_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the data set to which to connect.
+        Name of the data set to which to connect.
         """
         return pulumi.get(self, "data_set_name")
 
@@ -5222,15 +5218,15 @@ class DataSourceParametersAwsIotAnalyticsArgs:
 class DataSourceParametersDatabricksArgsDict(TypedDict):
     host: pulumi.Input[_builtins.str]
     """
-    The host name of the Databricks data source.
+    Host name of the Databricks data source.
     """
     port: pulumi.Input[_builtins.int]
     """
-    The port for the Databricks data source.
+    Port for the Databricks data source.
     """
     sql_endpoint_path: pulumi.Input[_builtins.str]
     """
-    The HTTP path of the Databricks data source.
+    HTTP path of the Databricks data source.
     """
 
 @pulumi.input_type
@@ -5240,9 +5236,9 @@ class DataSourceParametersDatabricksArgs:
                  port: pulumi.Input[_builtins.int],
                  sql_endpoint_path: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] host: The host name of the Databricks data source.
-        :param pulumi.Input[_builtins.int] port: The port for the Databricks data source.
-        :param pulumi.Input[_builtins.str] sql_endpoint_path: The HTTP path of the Databricks data source.
+        :param pulumi.Input[_builtins.str] host: Host name of the Databricks data source.
+        :param pulumi.Input[_builtins.int] port: Port for the Databricks data source.
+        :param pulumi.Input[_builtins.str] sql_endpoint_path: HTTP path of the Databricks data source.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -5252,7 +5248,7 @@ class DataSourceParametersDatabricksArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        The host name of the Databricks data source.
+        Host name of the Databricks data source.
         """
         return pulumi.get(self, "host")
 
@@ -5264,7 +5260,7 @@ class DataSourceParametersDatabricksArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        The port for the Databricks data source.
+        Port for the Databricks data source.
         """
         return pulumi.get(self, "port")
 
@@ -5276,7 +5272,7 @@ class DataSourceParametersDatabricksArgs:
     @pulumi.getter(name="sqlEndpointPath")
     def sql_endpoint_path(self) -> pulumi.Input[_builtins.str]:
         """
-        The HTTP path of the Databricks data source.
+        HTTP path of the Databricks data source.
         """
         return pulumi.get(self, "sql_endpoint_path")
 
@@ -5288,7 +5284,7 @@ class DataSourceParametersDatabricksArgs:
 class DataSourceParametersJiraArgsDict(TypedDict):
     site_base_url: pulumi.Input[_builtins.str]
     """
-    The base URL of the Jira instance's site to which to connect.
+    Base URL of the Jira instance's site to which to connect.
     """
 
 @pulumi.input_type
@@ -5296,7 +5292,7 @@ class DataSourceParametersJiraArgs:
     def __init__(__self__, *,
                  site_base_url: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] site_base_url: The base URL of the Jira instance's site to which to connect.
+        :param pulumi.Input[_builtins.str] site_base_url: Base URL of the Jira instance's site to which to connect.
         """
         pulumi.set(__self__, "site_base_url", site_base_url)
 
@@ -5304,7 +5300,7 @@ class DataSourceParametersJiraArgs:
     @pulumi.getter(name="siteBaseUrl")
     def site_base_url(self) -> pulumi.Input[_builtins.str]:
         """
-        The base URL of the Jira instance's site to which to connect.
+        Base URL of the Jira instance's site to which to connect.
         """
         return pulumi.get(self, "site_base_url")
 
@@ -5316,15 +5312,15 @@ class DataSourceParametersJiraArgs:
 class DataSourceParametersMariaDbArgsDict(TypedDict):
     database: pulumi.Input[_builtins.str]
     """
-    The database to which to connect.
+    Database to which to connect.
     """
     host: pulumi.Input[_builtins.str]
     """
-    The host to which to connect.
+    Host to which to connect.
     """
     port: pulumi.Input[_builtins.int]
     """
-    The port to which to connect.
+    Port to which to connect.
     """
 
 @pulumi.input_type
@@ -5334,9 +5330,9 @@ class DataSourceParametersMariaDbArgs:
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] database: The database to which to connect.
-        :param pulumi.Input[_builtins.str] host: The host to which to connect.
-        :param pulumi.Input[_builtins.int] port: The port to which to connect.
+        :param pulumi.Input[_builtins.str] database: Database to which to connect.
+        :param pulumi.Input[_builtins.str] host: Host to which to connect.
+        :param pulumi.Input[_builtins.int] port: Port to which to connect.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -5346,7 +5342,7 @@ class DataSourceParametersMariaDbArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database to which to connect.
+        Database to which to connect.
         """
         return pulumi.get(self, "database")
 
@@ -5358,7 +5354,7 @@ class DataSourceParametersMariaDbArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        The host to which to connect.
+        Host to which to connect.
         """
         return pulumi.get(self, "host")
 
@@ -5370,7 +5366,7 @@ class DataSourceParametersMariaDbArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        The port to which to connect.
+        Port to which to connect.
         """
         return pulumi.get(self, "port")
 
@@ -5382,15 +5378,15 @@ class DataSourceParametersMariaDbArgs:
 class DataSourceParametersMysqlArgsDict(TypedDict):
     database: pulumi.Input[_builtins.str]
     """
-    The database to which to connect.
+    Database to which to connect.
     """
     host: pulumi.Input[_builtins.str]
     """
-    The host to which to connect.
+    Host to which to connect.
     """
     port: pulumi.Input[_builtins.int]
     """
-    The port to which to connect.
+    Port to which to connect.
     """
 
 @pulumi.input_type
@@ -5400,9 +5396,9 @@ class DataSourceParametersMysqlArgs:
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] database: The database to which to connect.
-        :param pulumi.Input[_builtins.str] host: The host to which to connect.
-        :param pulumi.Input[_builtins.int] port: The port to which to connect.
+        :param pulumi.Input[_builtins.str] database: Database to which to connect.
+        :param pulumi.Input[_builtins.str] host: Host to which to connect.
+        :param pulumi.Input[_builtins.int] port: Port to which to connect.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -5412,7 +5408,7 @@ class DataSourceParametersMysqlArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database to which to connect.
+        Database to which to connect.
         """
         return pulumi.get(self, "database")
 
@@ -5424,7 +5420,7 @@ class DataSourceParametersMysqlArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        The host to which to connect.
+        Host to which to connect.
         """
         return pulumi.get(self, "host")
 
@@ -5436,7 +5432,7 @@ class DataSourceParametersMysqlArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        The port to which to connect.
+        Port to which to connect.
         """
         return pulumi.get(self, "port")
 
@@ -5448,15 +5444,15 @@ class DataSourceParametersMysqlArgs:
 class DataSourceParametersOracleArgsDict(TypedDict):
     database: pulumi.Input[_builtins.str]
     """
-    The database to which to connect.
+    Database to which to connect.
     """
     host: pulumi.Input[_builtins.str]
     """
-    The host to which to connect.
+    Host to which to connect.
     """
     port: pulumi.Input[_builtins.int]
     """
-    The port to which to connect.
+    Port to which to connect.
     """
 
 @pulumi.input_type
@@ -5466,9 +5462,9 @@ class DataSourceParametersOracleArgs:
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] database: The database to which to connect.
-        :param pulumi.Input[_builtins.str] host: The host to which to connect.
-        :param pulumi.Input[_builtins.int] port: The port to which to connect.
+        :param pulumi.Input[_builtins.str] database: Database to which to connect.
+        :param pulumi.Input[_builtins.str] host: Host to which to connect.
+        :param pulumi.Input[_builtins.int] port: Port to which to connect.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -5478,7 +5474,7 @@ class DataSourceParametersOracleArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database to which to connect.
+        Database to which to connect.
         """
         return pulumi.get(self, "database")
 
@@ -5490,7 +5486,7 @@ class DataSourceParametersOracleArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        The host to which to connect.
+        Host to which to connect.
         """
         return pulumi.get(self, "host")
 
@@ -5502,7 +5498,7 @@ class DataSourceParametersOracleArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        The port to which to connect.
+        Port to which to connect.
         """
         return pulumi.get(self, "port")
 
@@ -5514,15 +5510,15 @@ class DataSourceParametersOracleArgs:
 class DataSourceParametersPostgresqlArgsDict(TypedDict):
     database: pulumi.Input[_builtins.str]
     """
-    The database to which to connect.
+    Database to which to connect.
     """
     host: pulumi.Input[_builtins.str]
     """
-    The host to which to connect.
+    Host to which to connect.
     """
     port: pulumi.Input[_builtins.int]
     """
-    The port to which to connect.
+    Port to which to connect.
     """
 
 @pulumi.input_type
@@ -5532,9 +5528,9 @@ class DataSourceParametersPostgresqlArgs:
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] database: The database to which to connect.
-        :param pulumi.Input[_builtins.str] host: The host to which to connect.
-        :param pulumi.Input[_builtins.int] port: The port to which to connect.
+        :param pulumi.Input[_builtins.str] database: Database to which to connect.
+        :param pulumi.Input[_builtins.str] host: Host to which to connect.
+        :param pulumi.Input[_builtins.int] port: Port to which to connect.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -5544,7 +5540,7 @@ class DataSourceParametersPostgresqlArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database to which to connect.
+        Database to which to connect.
         """
         return pulumi.get(self, "database")
 
@@ -5556,7 +5552,7 @@ class DataSourceParametersPostgresqlArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        The host to which to connect.
+        Host to which to connect.
         """
         return pulumi.get(self, "host")
 
@@ -5568,7 +5564,7 @@ class DataSourceParametersPostgresqlArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        The port to which to connect.
+        Port to which to connect.
         """
         return pulumi.get(self, "port")
 
@@ -5580,15 +5576,15 @@ class DataSourceParametersPostgresqlArgs:
 class DataSourceParametersPrestoArgsDict(TypedDict):
     catalog: pulumi.Input[_builtins.str]
     """
-    The catalog to which to connect.
+    Catalog to which to connect.
     """
     host: pulumi.Input[_builtins.str]
     """
-    The host to which to connect.
+    Host to which to connect.
     """
     port: pulumi.Input[_builtins.int]
     """
-    The port to which to connect.
+    Port to which to connect.
     """
 
 @pulumi.input_type
@@ -5598,9 +5594,9 @@ class DataSourceParametersPrestoArgs:
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] catalog: The catalog to which to connect.
-        :param pulumi.Input[_builtins.str] host: The host to which to connect.
-        :param pulumi.Input[_builtins.int] port: The port to which to connect.
+        :param pulumi.Input[_builtins.str] catalog: Catalog to which to connect.
+        :param pulumi.Input[_builtins.str] host: Host to which to connect.
+        :param pulumi.Input[_builtins.int] port: Port to which to connect.
         """
         pulumi.set(__self__, "catalog", catalog)
         pulumi.set(__self__, "host", host)
@@ -5610,7 +5606,7 @@ class DataSourceParametersPrestoArgs:
     @pulumi.getter
     def catalog(self) -> pulumi.Input[_builtins.str]:
         """
-        The catalog to which to connect.
+        Catalog to which to connect.
         """
         return pulumi.get(self, "catalog")
 
@@ -5622,7 +5618,7 @@ class DataSourceParametersPrestoArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        The host to which to connect.
+        Host to which to connect.
         """
         return pulumi.get(self, "host")
 
@@ -5634,7 +5630,7 @@ class DataSourceParametersPrestoArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        The port to which to connect.
+        Port to which to connect.
         """
         return pulumi.get(self, "port")
 
@@ -5646,11 +5642,11 @@ class DataSourceParametersPrestoArgs:
 class DataSourceParametersRdsArgsDict(TypedDict):
     database: pulumi.Input[_builtins.str]
     """
-    The database to which to connect.
+    Database to which to connect.
     """
     instance_id: pulumi.Input[_builtins.str]
     """
-    The instance ID to which to connect.
+    Instance ID to which to connect.
     """
 
 @pulumi.input_type
@@ -5659,8 +5655,8 @@ class DataSourceParametersRdsArgs:
                  database: pulumi.Input[_builtins.str],
                  instance_id: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] database: The database to which to connect.
-        :param pulumi.Input[_builtins.str] instance_id: The instance ID to which to connect.
+        :param pulumi.Input[_builtins.str] database: Database to which to connect.
+        :param pulumi.Input[_builtins.str] instance_id: Instance ID to which to connect.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -5669,7 +5665,7 @@ class DataSourceParametersRdsArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database to which to connect.
+        Database to which to connect.
         """
         return pulumi.get(self, "database")
 
@@ -5681,7 +5677,7 @@ class DataSourceParametersRdsArgs:
     @pulumi.getter(name="instanceId")
     def instance_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The instance ID to which to connect.
+        Instance ID to which to connect.
         """
         return pulumi.get(self, "instance_id")
 
@@ -5693,19 +5689,19 @@ class DataSourceParametersRdsArgs:
 class DataSourceParametersRedshiftArgsDict(TypedDict):
     database: pulumi.Input[_builtins.str]
     """
-    The database to which to connect.
+    Database to which to connect.
     """
     cluster_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ID of the cluster to which to connect.
+    ID of the cluster to which to connect.
     """
     host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The host to which to connect.
+    Host to which to connect.
     """
     port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The port to which to connect.
+    Port to which to connect.
     """
 
 @pulumi.input_type
@@ -5716,10 +5712,10 @@ class DataSourceParametersRedshiftArgs:
                  host: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] database: The database to which to connect.
-        :param pulumi.Input[_builtins.str] cluster_id: The ID of the cluster to which to connect.
-        :param pulumi.Input[_builtins.str] host: The host to which to connect.
-        :param pulumi.Input[_builtins.int] port: The port to which to connect.
+        :param pulumi.Input[_builtins.str] database: Database to which to connect.
+        :param pulumi.Input[_builtins.str] cluster_id: ID of the cluster to which to connect.
+        :param pulumi.Input[_builtins.str] host: Host to which to connect.
+        :param pulumi.Input[_builtins.int] port: Port to which to connect.
         """
         pulumi.set(__self__, "database", database)
         if cluster_id is not None:
@@ -5733,7 +5729,7 @@ class DataSourceParametersRedshiftArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database to which to connect.
+        Database to which to connect.
         """
         return pulumi.get(self, "database")
 
@@ -5745,7 +5741,7 @@ class DataSourceParametersRedshiftArgs:
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the cluster to which to connect.
+        ID of the cluster to which to connect.
         """
         return pulumi.get(self, "cluster_id")
 
@@ -5757,7 +5753,7 @@ class DataSourceParametersRedshiftArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The host to which to connect.
+        Host to which to connect.
         """
         return pulumi.get(self, "host")
 
@@ -5769,7 +5765,7 @@ class DataSourceParametersRedshiftArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The port to which to connect.
+        Port to which to connect.
         """
         return pulumi.get(self, "port")
 
@@ -5781,7 +5777,7 @@ class DataSourceParametersRedshiftArgs:
 class DataSourceParametersS3ArgsDict(TypedDict):
     manifest_file_location: pulumi.Input['DataSourceParametersS3ManifestFileLocationArgsDict']
     """
-    An object containing the S3 location of the S3 manifest file.
+    S3 location of the S3 manifest file. See `manifest_file_location` Block below for more details.
     """
     role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -5794,7 +5790,7 @@ class DataSourceParametersS3Args:
                  manifest_file_location: pulumi.Input['DataSourceParametersS3ManifestFileLocationArgs'],
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['DataSourceParametersS3ManifestFileLocationArgs'] manifest_file_location: An object containing the S3 location of the S3 manifest file.
+        :param pulumi.Input['DataSourceParametersS3ManifestFileLocationArgs'] manifest_file_location: S3 location of the S3 manifest file. See `manifest_file_location` Block below for more details.
         :param pulumi.Input[_builtins.str] role_arn: Use the `role_arn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `role_arn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
         """
         pulumi.set(__self__, "manifest_file_location", manifest_file_location)
@@ -5805,7 +5801,7 @@ class DataSourceParametersS3Args:
     @pulumi.getter(name="manifestFileLocation")
     def manifest_file_location(self) -> pulumi.Input['DataSourceParametersS3ManifestFileLocationArgs']:
         """
-        An object containing the S3 location of the S3 manifest file.
+        S3 location of the S3 manifest file. See `manifest_file_location` Block below for more details.
         """
         return pulumi.get(self, "manifest_file_location")
 
@@ -5829,11 +5825,11 @@ class DataSourceParametersS3Args:
 class DataSourceParametersS3ManifestFileLocationArgsDict(TypedDict):
     bucket: pulumi.Input[_builtins.str]
     """
-    The name of the bucket that contains the manifest file.
+    Name of the bucket that contains the manifest file.
     """
     key: pulumi.Input[_builtins.str]
     """
-    The key of the manifest file within the bucket.
+    Key of the manifest file within the bucket.
     """
 
 @pulumi.input_type
@@ -5842,8 +5838,8 @@ class DataSourceParametersS3ManifestFileLocationArgs:
                  bucket: pulumi.Input[_builtins.str],
                  key: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] bucket: The name of the bucket that contains the manifest file.
-        :param pulumi.Input[_builtins.str] key: The key of the manifest file within the bucket.
+        :param pulumi.Input[_builtins.str] bucket: Name of the bucket that contains the manifest file.
+        :param pulumi.Input[_builtins.str] key: Key of the manifest file within the bucket.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
@@ -5852,7 +5848,7 @@ class DataSourceParametersS3ManifestFileLocationArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the bucket that contains the manifest file.
+        Name of the bucket that contains the manifest file.
         """
         return pulumi.get(self, "bucket")
 
@@ -5864,7 +5860,7 @@ class DataSourceParametersS3ManifestFileLocationArgs:
     @pulumi.getter
     def key(self) -> pulumi.Input[_builtins.str]:
         """
-        The key of the manifest file within the bucket.
+        Key of the manifest file within the bucket.
         """
         return pulumi.get(self, "key")
 
@@ -5876,7 +5872,7 @@ class DataSourceParametersS3ManifestFileLocationArgs:
 class DataSourceParametersServiceNowArgsDict(TypedDict):
     site_base_url: pulumi.Input[_builtins.str]
     """
-    The base URL of the Jira instance's site to which to connect.
+    Base URL of the ServiceNow instance's site to which to connect.
     """
 
 @pulumi.input_type
@@ -5884,7 +5880,7 @@ class DataSourceParametersServiceNowArgs:
     def __init__(__self__, *,
                  site_base_url: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] site_base_url: The base URL of the Jira instance's site to which to connect.
+        :param pulumi.Input[_builtins.str] site_base_url: Base URL of the ServiceNow instance's site to which to connect.
         """
         pulumi.set(__self__, "site_base_url", site_base_url)
 
@@ -5892,7 +5888,7 @@ class DataSourceParametersServiceNowArgs:
     @pulumi.getter(name="siteBaseUrl")
     def site_base_url(self) -> pulumi.Input[_builtins.str]:
         """
-        The base URL of the Jira instance's site to which to connect.
+        Base URL of the ServiceNow instance's site to which to connect.
         """
         return pulumi.get(self, "site_base_url")
 
@@ -5904,15 +5900,15 @@ class DataSourceParametersServiceNowArgs:
 class DataSourceParametersSnowflakeArgsDict(TypedDict):
     database: pulumi.Input[_builtins.str]
     """
-    The database to which to connect.
+    Database to which to connect.
     """
     host: pulumi.Input[_builtins.str]
     """
-    The host to which to connect.
+    Host to which to connect.
     """
     warehouse: pulumi.Input[_builtins.str]
     """
-    The warehouse to which to connect.
+    Warehouse to which to connect.
     """
 
 @pulumi.input_type
@@ -5922,9 +5918,9 @@ class DataSourceParametersSnowflakeArgs:
                  host: pulumi.Input[_builtins.str],
                  warehouse: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] database: The database to which to connect.
-        :param pulumi.Input[_builtins.str] host: The host to which to connect.
-        :param pulumi.Input[_builtins.str] warehouse: The warehouse to which to connect.
+        :param pulumi.Input[_builtins.str] database: Database to which to connect.
+        :param pulumi.Input[_builtins.str] host: Host to which to connect.
+        :param pulumi.Input[_builtins.str] warehouse: Warehouse to which to connect.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -5934,7 +5930,7 @@ class DataSourceParametersSnowflakeArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database to which to connect.
+        Database to which to connect.
         """
         return pulumi.get(self, "database")
 
@@ -5946,7 +5942,7 @@ class DataSourceParametersSnowflakeArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        The host to which to connect.
+        Host to which to connect.
         """
         return pulumi.get(self, "host")
 
@@ -5958,7 +5954,7 @@ class DataSourceParametersSnowflakeArgs:
     @pulumi.getter
     def warehouse(self) -> pulumi.Input[_builtins.str]:
         """
-        The warehouse to which to connect.
+        Warehouse to which to connect.
         """
         return pulumi.get(self, "warehouse")
 
@@ -5970,11 +5966,11 @@ class DataSourceParametersSnowflakeArgs:
 class DataSourceParametersSparkArgsDict(TypedDict):
     host: pulumi.Input[_builtins.str]
     """
-    The host to which to connect.
+    Host to which to connect.
     """
     port: pulumi.Input[_builtins.int]
     """
-    The warehouse to which to connect.
+    Port to which to connect.
     """
 
 @pulumi.input_type
@@ -5983,8 +5979,8 @@ class DataSourceParametersSparkArgs:
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] host: The host to which to connect.
-        :param pulumi.Input[_builtins.int] port: The warehouse to which to connect.
+        :param pulumi.Input[_builtins.str] host: Host to which to connect.
+        :param pulumi.Input[_builtins.int] port: Port to which to connect.
         """
         pulumi.set(__self__, "host", host)
         pulumi.set(__self__, "port", port)
@@ -5993,7 +5989,7 @@ class DataSourceParametersSparkArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        The host to which to connect.
+        Host to which to connect.
         """
         return pulumi.get(self, "host")
 
@@ -6005,7 +6001,7 @@ class DataSourceParametersSparkArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        The warehouse to which to connect.
+        Port to which to connect.
         """
         return pulumi.get(self, "port")
 
@@ -6017,15 +6013,15 @@ class DataSourceParametersSparkArgs:
 class DataSourceParametersSqlServerArgsDict(TypedDict):
     database: pulumi.Input[_builtins.str]
     """
-    The database to which to connect.
+    Database to which to connect.
     """
     host: pulumi.Input[_builtins.str]
     """
-    The host to which to connect.
+    Host to which to connect.
     """
     port: pulumi.Input[_builtins.int]
     """
-    The warehouse to which to connect.
+    Port to which to connect.
     """
 
 @pulumi.input_type
@@ -6035,9 +6031,9 @@ class DataSourceParametersSqlServerArgs:
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] database: The database to which to connect.
-        :param pulumi.Input[_builtins.str] host: The host to which to connect.
-        :param pulumi.Input[_builtins.int] port: The warehouse to which to connect.
+        :param pulumi.Input[_builtins.str] database: Database to which to connect.
+        :param pulumi.Input[_builtins.str] host: Host to which to connect.
+        :param pulumi.Input[_builtins.int] port: Port to which to connect.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -6047,7 +6043,7 @@ class DataSourceParametersSqlServerArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database to which to connect.
+        Database to which to connect.
         """
         return pulumi.get(self, "database")
 
@@ -6059,7 +6055,7 @@ class DataSourceParametersSqlServerArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        The host to which to connect.
+        Host to which to connect.
         """
         return pulumi.get(self, "host")
 
@@ -6071,7 +6067,7 @@ class DataSourceParametersSqlServerArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        The warehouse to which to connect.
+        Port to which to connect.
         """
         return pulumi.get(self, "port")
 
@@ -6083,15 +6079,15 @@ class DataSourceParametersSqlServerArgs:
 class DataSourceParametersTeradataArgsDict(TypedDict):
     database: pulumi.Input[_builtins.str]
     """
-    The database to which to connect.
+    Database to which to connect.
     """
     host: pulumi.Input[_builtins.str]
     """
-    The host to which to connect.
+    Host to which to connect.
     """
     port: pulumi.Input[_builtins.int]
     """
-    The warehouse to which to connect.
+    Port to which to connect.
     """
 
 @pulumi.input_type
@@ -6101,9 +6097,9 @@ class DataSourceParametersTeradataArgs:
                  host: pulumi.Input[_builtins.str],
                  port: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] database: The database to which to connect.
-        :param pulumi.Input[_builtins.str] host: The host to which to connect.
-        :param pulumi.Input[_builtins.int] port: The warehouse to which to connect.
+        :param pulumi.Input[_builtins.str] database: Database to which to connect.
+        :param pulumi.Input[_builtins.str] host: Host to which to connect.
+        :param pulumi.Input[_builtins.int] port: Port to which to connect.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "host", host)
@@ -6113,7 +6109,7 @@ class DataSourceParametersTeradataArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[_builtins.str]:
         """
-        The database to which to connect.
+        Database to which to connect.
         """
         return pulumi.get(self, "database")
 
@@ -6125,7 +6121,7 @@ class DataSourceParametersTeradataArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[_builtins.str]:
         """
-        The host to which to connect.
+        Host to which to connect.
         """
         return pulumi.get(self, "host")
 
@@ -6137,7 +6133,7 @@ class DataSourceParametersTeradataArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        The warehouse to which to connect.
+        Port to which to connect.
         """
         return pulumi.get(self, "port")
 
@@ -6149,11 +6145,11 @@ class DataSourceParametersTeradataArgs:
 class DataSourceParametersTwitterArgsDict(TypedDict):
     max_rows: pulumi.Input[_builtins.int]
     """
-    The maximum number of rows to query.
+    Maximum number of rows to query.
     """
     query: pulumi.Input[_builtins.str]
     """
-    The Twitter query to retrieve the data.
+    Twitter query to retrieve the data.
     """
 
 @pulumi.input_type
@@ -6162,8 +6158,8 @@ class DataSourceParametersTwitterArgs:
                  max_rows: pulumi.Input[_builtins.int],
                  query: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.int] max_rows: The maximum number of rows to query.
-        :param pulumi.Input[_builtins.str] query: The Twitter query to retrieve the data.
+        :param pulumi.Input[_builtins.int] max_rows: Maximum number of rows to query.
+        :param pulumi.Input[_builtins.str] query: Twitter query to retrieve the data.
         """
         pulumi.set(__self__, "max_rows", max_rows)
         pulumi.set(__self__, "query", query)
@@ -6172,7 +6168,7 @@ class DataSourceParametersTwitterArgs:
     @pulumi.getter(name="maxRows")
     def max_rows(self) -> pulumi.Input[_builtins.int]:
         """
-        The maximum number of rows to query.
+        Maximum number of rows to query.
         """
         return pulumi.get(self, "max_rows")
 
@@ -6184,7 +6180,7 @@ class DataSourceParametersTwitterArgs:
     @pulumi.getter
     def query(self) -> pulumi.Input[_builtins.str]:
         """
-        The Twitter query to retrieve the data.
+        Twitter query to retrieve the data.
         """
         return pulumi.get(self, "query")
 
@@ -6243,7 +6239,7 @@ class DataSourcePermissionArgs:
 class DataSourceSslPropertiesArgsDict(TypedDict):
     disable_ssl: pulumi.Input[_builtins.bool]
     """
-    A Boolean option to control whether SSL should be disabled.
+    Whether to disable SSL.
     """
 
 @pulumi.input_type
@@ -6251,7 +6247,7 @@ class DataSourceSslPropertiesArgs:
     def __init__(__self__, *,
                  disable_ssl: pulumi.Input[_builtins.bool]):
         """
-        :param pulumi.Input[_builtins.bool] disable_ssl: A Boolean option to control whether SSL should be disabled.
+        :param pulumi.Input[_builtins.bool] disable_ssl: Whether to disable SSL.
         """
         pulumi.set(__self__, "disable_ssl", disable_ssl)
 
@@ -6259,7 +6255,7 @@ class DataSourceSslPropertiesArgs:
     @pulumi.getter(name="disableSsl")
     def disable_ssl(self) -> pulumi.Input[_builtins.bool]:
         """
-        A Boolean option to control whether SSL should be disabled.
+        Whether to disable SSL.
         """
         return pulumi.get(self, "disable_ssl")
 
@@ -6492,11 +6488,11 @@ class NamespaceTimeoutsArgs:
 class RefreshScheduleScheduleArgsDict(TypedDict):
     refresh_type: pulumi.Input[_builtins.str]
     """
-    The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+    Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
     """
     schedule_frequency: pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgsDict']
     """
-    The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+    Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `schedule_frequency` Block.
     """
     start_after_date_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -6510,8 +6506,8 @@ class RefreshScheduleScheduleArgs:
                  schedule_frequency: pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs'],
                  start_after_date_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] refresh_type: The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
-        :param pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs'] schedule_frequency: The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+        :param pulumi.Input[_builtins.str] refresh_type: Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+        :param pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs'] schedule_frequency: Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `schedule_frequency` Block.
         :param pulumi.Input[_builtins.str] start_after_date_time: Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
         """
         pulumi.set(__self__, "refresh_type", refresh_type)
@@ -6523,7 +6519,7 @@ class RefreshScheduleScheduleArgs:
     @pulumi.getter(name="refreshType")
     def refresh_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+        Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
         """
         return pulumi.get(self, "refresh_type")
 
@@ -6535,7 +6531,7 @@ class RefreshScheduleScheduleArgs:
     @pulumi.getter(name="scheduleFrequency")
     def schedule_frequency(self) -> pulumi.Input['RefreshScheduleScheduleScheduleFrequencyArgs']:
         """
-        The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+        Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `schedule_frequency` Block.
         """
         return pulumi.get(self, "schedule_frequency")
 
@@ -6559,19 +6555,19 @@ class RefreshScheduleScheduleArgs:
 class RefreshScheduleScheduleScheduleFrequencyArgsDict(TypedDict):
     interval: pulumi.Input[_builtins.str]
     """
-    The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+    Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
     """
     refresh_on_day: NotRequired[pulumi.Input[Optional['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgsDict']]]
     """
-    The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+    [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `refresh_on_day` Block.
     """
     time_of_the_day: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+    Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
     """
     timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The timezone that you want the refresh schedule to use.
+    Timezone that you want the refresh schedule to use.
     """
 
 @pulumi.input_type
@@ -6582,10 +6578,10 @@ class RefreshScheduleScheduleScheduleFrequencyArgs:
                  time_of_the_day: pulumi.Input[Optional[_builtins.str]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] interval: The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
-        :param pulumi.Input['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs'] refresh_on_day: The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
-        :param pulumi.Input[_builtins.str] time_of_the_day: The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
-        :param pulumi.Input[_builtins.str] timezone: The timezone that you want the refresh schedule to use.
+        :param pulumi.Input[_builtins.str] interval: Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+        :param pulumi.Input['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs'] refresh_on_day: [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `refresh_on_day` Block.
+        :param pulumi.Input[_builtins.str] time_of_the_day: Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+        :param pulumi.Input[_builtins.str] timezone: Timezone that you want the refresh schedule to use.
         """
         pulumi.set(__self__, "interval", interval)
         if refresh_on_day is not None:
@@ -6599,7 +6595,7 @@ class RefreshScheduleScheduleScheduleFrequencyArgs:
     @pulumi.getter
     def interval(self) -> pulumi.Input[_builtins.str]:
         """
-        The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+        Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
         """
         return pulumi.get(self, "interval")
 
@@ -6611,7 +6607,7 @@ class RefreshScheduleScheduleScheduleFrequencyArgs:
     @pulumi.getter(name="refreshOnDay")
     def refresh_on_day(self) -> pulumi.Input[Optional['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs']]:
         """
-        The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+        [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `refresh_on_day` Block.
         """
         return pulumi.get(self, "refresh_on_day")
 
@@ -6623,7 +6619,7 @@ class RefreshScheduleScheduleScheduleFrequencyArgs:
     @pulumi.getter(name="timeOfTheDay")
     def time_of_the_day(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+        Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
         """
         return pulumi.get(self, "time_of_the_day")
 
@@ -6635,7 +6631,7 @@ class RefreshScheduleScheduleScheduleFrequencyArgs:
     @pulumi.getter
     def timezone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The timezone that you want the refresh schedule to use.
+        Timezone that you want the refresh schedule to use.
         """
         return pulumi.get(self, "timezone")
 
@@ -6647,11 +6643,11 @@ class RefreshScheduleScheduleScheduleFrequencyArgs:
 class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgsDict(TypedDict):
     day_of_month: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The day of the month that you want to schedule refresh on.
+    Day of the month that you want to schedule refresh on.
     """
     day_of_week: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+    Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
     """
 
 @pulumi.input_type
@@ -6660,8 +6656,8 @@ class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs:
                  day_of_month: pulumi.Input[Optional[_builtins.str]] = None,
                  day_of_week: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] day_of_month: The day of the month that you want to schedule refresh on.
-        :param pulumi.Input[_builtins.str] day_of_week: The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+        :param pulumi.Input[_builtins.str] day_of_month: Day of the month that you want to schedule refresh on.
+        :param pulumi.Input[_builtins.str] day_of_week: Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
         """
         if day_of_month is not None:
             pulumi.set(__self__, "day_of_month", day_of_month)
@@ -6672,7 +6668,7 @@ class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs:
     @pulumi.getter(name="dayOfMonth")
     def day_of_month(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The day of the month that you want to schedule refresh on.
+        Day of the month that you want to schedule refresh on.
         """
         return pulumi.get(self, "day_of_month")
 
@@ -6684,7 +6680,7 @@ class RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs:
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+        Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
         """
         return pulumi.get(self, "day_of_week")
 
@@ -6743,11 +6739,11 @@ class TemplatePermissionArgs:
 class TemplateSourceEntityArgsDict(TypedDict):
     source_analysis: NotRequired[pulumi.Input[Optional['TemplateSourceEntitySourceAnalysisArgsDict']]]
     """
-    The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
+    Source analysis, if it is based on an analysis. Only one of `source_analysis` or `source_template` should be configured. See `source_analysis` Block.
     """
     source_template: NotRequired[pulumi.Input[Optional['TemplateSourceEntitySourceTemplateArgsDict']]]
     """
-    The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
+    Source template, if it is based on a template. Only one of `source_analysis` or `source_template` should be configured. See `source_template` Block.
     """
 
 @pulumi.input_type
@@ -6756,8 +6752,8 @@ class TemplateSourceEntityArgs:
                  source_analysis: pulumi.Input[Optional['TemplateSourceEntitySourceAnalysisArgs']] = None,
                  source_template: pulumi.Input[Optional['TemplateSourceEntitySourceTemplateArgs']] = None):
         """
-        :param pulumi.Input['TemplateSourceEntitySourceAnalysisArgs'] source_analysis: The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
-        :param pulumi.Input['TemplateSourceEntitySourceTemplateArgs'] source_template: The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
+        :param pulumi.Input['TemplateSourceEntitySourceAnalysisArgs'] source_analysis: Source analysis, if it is based on an analysis. Only one of `source_analysis` or `source_template` should be configured. See `source_analysis` Block.
+        :param pulumi.Input['TemplateSourceEntitySourceTemplateArgs'] source_template: Source template, if it is based on a template. Only one of `source_analysis` or `source_template` should be configured. See `source_template` Block.
         """
         if source_analysis is not None:
             pulumi.set(__self__, "source_analysis", source_analysis)
@@ -6768,7 +6764,7 @@ class TemplateSourceEntityArgs:
     @pulumi.getter(name="sourceAnalysis")
     def source_analysis(self) -> pulumi.Input[Optional['TemplateSourceEntitySourceAnalysisArgs']]:
         """
-        The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
+        Source analysis, if it is based on an analysis. Only one of `source_analysis` or `source_template` should be configured. See `source_analysis` Block.
         """
         return pulumi.get(self, "source_analysis")
 
@@ -6780,7 +6776,7 @@ class TemplateSourceEntityArgs:
     @pulumi.getter(name="sourceTemplate")
     def source_template(self) -> pulumi.Input[Optional['TemplateSourceEntitySourceTemplateArgs']]:
         """
-        The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
+        Source template, if it is based on a template. Only one of `source_analysis` or `source_template` should be configured. See `source_template` Block.
         """
         return pulumi.get(self, "source_template")
 
@@ -6796,7 +6792,7 @@ class TemplateSourceEntitySourceAnalysisArgsDict(TypedDict):
     """
     data_set_references: pulumi.Input[Sequence[pulumi.Input['TemplateSourceEntitySourceAnalysisDataSetReferenceArgsDict']]]
     """
-    A list of dataset references used as placeholders in the template. See data_set_references.
+    List of dataset references used as placeholders in the template. See `data_set_references` Block.
     """
 
 @pulumi.input_type
@@ -6806,7 +6802,7 @@ class TemplateSourceEntitySourceAnalysisArgs:
                  data_set_references: pulumi.Input[Sequence[pulumi.Input['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs']]]):
         """
         :param pulumi.Input[_builtins.str] arn: ARN of the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs']]] data_set_references: A list of dataset references used as placeholders in the template. See data_set_references.
+        :param pulumi.Input[Sequence[pulumi.Input['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs']]] data_set_references: List of dataset references used as placeholders in the template. See `data_set_references` Block.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "data_set_references", data_set_references)
@@ -6827,7 +6823,7 @@ class TemplateSourceEntitySourceAnalysisArgs:
     @pulumi.getter(name="dataSetReferences")
     def data_set_references(self) -> pulumi.Input[Sequence[pulumi.Input['TemplateSourceEntitySourceAnalysisDataSetReferenceArgs']]]:
         """
-        A list of dataset references used as placeholders in the template. See data_set_references.
+        List of dataset references used as placeholders in the template. See `data_set_references` Block.
         """
         return pulumi.get(self, "data_set_references")
 
@@ -6922,7 +6918,7 @@ class ThemeConfigurationArgsDict(TypedDict):
     """
     typography: NotRequired[pulumi.Input[Optional['ThemeConfigurationTypographyArgsDict']]]
     """
-    Determines the typography options. See typography.
+    Typography options. See typography.
     """
     ui_color_palette: NotRequired[pulumi.Input[Optional['ThemeConfigurationUiColorPaletteArgsDict']]]
     """
@@ -6939,7 +6935,7 @@ class ThemeConfigurationArgs:
         """
         :param pulumi.Input['ThemeConfigurationDataColorPaletteArgs'] data_color_palette: Color properties that apply to chart data colors. See data_color_palette.
         :param pulumi.Input['ThemeConfigurationSheetArgs'] sheet: Display options related to sheets. See sheet.
-        :param pulumi.Input['ThemeConfigurationTypographyArgs'] typography: Determines the typography options. See typography.
+        :param pulumi.Input['ThemeConfigurationTypographyArgs'] typography: Typography options. See typography.
         :param pulumi.Input['ThemeConfigurationUiColorPaletteArgs'] ui_color_palette: Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
         """
         if data_color_palette is not None:
@@ -6979,7 +6975,7 @@ class ThemeConfigurationArgs:
     @pulumi.getter
     def typography(self) -> pulumi.Input[Optional['ThemeConfigurationTypographyArgs']]:
         """
-        Determines the typography options. See typography.
+        Typography options. See typography.
         """
         return pulumi.get(self, "typography")
 
@@ -7007,11 +7003,11 @@ class ThemeConfigurationDataColorPaletteArgsDict(TypedDict):
     """
     empty_fill_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+    Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
     """
     min_max_gradients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+    Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
     """
 
 @pulumi.input_type
@@ -7022,8 +7018,8 @@ class ThemeConfigurationDataColorPaletteArgs:
                  min_max_gradients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] colors: List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
-        :param pulumi.Input[_builtins.str] empty_fill_color: The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] min_max_gradients: The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+        :param pulumi.Input[_builtins.str] empty_fill_color: Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] min_max_gradients: Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
         """
         if colors is not None:
             pulumi.set(__self__, "colors", colors)
@@ -7048,7 +7044,7 @@ class ThemeConfigurationDataColorPaletteArgs:
     @pulumi.getter(name="emptyFillColor")
     def empty_fill_color(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+        Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
         """
         return pulumi.get(self, "empty_fill_color")
 
@@ -7060,7 +7056,7 @@ class ThemeConfigurationDataColorPaletteArgs:
     @pulumi.getter(name="minMaxGradients")
     def min_max_gradients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+        Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
         """
         return pulumi.get(self, "min_max_gradients")
 
@@ -7072,11 +7068,11 @@ class ThemeConfigurationDataColorPaletteArgs:
 class ThemeConfigurationSheetArgsDict(TypedDict):
     tile: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileArgsDict']]]
     """
-    The display options for tiles. See tile.
+    Display options for tiles. See tile.
     """
     tile_layout: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutArgsDict']]]
     """
-    The layout options for tiles. See tile_layout.
+    Layout options for tiles. See tile_layout.
     """
 
 @pulumi.input_type
@@ -7085,8 +7081,8 @@ class ThemeConfigurationSheetArgs:
                  tile: pulumi.Input[Optional['ThemeConfigurationSheetTileArgs']] = None,
                  tile_layout: pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutArgs']] = None):
         """
-        :param pulumi.Input['ThemeConfigurationSheetTileArgs'] tile: The display options for tiles. See tile.
-        :param pulumi.Input['ThemeConfigurationSheetTileLayoutArgs'] tile_layout: The layout options for tiles. See tile_layout.
+        :param pulumi.Input['ThemeConfigurationSheetTileArgs'] tile: Display options for tiles. See tile.
+        :param pulumi.Input['ThemeConfigurationSheetTileLayoutArgs'] tile_layout: Layout options for tiles. See tile_layout.
         """
         if tile is not None:
             pulumi.set(__self__, "tile", tile)
@@ -7097,7 +7093,7 @@ class ThemeConfigurationSheetArgs:
     @pulumi.getter
     def tile(self) -> pulumi.Input[Optional['ThemeConfigurationSheetTileArgs']]:
         """
-        The display options for tiles. See tile.
+        Display options for tiles. See tile.
         """
         return pulumi.get(self, "tile")
 
@@ -7109,7 +7105,7 @@ class ThemeConfigurationSheetArgs:
     @pulumi.getter(name="tileLayout")
     def tile_layout(self) -> pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutArgs']]:
         """
-        The layout options for tiles. See tile_layout.
+        Layout options for tiles. See tile_layout.
         """
         return pulumi.get(self, "tile_layout")
 
@@ -7121,7 +7117,7 @@ class ThemeConfigurationSheetArgs:
 class ThemeConfigurationSheetTileArgsDict(TypedDict):
     border: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileBorderArgsDict']]]
     """
-    The border around a tile. See border.
+    Border around a tile. See border.
     """
 
 @pulumi.input_type
@@ -7129,7 +7125,7 @@ class ThemeConfigurationSheetTileArgs:
     def __init__(__self__, *,
                  border: pulumi.Input[Optional['ThemeConfigurationSheetTileBorderArgs']] = None):
         """
-        :param pulumi.Input['ThemeConfigurationSheetTileBorderArgs'] border: The border around a tile. See border.
+        :param pulumi.Input['ThemeConfigurationSheetTileBorderArgs'] border: Border around a tile. See border.
         """
         if border is not None:
             pulumi.set(__self__, "border", border)
@@ -7138,7 +7134,7 @@ class ThemeConfigurationSheetTileArgs:
     @pulumi.getter
     def border(self) -> pulumi.Input[Optional['ThemeConfigurationSheetTileBorderArgs']]:
         """
-        The border around a tile. See border.
+        Border around a tile. See border.
         """
         return pulumi.get(self, "border")
 
@@ -7150,7 +7146,7 @@ class ThemeConfigurationSheetTileArgs:
 class ThemeConfigurationSheetTileBorderArgsDict(TypedDict):
     show: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    The option to enable display of borders for visuals.
+    Whether to enable display of borders for visuals.
     """
 
 @pulumi.input_type
@@ -7158,7 +7154,7 @@ class ThemeConfigurationSheetTileBorderArgs:
     def __init__(__self__, *,
                  show: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] show: The option to enable display of borders for visuals.
+        :param pulumi.Input[_builtins.bool] show: Whether to enable display of borders for visuals.
         """
         if show is not None:
             pulumi.set(__self__, "show", show)
@@ -7167,7 +7163,7 @@ class ThemeConfigurationSheetTileBorderArgs:
     @pulumi.getter
     def show(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        The option to enable display of borders for visuals.
+        Whether to enable display of borders for visuals.
         """
         return pulumi.get(self, "show")
 
@@ -7179,11 +7175,11 @@ class ThemeConfigurationSheetTileBorderArgs:
 class ThemeConfigurationSheetTileLayoutArgsDict(TypedDict):
     gutter: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutGutterArgsDict']]]
     """
-    The gutter settings that apply between tiles. See gutter.
+    Gutter settings that apply between tiles. See gutter.
     """
     margin: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutMarginArgsDict']]]
     """
-    The margin settings that apply around the outside edge of sheets. See margin.
+    Margin settings that apply around the outside edge of sheets. See margin.
     """
 
 @pulumi.input_type
@@ -7192,8 +7188,8 @@ class ThemeConfigurationSheetTileLayoutArgs:
                  gutter: pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutGutterArgs']] = None,
                  margin: pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutMarginArgs']] = None):
         """
-        :param pulumi.Input['ThemeConfigurationSheetTileLayoutGutterArgs'] gutter: The gutter settings that apply between tiles. See gutter.
-        :param pulumi.Input['ThemeConfigurationSheetTileLayoutMarginArgs'] margin: The margin settings that apply around the outside edge of sheets. See margin.
+        :param pulumi.Input['ThemeConfigurationSheetTileLayoutGutterArgs'] gutter: Gutter settings that apply between tiles. See gutter.
+        :param pulumi.Input['ThemeConfigurationSheetTileLayoutMarginArgs'] margin: Margin settings that apply around the outside edge of sheets. See margin.
         """
         if gutter is not None:
             pulumi.set(__self__, "gutter", gutter)
@@ -7204,7 +7200,7 @@ class ThemeConfigurationSheetTileLayoutArgs:
     @pulumi.getter
     def gutter(self) -> pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutGutterArgs']]:
         """
-        The gutter settings that apply between tiles. See gutter.
+        Gutter settings that apply between tiles. See gutter.
         """
         return pulumi.get(self, "gutter")
 
@@ -7216,7 +7212,7 @@ class ThemeConfigurationSheetTileLayoutArgs:
     @pulumi.getter
     def margin(self) -> pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutMarginArgs']]:
         """
-        The margin settings that apply around the outside edge of sheets. See margin.
+        Margin settings that apply around the outside edge of sheets. See margin.
         """
         return pulumi.get(self, "margin")
 
@@ -7228,7 +7224,7 @@ class ThemeConfigurationSheetTileLayoutArgs:
 class ThemeConfigurationSheetTileLayoutGutterArgsDict(TypedDict):
     show: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    This Boolean value controls whether to display a gutter space between sheet tiles.
+    Whether to display a gutter space between sheet tiles.
     """
 
 @pulumi.input_type
@@ -7236,7 +7232,7 @@ class ThemeConfigurationSheetTileLayoutGutterArgs:
     def __init__(__self__, *,
                  show: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] show: This Boolean value controls whether to display a gutter space between sheet tiles.
+        :param pulumi.Input[_builtins.bool] show: Whether to display a gutter space between sheet tiles.
         """
         if show is not None:
             pulumi.set(__self__, "show", show)
@@ -7245,7 +7241,7 @@ class ThemeConfigurationSheetTileLayoutGutterArgs:
     @pulumi.getter
     def show(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        This Boolean value controls whether to display a gutter space between sheet tiles.
+        Whether to display a gutter space between sheet tiles.
         """
         return pulumi.get(self, "show")
 
@@ -7257,7 +7253,7 @@ class ThemeConfigurationSheetTileLayoutGutterArgs:
 class ThemeConfigurationSheetTileLayoutMarginArgsDict(TypedDict):
     show: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    This Boolean value controls whether to display sheet margins.
+    Whether to display sheet margins.
     """
 
 @pulumi.input_type
@@ -7265,7 +7261,7 @@ class ThemeConfigurationSheetTileLayoutMarginArgs:
     def __init__(__self__, *,
                  show: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] show: This Boolean value controls whether to display sheet margins.
+        :param pulumi.Input[_builtins.bool] show: Whether to display sheet margins.
         """
         if show is not None:
             pulumi.set(__self__, "show", show)
@@ -7274,7 +7270,7 @@ class ThemeConfigurationSheetTileLayoutMarginArgs:
     @pulumi.getter
     def show(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        This Boolean value controls whether to display sheet margins.
+        Whether to display sheet margins.
         """
         return pulumi.get(self, "show")
 
@@ -7286,7 +7282,7 @@ class ThemeConfigurationSheetTileLayoutMarginArgs:
 class ThemeConfigurationTypographyArgsDict(TypedDict):
     font_families: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgsDict']]]]]
     """
-    Determines the list of font families. Maximum number of 5 items. See font_families.
+    List of font families. Maximum number of 5 items. See font_families.
     """
 
 @pulumi.input_type
@@ -7294,7 +7290,7 @@ class ThemeConfigurationTypographyArgs:
     def __init__(__self__, *,
                  font_families: pulumi.Input[Optional[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]] font_families: Determines the list of font families. Maximum number of 5 items. See font_families.
+        :param pulumi.Input[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]] font_families: List of font families. Maximum number of 5 items. See font_families.
         """
         if font_families is not None:
             pulumi.set(__self__, "font_families", font_families)
@@ -7303,7 +7299,7 @@ class ThemeConfigurationTypographyArgs:
     @pulumi.getter(name="fontFamilies")
     def font_families(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]]]:
         """
-        Determines the list of font families. Maximum number of 5 items. See font_families.
+        List of font families. Maximum number of 5 items. See font_families.
         """
         return pulumi.get(self, "font_families")
 

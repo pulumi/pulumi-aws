@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<Inputs.DataSetPhysicalTableMapRelationalTableInputColumnGetArgs>? _inputColumns;
 
         /// <summary>
-        /// Column schema of the table. See input_columns.
+        /// Column schema of the table. See `InputColumns` Block below.
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapRelationalTableInputColumnGetArgs> InputColumns
         {

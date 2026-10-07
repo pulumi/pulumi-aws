@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The ARN of the role the stream assumes.
+        /// ARN of the role the stream assumes.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The ARN of the Secrets Manager secret. This value is required if `Enabled` is true.
+        /// ARN of the Secrets Manager secret. This value is required if `Enabled` is true.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }

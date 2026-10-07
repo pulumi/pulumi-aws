@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation {
     /**
-     * @return Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+     * @return Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3Configuration` Block below for more details.
      * 
      */
     private @Nullable TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration s3Configuration;
 
     private TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation() {}
     /**
-     * @return Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+     * @return Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3Configuration` Block below for more details.
      * 
      */
     public Optional<TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration> s3Configuration() {

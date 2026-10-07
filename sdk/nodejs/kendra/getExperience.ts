@@ -58,7 +58,7 @@ export interface GetExperienceResult {
      */
     readonly arn: string;
     /**
-     * Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience. Documented below.
+     * Block that specifies the configuration information for your Amazon Kendra Experience. This includes `contentSourceConfiguration`, which specifies the data source IDs and/or FAQ IDs, and `userIdentityConfiguration`, which specifies the user or group information to grant access to your Amazon Kendra Experience.
      */
     readonly configurations: outputs.kendra.GetExperienceConfiguration[];
     /**
@@ -70,7 +70,7 @@ export interface GetExperienceResult {
      */
     readonly description: string;
     /**
-     * Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS. Documented below.
+     * Shows the endpoint URLs for your Amazon Kendra Experiences. The URLs are unique and fully hosted by AWS.
      */
     readonly endpoints: outputs.kendra.GetExperienceEndpoint[];
     /**

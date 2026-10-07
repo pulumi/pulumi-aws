@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class GetThemeConfigurationSheetTileResult
     {
         /// <summary>
-        /// The border around a tile. See border.
+        /// Border around a tile. See border.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationSheetTileBorderResult> Borders;
 

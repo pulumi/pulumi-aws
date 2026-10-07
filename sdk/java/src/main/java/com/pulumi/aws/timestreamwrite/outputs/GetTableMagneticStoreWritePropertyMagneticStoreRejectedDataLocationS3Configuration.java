@@ -15,14 +15,18 @@ public final class GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLo
      * 
      */
     private String bucketName;
+    /**
+     * @return Encryption option for S3 location.
+     * 
+     */
     private String encryptionOption;
     /**
-     * @return AWS KMS key ID for S3 location with AWS maanged key.
+     * @return AWS KMS key ID for S3 location with AWS managed key.
      * 
      */
     private String kmsKeyId;
     /**
-     * @return Object key preview for S3 location.
+     * @return Object key prefix for S3 location.
      * 
      */
     private String objectKeyPrefix;
@@ -35,18 +39,22 @@ public final class GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLo
     public String bucketName() {
         return this.bucketName;
     }
+    /**
+     * @return Encryption option for S3 location.
+     * 
+     */
     public String encryptionOption() {
         return this.encryptionOption;
     }
     /**
-     * @return AWS KMS key ID for S3 location with AWS maanged key.
+     * @return AWS KMS key ID for S3 location with AWS managed key.
      * 
      */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
     /**
-     * @return Object key preview for S3 location.
+     * @return Object key prefix for S3 location.
      * 
      */
     public String objectKeyPrefix() {

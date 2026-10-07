@@ -180,12 +180,8 @@ def get_public_key(grant_tokens: Optional[Sequence[_builtins.str]] = None,
     ```
 
 
-    :param Sequence[_builtins.str] grant_tokens: List of grant tokens
-    :param _builtins.str key_id: Key identifier which can be one of the following format:
-           * Key ID. E.g - `1234abcd-12ab-34cd-56ef-1234567890ab`
-           * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-           * Alias name. E.g. - `alias/my-key`
-           * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+    :param Sequence[_builtins.str] grant_tokens: List of grant tokens.
+    :param _builtins.str key_id: Key identifier which can be one of the following formats: key ID (e.g., `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g., `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g., `alias/my-key`), or alias ARN (e.g., `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -227,12 +223,8 @@ def get_public_key_output(grant_tokens: pulumi.Input[Optional[Optional[Sequence[
     ```
 
 
-    :param Sequence[_builtins.str] grant_tokens: List of grant tokens
-    :param _builtins.str key_id: Key identifier which can be one of the following format:
-           * Key ID. E.g - `1234abcd-12ab-34cd-56ef-1234567890ab`
-           * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-           * Alias name. E.g. - `alias/my-key`
-           * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+    :param Sequence[_builtins.str] grant_tokens: List of grant tokens.
+    :param _builtins.str key_id: Key identifier which can be one of the following formats: key ID (e.g., `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g., `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g., `alias/my-key`), or alias ARN (e.g., `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

@@ -18,14 +18,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
     public static final DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs Empty = new DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs();
 
     /**
-     * A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+     * Date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
      * 
      */
     @Import(name="dateValue")
     private @Nullable Output<String> dateValue;
 
     /**
-     * @return A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+     * @return Date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
      * 
      */
     public Optional<Output<String>> dateValue() {
@@ -33,14 +33,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
     }
 
     /**
-     * A long integer value.
+     * Long integer value.
      * 
      */
     @Import(name="longValue")
     private @Nullable Output<Integer> longValue;
 
     /**
-     * @return A long integer value.
+     * @return Long integer value.
      * 
      */
     public Optional<Output<Integer>> longValue() {
@@ -48,23 +48,31 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
     }
 
     /**
-     * A list of strings.
+     * List of strings.
      * 
      */
     @Import(name="stringListValues")
     private @Nullable Output<List<String>> stringListValues;
 
     /**
-     * @return A list of strings.
+     * @return List of strings.
      * 
      */
     public Optional<Output<List<String>>> stringListValues() {
         return Optional.ofNullable(this.stringListValues);
     }
 
+    /**
+     * String, such as &#34;department&#34;.
+     * 
+     */
     @Import(name="stringValue")
     private @Nullable Output<String> stringValue;
 
+    /**
+     * @return String, such as &#34;department&#34;.
+     * 
+     */
     public Optional<Output<String>> stringValue() {
         return Optional.ofNullable(this.stringValue);
     }
@@ -97,7 +105,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
         }
 
         /**
-         * @param dateValue A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+         * @param dateValue Date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
          * 
          * @return builder
          * 
@@ -108,7 +116,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
         }
 
         /**
-         * @param dateValue A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+         * @param dateValue Date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
          * 
          * @return builder
          * 
@@ -118,7 +126,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
         }
 
         /**
-         * @param longValue A long integer value.
+         * @param longValue Long integer value.
          * 
          * @return builder
          * 
@@ -129,7 +137,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
         }
 
         /**
-         * @param longValue A long integer value.
+         * @param longValue Long integer value.
          * 
          * @return builder
          * 
@@ -139,7 +147,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
         }
 
         /**
-         * @param stringListValues A list of strings.
+         * @param stringListValues List of strings.
          * 
          * @return builder
          * 
@@ -150,7 +158,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
         }
 
         /**
-         * @param stringListValues A list of strings.
+         * @param stringListValues List of strings.
          * 
          * @return builder
          * 
@@ -160,7 +168,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
         }
 
         /**
-         * @param stringListValues A list of strings.
+         * @param stringListValues List of strings.
          * 
          * @return builder
          * 
@@ -169,11 +177,23 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
             return stringListValues(List.of(stringListValues));
         }
 
+        /**
+         * @param stringValue String, such as &#34;department&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringValue(@Nullable Output<String> stringValue) {
             $.stringValue = stringValue;
             return this;
         }
 
+        /**
+         * @param stringValue String, such as &#34;department&#34;.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stringValue(String stringValue) {
             return stringValue(Output.of(stringValue));
         }

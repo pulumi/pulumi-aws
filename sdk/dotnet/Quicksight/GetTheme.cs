@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Quicksight
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -181,15 +181,15 @@ namespace Pulumi.Aws.Quicksight
         public readonly string Arn;
         public readonly string AwsAccountId;
         /// <summary>
-        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
+        /// ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
         /// </summary>
         public readonly string BaseThemeId;
         /// <summary>
-        /// The theme configuration, which contains the theme display properties. See configuration.
+        /// Theme configuration, which contains the theme display properties. See configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetThemeConfigurationResult> Configurations;
         /// <summary>
-        /// The time that the theme was created.
+        /// Time that the theme was created.
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The time that the theme was last updated.
+        /// Time that the theme was last updated.
         /// </summary>
         public readonly string LastUpdatedTime;
         /// <summary>
@@ -205,25 +205,25 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A set of resource permissions on the theme. See permissions.
+        /// Set of resource permissions on the theme. See permissions.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetThemePermissionResult> Permissions;
         public readonly string Region;
         /// <summary>
-        /// The theme creation status.
+        /// Theme creation status.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string ThemeId;
         /// <summary>
-        /// A description of the current theme version being created/updated.
+        /// Description of the current theme version being created/updated.
         /// </summary>
         public readonly string VersionDescription;
         /// <summary>
-        /// The version number of the theme version.
+        /// Version number of the theme version.
         /// </summary>
         public readonly int VersionNumber;
 

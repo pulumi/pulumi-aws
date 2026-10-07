@@ -18,14 +18,14 @@ public final class KeyspaceArgs extends com.pulumi.resources.ResourceArgs {
     public static final KeyspaceArgs Empty = new KeyspaceArgs();
 
     /**
-     * The name of the keyspace to be created.
+     * Name of the keyspace to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the keyspace to be created.
+     * @return Name of the keyspace to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,14 +48,14 @@ public final class KeyspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The replication specification of the keyspace.
+     * Replication specification of the keyspace. See below.
      * 
      */
     @Import(name="replicationSpecification")
     private @Nullable Output<KeyspaceReplicationSpecificationArgs> replicationSpecification;
 
     /**
-     * @return The replication specification of the keyspace.
+     * @return Replication specification of the keyspace. See below.
      * 
      */
     public Optional<Output<KeyspaceReplicationSpecificationArgs>> replicationSpecification() {
@@ -63,14 +63,14 @@ public final class KeyspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -105,7 +105,7 @@ public final class KeyspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the keyspace to be created.
+         * @param name Name of the keyspace to be created.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class KeyspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the keyspace to be created.
+         * @param name Name of the keyspace to be created.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class KeyspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicationSpecification The replication specification of the keyspace.
+         * @param replicationSpecification Replication specification of the keyspace. See below.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class KeyspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicationSpecification The replication specification of the keyspace.
+         * @param replicationSpecification Replication specification of the keyspace. See below.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class KeyspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class KeyspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

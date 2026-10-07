@@ -15,14 +15,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs();
 
     /**
-     * Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
+     * Lambda function used to preprocess the records in the stream before being processed by your application code. See `inputLambdaProcessor` Block below.
      * 
      */
     @Import(name="inputLambdaProcessor", required=true)
     private Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs> inputLambdaProcessor;
 
     /**
-     * @return Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
+     * @return Lambda function used to preprocess the records in the stream before being processed by your application code. See `inputLambdaProcessor` Block below.
      * 
      */
     public Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs> inputLambdaProcessor() {
@@ -54,7 +54,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param inputLambdaProcessor Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
+         * @param inputLambdaProcessor Lambda function used to preprocess the records in the stream before being processed by your application code. See `inputLambdaProcessor` Block below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param inputLambdaProcessor Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
+         * @param inputLambdaProcessor Lambda function used to preprocess the records in the stream before being processed by your application code. See `inputLambdaProcessor` Block below.
          * 
          * @return builder
          * 

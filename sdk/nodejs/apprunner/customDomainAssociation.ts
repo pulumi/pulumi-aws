@@ -14,6 +14,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * The attribute `certificateValidationRecords` has a fixed count of records, 3 when `enableWwwSubdomain` is `true` (the default) or 2 otherwise. Due to a limitation in how the `forEach` and `count` meta-arguments are handled, they cannot directly use the value of `certificateValidationRecords` when creating a new `aws.apprunner.CustomDomainAssociation`, as the value is unknown. A workaround is shown below, using a fixed `count` based on the value of `enableWwwSubdomain`.
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,19 @@ import * as utilities from "../utilities";
  * const example = new aws.apprunner.CustomDomainAssociation("example", {
  *     domainName: "example.com",
  *     serviceArn: exampleAwsApprunnerService.arn,
+ * });
+ * const certificateValidationRecords = example.certificateValidationRecords;
+ * const validation: aws.route53.Record[] = [];
+ * example.enableWwwSubdomain.apply(enableWwwSubdomain => {
+ *     for (let range = 0; range < (enableWwwSubdomain ? 3 : 2); range++) {
+ *         validation.push(new aws.route53.Record(`validation-${range}`, {
+ *             zoneId: exampleAwsRoute53Zone.zoneId,
+ *             name: certificateValidationRecords.apply(certificateValidationRecords => certificateValidationRecords[range].name),
+ *             type: aws.route53.RecordType.CNAME,
+ *             ttl: 300,
+ *             records: [certificateValidationRecords.apply(certificateValidationRecords => certificateValidationRecords[range].value)],
+ *         }));
+ *     }
  * });
  * ```
  *
@@ -65,15 +80,15 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly certificateValidationRecords: pulumi.Output<outputs.apprunner.CustomDomainAssociationCertificateValidationRecord[]>;
     /**
-     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name.
      */
     declare public /*out*/ readonly dnsTarget: pulumi.Output<string>;
     /**
-     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
      */
     declare public readonly domainName: pulumi.Output<string>;
     /**
-     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
      */
     declare public readonly enableWwwSubdomain: pulumi.Output<boolean | undefined>;
     /**
@@ -85,7 +100,7 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
      */
     declare public readonly serviceArn: pulumi.Output<string>;
     /**
-     * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
 
@@ -139,15 +154,15 @@ export interface CustomDomainAssociationState {
      */
     certificateValidationRecords?: pulumi.Input<pulumi.Input<inputs.apprunner.CustomDomainAssociationCertificateValidationRecord>[] | undefined>;
     /**
-     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name.
      */
     dnsTarget?: pulumi.Input<string | undefined>;
     /**
-     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
      */
     domainName?: pulumi.Input<string | undefined>;
     /**
-     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
      */
     enableWwwSubdomain?: pulumi.Input<boolean | undefined>;
     /**
@@ -159,7 +174,7 @@ export interface CustomDomainAssociationState {
      */
     serviceArn?: pulumi.Input<string | undefined>;
     /**
-     * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      */
     status?: pulumi.Input<string | undefined>;
 }
@@ -169,11 +184,11 @@ export interface CustomDomainAssociationState {
  */
 export interface CustomDomainAssociationArgs {
     /**
-     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
      */
     domainName: pulumi.Input<string>;
     /**
-     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
      */
     enableWwwSubdomain?: pulumi.Input<boolean | undefined>;
     /**

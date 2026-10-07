@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Xray.Outputs
     public sealed class GroupInsightsConfiguration
     {
         /// <summary>
-        /// Specifies whether insights are enabled.
+        /// Whether insights are enabled.
         /// </summary>
         public readonly bool InsightsEnabled;
         /// <summary>
-        /// Specifies whether insight notifications are enabled.
+        /// Whether insight notifications are enabled.
         /// </summary>
         public readonly bool? NotificationsEnabled;
 

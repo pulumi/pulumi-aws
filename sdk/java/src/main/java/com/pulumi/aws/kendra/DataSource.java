@@ -758,70 +758,70 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+     * Configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      * 
      */
     @Export(name="configuration", refs={DataSourceConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceConfiguration> configuration;
 
     /**
-     * @return A block with the configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+     * @return Configuration information to connect to your Data Source repository. You can&#39;t specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      * 
      */
     public Output<Optional<DataSourceConfiguration>> configuration() {
         return Codegen.optional(this.configuration);
     }
     /**
-     * The Unix time stamp of when the Data Source was created.
+     * Unix time stamp of when the Data Source was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The Unix time stamp of when the Data Source was created.
+     * @return Unix time stamp of when the Data Source was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+     * Configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
      * 
      */
     @Export(name="customDocumentEnrichmentConfiguration", refs={DataSourceCustomDocumentEnrichmentConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DataSourceCustomDocumentEnrichmentConfiguration> customDocumentEnrichmentConfiguration;
 
     /**
-     * @return A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+     * @return Configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
      * 
      */
     public Output<Optional<DataSourceCustomDocumentEnrichmentConfiguration>> customDocumentEnrichmentConfiguration() {
         return Codegen.optional(this.customDocumentEnrichmentConfiguration);
     }
     /**
-     * The unique identifiers of the Data Source.
+     * Unique identifiers of the Data Source.
      * 
      */
     @Export(name="dataSourceId", refs={String.class}, tree="[0]")
     private Output<String> dataSourceId;
 
     /**
-     * @return The unique identifiers of the Data Source.
+     * @return Unique identifiers of the Data Source.
      * 
      */
     public Output<String> dataSourceId() {
         return this.dataSourceId;
     }
     /**
-     * A description for the Data Source connector.
+     * Description for the Data Source connector.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description for the Data Source connector.
+     * @return Description for the Data Source connector.
      * 
      */
     public Output<Optional<String>> description() {
@@ -842,42 +842,42 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.errorMessage;
     }
     /**
-     * The identifier of the index for your Amazon Kendra data source.
+     * Identifier of the index for your Amazon Kendra data source.
      * 
      */
     @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
     /**
-     * @return The identifier of the index for your Amazon Kendra data source.
+     * @return Identifier of the index for your Amazon Kendra data source.
      * 
      */
     public Output<String> indexId() {
         return this.indexId;
     }
     /**
-     * The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * Code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      * 
      */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
     /**
-     * @return The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * @return Code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      * 
      */
     public Output<String> languageCode() {
         return this.languageCode;
     }
     /**
-     * A name for your data source connector.
+     * Name for your data source connector.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name for your data source connector.
+     * @return Name for your data source connector.
      * 
      */
     public Output<String> name() {
@@ -926,14 +926,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schedule);
     }
     /**
-     * The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
+     * Current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
+     * @return Current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
      * 
      */
     public Output<String> status() {
@@ -954,21 +954,21 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     * Type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
      * 
      * The following arguments are optional:
      * 
@@ -977,7 +977,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
     private Output<String> type;
 
     /**
-     * @return The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     * @return Type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
      * 
      * The following arguments are optional:
      * 
@@ -986,14 +986,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return this.type;
     }
     /**
-     * The Unix time stamp of when the Data Source was last updated.
+     * Unix time stamp of when the Data Source was last updated.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return The Unix time stamp of when the Data Source was last updated.
+     * @return Unix time stamp of when the Data Source was last updated.
      * 
      */
     public Output<String> updatedAt() {

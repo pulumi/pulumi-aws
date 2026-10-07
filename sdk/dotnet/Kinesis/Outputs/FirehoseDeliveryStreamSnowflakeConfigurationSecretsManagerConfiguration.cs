@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The ARN of the role the stream assumes.
+        /// ARN of the role the stream assumes.
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>
-        /// The ARN of the Secrets Manager secret. This value is required if `Enabled` is true.
+        /// ARN of the Secrets Manager secret. This value is required if `Enabled` is true.
         /// </summary>
         public readonly string? SecretArn;
 

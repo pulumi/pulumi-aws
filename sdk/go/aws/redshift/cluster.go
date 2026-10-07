@@ -147,7 +147,7 @@ type Cluster struct {
 	EnhancedVpcRouting pulumi.BoolOutput `pulumi:"enhancedVpcRouting"`
 	// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+	// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
 	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
@@ -311,7 +311,7 @@ type clusterState struct {
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
 	// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+	// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
 	IamRoles []string `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -429,7 +429,7 @@ type ClusterState struct {
 	EnhancedVpcRouting pulumi.BoolPtrInput
 	// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+	// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
 	IamRoles pulumi.StringArrayInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
@@ -537,7 +537,7 @@ type clusterArgs struct {
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
 	// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+	// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
 	IamRoles []string `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -638,7 +638,7 @@ type ClusterArgs struct {
 	EnhancedVpcRouting pulumi.BoolPtrInput
 	// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+	// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
 	IamRoles pulumi.StringArrayInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
@@ -910,7 +910,7 @@ func (o ClusterOutput) FinalSnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.FinalSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
 func (o ClusterOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.IamRoles }).(pulumi.StringArrayOutput)
 }

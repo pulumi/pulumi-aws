@@ -92,14 +92,14 @@ public class AccountSettings extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+     * Default namespace for this Amazon Web Services account. Currently, the default is `default`.
      * 
      */
     @Export(name="defaultNamespace", refs={String.class}, tree="[0]")
     private Output<String> defaultNamespace;
 
     /**
-     * @return The default namespace for this Amazon Web Services account. Currently, the default is `default`.
+     * @return Default namespace for this Amazon Web Services account. Currently, the default is `default`.
      * 
      */
     public Output<String> defaultNamespace() {
@@ -120,14 +120,14 @@ public class AccountSettings extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+     * Whether to prevent the Amazon QuickSight account from being deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
      * 
      */
     @Export(name="terminationProtectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> terminationProtectionEnabled;
 
     /**
-     * @return A boolean value that determines whether or not an Amazon QuickSight account can be deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
+     * @return Whether to prevent the Amazon QuickSight account from being deleted. If `true`, it does not allow the account to be deleted and results in an error message if a user tries to make a DeleteAccountSubscription request. If `false`, it will allow the account to be deleted.
      * 
      */
     public Output<Boolean> terminationProtectionEnabled() {

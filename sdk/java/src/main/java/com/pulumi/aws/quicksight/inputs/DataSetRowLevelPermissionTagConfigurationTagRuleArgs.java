@@ -32,14 +32,14 @@ public final class DataSetRowLevelPermissionTagConfigurationTagRuleArgs extends 
     }
 
     /**
-     * A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+     * String that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
      * 
      */
     @Import(name="matchAllValue")
     private @Nullable Output<String> matchAllValue;
 
     /**
-     * @return A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+     * @return String that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
      * 
      */
     public Optional<Output<String>> matchAllValue() {
@@ -62,14 +62,14 @@ public final class DataSetRowLevelPermissionTagConfigurationTagRuleArgs extends 
     }
 
     /**
-     * A string that you want to use to delimit the values when you pass the values at run time.
+     * String that you want to use to delimit the values when you pass the values at run time.
      * 
      */
     @Import(name="tagMultiValueDelimiter")
     private @Nullable Output<String> tagMultiValueDelimiter;
 
     /**
-     * @return A string that you want to use to delimit the values when you pass the values at run time.
+     * @return String that you want to use to delimit the values when you pass the values at run time.
      * 
      */
     public Optional<Output<String>> tagMultiValueDelimiter() {
@@ -125,7 +125,7 @@ public final class DataSetRowLevelPermissionTagConfigurationTagRuleArgs extends 
         }
 
         /**
-         * @param matchAllValue A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+         * @param matchAllValue String that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class DataSetRowLevelPermissionTagConfigurationTagRuleArgs extends 
         }
 
         /**
-         * @param matchAllValue A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+         * @param matchAllValue String that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class DataSetRowLevelPermissionTagConfigurationTagRuleArgs extends 
         }
 
         /**
-         * @param tagMultiValueDelimiter A string that you want to use to delimit the values when you pass the values at run time.
+         * @param tagMultiValueDelimiter String that you want to use to delimit the values when you pass the values at run time.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class DataSetRowLevelPermissionTagConfigurationTagRuleArgs extends 
         }
 
         /**
-         * @param tagMultiValueDelimiter A string that you want to use to delimit the values when you pass the values at run time.
+         * @param tagMultiValueDelimiter String that you want to use to delimit the values when you pass the values at run time.
          * 
          * @return builder
          * 

@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AnalyticsApplicationReferenceDataSources {
     /**
-     * @return The ARN of the Kinesis Analytics Application.
+     * @return ARN of the Kinesis Analytics Application.
      * 
      */
     private @Nullable String id;
     /**
-     * @return The S3 configuration for the reference data source. See S3 Reference below for more details.
+     * @return S3 configuration for the reference data source. See `reference_data_sources.s3` Block below for details.
      * 
      */
     private AnalyticsApplicationReferenceDataSourcesS3 s3;
     /**
-     * @return The Schema format of the data in the streaming source. See Source Schema below for more details.
+     * @return Schema format of the data in the streaming source. See `reference_data_sources.schema` Block below for details.
      * 
      */
     private AnalyticsApplicationReferenceDataSourcesSchema schema;
     /**
-     * @return The in-application Table Name.
+     * @return In-application Table Name.
      * 
      */
     private String tableName;
 
     private AnalyticsApplicationReferenceDataSources() {}
     /**
-     * @return The ARN of the Kinesis Analytics Application.
+     * @return ARN of the Kinesis Analytics Application.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
     /**
-     * @return The S3 configuration for the reference data source. See S3 Reference below for more details.
+     * @return S3 configuration for the reference data source. See `reference_data_sources.s3` Block below for details.
      * 
      */
     public AnalyticsApplicationReferenceDataSourcesS3 s3() {
         return this.s3;
     }
     /**
-     * @return The Schema format of the data in the streaming source. See Source Schema below for more details.
+     * @return Schema format of the data in the streaming source. See `reference_data_sources.schema` Block below for details.
      * 
      */
     public AnalyticsApplicationReferenceDataSourcesSchema schema() {
         return this.schema;
     }
     /**
-     * @return The in-application Table Name.
+     * @return In-application Table Name.
      * 
      */
     public String tableName() {

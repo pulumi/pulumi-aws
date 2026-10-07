@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DataSourceParametersAwsIotAnalytics {
     /**
-     * @return The name of the data set to which to connect.
+     * @return Name of the data set to which to connect.
      * 
      */
     private String dataSetName;
 
     private DataSourceParametersAwsIotAnalytics() {}
     /**
-     * @return The name of the data set to which to connect.
+     * @return Name of the data set to which to connect.
      * 
      */
     public String dataSetName() {

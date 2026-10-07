@@ -294,10 +294,10 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.AgentcoreHarnessEnvironmentArtifact?> EnvironmentArtifact { get; private set; } = null!;
 
         /// <summary>
-        /// Map of environment variables.
+        /// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
         /// </summary>
         [Output("environmentVariables")]
-        public Output<ImmutableDictionary<string, string>?> EnvironmentVariables { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> EnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
         /// Compute environment configuration. See `Environment` Block below.If not specified, configured values can be found in `EnvironmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.
@@ -484,7 +484,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _environmentVariables;
 
         /// <summary>
-        /// Map of environment variables.
+        /// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
         /// </summary>
         public InputMap<string> EnvironmentVariables
         {
@@ -675,7 +675,7 @@ namespace Pulumi.Aws.Bedrock
         private InputMap<string>? _environmentVariables;
 
         /// <summary>
-        /// Map of environment variables.
+        /// Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
         /// </summary>
         public InputMap<string> EnvironmentVariables
         {

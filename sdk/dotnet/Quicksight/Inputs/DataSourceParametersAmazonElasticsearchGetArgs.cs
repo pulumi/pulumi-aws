@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSourceParametersAmazonElasticsearchGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The OpenSearch domain.
+        /// OpenSearch domain.
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;

@@ -111,29 +111,29 @@ export class Folder extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * The time that the folder was created.
+     * Time that the folder was created.
      */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * Identifier for the folder.
+     *
+     * The following arguments are optional:
      */
     declare public readonly folderId: pulumi.Output<string>;
     /**
-     * An array of ancestor ARN strings for the folder. Empty for root-level folders.
+     * Array of ancestor ARN strings for the folder. Empty for root-level folders.
      */
     declare public /*out*/ readonly folderPaths: pulumi.Output<string[]>;
     /**
-     * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+     * Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      */
     declare public readonly folderType: pulumi.Output<string | undefined>;
     /**
-     * The time that the folder was last updated.
+     * Time that the folder was last updated.
      */
     declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
      * Display name for the folder.
-     *
-     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -141,7 +141,7 @@ export class Folder extends pulumi.CustomResource {
      */
     declare public readonly parentFolderArn: pulumi.Output<string | undefined>;
     /**
-     * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
      */
     declare public readonly permissions: pulumi.Output<outputs.quicksight.FolderPermission[] | undefined>;
     /**
@@ -153,7 +153,7 @@ export class Folder extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -220,29 +220,29 @@ export interface FolderState {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The time that the folder was created.
+     * Time that the folder was created.
      */
     createdTime?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the folder.
+     *
+     * The following arguments are optional:
      */
     folderId?: pulumi.Input<string | undefined>;
     /**
-     * An array of ancestor ARN strings for the folder. Empty for root-level folders.
+     * Array of ancestor ARN strings for the folder. Empty for root-level folders.
      */
     folderPaths?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+     * Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      */
     folderType?: pulumi.Input<string | undefined>;
     /**
-     * The time that the folder was last updated.
+     * Time that the folder was last updated.
      */
     lastUpdatedTime?: pulumi.Input<string | undefined>;
     /**
      * Display name for the folder.
-     *
-     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface FolderState {
      */
     parentFolderArn?: pulumi.Input<string | undefined>;
     /**
-     * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderPermission>[] | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface FolderState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -277,16 +277,16 @@ export interface FolderArgs {
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the folder.
+     *
+     * The following arguments are optional:
      */
     folderId: pulumi.Input<string>;
     /**
-     * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+     * Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      */
     folderType?: pulumi.Input<string | undefined>;
     /**
      * Display name for the folder.
-     *
-     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -294,7 +294,7 @@ export interface FolderArgs {
      */
     parentFolderArn?: pulumi.Input<string | undefined>;
     /**
-     * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderPermission>[] | undefined>;
     /**

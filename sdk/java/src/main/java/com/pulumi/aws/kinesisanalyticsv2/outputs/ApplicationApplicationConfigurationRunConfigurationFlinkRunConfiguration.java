@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration {
     /**
-     * @return When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+     * @return Whether the runtime is allowed to skip a state that cannot be mapped to the new program when restoring from a snapshot. Default is `false`.
      * 
      */
     private @Nullable Boolean allowNonRestoredState;
 
     private ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration() {}
     /**
-     * @return When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+     * @return Whether the runtime is allowed to skip a state that cannot be mapped to the new program when restoring from a snapshot. Default is `false`.
      * 
      */
     public Optional<Boolean> allowNonRestoredState() {

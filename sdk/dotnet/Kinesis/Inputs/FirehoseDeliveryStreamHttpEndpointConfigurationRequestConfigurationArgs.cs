@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private InputList<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs>? _commonAttributes;
 
         /// <summary>
-        /// Describes the metadata sent to the HTTP endpoint destination. See `CommonAttributes` block below for details.
+        /// Metadata sent to the HTTP endpoint destination. See `CommonAttributes` block below for details.
         /// </summary>
         public InputList<Inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs> CommonAttributes
         {

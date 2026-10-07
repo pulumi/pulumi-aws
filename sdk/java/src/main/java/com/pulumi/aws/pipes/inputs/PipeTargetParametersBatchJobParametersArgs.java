@@ -23,14 +23,14 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
     public static final PipeTargetParametersBatchJobParametersArgs Empty = new PipeTargetParametersBatchJobParametersArgs();
 
     /**
-     * The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+     * Array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. See `arrayProperties` Block for details.
      * 
      */
     @Import(name="arrayProperties")
     private @Nullable Output<PipeTargetParametersBatchJobParametersArrayPropertiesArgs> arrayProperties;
 
     /**
-     * @return The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+     * @return Array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. See `arrayProperties` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersBatchJobParametersArrayPropertiesArgs>> arrayProperties() {
@@ -38,14 +38,14 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
     }
 
     /**
-     * The overrides that are sent to a container. Detailed below.
+     * Overrides that are sent to a container. See `containerOverrides` Block for details.
      * 
      */
     @Import(name="containerOverrides")
     private @Nullable Output<PipeTargetParametersBatchJobParametersContainerOverridesArgs> containerOverrides;
 
     /**
-     * @return The overrides that are sent to a container. Detailed below.
+     * @return Overrides that are sent to a container. See `containerOverrides` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersBatchJobParametersContainerOverridesArgs>> containerOverrides() {
@@ -53,14 +53,14 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
     }
 
     /**
-     * A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+     * List of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. See `dependsOn` Block for details.
      * 
      */
     @Import(name="dependsOns")
     private @Nullable Output<List<PipeTargetParametersBatchJobParametersDependsOnArgs>> dependsOns;
 
     /**
-     * @return A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+     * @return List of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. See `dependsOn` Block for details.
      * 
      */
     public Optional<Output<List<PipeTargetParametersBatchJobParametersDependsOnArgs>>> dependsOns() {
@@ -83,14 +83,14 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
     }
 
     /**
-     * The name of the job. It can be up to 128 letters long.
+     * Name of the job. It can be up to 128 letters long.
      * 
      */
     @Import(name="jobName", required=true)
     private Output<String> jobName;
 
     /**
-     * @return The name of the job. It can be up to 128 letters long.
+     * @return Name of the job. It can be up to 128 letters long.
      * 
      */
     public Output<String> jobName() {
@@ -98,14 +98,14 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
     }
 
     /**
-     * Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
+     * Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
+     * @return Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -113,14 +113,14 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
     }
 
     /**
-     * The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+     * Retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. See `retryStrategy` Block for details.
      * 
      */
     @Import(name="retryStrategy")
     private @Nullable Output<PipeTargetParametersBatchJobParametersRetryStrategyArgs> retryStrategy;
 
     /**
-     * @return The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+     * @return Retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. See `retryStrategy` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersBatchJobParametersRetryStrategyArgs>> retryStrategy() {
@@ -158,7 +158,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param arrayProperties The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+         * @param arrayProperties Array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. See `arrayProperties` Block for details.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param arrayProperties The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+         * @param arrayProperties Array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. See `arrayProperties` Block for details.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param containerOverrides The overrides that are sent to a container. Detailed below.
+         * @param containerOverrides Overrides that are sent to a container. See `containerOverrides` Block for details.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param containerOverrides The overrides that are sent to a container. Detailed below.
+         * @param containerOverrides Overrides that are sent to a container. See `containerOverrides` Block for details.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param dependsOns A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+         * @param dependsOns List of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. See `dependsOn` Block for details.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param dependsOns A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+         * @param dependsOns List of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. See `dependsOn` Block for details.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param dependsOns A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+         * @param dependsOns List of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. See `dependsOn` Block for details.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param jobName The name of the job. It can be up to 128 letters long.
+         * @param jobName Name of the job. It can be up to 128 letters long.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param jobName The name of the job. It can be up to 128 letters long.
+         * @param jobName Name of the job. It can be up to 128 letters long.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param parameters Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
+         * @param parameters Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param parameters Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
+         * @param parameters Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param retryStrategy The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+         * @param retryStrategy Retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. See `retryStrategy` Block for details.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class PipeTargetParametersBatchJobParametersArgs extends com.pulumi
         }
 
         /**
-         * @param retryStrategy The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+         * @param retryStrategy Retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. See `retryStrategy` Block for details.
          * 
          * @return builder
          * 

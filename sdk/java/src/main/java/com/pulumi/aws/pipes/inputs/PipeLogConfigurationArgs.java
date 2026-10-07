@@ -21,14 +21,14 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
     public static final PipeLogConfigurationArgs Empty = new PipeLogConfigurationArgs();
 
     /**
-     * Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+     * Amazon CloudWatch Logs logging configuration settings for the pipe. See `cloudwatchLogsLogDestination` Block for details.
      * 
      */
     @Import(name="cloudwatchLogsLogDestination")
     private @Nullable Output<PipeLogConfigurationCloudwatchLogsLogDestinationArgs> cloudwatchLogsLogDestination;
 
     /**
-     * @return Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+     * @return Amazon CloudWatch Logs logging configuration settings for the pipe. See `cloudwatchLogsLogDestination` Block for details.
      * 
      */
     public Optional<Output<PipeLogConfigurationCloudwatchLogsLogDestinationArgs>> cloudwatchLogsLogDestination() {
@@ -36,14 +36,14 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+     * Amazon Kinesis Data Firehose logging configuration settings for the pipe. See `firehoseLogDestination` Block for details.
      * 
      */
     @Import(name="firehoseLogDestination")
     private @Nullable Output<PipeLogConfigurationFirehoseLogDestinationArgs> firehoseLogDestination;
 
     /**
-     * @return Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+     * @return Amazon Kinesis Data Firehose logging configuration settings for the pipe. See `firehoseLogDestination` Block for details.
      * 
      */
     public Optional<Output<PipeLogConfigurationFirehoseLogDestinationArgs>> firehoseLogDestination() {
@@ -66,14 +66,14 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+     * Level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
      * 
      */
     @Import(name="level", required=true)
     private Output<String> level;
 
     /**
-     * @return The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+     * @return Level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
      * 
      */
     public Output<String> level() {
@@ -81,14 +81,14 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Amazon S3 logging configuration settings for the pipe. Detailed below.
+     * Amazon S3 logging configuration settings for the pipe. See `s3LogDestination` Block for details.
      * 
      */
     @Import(name="s3LogDestination")
     private @Nullable Output<PipeLogConfigurationS3LogDestinationArgs> s3LogDestination;
 
     /**
-     * @return Amazon S3 logging configuration settings for the pipe. Detailed below.
+     * @return Amazon S3 logging configuration settings for the pipe. See `s3LogDestination` Block for details.
      * 
      */
     public Optional<Output<PipeLogConfigurationS3LogDestinationArgs>> s3LogDestination() {
@@ -124,7 +124,7 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cloudwatchLogsLogDestination Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+         * @param cloudwatchLogsLogDestination Amazon CloudWatch Logs logging configuration settings for the pipe. See `cloudwatchLogsLogDestination` Block for details.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cloudwatchLogsLogDestination Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+         * @param cloudwatchLogsLogDestination Amazon CloudWatch Logs logging configuration settings for the pipe. See `cloudwatchLogsLogDestination` Block for details.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param firehoseLogDestination Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+         * @param firehoseLogDestination Amazon Kinesis Data Firehose logging configuration settings for the pipe. See `firehoseLogDestination` Block for details.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param firehoseLogDestination Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+         * @param firehoseLogDestination Amazon Kinesis Data Firehose logging configuration settings for the pipe. See `firehoseLogDestination` Block for details.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param level The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+         * @param level Level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param level The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+         * @param level Level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param s3LogDestination Amazon S3 logging configuration settings for the pipe. Detailed below.
+         * @param s3LogDestination Amazon S3 logging configuration settings for the pipe. See `s3LogDestination` Block for details.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class PipeLogConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param s3LogDestination Amazon S3 logging configuration settings for the pipe. Detailed below.
+         * @param s3LogDestination Amazon S3 logging configuration settings for the pipe. See `s3LogDestination` Block for details.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class ApplicationSnapshotArgs extends com.pulumi.resources.Resource
     public static final ApplicationSnapshotArgs Empty = new ApplicationSnapshotArgs();
 
     /**
-     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+     * Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      * 
      */
     @Import(name="applicationName", required=true)
     private Output<String> applicationName;
 
     /**
-     * @return The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+     * @return Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      * 
      */
     public Output<String> applicationName() {
@@ -47,14 +47,14 @@ public final class ApplicationSnapshotArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the application snapshot.
+     * Name of the application snapshot.
      * 
      */
     @Import(name="snapshotName", required=true)
     private Output<String> snapshotName;
 
     /**
-     * @return The name of the application snapshot.
+     * @return Name of the application snapshot.
      * 
      */
     public Output<String> snapshotName() {
@@ -88,7 +88,7 @@ public final class ApplicationSnapshotArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param applicationName The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+         * @param applicationName Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class ApplicationSnapshotArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param applicationName The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+         * @param applicationName Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ApplicationSnapshotArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param snapshotName The name of the application snapshot.
+         * @param snapshotName Name of the application snapshot.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ApplicationSnapshotArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param snapshotName The name of the application snapshot.
+         * @param snapshotName Name of the application snapshot.
          * 
          * @return builder
          * 

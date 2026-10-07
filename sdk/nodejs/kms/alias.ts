@@ -74,12 +74,11 @@ export class Alias extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+     * Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Creates an unique alias beginning with the specified prefix.
-     * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+     * Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
      */
     declare public readonly namePrefix: pulumi.Output<string>;
     /**
@@ -140,12 +139,11 @@ export interface AliasState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+     * Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Creates an unique alias beginning with the specified prefix.
-     * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+     * Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string | undefined>;
     /**
@@ -167,12 +165,11 @@ export interface AliasState {
  */
 export interface AliasArgs {
     /**
-     * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+     * Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Creates an unique alias beginning with the specified prefix.
-     * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+     * Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string | undefined>;
     /**

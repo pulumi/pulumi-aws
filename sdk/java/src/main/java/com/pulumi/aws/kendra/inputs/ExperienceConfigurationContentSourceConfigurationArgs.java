@@ -18,14 +18,14 @@ public final class ExperienceConfigurationContentSourceConfigurationArgs extends
     public static final ExperienceConfigurationContentSourceConfigurationArgs Empty = new ExperienceConfigurationContentSourceConfigurationArgs();
 
     /**
-     * The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+     * Identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
      */
     @Import(name="dataSourceIds")
     private @Nullable Output<List<String>> dataSourceIds;
 
     /**
-     * @return The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+     * @return Identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
      */
     public Optional<Output<List<String>>> dataSourceIds() {
@@ -48,14 +48,14 @@ public final class ExperienceConfigurationContentSourceConfigurationArgs extends
     }
 
     /**
-     * The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+     * Identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
      */
     @Import(name="faqIds")
     private @Nullable Output<List<String>> faqIds;
 
     /**
-     * @return The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+     * @return Identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
      * 
      */
     public Optional<Output<List<String>>> faqIds() {
@@ -89,7 +89,7 @@ public final class ExperienceConfigurationContentSourceConfigurationArgs extends
         }
 
         /**
-         * @param dataSourceIds The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+         * @param dataSourceIds Identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ExperienceConfigurationContentSourceConfigurationArgs extends
         }
 
         /**
-         * @param dataSourceIds The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+         * @param dataSourceIds Identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ExperienceConfigurationContentSourceConfigurationArgs extends
         }
 
         /**
-         * @param dataSourceIds The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+         * @param dataSourceIds Identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class ExperienceConfigurationContentSourceConfigurationArgs extends
         }
 
         /**
-         * @param faqIds The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+         * @param faqIds Identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class ExperienceConfigurationContentSourceConfigurationArgs extends
         }
 
         /**
-         * @param faqIds The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+         * @param faqIds Identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class ExperienceConfigurationContentSourceConfigurationArgs extends
         }
 
         /**
-         * @param faqIds The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+         * @param faqIds Identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
          * 
          * @return builder
          * 

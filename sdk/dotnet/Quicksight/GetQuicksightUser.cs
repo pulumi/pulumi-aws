@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Quicksight
         public string? Region { get; set; }
 
         /// <summary>
-        /// The name of the user that you want to match.
+        /// Name of the user that you want to match.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name of the user that you want to match.
+        /// Name of the user that you want to match.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Quicksight
     public sealed class GetQuicksightUserResult
     {
         /// <summary>
-        /// The active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
+        /// Active status of user. When you create an Amazon QuickSight user that’s not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a password.
         /// </summary>
         public readonly bool Active;
         /// <summary>
@@ -179,11 +179,11 @@ namespace Pulumi.Aws.Quicksight
         public readonly string Arn;
         public readonly string AwsAccountId;
         /// <summary>
-        /// The custom permissions profile associated with this user.
+        /// Custom permissions profile associated with this user.
         /// </summary>
         public readonly string CustomPermissionsName;
         /// <summary>
-        /// The user's email address.
+        /// User's email address.
         /// </summary>
         public readonly string Email;
         /// <summary>
@@ -191,21 +191,18 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The type of identity authentication used by the user.
+        /// Type of identity authentication used by the user.
         /// </summary>
         public readonly string IdentityType;
         public readonly string? Namespace;
         /// <summary>
-        /// The principal ID of the user.
+        /// Principal ID of the user.
         /// </summary>
         public readonly string PrincipalId;
         public readonly string Region;
         public readonly string UserName;
         /// <summary>
-        /// The Amazon QuickSight role for the user. The user role can be one of the following:.
-        /// - `READER`: A user who has read-only access to dashboards.
-        /// - `AUTHOR`: A user who can create data sources, datasets, analyzes, and dashboards.
-        /// - `ADMIN`: A user who is an author, who can also manage Amazon QuickSight settings.
+        /// Amazon QuickSight role for the user. Valid values are `READER` (read-only access to dashboards), `AUTHOR` (can create data sources, datasets, analyses, and dashboards), and `ADMIN` (an author who can also manage Amazon QuickSight settings).
         /// </summary>
         public readonly string UserRole;
 

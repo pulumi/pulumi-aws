@@ -43,15 +43,16 @@ class FirehoseDeliveryStreamArgs:
         """
         The set of arguments for constructing a FirehoseDeliveryStream resource.
 
-        :param pulumi.Input[_builtins.str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        :param pulumi.Input[_builtins.str] destination: Destination where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         :param pulumi.Input[_builtins.str] arn: ARN specifying the Stream
+        :param pulumi.Input[_builtins.str] destination_id: Identifier of the destination for the delivery stream.
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs'] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs'] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs'] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+        :param pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
+        :param pulumi.Input[_builtins.str] name: Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs'] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs'] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs'] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
@@ -59,9 +60,10 @@ class FirehoseDeliveryStreamArgs:
         :param pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs'] server_side_encryption: Encrypt at rest options. See `server_side_encryption` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs'] snowflake_configuration: Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs'] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] version_id: Version identifier of the delivery stream.
                
-               **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               > **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         """
         pulumi.set(__self__, "destination", destination)
         if arn is not None:
@@ -105,7 +107,7 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter
     def destination(self) -> pulumi.Input[_builtins.str]:
         """
-        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        Destination where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         """
         return pulumi.get(self, "destination")
 
@@ -128,6 +130,9 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="destinationId")
     def destination_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the destination for the delivery stream.
+        """
         return pulumi.get(self, "destination_id")
 
     @destination_id.setter
@@ -198,7 +203,7 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter(name="mskSourceConfiguration")
     def msk_source_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamMskSourceConfigurationArgs']]:
         """
-        The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
+        Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         """
         return pulumi.get(self, "msk_source_configuration")
 
@@ -210,7 +215,7 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+        Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         """
         return pulumi.get(self, "name")
 
@@ -295,8 +300,6 @@ class FirehoseDeliveryStreamArgs:
     def splunk_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationArgs']]:
         """
         Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
-
-        **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         """
         return pulumi.get(self, "splunk_configuration")
 
@@ -308,7 +311,7 @@ class FirehoseDeliveryStreamArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -319,6 +322,11 @@ class FirehoseDeliveryStreamArgs:
     @_builtins.property
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Version identifier of the delivery stream.
+
+        > **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+        """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
@@ -353,14 +361,15 @@ class _FirehoseDeliveryStreamState:
         Input properties used for looking up and filtering FirehoseDeliveryStream resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN specifying the Stream
-        :param pulumi.Input[_builtins.str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        :param pulumi.Input[_builtins.str] destination: Destination where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        :param pulumi.Input[_builtins.str] destination_id: Identifier of the destination for the delivery stream.
         :param pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationArgs'] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationArgs'] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationArgs'] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationArgs'] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamKinesisSourceConfigurationArgs'] kinesis_source_configuration: Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
-        :param pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+        :param pulumi.Input['FirehoseDeliveryStreamMskSourceConfigurationArgs'] msk_source_configuration: Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
+        :param pulumi.Input[_builtins.str] name: Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationArgs'] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs'] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationArgs'] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
@@ -368,10 +377,11 @@ class _FirehoseDeliveryStreamState:
         :param pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs'] server_side_encryption: Encrypt at rest options. See `server_side_encryption` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationArgs'] snowflake_configuration: Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs'] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] version_id: Version identifier of the delivery stream.
                
-               **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+               > **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -430,7 +440,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter
     def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        Destination where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         """
         return pulumi.get(self, "destination")
 
@@ -441,6 +451,9 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="destinationId")
     def destination_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the destination for the delivery stream.
+        """
         return pulumi.get(self, "destination_id")
 
     @destination_id.setter
@@ -511,7 +524,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter(name="mskSourceConfiguration")
     def msk_source_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamMskSourceConfigurationArgs']]:
         """
-        The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
+        Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         """
         return pulumi.get(self, "msk_source_configuration")
 
@@ -523,7 +536,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+        Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         """
         return pulumi.get(self, "name")
 
@@ -608,8 +621,6 @@ class _FirehoseDeliveryStreamState:
     def splunk_configuration(self) -> pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationArgs']]:
         """
         Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
-
-        **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         """
         return pulumi.get(self, "splunk_configuration")
 
@@ -621,7 +632,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -633,7 +644,7 @@ class _FirehoseDeliveryStreamState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -644,6 +655,11 @@ class _FirehoseDeliveryStreamState:
     @_builtins.property
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Version identifier of the delivery stream.
+
+        > **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+        """
         return pulumi.get(self, "version_id")
 
     @version_id.setter
@@ -1296,6 +1312,34 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             destination="snowflake")
         ```
 
+        ### Data Format Conversion
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kinesis.FirehoseDeliveryStream("example", extended_s3_configuration={
+            "data_format_conversion_configuration": {
+                "input_format_configuration": {
+                    "deserializer": {
+                        "hive_json_ser_de": {},
+                    },
+                },
+                "output_format_configuration": {
+                    "serializer": {
+                        "orc_ser_de": {},
+                    },
+                },
+                "schema_configuration": {
+                    "database_name": example_aws_glue_catalog_table["databaseName"],
+                    "role_arn": example_aws_iam_role["arn"],
+                    "table_name": example_aws_glue_catalog_table["name"],
+                },
+            },
+            "buffering_size": 128,
+        })
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -1316,14 +1360,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN specifying the Stream
-        :param pulumi.Input[_builtins.str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        :param pulumi.Input[_builtins.str] destination: Destination where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        :param pulumi.Input[_builtins.str] destination_id: Identifier of the destination for the delivery stream.
         :param pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamElasticsearchConfiguration']] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamExtendedS3Configuration']] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamHttpEndpointConfiguration']] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamIcebergConfiguration']] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamKinesisSourceConfiguration']] kinesis_source_configuration: Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamMskSourceConfiguration']] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+        :param pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamMskSourceConfiguration']] msk_source_configuration: Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
+        :param pulumi.Input[_builtins.str] name: Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamOpensearchConfiguration']] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration']] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamRedshiftConfiguration']] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
@@ -1331,9 +1376,10 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict', 'outputs.FirehoseDeliveryStreamServerSideEncryption']] server_side_encryption: Encrypt at rest options. See `server_side_encryption` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamSnowflakeConfiguration']] snowflake_configuration: Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamSplunkConfiguration']] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] version_id: Version identifier of the delivery stream.
                
-               **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               > **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         """
         ...
     @overload
@@ -1960,6 +2006,34 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
             destination="snowflake")
         ```
 
+        ### Data Format Conversion
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.kinesis.FirehoseDeliveryStream("example", extended_s3_configuration={
+            "data_format_conversion_configuration": {
+                "input_format_configuration": {
+                    "deserializer": {
+                        "hive_json_ser_de": {},
+                    },
+                },
+                "output_format_configuration": {
+                    "serializer": {
+                        "orc_ser_de": {},
+                    },
+                },
+                "schema_configuration": {
+                    "database_name": example_aws_glue_catalog_table["databaseName"],
+                    "role_arn": example_aws_iam_role["arn"],
+                    "table_name": example_aws_glue_catalog_table["name"],
+                },
+            },
+            "buffering_size": 128,
+        })
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -2080,14 +2154,15 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN specifying the Stream
-        :param pulumi.Input[_builtins.str] destination: This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        :param pulumi.Input[_builtins.str] destination: Destination where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        :param pulumi.Input[_builtins.str] destination_id: Identifier of the destination for the delivery stream.
         :param pulumi.Input[Union['FirehoseDeliveryStreamElasticsearchConfigurationArgs', 'FirehoseDeliveryStreamElasticsearchConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamElasticsearchConfiguration']] elasticsearch_configuration: Configuration options when `destination` is `elasticsearch`. See `elasticsearch_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamExtendedS3ConfigurationArgs', 'FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamExtendedS3Configuration']] extended_s3_configuration: Enhanced configuration options for the s3 destination. See `extended_s3_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamHttpEndpointConfigurationArgs', 'FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamHttpEndpointConfiguration']] http_endpoint_configuration: Configuration options when `destination` is `http_endpoint`. Requires the user to also specify an `s3_configuration` block.  See `http_endpoint_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamIcebergConfigurationArgs', 'FirehoseDeliveryStreamIcebergConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamIcebergConfiguration']] iceberg_configuration: Configuration options when `destination` is `iceberg`. See `iceberg_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamKinesisSourceConfigurationArgs', 'FirehoseDeliveryStreamKinesisSourceConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamKinesisSourceConfiguration']] kinesis_source_configuration: Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesis_source_configuration` block below for details.
-        :param pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamMskSourceConfiguration']] msk_source_configuration: The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
-        :param pulumi.Input[_builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+        :param pulumi.Input[Union['FirehoseDeliveryStreamMskSourceConfigurationArgs', 'FirehoseDeliveryStreamMskSourceConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamMskSourceConfiguration']] msk_source_configuration: Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
+        :param pulumi.Input[_builtins.str] name: Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchConfigurationArgs', 'FirehoseDeliveryStreamOpensearchConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamOpensearchConfiguration']] opensearch_configuration: Configuration options when `destination` is `opensearch`. See `opensearch_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs', 'FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamOpensearchserverlessConfiguration']] opensearchserverless_configuration: Configuration options when `destination` is `opensearchserverless`. See `opensearchserverless_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamRedshiftConfigurationArgs', 'FirehoseDeliveryStreamRedshiftConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamRedshiftConfiguration']] redshift_configuration: Configuration options when `destination` is `redshift`. Requires the user to also specify an `s3_configuration` block. See `redshift_configuration` block below for details.
@@ -2095,10 +2170,11 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[Union['FirehoseDeliveryStreamServerSideEncryptionArgs', 'FirehoseDeliveryStreamServerSideEncryptionArgsDict', 'outputs.FirehoseDeliveryStreamServerSideEncryption']] server_side_encryption: Encrypt at rest options. See `server_side_encryption` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamSnowflakeConfigurationArgs', 'FirehoseDeliveryStreamSnowflakeConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamSnowflakeConfiguration']] snowflake_configuration: Configuration options when `destination` is `snowflake`. See `snowflake_configuration` block below for details.
         :param pulumi.Input[Union['FirehoseDeliveryStreamSplunkConfigurationArgs', 'FirehoseDeliveryStreamSplunkConfigurationArgsDict', 'outputs.FirehoseDeliveryStreamSplunkConfiguration']] splunk_configuration: Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] version_id: Version identifier of the delivery stream.
                
-               **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+               > **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2138,13 +2214,16 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter
     def destination(self) -> pulumi.Output[_builtins.str]:
         """
-        This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
+        Destination where the data is delivered. The only options are `s3` (Deprecated, use `extended_s3` instead), `extended_s3`, `redshift`, `elasticsearch`, `splunk`, `http_endpoint`, `opensearch`, `opensearchserverless` and `snowflake`.
         """
         return pulumi.get(self, "destination")
 
     @_builtins.property
     @pulumi.getter(name="destinationId")
     def destination_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Identifier of the destination for the delivery stream.
+        """
         return pulumi.get(self, "destination_id")
 
     @_builtins.property
@@ -2191,7 +2270,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter(name="mskSourceConfiguration")
     def msk_source_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamMskSourceConfiguration']]:
         """
-        The configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
+        Configuration for the Amazon MSK cluster to be used as the source for a delivery stream. See `msk_source_configuration` block below for details.
         """
         return pulumi.get(self, "msk_source_configuration")
 
@@ -2199,7 +2278,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
+        Name to identify the stream. This is unique to the AWS account and region the Stream is created in. When using for WAF logging, name must be prefixed with `aws-waf-logs-`. See [AWS Documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-policies.html#waf-policies-logging-config) for more details.
         """
         return pulumi.get(self, "name")
 
@@ -2256,8 +2335,6 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     def splunk_configuration(self) -> pulumi.Output[Optional['outputs.FirehoseDeliveryStreamSplunkConfiguration']]:
         """
         Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
-
-        **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         """
         return pulumi.get(self, "splunk_configuration")
 
@@ -2265,7 +2342,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -2273,12 +2350,17 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="versionId")
     def version_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Version identifier of the delivery stream.
+
+        > **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+        """
         return pulumi.get(self, "version_id")
 

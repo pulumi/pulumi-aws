@@ -333,37 +333,37 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     public partial class Application : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The application's configuration
+        /// Application configuration. See `ApplicationConfiguration` Block below.
         /// </summary>
         [Output("applicationConfiguration")]
         public Output<Outputs.ApplicationApplicationConfiguration> ApplicationConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        /// Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         /// </summary>
         [Output("applicationMode")]
         public Output<string> ApplicationMode { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the application.
+        /// ARN of the application.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A CloudWatch log stream to monitor application configuration errors.
+        /// CloudWatch log stream to monitor application configuration errors. See `CloudwatchLoggingOptions` Block below.
         /// </summary>
         [Output("cloudwatchLoggingOptions")]
         public Output<Outputs.ApplicationCloudwatchLoggingOptions?> CloudwatchLoggingOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The current timestamp when the application was created.
+        /// Current timestamp when the application was created.
         /// </summary>
         [Output("createTimestamp")]
         public Output<string> CreateTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// A summary description of the application.
+        /// Summary description of the application.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -375,13 +375,13 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<bool?> ForceStop { get; private set; } = null!;
 
         /// <summary>
-        /// The current timestamp when the application was last updated.
+        /// Current timestamp when the application was last updated.
         /// </summary>
         [Output("lastUpdateTimestamp")]
         public Output<string> LastUpdateTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the application.
+        /// Name of the application.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -393,13 +393,15 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        /// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
         /// </summary>
         [Output("runtimeEnvironment")]
         public Output<string> RuntimeEnvironment { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        /// ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("serviceExecutionRole")]
         public Output<string> ServiceExecutionRole { get; private set; } = null!;
@@ -411,25 +413,25 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Output<bool?> StartApplication { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the application.
+        /// Status of the application.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// Map of tags to assign to the application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The current application version. Kinesis Data Analytics updates the `VersionId` each time the application is updated.
+        /// Current application version. Kinesis Data Analytics updates the `VersionId` each time the application is updated.
         /// </summary>
         [Output("versionId")]
         public Output<int> VersionId { get; private set; } = null!;
@@ -481,25 +483,25 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application's configuration
+        /// Application configuration. See `ApplicationConfiguration` Block below.
         /// </summary>
         [Input("applicationConfiguration")]
         public Input<Inputs.ApplicationApplicationConfigurationArgs>? ApplicationConfiguration { get; set; }
 
         /// <summary>
-        /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        /// Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         /// </summary>
         [Input("applicationMode")]
         public Input<string>? ApplicationMode { get; set; }
 
         /// <summary>
-        /// A CloudWatch log stream to monitor application configuration errors.
+        /// CloudWatch log stream to monitor application configuration errors. See `CloudwatchLoggingOptions` Block below.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.ApplicationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
 
         /// <summary>
-        /// A summary description of the application.
+        /// Summary description of the application.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -511,7 +513,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<bool>? ForceStop { get; set; }
 
         /// <summary>
-        /// The name of the application.
+        /// Name of the application.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -523,13 +525,15 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        /// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
         /// </summary>
         [Input("runtimeEnvironment", required: true)]
         public Input<string> RuntimeEnvironment { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        /// ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("serviceExecutionRole", required: true)]
         public Input<string> ServiceExecutionRole { get; set; } = null!;
@@ -544,7 +548,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// Map of tags to assign to the application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -561,37 +565,37 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     public sealed class ApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application's configuration
+        /// Application configuration. See `ApplicationConfiguration` Block below.
         /// </summary>
         [Input("applicationConfiguration")]
         public Input<Inputs.ApplicationApplicationConfigurationGetArgs>? ApplicationConfiguration { get; set; }
 
         /// <summary>
-        /// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+        /// Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
         /// </summary>
         [Input("applicationMode")]
         public Input<string>? ApplicationMode { get; set; }
 
         /// <summary>
-        /// The ARN of the application.
+        /// ARN of the application.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A CloudWatch log stream to monitor application configuration errors.
+        /// CloudWatch log stream to monitor application configuration errors. See `CloudwatchLoggingOptions` Block below.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.ApplicationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
 
         /// <summary>
-        /// The current timestamp when the application was created.
+        /// Current timestamp when the application was created.
         /// </summary>
         [Input("createTimestamp")]
         public Input<string>? CreateTimestamp { get; set; }
 
         /// <summary>
-        /// A summary description of the application.
+        /// Summary description of the application.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -603,13 +607,13 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<bool>? ForceStop { get; set; }
 
         /// <summary>
-        /// The current timestamp when the application was last updated.
+        /// Current timestamp when the application was last updated.
         /// </summary>
         [Input("lastUpdateTimestamp")]
         public Input<string>? LastUpdateTimestamp { get; set; }
 
         /// <summary>
-        /// The name of the application.
+        /// Name of the application.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -621,13 +625,15 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+        /// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
         /// </summary>
         [Input("runtimeEnvironment")]
         public Input<string>? RuntimeEnvironment { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        /// ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("serviceExecutionRole")]
         public Input<string>? ServiceExecutionRole { get; set; }
@@ -639,7 +645,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         public Input<bool>? StartApplication { get; set; }
 
         /// <summary>
-        /// The status of the application.
+        /// Status of the application.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -648,7 +654,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        /// Map of tags to assign to the application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -660,7 +666,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -669,7 +675,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
         }
 
         /// <summary>
-        /// The current application version. Kinesis Data Analytics updates the `VersionId` each time the application is updated.
+        /// Current application version. Kinesis Data Analytics updates the `VersionId` each time the application is updated.
         /// </summary>
         [Input("versionId")]
         public Input<int>? VersionId { get; set; }

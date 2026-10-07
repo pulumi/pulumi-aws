@@ -14,35 +14,35 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     public sealed class ApplicationApplicationConfiguration
     {
         /// <summary>
-        /// The code location and type parameters for the application.
+        /// Code location and type parameters for the application. See `ApplicationCodeConfiguration` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationApplicationCodeConfiguration ApplicationCodeConfiguration;
         /// <summary>
-        /// The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+        /// Encryption configuration for the application. Use this to encrypt data at rest in the application. See `ApplicationEncryptionConfiguration` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationApplicationEncryptionConfiguration? ApplicationEncryptionConfiguration;
         /// <summary>
-        /// Describes whether snapshots are enabled for a Flink-based application.
+        /// Snapshot configuration for a Flink-based application. See `ApplicationSnapshotConfiguration` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationApplicationSnapshotConfiguration? ApplicationSnapshotConfiguration;
         /// <summary>
-        /// Describes execution properties for a Flink-based application.
+        /// Execution properties for a Flink-based application. See `EnvironmentProperties` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationEnvironmentProperties? EnvironmentProperties;
         /// <summary>
-        /// The configuration of a Flink-based application.
+        /// Configuration of a Flink-based application. See `FlinkApplicationConfiguration` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationFlinkApplicationConfiguration? FlinkApplicationConfiguration;
         /// <summary>
-        /// Describes the starting properties for a Flink-based application.
+        /// Starting properties for a Flink-based application. See `RunConfiguration` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationRunConfiguration? RunConfiguration;
         /// <summary>
-        /// The configuration of a SQL-based application.
+        /// Configuration of a SQL-based application. See `SqlApplicationConfiguration` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfiguration? SqlApplicationConfiguration;
         /// <summary>
-        /// The VPC configuration of a Flink-based application.
+        /// VPC configuration of a Flink-based application. See `VpcConfiguration` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationVpcConfiguration? VpcConfiguration;
 

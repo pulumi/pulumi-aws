@@ -59,7 +59,7 @@ type ClusterIamRoles struct {
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn pulumi.StringOutput `pulumi:"defaultIamRoleArn"`
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+	// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
 	IamRoleArns pulumi.StringArrayOutput `pulumi:"iamRoleArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -102,7 +102,7 @@ type clusterIamRolesState struct {
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+	// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
 	IamRoleArns []string `pulumi:"iamRoleArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -113,7 +113,7 @@ type ClusterIamRolesState struct {
 	ClusterIdentifier pulumi.StringPtrInput
 	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn pulumi.StringPtrInput
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+	// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
 	IamRoleArns pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -128,7 +128,7 @@ type clusterIamRolesArgs struct {
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+	// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
 	IamRoleArns []string `pulumi:"iamRoleArns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -140,7 +140,7 @@ type ClusterIamRolesArgs struct {
 	ClusterIdentifier pulumi.StringInput
 	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn pulumi.StringPtrInput
-	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+	// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
 	IamRoleArns pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -243,7 +243,7 @@ func (o ClusterIamRolesOutput) DefaultIamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterIamRoles) pulumi.StringOutput { return v.DefaultIamRoleArn }).(pulumi.StringOutput)
 }
 
-// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
 func (o ClusterIamRolesOutput) IamRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterIamRoles) pulumi.StringArrayOutput { return v.IamRoleArns }).(pulumi.StringArrayOutput)
 }

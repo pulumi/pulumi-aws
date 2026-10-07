@@ -32,14 +32,14 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the group in which the member will be added.
+     * Name of the group in which the member will be added.
      * 
      */
     @Import(name="groupName", required=true)
     private Output<String> groupName;
 
     /**
-     * @return The name of the group in which the member will be added.
+     * @return Name of the group in which the member will be added.
      * 
      */
     public Output<String> groupName() {
@@ -47,14 +47,14 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the member to add to the group.
+     * Name of the member to add to the group.
      * 
      */
     @Import(name="memberName", required=true)
     private Output<String> memberName;
 
     /**
-     * @return The name of the member to add to the group.
+     * @return Name of the member to add to the group.
      * 
      */
     public Output<String> memberName() {
@@ -62,14 +62,14 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The namespace that you want the user to be a part of. Defaults to `default`.
+     * Namespace that you want the user to be a part of. Defaults to `default`.
      * 
      */
     @Import(name="namespace")
     private @Nullable Output<String> namespace;
 
     /**
-     * @return The namespace that you want the user to be a part of. Defaults to `default`.
+     * @return Namespace that you want the user to be a part of. Defaults to `default`.
      * 
      */
     public Optional<Output<String>> namespace() {
@@ -141,7 +141,7 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param groupName The name of the group in which the member will be added.
+         * @param groupName Name of the group in which the member will be added.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param groupName The name of the group in which the member will be added.
+         * @param groupName Name of the group in which the member will be added.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param memberName The name of the member to add to the group.
+         * @param memberName Name of the member to add to the group.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param memberName The name of the member to add to the group.
+         * @param memberName Name of the member to add to the group.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param namespace The namespace that you want the user to be a part of. Defaults to `default`.
+         * @param namespace Namespace that you want the user to be a part of. Defaults to `default`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param namespace The namespace that you want the user to be a part of. Defaults to `default`.
+         * @param namespace Namespace that you want the user to be a part of. Defaults to `default`.
          * 
          * @return builder
          * 

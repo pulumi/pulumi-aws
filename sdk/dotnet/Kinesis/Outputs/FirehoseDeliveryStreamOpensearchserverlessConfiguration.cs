@@ -22,19 +22,19 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
-        /// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+        /// Endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
         /// </summary>
         public readonly string CollectionEndpoint;
         /// <summary>
-        /// The Serverless offering for Amazon OpenSearch Service index name.
+        /// Serverless offering for Amazon OpenSearch Service index name.
         /// </summary>
         public readonly string IndexName;
         /// <summary>
-        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
+        /// Data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
@@ -46,15 +46,15 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+        /// How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See `S3Configuration` block below for details.
+        /// S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration S3Configuration;
         /// <summary>
-        /// The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `VpcConfig` block below for details.
+        /// VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `VpcConfig` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig? VpcConfig;
 

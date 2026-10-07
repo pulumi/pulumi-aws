@@ -27,7 +27,7 @@ class KeyRegistrationArgs:
         """
         The set of arguments for constructing a KeyRegistration resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]] key_registrations: Registered keys. See key_registration.
+        :param pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]] key_registrations: Registered keys. See `key_registration` Block.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -41,7 +41,7 @@ class KeyRegistrationArgs:
     @pulumi.getter(name="keyRegistrations")
     def key_registrations(self) -> pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]:
         """
-        Registered keys. See key_registration.
+        Registered keys. See `key_registration` Block.
         """
         return pulumi.get(self, "key_registrations")
 
@@ -84,7 +84,7 @@ class _KeyRegistrationState:
         Input properties used for looking up and filtering KeyRegistration resources.
 
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]] key_registrations: Registered keys. See key_registration.
+        :param pulumi.Input[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]] key_registrations: Registered keys. See `key_registration` Block.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if aws_account_id is not None:
@@ -110,7 +110,7 @@ class _KeyRegistrationState:
     @pulumi.getter(name="keyRegistrations")
     def key_registrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KeyRegistrationKeyRegistrationArgs']]]]:
         """
-        Registered keys. See key_registration.
+        Registered keys. See `key_registration` Block.
         """
         return pulumi.get(self, "key_registrations")
 
@@ -175,7 +175,7 @@ class KeyRegistration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyRegistrationKeyRegistrationArgs', 'KeyRegistrationKeyRegistrationArgsDict', 'outputs.KeyRegistrationKeyRegistration']]]] key_registrations: Registered keys. See key_registration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyRegistrationKeyRegistrationArgs', 'KeyRegistrationKeyRegistrationArgsDict', 'outputs.KeyRegistrationKeyRegistration']]]] key_registrations: Registered keys. See `key_registration` Block.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -268,7 +268,7 @@ class KeyRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyRegistrationKeyRegistrationArgs', 'KeyRegistrationKeyRegistrationArgsDict', 'outputs.KeyRegistrationKeyRegistration']]]] key_registrations: Registered keys. See key_registration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['KeyRegistrationKeyRegistrationArgs', 'KeyRegistrationKeyRegistrationArgsDict', 'outputs.KeyRegistrationKeyRegistration']]]] key_registrations: Registered keys. See `key_registration` Block.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -292,7 +292,7 @@ class KeyRegistration(pulumi.CustomResource):
     @pulumi.getter(name="keyRegistrations")
     def key_registrations(self) -> pulumi.Output[Sequence['outputs.KeyRegistrationKeyRegistration']]:
         """
-        Registered keys. See key_registration.
+        Registered keys. See `key_registration` Block.
         """
         return pulumi.get(self, "key_registrations")
 

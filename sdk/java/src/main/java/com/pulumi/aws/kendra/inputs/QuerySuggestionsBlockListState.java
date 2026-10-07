@@ -32,9 +32,17 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Description for a block list.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description for a block list.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
@@ -85,14 +93,14 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
     }
 
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -115,30 +123,50 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
     }
 
     /**
-     * S3 path where your block list text file is located. See details below.
+     * S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="sourceS3Path")
     private @Nullable Output<QuerySuggestionsBlockListSourceS3PathArgs> sourceS3Path;
 
     /**
-     * @return S3 path where your block list text file is located. See details below.
+     * @return S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<QuerySuggestionsBlockListSourceS3PathArgs>> sourceS3Path() {
         return Optional.ofNullable(this.sourceS3Path);
     }
 
+    /**
+     * Current status of the block list.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return Current status of the block list.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -213,11 +241,23 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param description Description for a block list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description for a block list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
@@ -286,7 +326,7 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
         }
 
         /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -297,7 +337,7 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
         }
 
         /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -328,7 +368,9 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
         }
 
         /**
-         * @param sourceS3Path S3 path where your block list text file is located. See details below.
+         * @param sourceS3Path S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -339,7 +381,9 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
         }
 
         /**
-         * @param sourceS3Path S3 path where your block list text file is located. See details below.
+         * @param sourceS3Path S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -348,20 +392,44 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
             return sourceS3Path(Output.of(sourceS3Path));
         }
 
+        /**
+         * @param status Current status of the block list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status Current status of the block list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:kinesis/resourcePolicy:ResourcePolicy")
 public class ResourcePolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The policy document.
+     * Policy document.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return The policy document.
+     * @return Policy document.
      * 
      */
     public Output<String> policy() {

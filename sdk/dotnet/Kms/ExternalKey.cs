@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Kms
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the key is enabled. Keys pending import can only be `False`. Imported keys default to `True` unless expired.
+        /// Whether the key is enabled. Keys pending import can only be `False`. Imported keys default to `True` unless expired.
         /// </summary>
         [Output("enabled")]
         public Output<bool> Enabled { get; private set; } = null!;
@@ -85,31 +85,31 @@ namespace Pulumi.Aws.Kms
         public Output<string?> KeyMaterialBase64 { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        /// Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         /// </summary>
         [Output("keySpec")]
         public Output<string> KeySpec { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the CMK.
+        /// State of the CMK.
         /// </summary>
         [Output("keyState")]
         public Output<string> KeyState { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+        /// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Output("keyUsage")]
         public Output<string> KeyUsage { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the KMS key is a multi-Region (`True`) or regional (`False`) key. Defaults to `False`.
+        /// Whether the KMS key is a multi-Region (`True`) or regional (`False`) key. Defaults to `False`.
         /// </summary>
         [Output("multiRegion")]
         public Output<bool> MultiRegion { get; private set; } = null!;
 
         /// <summary>
-        /// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+        /// Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -121,13 +121,13 @@ namespace Pulumi.Aws.Kms
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A key-value map of tags to assign to the key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags to assign to the key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether the key is enabled. Keys pending import can only be `False`. Imported keys default to `True` unless expired.
+        /// Whether the key is enabled. Keys pending import can only be `False`. Imported keys default to `True` unless expired.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -229,25 +229,25 @@ namespace Pulumi.Aws.Kms
         }
 
         /// <summary>
-        /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        /// Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         /// </summary>
         [Input("keySpec")]
         public Input<string>? KeySpec { get; set; }
 
         /// <summary>
-        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+        /// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }
 
         /// <summary>
-        /// Indicates whether the KMS key is a multi-Region (`True`) or regional (`False`) key. Defaults to `False`.
+        /// Whether the KMS key is a multi-Region (`True`) or regional (`False`) key. Defaults to `False`.
         /// </summary>
         [Input("multiRegion")]
         public Input<bool>? MultiRegion { get; set; }
 
         /// <summary>
-        /// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+        /// Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Kms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A key-value map of tags to assign to the key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags to assign to the key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies whether the key is enabled. Keys pending import can only be `False`. Imported keys default to `True` unless expired.
+        /// Whether the key is enabled. Keys pending import can only be `False`. Imported keys default to `True` unless expired.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -337,31 +337,31 @@ namespace Pulumi.Aws.Kms
         }
 
         /// <summary>
-        /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+        /// Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         /// </summary>
         [Input("keySpec")]
         public Input<string>? KeySpec { get; set; }
 
         /// <summary>
-        /// The state of the CMK.
+        /// State of the CMK.
         /// </summary>
         [Input("keyState")]
         public Input<string>? KeyState { get; set; }
 
         /// <summary>
-        /// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+        /// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
         /// </summary>
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }
 
         /// <summary>
-        /// Indicates whether the KMS key is a multi-Region (`True`) or regional (`False`) key. Defaults to `False`.
+        /// Whether the KMS key is a multi-Region (`True`) or regional (`False`) key. Defaults to `False`.
         /// </summary>
         [Input("multiRegion")]
         public Input<bool>? MultiRegion { get; set; }
 
         /// <summary>
-        /// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+        /// Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Kms
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A key-value map of tags to assign to the key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags to assign to the key. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -388,7 +388,7 @@ namespace Pulumi.Aws.Kms
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

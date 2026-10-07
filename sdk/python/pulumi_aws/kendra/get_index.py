@@ -98,7 +98,7 @@ class GetIndexResult:
     @pulumi.getter(name="capacityUnits")
     def capacity_units(self) -> Sequence['outputs.GetIndexCapacityUnitResult']:
         """
-        Block that sets the number of additional document storage and query capacity units that should be used by the index. Documented below.
+        Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         """
         return pulumi.get(self, "capacity_units")
 
@@ -122,7 +122,7 @@ class GetIndexResult:
     @pulumi.getter(name="documentMetadataConfigurationUpdates")
     def document_metadata_configuration_updates(self) -> Sequence['outputs.GetIndexDocumentMetadataConfigurationUpdateResult']:
         """
-        One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Documented below.
+        One or more blocks that specify the configuration settings for any metadata applied to the documents in the index. Detailed below.
         """
         return pulumi.get(self, "document_metadata_configuration_updates")
 
@@ -145,16 +145,13 @@ class GetIndexResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
-        """
-        Identifier of the Index.
-        """
         return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="indexStatistics")
     def index_statistics(self) -> Sequence['outputs.GetIndexIndexStatisticResult']:
         """
-        Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Documented below.
+        Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         """
         return pulumi.get(self, "index_statistics")
 
@@ -175,7 +172,7 @@ class GetIndexResult:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
         """
-        An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+        AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         """
         return pulumi.get(self, "role_arn")
 
@@ -183,7 +180,7 @@ class GetIndexResult:
     @pulumi.getter(name="serverSideEncryptionConfigurations")
     def server_side_encryption_configurations(self) -> Sequence['outputs.GetIndexServerSideEncryptionConfigurationResult']:
         """
-        A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Documented below.
+        Block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         """
         return pulumi.get(self, "server_side_encryption_configurations")
 
@@ -223,7 +220,7 @@ class GetIndexResult:
     @pulumi.getter(name="userGroupResolutionConfigurations")
     def user_group_resolution_configurations(self) -> Sequence['outputs.GetIndexUserGroupResolutionConfigurationResult']:
         """
-        A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Documented below.
+        Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. Detailed below.
         """
         return pulumi.get(self, "user_group_resolution_configurations")
 
@@ -231,7 +228,7 @@ class GetIndexResult:
     @pulumi.getter(name="userTokenConfigurations")
     def user_token_configurations(self) -> Sequence['outputs.GetIndexUserTokenConfigurationResult']:
         """
-        A block that specifies the user token configuration. Documented below.
+        Block that specifies the user token configuration. Detailed below.
         """
         return pulumi.get(self, "user_token_configurations")
 

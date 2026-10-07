@@ -13,39 +13,37 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class AnalyticsApplicationOutputGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Kinesis Analytics Application.
+        /// ARN of the Kinesis Analytics Application.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The Kinesis Firehose configuration for the destination stream. Conflicts with `KinesisStream`.
-        /// See Kinesis Firehose below for more details.
+        /// Kinesis Firehose configuration for the destination stream. Conflicts with `KinesisStream`. See `outputs.kinesis_firehose` Block below for details.
         /// </summary>
         [Input("kinesisFirehose")]
         public Input<Inputs.AnalyticsApplicationOutputKinesisFirehoseGetArgs>? KinesisFirehose { get; set; }
 
         /// <summary>
-        /// The Kinesis Stream configuration for the destination stream. Conflicts with `KinesisFirehose`.
-        /// See Kinesis Stream below for more details.
+        /// Kinesis Stream configuration for the destination stream. Conflicts with `KinesisFirehose`. See `outputs.kinesis_stream` Block below for details.
         /// </summary>
         [Input("kinesisStream")]
         public Input<Inputs.AnalyticsApplicationOutputKinesisStreamGetArgs>? KinesisStream { get; set; }
 
         /// <summary>
-        /// The Lambda function destination. See Lambda below for more details.
+        /// Lambda function destination. See `outputs.lambda` Block below for details.
         /// </summary>
         [Input("lambda")]
         public Input<Inputs.AnalyticsApplicationOutputLambdaGetArgs>? Lambda { get; set; }
 
         /// <summary>
-        /// The Name of the in-application stream.
+        /// Name of the in-application stream.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Schema format of the data written to the destination. See Destination Schema below for more details.
+        /// Schema format of the data written to the destination. See `outputs.schema` Block below for details.
         /// </summary>
         [Input("schema", required: true)]
         public Input<Inputs.AnalyticsApplicationOutputSchemaGetArgs> Schema { get; set; } = null!;

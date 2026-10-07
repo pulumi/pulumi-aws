@@ -16,14 +16,14 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
     public static final ResourcePolicyState Empty = new ResourcePolicyState();
 
     /**
-     * The policy document.
+     * Policy document.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return The policy document.
+     * @return Policy document.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -87,7 +87,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param policy The policy document.
+         * @param policy Policy document.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param policy The policy document.
+         * @param policy Policy document.
          * 
          * @return builder
          * 

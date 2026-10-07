@@ -152,42 +152,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:timestreamwrite/table:Table")
 public class Table extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN that uniquely identifies this table.
+     * ARN that uniquely identifies this table.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN that uniquely identifies this table.
+     * @return ARN that uniquely identifies this table.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The name of the Timestream database.
+     * Name of the Timestream database.
      * 
      */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
-     * @return The name of the Timestream database.
+     * @return Name of the Timestream database.
      * 
      */
     public Output<String> databaseName() {
         return this.databaseName;
     }
     /**
-     * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+     * Properties to set on the table when enabling magnetic store writes. See `magneticStoreWriteProperties` Block below for more details.
      * 
      */
     @Export(name="magneticStoreWriteProperties", refs={TableMagneticStoreWriteProperties.class}, tree="[0]")
     private Output<TableMagneticStoreWriteProperties> magneticStoreWriteProperties;
 
     /**
-     * @return Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+     * @return Properties to set on the table when enabling magnetic store writes. See `magneticStoreWriteProperties` Block below for more details.
      * 
      */
     public Output<TableMagneticStoreWriteProperties> magneticStoreWriteProperties() {
@@ -208,42 +208,42 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
+     * Retention duration for the memory store and magnetic store. See `retentionProperties` Block below for more details. If not provided, `magneticStoreRetentionPeriodInDays` defaults to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      * 
      */
     @Export(name="retentionProperties", refs={TableRetentionProperties.class}, tree="[0]")
     private Output<TableRetentionProperties> retentionProperties;
 
     /**
-     * @return The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
+     * @return Retention duration for the memory store and magnetic store. See `retentionProperties` Block below for more details. If not provided, `magneticStoreRetentionPeriodInDays` defaults to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      * 
      */
     public Output<TableRetentionProperties> retentionProperties() {
         return this.retentionProperties;
     }
     /**
-     * The schema of the table. See Schema below for more details.
+     * Schema of the table. See `schema` Block below for more details.
      * 
      */
     @Export(name="schema", refs={TableSchema.class}, tree="[0]")
     private Output<TableSchema> schema;
 
     /**
-     * @return The schema of the table. See Schema below for more details.
+     * @return Schema of the table. See `schema` Block below for more details.
      * 
      */
     public Output<TableSchema> schema() {
         return this.schema;
     }
     /**
-     * The name of the Timestream table.
+     * Name of the Timestream table.
      * 
      */
     @Export(name="tableName", refs={String.class}, tree="[0]")
     private Output<String> tableName;
 
     /**
-     * @return The name of the Timestream table.
+     * @return Name of the Timestream table.
      * 
      */
     public Output<String> tableName() {
@@ -264,14 +264,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

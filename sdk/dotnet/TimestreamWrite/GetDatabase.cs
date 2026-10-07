@@ -93,6 +93,9 @@ namespace Pulumi.Aws.TimestreamWrite
 
     public sealed class GetDatabaseArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the Timestream database. Minimum length of 3. Maximum length of 256.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
@@ -110,6 +113,9 @@ namespace Pulumi.Aws.TimestreamWrite
 
     public sealed class GetDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the Timestream database. Minimum length of 3. Maximum length of 256.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
@@ -130,7 +136,7 @@ namespace Pulumi.Aws.TimestreamWrite
     public sealed class GetDatabaseResult
     {
         /// <summary>
-        /// The ARN that uniquely identifies this database.
+        /// ARN that uniquely identifies this database.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -138,7 +144,7 @@ namespace Pulumi.Aws.TimestreamWrite
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
-        /// The ARN of the KMS key used to encrypt the data stored in the database.
+        /// ARN of the KMS key used to encrypt the data stored in the database.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>

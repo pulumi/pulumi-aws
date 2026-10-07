@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class PipeSourceParametersActivemqBrokerParametersCredentials {
     /**
-     * @return The ARN of the Secrets Manager secret containing the credentials.
+     * @return ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     private String basicAuth;
 
     private PipeSourceParametersActivemqBrokerParametersCredentials() {}
     /**
-     * @return The ARN of the Secrets Manager secret containing the credentials.
+     * @return ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     public String basicAuth() {

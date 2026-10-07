@@ -84,6 +84,9 @@ namespace Pulumi.Aws.Kms
 
     public sealed class GetSecretsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public string? Region { get; set; }
 
@@ -91,7 +94,7 @@ namespace Pulumi.Aws.Kms
         private List<Inputs.GetSecretsSecretArgs>? _secrets;
 
         /// <summary>
-        /// One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+        /// One or more encrypted payload definitions from the KMS service. See `Secret` below.
         /// </summary>
         public List<Inputs.GetSecretsSecretArgs> Secrets
         {
@@ -107,6 +110,9 @@ namespace Pulumi.Aws.Kms
 
     public sealed class GetSecretsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -114,7 +120,7 @@ namespace Pulumi.Aws.Kms
         private InputList<Inputs.GetSecretsSecretInputArgs>? _secrets;
 
         /// <summary>
-        /// One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+        /// One or more encrypted payload definitions from the KMS service. See `Secret` below.
         /// </summary>
         public InputList<Inputs.GetSecretsSecretInputArgs> Secrets
         {

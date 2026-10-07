@@ -33,16 +33,15 @@ class GrantArgs:
         """
         The set of arguments for constructing a Grant resource.
 
-        :param pulumi.Input[_builtins.str] grantee_principal: The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        :param pulumi.Input[_builtins.str] grantee_principal: Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         :param pulumi.Input[_builtins.str] key_id: Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operations: A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
-        :param pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_creation_tokens: A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
-        :param pulumi.Input[_builtins.str] name: A friendly name for identifying the grant.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operations: List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        :param pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]] constraints: Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_creation_tokens: List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+        :param pulumi.Input[_builtins.str] name: Friendly name for identifying the grant.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-               See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-        :param pulumi.Input[_builtins.str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        :param pulumi.Input[_builtins.bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        :param pulumi.Input[_builtins.str] retiring_principal: Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         """
         pulumi.set(__self__, "grantee_principal", grantee_principal)
         pulumi.set(__self__, "key_id", key_id)
@@ -64,7 +63,7 @@ class GrantArgs:
     @pulumi.getter(name="granteePrincipal")
     def grantee_principal(self) -> pulumi.Input[_builtins.str]:
         """
-        The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         """
         return pulumi.get(self, "grantee_principal")
 
@@ -88,7 +87,7 @@ class GrantArgs:
     @pulumi.getter
     def operations(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         """
         return pulumi.get(self, "operations")
 
@@ -100,7 +99,7 @@ class GrantArgs:
     @pulumi.getter
     def constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GrantConstraintArgs']]]]:
         """
-        A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+        Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
         """
         return pulumi.get(self, "constraints")
 
@@ -112,7 +111,7 @@ class GrantArgs:
     @pulumi.getter(name="grantCreationTokens")
     def grant_creation_tokens(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+        List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
         """
         return pulumi.get(self, "grant_creation_tokens")
 
@@ -124,7 +123,7 @@ class GrantArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for identifying the grant.
+        Friendly name for identifying the grant.
         """
         return pulumi.get(self, "name")
 
@@ -148,8 +147,7 @@ class GrantArgs:
     @pulumi.getter(name="retireOnDelete")
     def retire_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         """
         return pulumi.get(self, "retire_on_delete")
 
@@ -161,7 +159,7 @@ class GrantArgs:
     @pulumi.getter(name="retiringPrincipal")
     def retiring_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         """
         return pulumi.get(self, "retiring_principal")
 
@@ -187,18 +185,17 @@ class _GrantState:
         """
         Input properties used for looking up and filtering Grant resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_creation_tokens: A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
-        :param pulumi.Input[_builtins.str] grant_id: The unique identifier for the grant.
-        :param pulumi.Input[_builtins.str] grant_token: The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
-        :param pulumi.Input[_builtins.str] grantee_principal: The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        :param pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]] constraints: Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_creation_tokens: List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+        :param pulumi.Input[_builtins.str] grant_id: Unique identifier for the grant.
+        :param pulumi.Input[_builtins.str] grant_token: Grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
+        :param pulumi.Input[_builtins.str] grantee_principal: Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         :param pulumi.Input[_builtins.str] key_id: Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-        :param pulumi.Input[_builtins.str] name: A friendly name for identifying the grant.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operations: A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        :param pulumi.Input[_builtins.str] name: Friendly name for identifying the grant.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operations: List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-               See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-        :param pulumi.Input[_builtins.str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        :param pulumi.Input[_builtins.bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        :param pulumi.Input[_builtins.str] retiring_principal: Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         """
         if constraints is not None:
             pulumi.set(__self__, "constraints", constraints)
@@ -227,7 +224,7 @@ class _GrantState:
     @pulumi.getter
     def constraints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GrantConstraintArgs']]]]:
         """
-        A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+        Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
         """
         return pulumi.get(self, "constraints")
 
@@ -239,7 +236,7 @@ class _GrantState:
     @pulumi.getter(name="grantCreationTokens")
     def grant_creation_tokens(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+        List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
         """
         return pulumi.get(self, "grant_creation_tokens")
 
@@ -251,7 +248,7 @@ class _GrantState:
     @pulumi.getter(name="grantId")
     def grant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique identifier for the grant.
+        Unique identifier for the grant.
         """
         return pulumi.get(self, "grant_id")
 
@@ -263,7 +260,7 @@ class _GrantState:
     @pulumi.getter(name="grantToken")
     def grant_token(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
+        Grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
         """
         return pulumi.get(self, "grant_token")
 
@@ -275,7 +272,7 @@ class _GrantState:
     @pulumi.getter(name="granteePrincipal")
     def grantee_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         """
         return pulumi.get(self, "grantee_principal")
 
@@ -299,7 +296,7 @@ class _GrantState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A friendly name for identifying the grant.
+        Friendly name for identifying the grant.
         """
         return pulumi.get(self, "name")
 
@@ -311,7 +308,7 @@ class _GrantState:
     @pulumi.getter
     def operations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         """
         return pulumi.get(self, "operations")
 
@@ -335,8 +332,7 @@ class _GrantState:
     @pulumi.getter(name="retireOnDelete")
     def retire_on_delete(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         """
         return pulumi.get(self, "retire_on_delete")
 
@@ -348,7 +344,7 @@ class _GrantState:
     @pulumi.getter(name="retiringPrincipal")
     def retiring_principal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         """
         return pulumi.get(self, "retiring_principal")
 
@@ -388,16 +384,15 @@ class Grant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GrantConstraintArgs', 'GrantConstraintArgsDict', 'outputs.GrantConstraint']]]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_creation_tokens: A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
-        :param pulumi.Input[_builtins.str] grantee_principal: The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GrantConstraintArgs', 'GrantConstraintArgsDict', 'outputs.GrantConstraint']]]] constraints: Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_creation_tokens: List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+        :param pulumi.Input[_builtins.str] grantee_principal: Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         :param pulumi.Input[_builtins.str] key_id: Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-        :param pulumi.Input[_builtins.str] name: A friendly name for identifying the grant.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operations: A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        :param pulumi.Input[_builtins.str] name: Friendly name for identifying the grant.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operations: List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-               See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-        :param pulumi.Input[_builtins.str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        :param pulumi.Input[_builtins.bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        :param pulumi.Input[_builtins.str] retiring_principal: Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         """
         ...
     @overload
@@ -498,18 +493,17 @@ class Grant(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GrantConstraintArgs', 'GrantConstraintArgsDict', 'outputs.GrantConstraint']]]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_creation_tokens: A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
-        :param pulumi.Input[_builtins.str] grant_id: The unique identifier for the grant.
-        :param pulumi.Input[_builtins.str] grant_token: The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
-        :param pulumi.Input[_builtins.str] grantee_principal: The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GrantConstraintArgs', 'GrantConstraintArgsDict', 'outputs.GrantConstraint']]]] constraints: Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] grant_creation_tokens: List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+        :param pulumi.Input[_builtins.str] grant_id: Unique identifier for the grant.
+        :param pulumi.Input[_builtins.str] grant_token: Grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
+        :param pulumi.Input[_builtins.str] grantee_principal: Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         :param pulumi.Input[_builtins.str] key_id: Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
-        :param pulumi.Input[_builtins.str] name: A friendly name for identifying the grant.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operations: A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        :param pulumi.Input[_builtins.str] name: Friendly name for identifying the grant.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] operations: List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-               See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
-        :param pulumi.Input[_builtins.str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        :param pulumi.Input[_builtins.bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        :param pulumi.Input[_builtins.str] retiring_principal: Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -532,7 +526,7 @@ class Grant(pulumi.CustomResource):
     @pulumi.getter
     def constraints(self) -> pulumi.Output[Optional[Sequence['outputs.GrantConstraint']]]:
         """
-        A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+        Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
         """
         return pulumi.get(self, "constraints")
 
@@ -540,7 +534,7 @@ class Grant(pulumi.CustomResource):
     @pulumi.getter(name="grantCreationTokens")
     def grant_creation_tokens(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+        List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
         """
         return pulumi.get(self, "grant_creation_tokens")
 
@@ -548,7 +542,7 @@ class Grant(pulumi.CustomResource):
     @pulumi.getter(name="grantId")
     def grant_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier for the grant.
+        Unique identifier for the grant.
         """
         return pulumi.get(self, "grant_id")
 
@@ -556,7 +550,7 @@ class Grant(pulumi.CustomResource):
     @pulumi.getter(name="grantToken")
     def grant_token(self) -> pulumi.Output[_builtins.str]:
         """
-        The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
+        Grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
         """
         return pulumi.get(self, "grant_token")
 
@@ -564,7 +558,7 @@ class Grant(pulumi.CustomResource):
     @pulumi.getter(name="granteePrincipal")
     def grantee_principal(self) -> pulumi.Output[_builtins.str]:
         """
-        The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         """
         return pulumi.get(self, "grantee_principal")
 
@@ -580,7 +574,7 @@ class Grant(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        A friendly name for identifying the grant.
+        Friendly name for identifying the grant.
         """
         return pulumi.get(self, "name")
 
@@ -588,7 +582,7 @@ class Grant(pulumi.CustomResource):
     @pulumi.getter
     def operations(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         """
         return pulumi.get(self, "operations")
 
@@ -604,8 +598,7 @@ class Grant(pulumi.CustomResource):
     @pulumi.getter(name="retireOnDelete")
     def retire_on_delete(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         """
         return pulumi.get(self, "retire_on_delete")
 
@@ -613,7 +606,7 @@ class Grant(pulumi.CustomResource):
     @pulumi.getter(name="retiringPrincipal")
     def retiring_principal(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         """
         return pulumi.get(self, "retiring_principal")
 

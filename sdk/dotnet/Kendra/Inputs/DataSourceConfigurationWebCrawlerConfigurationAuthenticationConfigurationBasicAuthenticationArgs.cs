@@ -19,13 +19,13 @@ namespace Pulumi.Aws.Kendra.Inputs
         public Input<string> Credentials { get; set; } = null!;
 
         /// <summary>
-        /// The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
+        /// Name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
         /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
         /// <summary>
-        /// The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+        /// Port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;

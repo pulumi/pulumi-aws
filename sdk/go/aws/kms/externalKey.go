@@ -58,27 +58,27 @@ type ExternalKey struct {
 	DeletionWindowInDays pulumi.IntPtrOutput `pulumi:"deletionWindowInDays"`
 	// Description of the key.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+	// Whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
 	ExpirationModel pulumi.StringOutput `pulumi:"expirationModel"`
 	// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
 	KeyMaterialBase64 pulumi.StringPtrOutput `pulumi:"keyMaterialBase64"`
-	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+	// Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
 	KeySpec pulumi.StringOutput `pulumi:"keySpec"`
-	// The state of the CMK.
+	// State of the CMK.
 	KeyState pulumi.StringOutput `pulumi:"keyState"`
-	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringOutput `pulumi:"keyUsage"`
-	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+	// Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion pulumi.BoolOutput `pulumi:"multiRegion"`
-	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+	// Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	ValidTo pulumi.StringPtrOutput `pulumi:"validTo"`
@@ -129,27 +129,27 @@ type externalKeyState struct {
 	DeletionWindowInDays *int `pulumi:"deletionWindowInDays"`
 	// Description of the key.
 	Description *string `pulumi:"description"`
-	// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+	// Whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
 	Enabled *bool `pulumi:"enabled"`
 	// Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
 	ExpirationModel *string `pulumi:"expirationModel"`
 	// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
 	KeyMaterialBase64 *string `pulumi:"keyMaterialBase64"`
-	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+	// Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
 	KeySpec *string `pulumi:"keySpec"`
-	// The state of the CMK.
+	// State of the CMK.
 	KeyState *string `pulumi:"keyState"`
-	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
-	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+	// Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion *bool `pulumi:"multiRegion"`
-	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+	// Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	ValidTo *string `pulumi:"validTo"`
@@ -164,27 +164,27 @@ type ExternalKeyState struct {
 	DeletionWindowInDays pulumi.IntPtrInput
 	// Description of the key.
 	Description pulumi.StringPtrInput
-	// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+	// Whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
 	Enabled pulumi.BoolPtrInput
 	// Whether the key material expires. Empty when pending key material import, otherwise `KEY_MATERIAL_EXPIRES` or `KEY_MATERIAL_DOES_NOT_EXPIRE`.
 	ExpirationModel pulumi.StringPtrInput
 	// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
 	KeyMaterialBase64 pulumi.StringPtrInput
-	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+	// Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
 	KeySpec pulumi.StringPtrInput
-	// The state of the CMK.
+	// State of the CMK.
 	KeyState pulumi.StringPtrInput
-	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
-	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+	// Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion pulumi.BoolPtrInput
-	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+	// Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	ValidTo pulumi.StringPtrInput
@@ -201,21 +201,21 @@ type externalKeyArgs struct {
 	DeletionWindowInDays *int `pulumi:"deletionWindowInDays"`
 	// Description of the key.
 	Description *string `pulumi:"description"`
-	// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+	// Whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
 	Enabled *bool `pulumi:"enabled"`
 	// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
 	KeyMaterialBase64 *string `pulumi:"keyMaterialBase64"`
-	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+	// Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
 	KeySpec *string `pulumi:"keySpec"`
-	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
-	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+	// Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion *bool `pulumi:"multiRegion"`
-	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+	// Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	ValidTo *string `pulumi:"validTo"`
@@ -229,21 +229,21 @@ type ExternalKeyArgs struct {
 	DeletionWindowInDays pulumi.IntPtrInput
 	// Description of the key.
 	Description pulumi.StringPtrInput
-	// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+	// Whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
 	Enabled pulumi.BoolPtrInput
 	// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
 	KeyMaterialBase64 pulumi.StringPtrInput
-	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+	// Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
 	KeySpec pulumi.StringPtrInput
-	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+	// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
-	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+	// Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion pulumi.BoolPtrInput
-	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+	// Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	ValidTo pulumi.StringPtrInput
@@ -356,7 +356,7 @@ func (o ExternalKeyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+// Whether the key is enabled. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
 func (o ExternalKeyOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -371,27 +371,27 @@ func (o ExternalKeyOutput) KeyMaterialBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.StringPtrOutput { return v.KeyMaterialBase64 }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
+// Whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports. Valid values: `SYMMETRIC_DEFAULT`, `RSA_2048`, `RSA_3072`, `RSA_4096`, `HMAC_224`, `HMAC_256`, `HMAC_384`, `HMAC_512`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, `ECC_SECG_P256K1`, `ML_DSA_44`, `ML_DSA_65`, `ML_DSA_87`, or `SM2` (China Regions only). Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
 func (o ExternalKeyOutput) KeySpec() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.KeySpec }).(pulumi.StringOutput)
 }
 
-// The state of the CMK.
+// State of the CMK.
 func (o ExternalKeyOutput) KeyState() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.KeyState }).(pulumi.StringOutput)
 }
 
-// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
+// Intended use of the key. Valid values: `ENCRYPT_DECRYPT`, `SIGN_VERIFY`, or `GENERATE_VERIFY_MAC`. Defaults to `ENCRYPT_DECRYPT`.
 func (o ExternalKeyOutput) KeyUsage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.KeyUsage }).(pulumi.StringOutput)
 }
 
-// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+// Whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 func (o ExternalKeyOutput) MultiRegion() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.BoolOutput { return v.MultiRegion }).(pulumi.BoolOutput)
 }
 
-// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
+// Key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 func (o ExternalKeyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }
@@ -401,12 +401,12 @@ func (o ExternalKeyOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ExternalKeyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ExternalKeyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExternalKey) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -39,7 +39,7 @@ export interface GetDefaultScraperConfigurationArgs {
  */
 export interface GetDefaultScraperConfigurationResult {
     /**
-     * The configuration file.
+     * Configuration file.
      */
     readonly configuration: string;
     readonly region: string;

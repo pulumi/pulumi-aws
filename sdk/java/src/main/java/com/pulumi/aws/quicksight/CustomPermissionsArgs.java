@@ -34,14 +34,14 @@ public final class CustomPermissionsArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Actions to include in the custom permissions profile. See capabilities.
+     * Actions to include in the custom permissions profile. See `capabilities` Block.
      * 
      */
     @Import(name="capabilities", required=true)
     private Output<CustomPermissionsCapabilitiesArgs> capabilities;
 
     /**
-     * @return Actions to include in the custom permissions profile. See capabilities.
+     * @return Actions to include in the custom permissions profile. See `capabilities` Block.
      * 
      */
     public Output<CustomPermissionsCapabilitiesArgs> capabilities() {
@@ -147,7 +147,7 @@ public final class CustomPermissionsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param capabilities Actions to include in the custom permissions profile. See capabilities.
+         * @param capabilities Actions to include in the custom permissions profile. See `capabilities` Block.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class CustomPermissionsArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param capabilities Actions to include in the custom permissions profile. See capabilities.
+         * @param capabilities Actions to include in the custom permissions profile. See `capabilities` Block.
          * 
          * @return builder
          * 

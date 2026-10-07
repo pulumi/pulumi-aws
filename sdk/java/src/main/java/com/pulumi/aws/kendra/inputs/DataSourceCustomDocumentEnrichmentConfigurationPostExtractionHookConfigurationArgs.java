@@ -18,14 +18,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
     public static final DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs Empty = new DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs();
 
     /**
-     * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
+     * Condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
      * 
      */
     @Import(name="invocationCondition")
     private @Nullable Output<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs> invocationCondition;
 
     /**
-     * @return A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
+     * @return Condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
      * 
      */
     public Optional<Output<DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs>> invocationCondition() {
@@ -89,7 +89,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
         }
 
         /**
-         * @param invocationCondition A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
+         * @param invocationCondition Condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPostExtraction
         }
 
         /**
-         * @param invocationCondition A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
+         * @param invocationCondition Condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
          * 
          * @return builder
          * 

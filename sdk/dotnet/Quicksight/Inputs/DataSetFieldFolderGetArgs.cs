@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<string>? _columns;
 
         /// <summary>
-        /// An array of column names to add to the folder. A column can only be in one folder.
+        /// Array of column names to add to the folder. A column can only be in one folder.
         /// </summary>
         public InputList<string> Columns
         {

@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableComment {
     /**
-     * @return A description of the table.
+     * @return Description of the table.
      * 
      */
     private @Nullable String message;
 
     private TableComment() {}
     /**
-     * @return A description of the table.
+     * @return Description of the table.
      * 
      */
     public Optional<String> message() {

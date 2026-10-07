@@ -32,14 +32,14 @@ public final class FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOp
     }
 
     /**
-     * The CloudWatch group name for logging. This value is required if `enabled` is true.
+     * CloudWatch group name for logging. This value is required if `enabled` is true.
      * 
      */
     @Import(name="logGroupName")
     private @Nullable Output<String> logGroupName;
 
     /**
-     * @return The CloudWatch group name for logging. This value is required if `enabled` is true.
+     * @return CloudWatch group name for logging. This value is required if `enabled` is true.
      * 
      */
     public Optional<Output<String>> logGroupName() {
@@ -47,14 +47,14 @@ public final class FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOp
     }
 
     /**
-     * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+     * CloudWatch log stream name for logging. This value is required if `enabled` is true.
      * 
      */
     @Import(name="logStreamName")
     private @Nullable Output<String> logStreamName;
 
     /**
-     * @return The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+     * @return CloudWatch log stream name for logging. This value is required if `enabled` is true.
      * 
      */
     public Optional<Output<String>> logStreamName() {
@@ -109,7 +109,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOp
         }
 
         /**
-         * @param logGroupName The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * @param logGroupName CloudWatch group name for logging. This value is required if `enabled` is true.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOp
         }
 
         /**
-         * @param logGroupName The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * @param logGroupName CloudWatch group name for logging. This value is required if `enabled` is true.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOp
         }
 
         /**
-         * @param logStreamName The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * @param logStreamName CloudWatch log stream name for logging. This value is required if `enabled` is true.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOp
         }
 
         /**
-         * @param logStreamName The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * @param logStreamName CloudWatch log stream name for logging. This value is required if `enabled` is true.
          * 
          * @return builder
          * 

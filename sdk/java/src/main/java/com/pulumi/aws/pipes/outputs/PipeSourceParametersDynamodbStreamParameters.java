@@ -15,17 +15,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeSourceParametersDynamodbStreamParameters {
     /**
-     * @return The maximum number of records to include in each batch. Maximum value of 10000.
+     * @return Maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
     private @Nullable Integer batchSize;
     /**
-     * @return Define the target queue to send dead-letter queue events to. Detailed below.
+     * @return Define the target queue to send dead-letter queue events to. See `deadLetterConfig` Block for details.
      * 
      */
     private @Nullable PipeSourceParametersDynamodbStreamParametersDeadLetterConfig deadLetterConfig;
     /**
-     * @return The maximum length of a time to wait for events. Maximum value of 300.
+     * @return Maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
     private @Nullable Integer maximumBatchingWindowInSeconds;
@@ -45,33 +45,33 @@ public final class PipeSourceParametersDynamodbStreamParameters {
      */
     private @Nullable String onPartialBatchItemFailure;
     /**
-     * @return The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+     * @return Number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
      * 
      */
     private @Nullable Integer parallelizationFactor;
     /**
-     * @return The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+     * @return Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
      * 
      */
     private String startingPosition;
 
     private PipeSourceParametersDynamodbStreamParameters() {}
     /**
-     * @return The maximum number of records to include in each batch. Maximum value of 10000.
+     * @return Maximum number of records to include in each batch. Maximum value of 10000.
      * 
      */
     public Optional<Integer> batchSize() {
         return Optional.ofNullable(this.batchSize);
     }
     /**
-     * @return Define the target queue to send dead-letter queue events to. Detailed below.
+     * @return Define the target queue to send dead-letter queue events to. See `deadLetterConfig` Block for details.
      * 
      */
     public Optional<PipeSourceParametersDynamodbStreamParametersDeadLetterConfig> deadLetterConfig() {
         return Optional.ofNullable(this.deadLetterConfig);
     }
     /**
-     * @return The maximum length of a time to wait for events. Maximum value of 300.
+     * @return Maximum length of a time to wait for events. Maximum value of 300.
      * 
      */
     public Optional<Integer> maximumBatchingWindowInSeconds() {
@@ -99,14 +99,14 @@ public final class PipeSourceParametersDynamodbStreamParameters {
         return Optional.ofNullable(this.onPartialBatchItemFailure);
     }
     /**
-     * @return The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+     * @return Number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
      * 
      */
     public Optional<Integer> parallelizationFactor() {
         return Optional.ofNullable(this.parallelizationFactor);
     }
     /**
-     * @return The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+     * @return Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
      * 
      */
     public String startingPosition() {

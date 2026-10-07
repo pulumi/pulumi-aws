@@ -19,14 +19,14 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
     public static final IndexDocumentMetadataConfigurationUpdateArgs Empty = new IndexDocumentMetadataConfigurationUpdateArgs();
 
     /**
-     * The name of the index field. Minimum length of 1. Maximum length of 30.
+     * Name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the index field. Minimum length of 1. Maximum length of 30.
+     * @return Name of the index field. Minimum length of 1. Maximum length of 30.
      * 
      */
     public Output<String> name() {
@@ -34,14 +34,14 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
     }
 
     /**
-     * A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+     * Block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
      * 
      */
     @Import(name="relevance")
     private @Nullable Output<IndexDocumentMetadataConfigurationUpdateRelevanceArgs> relevance;
 
     /**
-     * @return A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+     * @return Block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
      * 
      */
     public Optional<Output<IndexDocumentMetadataConfigurationUpdateRelevanceArgs>> relevance() {
@@ -49,14 +49,14 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
     }
 
     /**
-     * A block that provides information about how the field is used during a search. Documented below. Detailed below
+     * Block that provides information about how the field is used during a search. Detailed below
      * 
      */
     @Import(name="search")
     private @Nullable Output<IndexDocumentMetadataConfigurationUpdateSearchArgs> search;
 
     /**
-     * @return A block that provides information about how the field is used during a search. Documented below. Detailed below
+     * @return Block that provides information about how the field is used during a search. Detailed below
      * 
      */
     public Optional<Output<IndexDocumentMetadataConfigurationUpdateSearchArgs>> search() {
@@ -64,14 +64,14 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
     }
 
     /**
-     * The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+     * Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+     * @return Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
      * 
      */
     public Output<String> type() {
@@ -106,7 +106,7 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
         }
 
         /**
-         * @param name The name of the index field. Minimum length of 1. Maximum length of 30.
+         * @param name Name of the index field. Minimum length of 1. Maximum length of 30.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
         }
 
         /**
-         * @param name The name of the index field. Minimum length of 1. Maximum length of 30.
+         * @param name Name of the index field. Minimum length of 1. Maximum length of 30.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
         }
 
         /**
-         * @param relevance A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+         * @param relevance Block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
         }
 
         /**
-         * @param relevance A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+         * @param relevance Block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
         }
 
         /**
-         * @param search A block that provides information about how the field is used during a search. Documented below. Detailed below
+         * @param search Block that provides information about how the field is used during a search. Detailed below
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
         }
 
         /**
-         * @param search A block that provides information about how the field is used during a search. Documented below. Detailed below
+         * @param search Block that provides information about how the field is used during a search. Detailed below
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
         }
 
         /**
-         * @param type The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+         * @param type Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class IndexDocumentMetadataConfigurationUpdateArgs extends com.pulu
         }
 
         /**
-         * @param type The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+         * @param type Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
          * 
          * @return builder
          * 

@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Kms
         private Dictionary<string, string>? _context;
 
         /// <summary>
-        /// An optional mapping that makes up the encryption context.
+        /// Mapping that makes up the encryption context.
         /// </summary>
         public Dictionary<string, string> Context
         {
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Kms
         private InputMap<string>? _context;
 
         /// <summary>
-        /// An optional mapping that makes up the encryption context.
+        /// Mapping that makes up the encryption context.
         /// </summary>
         public InputMap<string> Context
         {

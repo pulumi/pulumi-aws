@@ -60,23 +60,23 @@ export class Stream extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the QLDB Stream.
+     * ARN of the QLDB Stream.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
+     * Exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
      */
     declare public readonly exclusiveEndTime: pulumi.Output<string | undefined>;
     /**
-     * The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
+     * Inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
      */
     declare public readonly inclusiveStartTime: pulumi.Output<string>;
     /**
-     * The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+     * Configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      */
     declare public readonly kinesisConfiguration: pulumi.Output<outputs.qldb.StreamKinesisConfiguration>;
     /**
-     * The name of the QLDB ledger.
+     * Name of the QLDB ledger.
      */
     declare public readonly ledgerName: pulumi.Output<string>;
     /**
@@ -88,7 +88,7 @@ export class Stream extends pulumi.CustomResource {
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
-     * The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+     * Name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
      */
     declare public readonly streamName: pulumi.Output<string>;
     /**
@@ -96,7 +96,7 @@ export class Stream extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -161,23 +161,23 @@ export class Stream extends pulumi.CustomResource {
  */
 export interface StreamState {
     /**
-     * The ARN of the QLDB Stream.
+     * ARN of the QLDB Stream.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
+     * Exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
      */
     exclusiveEndTime?: pulumi.Input<string | undefined>;
     /**
-     * The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
+     * Inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
      */
     inclusiveStartTime?: pulumi.Input<string | undefined>;
     /**
-     * The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+     * Configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      */
     kinesisConfiguration?: pulumi.Input<inputs.qldb.StreamKinesisConfiguration | undefined>;
     /**
-     * The name of the QLDB ledger.
+     * Name of the QLDB ledger.
      */
     ledgerName?: pulumi.Input<string | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface StreamState {
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+     * Name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
      */
     streamName?: pulumi.Input<string | undefined>;
     /**
@@ -197,7 +197,7 @@ export interface StreamState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -207,19 +207,19 @@ export interface StreamState {
  */
 export interface StreamArgs {
     /**
-     * The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
+     * Exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
      */
     exclusiveEndTime?: pulumi.Input<string | undefined>;
     /**
-     * The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
+     * Inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
      */
     inclusiveStartTime: pulumi.Input<string>;
     /**
-     * The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+     * Configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      */
     kinesisConfiguration: pulumi.Input<inputs.qldb.StreamKinesisConfiguration>;
     /**
-     * The name of the QLDB ledger.
+     * Name of the QLDB ledger.
      */
     ledgerName: pulumi.Input<string>;
     /**
@@ -231,7 +231,7 @@ export interface StreamArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+     * Name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
      */
     streamName: pulumi.Input<string>;
     /**

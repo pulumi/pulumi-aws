@@ -14,11 +14,11 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     public sealed class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
     {
         /// <summary>
-        /// Information about the Amazon S3 bucket containing the application code.
+        /// Information about the Amazon S3 bucket containing the application code. See `S3ContentLocation` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation? S3ContentLocation;
         /// <summary>
-        /// The text-format code for the application.
+        /// Text-format code for the application.
         /// </summary>
         public readonly string? TextContent;
 

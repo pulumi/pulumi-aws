@@ -13,9 +13,12 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationCloudwatchLoggingOptions
     {
+        /// <summary>
+        /// Identifier of the CloudWatch logging option.
+        /// </summary>
         public readonly string? CloudwatchLoggingOptionId;
         /// <summary>
-        /// The ARN of the CloudWatch log stream to receive application messages.
+        /// ARN of the CloudWatch log stream to receive application messages.
         /// </summary>
         public readonly string LogStreamArn;
 

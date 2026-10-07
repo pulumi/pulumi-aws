@@ -102,9 +102,17 @@ public class Key extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+     * 
+     */
     @Export(name="deletionWindowInDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> deletionWindowInDays;
 
+    /**
+     * @return Number of days between 3 and 180 to wait after the resource is deleted before the key is deleted.
+     * 
+     */
     public Output<Integer> deletionWindowInDays() {
         return this.deletionWindowInDays;
     }
@@ -225,14 +233,14 @@ public class Key extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

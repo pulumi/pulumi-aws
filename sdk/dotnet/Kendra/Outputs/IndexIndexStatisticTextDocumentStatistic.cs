@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class IndexIndexStatisticTextDocumentStatistic
     {
         /// <summary>
-        /// The total size, in bytes, of the indexed documents.
+        /// Total size, in bytes, of the indexed documents.
         /// </summary>
         public readonly int? IndexedTextBytes;
         /// <summary>
-        /// The number of text documents indexed.
+        /// Number of text documents indexed.
         /// </summary>
         public readonly int? IndexedTextDocumentsCount;
 

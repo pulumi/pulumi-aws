@@ -15,17 +15,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeTargetParametersRedshiftDataParameters {
     /**
-     * @return The name of the database. Required when authenticating using temporary credentials.
+     * @return Name of the database. Required when authenticating using temporary credentials.
      * 
      */
     private String database;
     /**
-     * @return The database user name. Required when authenticating using temporary credentials.
+     * @return Database user name. Required when authenticating using temporary credentials.
      * 
      */
     private @Nullable String dbUser;
     /**
-     * @return The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+     * @return Name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
      * 
      */
     private @Nullable String secretManagerArn;
@@ -35,33 +35,33 @@ public final class PipeTargetParametersRedshiftDataParameters {
      */
     private List<String> sqls;
     /**
-     * @return The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+     * @return Name of the SQL statement. You can name the SQL statement when you create it to identify the query.
      * 
      */
     private @Nullable String statementName;
     /**
-     * @return Indicates whether to send an event back to EventBridge after the SQL statement runs.
+     * @return Whether to send an event back to EventBridge after the SQL statement runs.
      * 
      */
     private @Nullable Boolean withEvent;
 
     private PipeTargetParametersRedshiftDataParameters() {}
     /**
-     * @return The name of the database. Required when authenticating using temporary credentials.
+     * @return Name of the database. Required when authenticating using temporary credentials.
      * 
      */
     public String database() {
         return this.database;
     }
     /**
-     * @return The database user name. Required when authenticating using temporary credentials.
+     * @return Database user name. Required when authenticating using temporary credentials.
      * 
      */
     public Optional<String> dbUser() {
         return Optional.ofNullable(this.dbUser);
     }
     /**
-     * @return The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+     * @return Name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
      * 
      */
     public Optional<String> secretManagerArn() {
@@ -75,14 +75,14 @@ public final class PipeTargetParametersRedshiftDataParameters {
         return this.sqls;
     }
     /**
-     * @return The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+     * @return Name of the SQL statement. You can name the SQL statement when you create it to identify the query.
      * 
      */
     public Optional<String> statementName() {
         return Optional.ofNullable(this.statementName);
     }
     /**
-     * @return Indicates whether to send an event back to EventBridge after the SQL statement runs.
+     * @return Whether to send an event back to EventBridge after the SQL statement runs.
      * 
      */
     public Optional<Boolean> withEvent() {

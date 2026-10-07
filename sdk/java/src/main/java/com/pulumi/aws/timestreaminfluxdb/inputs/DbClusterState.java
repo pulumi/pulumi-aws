@@ -113,14 +113,14 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     * Type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
     @Import(name="deploymentType")
     private @Nullable Output<String> deploymentType;
 
     /**
-     * @return Specifies the type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+     * @return Type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
      * 
      */
     public Optional<Output<String>> deploymentType() {
@@ -158,14 +158,14 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
+     * Behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
      * 
      */
     @Import(name="failoverMode")
     private @Nullable Output<String> failoverMode;
 
     /**
-     * @return Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
+     * @return Behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
      * 
      */
     public Optional<Output<String>> failoverMode() {
@@ -233,14 +233,14 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * Network type of the Timestream for InfluxDB cluster. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
      * 
      */
     @Import(name="networkType")
     private @Nullable Output<String> networkType;
 
     /**
-     * @return Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+     * @return Network type of the Timestream for InfluxDB cluster. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
      * 
      */
     public Optional<Output<String>> networkType() {
@@ -278,14 +278,14 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * Port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
      * 
      */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
     /**
-     * @return The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+     * @return Port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
      * 
      */
     public Optional<Output<Integer>> port() {
@@ -293,14 +293,14 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
+     * Whether to configure the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
      * 
      */
     @Import(name="publiclyAccessible")
     private @Nullable Output<Boolean> publiclyAccessible;
 
     /**
-     * @return Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
+     * @return Whether to configure the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
      * 
      */
     public Optional<Output<Boolean>> publiclyAccessible() {
@@ -308,14 +308,14 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
+     * Endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
      * 
      */
     @Import(name="readerEndpoint")
     private @Nullable Output<String> readerEndpoint;
 
     /**
-     * @return The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
+     * @return Endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
      * 
      */
     public Optional<Output<String>> readerEndpoint() {
@@ -600,7 +600,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentType Specifies the type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+         * @param deploymentType Type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
          * 
          * @return builder
          * 
@@ -611,7 +611,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deploymentType Specifies the type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
+         * @param deploymentType Type of cluster to create. Valid options are: `&#34;MULTI_NODE_READ_REPLICAS&#34;`. This field is forbidden for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group).
          * 
          * @return builder
          * 
@@ -663,7 +663,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param failoverMode Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
+         * @param failoverMode Behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
          * 
          * @return builder
          * 
@@ -674,7 +674,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param failoverMode Specifies the behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
+         * @param failoverMode Behavior of failure recovery when the primary node of the cluster fails. Valid options are: `&#34;AUTOMATIC&#34;` and `&#34;NO_FAILOVER&#34;`.
          * 
          * @return builder
          * 
@@ -768,7 +768,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkType Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+         * @param networkType Network type of the Timestream for InfluxDB cluster. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
          * 
          * @return builder
          * 
@@ -779,7 +779,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkType Specifies whether the network type of the Timestream for InfluxDB cluster is IPV4, which can communicate over IPv4 protocol only, or DUAL, which can communicate over both IPv4 and IPv6 protocols.
+         * @param networkType Network type of the Timestream for InfluxDB cluster. `IPV4` can communicate over IPv4 protocol only, and `DUAL` can communicate over both IPv4 and IPv6 protocols.
          * 
          * @return builder
          * 
@@ -831,7 +831,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+         * @param port Port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
          * 
          * @return builder
          * 
@@ -842,7 +842,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param port The port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
+         * @param port Port on which the cluster accepts connections. Valid values: `1024`-`65535`. Cannot be `2375`-`2376`, `7788`-`7799`, `8090`, or `51678`-`51680`. This argument is updatable.
          * 
          * @return builder
          * 
@@ -852,7 +852,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAccessible Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
+         * @param publiclyAccessible Whether to configure the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
          * 
          * @return builder
          * 
@@ -863,7 +863,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAccessible Configures the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
+         * @param publiclyAccessible Whether to configure the DB cluster with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enable public access, in addition to this argument. See &#34;Usage with Public Internet Access Enabled&#34; for an example configuration with all required resources for public internet access.
          * 
          * @return builder
          * 
@@ -873,7 +873,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readerEndpoint The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
+         * @param readerEndpoint Endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
          * 
          * @return builder
          * 
@@ -884,7 +884,7 @@ public final class DbClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readerEndpoint The endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
+         * @param readerEndpoint Endpoint used to connect to the Timestream for InfluxDB cluster for read-only operations.
          * 
          * @return builder
          * 

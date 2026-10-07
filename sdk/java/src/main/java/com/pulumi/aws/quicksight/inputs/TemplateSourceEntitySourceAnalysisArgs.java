@@ -32,14 +32,14 @@ public final class TemplateSourceEntitySourceAnalysisArgs extends com.pulumi.res
     }
 
     /**
-     * A list of dataset references used as placeholders in the template. See data_set_references.
+     * List of dataset references used as placeholders in the template. See `dataSetReferences` Block.
      * 
      */
     @Import(name="dataSetReferences", required=true)
     private Output<List<TemplateSourceEntitySourceAnalysisDataSetReferenceArgs>> dataSetReferences;
 
     /**
-     * @return A list of dataset references used as placeholders in the template. See data_set_references.
+     * @return List of dataset references used as placeholders in the template. See `dataSetReferences` Block.
      * 
      */
     public Output<List<TemplateSourceEntitySourceAnalysisDataSetReferenceArgs>> dataSetReferences() {
@@ -93,7 +93,7 @@ public final class TemplateSourceEntitySourceAnalysisArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSetReferences A list of dataset references used as placeholders in the template. See data_set_references.
+         * @param dataSetReferences List of dataset references used as placeholders in the template. See `dataSetReferences` Block.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class TemplateSourceEntitySourceAnalysisArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSetReferences A list of dataset references used as placeholders in the template. See data_set_references.
+         * @param dataSetReferences List of dataset references used as placeholders in the template. See `dataSetReferences` Block.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class TemplateSourceEntitySourceAnalysisArgs extends com.pulumi.res
         }
 
         /**
-         * @param dataSetReferences A list of dataset references used as placeholders in the template. See data_set_references.
+         * @param dataSetReferences List of dataset references used as placeholders in the template. See `dataSetReferences` Block.
          * 
          * @return builder
          * 

@@ -197,14 +197,14 @@ public class RefreshSchedule extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * The ID of the dataset.
+     * ID of the dataset.
      * 
      */
     @Export(name="dataSetId", refs={String.class}, tree="[0]")
     private Output<String> dataSetId;
 
     /**
-     * @return The ID of the dataset.
+     * @return ID of the dataset.
      * 
      */
     public Output<String> dataSetId() {
@@ -225,32 +225,32 @@ public class RefreshSchedule extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-     * 
-     * The following arguments are optional:
+     * [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
      * 
      */
     @Export(name="schedule", refs={RefreshScheduleSchedule.class}, tree="[0]")
     private Output<RefreshScheduleSchedule> schedule;
 
     /**
-     * @return The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
-     * 
-     * The following arguments are optional:
+     * @return [Refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html) configuration. See `schedule` Block.
      * 
      */
     public Output<RefreshScheduleSchedule> schedule() {
         return this.schedule;
     }
     /**
-     * The ID of the refresh schedule.
+     * ID of the refresh schedule.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="scheduleId", refs={String.class}, tree="[0]")
     private Output<String> scheduleId;
 
     /**
-     * @return The ID of the refresh schedule.
+     * @return ID of the refresh schedule.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> scheduleId() {

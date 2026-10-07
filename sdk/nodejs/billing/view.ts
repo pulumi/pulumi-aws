@@ -87,6 +87,8 @@ export class View extends pulumi.CustomResource {
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the custom billing view to be created.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -103,8 +105,6 @@ export class View extends pulumi.CustomResource {
     declare public /*out*/ readonly sourceViewCount: pulumi.Output<number>;
     /**
      * List of ARNs of the source data views for the custom billing view.
-     *
-     * The following arguments are optional:
      */
     declare public readonly sourceViews: pulumi.Output<string[] | undefined>;
     /**
@@ -208,6 +208,8 @@ export interface ViewState {
     description?: pulumi.Input<string | undefined>;
     /**
      * Name of the custom billing view to be created.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -224,8 +226,6 @@ export interface ViewState {
     sourceViewCount?: pulumi.Input<number | undefined>;
     /**
      * List of ARNs of the source data views for the custom billing view.
-     *
-     * The following arguments are optional:
      */
     sourceViews?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -261,12 +261,12 @@ export interface ViewArgs {
     description?: pulumi.Input<string | undefined>;
     /**
      * Name of the custom billing view to be created.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
      * List of ARNs of the source data views for the custom billing view.
-     *
-     * The following arguments are optional:
      */
     sourceViews?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

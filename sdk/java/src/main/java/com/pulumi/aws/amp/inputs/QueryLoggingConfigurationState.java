@@ -19,14 +19,14 @@ public final class QueryLoggingConfigurationState extends com.pulumi.resources.R
     public static final QueryLoggingConfigurationState Empty = new QueryLoggingConfigurationState();
 
     /**
-     * Configuration block for the logging destinations. See `destination`.
+     * Configuration block for the logging destinations. See `destination` Block.
      * 
      */
     @Import(name="destinations")
     private @Nullable Output<List<QueryLoggingConfigurationDestinationArgs>> destinations;
 
     /**
-     * @return Configuration block for the logging destinations. See `destination`.
+     * @return Configuration block for the logging destinations. See `destination` Block.
      * 
      */
     public Optional<Output<List<QueryLoggingConfigurationDestinationArgs>>> destinations() {
@@ -56,7 +56,7 @@ public final class QueryLoggingConfigurationState extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the AMP workspace for which to configure query logging.
+     * ID of the AMP workspace for which to configure query logging.
      * 
      * The following arguments are optional:
      * 
@@ -65,7 +65,7 @@ public final class QueryLoggingConfigurationState extends com.pulumi.resources.R
     private @Nullable Output<String> workspaceId;
 
     /**
-     * @return The ID of the AMP workspace for which to configure query logging.
+     * @return ID of the AMP workspace for which to configure query logging.
      * 
      * The following arguments are optional:
      * 
@@ -102,7 +102,7 @@ public final class QueryLoggingConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param destinations Configuration block for the logging destinations. See `destination`.
+         * @param destinations Configuration block for the logging destinations. See `destination` Block.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class QueryLoggingConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param destinations Configuration block for the logging destinations. See `destination`.
+         * @param destinations Configuration block for the logging destinations. See `destination` Block.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class QueryLoggingConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param destinations Configuration block for the logging destinations. See `destination`.
+         * @param destinations Configuration block for the logging destinations. See `destination` Block.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class QueryLoggingConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param workspaceId The ID of the AMP workspace for which to configure query logging.
+         * @param workspaceId ID of the AMP workspace for which to configure query logging.
          * 
          * The following arguments are optional:
          * 
@@ -176,7 +176,7 @@ public final class QueryLoggingConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param workspaceId The ID of the AMP workspace for which to configure query logging.
+         * @param workspaceId ID of the AMP workspace for which to configure query logging.
          * 
          * The following arguments are optional:
          * 

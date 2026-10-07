@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string? DataSetArn;
         /// <summary>
-        /// Specifies the result of a join of two logical tables. See join_instruction.
+        /// Result of a join of two logical tables. See `JoinInstruction` Block below.
         /// </summary>
         public readonly Outputs.DataSetLogicalTableMapSourceJoinInstruction? JoinInstruction;
         /// <summary>

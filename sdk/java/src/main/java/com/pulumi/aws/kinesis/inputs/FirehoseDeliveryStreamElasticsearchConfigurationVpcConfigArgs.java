@@ -18,14 +18,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
     public static final FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs Empty = new FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs();
 
     /**
-     * The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+     * ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+     * @return ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
      * 
      */
     public Output<String> roleArn() {
@@ -33,14 +33,14 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
     }
 
     /**
-     * A list of security group IDs to associate with Kinesis Firehose.
+     * List of security group IDs to associate with Kinesis Firehose.
      * 
      */
     @Import(name="securityGroupIds", required=true)
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return A list of security group IDs to associate with Kinesis Firehose.
+     * @return List of security group IDs to associate with Kinesis Firehose.
      * 
      */
     public Output<List<String>> securityGroupIds() {
@@ -48,23 +48,31 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
     }
 
     /**
-     * A list of subnet IDs to associate with Kinesis Firehose.
+     * List of subnet IDs to associate with Kinesis Firehose.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return A list of subnet IDs to associate with Kinesis Firehose.
+     * @return List of subnet IDs to associate with Kinesis Firehose.
      * 
      */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
+    /**
+     * ID of the VPC associated with the delivery stream.
+     * 
+     */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
+    /**
+     * @return ID of the VPC associated with the delivery stream.
+     * 
+     */
     public Optional<Output<String>> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }
@@ -97,7 +105,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+         * @param roleArn ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
          * 
          * @return builder
          * 
@@ -108,7 +116,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
         }
 
         /**
-         * @param roleArn The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+         * @param roleArn ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
          * 
          * @return builder
          * 
@@ -118,7 +126,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
         }
 
         /**
-         * @param securityGroupIds A list of security group IDs to associate with Kinesis Firehose.
+         * @param securityGroupIds List of security group IDs to associate with Kinesis Firehose.
          * 
          * @return builder
          * 
@@ -129,7 +137,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
         }
 
         /**
-         * @param securityGroupIds A list of security group IDs to associate with Kinesis Firehose.
+         * @param securityGroupIds List of security group IDs to associate with Kinesis Firehose.
          * 
          * @return builder
          * 
@@ -139,7 +147,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
         }
 
         /**
-         * @param securityGroupIds A list of security group IDs to associate with Kinesis Firehose.
+         * @param securityGroupIds List of security group IDs to associate with Kinesis Firehose.
          * 
          * @return builder
          * 
@@ -149,7 +157,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
         }
 
         /**
-         * @param subnetIds A list of subnet IDs to associate with Kinesis Firehose.
+         * @param subnetIds List of subnet IDs to associate with Kinesis Firehose.
          * 
          * @return builder
          * 
@@ -160,7 +168,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
         }
 
         /**
-         * @param subnetIds A list of subnet IDs to associate with Kinesis Firehose.
+         * @param subnetIds List of subnet IDs to associate with Kinesis Firehose.
          * 
          * @return builder
          * 
@@ -170,7 +178,7 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
         }
 
         /**
-         * @param subnetIds A list of subnet IDs to associate with Kinesis Firehose.
+         * @param subnetIds List of subnet IDs to associate with Kinesis Firehose.
          * 
          * @return builder
          * 
@@ -179,11 +187,23 @@ public final class FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs
             return subnetIds(List.of(subnetIds));
         }
 
+        /**
+         * @param vpcId ID of the VPC associated with the delivery stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(@Nullable Output<String> vpcId) {
             $.vpcId = vpcId;
             return this;
         }
 
+        /**
+         * @param vpcId ID of the VPC associated with the delivery stream.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcId(String vpcId) {
             return vpcId(Output.of(vpcId));
         }

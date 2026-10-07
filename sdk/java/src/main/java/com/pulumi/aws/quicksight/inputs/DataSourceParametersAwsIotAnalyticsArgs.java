@@ -15,14 +15,14 @@ public final class DataSourceParametersAwsIotAnalyticsArgs extends com.pulumi.re
     public static final DataSourceParametersAwsIotAnalyticsArgs Empty = new DataSourceParametersAwsIotAnalyticsArgs();
 
     /**
-     * The name of the data set to which to connect.
+     * Name of the data set to which to connect.
      * 
      */
     @Import(name="dataSetName", required=true)
     private Output<String> dataSetName;
 
     /**
-     * @return The name of the data set to which to connect.
+     * @return Name of the data set to which to connect.
      * 
      */
     public Output<String> dataSetName() {
@@ -54,7 +54,7 @@ public final class DataSourceParametersAwsIotAnalyticsArgs extends com.pulumi.re
         }
 
         /**
-         * @param dataSetName The name of the data set to which to connect.
+         * @param dataSetName Name of the data set to which to connect.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DataSourceParametersAwsIotAnalyticsArgs extends com.pulumi.re
         }
 
         /**
-         * @param dataSetName The name of the data set to which to connect.
+         * @param dataSetName Name of the data set to which to connect.
          * 
          * @return builder
          * 

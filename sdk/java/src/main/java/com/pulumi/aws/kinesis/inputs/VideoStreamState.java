@@ -18,14 +18,14 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
     public static final VideoStreamState Empty = new VideoStreamState();
 
     /**
-     * ARN specifying the Stream (same as `id`)
+     * ARN specifying the Stream (same as `id`).
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN specifying the Stream (same as `id`)
+     * @return ARN specifying the Stream (same as `id`).
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A time stamp that indicates when the stream was created.
+     * Time stamp that indicates when the stream was created.
      * 
      */
     @Import(name="creationTime")
     private @Nullable Output<String> creationTime;
 
     /**
-     * @return A time stamp that indicates when the stream was created.
+     * @return Time stamp that indicates when the stream was created.
      * 
      */
     public Optional<Output<String>> creationTime() {
@@ -48,14 +48,14 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+     * Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      * 
      */
     @Import(name="dataRetentionInHours")
     private @Nullable Output<Integer> dataRetentionInHours;
 
     /**
-     * @return The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+     * @return Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      * 
      */
     public Optional<Output<Integer>> dataRetentionInHours() {
@@ -63,14 +63,14 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+     * Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      * 
      */
     @Import(name="deviceName")
     private @Nullable Output<String> deviceName;
 
     /**
-     * @return The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+     * @return Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      * 
      */
     public Optional<Output<String>> deviceName() {
@@ -93,14 +93,14 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+     * Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      * 
      */
     @Import(name="mediaType")
     private @Nullable Output<String> mediaType;
 
     /**
-     * @return The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+     * @return Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      * 
      */
     public Optional<Output<String>> mediaType() {
@@ -108,16 +108,14 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * Name to identify the stream. Unique to the AWS account and region the stream is created in.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * @return Name to identify the stream. Unique to the AWS account and region the stream is created in.
      * 
      */
     public Optional<Output<String>> name() {
@@ -140,14 +138,14 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -155,14 +153,14 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -170,14 +168,14 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version of the stream.
+     * Version of the stream.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The version of the stream.
+     * @return Version of the stream.
      * 
      */
     public Optional<Output<String>> version() {
@@ -219,7 +217,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN specifying the Stream (same as `id`)
+         * @param arn ARN specifying the Stream (same as `id`).
          * 
          * @return builder
          * 
@@ -230,7 +228,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN specifying the Stream (same as `id`)
+         * @param arn ARN specifying the Stream (same as `id`).
          * 
          * @return builder
          * 
@@ -240,7 +238,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creationTime A time stamp that indicates when the stream was created.
+         * @param creationTime Time stamp that indicates when the stream was created.
          * 
          * @return builder
          * 
@@ -251,7 +249,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creationTime A time stamp that indicates when the stream was created.
+         * @param creationTime Time stamp that indicates when the stream was created.
          * 
          * @return builder
          * 
@@ -261,7 +259,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRetentionInHours The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+         * @param dataRetentionInHours Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
          * 
          * @return builder
          * 
@@ -272,7 +270,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRetentionInHours The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+         * @param dataRetentionInHours Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
          * 
          * @return builder
          * 
@@ -282,7 +280,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceName The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+         * @param deviceName Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
          * 
          * @return builder
          * 
@@ -293,7 +291,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceName The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+         * @param deviceName Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
          * 
          * @return builder
          * 
@@ -324,7 +322,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mediaType The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+         * @param mediaType Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
          * 
          * @return builder
          * 
@@ -335,7 +333,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mediaType The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+         * @param mediaType Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
          * 
          * @return builder
          * 
@@ -345,8 +343,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name to identify the stream. This is unique to the
-         * AWS account and region the Stream is created in.
+         * @param name Name to identify the stream. Unique to the AWS account and region the stream is created in.
          * 
          * @return builder
          * 
@@ -357,8 +354,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name to identify the stream. This is unique to the
-         * AWS account and region the Stream is created in.
+         * @param name Name to identify the stream. Unique to the AWS account and region the stream is created in.
          * 
          * @return builder
          * 
@@ -389,7 +385,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -400,7 +396,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -410,7 +406,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -421,7 +417,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -431,7 +427,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version of the stream.
+         * @param version Version of the stream.
          * 
          * @return builder
          * 
@@ -442,7 +438,7 @@ public final class VideoStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version of the stream.
+         * @param version Version of the stream.
          * 
          * @return builder
          * 

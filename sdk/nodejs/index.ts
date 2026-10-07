@@ -172,6 +172,7 @@ import * as devicefarm from "./devicefarm";
 import * as devopsguru from "./devopsguru";
 import * as directconnect from "./directconnect";
 import * as directoryservice from "./directoryservice";
+import * as directoryservicedata from "./directoryservicedata";
 import * as dlm from "./dlm";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
@@ -411,6 +412,7 @@ export {
     devopsguru,
     directconnect,
     directoryservice,
+    directoryservicedata,
     dlm,
     dms,
     docdb,

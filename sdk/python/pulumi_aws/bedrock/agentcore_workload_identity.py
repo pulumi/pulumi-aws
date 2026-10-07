@@ -21,7 +21,8 @@ class AgentcoreWorkloadIdentityArgs:
     def __init__(__self__, *,
                  allowed_resource_oauth2_return_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 region: pulumi.Input[Optional[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AgentcoreWorkloadIdentity resource.
 
@@ -30,6 +31,7 @@ class AgentcoreWorkloadIdentityArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if allowed_resource_oauth2_return_urls is not None:
             pulumi.set(__self__, "allowed_resource_oauth2_return_urls", allowed_resource_oauth2_return_urls)
@@ -37,6 +39,8 @@ class AgentcoreWorkloadIdentityArgs:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="allowedResourceOauth2ReturnUrls")
@@ -76,6 +80,18 @@ class AgentcoreWorkloadIdentityArgs:
     def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _AgentcoreWorkloadIdentityState:
@@ -83,6 +99,8 @@ class _AgentcoreWorkloadIdentityState:
                  allowed_resource_oauth2_return_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  workload_identity_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AgentcoreWorkloadIdentity resources.
@@ -92,6 +110,8 @@ class _AgentcoreWorkloadIdentityState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] workload_identity_arn: ARN of the Workload Identity.
         """
         if allowed_resource_oauth2_return_urls is not None:
@@ -100,6 +120,10 @@ class _AgentcoreWorkloadIdentityState:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if workload_identity_arn is not None:
             pulumi.set(__self__, "workload_identity_arn", workload_identity_arn)
 
@@ -142,6 +166,30 @@ class _AgentcoreWorkloadIdentityState:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @_builtins.property
     @pulumi.getter(name="workloadIdentityArn")
     def workload_identity_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -163,6 +211,7 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
                  allowed_resource_oauth2_return_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Manages an AWS Bedrock AgentCore Workload Identity. Workload Identity provides OAuth2-based authentication and authorization for AI agents to access external resources securely.
@@ -197,6 +246,17 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` - (String) Name of the workload identity.
+
+        #### Optional
+
+        * `account_id` - (String) AWS Account where this resource is managed.
+        * `region` - (String) Region where this resource is managed.
+
         Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
 
         ```sh
@@ -211,6 +271,7 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -251,6 +312,17 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` - (String) Name of the workload identity.
+
+        #### Optional
+
+        * `account_id` - (String) AWS Account where this resource is managed.
+        * `region` - (String) Region where this resource is managed.
+
         Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
 
         ```sh
@@ -276,6 +348,7 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
                  allowed_resource_oauth2_return_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -288,6 +361,8 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
             __props__.__dict__["allowed_resource_oauth2_return_urls"] = allowed_resource_oauth2_return_urls
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["workload_identity_arn"] = None
         super(AgentcoreWorkloadIdentity, __self__).__init__(
             'aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity',
@@ -302,6 +377,8 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
             allowed_resource_oauth2_return_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             workload_identity_arn: pulumi.Input[Optional[_builtins.str]] = None) -> 'AgentcoreWorkloadIdentity':
         """
         Get an existing AgentcoreWorkloadIdentity resource's state with the given name, id, and optional extra
@@ -315,6 +392,8 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] workload_identity_arn: ARN of the Workload Identity.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -324,6 +403,8 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
         __props__.__dict__["allowed_resource_oauth2_return_urls"] = allowed_resource_oauth2_return_urls
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["workload_identity_arn"] = workload_identity_arn
         return AgentcoreWorkloadIdentity(resource_name, opts=opts, __props__=__props__)
 
@@ -352,6 +433,22 @@ class AgentcoreWorkloadIdentity(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentityArn")

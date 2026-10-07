@@ -37,6 +37,8 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Identifier for the folder.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="folderId", required=true)
     private Output<String> folderId;
@@ -44,20 +46,22 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Identifier for the folder.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> folderId() {
         return this.folderId;
     }
 
     /**
-     * The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+     * Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      * 
      */
     @Import(name="folderType")
     private @Nullable Output<String> folderType;
 
     /**
-     * @return The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+     * @return Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
      * 
      */
     public Optional<Output<String>> folderType() {
@@ -67,16 +71,12 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Display name for the folder.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Display name for the folder.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -99,14 +99,14 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<FolderPermissionArgs>> permissions;
 
     /**
-     * @return A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
      * 
      */
     public Optional<Output<List<FolderPermissionArgs>>> permissions() {
@@ -198,6 +198,8 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param folderId Identifier for the folder.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -209,6 +211,8 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param folderId Identifier for the folder.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -217,7 +221,7 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param folderType The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+         * @param folderType Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
          * 
          * @return builder
          * 
@@ -228,7 +232,7 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param folderType The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+         * @param folderType Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
          * 
          * @return builder
          * 
@@ -240,8 +244,6 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Display name for the folder.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -252,8 +254,6 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Display name for the folder.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
          * 
          * @return builder
          * 

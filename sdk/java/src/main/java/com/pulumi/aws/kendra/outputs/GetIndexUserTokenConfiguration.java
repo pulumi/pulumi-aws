@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class GetIndexUserTokenConfiguration {
     /**
-     * @return A block that specifies the information about the JSON token type configuration.
+     * @return Block that specifies the information about the JSON token type configuration. Detailed below.
      * 
      */
     private List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations;
     /**
-     * @return A block that specifies the information about the JWT token type configuration.
+     * @return Block that specifies the information about the JWT token type configuration. Detailed below.
      * 
      */
     private List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations;
 
     private GetIndexUserTokenConfiguration() {}
     /**
-     * @return A block that specifies the information about the JSON token type configuration.
+     * @return Block that specifies the information about the JSON token type configuration. Detailed below.
      * 
      */
     public List<GetIndexUserTokenConfigurationJsonTokenTypeConfiguration> jsonTokenTypeConfigurations() {
         return this.jsonTokenTypeConfigurations;
     }
     /**
-     * @return A block that specifies the information about the JWT token type configuration.
+     * @return Block that specifies the information about the JWT token type configuration. Detailed below.
      * 
      */
     public List<GetIndexUserTokenConfigurationJwtTokenTypeConfiguration> jwtTokenTypeConfigurations() {

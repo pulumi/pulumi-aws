@@ -70,56 +70,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:kinesis/videoStream:VideoStream")
 public class VideoStream extends com.pulumi.resources.CustomResource {
     /**
-     * ARN specifying the Stream (same as `id`)
+     * ARN specifying the Stream (same as `id`).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN specifying the Stream (same as `id`)
+     * @return ARN specifying the Stream (same as `id`).
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * A time stamp that indicates when the stream was created.
+     * Time stamp that indicates when the stream was created.
      * 
      */
     @Export(name="creationTime", refs={String.class}, tree="[0]")
     private Output<String> creationTime;
 
     /**
-     * @return A time stamp that indicates when the stream was created.
+     * @return Time stamp that indicates when the stream was created.
      * 
      */
     public Output<String> creationTime() {
         return this.creationTime;
     }
     /**
-     * The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+     * Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      * 
      */
     @Export(name="dataRetentionInHours", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dataRetentionInHours;
 
     /**
-     * @return The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
+     * @return Number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      * 
      */
     public Output<Optional<Integer>> dataRetentionInHours() {
         return Codegen.optional(this.dataRetentionInHours);
     }
     /**
-     * The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+     * Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      * 
      */
     @Export(name="deviceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceName;
 
     /**
-     * @return The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
+     * @return Name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      * 
      */
     public Output<Optional<String>> deviceName() {
@@ -140,30 +140,28 @@ public class VideoStream extends com.pulumi.resources.CustomResource {
         return this.kmsKeyId;
     }
     /**
-     * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+     * Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      * 
      */
     @Export(name="mediaType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mediaType;
 
     /**
-     * @return The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
+     * @return Media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      * 
      */
     public Output<Optional<String>> mediaType() {
         return Codegen.optional(this.mediaType);
     }
     /**
-     * A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * Name to identify the stream. Unique to the AWS account and region the stream is created in.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return A name to identify the stream. This is unique to the
-     * AWS account and region the Stream is created in.
+     * @return Name to identify the stream. Unique to the AWS account and region the stream is created in.
      * 
      */
     public Output<String> name() {
@@ -184,42 +182,42 @@ public class VideoStream extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The version of the stream.
+     * Version of the stream.
      * 
      */
     @Export(name="version", refs={String.class}, tree="[0]")
     private Output<String> version;
 
     /**
-     * @return The version of the stream.
+     * @return Version of the stream.
      * 
      */
     public Output<String> version() {

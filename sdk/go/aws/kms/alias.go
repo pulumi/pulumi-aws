@@ -70,10 +70,9 @@ type Alias struct {
 
 	// ARN of the key alias.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+	// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates an unique alias beginning with the specified prefix.
-	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+	// Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -118,10 +117,9 @@ func GetAlias(ctx *pulumi.Context,
 type aliasState struct {
 	// ARN of the key alias.
 	Arn *string `pulumi:"arn"`
-	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+	// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
 	Name *string `pulumi:"name"`
-	// Creates an unique alias beginning with the specified prefix.
-	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+	// Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -134,10 +132,9 @@ type aliasState struct {
 type AliasState struct {
 	// ARN of the key alias.
 	Arn pulumi.StringPtrInput
-	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+	// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
 	Name pulumi.StringPtrInput
-	// Creates an unique alias beginning with the specified prefix.
-	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+	// Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -152,10 +149,9 @@ func (AliasState) ElementType() reflect.Type {
 }
 
 type aliasArgs struct {
-	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+	// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
 	Name *string `pulumi:"name"`
-	// Creates an unique alias beginning with the specified prefix.
-	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+	// Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -165,10 +161,9 @@ type aliasArgs struct {
 
 // The set of arguments for constructing a Alias resource.
 type AliasArgs struct {
-	// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+	// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
 	Name pulumi.StringPtrInput
-	// Creates an unique alias beginning with the specified prefix.
-	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+	// Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -268,13 +263,12 @@ func (o AliasOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+// Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/).
 func (o AliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates an unique alias beginning with the specified prefix.
-// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
+// Creates a unique alias beginning with the specified prefix. The name must start with the word "alias" followed by a forward slash (alias/). Conflicts with `name`.
 func (o AliasOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput
     {
         /// <summary>
-        /// The ARN of the destination Lambda function to write to.
+        /// ARN of the destination Lambda function to write to.
         /// </summary>
         public readonly string ResourceArn;
 

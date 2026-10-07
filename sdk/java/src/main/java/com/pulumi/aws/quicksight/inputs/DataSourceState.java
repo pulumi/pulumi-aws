@@ -53,14 +53,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+     * Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
      * 
      */
     @Import(name="credentials")
     private @Nullable Output<DataSourceCredentialsArgs> credentials;
 
     /**
-     * @return The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+     * @return Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
      * 
      */
     public Optional<Output<DataSourceCredentialsArgs>> credentials() {
@@ -68,14 +68,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An identifier for the data source.
+     * Identifier for the data source.
      * 
      */
     @Import(name="dataSourceId")
     private @Nullable Output<String> dataSourceId;
 
     /**
-     * @return An identifier for the data source.
+     * @return Identifier for the data source.
      * 
      */
     public Optional<Output<String>> dataSourceId() {
@@ -83,14 +83,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A name for the data source, maximum of 128 characters.
+     * Name for the data source, maximum of 128 characters.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name for the data source, maximum of 128 characters.
+     * @return Name for the data source, maximum of 128 characters.
      * 
      */
     public Optional<Output<String>> name() {
@@ -98,14 +98,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The parameters used to connect to this data source (exactly one).
+     * Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<DataSourceParametersArgs> parameters;
 
     /**
-     * @return The parameters used to connect to this data source (exactly one).
+     * @return Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
      * 
      */
     public Optional<Output<DataSourceParametersArgs>> parameters() {
@@ -113,14 +113,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+     * Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<DataSourcePermissionArgs>> permissions;
 
     /**
-     * @return A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+     * @return Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
      * 
      */
     public Optional<Output<List<DataSourcePermissionArgs>>> permissions() {
@@ -143,14 +143,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
      * 
      */
     @Import(name="sslProperties")
     private @Nullable Output<DataSourceSslPropertiesArgs> sslProperties;
 
     /**
-     * @return Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+     * @return Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
      * 
      */
     public Optional<Output<DataSourceSslPropertiesArgs>> sslProperties() {
@@ -173,14 +173,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -188,7 +188,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+     * Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
      * 
      * The following arguments are optional:
      * 
@@ -197,7 +197,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+     * @return Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
      * 
      * The following arguments are optional:
      * 
@@ -207,14 +207,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
      * 
      */
     @Import(name="vpcConnectionProperties")
     private @Nullable Output<DataSourceVpcConnectionPropertiesArgs> vpcConnectionProperties;
 
     /**
-     * @return Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+     * @return Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
      * 
      */
     public Optional<Output<DataSourceVpcConnectionPropertiesArgs>> vpcConnectionProperties() {
@@ -300,7 +300,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentials The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+         * @param credentials Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param credentials The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
+         * @param credentials Credentials Amazon QuickSight uses to connect to your underlying source. See `credentials` Block below for more details.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSourceId An identifier for the data source.
+         * @param dataSourceId Identifier for the data source.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSourceId An identifier for the data source.
+         * @param dataSourceId Identifier for the data source.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name for the data source, maximum of 128 characters.
+         * @param name Name for the data source, maximum of 128 characters.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name for the data source, maximum of 128 characters.
+         * @param name Name for the data source, maximum of 128 characters.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters used to connect to this data source (exactly one).
+         * @param parameters Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters used to connect to this data source (exactly one).
+         * @param parameters Parameters used to connect to this data source (exactly one). See `parameters` Block for details.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+         * @param permissions Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+         * @param permissions Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
+         * @param permissions Set of resource permissions on the data source. Maximum of 64 items. See `permission` Block below for more details.
          * 
          * @return builder
          * 
@@ -436,7 +436,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sslProperties Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+         * @param sslProperties Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
          * 
          * @return builder
          * 
@@ -447,7 +447,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sslProperties Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
+         * @param sslProperties Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See `sslProperties` Block below for more details.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -499,7 +499,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+         * @param type Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
          * 
          * The following arguments are optional:
          * 
@@ -512,7 +512,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
+         * @param type Type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
          * 
          * The following arguments are optional:
          * 
@@ -524,7 +524,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConnectionProperties Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+         * @param vpcConnectionProperties Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConnectionProperties Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
+         * @param vpcConnectionProperties Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See `vpcConnectionProperties` Block below for more details.
          * 
          * @return builder
          * 

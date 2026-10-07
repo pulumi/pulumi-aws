@@ -54,7 +54,7 @@ type GetDefaultScraperConfigurationArgs struct {
 
 // A collection of values returned by getDefaultScraperConfiguration.
 type GetDefaultScraperConfigurationResult struct {
-	// The configuration file.
+	// Configuration file.
 	Configuration string `pulumi:"configuration"`
 	Region        string `pulumi:"region"`
 }
@@ -89,7 +89,7 @@ func (o GetDefaultScraperConfigurationResultOutput) ToGetDefaultScraperConfigura
 	return o
 }
 
-// The configuration file.
+// Configuration file.
 func (o GetDefaultScraperConfigurationResultOutput) Configuration() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultScraperConfigurationResult) string { return v.Configuration }).(pulumi.StringOutput)
 }

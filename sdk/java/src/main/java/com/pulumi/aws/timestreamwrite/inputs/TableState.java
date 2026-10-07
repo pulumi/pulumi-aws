@@ -20,14 +20,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     public static final TableState Empty = new TableState();
 
     /**
-     * The ARN that uniquely identifies this table.
+     * ARN that uniquely identifies this table.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN that uniquely identifies this table.
+     * @return ARN that uniquely identifies this table.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -35,14 +35,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Timestream database.
+     * Name of the Timestream database.
      * 
      */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
     /**
-     * @return The name of the Timestream database.
+     * @return Name of the Timestream database.
      * 
      */
     public Optional<Output<String>> databaseName() {
@@ -50,14 +50,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+     * Properties to set on the table when enabling magnetic store writes. See `magneticStoreWriteProperties` Block below for more details.
      * 
      */
     @Import(name="magneticStoreWriteProperties")
     private @Nullable Output<TableMagneticStoreWritePropertiesArgs> magneticStoreWriteProperties;
 
     /**
-     * @return Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+     * @return Properties to set on the table when enabling magnetic store writes. See `magneticStoreWriteProperties` Block below for more details.
      * 
      */
     public Optional<Output<TableMagneticStoreWritePropertiesArgs>> magneticStoreWriteProperties() {
@@ -80,14 +80,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
+     * Retention duration for the memory store and magnetic store. See `retentionProperties` Block below for more details. If not provided, `magneticStoreRetentionPeriodInDays` defaults to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      * 
      */
     @Import(name="retentionProperties")
     private @Nullable Output<TableRetentionPropertiesArgs> retentionProperties;
 
     /**
-     * @return The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
+     * @return Retention duration for the memory store and magnetic store. See `retentionProperties` Block below for more details. If not provided, `magneticStoreRetentionPeriodInDays` defaults to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      * 
      */
     public Optional<Output<TableRetentionPropertiesArgs>> retentionProperties() {
@@ -95,14 +95,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema of the table. See Schema below for more details.
+     * Schema of the table. See `schema` Block below for more details.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<TableSchemaArgs> schema;
 
     /**
-     * @return The schema of the table. See Schema below for more details.
+     * @return Schema of the table. See `schema` Block below for more details.
      * 
      */
     public Optional<Output<TableSchemaArgs>> schema() {
@@ -110,14 +110,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Timestream table.
+     * Name of the Timestream table.
      * 
      */
     @Import(name="tableName")
     private @Nullable Output<String> tableName;
 
     /**
-     * @return The name of the Timestream table.
+     * @return Name of the Timestream table.
      * 
      */
     public Optional<Output<String>> tableName() {
@@ -140,14 +140,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -187,7 +187,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN that uniquely identifies this table.
+         * @param arn ARN that uniquely identifies this table.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN that uniquely identifies this table.
+         * @param arn ARN that uniquely identifies this table.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param databaseName The name of the Timestream database.
+         * @param databaseName Name of the Timestream database.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param databaseName The name of the Timestream database.
+         * @param databaseName Name of the Timestream database.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param magneticStoreWriteProperties Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+         * @param magneticStoreWriteProperties Properties to set on the table when enabling magnetic store writes. See `magneticStoreWriteProperties` Block below for more details.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param magneticStoreWriteProperties Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
+         * @param magneticStoreWriteProperties Properties to set on the table when enabling magnetic store writes. See `magneticStoreWriteProperties` Block below for more details.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionProperties The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
+         * @param retentionProperties Retention duration for the memory store and magnetic store. See `retentionProperties` Block below for more details. If not provided, `magneticStoreRetentionPeriodInDays` defaults to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionProperties The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
+         * @param retentionProperties Retention duration for the memory store and magnetic store. See `retentionProperties` Block below for more details. If not provided, `magneticStoreRetentionPeriodInDays` defaults to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema of the table. See Schema below for more details.
+         * @param schema Schema of the table. See `schema` Block below for more details.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema of the table. See Schema below for more details.
+         * @param schema Schema of the table. See `schema` Block below for more details.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableName The name of the Timestream table.
+         * @param tableName Name of the Timestream table.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableName The name of the Timestream table.
+         * @param tableName Name of the Timestream table.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

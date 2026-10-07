@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class ThemeConfigurationSheetTileLayout
     {
         /// <summary>
-        /// The gutter settings that apply between tiles. See gutter.
+        /// Gutter settings that apply between tiles. See gutter.
         /// </summary>
         public readonly Outputs.ThemeConfigurationSheetTileLayoutGutter? Gutter;
         /// <summary>
-        /// The margin settings that apply around the outside edge of sheets. See margin.
+        /// Margin settings that apply around the outside edge of sheets. See margin.
         /// </summary>
         public readonly Outputs.ThemeConfigurationSheetTileLayoutMargin? Margin;
 

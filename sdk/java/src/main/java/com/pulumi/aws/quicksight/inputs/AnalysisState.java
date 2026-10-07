@@ -67,36 +67,44 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time that the analysis was created.
+     * Time that the analysis was created.
      * 
      */
     @Import(name="createdTime")
     private @Nullable Output<String> createdTime;
 
     /**
-     * @return The time that the analysis was created.
+     * @return Time that the analysis was created.
      * 
      */
     public Optional<Output<String>> createdTime() {
         return Optional.ofNullable(this.createdTime);
     }
 
+    /**
+     * Time that the analysis was last published.
+     * 
+     */
     @Import(name="lastPublishedTime")
     private @Nullable Output<String> lastPublishedTime;
 
+    /**
+     * @return Time that the analysis was last published.
+     * 
+     */
     public Optional<Output<String>> lastPublishedTime() {
         return Optional.ofNullable(this.lastPublishedTime);
     }
 
     /**
-     * The time that the analysis was last updated.
+     * Time that the analysis was last updated.
      * 
      */
     @Import(name="lastUpdatedTime")
     private @Nullable Output<String> lastUpdatedTime;
 
     /**
-     * @return The time that the analysis was last updated.
+     * @return Time that the analysis was last updated.
      * 
      */
     public Optional<Output<String>> lastUpdatedTime() {
@@ -123,14 +131,14 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<AnalysisParametersArgs> parameters;
 
     /**
-     * @return The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * @return Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      * 
      */
     public Optional<Output<AnalysisParametersArgs>> parameters() {
@@ -138,14 +146,14 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<AnalysisPermissionArgs>> permissions;
 
     /**
-     * @return A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      * 
      */
     public Optional<Output<List<AnalysisPermissionArgs>>> permissions() {
@@ -153,14 +161,14 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+     * Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      * 
      */
     @Import(name="recoveryWindowInDays")
     private @Nullable Output<Integer> recoveryWindowInDays;
 
     /**
-     * @return A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+     * @return Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      * 
      */
     public Optional<Output<Integer>> recoveryWindowInDays() {
@@ -183,14 +191,14 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      * 
      */
     @Import(name="sourceEntity")
     private @Nullable Output<AnalysisSourceEntityArgs> sourceEntity;
 
     /**
-     * @return The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * @return Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      * 
      */
     public Optional<Output<AnalysisSourceEntityArgs>> sourceEntity() {
@@ -198,14 +206,14 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The analysis creation status.
+     * Analysis creation status.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The analysis creation status.
+     * @return Analysis creation status.
      * 
      */
     public Optional<Output<String>> status() {
@@ -228,14 +236,14 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -360,7 +368,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime The time that the analysis was created.
+         * @param createdTime Time that the analysis was created.
          * 
          * @return builder
          * 
@@ -371,7 +379,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createdTime The time that the analysis was created.
+         * @param createdTime Time that the analysis was created.
          * 
          * @return builder
          * 
@@ -380,17 +388,29 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
             return createdTime(Output.of(createdTime));
         }
 
+        /**
+         * @param lastPublishedTime Time that the analysis was last published.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastPublishedTime(@Nullable Output<String> lastPublishedTime) {
             $.lastPublishedTime = lastPublishedTime;
             return this;
         }
 
+        /**
+         * @param lastPublishedTime Time that the analysis was last published.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastPublishedTime(String lastPublishedTime) {
             return lastPublishedTime(Output.of(lastPublishedTime));
         }
 
         /**
-         * @param lastUpdatedTime The time that the analysis was last updated.
+         * @param lastUpdatedTime Time that the analysis was last updated.
          * 
          * @return builder
          * 
@@ -401,7 +421,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lastUpdatedTime The time that the analysis was last updated.
+         * @param lastUpdatedTime Time that the analysis was last updated.
          * 
          * @return builder
          * 
@@ -436,7 +456,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+         * @param parameters Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
          * 
          * @return builder
          * 
@@ -447,7 +467,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+         * @param parameters Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
          * 
          * @return builder
          * 
@@ -457,7 +477,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
          * 
          * @return builder
          * 
@@ -468,7 +488,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
          * 
          * @return builder
          * 
@@ -478,7 +498,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
          * 
          * @return builder
          * 
@@ -488,7 +508,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryWindowInDays A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+         * @param recoveryWindowInDays Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
          * 
          * @return builder
          * 
@@ -499,7 +519,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryWindowInDays A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+         * @param recoveryWindowInDays Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
          * 
          * @return builder
          * 
@@ -530,7 +550,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntity The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+         * @param sourceEntity Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
          * 
          * @return builder
          * 
@@ -541,7 +561,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntity The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+         * @param sourceEntity Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
          * 
          * @return builder
          * 
@@ -551,7 +571,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The analysis creation status.
+         * @param status Analysis creation status.
          * 
          * @return builder
          * 
@@ -562,7 +582,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The analysis creation status.
+         * @param status Analysis creation status.
          * 
          * @return builder
          * 
@@ -593,7 +613,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -604,7 +624,7 @@ public final class AnalysisState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

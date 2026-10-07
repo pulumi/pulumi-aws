@@ -32,11 +32,11 @@ __all__ = [
 class TableMagneticStoreWritePropertiesArgsDict(TypedDict):
     enable_magnetic_store_writes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    A flag to enable magnetic store writes.
+    Whether to enable magnetic store writes.
     """
     magnetic_store_rejected_data_location: NotRequired[pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgsDict']]]
     """
-    The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+    Location to write error reports for records rejected asynchronously during magnetic store writes. See `magnetic_store_rejected_data_location` Block below for more details.
     """
 
 @pulumi.input_type
@@ -45,8 +45,8 @@ class TableMagneticStoreWritePropertiesArgs:
                  enable_magnetic_store_writes: pulumi.Input[Optional[_builtins.bool]] = None,
                  magnetic_store_rejected_data_location: pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']] = None):
         """
-        :param pulumi.Input[_builtins.bool] enable_magnetic_store_writes: A flag to enable magnetic store writes.
-        :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs'] magnetic_store_rejected_data_location: The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+        :param pulumi.Input[_builtins.bool] enable_magnetic_store_writes: Whether to enable magnetic store writes.
+        :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs'] magnetic_store_rejected_data_location: Location to write error reports for records rejected asynchronously during magnetic store writes. See `magnetic_store_rejected_data_location` Block below for more details.
         """
         if enable_magnetic_store_writes is not None:
             pulumi.set(__self__, "enable_magnetic_store_writes", enable_magnetic_store_writes)
@@ -57,7 +57,7 @@ class TableMagneticStoreWritePropertiesArgs:
     @pulumi.getter(name="enableMagneticStoreWrites")
     def enable_magnetic_store_writes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A flag to enable magnetic store writes.
+        Whether to enable magnetic store writes.
         """
         return pulumi.get(self, "enable_magnetic_store_writes")
 
@@ -69,7 +69,7 @@ class TableMagneticStoreWritePropertiesArgs:
     @pulumi.getter(name="magneticStoreRejectedDataLocation")
     def magnetic_store_rejected_data_location(self) -> pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']]:
         """
-        The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+        Location to write error reports for records rejected asynchronously during magnetic store writes. See `magnetic_store_rejected_data_location` Block below for more details.
         """
         return pulumi.get(self, "magnetic_store_rejected_data_location")
 
@@ -81,7 +81,7 @@ class TableMagneticStoreWritePropertiesArgs:
 class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgsDict(TypedDict):
     s3_configuration: NotRequired[pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgsDict']]]
     """
-    Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+    Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3_configuration` Block below for more details.
     """
 
 @pulumi.input_type
@@ -89,7 +89,7 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs:
     def __init__(__self__, *,
                  s3_configuration: pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']] = None):
         """
-        :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs'] s3_configuration: Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+        :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs'] s3_configuration: Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3_configuration` Block below for more details.
         """
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
@@ -98,7 +98,7 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs:
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']]:
         """
-        Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+        Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3_configuration` Block below for more details.
         """
         return pulumi.get(self, "s3_configuration")
 
@@ -199,11 +199,11 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
 class TableRetentionPropertiesArgsDict(TypedDict):
     magnetic_store_retention_period_in_days: pulumi.Input[_builtins.int]
     """
-    The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+    Duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
     """
     memory_store_retention_period_in_hours: pulumi.Input[_builtins.int]
     """
-    The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+    Duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
     """
 
 @pulumi.input_type
@@ -212,8 +212,8 @@ class TableRetentionPropertiesArgs:
                  magnetic_store_retention_period_in_days: pulumi.Input[_builtins.int],
                  memory_store_retention_period_in_hours: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.int] magnetic_store_retention_period_in_days: The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
-        :param pulumi.Input[_builtins.int] memory_store_retention_period_in_hours: The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+        :param pulumi.Input[_builtins.int] magnetic_store_retention_period_in_days: Duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+        :param pulumi.Input[_builtins.int] memory_store_retention_period_in_hours: Duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
         """
         pulumi.set(__self__, "magnetic_store_retention_period_in_days", magnetic_store_retention_period_in_days)
         pulumi.set(__self__, "memory_store_retention_period_in_hours", memory_store_retention_period_in_hours)
@@ -222,7 +222,7 @@ class TableRetentionPropertiesArgs:
     @pulumi.getter(name="magneticStoreRetentionPeriodInDays")
     def magnetic_store_retention_period_in_days(self) -> pulumi.Input[_builtins.int]:
         """
-        The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+        Duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
         """
         return pulumi.get(self, "magnetic_store_retention_period_in_days")
 
@@ -234,7 +234,7 @@ class TableRetentionPropertiesArgs:
     @pulumi.getter(name="memoryStoreRetentionPeriodInHours")
     def memory_store_retention_period_in_hours(self) -> pulumi.Input[_builtins.int]:
         """
-        The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+        Duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
         """
         return pulumi.get(self, "memory_store_retention_period_in_hours")
 
@@ -246,7 +246,7 @@ class TableRetentionPropertiesArgs:
 class TableSchemaArgsDict(TypedDict):
     composite_partition_key: NotRequired[pulumi.Input[Optional['TableSchemaCompositePartitionKeyArgsDict']]]
     """
-    A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+    Non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See `composite_partition_key` Block below for more details.
     """
 
 @pulumi.input_type
@@ -254,7 +254,7 @@ class TableSchemaArgs:
     def __init__(__self__, *,
                  composite_partition_key: pulumi.Input[Optional['TableSchemaCompositePartitionKeyArgs']] = None):
         """
-        :param pulumi.Input['TableSchemaCompositePartitionKeyArgs'] composite_partition_key: A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+        :param pulumi.Input['TableSchemaCompositePartitionKeyArgs'] composite_partition_key: Non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See `composite_partition_key` Block below for more details.
         """
         if composite_partition_key is not None:
             pulumi.set(__self__, "composite_partition_key", composite_partition_key)
@@ -263,7 +263,7 @@ class TableSchemaArgs:
     @pulumi.getter(name="compositePartitionKey")
     def composite_partition_key(self) -> pulumi.Input[Optional['TableSchemaCompositePartitionKeyArgs']]:
         """
-        A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+        Non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See `composite_partition_key` Block below for more details.
         """
         return pulumi.get(self, "composite_partition_key")
 
@@ -275,15 +275,15 @@ class TableSchemaArgs:
 class TableSchemaCompositePartitionKeyArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
-    The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+    Type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
     """
     enforcement_in_record: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+    Level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name of the attribute used for a dimension key.
+    Name of the attribute used for a dimension key.
     """
 
 @pulumi.input_type
@@ -293,9 +293,9 @@ class TableSchemaCompositePartitionKeyArgs:
                  enforcement_in_record: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] type: The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
-        :param pulumi.Input[_builtins.str] enforcement_in_record: The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
-        :param pulumi.Input[_builtins.str] name: The name of the attribute used for a dimension key.
+        :param pulumi.Input[_builtins.str] type: Type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+        :param pulumi.Input[_builtins.str] enforcement_in_record: Level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+        :param pulumi.Input[_builtins.str] name: Name of the attribute used for a dimension key.
         """
         pulumi.set(__self__, "type", type)
         if enforcement_in_record is not None:
@@ -307,7 +307,7 @@ class TableSchemaCompositePartitionKeyArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+        Type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
         """
         return pulumi.get(self, "type")
 
@@ -319,7 +319,7 @@ class TableSchemaCompositePartitionKeyArgs:
     @pulumi.getter(name="enforcementInRecord")
     def enforcement_in_record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+        Level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
         """
         return pulumi.get(self, "enforcement_in_record")
 
@@ -331,7 +331,7 @@ class TableSchemaCompositePartitionKeyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the attribute used for a dimension key.
+        Name of the attribute used for a dimension key.
         """
         return pulumi.get(self, "name")
 

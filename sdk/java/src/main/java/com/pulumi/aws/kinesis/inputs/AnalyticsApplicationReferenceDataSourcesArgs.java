@@ -19,14 +19,14 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
     public static final AnalyticsApplicationReferenceDataSourcesArgs Empty = new AnalyticsApplicationReferenceDataSourcesArgs();
 
     /**
-     * The ARN of the Kinesis Analytics Application.
+     * ARN of the Kinesis Analytics Application.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ARN of the Kinesis Analytics Application.
+     * @return ARN of the Kinesis Analytics Application.
      * 
      */
     public Optional<Output<String>> id() {
@@ -34,14 +34,14 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
     }
 
     /**
-     * The S3 configuration for the reference data source. See S3 Reference below for more details.
+     * S3 configuration for the reference data source. See `reference_data_sources.s3` Block below for details.
      * 
      */
     @Import(name="s3", required=true)
     private Output<AnalyticsApplicationReferenceDataSourcesS3Args> s3;
 
     /**
-     * @return The S3 configuration for the reference data source. See S3 Reference below for more details.
+     * @return S3 configuration for the reference data source. See `reference_data_sources.s3` Block below for details.
      * 
      */
     public Output<AnalyticsApplicationReferenceDataSourcesS3Args> s3() {
@@ -49,14 +49,14 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
     }
 
     /**
-     * The Schema format of the data in the streaming source. See Source Schema below for more details.
+     * Schema format of the data in the streaming source. See `reference_data_sources.schema` Block below for details.
      * 
      */
     @Import(name="schema", required=true)
     private Output<AnalyticsApplicationReferenceDataSourcesSchemaArgs> schema;
 
     /**
-     * @return The Schema format of the data in the streaming source. See Source Schema below for more details.
+     * @return Schema format of the data in the streaming source. See `reference_data_sources.schema` Block below for details.
      * 
      */
     public Output<AnalyticsApplicationReferenceDataSourcesSchemaArgs> schema() {
@@ -64,14 +64,14 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
     }
 
     /**
-     * The in-application Table Name.
+     * In-application Table Name.
      * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
-     * @return The in-application Table Name.
+     * @return In-application Table Name.
      * 
      */
     public Output<String> tableName() {
@@ -106,7 +106,7 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
         }
 
         /**
-         * @param id The ARN of the Kinesis Analytics Application.
+         * @param id ARN of the Kinesis Analytics Application.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
         }
 
         /**
-         * @param id The ARN of the Kinesis Analytics Application.
+         * @param id ARN of the Kinesis Analytics Application.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
         }
 
         /**
-         * @param s3 The S3 configuration for the reference data source. See S3 Reference below for more details.
+         * @param s3 S3 configuration for the reference data source. See `reference_data_sources.s3` Block below for details.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
         }
 
         /**
-         * @param s3 The S3 configuration for the reference data source. See S3 Reference below for more details.
+         * @param s3 S3 configuration for the reference data source. See `reference_data_sources.s3` Block below for details.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
         }
 
         /**
-         * @param schema The Schema format of the data in the streaming source. See Source Schema below for more details.
+         * @param schema Schema format of the data in the streaming source. See `reference_data_sources.schema` Block below for details.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
         }
 
         /**
-         * @param schema The Schema format of the data in the streaming source. See Source Schema below for more details.
+         * @param schema Schema format of the data in the streaming source. See `reference_data_sources.schema` Block below for details.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
         }
 
         /**
-         * @param tableName The in-application Table Name.
+         * @param tableName In-application Table Name.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class AnalyticsApplicationReferenceDataSourcesArgs extends com.pulu
         }
 
         /**
-         * @param tableName The in-application Table Name.
+         * @param tableName In-application Table Name.
          * 
          * @return builder
          * 

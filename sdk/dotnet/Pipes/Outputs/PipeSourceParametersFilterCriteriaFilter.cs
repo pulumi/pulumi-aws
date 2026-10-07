@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeSourceParametersFilterCriteriaFilter
     {
         /// <summary>
-        /// The event pattern. At most 4096 characters.
+        /// Event pattern. At most 4096 characters.
         /// </summary>
         public readonly string Pattern;
 

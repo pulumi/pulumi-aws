@@ -183,11 +183,11 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
+        /// Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>
-        /// The maximum size for a single data record in KiB.
+        /// Maximum size for a single data record in KiB.
         /// </summary>
         public readonly int MaxRecordSizeInKib;
         /// <summary>

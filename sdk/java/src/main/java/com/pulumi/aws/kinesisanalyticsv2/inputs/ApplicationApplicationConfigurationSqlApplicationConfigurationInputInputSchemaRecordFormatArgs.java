@@ -16,14 +16,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs();
 
     /**
-     * Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+     * Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
      * 
      */
     @Import(name="mappingParameters", required=true)
     private Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs> mappingParameters;
 
     /**
-     * @return Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+     * @return Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
      * 
      */
     public Output<ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs> mappingParameters() {
@@ -31,14 +31,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * The type of record format. Valid values: `CSV`, `JSON`.
+     * Type of record format. Valid values: `CSV`, `JSON`.
      * 
      */
     @Import(name="recordFormatType", required=true)
     private Output<String> recordFormatType;
 
     /**
-     * @return The type of record format. Valid values: `CSV`, `JSON`.
+     * @return Type of record format. Valid values: `CSV`, `JSON`.
      * 
      */
     public Output<String> recordFormatType() {
@@ -71,7 +71,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param mappingParameters Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+         * @param mappingParameters Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param mappingParameters Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+         * @param mappingParameters Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordFormatType The type of record format. Valid values: `CSV`, `JSON`.
+         * @param recordFormatType Type of record format. Valid values: `CSV`, `JSON`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordFormatType The type of record format. Valid values: `CSV`, `JSON`.
+         * @param recordFormatType Type of record format. Valid values: `CSV`, `JSON`.
          * 
          * @return builder
          * 

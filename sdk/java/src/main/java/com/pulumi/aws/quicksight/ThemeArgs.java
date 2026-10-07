@@ -36,14 +36,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+     * ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      * 
      */
     @Import(name="baseThemeId", required=true)
     private Output<String> baseThemeId;
 
     /**
-     * @return The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+     * @return ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
      * 
      */
     public Output<String> baseThemeId() {
@@ -51,14 +51,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The theme configuration, which contains the theme display properties. See configuration.
+     * Theme configuration, which contains the theme display properties. See configuration.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<ThemeConfigurationArgs> configuration;
 
     /**
-     * @return The theme configuration, which contains the theme display properties. See configuration.
+     * @return Theme configuration, which contains the theme display properties. See configuration.
      * 
      */
     public Optional<Output<ThemeConfigurationArgs>> configuration() {
@@ -81,14 +81,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the theme. Maximum of 64 items. See permissions.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<ThemePermissionArgs>> permissions;
 
     /**
-     * @return A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the theme. Maximum of 64 items. See permissions.
      * 
      */
     public Optional<Output<List<ThemePermissionArgs>>> permissions() {
@@ -145,14 +145,14 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the current theme version being created/updated.
+     * Description of the current theme version being created/updated.
      * 
      */
     @Import(name="versionDescription")
     private @Nullable Output<String> versionDescription;
 
     /**
-     * @return A description of the current theme version being created/updated.
+     * @return Description of the current theme version being created/updated.
      * 
      */
     public Optional<Output<String>> versionDescription() {
@@ -213,7 +213,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param baseThemeId The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+         * @param baseThemeId ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param baseThemeId The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+         * @param baseThemeId ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration The theme configuration, which contains the theme display properties. See configuration.
+         * @param configuration Theme configuration, which contains the theme display properties. See configuration.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration The theme configuration, which contains the theme display properties. See configuration.
+         * @param configuration Theme configuration, which contains the theme display properties. See configuration.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the theme. Maximum of 64 items. See permissions.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the theme. Maximum of 64 items. See permissions.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the theme. Maximum of 64 items. See permissions.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionDescription A description of the current theme version being created/updated.
+         * @param versionDescription Description of the current theme version being created/updated.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class ThemeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionDescription A description of the current theme version being created/updated.
+         * @param versionDescription Description of the current theme version being created/updated.
          * 
          * @return builder
          * 

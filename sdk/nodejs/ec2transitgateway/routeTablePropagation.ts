@@ -78,6 +78,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `transitGatewayAttachmentId` (String) EC2 Transit Gateway Attachment identifier.
+ * * `transitGatewayRouteTableId` (String) EC2 Transit Gateway Route Table identifier.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import `aws.ec2transitgateway.RouteTablePropagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
  *
  * ```sh
@@ -130,6 +142,8 @@ export class RouteTablePropagation extends pulumi.CustomResource {
     declare public readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
+     *
+     * The following arguments are optional:
      */
     declare public readonly transitGatewayRouteTableId: pulumi.Output<string>;
 
@@ -192,6 +206,8 @@ export interface RouteTablePropagationState {
     transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
+     *
+     * The following arguments are optional:
      */
     transitGatewayRouteTableId?: pulumi.Input<string | undefined>;
 }
@@ -210,6 +226,8 @@ export interface RouteTablePropagationArgs {
     transitGatewayAttachmentId: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
+     *
+     * The following arguments are optional:
      */
     transitGatewayRouteTableId: pulumi.Input<string>;
 }

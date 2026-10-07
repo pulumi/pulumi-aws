@@ -81,7 +81,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The policy document.
+     * Policy document.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -131,7 +131,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
  */
 export interface ResourcePolicyState {
     /**
-     * The policy document.
+     * Policy document.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface ResourcePolicyState {
  */
 export interface ResourcePolicyArgs {
     /**
-     * The policy document.
+     * Policy document.
      */
     policy: pulumi.Input<string>;
     /**

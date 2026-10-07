@@ -72,11 +72,11 @@ type LookupOntapFileSystemResult struct {
 	DeploymentType string `pulumi:"deploymentType"`
 	// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
 	DiskIopsConfigurations []GetOntapFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfigurations"`
-	// DNS name for the file system.
+	// File system's DNS name. You can mount your file system using its DNS name.
 	DnsName string `pulumi:"dnsName"`
 	// (Multi-AZ only) IP address range in which the endpoints to access your file system exist.
 	EndpointIpAddressRange string `pulumi:"endpointIpAddressRange"`
-	// Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+	// Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 	Endpoints []GetOntapFileSystemEndpoint `pulumi:"endpoints"`
 	// Number of HA pairs for the file system.
 	HaPairs int `pulumi:"haPairs"`
@@ -174,7 +174,7 @@ func (o LookupOntapFileSystemResultOutput) DiskIopsConfigurations() GetOntapFile
 	}).(GetOntapFileSystemDiskIopsConfigurationArrayOutput)
 }
 
-// DNS name for the file system.
+// File system's DNS name. You can mount your file system using its DNS name.
 func (o LookupOntapFileSystemResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.DnsName }).(pulumi.StringOutput)
 }
@@ -184,7 +184,7 @@ func (o LookupOntapFileSystemResultOutput) EndpointIpAddressRange() pulumi.Strin
 	return o.ApplyT(func(v LookupOntapFileSystemResult) string { return v.EndpointIpAddressRange }).(pulumi.StringOutput)
 }
 
-// Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+// Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 func (o LookupOntapFileSystemResultOutput) Endpoints() GetOntapFileSystemEndpointArrayOutput {
 	return o.ApplyT(func(v LookupOntapFileSystemResult) []GetOntapFileSystemEndpoint { return v.Endpoints }).(GetOntapFileSystemEndpointArrayOutput)
 }

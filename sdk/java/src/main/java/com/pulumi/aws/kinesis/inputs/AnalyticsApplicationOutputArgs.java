@@ -21,14 +21,14 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
     public static final AnalyticsApplicationOutputArgs Empty = new AnalyticsApplicationOutputArgs();
 
     /**
-     * The ARN of the Kinesis Analytics Application.
+     * ARN of the Kinesis Analytics Application.
      * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
-     * @return The ARN of the Kinesis Analytics Application.
+     * @return ARN of the Kinesis Analytics Application.
      * 
      */
     public Optional<Output<String>> id() {
@@ -36,16 +36,14 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
-     * See Kinesis Firehose below for more details.
+     * Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`. See `outputs.kinesis_firehose` Block below for details.
      * 
      */
     @Import(name="kinesisFirehose")
     private @Nullable Output<AnalyticsApplicationOutputKinesisFirehoseArgs> kinesisFirehose;
 
     /**
-     * @return The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
-     * See Kinesis Firehose below for more details.
+     * @return Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`. See `outputs.kinesis_firehose` Block below for details.
      * 
      */
     public Optional<Output<AnalyticsApplicationOutputKinesisFirehoseArgs>> kinesisFirehose() {
@@ -53,16 +51,14 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`.
-     * See Kinesis Stream below for more details.
+     * Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`. See `outputs.kinesis_stream` Block below for details.
      * 
      */
     @Import(name="kinesisStream")
     private @Nullable Output<AnalyticsApplicationOutputKinesisStreamArgs> kinesisStream;
 
     /**
-     * @return The Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`.
-     * See Kinesis Stream below for more details.
+     * @return Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`. See `outputs.kinesis_stream` Block below for details.
      * 
      */
     public Optional<Output<AnalyticsApplicationOutputKinesisStreamArgs>> kinesisStream() {
@@ -70,14 +66,14 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Lambda function destination. See Lambda below for more details.
+     * Lambda function destination. See `outputs.lambda` Block below for details.
      * 
      */
     @Import(name="lambda")
     private @Nullable Output<AnalyticsApplicationOutputLambdaArgs> lambda;
 
     /**
-     * @return The Lambda function destination. See Lambda below for more details.
+     * @return Lambda function destination. See `outputs.lambda` Block below for details.
      * 
      */
     public Optional<Output<AnalyticsApplicationOutputLambdaArgs>> lambda() {
@@ -85,14 +81,14 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Name of the in-application stream.
+     * Name of the in-application stream.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The Name of the in-application stream.
+     * @return Name of the in-application stream.
      * 
      */
     public Output<String> name() {
@@ -100,14 +96,14 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Schema format of the data written to the destination. See Destination Schema below for more details.
+     * Schema format of the data written to the destination. See `outputs.schema` Block below for details.
      * 
      */
     @Import(name="schema", required=true)
     private Output<AnalyticsApplicationOutputSchemaArgs> schema;
 
     /**
-     * @return The Schema format of the data written to the destination. See Destination Schema below for more details.
+     * @return Schema format of the data written to the destination. See `outputs.schema` Block below for details.
      * 
      */
     public Output<AnalyticsApplicationOutputSchemaArgs> schema() {
@@ -144,7 +140,7 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id The ARN of the Kinesis Analytics Application.
+         * @param id ARN of the Kinesis Analytics Application.
          * 
          * @return builder
          * 
@@ -155,7 +151,7 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param id The ARN of the Kinesis Analytics Application.
+         * @param id ARN of the Kinesis Analytics Application.
          * 
          * @return builder
          * 
@@ -165,8 +161,7 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kinesisFirehose The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
-         * See Kinesis Firehose below for more details.
+         * @param kinesisFirehose Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`. See `outputs.kinesis_firehose` Block below for details.
          * 
          * @return builder
          * 
@@ -177,8 +172,7 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kinesisFirehose The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
-         * See Kinesis Firehose below for more details.
+         * @param kinesisFirehose Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`. See `outputs.kinesis_firehose` Block below for details.
          * 
          * @return builder
          * 
@@ -188,8 +182,7 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kinesisStream The Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`.
-         * See Kinesis Stream below for more details.
+         * @param kinesisStream Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`. See `outputs.kinesis_stream` Block below for details.
          * 
          * @return builder
          * 
@@ -200,8 +193,7 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kinesisStream The Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`.
-         * See Kinesis Stream below for more details.
+         * @param kinesisStream Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`. See `outputs.kinesis_stream` Block below for details.
          * 
          * @return builder
          * 
@@ -211,7 +203,7 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param lambda The Lambda function destination. See Lambda below for more details.
+         * @param lambda Lambda function destination. See `outputs.lambda` Block below for details.
          * 
          * @return builder
          * 
@@ -222,7 +214,7 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param lambda The Lambda function destination. See Lambda below for more details.
+         * @param lambda Lambda function destination. See `outputs.lambda` Block below for details.
          * 
          * @return builder
          * 
@@ -232,7 +224,7 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The Name of the in-application stream.
+         * @param name Name of the in-application stream.
          * 
          * @return builder
          * 
@@ -243,7 +235,7 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The Name of the in-application stream.
+         * @param name Name of the in-application stream.
          * 
          * @return builder
          * 
@@ -253,7 +245,7 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param schema The Schema format of the data written to the destination. See Destination Schema below for more details.
+         * @param schema Schema format of the data written to the destination. See `outputs.schema` Block below for details.
          * 
          * @return builder
          * 
@@ -264,7 +256,7 @@ public final class AnalyticsApplicationOutputArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param schema The Schema format of the data written to the destination. See Destination Schema below for more details.
+         * @param schema Schema format of the data written to the destination. See `outputs.schema` Block below for details.
          * 
          * @return builder
          * 

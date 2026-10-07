@@ -199,14 +199,13 @@ namespace Pulumi.Aws.Kinesis
     public partial class AnalyticsApplication : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Kinesis Analytics Appliation.
+        /// ARN of the Kinesis Analytics Application.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The CloudWatch log stream options to monitor application errors.
-        /// See CloudWatch Logging Options below for more details.
+        /// CloudWatch log stream options to monitor application errors. See `CloudwatchLoggingOptions` Block below for details.
         /// </summary>
         [Output("cloudwatchLoggingOptions")]
         public Output<Outputs.AnalyticsApplicationCloudwatchLoggingOptions?> CloudwatchLoggingOptions { get; private set; } = null!;
@@ -218,7 +217,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string?> Code { get; private set; } = null!;
 
         /// <summary>
-        /// The Timestamp when the application version was created.
+        /// Timestamp when the application version was created.
         /// </summary>
         [Output("createTimestamp")]
         public Output<string> CreateTimestamp { get; private set; } = null!;
@@ -230,13 +229,13 @@ namespace Pulumi.Aws.Kinesis
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Input configuration of the application. See Inputs below for more details.
+        /// Input configuration of the application. See `Inputs` Block below for details.
         /// </summary>
         [Output("inputs")]
         public Output<Outputs.AnalyticsApplicationInputs?> Inputs { get; private set; } = null!;
 
         /// <summary>
-        /// The Timestamp when the application was last updated.
+        /// Timestamp when the application was last updated.
         /// </summary>
         [Output("lastUpdateTimestamp")]
         public Output<string> LastUpdateTimestamp { get; private set; } = null!;
@@ -248,14 +247,13 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Output destination configuration of the application. See Outputs below for more details.
+        /// Output destination configuration of the application. See `Outputs` Block below for details.
         /// </summary>
         [Output("outputs")]
         public Output<ImmutableArray<Outputs.AnalyticsApplicationOutput>> Outputs { get; private set; } = null!;
 
         /// <summary>
-        /// An S3 Reference Data Source for the application.
-        /// See Reference Data Sources below for more details.
+        /// S3 Reference Data Source for the application. See `ReferenceDataSources` Block below for details.
         /// </summary>
         [Output("referenceDataSources")]
         public Output<Outputs.AnalyticsApplicationReferenceDataSources?> ReferenceDataSources { get; private set; } = null!;
@@ -267,32 +265,31 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `StartingPosition` must be configured.
-        /// To modify an application's starting position, first stop the application by setting `StartApplication = false`, then update `StartingPosition` and set `StartApplication = true`.
+        /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `StartingPosition` must be configured. To modify an application's starting position, first stop the application by setting `StartApplication = false`, then update `StartingPosition` and set `StartApplication = true`.
         /// </summary>
         [Output("startApplication")]
         public Output<bool?> StartApplication { get; private set; } = null!;
 
         /// <summary>
-        /// The Status of the application.
+        /// Status of the application.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Version of the application.
+        /// Version of the application.
         /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
@@ -344,8 +341,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class AnalyticsApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The CloudWatch log stream options to monitor application errors.
-        /// See CloudWatch Logging Options below for more details.
+        /// CloudWatch log stream options to monitor application errors. See `CloudwatchLoggingOptions` Block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.AnalyticsApplicationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
@@ -363,7 +359,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Input configuration of the application. See Inputs below for more details.
+        /// Input configuration of the application. See `Inputs` Block below for details.
         /// </summary>
         [Input("inputs")]
         public Input<Inputs.AnalyticsApplicationInputsArgs>? Inputs { get; set; }
@@ -378,7 +374,7 @@ namespace Pulumi.Aws.Kinesis
         private InputList<Inputs.AnalyticsApplicationOutputArgs>? _outputs;
 
         /// <summary>
-        /// Output destination configuration of the application. See Outputs below for more details.
+        /// Output destination configuration of the application. See `Outputs` Block below for details.
         /// </summary>
         public InputList<Inputs.AnalyticsApplicationOutputArgs> Outputs
         {
@@ -387,8 +383,7 @@ namespace Pulumi.Aws.Kinesis
         }
 
         /// <summary>
-        /// An S3 Reference Data Source for the application.
-        /// See Reference Data Sources below for more details.
+        /// S3 Reference Data Source for the application. See `ReferenceDataSources` Block below for details.
         /// </summary>
         [Input("referenceDataSources")]
         public Input<Inputs.AnalyticsApplicationReferenceDataSourcesArgs>? ReferenceDataSources { get; set; }
@@ -400,8 +395,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `StartingPosition` must be configured.
-        /// To modify an application's starting position, first stop the application by setting `StartApplication = false`, then update `StartingPosition` and set `StartApplication = true`.
+        /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `StartingPosition` must be configured. To modify an application's starting position, first stop the application by setting `StartApplication = false`, then update `StartingPosition` and set `StartApplication = true`.
         /// </summary>
         [Input("startApplication")]
         public Input<bool>? StartApplication { get; set; }
@@ -410,7 +404,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -427,14 +421,13 @@ namespace Pulumi.Aws.Kinesis
     public sealed class AnalyticsApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Kinesis Analytics Appliation.
+        /// ARN of the Kinesis Analytics Application.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The CloudWatch log stream options to monitor application errors.
-        /// See CloudWatch Logging Options below for more details.
+        /// CloudWatch log stream options to monitor application errors. See `CloudwatchLoggingOptions` Block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.AnalyticsApplicationCloudwatchLoggingOptionsGetArgs>? CloudwatchLoggingOptions { get; set; }
@@ -446,7 +439,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Code { get; set; }
 
         /// <summary>
-        /// The Timestamp when the application version was created.
+        /// Timestamp when the application version was created.
         /// </summary>
         [Input("createTimestamp")]
         public Input<string>? CreateTimestamp { get; set; }
@@ -458,13 +451,13 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Input configuration of the application. See Inputs below for more details.
+        /// Input configuration of the application. See `Inputs` Block below for details.
         /// </summary>
         [Input("inputs")]
         public Input<Inputs.AnalyticsApplicationInputsGetArgs>? Inputs { get; set; }
 
         /// <summary>
-        /// The Timestamp when the application was last updated.
+        /// Timestamp when the application was last updated.
         /// </summary>
         [Input("lastUpdateTimestamp")]
         public Input<string>? LastUpdateTimestamp { get; set; }
@@ -479,7 +472,7 @@ namespace Pulumi.Aws.Kinesis
         private InputList<Inputs.AnalyticsApplicationOutputGetArgs>? _outputs;
 
         /// <summary>
-        /// Output destination configuration of the application. See Outputs below for more details.
+        /// Output destination configuration of the application. See `Outputs` Block below for details.
         /// </summary>
         public InputList<Inputs.AnalyticsApplicationOutputGetArgs> Outputs
         {
@@ -488,8 +481,7 @@ namespace Pulumi.Aws.Kinesis
         }
 
         /// <summary>
-        /// An S3 Reference Data Source for the application.
-        /// See Reference Data Sources below for more details.
+        /// S3 Reference Data Source for the application. See `ReferenceDataSources` Block below for details.
         /// </summary>
         [Input("referenceDataSources")]
         public Input<Inputs.AnalyticsApplicationReferenceDataSourcesGetArgs>? ReferenceDataSources { get; set; }
@@ -501,14 +493,13 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `StartingPosition` must be configured.
-        /// To modify an application's starting position, first stop the application by setting `StartApplication = false`, then update `StartingPosition` and set `StartApplication = true`.
+        /// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `StartingPosition` must be configured. To modify an application's starting position, first stop the application by setting `StartApplication = false`, then update `StartingPosition` and set `StartApplication = true`.
         /// </summary>
         [Input("startApplication")]
         public Input<bool>? StartApplication { get; set; }
 
         /// <summary>
-        /// The Status of the application.
+        /// Status of the application.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -517,7 +508,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -529,7 +520,7 @@ namespace Pulumi.Aws.Kinesis
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -538,7 +529,7 @@ namespace Pulumi.Aws.Kinesis
         }
 
         /// <summary>
-        /// The Version of the application.
+        /// Version of the application.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }

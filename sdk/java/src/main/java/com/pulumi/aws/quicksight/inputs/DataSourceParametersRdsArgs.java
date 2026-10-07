@@ -15,14 +15,14 @@ public final class DataSourceParametersRdsArgs extends com.pulumi.resources.Reso
     public static final DataSourceParametersRdsArgs Empty = new DataSourceParametersRdsArgs();
 
     /**
-     * The database to which to connect.
+     * Database to which to connect.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database to which to connect.
+     * @return Database to which to connect.
      * 
      */
     public Output<String> database() {
@@ -30,14 +30,14 @@ public final class DataSourceParametersRdsArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The instance ID to which to connect.
+     * Instance ID to which to connect.
      * 
      */
     @Import(name="instanceId", required=true)
     private Output<String> instanceId;
 
     /**
-     * @return The instance ID to which to connect.
+     * @return Instance ID to which to connect.
      * 
      */
     public Output<String> instanceId() {
@@ -70,7 +70,7 @@ public final class DataSourceParametersRdsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param database The database to which to connect.
+         * @param database Database to which to connect.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class DataSourceParametersRdsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param database The database to which to connect.
+         * @param database Database to which to connect.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class DataSourceParametersRdsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param instanceId The instance ID to which to connect.
+         * @param instanceId Instance ID to which to connect.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class DataSourceParametersRdsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param instanceId The instance ID to which to connect.
+         * @param instanceId Instance ID to which to connect.
          * 
          * @return builder
          * 

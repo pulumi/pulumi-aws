@@ -33,9 +33,9 @@ class ViewArgs:
         :param pulumi.Input['ViewDataFilterExpressionArgs'] data_filter_expression: Filter Cost Explorer APIs using the expression. See `data_filter_expression` below for details.
         :param pulumi.Input[_builtins.str] description: Description of the custom billing view.
         :param pulumi.Input[_builtins.str] name: Name of the custom billing view to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_views: List of ARNs of the source data views for the custom billing view.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_views: List of ARNs of the source data views for the custom billing view.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags associated with the billing view being created.
         """
         if data_filter_expression is not None:
@@ -80,6 +80,8 @@ class ViewArgs:
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the custom billing view to be created.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -92,8 +94,6 @@ class ViewArgs:
     def source_views(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ARNs of the source data views for the custom billing view.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "source_views")
 
@@ -152,12 +152,12 @@ class _ViewState:
         :param pulumi.Input[_builtins.int] derived_view_count: Number of billing views that use this billing view as a source.
         :param pulumi.Input[_builtins.str] description: Description of the custom billing view.
         :param pulumi.Input[_builtins.str] name: Name of the custom billing view to be created.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] owner_account_id: Account owner of the billing view.
         :param pulumi.Input[_builtins.str] source_account_id: AWS account ID that owns the source billing view, if this is a derived billing view.
         :param pulumi.Input[_builtins.int] source_view_count: Number of source views associated with this billing view.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_views: List of ARNs of the source data views for the custom billing view.
-               
-               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags associated with the billing view being created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: List of key value map specifying tags associated to the billing view.
         :param pulumi.Input[_builtins.str] updated_at: Time when the billing view was last updated.
@@ -273,6 +273,8 @@ class _ViewState:
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the custom billing view to be created.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -321,8 +323,6 @@ class _ViewState:
     def source_views(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of ARNs of the source data views for the custom billing view.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "source_views")
 
@@ -432,9 +432,9 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[Union['ViewDataFilterExpressionArgs', 'ViewDataFilterExpressionArgsDict', 'outputs.ViewDataFilterExpression']] data_filter_expression: Filter Cost Explorer APIs using the expression. See `data_filter_expression` below for details.
         :param pulumi.Input[_builtins.str] description: Description of the custom billing view.
         :param pulumi.Input[_builtins.str] name: Name of the custom billing view to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_views: List of ARNs of the source data views for the custom billing view.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_views: List of ARNs of the source data views for the custom billing view.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags associated with the billing view being created.
         """
         ...
@@ -555,12 +555,12 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] derived_view_count: Number of billing views that use this billing view as a source.
         :param pulumi.Input[_builtins.str] description: Description of the custom billing view.
         :param pulumi.Input[_builtins.str] name: Name of the custom billing view to be created.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] owner_account_id: Account owner of the billing view.
         :param pulumi.Input[_builtins.str] source_account_id: AWS account ID that owns the source billing view, if this is a derived billing view.
         :param pulumi.Input[_builtins.int] source_view_count: Number of source views associated with this billing view.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_views: List of ARNs of the source data views for the custom billing view.
-               
-               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags associated with the billing view being created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: List of key value map specifying tags associated to the billing view.
         :param pulumi.Input[_builtins.str] updated_at: Time when the billing view was last updated.
@@ -641,6 +641,8 @@ class View(pulumi.CustomResource):
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         Name of the custom billing view to be created.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -673,8 +675,6 @@ class View(pulumi.CustomResource):
     def source_views(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
         List of ARNs of the source data views for the custom billing view.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "source_views")
 

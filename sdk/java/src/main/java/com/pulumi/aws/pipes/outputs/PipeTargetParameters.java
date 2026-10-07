@@ -23,27 +23,27 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeTargetParameters {
     /**
-     * @return The parameters for using an AWS Batch job as a target. Detailed below.
+     * @return Parameters for using an AWS Batch job as a target. See `batchJobParameters` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersBatchJobParameters batchJobParameters;
     /**
-     * @return The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+     * @return Parameters for using a CloudWatch Logs log stream as a target. See `cloudwatchLogsParameters` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersCloudwatchLogsParameters cloudwatchLogsParameters;
     /**
-     * @return The parameters for using an Amazon ECS task as a target. Detailed below.
+     * @return Parameters for using an Amazon ECS task as a target. See `ecsTaskParameters` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersEcsTaskParameters ecsTaskParameters;
     /**
-     * @return The parameters for using an EventBridge event bus as a target. Detailed below.
+     * @return Parameters for using an EventBridge event bus as a target. See `eventbridgeEventBusParameters` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersEventbridgeEventBusParameters eventbridgeEventBusParameters;
     /**
-     * @return These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+     * @return Custom parameters used when the target is an API Gateway REST API or EventBridge ApiDestination. See `target_parameters.http_parameters` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersHttpParameters httpParameters;
@@ -53,67 +53,67 @@ public final class PipeTargetParameters {
      */
     private @Nullable String inputTemplate;
     /**
-     * @return The parameters for using a Kinesis stream as a source. Detailed below.
+     * @return Parameters for using a Kinesis stream as a target. See `target_parameters.kinesis_stream_parameters` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersKinesisStreamParameters kinesisStreamParameters;
     /**
-     * @return The parameters for using a Lambda function as a target. Detailed below.
+     * @return Parameters for using a Lambda function as a target. See `lambdaFunctionParameters` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersLambdaFunctionParameters lambdaFunctionParameters;
     /**
-     * @return These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+     * @return Custom parameters used when the target is an Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. See `redshiftDataParameters` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersRedshiftDataParameters redshiftDataParameters;
     /**
-     * @return The parameters for using a SageMaker AI pipeline as a target. Detailed below.
+     * @return Parameters for using a SageMaker AI pipeline as a target. See `sagemakerPipelineParameters` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersSagemakerPipelineParameters sagemakerPipelineParameters;
     /**
-     * @return The parameters for using a Amazon SQS stream as a target. Detailed below.
+     * @return Parameters for using an Amazon SQS stream as a target. See `target_parameters.sqs_queue_parameters` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersSqsQueueParameters sqsQueueParameters;
     /**
-     * @return The parameters for using a Step Functions state machine as a target. Detailed below.
+     * @return Parameters for using a Step Functions state machine as a target. See `stepFunctionStateMachineParameters` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersStepFunctionStateMachineParameters stepFunctionStateMachineParameters;
 
     private PipeTargetParameters() {}
     /**
-     * @return The parameters for using an AWS Batch job as a target. Detailed below.
+     * @return Parameters for using an AWS Batch job as a target. See `batchJobParameters` Block for details.
      * 
      */
     public Optional<PipeTargetParametersBatchJobParameters> batchJobParameters() {
         return Optional.ofNullable(this.batchJobParameters);
     }
     /**
-     * @return The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+     * @return Parameters for using a CloudWatch Logs log stream as a target. See `cloudwatchLogsParameters` Block for details.
      * 
      */
     public Optional<PipeTargetParametersCloudwatchLogsParameters> cloudwatchLogsParameters() {
         return Optional.ofNullable(this.cloudwatchLogsParameters);
     }
     /**
-     * @return The parameters for using an Amazon ECS task as a target. Detailed below.
+     * @return Parameters for using an Amazon ECS task as a target. See `ecsTaskParameters` Block for details.
      * 
      */
     public Optional<PipeTargetParametersEcsTaskParameters> ecsTaskParameters() {
         return Optional.ofNullable(this.ecsTaskParameters);
     }
     /**
-     * @return The parameters for using an EventBridge event bus as a target. Detailed below.
+     * @return Parameters for using an EventBridge event bus as a target. See `eventbridgeEventBusParameters` Block for details.
      * 
      */
     public Optional<PipeTargetParametersEventbridgeEventBusParameters> eventbridgeEventBusParameters() {
         return Optional.ofNullable(this.eventbridgeEventBusParameters);
     }
     /**
-     * @return These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+     * @return Custom parameters used when the target is an API Gateway REST API or EventBridge ApiDestination. See `target_parameters.http_parameters` Block for details.
      * 
      */
     public Optional<PipeTargetParametersHttpParameters> httpParameters() {
@@ -127,42 +127,42 @@ public final class PipeTargetParameters {
         return Optional.ofNullable(this.inputTemplate);
     }
     /**
-     * @return The parameters for using a Kinesis stream as a source. Detailed below.
+     * @return Parameters for using a Kinesis stream as a target. See `target_parameters.kinesis_stream_parameters` Block for details.
      * 
      */
     public Optional<PipeTargetParametersKinesisStreamParameters> kinesisStreamParameters() {
         return Optional.ofNullable(this.kinesisStreamParameters);
     }
     /**
-     * @return The parameters for using a Lambda function as a target. Detailed below.
+     * @return Parameters for using a Lambda function as a target. See `lambdaFunctionParameters` Block for details.
      * 
      */
     public Optional<PipeTargetParametersLambdaFunctionParameters> lambdaFunctionParameters() {
         return Optional.ofNullable(this.lambdaFunctionParameters);
     }
     /**
-     * @return These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+     * @return Custom parameters used when the target is an Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. See `redshiftDataParameters` Block for details.
      * 
      */
     public Optional<PipeTargetParametersRedshiftDataParameters> redshiftDataParameters() {
         return Optional.ofNullable(this.redshiftDataParameters);
     }
     /**
-     * @return The parameters for using a SageMaker AI pipeline as a target. Detailed below.
+     * @return Parameters for using a SageMaker AI pipeline as a target. See `sagemakerPipelineParameters` Block for details.
      * 
      */
     public Optional<PipeTargetParametersSagemakerPipelineParameters> sagemakerPipelineParameters() {
         return Optional.ofNullable(this.sagemakerPipelineParameters);
     }
     /**
-     * @return The parameters for using a Amazon SQS stream as a target. Detailed below.
+     * @return Parameters for using an Amazon SQS stream as a target. See `target_parameters.sqs_queue_parameters` Block for details.
      * 
      */
     public Optional<PipeTargetParametersSqsQueueParameters> sqsQueueParameters() {
         return Optional.ofNullable(this.sqsQueueParameters);
     }
     /**
-     * @return The parameters for using a Step Functions state machine as a target. Detailed below.
+     * @return Parameters for using a Step Functions state machine as a target. See `stepFunctionStateMachineParameters` Block for details.
      * 
      */
     public Optional<PipeTargetParametersStepFunctionStateMachineParameters> stepFunctionStateMachineParameters() {

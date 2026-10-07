@@ -17,14 +17,14 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemp
     public static final ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs Empty = new ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs();
 
     /**
-     * Insights into the most sub-optimal performing table on the temporal axis:
+     * Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
      * 
      */
     @Import(name="maxes")
     private @Nullable Output<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs>> maxes;
 
     /**
-     * @return Insights into the most sub-optimal performing table on the temporal axis:
+     * @return Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
      * 
      */
     public Optional<Output<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs>>> maxes() {
@@ -56,7 +56,7 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemp
         }
 
         /**
-         * @param maxes Insights into the most sub-optimal performing table on the temporal axis:
+         * @param maxes Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemp
         }
 
         /**
-         * @param maxes Insights into the most sub-optimal performing table on the temporal axis:
+         * @param maxes Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemp
         }
 
         /**
-         * @param maxes Insights into the most sub-optimal performing table on the temporal axis:
+         * @param maxes Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
          * 
          * @return builder
          * 

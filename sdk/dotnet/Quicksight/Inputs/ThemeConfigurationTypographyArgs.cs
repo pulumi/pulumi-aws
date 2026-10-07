@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<Inputs.ThemeConfigurationTypographyFontFamilyArgs>? _fontFamilies;
 
         /// <summary>
-        /// Determines the list of font families. Maximum number of 5 items. See font_families.
+        /// List of font families. Maximum number of 5 items. See font_families.
         /// </summary>
         public InputList<Inputs.ThemeConfigurationTypographyFontFamilyArgs> FontFamilies
         {

@@ -11,9 +11,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetTableSchema {
+    /**
+     * @return Object containing the attributes to describe a composite partition key for the table.
+     * 
+     */
     private List<GetTableSchemaCompositePartitionKey> compositePartitionKeys;
 
     private GetTableSchema() {}
+    /**
+     * @return Object containing the attributes to describe a composite partition key for the table.
+     * 
+     */
     public List<GetTableSchemaCompositePartitionKey> compositePartitionKeys() {
         return this.compositePartitionKeys;
     }

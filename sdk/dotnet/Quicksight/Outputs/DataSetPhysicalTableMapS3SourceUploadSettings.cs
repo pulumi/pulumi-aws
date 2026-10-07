@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string? Format;
         /// <summary>
-        /// A row number to start reading data from.
+        /// Row number to start reading data from.
         /// </summary>
         public readonly int? StartFromRow;
         /// <summary>

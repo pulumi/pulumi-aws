@@ -14,21 +14,21 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ApplicationApplicationConfiguration struct {
-	// The code location and type parameters for the application.
+	// Code location and type parameters for the application. See `applicationCodeConfiguration` Block below.
 	ApplicationCodeConfiguration ApplicationApplicationConfigurationApplicationCodeConfiguration `pulumi:"applicationCodeConfiguration"`
-	// The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+	// Encryption configuration for the application. Use this to encrypt data at rest in the application. See `applicationEncryptionConfiguration` Block below.
 	ApplicationEncryptionConfiguration *ApplicationApplicationConfigurationApplicationEncryptionConfiguration `pulumi:"applicationEncryptionConfiguration"`
-	// Describes whether snapshots are enabled for a Flink-based application.
+	// Snapshot configuration for a Flink-based application. See `applicationSnapshotConfiguration` Block below.
 	ApplicationSnapshotConfiguration *ApplicationApplicationConfigurationApplicationSnapshotConfiguration `pulumi:"applicationSnapshotConfiguration"`
-	// Describes execution properties for a Flink-based application.
+	// Execution properties for a Flink-based application. See `environmentProperties` Block below.
 	EnvironmentProperties *ApplicationApplicationConfigurationEnvironmentProperties `pulumi:"environmentProperties"`
-	// The configuration of a Flink-based application.
+	// Configuration of a Flink-based application. See `flinkApplicationConfiguration` Block below.
 	FlinkApplicationConfiguration *ApplicationApplicationConfigurationFlinkApplicationConfiguration `pulumi:"flinkApplicationConfiguration"`
-	// Describes the starting properties for a Flink-based application.
+	// Starting properties for a Flink-based application. See `runConfiguration` Block below.
 	RunConfiguration *ApplicationApplicationConfigurationRunConfiguration `pulumi:"runConfiguration"`
-	// The configuration of a SQL-based application.
+	// Configuration of a SQL-based application. See `sqlApplicationConfiguration` Block below.
 	SqlApplicationConfiguration *ApplicationApplicationConfigurationSqlApplicationConfiguration `pulumi:"sqlApplicationConfiguration"`
-	// The VPC configuration of a Flink-based application.
+	// VPC configuration of a Flink-based application. See `vpcConfiguration` Block below.
 	VpcConfiguration *ApplicationApplicationConfigurationVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
@@ -44,21 +44,21 @@ type ApplicationApplicationConfigurationInput interface {
 }
 
 type ApplicationApplicationConfigurationArgs struct {
-	// The code location and type parameters for the application.
+	// Code location and type parameters for the application. See `applicationCodeConfiguration` Block below.
 	ApplicationCodeConfiguration ApplicationApplicationConfigurationApplicationCodeConfigurationInput `pulumi:"applicationCodeConfiguration"`
-	// The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+	// Encryption configuration for the application. Use this to encrypt data at rest in the application. See `applicationEncryptionConfiguration` Block below.
 	ApplicationEncryptionConfiguration ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrInput `pulumi:"applicationEncryptionConfiguration"`
-	// Describes whether snapshots are enabled for a Flink-based application.
+	// Snapshot configuration for a Flink-based application. See `applicationSnapshotConfiguration` Block below.
 	ApplicationSnapshotConfiguration ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrInput `pulumi:"applicationSnapshotConfiguration"`
-	// Describes execution properties for a Flink-based application.
+	// Execution properties for a Flink-based application. See `environmentProperties` Block below.
 	EnvironmentProperties ApplicationApplicationConfigurationEnvironmentPropertiesPtrInput `pulumi:"environmentProperties"`
-	// The configuration of a Flink-based application.
+	// Configuration of a Flink-based application. See `flinkApplicationConfiguration` Block below.
 	FlinkApplicationConfiguration ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrInput `pulumi:"flinkApplicationConfiguration"`
-	// Describes the starting properties for a Flink-based application.
+	// Starting properties for a Flink-based application. See `runConfiguration` Block below.
 	RunConfiguration ApplicationApplicationConfigurationRunConfigurationPtrInput `pulumi:"runConfiguration"`
-	// The configuration of a SQL-based application.
+	// Configuration of a SQL-based application. See `sqlApplicationConfiguration` Block below.
 	SqlApplicationConfiguration ApplicationApplicationConfigurationSqlApplicationConfigurationPtrInput `pulumi:"sqlApplicationConfiguration"`
-	// The VPC configuration of a Flink-based application.
+	// VPC configuration of a Flink-based application. See `vpcConfiguration` Block below.
 	VpcConfiguration ApplicationApplicationConfigurationVpcConfigurationPtrInput `pulumi:"vpcConfiguration"`
 }
 
@@ -139,56 +139,56 @@ func (o ApplicationApplicationConfigurationOutput) ToApplicationApplicationConfi
 	}).(ApplicationApplicationConfigurationPtrOutput)
 }
 
-// The code location and type parameters for the application.
+// Code location and type parameters for the application. See `applicationCodeConfiguration` Block below.
 func (o ApplicationApplicationConfigurationOutput) ApplicationCodeConfiguration() ApplicationApplicationConfigurationApplicationCodeConfigurationOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfiguration) ApplicationApplicationConfigurationApplicationCodeConfiguration {
 		return v.ApplicationCodeConfiguration
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationOutput)
 }
 
-// The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+// Encryption configuration for the application. Use this to encrypt data at rest in the application. See `applicationEncryptionConfiguration` Block below.
 func (o ApplicationApplicationConfigurationOutput) ApplicationEncryptionConfiguration() ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationApplicationEncryptionConfiguration {
 		return v.ApplicationEncryptionConfiguration
 	}).(ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput)
 }
 
-// Describes whether snapshots are enabled for a Flink-based application.
+// Snapshot configuration for a Flink-based application. See `applicationSnapshotConfiguration` Block below.
 func (o ApplicationApplicationConfigurationOutput) ApplicationSnapshotConfiguration() ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationApplicationSnapshotConfiguration {
 		return v.ApplicationSnapshotConfiguration
 	}).(ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput)
 }
 
-// Describes execution properties for a Flink-based application.
+// Execution properties for a Flink-based application. See `environmentProperties` Block below.
 func (o ApplicationApplicationConfigurationOutput) EnvironmentProperties() ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationEnvironmentProperties {
 		return v.EnvironmentProperties
 	}).(ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput)
 }
 
-// The configuration of a Flink-based application.
+// Configuration of a Flink-based application. See `flinkApplicationConfiguration` Block below.
 func (o ApplicationApplicationConfigurationOutput) FlinkApplicationConfiguration() ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfiguration {
 		return v.FlinkApplicationConfiguration
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput)
 }
 
-// Describes the starting properties for a Flink-based application.
+// Starting properties for a Flink-based application. See `runConfiguration` Block below.
 func (o ApplicationApplicationConfigurationOutput) RunConfiguration() ApplicationApplicationConfigurationRunConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationRunConfiguration {
 		return v.RunConfiguration
 	}).(ApplicationApplicationConfigurationRunConfigurationPtrOutput)
 }
 
-// The configuration of a SQL-based application.
+// Configuration of a SQL-based application. See `sqlApplicationConfiguration` Block below.
 func (o ApplicationApplicationConfigurationOutput) SqlApplicationConfiguration() ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfiguration {
 		return v.SqlApplicationConfiguration
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 }
 
-// The VPC configuration of a Flink-based application.
+// VPC configuration of a Flink-based application. See `vpcConfiguration` Block below.
 func (o ApplicationApplicationConfigurationOutput) VpcConfiguration() ApplicationApplicationConfigurationVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationVpcConfiguration {
 		return v.VpcConfiguration
@@ -219,7 +219,7 @@ func (o ApplicationApplicationConfigurationPtrOutput) Elem() ApplicationApplicat
 	}).(ApplicationApplicationConfigurationOutput)
 }
 
-// The code location and type parameters for the application.
+// Code location and type parameters for the application. See `applicationCodeConfiguration` Block below.
 func (o ApplicationApplicationConfigurationPtrOutput) ApplicationCodeConfiguration() ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationApplicationCodeConfiguration {
 		if v == nil {
@@ -229,7 +229,7 @@ func (o ApplicationApplicationConfigurationPtrOutput) ApplicationCodeConfigurati
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput)
 }
 
-// The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+// Encryption configuration for the application. Use this to encrypt data at rest in the application. See `applicationEncryptionConfiguration` Block below.
 func (o ApplicationApplicationConfigurationPtrOutput) ApplicationEncryptionConfiguration() ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationApplicationEncryptionConfiguration {
 		if v == nil {
@@ -239,7 +239,7 @@ func (o ApplicationApplicationConfigurationPtrOutput) ApplicationEncryptionConfi
 	}).(ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput)
 }
 
-// Describes whether snapshots are enabled for a Flink-based application.
+// Snapshot configuration for a Flink-based application. See `applicationSnapshotConfiguration` Block below.
 func (o ApplicationApplicationConfigurationPtrOutput) ApplicationSnapshotConfiguration() ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationApplicationSnapshotConfiguration {
 		if v == nil {
@@ -249,7 +249,7 @@ func (o ApplicationApplicationConfigurationPtrOutput) ApplicationSnapshotConfigu
 	}).(ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput)
 }
 
-// Describes execution properties for a Flink-based application.
+// Execution properties for a Flink-based application. See `environmentProperties` Block below.
 func (o ApplicationApplicationConfigurationPtrOutput) EnvironmentProperties() ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationEnvironmentProperties {
 		if v == nil {
@@ -259,7 +259,7 @@ func (o ApplicationApplicationConfigurationPtrOutput) EnvironmentProperties() Ap
 	}).(ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput)
 }
 
-// The configuration of a Flink-based application.
+// Configuration of a Flink-based application. See `flinkApplicationConfiguration` Block below.
 func (o ApplicationApplicationConfigurationPtrOutput) FlinkApplicationConfiguration() ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfiguration {
 		if v == nil {
@@ -269,7 +269,7 @@ func (o ApplicationApplicationConfigurationPtrOutput) FlinkApplicationConfigurat
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput)
 }
 
-// Describes the starting properties for a Flink-based application.
+// Starting properties for a Flink-based application. See `runConfiguration` Block below.
 func (o ApplicationApplicationConfigurationPtrOutput) RunConfiguration() ApplicationApplicationConfigurationRunConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationRunConfiguration {
 		if v == nil {
@@ -279,7 +279,7 @@ func (o ApplicationApplicationConfigurationPtrOutput) RunConfiguration() Applica
 	}).(ApplicationApplicationConfigurationRunConfigurationPtrOutput)
 }
 
-// The configuration of a SQL-based application.
+// Configuration of a SQL-based application. See `sqlApplicationConfiguration` Block below.
 func (o ApplicationApplicationConfigurationPtrOutput) SqlApplicationConfiguration() ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfiguration {
 		if v == nil {
@@ -289,7 +289,7 @@ func (o ApplicationApplicationConfigurationPtrOutput) SqlApplicationConfiguratio
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 }
 
-// The VPC configuration of a Flink-based application.
+// VPC configuration of a Flink-based application. See `vpcConfiguration` Block below.
 func (o ApplicationApplicationConfigurationPtrOutput) VpcConfiguration() ApplicationApplicationConfigurationVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfiguration) *ApplicationApplicationConfigurationVpcConfiguration {
 		if v == nil {
@@ -300,9 +300,9 @@ func (o ApplicationApplicationConfigurationPtrOutput) VpcConfiguration() Applica
 }
 
 type ApplicationApplicationConfigurationApplicationCodeConfiguration struct {
-	// The location and type of the application code.
+	// Location and type of the application code. See `codeContent` Block below.
 	CodeContent *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent `pulumi:"codeContent"`
-	// Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
+	// Whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
 	CodeContentType string `pulumi:"codeContentType"`
 }
 
@@ -318,9 +318,9 @@ type ApplicationApplicationConfigurationApplicationCodeConfigurationInput interf
 }
 
 type ApplicationApplicationConfigurationApplicationCodeConfigurationArgs struct {
-	// The location and type of the application code.
+	// Location and type of the application code. See `codeContent` Block below.
 	CodeContent ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrInput `pulumi:"codeContent"`
-	// Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
+	// Whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
 	CodeContentType pulumi.StringInput `pulumi:"codeContentType"`
 }
 
@@ -401,14 +401,14 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationOutput) T
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput)
 }
 
-// The location and type of the application code.
+// Location and type of the application code. See `codeContent` Block below.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationOutput) CodeContent() ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationCodeConfiguration) *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent {
 		return v.CodeContent
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput)
 }
 
-// Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
+// Whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationOutput) CodeContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationCodeConfiguration) string {
 		return v.CodeContentType
@@ -439,7 +439,7 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationOutput)
 }
 
-// The location and type of the application code.
+// Location and type of the application code. See `codeContent` Block below.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput) CodeContent() ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationCodeConfiguration) *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent {
 		if v == nil {
@@ -449,7 +449,7 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput)
 }
 
-// Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
+// Whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput) CodeContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationCodeConfiguration) *string {
 		if v == nil {
@@ -460,9 +460,9 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput
 }
 
 type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent struct {
-	// Information about the Amazon S3 bucket containing the application code.
+	// Information about the Amazon S3 bucket containing the application code. See `s3ContentLocation` Block below.
 	S3ContentLocation *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation `pulumi:"s3ContentLocation"`
-	// The text-format code for the application.
+	// Text-format code for the application.
 	TextContent *string `pulumi:"textContent"`
 }
 
@@ -478,9 +478,9 @@ type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentI
 }
 
 type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs struct {
-	// Information about the Amazon S3 bucket containing the application code.
+	// Information about the Amazon S3 bucket containing the application code. See `s3ContentLocation` Block below.
 	S3ContentLocation ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrInput `pulumi:"s3ContentLocation"`
-	// The text-format code for the application.
+	// Text-format code for the application.
 	TextContent pulumi.StringPtrInput `pulumi:"textContent"`
 }
 
@@ -561,14 +561,14 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput)
 }
 
-// Information about the Amazon S3 bucket containing the application code.
+// Information about the Amazon S3 bucket containing the application code. See `s3ContentLocation` Block below.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput) S3ContentLocation() ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent) *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation {
 		return v.S3ContentLocation
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput)
 }
 
-// The text-format code for the application.
+// Text-format code for the application.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput) TextContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent) *string {
 		return v.TextContent
@@ -599,7 +599,7 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput)
 }
 
-// Information about the Amazon S3 bucket containing the application code.
+// Information about the Amazon S3 bucket containing the application code. See `s3ContentLocation` Block below.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput) S3ContentLocation() ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent) *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation {
 		if v == nil {
@@ -609,7 +609,7 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput)
 }
 
-// The text-format code for the application.
+// Text-format code for the application.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput) TextContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent) *string {
 		if v == nil {
@@ -620,11 +620,11 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 }
 
 type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation struct {
-	// The ARN for the S3 bucket containing the application code.
+	// ARN for the S3 bucket containing the application code.
 	BucketArn string `pulumi:"bucketArn"`
-	// The file key for the object containing the application code.
+	// File key for the object containing the application code.
 	FileKey string `pulumi:"fileKey"`
-	// The version of the object containing the application code.
+	// Version of the object containing the application code.
 	ObjectVersion *string `pulumi:"objectVersion"`
 }
 
@@ -640,11 +640,11 @@ type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS
 }
 
 type ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs struct {
-	// The ARN for the S3 bucket containing the application code.
+	// ARN for the S3 bucket containing the application code.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// The file key for the object containing the application code.
+	// File key for the object containing the application code.
 	FileKey pulumi.StringInput `pulumi:"fileKey"`
-	// The version of the object containing the application code.
+	// Version of the object containing the application code.
 	ObjectVersion pulumi.StringPtrInput `pulumi:"objectVersion"`
 }
 
@@ -725,21 +725,21 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput)
 }
 
-// The ARN for the S3 bucket containing the application code.
+// ARN for the S3 bucket containing the application code.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation) string {
 		return v.BucketArn
 	}).(pulumi.StringOutput)
 }
 
-// The file key for the object containing the application code.
+// File key for the object containing the application code.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput) FileKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation) string {
 		return v.FileKey
 	}).(pulumi.StringOutput)
 }
 
-// The version of the object containing the application code.
+// Version of the object containing the application code.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput) ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation) *string {
 		return v.ObjectVersion
@@ -770,7 +770,7 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput)
 }
 
-// The ARN for the S3 bucket containing the application code.
+// ARN for the S3 bucket containing the application code.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation) *string {
 		if v == nil {
@@ -780,7 +780,7 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// The file key for the object containing the application code.
+// File key for the object containing the application code.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput) FileKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation) *string {
 		if v == nil {
@@ -790,7 +790,7 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the object containing the application code.
+// Version of the object containing the application code.
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation) *string {
 		if v == nil {
@@ -801,9 +801,9 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 }
 
 type ApplicationApplicationConfigurationApplicationEncryptionConfiguration struct {
-	// The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+	// ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same Region as the application.
 	KeyId *string `pulumi:"keyId"`
-	// The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+	// Type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
 	KeyType string `pulumi:"keyType"`
 }
 
@@ -819,9 +819,9 @@ type ApplicationApplicationConfigurationApplicationEncryptionConfigurationInput 
 }
 
 type ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs struct {
-	// The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+	// ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same Region as the application.
 	KeyId pulumi.StringPtrInput `pulumi:"keyId"`
-	// The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+	// Type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
 	KeyType pulumi.StringInput `pulumi:"keyType"`
 }
 
@@ -902,12 +902,12 @@ func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationOut
 	}).(ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput)
 }
 
-// The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+// ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same Region as the application.
 func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationEncryptionConfiguration) *string { return v.KeyId }).(pulumi.StringPtrOutput)
 }
 
-// The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+// Type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
 func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationEncryptionConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
 }
@@ -936,7 +936,7 @@ func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtr
 	}).(ApplicationApplicationConfigurationApplicationEncryptionConfigurationOutput)
 }
 
-// The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+// ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same Region as the application.
 func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput) KeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationEncryptionConfiguration) *string {
 		if v == nil {
@@ -946,7 +946,7 @@ func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+// Type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
 func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationEncryptionConfiguration) *string {
 		if v == nil {
@@ -957,7 +957,7 @@ func (o ApplicationApplicationConfigurationApplicationEncryptionConfigurationPtr
 }
 
 type ApplicationApplicationConfigurationApplicationSnapshotConfiguration struct {
-	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+	// Whether snapshots are enabled for a Flink-based application.
 	SnapshotsEnabled bool `pulumi:"snapshotsEnabled"`
 }
 
@@ -973,7 +973,7 @@ type ApplicationApplicationConfigurationApplicationSnapshotConfigurationInput in
 }
 
 type ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs struct {
-	// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+	// Whether snapshots are enabled for a Flink-based application.
 	SnapshotsEnabled pulumi.BoolInput `pulumi:"snapshotsEnabled"`
 }
 
@@ -1054,7 +1054,7 @@ func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutpu
 	}).(ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput)
 }
 
-// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+// Whether snapshots are enabled for a Flink-based application.
 func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput) SnapshotsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationSnapshotConfiguration) bool {
 		return v.SnapshotsEnabled
@@ -1085,7 +1085,7 @@ func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOu
 	}).(ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput)
 }
 
-// Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+// Whether snapshots are enabled for a Flink-based application.
 func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput) SnapshotsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationSnapshotConfiguration) *bool {
 		if v == nil {
@@ -1096,7 +1096,7 @@ func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOu
 }
 
 type ApplicationApplicationConfigurationEnvironmentProperties struct {
-	// Describes the execution property groups.
+	// Execution property groups. See `propertyGroup` Block below.
 	PropertyGroups []ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup `pulumi:"propertyGroups"`
 }
 
@@ -1112,7 +1112,7 @@ type ApplicationApplicationConfigurationEnvironmentPropertiesInput interface {
 }
 
 type ApplicationApplicationConfigurationEnvironmentPropertiesArgs struct {
-	// Describes the execution property groups.
+	// Execution property groups. See `propertyGroup` Block below.
 	PropertyGroups ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayInput `pulumi:"propertyGroups"`
 }
 
@@ -1193,7 +1193,7 @@ func (o ApplicationApplicationConfigurationEnvironmentPropertiesOutput) ToApplic
 	}).(ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput)
 }
 
-// Describes the execution property groups.
+// Execution property groups. See `propertyGroup` Block below.
 func (o ApplicationApplicationConfigurationEnvironmentPropertiesOutput) PropertyGroups() ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationEnvironmentProperties) []ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup {
 		return v.PropertyGroups
@@ -1224,7 +1224,7 @@ func (o ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput) Elem(
 	}).(ApplicationApplicationConfigurationEnvironmentPropertiesOutput)
 }
 
-// Describes the execution property groups.
+// Execution property groups. See `propertyGroup` Block below.
 func (o ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput) PropertyGroups() ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrayOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationEnvironmentProperties) []ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup {
 		if v == nil {
@@ -1235,7 +1235,7 @@ func (o ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput) Prope
 }
 
 type ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup struct {
-	// The key of the application execution property key-value map.
+	// Key of the application execution property key-value map.
 	PropertyGroupId string `pulumi:"propertyGroupId"`
 	// Application execution property key-value map.
 	PropertyMap map[string]string `pulumi:"propertyMap"`
@@ -1253,7 +1253,7 @@ type ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupInput 
 }
 
 type ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs struct {
-	// The key of the application execution property key-value map.
+	// Key of the application execution property key-value map.
 	PropertyGroupId pulumi.StringInput `pulumi:"propertyGroupId"`
 	// Application execution property key-value map.
 	PropertyMap pulumi.StringMapInput `pulumi:"propertyMap"`
@@ -1310,7 +1310,7 @@ func (o ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOut
 	return o
 }
 
-// The key of the application execution property key-value map.
+// Key of the application execution property key-value map.
 func (o ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupOutput) PropertyGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup) string {
 		return v.PropertyGroupId
@@ -1345,11 +1345,11 @@ func (o ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArr
 }
 
 type ApplicationApplicationConfigurationFlinkApplicationConfiguration struct {
-	// Describes an application's checkpointing configuration.
+	// Application's checkpointing configuration. See `checkpointConfiguration` Block below.
 	CheckpointConfiguration *ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration `pulumi:"checkpointConfiguration"`
-	// Describes configuration parameters for CloudWatch logging for an application.
+	// Configuration parameters for CloudWatch logging for an application. See `monitoringConfiguration` Block below.
 	MonitoringConfiguration *ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
-	// Describes parameters for how an application executes multiple tasks simultaneously.
+	// Parameters for how an application executes multiple tasks simultaneously. See `parallelismConfiguration` Block below.
 	ParallelismConfiguration *ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration `pulumi:"parallelismConfiguration"`
 }
 
@@ -1365,11 +1365,11 @@ type ApplicationApplicationConfigurationFlinkApplicationConfigurationInput inter
 }
 
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs struct {
-	// Describes an application's checkpointing configuration.
+	// Application's checkpointing configuration. See `checkpointConfiguration` Block below.
 	CheckpointConfiguration ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrInput `pulumi:"checkpointConfiguration"`
-	// Describes configuration parameters for CloudWatch logging for an application.
+	// Configuration parameters for CloudWatch logging for an application. See `monitoringConfiguration` Block below.
 	MonitoringConfiguration ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrInput `pulumi:"monitoringConfiguration"`
-	// Describes parameters for how an application executes multiple tasks simultaneously.
+	// Parameters for how an application executes multiple tasks simultaneously. See `parallelismConfiguration` Block below.
 	ParallelismConfiguration ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrInput `pulumi:"parallelismConfiguration"`
 }
 
@@ -1450,21 +1450,21 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput) 
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput)
 }
 
-// Describes an application's checkpointing configuration.
+// Application's checkpointing configuration. See `checkpointConfiguration` Block below.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput) CheckpointConfiguration() ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration {
 		return v.CheckpointConfiguration
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput)
 }
 
-// Describes configuration parameters for CloudWatch logging for an application.
+// Configuration parameters for CloudWatch logging for an application. See `monitoringConfiguration` Block below.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput) MonitoringConfiguration() ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration {
 		return v.MonitoringConfiguration
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput)
 }
 
-// Describes parameters for how an application executes multiple tasks simultaneously.
+// Parameters for how an application executes multiple tasks simultaneously. See `parallelismConfiguration` Block below.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput) ParallelismConfiguration() ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration {
 		return v.ParallelismConfiguration
@@ -1495,7 +1495,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutpu
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput)
 }
 
-// Describes an application's checkpointing configuration.
+// Application's checkpointing configuration. See `checkpointConfiguration` Block below.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput) CheckpointConfiguration() ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration {
 		if v == nil {
@@ -1505,7 +1505,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutpu
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput)
 }
 
-// Describes configuration parameters for CloudWatch logging for an application.
+// Configuration parameters for CloudWatch logging for an application. See `monitoringConfiguration` Block below.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput) MonitoringConfiguration() ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration {
 		if v == nil {
@@ -1515,7 +1515,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutpu
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput)
 }
 
-// Describes parameters for how an application executes multiple tasks simultaneously.
+// Parameters for how an application executes multiple tasks simultaneously. See `parallelismConfiguration` Block below.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput) ParallelismConfiguration() ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration {
 		if v == nil {
@@ -1526,16 +1526,13 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutpu
 }
 
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration struct {
-	// Describes the interval in milliseconds between checkpoint operations.
+	// Interval in milliseconds between checkpoint operations.
 	CheckpointInterval *int `pulumi:"checkpointInterval"`
-	// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
+	// Whether checkpointing is enabled for a Flink-based application.
 	CheckpointingEnabled *bool `pulumi:"checkpointingEnabled"`
-	// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-	// * `checkpointingEnabled = true`
-	// * `checkpointInterval = 60000`
-	// * `minPauseBetweenCheckpoints = 5000`
+	// Whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values: `checkpointingEnabled = true`, `checkpointInterval = 60000`, and `minPauseBetweenCheckpoints = 5000`.
 	ConfigurationType string `pulumi:"configurationType"`
-	// Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
+	// Minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
 	MinPauseBetweenCheckpoints *int `pulumi:"minPauseBetweenCheckpoints"`
 }
 
@@ -1551,16 +1548,13 @@ type ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointC
 }
 
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs struct {
-	// Describes the interval in milliseconds between checkpoint operations.
+	// Interval in milliseconds between checkpoint operations.
 	CheckpointInterval pulumi.IntPtrInput `pulumi:"checkpointInterval"`
-	// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
+	// Whether checkpointing is enabled for a Flink-based application.
 	CheckpointingEnabled pulumi.BoolPtrInput `pulumi:"checkpointingEnabled"`
-	// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-	// * `checkpointingEnabled = true`
-	// * `checkpointInterval = 60000`
-	// * `minPauseBetweenCheckpoints = 5000`
+	// Whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values: `checkpointingEnabled = true`, `checkpointInterval = 60000`, and `minPauseBetweenCheckpoints = 5000`.
 	ConfigurationType pulumi.StringInput `pulumi:"configurationType"`
-	// Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
+	// Minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
 	MinPauseBetweenCheckpoints pulumi.IntPtrInput `pulumi:"minPauseBetweenCheckpoints"`
 }
 
@@ -1641,31 +1635,28 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput)
 }
 
-// Describes the interval in milliseconds between checkpoint operations.
+// Interval in milliseconds between checkpoint operations.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput) CheckpointInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) *int {
 		return v.CheckpointInterval
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
+// Whether checkpointing is enabled for a Flink-based application.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput) CheckpointingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) *bool {
 		return v.CheckpointingEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-// * `checkpointingEnabled = true`
-// * `checkpointInterval = 60000`
-// * `minPauseBetweenCheckpoints = 5000`
+// Whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values: `checkpointingEnabled = true`, `checkpointInterval = 60000`, and `minPauseBetweenCheckpoints = 5000`.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput) ConfigurationType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) string {
 		return v.ConfigurationType
 	}).(pulumi.StringOutput)
 }
 
-// Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
+// Minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput) MinPauseBetweenCheckpoints() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) *int {
 		return v.MinPauseBetweenCheckpoints
@@ -1696,7 +1687,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput)
 }
 
-// Describes the interval in milliseconds between checkpoint operations.
+// Interval in milliseconds between checkpoint operations.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput) CheckpointInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) *int {
 		if v == nil {
@@ -1706,7 +1697,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
+// Whether checkpointing is enabled for a Flink-based application.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput) CheckpointingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) *bool {
 		if v == nil {
@@ -1716,10 +1707,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-// * `checkpointingEnabled = true`
-// * `checkpointInterval = 60000`
-// * `minPauseBetweenCheckpoints = 5000`
+// Whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values: `checkpointingEnabled = true`, `checkpointInterval = 60000`, and `minPauseBetweenCheckpoints = 5000`.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput) ConfigurationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) *string {
 		if v == nil {
@@ -1729,7 +1717,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
+// Minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput) MinPauseBetweenCheckpoints() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) *int {
 		if v == nil {
@@ -1740,11 +1728,11 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 }
 
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration struct {
-	// Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
+	// Whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
 	ConfigurationType string `pulumi:"configurationType"`
-	// Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
+	// Verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
 	LogLevel *string `pulumi:"logLevel"`
-	// Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
+	// Granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
 	MetricsLevel *string `pulumi:"metricsLevel"`
 }
 
@@ -1760,11 +1748,11 @@ type ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringC
 }
 
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs struct {
-	// Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
+	// Whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
 	ConfigurationType pulumi.StringInput `pulumi:"configurationType"`
-	// Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
+	// Verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
 	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
-	// Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
+	// Granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
 	MetricsLevel pulumi.StringPtrInput `pulumi:"metricsLevel"`
 }
 
@@ -1845,21 +1833,21 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitori
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput)
 }
 
-// Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
+// Whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput) ConfigurationType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration) string {
 		return v.ConfigurationType
 	}).(pulumi.StringOutput)
 }
 
-// Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
+// Verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration) *string {
 		return v.LogLevel
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
+// Granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput) MetricsLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration) *string {
 		return v.MetricsLevel
@@ -1890,7 +1878,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitori
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput)
 }
 
-// Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
+// Whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput) ConfigurationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration) *string {
 		if v == nil {
@@ -1900,7 +1888,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitori
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
+// Verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration) *string {
 		if v == nil {
@@ -1910,7 +1898,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitori
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
+// Granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput) MetricsLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration) *string {
 		if v == nil {
@@ -1921,13 +1909,13 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitori
 }
 
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration struct {
-	// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
+	// Whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
 	AutoScalingEnabled *bool `pulumi:"autoScalingEnabled"`
-	// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
+	// Whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
 	ConfigurationType string `pulumi:"configurationType"`
-	// Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
+	// Initial number of parallel tasks that a Flink-based application can perform.
 	Parallelism *int `pulumi:"parallelism"`
-	// Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
+	// Number of parallel tasks that a Flink-based application can perform per Kinesis Processing Unit (KPU) used by the application.
 	ParallelismPerKpu *int `pulumi:"parallelismPerKpu"`
 }
 
@@ -1943,13 +1931,13 @@ type ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelism
 }
 
 type ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs struct {
-	// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
+	// Whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
 	AutoScalingEnabled pulumi.BoolPtrInput `pulumi:"autoScalingEnabled"`
-	// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
+	// Whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
 	ConfigurationType pulumi.StringInput `pulumi:"configurationType"`
-	// Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
+	// Initial number of parallel tasks that a Flink-based application can perform.
 	Parallelism pulumi.IntPtrInput `pulumi:"parallelism"`
-	// Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
+	// Number of parallel tasks that a Flink-based application can perform per Kinesis Processing Unit (KPU) used by the application.
 	ParallelismPerKpu pulumi.IntPtrInput `pulumi:"parallelismPerKpu"`
 }
 
@@ -2030,28 +2018,28 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallel
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput)
 }
 
-// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
+// Whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput) AutoScalingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration) *bool {
 		return v.AutoScalingEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
+// Whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput) ConfigurationType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration) string {
 		return v.ConfigurationType
 	}).(pulumi.StringOutput)
 }
 
-// Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
+// Initial number of parallel tasks that a Flink-based application can perform.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput) Parallelism() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration) *int {
 		return v.Parallelism
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
+// Number of parallel tasks that a Flink-based application can perform per Kinesis Processing Unit (KPU) used by the application.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput) ParallelismPerKpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration) *int {
 		return v.ParallelismPerKpu
@@ -2082,7 +2070,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallel
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput)
 }
 
-// Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
+// Whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput) AutoScalingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration) *bool {
 		if v == nil {
@@ -2092,7 +2080,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallel
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
+// Whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput) ConfigurationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration) *string {
 		if v == nil {
@@ -2102,7 +2090,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallel
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
+// Initial number of parallel tasks that a Flink-based application can perform.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput) Parallelism() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration) *int {
 		if v == nil {
@@ -2112,7 +2100,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallel
 	}).(pulumi.IntPtrOutput)
 }
 
-// Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
+// Number of parallel tasks that a Flink-based application can perform per Kinesis Processing Unit (KPU) used by the application.
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput) ParallelismPerKpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration) *int {
 		if v == nil {
@@ -2123,9 +2111,9 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallel
 }
 
 type ApplicationApplicationConfigurationRunConfiguration struct {
-	// The restore behavior of a restarting application.
+	// Restore behavior of a restarting application. See `applicationRestoreConfiguration` Block below.
 	ApplicationRestoreConfiguration *ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration `pulumi:"applicationRestoreConfiguration"`
-	// The starting parameters for a Flink-based Kinesis Data Analytics application.
+	// Starting parameters for a Flink-based application. See `flinkRunConfiguration` Block below.
 	FlinkRunConfiguration *ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration `pulumi:"flinkRunConfiguration"`
 }
 
@@ -2141,9 +2129,9 @@ type ApplicationApplicationConfigurationRunConfigurationInput interface {
 }
 
 type ApplicationApplicationConfigurationRunConfigurationArgs struct {
-	// The restore behavior of a restarting application.
+	// Restore behavior of a restarting application. See `applicationRestoreConfiguration` Block below.
 	ApplicationRestoreConfiguration ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrInput `pulumi:"applicationRestoreConfiguration"`
-	// The starting parameters for a Flink-based Kinesis Data Analytics application.
+	// Starting parameters for a Flink-based application. See `flinkRunConfiguration` Block below.
 	FlinkRunConfiguration ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrInput `pulumi:"flinkRunConfiguration"`
 }
 
@@ -2224,14 +2212,14 @@ func (o ApplicationApplicationConfigurationRunConfigurationOutput) ToApplication
 	}).(ApplicationApplicationConfigurationRunConfigurationPtrOutput)
 }
 
-// The restore behavior of a restarting application.
+// Restore behavior of a restarting application. See `applicationRestoreConfiguration` Block below.
 func (o ApplicationApplicationConfigurationRunConfigurationOutput) ApplicationRestoreConfiguration() ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationRunConfiguration) *ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration {
 		return v.ApplicationRestoreConfiguration
 	}).(ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput)
 }
 
-// The starting parameters for a Flink-based Kinesis Data Analytics application.
+// Starting parameters for a Flink-based application. See `flinkRunConfiguration` Block below.
 func (o ApplicationApplicationConfigurationRunConfigurationOutput) FlinkRunConfiguration() ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationRunConfiguration) *ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration {
 		return v.FlinkRunConfiguration
@@ -2262,7 +2250,7 @@ func (o ApplicationApplicationConfigurationRunConfigurationPtrOutput) Elem() App
 	}).(ApplicationApplicationConfigurationRunConfigurationOutput)
 }
 
-// The restore behavior of a restarting application.
+// Restore behavior of a restarting application. See `applicationRestoreConfiguration` Block below.
 func (o ApplicationApplicationConfigurationRunConfigurationPtrOutput) ApplicationRestoreConfiguration() ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationRunConfiguration) *ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration {
 		if v == nil {
@@ -2272,7 +2260,7 @@ func (o ApplicationApplicationConfigurationRunConfigurationPtrOutput) Applicatio
 	}).(ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput)
 }
 
-// The starting parameters for a Flink-based Kinesis Data Analytics application.
+// Starting parameters for a Flink-based application. See `flinkRunConfiguration` Block below.
 func (o ApplicationApplicationConfigurationRunConfigurationPtrOutput) FlinkRunConfiguration() ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationRunConfiguration) *ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration {
 		if v == nil {
@@ -2283,9 +2271,9 @@ func (o ApplicationApplicationConfigurationRunConfigurationPtrOutput) FlinkRunCo
 }
 
 type ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration struct {
-	// Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+	// How the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
 	ApplicationRestoreType *string `pulumi:"applicationRestoreType"`
-	// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
+	// Identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
 	SnapshotName *string `pulumi:"snapshotName"`
 }
 
@@ -2301,9 +2289,9 @@ type ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfig
 }
 
 type ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs struct {
-	// Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+	// How the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
 	ApplicationRestoreType pulumi.StringPtrInput `pulumi:"applicationRestoreType"`
-	// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
+	// Identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
 	SnapshotName pulumi.StringPtrInput `pulumi:"snapshotName"`
 }
 
@@ -2384,14 +2372,14 @@ func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreCon
 	}).(ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput)
 }
 
-// Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+// How the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
 func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutput) ApplicationRestoreType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration) *string {
 		return v.ApplicationRestoreType
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
+// Identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
 func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutput) SnapshotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration) *string {
 		return v.SnapshotName
@@ -2422,7 +2410,7 @@ func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreCon
 	}).(ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutput)
 }
 
-// Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+// How the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
 func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput) ApplicationRestoreType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration) *string {
 		if v == nil {
@@ -2432,7 +2420,7 @@ func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
+// Identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
 func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput) SnapshotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration) *string {
 		if v == nil {
@@ -2443,7 +2431,7 @@ func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreCon
 }
 
 type ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration struct {
-	// When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+	// Whether the runtime is allowed to skip a state that cannot be mapped to the new program when restoring from a snapshot. Default is `false`.
 	AllowNonRestoredState *bool `pulumi:"allowNonRestoredState"`
 }
 
@@ -2459,7 +2447,7 @@ type ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationInp
 }
 
 type ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs struct {
-	// When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+	// Whether the runtime is allowed to skip a state that cannot be mapped to the new program when restoring from a snapshot. Default is `false`.
 	AllowNonRestoredState pulumi.BoolPtrInput `pulumi:"allowNonRestoredState"`
 }
 
@@ -2540,7 +2528,7 @@ func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration
 	}).(ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput)
 }
 
-// When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+// Whether the runtime is allowed to skip a state that cannot be mapped to the new program when restoring from a snapshot. Default is `false`.
 func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutput) AllowNonRestoredState() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration) *bool {
 		return v.AllowNonRestoredState
@@ -2571,7 +2559,7 @@ func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration
 	}).(ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutput)
 }
 
-// When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+// Whether the runtime is allowed to skip a state that cannot be mapped to the new program when restoring from a snapshot. Default is `false`.
 func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput) AllowNonRestoredState() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration) *bool {
 		if v == nil {
@@ -2582,11 +2570,11 @@ func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfiguration struct {
-	// The input stream used by the application.
+	// Input stream used by the application. See `input` Block below.
 	Input *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType `pulumi:"input"`
-	// The destination streams used by the application.
+	// Destination streams used by the application. See `output` Block below.
 	Outputs []ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType `pulumi:"outputs"`
-	// The reference data source used by the application.
+	// Reference data source used by the application. See `referenceDataSource` Block below.
 	ReferenceDataSource *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource `pulumi:"referenceDataSource"`
 }
 
@@ -2602,11 +2590,11 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInput interfa
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationArgs struct {
-	// The input stream used by the application.
+	// Input stream used by the application. See `input` Block below.
 	Input ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrInput `pulumi:"input"`
-	// The destination streams used by the application.
+	// Destination streams used by the application. See `output` Block below.
 	Outputs ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayInput `pulumi:"outputs"`
-	// The reference data source used by the application.
+	// Reference data source used by the application. See `referenceDataSource` Block below.
 	ReferenceDataSource ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrInput `pulumi:"referenceDataSource"`
 }
 
@@ -2687,21 +2675,21 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) To
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 }
 
-// The input stream used by the application.
+// Input stream used by the application. See `input` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) Input() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType {
 		return v.Input
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput)
 }
 
-// The destination streams used by the application.
+// Destination streams used by the application. See `output` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) Outputs() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfiguration) []ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType {
 		return v.Outputs
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput)
 }
 
-// The reference data source used by the application.
+// Reference data source used by the application. See `referenceDataSource` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) ReferenceDataSource() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource {
 		return v.ReferenceDataSource
@@ -2732,7 +2720,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutput)
 }
 
-// The input stream used by the application.
+// Input stream used by the application. See `input` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput) Input() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType {
 		if v == nil {
@@ -2742,7 +2730,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput)
 }
 
-// The destination streams used by the application.
+// Destination streams used by the application. See `output` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput) Outputs() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfiguration) []ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType {
 		if v == nil {
@@ -2752,7 +2740,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput)
 }
 
-// The reference data source used by the application.
+// Reference data source used by the application. See `referenceDataSource` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput) ReferenceDataSource() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource {
 		if v == nil {
@@ -2763,22 +2751,23 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputType struct {
+	// In-application stream names.
 	InAppStreamNames []string `pulumi:"inAppStreamNames"`
-	InputId          *string  `pulumi:"inputId"`
-	// Describes the number of in-application streams to create.
+	// Identifier of the input configuration.
+	InputId *string `pulumi:"inputId"`
+	// Number of in-application streams to create. See `inputParallelism` Block below.
 	InputParallelism *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism `pulumi:"inputParallelism"`
-	// The input processing configuration for the input.
-	// An input processor transforms records as they are received from the stream, before the application's SQL code executes.
+	// Input processing configuration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. See `inputProcessingConfiguration` Block below.
 	InputProcessingConfiguration *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration `pulumi:"inputProcessingConfiguration"`
-	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+	// Format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. See `inputSchema` Block below.
 	InputSchema ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema `pulumi:"inputSchema"`
-	// The point at which the application starts processing records from the streaming source.
+	// Point at which the application starts processing records from the streaming source. See `inputStartingPositionConfiguration` Block below.
 	InputStartingPositionConfigurations []ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration `pulumi:"inputStartingPositionConfigurations"`
-	// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+	// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN. See `kinesisFirehoseInput` Block below.
 	KinesisFirehoseInput *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput `pulumi:"kinesisFirehoseInput"`
-	// If the streaming source is a Kinesis data stream, identifies the stream's ARN.
+	// If the streaming source is a Kinesis data stream, identifies the stream's ARN. See `kinesisStreamsInput` Block below.
 	KinesisStreamsInput *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput `pulumi:"kinesisStreamsInput"`
-	// The name prefix to use when creating an in-application stream.
+	// Name prefix to use when creating an in-application stream.
 	NamePrefix string `pulumi:"namePrefix"`
 }
 
@@ -2794,22 +2783,23 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeInpu
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs struct {
+	// In-application stream names.
 	InAppStreamNames pulumi.StringArrayInput `pulumi:"inAppStreamNames"`
-	InputId          pulumi.StringPtrInput   `pulumi:"inputId"`
-	// Describes the number of in-application streams to create.
+	// Identifier of the input configuration.
+	InputId pulumi.StringPtrInput `pulumi:"inputId"`
+	// Number of in-application streams to create. See `inputParallelism` Block below.
 	InputParallelism ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrInput `pulumi:"inputParallelism"`
-	// The input processing configuration for the input.
-	// An input processor transforms records as they are received from the stream, before the application's SQL code executes.
+	// Input processing configuration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. See `inputProcessingConfiguration` Block below.
 	InputProcessingConfiguration ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrInput `pulumi:"inputProcessingConfiguration"`
-	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+	// Format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. See `inputSchema` Block below.
 	InputSchema ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaInput `pulumi:"inputSchema"`
-	// The point at which the application starts processing records from the streaming source.
+	// Point at which the application starts processing records from the streaming source. See `inputStartingPositionConfiguration` Block below.
 	InputStartingPositionConfigurations ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayInput `pulumi:"inputStartingPositionConfigurations"`
-	// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+	// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN. See `kinesisFirehoseInput` Block below.
 	KinesisFirehoseInput ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrInput `pulumi:"kinesisFirehoseInput"`
-	// If the streaming source is a Kinesis data stream, identifies the stream's ARN.
+	// If the streaming source is a Kinesis data stream, identifies the stream's ARN. See `kinesisStreamsInput` Block below.
 	KinesisStreamsInput ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrInput `pulumi:"kinesisStreamsInput"`
-	// The name prefix to use when creating an in-application stream.
+	// Name prefix to use when creating an in-application stream.
 	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 }
 
@@ -2890,62 +2880,63 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeO
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput)
 }
 
+// In-application stream names.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InAppStreamNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) []string {
 		return v.InAppStreamNames
 	}).(pulumi.StringArrayOutput)
 }
 
+// Identifier of the input configuration.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InputId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *string {
 		return v.InputId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the number of in-application streams to create.
+// Number of in-application streams to create. See `inputParallelism` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InputParallelism() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism {
 		return v.InputParallelism
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput)
 }
 
-// The input processing configuration for the input.
-// An input processor transforms records as they are received from the stream, before the application's SQL code executes.
+// Input processing configuration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. See `inputProcessingConfiguration` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InputProcessingConfiguration() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
 		return v.InputProcessingConfiguration
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput)
 }
 
-// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+// Format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. See `inputSchema` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InputSchema() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema {
 		return v.InputSchema
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput)
 }
 
-// The point at which the application starts processing records from the streaming source.
+// Point at which the application starts processing records from the streaming source. See `inputStartingPositionConfiguration` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InputStartingPositionConfigurations() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) []ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration {
 		return v.InputStartingPositionConfigurations
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput)
 }
 
-// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN. See `kinesisFirehoseInput` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) KinesisFirehoseInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
 		return v.KinesisFirehoseInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput)
 }
 
-// If the streaming source is a Kinesis data stream, identifies the stream's ARN.
+// If the streaming source is a Kinesis data stream, identifies the stream's ARN. See `kinesisStreamsInput` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) KinesisStreamsInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
 		return v.KinesisStreamsInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput)
 }
 
-// The name prefix to use when creating an in-application stream.
+// Name prefix to use when creating an in-application stream.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) string {
 		return v.NamePrefix
@@ -2976,6 +2967,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeP
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput)
 }
 
+// In-application stream names.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) InAppStreamNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) []string {
 		if v == nil {
@@ -2985,6 +2977,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeP
 	}).(pulumi.StringArrayOutput)
 }
 
+// Identifier of the input configuration.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) InputId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *string {
 		if v == nil {
@@ -2994,7 +2987,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the number of in-application streams to create.
+// Number of in-application streams to create. See `inputParallelism` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) InputParallelism() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism {
 		if v == nil {
@@ -3004,8 +2997,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeP
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput)
 }
 
-// The input processing configuration for the input.
-// An input processor transforms records as they are received from the stream, before the application's SQL code executes.
+// Input processing configuration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. See `inputProcessingConfiguration` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) InputProcessingConfiguration() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
 		if v == nil {
@@ -3015,7 +3007,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeP
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput)
 }
 
-// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+// Format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. See `inputSchema` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) InputSchema() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema {
 		if v == nil {
@@ -3025,7 +3017,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeP
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput)
 }
 
-// The point at which the application starts processing records from the streaming source.
+// Point at which the application starts processing records from the streaming source. See `inputStartingPositionConfiguration` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) InputStartingPositionConfigurations() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) []ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration {
 		if v == nil {
@@ -3035,7 +3027,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeP
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput)
 }
 
-// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN. See `kinesisFirehoseInput` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) KinesisFirehoseInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
 		if v == nil {
@@ -3045,7 +3037,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeP
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput)
 }
 
-// If the streaming source is a Kinesis data stream, identifies the stream's ARN.
+// If the streaming source is a Kinesis data stream, identifies the stream's ARN. See `kinesisStreamsInput` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) KinesisStreamsInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
 		if v == nil {
@@ -3055,7 +3047,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeP
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput)
 }
 
-// The name prefix to use when creating an in-application stream.
+// Name prefix to use when creating an in-application stream.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) NamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *string {
 		if v == nil {
@@ -3066,7 +3058,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeP
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism struct {
-	// The number of in-application streams to create.
+	// Number of in-application streams to create.
 	Count *int `pulumi:"count"`
 }
 
@@ -3082,7 +3074,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPar
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs struct {
-	// The number of in-application streams to create.
+	// Number of in-application streams to create.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 }
 
@@ -3163,7 +3155,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput)
 }
 
-// The number of in-application streams to create.
+// Number of in-application streams to create.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism) *int {
 		return v.Count
@@ -3194,7 +3186,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput)
 }
 
-// The number of in-application streams to create.
+// Number of in-application streams to create.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism) *int {
 		if v == nil {
@@ -3205,7 +3197,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration struct {
-	// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
+	// Lambda function used to preprocess the records in the stream before being processed by your application code. See `inputLambdaProcessor` Block below.
 	InputLambdaProcessor ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor `pulumi:"inputLambdaProcessor"`
 }
 
@@ -3221,7 +3213,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPro
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs struct {
-	// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
+	// Lambda function used to preprocess the records in the stream before being processed by your application code. See `inputLambdaProcessor` Block below.
 	InputLambdaProcessor ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorInput `pulumi:"inputLambdaProcessor"`
 }
 
@@ -3302,7 +3294,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput)
 }
 
-// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
+// Lambda function used to preprocess the records in the stream before being processed by your application code. See `inputLambdaProcessor` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput) InputLambdaProcessor() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor {
 		return v.InputLambdaProcessor
@@ -3333,7 +3325,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput)
 }
 
-// Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
+// Lambda function used to preprocess the records in the stream before being processed by your application code. See `inputLambdaProcessor` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput) InputLambdaProcessor() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor {
 		if v == nil {
@@ -3344,7 +3336,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor struct {
-	// The ARN of the Lambda function that operates on records in the stream.
+	// ARN of the Lambda function that operates on records in the stream.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -3360,7 +3352,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPro
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs struct {
-	// The ARN of the Lambda function that operates on records in the stream.
+	// ARN of the Lambda function that operates on records in the stream.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -3441,7 +3433,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput)
 }
 
-// The ARN of the Lambda function that operates on records in the stream.
+// ARN of the Lambda function that operates on records in the stream.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor) string {
 		return v.ResourceArn
@@ -3472,7 +3464,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput)
 }
 
-// The ARN of the Lambda function that operates on records in the stream.
+// ARN of the Lambda function that operates on records in the stream.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor) *string {
 		if v == nil {
@@ -3483,11 +3475,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema struct {
-	// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+	// Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block below.
 	RecordColumns []ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn `pulumi:"recordColumns"`
-	// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+	// Encoding of the records in the streaming source. For example, `UTF-8`.
 	RecordEncoding *string `pulumi:"recordEncoding"`
-	// Specifies the format of the records on the streaming source.
+	// Format of the records on the streaming source. See `recordFormat` Block below.
 	RecordFormat ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat `pulumi:"recordFormat"`
 }
 
@@ -3503,11 +3495,11 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSch
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs struct {
-	// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+	// Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block below.
 	RecordColumns ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayInput `pulumi:"recordColumns"`
-	// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+	// Encoding of the records in the streaming source. For example, `UTF-8`.
 	RecordEncoding pulumi.StringPtrInput `pulumi:"recordEncoding"`
-	// Specifies the format of the records on the streaming source.
+	// Format of the records on the streaming source. See `recordFormat` Block below.
 	RecordFormat ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatInput `pulumi:"recordFormat"`
 }
 
@@ -3588,21 +3580,21 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput)
 }
 
-// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+// Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput) RecordColumns() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema) []ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn {
 		return v.RecordColumns
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutput)
 }
 
-// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+// Encoding of the records in the streaming source. For example, `UTF-8`.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput) RecordEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema) *string {
 		return v.RecordEncoding
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the format of the records on the streaming source.
+// Format of the records on the streaming source. See `recordFormat` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput) RecordFormat() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat {
 		return v.RecordFormat
@@ -3633,7 +3625,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput)
 }
 
-// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+// Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput) RecordColumns() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema) []ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn {
 		if v == nil {
@@ -3643,7 +3635,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrayOutput)
 }
 
-// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+// Encoding of the records in the streaming source. For example, `UTF-8`.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput) RecordEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema) *string {
 		if v == nil {
@@ -3653,7 +3645,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the format of the records on the streaming source.
+// Format of the records on the streaming source. See `recordFormat` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput) RecordFormat() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat {
 		if v == nil {
@@ -3664,11 +3656,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn struct {
-	// A reference to the data element in the streaming input or the reference data source.
+	// Reference to the data element in the streaming input or the reference data source.
 	Mapping *string `pulumi:"mapping"`
-	// The name of the column that is created in the in-application input stream or reference table.
+	// Name of the column that is created in the in-application input stream or reference table.
 	Name string `pulumi:"name"`
-	// The type of column created in the in-application input stream or reference table.
+	// Type of column created in the in-application input stream or reference table.
 	SqlType string `pulumi:"sqlType"`
 }
 
@@ -3684,11 +3676,11 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSch
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs struct {
-	// A reference to the data element in the streaming input or the reference data source.
+	// Reference to the data element in the streaming input or the reference data source.
 	Mapping pulumi.StringPtrInput `pulumi:"mapping"`
-	// The name of the column that is created in the in-application input stream or reference table.
+	// Name of the column that is created in the in-application input stream or reference table.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The type of column created in the in-application input stream or reference table.
+	// Type of column created in the in-application input stream or reference table.
 	SqlType pulumi.StringInput `pulumi:"sqlType"`
 }
 
@@ -3743,21 +3735,21 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return o
 }
 
-// A reference to the data element in the streaming input or the reference data source.
+// Reference to the data element in the streaming input or the reference data source.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutput) Mapping() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn) *string {
 		return v.Mapping
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the column that is created in the in-application input stream or reference table.
+// Name of the column that is created in the in-application input stream or reference table.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn) string {
 		return v.Name
 	}).(pulumi.StringOutput)
 }
 
-// The type of column created in the in-application input stream or reference table.
+// Type of column created in the in-application input stream or reference table.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnOutput) SqlType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn) string {
 		return v.SqlType
@@ -3785,9 +3777,9 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat struct {
-	// Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+	// Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
 	MappingParameters ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters `pulumi:"mappingParameters"`
-	// The type of record format. Valid values: `CSV`, `JSON`.
+	// Type of record format. Valid values: `CSV`, `JSON`.
 	RecordFormatType string `pulumi:"recordFormatType"`
 }
 
@@ -3803,9 +3795,9 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSch
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs struct {
-	// Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+	// Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
 	MappingParameters ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersInput `pulumi:"mappingParameters"`
-	// The type of record format. Valid values: `CSV`, `JSON`.
+	// Type of record format. Valid values: `CSV`, `JSON`.
 	RecordFormatType pulumi.StringInput `pulumi:"recordFormatType"`
 }
 
@@ -3886,14 +3878,14 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput)
 }
 
-// Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+// Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput) MappingParameters() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters {
 		return v.MappingParameters
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput)
 }
 
-// The type of record format. Valid values: `CSV`, `JSON`.
+// Type of record format. Valid values: `CSV`, `JSON`.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput) RecordFormatType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat) string {
 		return v.RecordFormatType
@@ -3924,7 +3916,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput)
 }
 
-// Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+// Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput) MappingParameters() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters {
 		if v == nil {
@@ -3934,7 +3926,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput)
 }
 
-// The type of record format. Valid values: `CSV`, `JSON`.
+// Type of record format. Valid values: `CSV`, `JSON`.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput) RecordFormatType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat) *string {
 		if v == nil {
@@ -3945,9 +3937,9 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters struct {
-	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
+	// Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
 	CsvMappingParameters *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters `pulumi:"csvMappingParameters"`
-	// Provides additional mapping information when JSON is the record format on the streaming source.
+	// Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
 	JsonMappingParameters *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters `pulumi:"jsonMappingParameters"`
 }
 
@@ -3963,9 +3955,9 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSch
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs struct {
-	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
+	// Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
 	CsvMappingParameters ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrInput `pulumi:"csvMappingParameters"`
-	// Provides additional mapping information when JSON is the record format on the streaming source.
+	// Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
 	JsonMappingParameters ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrInput `pulumi:"jsonMappingParameters"`
 }
 
@@ -4046,14 +4038,14 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput)
 }
 
-// Provides additional mapping information when the record format uses delimiters (for example, CSV).
+// Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput) CsvMappingParameters() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters {
 		return v.CsvMappingParameters
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput)
 }
 
-// Provides additional mapping information when JSON is the record format on the streaming source.
+// Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput) JsonMappingParameters() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters {
 		return v.JsonMappingParameters
@@ -4084,7 +4076,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput)
 }
 
-// Provides additional mapping information when the record format uses delimiters (for example, CSV).
+// Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput) CsvMappingParameters() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters {
 		if v == nil {
@@ -4094,7 +4086,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput)
 }
 
-// Provides additional mapping information when JSON is the record format on the streaming source.
+// Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput) JsonMappingParameters() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters {
 		if v == nil {
@@ -4105,9 +4097,9 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters struct {
-	// The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+	// Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
 	RecordColumnDelimiter string `pulumi:"recordColumnDelimiter"`
-	// The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+	// Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
 	RecordRowDelimiter string `pulumi:"recordRowDelimiter"`
 }
 
@@ -4123,9 +4115,9 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSch
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs struct {
-	// The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+	// Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
 	RecordColumnDelimiter pulumi.StringInput `pulumi:"recordColumnDelimiter"`
-	// The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+	// Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
 	RecordRowDelimiter pulumi.StringInput `pulumi:"recordRowDelimiter"`
 }
 
@@ -4206,14 +4198,14 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput)
 }
 
-// The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+// Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutput) RecordColumnDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters) string {
 		return v.RecordColumnDelimiter
 	}).(pulumi.StringOutput)
 }
 
-// The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+// Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutput) RecordRowDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters) string {
 		return v.RecordRowDelimiter
@@ -4244,7 +4236,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutput)
 }
 
-// The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+// Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput) RecordColumnDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters) *string {
 		if v == nil {
@@ -4254,7 +4246,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+// Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput) RecordRowDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters) *string {
 		if v == nil {
@@ -4265,7 +4257,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters struct {
-	// The path to the top-level parent that contains the records.
+	// Path to the top-level parent that contains the records.
 	RecordRowPath string `pulumi:"recordRowPath"`
 }
 
@@ -4281,7 +4273,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSch
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs struct {
-	// The path to the top-level parent that contains the records.
+	// Path to the top-level parent that contains the records.
 	RecordRowPath pulumi.StringInput `pulumi:"recordRowPath"`
 }
 
@@ -4362,7 +4354,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput)
 }
 
-// The path to the top-level parent that contains the records.
+// Path to the top-level parent that contains the records.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters) string {
 		return v.RecordRowPath
@@ -4393,7 +4385,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutput)
 }
 
-// The path to the top-level parent that contains the records.
+// Path to the top-level parent that contains the records.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput) RecordRowPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters) *string {
 		if v == nil {
@@ -4404,7 +4396,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration struct {
-	// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+	// Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
 	InputStartingPosition *string `pulumi:"inputStartingPosition"`
 }
 
@@ -4420,7 +4412,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSta
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs struct {
-	// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+	// Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
 	InputStartingPosition pulumi.StringPtrInput `pulumi:"inputStartingPosition"`
 }
 
@@ -4475,7 +4467,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 	return o
 }
 
-// The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+// Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationOutput) InputStartingPosition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration) *string {
 		return v.InputStartingPosition
@@ -4503,7 +4495,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput struct {
-	// The ARN of the delivery stream.
+	// ARN of the delivery stream.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -4519,7 +4511,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisF
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs struct {
-	// The ARN of the delivery stream.
+	// ARN of the delivery stream.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -4600,7 +4592,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput)
 }
 
-// The ARN of the delivery stream.
+// ARN of the delivery stream.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput) string {
 		return v.ResourceArn
@@ -4631,7 +4623,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput)
 }
 
-// The ARN of the delivery stream.
+// ARN of the delivery stream.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput) *string {
 		if v == nil {
@@ -4642,7 +4634,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput struct {
-	// The ARN of the input Kinesis data stream to read.
+	// ARN of the input Kinesis data stream to read.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -4658,7 +4650,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisS
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs struct {
-	// The ARN of the input Kinesis data stream to read.
+	// ARN of the input Kinesis data stream to read.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -4739,7 +4731,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput)
 }
 
-// The ARN of the input Kinesis data stream to read.
+// ARN of the input Kinesis data stream to read.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput) string {
 		return v.ResourceArn
@@ -4770,7 +4762,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput)
 }
 
-// The ARN of the input Kinesis data stream to read.
+// ARN of the input Kinesis data stream to read.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput) *string {
 		if v == nil {
@@ -4781,16 +4773,17 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType struct {
-	// Describes the data format when records are written to the destination.
+	// Data format when records are written to the destination. See `destinationSchema` Block below.
 	DestinationSchema ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema `pulumi:"destinationSchema"`
-	// Identifies a Kinesis Data Firehose delivery stream as the destination.
+	// Destination Kinesis Data Firehose delivery stream. See `kinesisFirehoseOutput` Block below.
 	KinesisFirehoseOutput *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput `pulumi:"kinesisFirehoseOutput"`
-	// Identifies a Kinesis data stream as the destination.
+	// Destination Kinesis data stream. See `kinesisStreamsOutput` Block below.
 	KinesisStreamsOutput *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput `pulumi:"kinesisStreamsOutput"`
-	// Identifies a Lambda function as the destination.
+	// Destination Lambda function. See `lambdaOutput` Block below.
 	LambdaOutput *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput `pulumi:"lambdaOutput"`
-	// The name of the in-application stream.
-	Name     string  `pulumi:"name"`
+	// Name of the in-application stream.
+	Name string `pulumi:"name"`
+	// Identifier of the output configuration.
 	OutputId *string `pulumi:"outputId"`
 }
 
@@ -4806,16 +4799,17 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeInp
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs struct {
-	// Describes the data format when records are written to the destination.
+	// Data format when records are written to the destination. See `destinationSchema` Block below.
 	DestinationSchema ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaInput `pulumi:"destinationSchema"`
-	// Identifies a Kinesis Data Firehose delivery stream as the destination.
+	// Destination Kinesis Data Firehose delivery stream. See `kinesisFirehoseOutput` Block below.
 	KinesisFirehoseOutput ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrInput `pulumi:"kinesisFirehoseOutput"`
-	// Identifies a Kinesis data stream as the destination.
+	// Destination Kinesis data stream. See `kinesisStreamsOutput` Block below.
 	KinesisStreamsOutput ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrInput `pulumi:"kinesisStreamsOutput"`
-	// Identifies a Lambda function as the destination.
+	// Destination Lambda function. See `lambdaOutput` Block below.
 	LambdaOutput ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrInput `pulumi:"lambdaOutput"`
-	// The name of the in-application stream.
-	Name     pulumi.StringInput    `pulumi:"name"`
+	// Name of the in-application stream.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Identifier of the output configuration.
 	OutputId pulumi.StringPtrInput `pulumi:"outputId"`
 }
 
@@ -4870,39 +4864,40 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType
 	return o
 }
 
-// Describes the data format when records are written to the destination.
+// Data format when records are written to the destination. See `destinationSchema` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) DestinationSchema() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema {
 		return v.DestinationSchema
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput)
 }
 
-// Identifies a Kinesis Data Firehose delivery stream as the destination.
+// Destination Kinesis Data Firehose delivery stream. See `kinesisFirehoseOutput` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) KinesisFirehoseOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput {
 		return v.KinesisFirehoseOutput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput)
 }
 
-// Identifies a Kinesis data stream as the destination.
+// Destination Kinesis data stream. See `kinesisStreamsOutput` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) KinesisStreamsOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput {
 		return v.KinesisStreamsOutput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput)
 }
 
-// Identifies a Lambda function as the destination.
+// Destination Lambda function. See `lambdaOutput` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) LambdaOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput {
 		return v.LambdaOutput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput)
 }
 
-// The name of the in-application stream.
+// Name of the in-application stream.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Identifier of the output configuration.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) OutputId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType) *string {
 		return v.OutputId
@@ -4930,7 +4925,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema struct {
-	// Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
+	// Format of the records on the output stream. Valid values: `CSV`, `JSON`.
 	RecordFormatType string `pulumi:"recordFormatType"`
 }
 
@@ -4946,7 +4941,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestina
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs struct {
-	// Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
+	// Format of the records on the output stream. Valid values: `CSV`, `JSON`.
 	RecordFormatType pulumi.StringInput `pulumi:"recordFormatType"`
 }
 
@@ -4976,7 +4971,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDest
 	return o
 }
 
-// Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
+// Format of the records on the output stream. Valid values: `CSV`, `JSON`.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput) RecordFormatType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema) string {
 		return v.RecordFormatType
@@ -4984,7 +4979,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDest
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput struct {
-	// The ARN of the destination delivery stream to write to.
+	// ARN of the destination delivery stream to write to.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -5000,7 +4995,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesis
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs struct {
-	// The ARN of the destination delivery stream to write to.
+	// ARN of the destination delivery stream to write to.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -5081,7 +5076,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput)
 }
 
-// The ARN of the destination delivery stream to write to.
+// ARN of the destination delivery stream to write to.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput) string {
 		return v.ResourceArn
@@ -5112,7 +5107,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput)
 }
 
-// The ARN of the destination delivery stream to write to.
+// ARN of the destination delivery stream to write to.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput) *string {
 		if v == nil {
@@ -5123,7 +5118,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput struct {
-	// The ARN of the destination Kinesis data stream to write to.
+	// ARN of the destination Kinesis data stream to write to.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -5139,7 +5134,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesis
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs struct {
-	// The ARN of the destination Kinesis data stream to write to.
+	// ARN of the destination Kinesis data stream to write to.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -5220,7 +5215,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput)
 }
 
-// The ARN of the destination Kinesis data stream to write to.
+// ARN of the destination Kinesis data stream to write to.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput) string {
 		return v.ResourceArn
@@ -5251,7 +5246,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutput)
 }
 
-// The ARN of the destination Kinesis data stream to write to.
+// ARN of the destination Kinesis data stream to write to.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput) *string {
 		if v == nil {
@@ -5262,7 +5257,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput struct {
-	// The ARN of the destination Lambda function to write to.
+	// ARN of the destination Lambda function to write to.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -5278,7 +5273,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaO
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs struct {
-	// The ARN of the destination Lambda function to write to.
+	// ARN of the destination Lambda function to write to.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 
@@ -5359,7 +5354,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLamb
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput)
 }
 
-// The ARN of the destination Lambda function to write to.
+// ARN of the destination Lambda function to write to.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput) string {
 		return v.ResourceArn
@@ -5390,7 +5385,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLamb
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutput)
 }
 
-// The ARN of the destination Lambda function to write to.
+// ARN of the destination Lambda function to write to.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput) *string {
 		if v == nil {
@@ -5401,12 +5396,13 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLamb
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource struct {
+	// Identifier of the reference data source.
 	ReferenceId *string `pulumi:"referenceId"`
-	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+	// Format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. See `referenceSchema` Block below.
 	ReferenceSchema ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema `pulumi:"referenceSchema"`
-	// Identifies the S3 bucket and object that contains the reference data.
+	// S3 bucket and object that contains the reference data. See `s3ReferenceDataSource` Block below.
 	S3ReferenceDataSource ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource `pulumi:"s3ReferenceDataSource"`
-	// The name of the in-application table to create.
+	// Name of the in-application table to create.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -5422,12 +5418,13 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs struct {
+	// Identifier of the reference data source.
 	ReferenceId pulumi.StringPtrInput `pulumi:"referenceId"`
-	// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+	// Format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. See `referenceSchema` Block below.
 	ReferenceSchema ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaInput `pulumi:"referenceSchema"`
-	// Identifies the S3 bucket and object that contains the reference data.
+	// S3 bucket and object that contains the reference data. See `s3ReferenceDataSource` Block below.
 	S3ReferenceDataSource ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceInput `pulumi:"s3ReferenceDataSource"`
-	// The name of the in-application table to create.
+	// Name of the in-application table to create.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 
@@ -5508,27 +5505,28 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput)
 }
 
+// Identifier of the reference data source.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput) ReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) *string {
 		return v.ReferenceId
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+// Format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. See `referenceSchema` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput) ReferenceSchema() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema {
 		return v.ReferenceSchema
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput)
 }
 
-// Identifies the S3 bucket and object that contains the reference data.
+// S3 bucket and object that contains the reference data. See `s3ReferenceDataSource` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput) S3ReferenceDataSource() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource {
 		return v.S3ReferenceDataSource
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput)
 }
 
-// The name of the in-application table to create.
+// Name of the in-application table to create.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) string {
 		return v.TableName
@@ -5559,6 +5557,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput)
 }
 
+// Identifier of the reference data source.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput) ReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) *string {
 		if v == nil {
@@ -5568,7 +5567,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+// Format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. See `referenceSchema` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput) ReferenceSchema() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema {
 		if v == nil {
@@ -5578,7 +5577,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput)
 }
 
-// Identifies the S3 bucket and object that contains the reference data.
+// S3 bucket and object that contains the reference data. See `s3ReferenceDataSource` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput) S3ReferenceDataSource() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource {
 		if v == nil {
@@ -5588,7 +5587,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
 }
 
-// The name of the in-application table to create.
+// Name of the in-application table to create.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) *string {
 		if v == nil {
@@ -5599,11 +5598,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema struct {
-	// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+	// Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block above.
 	RecordColumns []ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn `pulumi:"recordColumns"`
-	// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+	// Encoding of the records in the streaming source. For example, `UTF-8`.
 	RecordEncoding *string `pulumi:"recordEncoding"`
-	// Specifies the format of the records on the streaming source.
+	// Format of the records on the streaming source. See `recordFormat` Block above.
 	RecordFormat ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat `pulumi:"recordFormat"`
 }
 
@@ -5619,11 +5618,11 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs struct {
-	// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+	// Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block above.
 	RecordColumns ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayInput `pulumi:"recordColumns"`
-	// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+	// Encoding of the records in the streaming source. For example, `UTF-8`.
 	RecordEncoding pulumi.StringPtrInput `pulumi:"recordEncoding"`
-	// Specifies the format of the records on the streaming source.
+	// Format of the records on the streaming source. See `recordFormat` Block above.
 	RecordFormat ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatInput `pulumi:"recordFormat"`
 }
 
@@ -5704,21 +5703,21 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput)
 }
 
-// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+// Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block above.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput) RecordColumns() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) []ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn {
 		return v.RecordColumns
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutput)
 }
 
-// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+// Encoding of the records in the streaming source. For example, `UTF-8`.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput) RecordEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) *string {
 		return v.RecordEncoding
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the format of the records on the streaming source.
+// Format of the records on the streaming source. See `recordFormat` Block above.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput) RecordFormat() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat {
 		return v.RecordFormat
@@ -5749,7 +5748,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput)
 }
 
-// Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+// Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block above.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput) RecordColumns() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) []ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn {
 		if v == nil {
@@ -5759,7 +5758,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrayOutput)
 }
 
-// Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+// Encoding of the records in the streaming source. For example, `UTF-8`.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput) RecordEncoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) *string {
 		if v == nil {
@@ -5769,7 +5768,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the format of the records on the streaming source.
+// Format of the records on the streaming source. See `recordFormat` Block above.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput) RecordFormat() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat {
 		if v == nil {
@@ -5780,11 +5779,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn struct {
-	// A reference to the data element in the streaming input or the reference data source.
+	// Reference to the data element in the streaming input or the reference data source.
 	Mapping *string `pulumi:"mapping"`
-	// The name of the column that is created in the in-application input stream or reference table.
+	// Name of the column that is created in the in-application input stream or reference table.
 	Name string `pulumi:"name"`
-	// The type of column created in the in-application input stream or reference table.
+	// Type of column created in the in-application input stream or reference table.
 	SqlType string `pulumi:"sqlType"`
 }
 
@@ -5800,11 +5799,11 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs struct {
-	// A reference to the data element in the streaming input or the reference data source.
+	// Reference to the data element in the streaming input or the reference data source.
 	Mapping pulumi.StringPtrInput `pulumi:"mapping"`
-	// The name of the column that is created in the in-application input stream or reference table.
+	// Name of the column that is created in the in-application input stream or reference table.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The type of column created in the in-application input stream or reference table.
+	// Type of column created in the in-application input stream or reference table.
 	SqlType pulumi.StringInput `pulumi:"sqlType"`
 }
 
@@ -5859,21 +5858,21 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	return o
 }
 
-// A reference to the data element in the streaming input or the reference data source.
+// Reference to the data element in the streaming input or the reference data source.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutput) Mapping() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn) *string {
 		return v.Mapping
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the column that is created in the in-application input stream or reference table.
+// Name of the column that is created in the in-application input stream or reference table.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn) string {
 		return v.Name
 	}).(pulumi.StringOutput)
 }
 
-// The type of column created in the in-application input stream or reference table.
+// Type of column created in the in-application input stream or reference table.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnOutput) SqlType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn) string {
 		return v.SqlType
@@ -5901,9 +5900,9 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat struct {
-	// Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+	// Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
 	MappingParameters ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters `pulumi:"mappingParameters"`
-	// The type of record format. Valid values: `CSV`, `JSON`.
+	// Type of record format. Valid values: `CSV`, `JSON`.
 	RecordFormatType string `pulumi:"recordFormatType"`
 }
 
@@ -5919,9 +5918,9 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs struct {
-	// Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+	// Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
 	MappingParameters ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersInput `pulumi:"mappingParameters"`
-	// The type of record format. Valid values: `CSV`, `JSON`.
+	// Type of record format. Valid values: `CSV`, `JSON`.
 	RecordFormatType pulumi.StringInput `pulumi:"recordFormatType"`
 }
 
@@ -6002,14 +6001,14 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput)
 }
 
-// Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+// Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput) MappingParameters() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters {
 		return v.MappingParameters
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput)
 }
 
-// The type of record format. Valid values: `CSV`, `JSON`.
+// Type of record format. Valid values: `CSV`, `JSON`.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput) RecordFormatType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat) string {
 		return v.RecordFormatType
@@ -6040,7 +6039,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput)
 }
 
-// Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+// Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput) MappingParameters() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters {
 		if v == nil {
@@ -6050,7 +6049,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput)
 }
 
-// The type of record format. Valid values: `CSV`, `JSON`.
+// Type of record format. Valid values: `CSV`, `JSON`.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput) RecordFormatType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat) *string {
 		if v == nil {
@@ -6061,9 +6060,9 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters struct {
-	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
+	// Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
 	CsvMappingParameters *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters `pulumi:"csvMappingParameters"`
-	// Provides additional mapping information when JSON is the record format on the streaming source.
+	// Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
 	JsonMappingParameters *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters `pulumi:"jsonMappingParameters"`
 }
 
@@ -6079,9 +6078,9 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs struct {
-	// Provides additional mapping information when the record format uses delimiters (for example, CSV).
+	// Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
 	CsvMappingParameters ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrInput `pulumi:"csvMappingParameters"`
-	// Provides additional mapping information when JSON is the record format on the streaming source.
+	// Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
 	JsonMappingParameters ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrInput `pulumi:"jsonMappingParameters"`
 }
 
@@ -6162,14 +6161,14 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput)
 }
 
-// Provides additional mapping information when the record format uses delimiters (for example, CSV).
+// Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput) CsvMappingParameters() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters {
 		return v.CsvMappingParameters
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput)
 }
 
-// Provides additional mapping information when JSON is the record format on the streaming source.
+// Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput) JsonMappingParameters() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters {
 		return v.JsonMappingParameters
@@ -6200,7 +6199,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput)
 }
 
-// Provides additional mapping information when the record format uses delimiters (for example, CSV).
+// Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput) CsvMappingParameters() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters {
 		if v == nil {
@@ -6210,7 +6209,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput)
 }
 
-// Provides additional mapping information when JSON is the record format on the streaming source.
+// Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput) JsonMappingParameters() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters {
 		if v == nil {
@@ -6221,9 +6220,9 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters struct {
-	// The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+	// Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
 	RecordColumnDelimiter string `pulumi:"recordColumnDelimiter"`
-	// The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+	// Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
 	RecordRowDelimiter string `pulumi:"recordRowDelimiter"`
 }
 
@@ -6239,9 +6238,9 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs struct {
-	// The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+	// Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
 	RecordColumnDelimiter pulumi.StringInput `pulumi:"recordColumnDelimiter"`
-	// The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+	// Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
 	RecordRowDelimiter pulumi.StringInput `pulumi:"recordRowDelimiter"`
 }
 
@@ -6322,14 +6321,14 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput)
 }
 
-// The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+// Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutput) RecordColumnDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters) string {
 		return v.RecordColumnDelimiter
 	}).(pulumi.StringOutput)
 }
 
-// The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+// Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutput) RecordRowDelimiter() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters) string {
 		return v.RecordRowDelimiter
@@ -6360,7 +6359,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutput)
 }
 
-// The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+// Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput) RecordColumnDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters) *string {
 		if v == nil {
@@ -6370,7 +6369,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(pulumi.StringPtrOutput)
 }
 
-// The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+// Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput) RecordRowDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters) *string {
 		if v == nil {
@@ -6381,7 +6380,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters struct {
-	// The path to the top-level parent that contains the records.
+	// Path to the top-level parent that contains the records.
 	RecordRowPath string `pulumi:"recordRowPath"`
 }
 
@@ -6397,7 +6396,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs struct {
-	// The path to the top-level parent that contains the records.
+	// Path to the top-level parent that contains the records.
 	RecordRowPath pulumi.StringInput `pulumi:"recordRowPath"`
 }
 
@@ -6478,7 +6477,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput)
 }
 
-// The path to the top-level parent that contains the records.
+// Path to the top-level parent that contains the records.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutput) RecordRowPath() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters) string {
 		return v.RecordRowPath
@@ -6509,7 +6508,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutput)
 }
 
-// The path to the top-level parent that contains the records.
+// Path to the top-level parent that contains the records.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput) RecordRowPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters) *string {
 		if v == nil {
@@ -6520,9 +6519,9 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource struct {
-	// The ARN of the S3 bucket.
+	// ARN of the S3 bucket.
 	BucketArn string `pulumi:"bucketArn"`
-	// The object key name containing the reference data.
+	// Object key name containing the reference data.
 	FileKey string `pulumi:"fileKey"`
 }
 
@@ -6538,9 +6537,9 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceData
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs struct {
-	// The ARN of the S3 bucket.
+	// ARN of the S3 bucket.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// The object key name containing the reference data.
+	// Object key name containing the reference data.
 	FileKey pulumi.StringInput `pulumi:"fileKey"`
 }
 
@@ -6621,14 +6620,14 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
 }
 
-// The ARN of the S3 bucket.
+// ARN of the S3 bucket.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput) BucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource) string {
 		return v.BucketArn
 	}).(pulumi.StringOutput)
 }
 
-// The object key name containing the reference data.
+// Object key name containing the reference data.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput) FileKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource) string {
 		return v.FileKey
@@ -6659,7 +6658,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput)
 }
 
-// The ARN of the S3 bucket.
+// ARN of the S3 bucket.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput) BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource) *string {
 		if v == nil {
@@ -6669,7 +6668,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key name containing the reference data.
+// Object key name containing the reference data.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput) FileKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource) *string {
 		if v == nil {
@@ -6680,12 +6679,14 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 type ApplicationApplicationConfigurationVpcConfiguration struct {
-	// The Security Group IDs used by the VPC configuration.
+	// Security Group IDs used by the VPC configuration.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The Subnet IDs used by the VPC configuration.
-	SubnetIds          []string `pulumi:"subnetIds"`
-	VpcConfigurationId *string  `pulumi:"vpcConfigurationId"`
-	VpcId              *string  `pulumi:"vpcId"`
+	// Subnet IDs used by the VPC configuration.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Identifier of the VPC configuration.
+	VpcConfigurationId *string `pulumi:"vpcConfigurationId"`
+	// Identifier of the VPC.
+	VpcId *string `pulumi:"vpcId"`
 }
 
 // ApplicationApplicationConfigurationVpcConfigurationInput is an input type that accepts ApplicationApplicationConfigurationVpcConfigurationArgs and ApplicationApplicationConfigurationVpcConfigurationOutput values.
@@ -6700,12 +6701,14 @@ type ApplicationApplicationConfigurationVpcConfigurationInput interface {
 }
 
 type ApplicationApplicationConfigurationVpcConfigurationArgs struct {
-	// The Security Group IDs used by the VPC configuration.
+	// Security Group IDs used by the VPC configuration.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// The Subnet IDs used by the VPC configuration.
-	SubnetIds          pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcConfigurationId pulumi.StringPtrInput   `pulumi:"vpcConfigurationId"`
-	VpcId              pulumi.StringPtrInput   `pulumi:"vpcId"`
+	// Subnet IDs used by the VPC configuration.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// Identifier of the VPC configuration.
+	VpcConfigurationId pulumi.StringPtrInput `pulumi:"vpcConfigurationId"`
+	// Identifier of the VPC.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (ApplicationApplicationConfigurationVpcConfigurationArgs) ElementType() reflect.Type {
@@ -6785,20 +6788,22 @@ func (o ApplicationApplicationConfigurationVpcConfigurationOutput) ToApplication
 	}).(ApplicationApplicationConfigurationVpcConfigurationPtrOutput)
 }
 
-// The Security Group IDs used by the VPC configuration.
+// Security Group IDs used by the VPC configuration.
 func (o ApplicationApplicationConfigurationVpcConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationVpcConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The Subnet IDs used by the VPC configuration.
+// Subnet IDs used by the VPC configuration.
 func (o ApplicationApplicationConfigurationVpcConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationVpcConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// Identifier of the VPC configuration.
 func (o ApplicationApplicationConfigurationVpcConfigurationOutput) VpcConfigurationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationVpcConfiguration) *string { return v.VpcConfigurationId }).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the VPC.
 func (o ApplicationApplicationConfigurationVpcConfigurationOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationVpcConfiguration) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -6827,7 +6832,7 @@ func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) Elem() App
 	}).(ApplicationApplicationConfigurationVpcConfigurationOutput)
 }
 
-// The Security Group IDs used by the VPC configuration.
+// Security Group IDs used by the VPC configuration.
 func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationVpcConfiguration) []string {
 		if v == nil {
@@ -6837,7 +6842,7 @@ func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) SecurityGr
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Subnet IDs used by the VPC configuration.
+// Subnet IDs used by the VPC configuration.
 func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationVpcConfiguration) []string {
 		if v == nil {
@@ -6847,6 +6852,7 @@ func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) SubnetIds(
 	}).(pulumi.StringArrayOutput)
 }
 
+// Identifier of the VPC configuration.
 func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) VpcConfigurationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationVpcConfiguration) *string {
 		if v == nil {
@@ -6856,6 +6862,7 @@ func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) VpcConfigu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifier of the VPC.
 func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationVpcConfiguration) *string {
 		if v == nil {
@@ -6866,8 +6873,9 @@ func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) VpcId() pu
 }
 
 type ApplicationCloudwatchLoggingOptions struct {
+	// Identifier of the CloudWatch logging option.
 	CloudwatchLoggingOptionId *string `pulumi:"cloudwatchLoggingOptionId"`
-	// The ARN of the CloudWatch log stream to receive application messages.
+	// ARN of the CloudWatch log stream to receive application messages.
 	LogStreamArn string `pulumi:"logStreamArn"`
 }
 
@@ -6883,8 +6891,9 @@ type ApplicationCloudwatchLoggingOptionsInput interface {
 }
 
 type ApplicationCloudwatchLoggingOptionsArgs struct {
+	// Identifier of the CloudWatch logging option.
 	CloudwatchLoggingOptionId pulumi.StringPtrInput `pulumi:"cloudwatchLoggingOptionId"`
-	// The ARN of the CloudWatch log stream to receive application messages.
+	// ARN of the CloudWatch log stream to receive application messages.
 	LogStreamArn pulumi.StringInput `pulumi:"logStreamArn"`
 }
 
@@ -6965,11 +6974,12 @@ func (o ApplicationCloudwatchLoggingOptionsOutput) ToApplicationCloudwatchLoggin
 	}).(ApplicationCloudwatchLoggingOptionsPtrOutput)
 }
 
+// Identifier of the CloudWatch logging option.
 func (o ApplicationCloudwatchLoggingOptionsOutput) CloudwatchLoggingOptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationCloudwatchLoggingOptions) *string { return v.CloudwatchLoggingOptionId }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the CloudWatch log stream to receive application messages.
+// ARN of the CloudWatch log stream to receive application messages.
 func (o ApplicationCloudwatchLoggingOptionsOutput) LogStreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationCloudwatchLoggingOptions) string { return v.LogStreamArn }).(pulumi.StringOutput)
 }
@@ -6998,6 +7008,7 @@ func (o ApplicationCloudwatchLoggingOptionsPtrOutput) Elem() ApplicationCloudwat
 	}).(ApplicationCloudwatchLoggingOptionsOutput)
 }
 
+// Identifier of the CloudWatch logging option.
 func (o ApplicationCloudwatchLoggingOptionsPtrOutput) CloudwatchLoggingOptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationCloudwatchLoggingOptions) *string {
 		if v == nil {
@@ -7007,7 +7018,7 @@ func (o ApplicationCloudwatchLoggingOptionsPtrOutput) CloudwatchLoggingOptionId(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the CloudWatch log stream to receive application messages.
+// ARN of the CloudWatch log stream to receive application messages.
 func (o ApplicationCloudwatchLoggingOptionsPtrOutput) LogStreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationCloudwatchLoggingOptions) *string {
 		if v == nil {

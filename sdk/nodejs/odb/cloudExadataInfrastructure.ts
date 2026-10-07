@@ -174,6 +174,8 @@ export class CloudExadataInfrastructure extends pulumi.CustomResource {
     declare public readonly region: pulumi.Output<string>;
     /**
      * Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+     *
+     * The following arguments are optional:
      */
     declare public readonly shape: pulumi.Output<string>;
     /**
@@ -186,8 +188,6 @@ export class CloudExadataInfrastructure extends pulumi.CustomResource {
     declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
      * Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-     *
-     * The following arguments are optional:
      */
     declare public readonly storageCount: pulumi.Output<number>;
     /**
@@ -454,6 +454,8 @@ export interface CloudExadataInfrastructureState {
     region?: pulumi.Input<string | undefined>;
     /**
      * Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+     *
+     * The following arguments are optional:
      */
     shape?: pulumi.Input<string | undefined>;
     /**
@@ -466,8 +468,6 @@ export interface CloudExadataInfrastructureState {
     statusReason?: pulumi.Input<string | undefined>;
     /**
      * Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-     *
-     * The following arguments are optional:
      */
     storageCount?: pulumi.Input<number | undefined>;
     /**
@@ -528,12 +528,12 @@ export interface CloudExadataInfrastructureArgs {
     region?: pulumi.Input<string | undefined>;
     /**
      * Model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+     *
+     * The following arguments are optional:
      */
     shape: pulumi.Input<string>;
     /**
      * Number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
-     *
-     * The following arguments are optional:
      */
     storageCount?: pulumi.Input<number | undefined>;
     /**

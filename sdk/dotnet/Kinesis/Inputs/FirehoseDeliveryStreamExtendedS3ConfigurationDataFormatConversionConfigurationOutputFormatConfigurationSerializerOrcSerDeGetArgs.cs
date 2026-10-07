@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+        /// Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
         /// </summary>
         [Input("blockSizeBytes")]
         public Input<int>? BlockSizeBytes { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private InputList<string>? _bloomFilterColumns;
 
         /// <summary>
-        /// A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+        /// List of column names for which you want Kinesis Data Firehose to create bloom filters.
         /// </summary>
         public InputList<string> BloomFilterColumns
         {
@@ -31,19 +31,19 @@ namespace Pulumi.Aws.Kinesis.Inputs
         }
 
         /// <summary>
-        /// The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+        /// Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
         /// </summary>
         [Input("bloomFilterFalsePositiveProbability")]
         public Input<double>? BloomFilterFalsePositiveProbability { get; set; }
 
         /// <summary>
-        /// The compression code to use over data blocks. The default is `SNAPPY`.
+        /// Compression code to use over data blocks. The default is `SNAPPY`.
         /// </summary>
         [Input("compression")]
         public Input<string>? Compression { get; set; }
 
         /// <summary>
-        /// A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+        /// Float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
         /// </summary>
         [Input("dictionaryKeyThreshold")]
         public Input<double>? DictionaryKeyThreshold { get; set; }
@@ -55,25 +55,25 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<bool>? EnablePadding { get; set; }
 
         /// <summary>
-        /// The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+        /// Version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
         /// </summary>
         [Input("formatVersion")]
         public Input<string>? FormatVersion { get; set; }
 
         /// <summary>
-        /// A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `EnablePadding` is `False`.
+        /// Float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `EnablePadding` is `False`.
         /// </summary>
         [Input("paddingTolerance")]
         public Input<double>? PaddingTolerance { get; set; }
 
         /// <summary>
-        /// The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+        /// Number of rows between index entries. The default is `10000` and the minimum is `1000`.
         /// </summary>
         [Input("rowIndexStride")]
         public Input<int>? RowIndexStride { get; set; }
 
         /// <summary>
-        /// The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+        /// Number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
         /// </summary>
         [Input("stripeSizeBytes")]
         public Input<int>? StripeSizeBytes { get; set; }

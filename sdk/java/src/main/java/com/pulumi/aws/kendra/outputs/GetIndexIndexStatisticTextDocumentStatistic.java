@@ -16,7 +16,7 @@ public final class GetIndexIndexStatisticTextDocumentStatistic {
      */
     private Integer indexedTextBytes;
     /**
-     * @return The number of text documents indexed.
+     * @return Number of text documents indexed.
      * 
      */
     private Integer indexedTextDocumentsCount;
@@ -30,7 +30,7 @@ public final class GetIndexIndexStatisticTextDocumentStatistic {
         return this.indexedTextBytes;
     }
     /**
-     * @return The number of text documents indexed.
+     * @return Number of text documents indexed.
      * 
      */
     public Integer indexedTextDocumentsCount() {

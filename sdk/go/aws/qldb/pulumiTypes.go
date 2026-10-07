@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type StreamKinesisConfiguration struct {
-	// Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+	// Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
 	AggregationEnabled *bool `pulumi:"aggregationEnabled"`
 	// ARN of the Kinesis Data Streams resource.
 	StreamArn string `pulumi:"streamArn"`
@@ -32,7 +32,7 @@ type StreamKinesisConfigurationInput interface {
 }
 
 type StreamKinesisConfigurationArgs struct {
-	// Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+	// Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
 	AggregationEnabled pulumi.BoolPtrInput `pulumi:"aggregationEnabled"`
 	// ARN of the Kinesis Data Streams resource.
 	StreamArn pulumi.StringInput `pulumi:"streamArn"`
@@ -115,7 +115,7 @@ func (o StreamKinesisConfigurationOutput) ToStreamKinesisConfigurationPtrOutputW
 	}).(StreamKinesisConfigurationPtrOutput)
 }
 
-// Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+// Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
 func (o StreamKinesisConfigurationOutput) AggregationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StreamKinesisConfiguration) *bool { return v.AggregationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -149,7 +149,7 @@ func (o StreamKinesisConfigurationPtrOutput) Elem() StreamKinesisConfigurationOu
 	}).(StreamKinesisConfigurationOutput)
 }
 
-// Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+// Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
 func (o StreamKinesisConfigurationPtrOutput) AggregationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StreamKinesisConfiguration) *bool {
 		if v == nil {

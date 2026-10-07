@@ -46,7 +46,7 @@ export interface GetThemeArgs {
      */
     region?: string;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tags?: {[key: string]: string};
     /**
@@ -67,15 +67,15 @@ export interface GetThemeResult {
     readonly arn: string;
     readonly awsAccountId: string;
     /**
-     * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
+     * ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight.
      */
     readonly baseThemeId: string;
     /**
-     * The theme configuration, which contains the theme display properties. See configuration.
+     * Theme configuration, which contains the theme display properties. See configuration.
      */
     readonly configurations: outputs.quicksight.GetThemeConfiguration[];
     /**
-     * The time that the theme was created.
+     * Time that the theme was created.
      */
     readonly createdTime: string;
     /**
@@ -83,7 +83,7 @@ export interface GetThemeResult {
      */
     readonly id: string;
     /**
-     * The time that the theme was last updated.
+     * Time that the theme was last updated.
      */
     readonly lastUpdatedTime: string;
     /**
@@ -91,25 +91,25 @@ export interface GetThemeResult {
      */
     readonly name: string;
     /**
-     * A set of resource permissions on the theme. See permissions.
+     * Set of resource permissions on the theme. See permissions.
      */
     readonly permissions: outputs.quicksight.GetThemePermission[];
     readonly region: string;
     /**
-     * The theme creation status.
+     * Theme creation status.
      */
     readonly status: string;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     readonly tags: {[key: string]: string};
     readonly themeId: string;
     /**
-     * A description of the current theme version being created/updated.
+     * Description of the current theme version being created/updated.
      */
     readonly versionDescription: string;
     /**
-     * The version number of the theme version.
+     * Version number of the theme version.
      */
     readonly versionNumber: number;
 }
@@ -152,7 +152,7 @@ export interface GetThemeOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**

@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Kms
         private List<string>? _grantTokens;
 
         /// <summary>
-        /// List of grant tokens
+        /// List of grant tokens.
         /// </summary>
         public List<string> GrantTokens
         {
@@ -154,11 +154,7 @@ namespace Pulumi.Aws.Kms
         }
 
         /// <summary>
-        /// Key identifier which can be one of the following format:
-        /// * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-        /// * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-        /// * Alias name. E.g.: `alias/my-key`
-        /// * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+        /// Key identifier. Can be a key ID (e.g. `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g. `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g. `alias/my-key`), or alias ARN (e.g. `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
         /// </summary>
         [Input("keyId", required: true)]
         public string KeyId { get; set; } = null!;
@@ -181,7 +177,7 @@ namespace Pulumi.Aws.Kms
         private InputList<string>? _grantTokens;
 
         /// <summary>
-        /// List of grant tokens
+        /// List of grant tokens.
         /// </summary>
         public InputList<string> GrantTokens
         {
@@ -190,11 +186,7 @@ namespace Pulumi.Aws.Kms
         }
 
         /// <summary>
-        /// Key identifier which can be one of the following format:
-        /// * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
-        /// * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
-        /// * Alias name. E.g.: `alias/my-key`
-        /// * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+        /// Key identifier. Can be a key ID (e.g. `1234abcd-12ab-34cd-56ef-1234567890ab`), key ARN (e.g. `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`), alias name (e.g. `alias/my-key`), or alias ARN (e.g. `arn:aws:kms:us-east-1:111122223333:alias/my-key`).
         /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
@@ -216,23 +208,23 @@ namespace Pulumi.Aws.Kms
     public sealed class GetKeyResult
     {
         /// <summary>
-        /// The key ARN of a primary or replica key of a multi-Region key.
+        /// Key ARN of a primary or replica key of a multi-Region key.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The twelve-digit account ID of the AWS account that owns the key
+        /// Twelve-digit account ID of the AWS account that owns the key.
         /// </summary>
         public readonly string AwsAccountId;
         /// <summary>
-        /// The cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
+        /// Cluster ID of the AWS CloudHSM cluster that contains the key material for the KMS key.
         /// </summary>
         public readonly string CloudHsmClusterId;
         /// <summary>
-        /// The date and time when the key was created
+        /// Date and time when the key was created.
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
-        /// A unique identifier for the custom key store that contains the KMS key.
+        /// Unique identifier for the custom key store that contains the KMS key.
         /// </summary>
         public readonly string CustomKeyStoreId;
         /// <summary>
@@ -240,19 +232,19 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string CustomerMasterKeySpec;
         /// <summary>
-        /// The date and time after which AWS KMS deletes the key. This value is present only when `KeyState` is `PendingDeletion`, otherwise this value is 0
+        /// Date and time after which AWS KMS deletes the key. This value is present only when `KeyState` is `PendingDeletion`, otherwise this value is 0.
         /// </summary>
         public readonly string DeletionDate;
         /// <summary>
-        /// The description of the key.
+        /// Description of the key.
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Specifies whether the key is enabled. When `KeyState` is `Enabled` this value is true, otherwise it is false
+        /// Whether the key is enabled. When `KeyState` is `Enabled` this value is true, otherwise it is false.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// Specifies whether the Key's key material expires. This value is present only when `Origin` is `EXTERNAL`, otherwise this value is empty
+        /// Whether the key's key material expires. This value is present only when `Origin` is `EXTERNAL`, otherwise this value is empty.
         /// </summary>
         public readonly string ExpirationModel;
         public readonly ImmutableArray<string> GrantTokens;
@@ -262,47 +254,47 @@ namespace Pulumi.Aws.Kms
         public readonly string Id;
         public readonly string KeyId;
         /// <summary>
-        /// The key's manager
+        /// Manager of the key.
         /// </summary>
         public readonly string KeyManager;
         /// <summary>
-        /// Describes the type of key material in the KMS key.
+        /// Type of key material in the KMS key.
         /// </summary>
         public readonly string KeySpec;
         /// <summary>
-        /// The state of the key
+        /// State of the key.
         /// </summary>
         public readonly string KeyState;
         /// <summary>
-        /// Specifies the intended use of the key
+        /// Intended use of the key.
         /// </summary>
         public readonly string KeyUsage;
         /// <summary>
-        /// Indicates whether the KMS key is a multi-Region (`True`) or regional (`False`) key.
+        /// Whether the KMS key is a multi-Region (`True`) or regional (`False`) key.
         /// </summary>
         public readonly bool MultiRegion;
         /// <summary>
-        /// Lists the primary and replica keys in same multi-Region key. Present only when the value of `MultiRegion` is `True`.
+        /// Primary and replica keys in same multi-Region key. Present only when the value of `MultiRegion` is `True`. See `MultiRegionConfiguration` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKeyMultiRegionConfigurationResult> MultiRegionConfigurations;
         /// <summary>
-        /// When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material
+        /// Source of the key material. When this value is `AWS_KMS`, AWS KMS created the key material. When this value is `EXTERNAL`, the key material was imported from your existing key management infrastructure or the CMK lacks key material.
         /// </summary>
         public readonly string Origin;
         /// <summary>
-        /// The waiting period before the primary key in a multi-Region key is deleted.
+        /// Waiting period before the primary key in a multi-Region key is deleted.
         /// </summary>
         public readonly int PendingDeletionWindowInDays;
         /// <summary>
-        /// The AWS Region of a primary or replica key in a multi-Region key.
+        /// AWS Region of a primary or replica key in a multi-Region key.
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// The time at which the imported key material expires. This value is present only when `Origin` is `EXTERNAL` and whose `ExpirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
+        /// Time at which the imported key material expires. This value is present only when `Origin` is `EXTERNAL` and whose `ExpirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0.
         /// </summary>
         public readonly string ValidTo;
         /// <summary>
-        /// Information about the external key that is associated with a KMS key in an external key store.
+        /// Information about the external key that is associated with a KMS key in an external key store. See `XksKeyConfiguration` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetKeyXksKeyConfigurationResult> XksKeyConfigurations;
 

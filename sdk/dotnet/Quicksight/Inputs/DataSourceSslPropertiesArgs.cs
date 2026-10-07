@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSourceSslPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A Boolean option to control whether SSL should be disabled.
+        /// Whether to disable SSL.
         /// </summary>
         [Input("disableSsl", required: true)]
         public Input<bool> DisableSsl { get; set; } = null!;

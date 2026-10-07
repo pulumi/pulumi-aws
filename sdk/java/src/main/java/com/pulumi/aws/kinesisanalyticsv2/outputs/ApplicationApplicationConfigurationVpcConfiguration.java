@@ -14,36 +14,52 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationApplicationConfigurationVpcConfiguration {
     /**
-     * @return The Security Group IDs used by the VPC configuration.
+     * @return Security Group IDs used by the VPC configuration.
      * 
      */
     private List<String> securityGroupIds;
     /**
-     * @return The Subnet IDs used by the VPC configuration.
+     * @return Subnet IDs used by the VPC configuration.
      * 
      */
     private List<String> subnetIds;
+    /**
+     * @return Identifier of the VPC configuration.
+     * 
+     */
     private @Nullable String vpcConfigurationId;
+    /**
+     * @return Identifier of the VPC.
+     * 
+     */
     private @Nullable String vpcId;
 
     private ApplicationApplicationConfigurationVpcConfiguration() {}
     /**
-     * @return The Security Group IDs used by the VPC configuration.
+     * @return Security Group IDs used by the VPC configuration.
      * 
      */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
     /**
-     * @return The Subnet IDs used by the VPC configuration.
+     * @return Subnet IDs used by the VPC configuration.
      * 
      */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * @return Identifier of the VPC configuration.
+     * 
+     */
     public Optional<String> vpcConfigurationId() {
         return Optional.ofNullable(this.vpcConfigurationId);
     }
+    /**
+     * @return Identifier of the VPC.
+     * 
+     */
     public Optional<String> vpcId() {
         return Optional.ofNullable(this.vpcId);
     }

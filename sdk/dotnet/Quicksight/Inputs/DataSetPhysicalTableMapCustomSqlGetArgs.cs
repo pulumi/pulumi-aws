@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<Inputs.DataSetPhysicalTableMapCustomSqlColumnGetArgs>? _columns;
 
         /// <summary>
-        /// Column schema from the SQL query result set. See columns.
+        /// Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
         /// </summary>
         public InputList<Inputs.DataSetPhysicalTableMapCustomSqlColumnGetArgs> Columns
         {

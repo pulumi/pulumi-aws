@@ -13,24 +13,40 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration {
     /**
-     * @return Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+     * @return Whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
      * 
      */
     private @Nullable String assignPublicIp;
+    /**
+     * @return Security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+     * 
+     */
     private @Nullable List<String> securityGroups;
+    /**
+     * @return Subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+     * 
+     */
     private @Nullable List<String> subnets;
 
     private PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration() {}
     /**
-     * @return Specifies whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+     * @return Whether the task&#39;s elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
      * 
      */
     public Optional<String> assignPublicIp() {
         return Optional.ofNullable(this.assignPublicIp);
     }
+    /**
+     * @return Security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+     * 
+     */
     public List<String> securityGroups() {
         return this.securityGroups == null ? List.of() : this.securityGroups;
     }
+    /**
+     * @return Subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+     * 
+     */
     public List<String> subnets() {
         return this.subnets == null ? List.of() : this.subnets;
     }

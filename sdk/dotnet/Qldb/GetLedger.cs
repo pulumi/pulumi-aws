@@ -101,6 +101,10 @@ namespace Pulumi.Aws.Qldb
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -129,6 +133,10 @@ namespace Pulumi.Aws.Qldb
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -145,16 +153,31 @@ namespace Pulumi.Aws.Qldb
     [OutputType]
     public sealed class GetLedgerResult
     {
+        /// <summary>
+        /// ARN of the QLDB Ledger.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Deletion protection setting of the QLDB Ledger.
+        /// </summary>
         public readonly bool DeletionProtection;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// KMS key used for encryption of data at rest in the ledger.
+        /// </summary>
         public readonly string KmsKey;
         public readonly string Name;
+        /// <summary>
+        /// Permissions mode of the QLDB Ledger.
+        /// </summary>
         public readonly string PermissionsMode;
         public readonly string Region;
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

@@ -38,8 +38,16 @@ class CustomKeyStoreArgs:
         :param pulumi.Input[_builtins.str] custom_key_store_name: Unique name for Custom Key Store.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] custom_key_store_type: Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        :param pulumi.Input[_builtins.str] cloud_hsm_cluster_id: Cluster ID of CloudHSM. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        :param pulumi.Input[_builtins.str] custom_key_store_type: Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        :param pulumi.Input[_builtins.str] key_store_password: Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] trust_anchor_certificate: Certificate for an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        :param pulumi.Input['CustomKeyStoreXksProxyAuthenticationCredentialArgs'] xks_proxy_authentication_credential: Authentication credential for the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`. See `xks_proxy_authentication_credential` block below.
+        :param pulumi.Input[_builtins.str] xks_proxy_connectivity: How AWS KMS communicates with the external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        :param pulumi.Input[_builtins.str] xks_proxy_uri_endpoint: Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        :param pulumi.Input[_builtins.str] xks_proxy_uri_path: Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        :param pulumi.Input[_builtins.str] xks_proxy_vpc_endpoint_service_name: Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE` and required when `xks_proxy_connectivity` is `VPC_ENDPOINT_SERVICE`.
         """
         pulumi.set(__self__, "custom_key_store_name", custom_key_store_name)
         if cloud_hsm_cluster_id is not None:
@@ -80,6 +88,9 @@ class CustomKeyStoreArgs:
     @_builtins.property
     @pulumi.getter(name="cloudHsmClusterId")
     def cloud_hsm_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Cluster ID of CloudHSM. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        """
         return pulumi.get(self, "cloud_hsm_cluster_id")
 
     @cloud_hsm_cluster_id.setter
@@ -90,7 +101,7 @@ class CustomKeyStoreArgs:
     @pulumi.getter(name="customKeyStoreType")
     def custom_key_store_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
         """
         return pulumi.get(self, "custom_key_store_type")
 
@@ -101,6 +112,9 @@ class CustomKeyStoreArgs:
     @_builtins.property
     @pulumi.getter(name="keyStorePassword")
     def key_store_password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        """
         return pulumi.get(self, "key_store_password")
 
     @key_store_password.setter
@@ -122,6 +136,9 @@ class CustomKeyStoreArgs:
     @_builtins.property
     @pulumi.getter(name="trustAnchorCertificate")
     def trust_anchor_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Certificate for an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        """
         return pulumi.get(self, "trust_anchor_certificate")
 
     @trust_anchor_certificate.setter
@@ -131,6 +148,9 @@ class CustomKeyStoreArgs:
     @_builtins.property
     @pulumi.getter(name="xksProxyAuthenticationCredential")
     def xks_proxy_authentication_credential(self) -> pulumi.Input[Optional['CustomKeyStoreXksProxyAuthenticationCredentialArgs']]:
+        """
+        Authentication credential for the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`. See `xks_proxy_authentication_credential` block below.
+        """
         return pulumi.get(self, "xks_proxy_authentication_credential")
 
     @xks_proxy_authentication_credential.setter
@@ -140,6 +160,9 @@ class CustomKeyStoreArgs:
     @_builtins.property
     @pulumi.getter(name="xksProxyConnectivity")
     def xks_proxy_connectivity(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How AWS KMS communicates with the external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        """
         return pulumi.get(self, "xks_proxy_connectivity")
 
     @xks_proxy_connectivity.setter
@@ -149,6 +172,9 @@ class CustomKeyStoreArgs:
     @_builtins.property
     @pulumi.getter(name="xksProxyUriEndpoint")
     def xks_proxy_uri_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        """
         return pulumi.get(self, "xks_proxy_uri_endpoint")
 
     @xks_proxy_uri_endpoint.setter
@@ -158,6 +184,9 @@ class CustomKeyStoreArgs:
     @_builtins.property
     @pulumi.getter(name="xksProxyUriPath")
     def xks_proxy_uri_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        """
         return pulumi.get(self, "xks_proxy_uri_path")
 
     @xks_proxy_uri_path.setter
@@ -167,6 +196,9 @@ class CustomKeyStoreArgs:
     @_builtins.property
     @pulumi.getter(name="xksProxyVpcEndpointServiceName")
     def xks_proxy_vpc_endpoint_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE` and required when `xks_proxy_connectivity` is `VPC_ENDPOINT_SERVICE`.
+        """
         return pulumi.get(self, "xks_proxy_vpc_endpoint_service_name")
 
     @xks_proxy_vpc_endpoint_service_name.setter
@@ -191,11 +223,19 @@ class _CustomKeyStoreState:
         """
         Input properties used for looking up and filtering CustomKeyStore resources.
 
+        :param pulumi.Input[_builtins.str] cloud_hsm_cluster_id: Cluster ID of CloudHSM. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
         :param pulumi.Input[_builtins.str] custom_key_store_name: Unique name for Custom Key Store.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] custom_key_store_type: Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        :param pulumi.Input[_builtins.str] custom_key_store_type: Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        :param pulumi.Input[_builtins.str] key_store_password: Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] trust_anchor_certificate: Certificate for an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        :param pulumi.Input['CustomKeyStoreXksProxyAuthenticationCredentialArgs'] xks_proxy_authentication_credential: Authentication credential for the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`. See `xks_proxy_authentication_credential` block below.
+        :param pulumi.Input[_builtins.str] xks_proxy_connectivity: How AWS KMS communicates with the external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        :param pulumi.Input[_builtins.str] xks_proxy_uri_endpoint: Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        :param pulumi.Input[_builtins.str] xks_proxy_uri_path: Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        :param pulumi.Input[_builtins.str] xks_proxy_vpc_endpoint_service_name: Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE` and required when `xks_proxy_connectivity` is `VPC_ENDPOINT_SERVICE`.
         """
         if cloud_hsm_cluster_id is not None:
             pulumi.set(__self__, "cloud_hsm_cluster_id", cloud_hsm_cluster_id)
@@ -223,6 +263,9 @@ class _CustomKeyStoreState:
     @_builtins.property
     @pulumi.getter(name="cloudHsmClusterId")
     def cloud_hsm_cluster_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Cluster ID of CloudHSM. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        """
         return pulumi.get(self, "cloud_hsm_cluster_id")
 
     @cloud_hsm_cluster_id.setter
@@ -247,7 +290,7 @@ class _CustomKeyStoreState:
     @pulumi.getter(name="customKeyStoreType")
     def custom_key_store_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
         """
         return pulumi.get(self, "custom_key_store_type")
 
@@ -258,6 +301,9 @@ class _CustomKeyStoreState:
     @_builtins.property
     @pulumi.getter(name="keyStorePassword")
     def key_store_password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        """
         return pulumi.get(self, "key_store_password")
 
     @key_store_password.setter
@@ -279,6 +325,9 @@ class _CustomKeyStoreState:
     @_builtins.property
     @pulumi.getter(name="trustAnchorCertificate")
     def trust_anchor_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Certificate for an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        """
         return pulumi.get(self, "trust_anchor_certificate")
 
     @trust_anchor_certificate.setter
@@ -288,6 +337,9 @@ class _CustomKeyStoreState:
     @_builtins.property
     @pulumi.getter(name="xksProxyAuthenticationCredential")
     def xks_proxy_authentication_credential(self) -> pulumi.Input[Optional['CustomKeyStoreXksProxyAuthenticationCredentialArgs']]:
+        """
+        Authentication credential for the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`. See `xks_proxy_authentication_credential` block below.
+        """
         return pulumi.get(self, "xks_proxy_authentication_credential")
 
     @xks_proxy_authentication_credential.setter
@@ -297,6 +349,9 @@ class _CustomKeyStoreState:
     @_builtins.property
     @pulumi.getter(name="xksProxyConnectivity")
     def xks_proxy_connectivity(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How AWS KMS communicates with the external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        """
         return pulumi.get(self, "xks_proxy_connectivity")
 
     @xks_proxy_connectivity.setter
@@ -306,6 +361,9 @@ class _CustomKeyStoreState:
     @_builtins.property
     @pulumi.getter(name="xksProxyUriEndpoint")
     def xks_proxy_uri_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        """
         return pulumi.get(self, "xks_proxy_uri_endpoint")
 
     @xks_proxy_uri_endpoint.setter
@@ -315,6 +373,9 @@ class _CustomKeyStoreState:
     @_builtins.property
     @pulumi.getter(name="xksProxyUriPath")
     def xks_proxy_uri_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        """
         return pulumi.get(self, "xks_proxy_uri_path")
 
     @xks_proxy_uri_path.setter
@@ -324,6 +385,9 @@ class _CustomKeyStoreState:
     @_builtins.property
     @pulumi.getter(name="xksProxyVpcEndpointServiceName")
     def xks_proxy_vpc_endpoint_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE` and required when `xks_proxy_connectivity` is `VPC_ENDPOINT_SERVICE`.
+        """
         return pulumi.get(self, "xks_proxy_vpc_endpoint_service_name")
 
     @xks_proxy_vpc_endpoint_service_name.setter
@@ -416,11 +480,19 @@ class CustomKeyStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] cloud_hsm_cluster_id: Cluster ID of CloudHSM. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
         :param pulumi.Input[_builtins.str] custom_key_store_name: Unique name for Custom Key Store.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] custom_key_store_type: Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        :param pulumi.Input[_builtins.str] custom_key_store_type: Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        :param pulumi.Input[_builtins.str] key_store_password: Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] trust_anchor_certificate: Certificate for an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        :param pulumi.Input[Union['CustomKeyStoreXksProxyAuthenticationCredentialArgs', 'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict', 'outputs.CustomKeyStoreXksProxyAuthenticationCredential']] xks_proxy_authentication_credential: Authentication credential for the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`. See `xks_proxy_authentication_credential` block below.
+        :param pulumi.Input[_builtins.str] xks_proxy_connectivity: How AWS KMS communicates with the external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        :param pulumi.Input[_builtins.str] xks_proxy_uri_endpoint: Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        :param pulumi.Input[_builtins.str] xks_proxy_uri_path: Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        :param pulumi.Input[_builtins.str] xks_proxy_vpc_endpoint_service_name: Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE` and required when `xks_proxy_connectivity` is `VPC_ENDPOINT_SERVICE`.
         """
         ...
     @overload
@@ -569,11 +641,19 @@ class CustomKeyStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] cloud_hsm_cluster_id: Cluster ID of CloudHSM. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
         :param pulumi.Input[_builtins.str] custom_key_store_name: Unique name for Custom Key Store.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] custom_key_store_type: Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        :param pulumi.Input[_builtins.str] custom_key_store_type: Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        :param pulumi.Input[_builtins.str] key_store_password: Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] trust_anchor_certificate: Certificate for an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        :param pulumi.Input[Union['CustomKeyStoreXksProxyAuthenticationCredentialArgs', 'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict', 'outputs.CustomKeyStoreXksProxyAuthenticationCredential']] xks_proxy_authentication_credential: Authentication credential for the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`. See `xks_proxy_authentication_credential` block below.
+        :param pulumi.Input[_builtins.str] xks_proxy_connectivity: How AWS KMS communicates with the external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        :param pulumi.Input[_builtins.str] xks_proxy_uri_endpoint: Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        :param pulumi.Input[_builtins.str] xks_proxy_uri_path: Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        :param pulumi.Input[_builtins.str] xks_proxy_vpc_endpoint_service_name: Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE` and required when `xks_proxy_connectivity` is `VPC_ENDPOINT_SERVICE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -595,6 +675,9 @@ class CustomKeyStore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="cloudHsmClusterId")
     def cloud_hsm_cluster_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Cluster ID of CloudHSM. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        """
         return pulumi.get(self, "cloud_hsm_cluster_id")
 
     @_builtins.property
@@ -611,13 +694,16 @@ class CustomKeyStore(pulumi.CustomResource):
     @pulumi.getter(name="customKeyStoreType")
     def custom_key_store_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        Type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
         """
         return pulumi.get(self, "custom_key_store_type")
 
     @_builtins.property
     @pulumi.getter(name="keyStorePassword")
     def key_store_password(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Password for the `kmsuser` of an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        """
         return pulumi.get(self, "key_store_password")
 
     @_builtins.property
@@ -631,30 +717,48 @@ class CustomKeyStore(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="trustAnchorCertificate")
     def trust_anchor_certificate(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Certificate for an AWS CloudHSM key store. Applies when `custom_key_store_type` is `AWS_CLOUDHSM`.
+        """
         return pulumi.get(self, "trust_anchor_certificate")
 
     @_builtins.property
     @pulumi.getter(name="xksProxyAuthenticationCredential")
     def xks_proxy_authentication_credential(self) -> pulumi.Output[Optional['outputs.CustomKeyStoreXksProxyAuthenticationCredential']]:
+        """
+        Authentication credential for the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`. See `xks_proxy_authentication_credential` block below.
+        """
         return pulumi.get(self, "xks_proxy_authentication_credential")
 
     @_builtins.property
     @pulumi.getter(name="xksProxyConnectivity")
     def xks_proxy_connectivity(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        How AWS KMS communicates with the external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        """
         return pulumi.get(self, "xks_proxy_connectivity")
 
     @_builtins.property
     @pulumi.getter(name="xksProxyUriEndpoint")
     def xks_proxy_uri_endpoint(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Endpoint that AWS KMS uses to send requests to the external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        """
         return pulumi.get(self, "xks_proxy_uri_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="xksProxyUriPath")
     def xks_proxy_uri_path(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Base path to the proxy APIs for this external key store. To find this value, see the documentation for your external key store proxy. Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE`.
+        """
         return pulumi.get(self, "xks_proxy_uri_path")
 
     @_builtins.property
     @pulumi.getter(name="xksProxyVpcEndpointServiceName")
     def xks_proxy_vpc_endpoint_service_name(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Name of the Amazon VPC endpoint service for interface endpoints that is used to communicate with your external key store proxy (XKS proxy). Applies when `custom_key_store_type` is `EXTERNAL_KEY_STORE` and required when `xks_proxy_connectivity` is `VPC_ENDPOINT_SERVICE`.
+        """
         return pulumi.get(self, "xks_proxy_vpc_endpoint_service_name")
 

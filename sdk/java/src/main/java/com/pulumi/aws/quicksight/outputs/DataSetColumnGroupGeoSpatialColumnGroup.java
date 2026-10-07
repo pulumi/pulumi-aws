@@ -22,7 +22,7 @@ public final class DataSetColumnGroupGeoSpatialColumnGroup {
      */
     private String countryCode;
     /**
-     * @return A display name for the hierarchy.
+     * @return Display name for the hierarchy.
      * 
      */
     private String name;
@@ -43,7 +43,7 @@ public final class DataSetColumnGroupGeoSpatialColumnGroup {
         return this.countryCode;
     }
     /**
-     * @return A display name for the hierarchy.
+     * @return Display name for the hierarchy.
      * 
      */
     public String name() {

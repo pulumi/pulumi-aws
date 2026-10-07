@@ -18,14 +18,14 @@ public final class RefreshScheduleScheduleArgs extends com.pulumi.resources.Reso
     public static final RefreshScheduleScheduleArgs Empty = new RefreshScheduleScheduleArgs();
 
     /**
-     * The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+     * Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
      * 
      */
     @Import(name="refreshType", required=true)
     private Output<String> refreshType;
 
     /**
-     * @return The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+     * @return Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
      * 
      */
     public Output<String> refreshType() {
@@ -33,14 +33,14 @@ public final class RefreshScheduleScheduleArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+     * Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `scheduleFrequency` Block.
      * 
      */
     @Import(name="scheduleFrequency", required=true)
     private Output<RefreshScheduleScheduleScheduleFrequencyArgs> scheduleFrequency;
 
     /**
-     * @return The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+     * @return Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `scheduleFrequency` Block.
      * 
      */
     public Output<RefreshScheduleScheduleScheduleFrequencyArgs> scheduleFrequency() {
@@ -89,7 +89,7 @@ public final class RefreshScheduleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param refreshType The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+         * @param refreshType Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class RefreshScheduleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param refreshType The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+         * @param refreshType Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class RefreshScheduleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scheduleFrequency The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+         * @param scheduleFrequency Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `scheduleFrequency` Block.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class RefreshScheduleScheduleArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param scheduleFrequency The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+         * @param scheduleFrequency Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `scheduleFrequency` Block.
          * 
          * @return builder
          * 

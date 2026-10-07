@@ -18,14 +18,14 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     public static final ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs Empty = new ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs();
 
     /**
-     * Describes an application&#39;s checkpointing configuration.
+     * Application&#39;s checkpointing configuration. See `checkpointConfiguration` Block below.
      * 
      */
     @Import(name="checkpointConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs> checkpointConfiguration;
 
     /**
-     * @return Describes an application&#39;s checkpointing configuration.
+     * @return Application&#39;s checkpointing configuration. See `checkpointConfiguration` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs>> checkpointConfiguration() {
@@ -33,14 +33,14 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     }
 
     /**
-     * Describes configuration parameters for CloudWatch logging for an application.
+     * Configuration parameters for CloudWatch logging for an application. See `monitoringConfiguration` Block below.
      * 
      */
     @Import(name="monitoringConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs> monitoringConfiguration;
 
     /**
-     * @return Describes configuration parameters for CloudWatch logging for an application.
+     * @return Configuration parameters for CloudWatch logging for an application. See `monitoringConfiguration` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs>> monitoringConfiguration() {
@@ -48,14 +48,14 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
     }
 
     /**
-     * Describes parameters for how an application executes multiple tasks simultaneously.
+     * Parameters for how an application executes multiple tasks simultaneously. See `parallelismConfiguration` Block below.
      * 
      */
     @Import(name="parallelismConfiguration")
     private @Nullable Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs> parallelismConfiguration;
 
     /**
-     * @return Describes parameters for how an application executes multiple tasks simultaneously.
+     * @return Parameters for how an application executes multiple tasks simultaneously. See `parallelismConfiguration` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs>> parallelismConfiguration() {
@@ -89,7 +89,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param checkpointConfiguration Describes an application&#39;s checkpointing configuration.
+         * @param checkpointConfiguration Application&#39;s checkpointing configuration. See `checkpointConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param checkpointConfiguration Describes an application&#39;s checkpointing configuration.
+         * @param checkpointConfiguration Application&#39;s checkpointing configuration. See `checkpointConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param monitoringConfiguration Describes configuration parameters for CloudWatch logging for an application.
+         * @param monitoringConfiguration Configuration parameters for CloudWatch logging for an application. See `monitoringConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param monitoringConfiguration Describes configuration parameters for CloudWatch logging for an application.
+         * @param monitoringConfiguration Configuration parameters for CloudWatch logging for an application. See `monitoringConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param parallelismConfiguration Describes parameters for how an application executes multiple tasks simultaneously.
+         * @param parallelismConfiguration Parameters for how an application executes multiple tasks simultaneously. See `parallelismConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ApplicationApplicationConfigurationFlinkApplicationConfigurat
         }
 
         /**
-         * @param parallelismConfiguration Describes parameters for how an application executes multiple tasks simultaneously.
+         * @param parallelismConfiguration Parameters for how an application executes multiple tasks simultaneously. See `parallelismConfiguration` Block below.
          * 
          * @return builder
          * 

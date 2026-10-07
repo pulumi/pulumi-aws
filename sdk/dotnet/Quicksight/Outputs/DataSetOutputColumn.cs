@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSetOutputColumn
     {
         /// <summary>
-        /// The description of the column.
+        /// Description of the column.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The data type of the column.
+        /// Data type of the column.
         /// </summary>
         public readonly string? Type;
 

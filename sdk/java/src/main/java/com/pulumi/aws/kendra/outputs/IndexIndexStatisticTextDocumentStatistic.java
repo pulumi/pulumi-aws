@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IndexIndexStatisticTextDocumentStatistic {
     /**
-     * @return The total size, in bytes, of the indexed documents.
+     * @return Total size, in bytes, of the indexed documents.
      * 
      */
     private @Nullable Integer indexedTextBytes;
     /**
-     * @return The number of text documents indexed.
+     * @return Number of text documents indexed.
      * 
      */
     private @Nullable Integer indexedTextDocumentsCount;
 
     private IndexIndexStatisticTextDocumentStatistic() {}
     /**
-     * @return The total size, in bytes, of the indexed documents.
+     * @return Total size, in bytes, of the indexed documents.
      * 
      */
     public Optional<Integer> indexedTextBytes() {
         return Optional.ofNullable(this.indexedTextBytes);
     }
     /**
-     * @return The number of text documents indexed.
+     * @return Number of text documents indexed.
      * 
      */
     public Optional<Integer> indexedTextDocumentsCount() {

@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceParametersAthena {
     /**
-     * @return Use the `roleArn` to override an account-wide role for a specific athena data source.
+     * @return Use the `roleArn` to override an account-wide role for a specific Athena data source.
      * 
      */
     private @Nullable String roleArn;
     /**
-     * @return The work-group to which to connect.
+     * @return Work-group to which to connect.
      * 
      */
     private @Nullable String workGroup;
 
     private DataSourceParametersAthena() {}
     /**
-     * @return Use the `roleArn` to override an account-wide role for a specific athena data source.
+     * @return Use the `roleArn` to override an account-wide role for a specific Athena data source.
      * 
      */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
     /**
-     * @return The work-group to which to connect.
+     * @return Work-group to which to connect.
      * 
      */
     public Optional<String> workGroup() {

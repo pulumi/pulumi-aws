@@ -20,14 +20,14 @@ public final class ScheduledQueryRecentlyFailedRunArgs extends com.pulumi.resour
     public static final ScheduledQueryRecentlyFailedRunArgs Empty = new ScheduledQueryRecentlyFailedRunArgs();
 
     /**
-     * S3 location for error report.
+     * S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
      * 
      */
     @Import(name="errorReportLocations")
     private @Nullable Output<List<ScheduledQueryRecentlyFailedRunErrorReportLocationArgs>> errorReportLocations;
 
     /**
-     * @return S3 location for error report.
+     * @return S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
      * 
      */
     public Optional<Output<List<ScheduledQueryRecentlyFailedRunErrorReportLocationArgs>>> errorReportLocations() {
@@ -35,14 +35,14 @@ public final class ScheduledQueryRecentlyFailedRunArgs extends com.pulumi.resour
     }
 
     /**
-     * Statistics for a single scheduled query run.
+     * Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
      * 
      */
     @Import(name="executionStats")
     private @Nullable Output<List<ScheduledQueryRecentlyFailedRunExecutionStatArgs>> executionStats;
 
     /**
-     * @return Statistics for a single scheduled query run.
+     * @return Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
      * 
      */
     public Optional<Output<List<ScheduledQueryRecentlyFailedRunExecutionStatArgs>>> executionStats() {
@@ -80,14 +80,14 @@ public final class ScheduledQueryRecentlyFailedRunArgs extends com.pulumi.resour
     }
 
     /**
-     * Various insights and metrics related to the run summary of the scheduled query.
+     * Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
      * 
      */
     @Import(name="queryInsightsResponses")
     private @Nullable Output<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs>> queryInsightsResponses;
 
     /**
-     * @return Various insights and metrics related to the run summary of the scheduled query.
+     * @return Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
      * 
      */
     public Optional<Output<List<ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs>>> queryInsightsResponses() {
@@ -155,7 +155,7 @@ public final class ScheduledQueryRecentlyFailedRunArgs extends com.pulumi.resour
         }
 
         /**
-         * @param errorReportLocations S3 location for error report.
+         * @param errorReportLocations S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ScheduledQueryRecentlyFailedRunArgs extends com.pulumi.resour
         }
 
         /**
-         * @param errorReportLocations S3 location for error report.
+         * @param errorReportLocations S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ScheduledQueryRecentlyFailedRunArgs extends com.pulumi.resour
         }
 
         /**
-         * @param errorReportLocations S3 location for error report.
+         * @param errorReportLocations S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ScheduledQueryRecentlyFailedRunArgs extends com.pulumi.resour
         }
 
         /**
-         * @param executionStats Statistics for a single scheduled query run.
+         * @param executionStats Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class ScheduledQueryRecentlyFailedRunArgs extends com.pulumi.resour
         }
 
         /**
-         * @param executionStats Statistics for a single scheduled query run.
+         * @param executionStats Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ScheduledQueryRecentlyFailedRunArgs extends com.pulumi.resour
         }
 
         /**
-         * @param executionStats Statistics for a single scheduled query run.
+         * @param executionStats Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ScheduledQueryRecentlyFailedRunArgs extends com.pulumi.resour
         }
 
         /**
-         * @param queryInsightsResponses Various insights and metrics related to the run summary of the scheduled query.
+         * @param queryInsightsResponses Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class ScheduledQueryRecentlyFailedRunArgs extends com.pulumi.resour
         }
 
         /**
-         * @param queryInsightsResponses Various insights and metrics related to the run summary of the scheduled query.
+         * @param queryInsightsResponses Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class ScheduledQueryRecentlyFailedRunArgs extends com.pulumi.resour
         }
 
         /**
-         * @param queryInsightsResponses Various insights and metrics related to the run summary of the scheduled query.
+         * @param queryInsightsResponses Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
          * 
          * @return builder
          * 

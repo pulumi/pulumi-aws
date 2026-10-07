@@ -13,35 +13,40 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Outputs
     [OutputType]
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationInput
     {
+        /// <summary>
+        /// In-application stream names.
+        /// </summary>
         public readonly ImmutableArray<string> InAppStreamNames;
+        /// <summary>
+        /// Identifier of the input configuration.
+        /// </summary>
         public readonly string? InputId;
         /// <summary>
-        /// Describes the number of in-application streams to create.
+        /// Number of in-application streams to create. See `InputParallelism` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism? InputParallelism;
         /// <summary>
-        /// The input processing configuration for the input.
-        /// An input processor transforms records as they are received from the stream, before the application's SQL code executes.
+        /// Input processing configuration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. See `InputProcessingConfiguration` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration? InputProcessingConfiguration;
         /// <summary>
-        /// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+        /// Format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. See `InputSchema` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema InputSchema;
         /// <summary>
-        /// The point at which the application starts processing records from the streaming source.
+        /// Point at which the application starts processing records from the streaming source. See `InputStartingPositionConfiguration` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration> InputStartingPositionConfigurations;
         /// <summary>
-        /// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+        /// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN. See `KinesisFirehoseInput` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput? KinesisFirehoseInput;
         /// <summary>
-        /// If the streaming source is a Kinesis data stream, identifies the stream's ARN.
+        /// If the streaming source is a Kinesis data stream, identifies the stream's ARN. See `KinesisStreamsInput` Block below.
         /// </summary>
         public readonly Outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput? KinesisStreamsInput;
         /// <summary>
-        /// The name prefix to use when creating an in-application stream.
+        /// Name prefix to use when creating an in-application stream.
         /// </summary>
         public readonly string NamePrefix;
 

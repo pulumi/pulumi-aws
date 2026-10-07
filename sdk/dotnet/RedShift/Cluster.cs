@@ -225,7 +225,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        /// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
         /// </summary>
         [Output("iamRoles")]
         public Output<ImmutableArray<string>> IamRoles { get; private set; } = null!;
@@ -550,7 +550,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _iamRoles;
 
         /// <summary>
-        /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        /// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
         /// </summary>
         public InputList<string> IamRoles
         {
@@ -903,7 +903,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _iamRoles;
 
         /// <summary>
-        /// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        /// A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
         /// </summary>
         public InputList<string> IamRoles
         {

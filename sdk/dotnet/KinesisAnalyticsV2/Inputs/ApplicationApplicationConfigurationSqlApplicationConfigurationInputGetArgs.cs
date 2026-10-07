@@ -14,30 +14,36 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
     {
         [Input("inAppStreamNames")]
         private InputList<string>? _inAppStreamNames;
+
+        /// <summary>
+        /// In-application stream names.
+        /// </summary>
         public InputList<string> InAppStreamNames
         {
             get => _inAppStreamNames ?? (_inAppStreamNames = new InputList<string>());
             set => _inAppStreamNames = value;
         }
 
+        /// <summary>
+        /// Identifier of the input configuration.
+        /// </summary>
         [Input("inputId")]
         public Input<string>? InputId { get; set; }
 
         /// <summary>
-        /// Describes the number of in-application streams to create.
+        /// Number of in-application streams to create. See `InputParallelism` Block below.
         /// </summary>
         [Input("inputParallelism")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismGetArgs>? InputParallelism { get; set; }
 
         /// <summary>
-        /// The input processing configuration for the input.
-        /// An input processor transforms records as they are received from the stream, before the application's SQL code executes.
+        /// Input processing configuration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. See `InputProcessingConfiguration` Block below.
         /// </summary>
         [Input("inputProcessingConfiguration")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationGetArgs>? InputProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+        /// Format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. See `InputSchema` Block below.
         /// </summary>
         [Input("inputSchema", required: true)]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaGetArgs> InputSchema { get; set; } = null!;
@@ -46,7 +52,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         private InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationGetArgs>? _inputStartingPositionConfigurations;
 
         /// <summary>
-        /// The point at which the application starts processing records from the streaming source.
+        /// Point at which the application starts processing records from the streaming source. See `InputStartingPositionConfiguration` Block below.
         /// </summary>
         public InputList<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationGetArgs> InputStartingPositionConfigurations
         {
@@ -55,19 +61,19 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
         }
 
         /// <summary>
-        /// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+        /// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN. See `KinesisFirehoseInput` Block below.
         /// </summary>
         [Input("kinesisFirehoseInput")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputGetArgs>? KinesisFirehoseInput { get; set; }
 
         /// <summary>
-        /// If the streaming source is a Kinesis data stream, identifies the stream's ARN.
+        /// If the streaming source is a Kinesis data stream, identifies the stream's ARN. See `KinesisStreamsInput` Block below.
         /// </summary>
         [Input("kinesisStreamsInput")]
         public Input<Inputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputGetArgs>? KinesisStreamsInput { get; set; }
 
         /// <summary>
-        /// The name prefix to use when creating an in-application stream.
+        /// Name prefix to use when creating an in-application stream.
         /// </summary>
         [Input("namePrefix", required: true)]
         public Input<string> NamePrefix { get; set; } = null!;

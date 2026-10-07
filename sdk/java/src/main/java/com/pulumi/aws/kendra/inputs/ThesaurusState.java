@@ -32,22 +32,30 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Description for a thesaurus.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description for a thesaurus.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
     /**
-     * The identifier of the index for a thesaurus.
+     * Identifier of the index for a thesaurus.
      * 
      */
     @Import(name="indexId")
     private @Nullable Output<String> indexId;
 
     /**
-     * @return The identifier of the index for a thesaurus.
+     * @return Identifier of the index for a thesaurus.
      * 
      */
     public Optional<Output<String>> indexId() {
@@ -55,14 +63,14 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name for the thesaurus.
+     * Name for the thesaurus.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name for the thesaurus.
+     * @return Name for the thesaurus.
      * 
      */
     public Optional<Output<String>> name() {
@@ -70,14 +78,14 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -85,14 +93,14 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+     * IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+     * @return IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -100,14 +108,18 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The S3 path where your thesaurus file sits in S3. Detailed below.
+     * S3 path where your thesaurus file sits in S3. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="sourceS3Path")
     private @Nullable Output<ThesaurusSourceS3PathArgs> sourceS3Path;
 
     /**
-     * @return The S3 path where your thesaurus file sits in S3. Detailed below.
+     * @return S3 path where your thesaurus file sits in S3. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<ThesaurusSourceS3PathArgs>> sourceS3Path() {
@@ -115,45 +127,61 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The current status of the thesaurus.
+     * Current status of the thesaurus.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current status of the thesaurus.
+     * @return Current status of the thesaurus.
      * 
      */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Unique identifier of the thesaurus.
+     * 
+     */
     @Import(name="thesaurusId")
     private @Nullable Output<String> thesaurusId;
 
+    /**
+     * @return Unique identifier of the thesaurus.
+     * 
+     */
     public Optional<Output<String>> thesaurusId() {
         return Optional.ofNullable(this.thesaurusId);
     }
@@ -213,17 +241,29 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param description Description for a thesaurus.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description for a thesaurus.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
         /**
-         * @param indexId The identifier of the index for a thesaurus.
+         * @param indexId Identifier of the index for a thesaurus.
          * 
          * @return builder
          * 
@@ -234,7 +274,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexId The identifier of the index for a thesaurus.
+         * @param indexId Identifier of the index for a thesaurus.
          * 
          * @return builder
          * 
@@ -244,7 +284,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for the thesaurus.
+         * @param name Name for the thesaurus.
          * 
          * @return builder
          * 
@@ -255,7 +295,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name for the thesaurus.
+         * @param name Name for the thesaurus.
          * 
          * @return builder
          * 
@@ -265,7 +305,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -276,7 +316,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -286,7 +326,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+         * @param roleArn IAM (Identity and Access Management) role used to access the thesaurus file in S3.
          * 
          * @return builder
          * 
@@ -297,7 +337,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
+         * @param roleArn IAM (Identity and Access Management) role used to access the thesaurus file in S3.
          * 
          * @return builder
          * 
@@ -307,7 +347,9 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceS3Path The S3 path where your thesaurus file sits in S3. Detailed below.
+         * @param sourceS3Path S3 path where your thesaurus file sits in S3. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -318,7 +360,9 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceS3Path The S3 path where your thesaurus file sits in S3. Detailed below.
+         * @param sourceS3Path S3 path where your thesaurus file sits in S3. Detailed below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -328,7 +372,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current status of the thesaurus.
+         * @param status Current status of the thesaurus.
          * 
          * @return builder
          * 
@@ -339,7 +383,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status The current status of the thesaurus.
+         * @param status Current status of the thesaurus.
          * 
          * @return builder
          * 
@@ -348,17 +392,29 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
             return status(Output.of(status));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -369,7 +425,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -378,11 +434,23 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
             return tagsAll(Output.of(tagsAll));
         }
 
+        /**
+         * @param thesaurusId Unique identifier of the thesaurus.
+         * 
+         * @return builder
+         * 
+         */
         public Builder thesaurusId(@Nullable Output<String> thesaurusId) {
             $.thesaurusId = thesaurusId;
             return this;
         }
 
+        /**
+         * @param thesaurusId Unique identifier of the thesaurus.
+         * 
+         * @return builder
+         * 
+         */
         public Builder thesaurusId(String thesaurusId) {
             return thesaurusId(Output.of(thesaurusId));
         }

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         private InputList<Inputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisGetArgs>? _maxes;
 
         /// <summary>
-        /// Insights into the most sub-optimal performing table on the temporal axis:
+        /// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
         /// </summary>
         public InputList<Inputs.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisGetArgs> Maxes
         {

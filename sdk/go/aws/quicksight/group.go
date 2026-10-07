@@ -54,11 +54,11 @@ type Group struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// A description for the group.
+	// Description for the group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A name for the group.
+	// Name for the group.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// The namespace. Currently, you should set this to `default`.
+	// Namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -101,11 +101,11 @@ type groupState struct {
 	Arn *string `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// A description for the group.
+	// Description for the group.
 	Description *string `pulumi:"description"`
-	// A name for the group.
+	// Name for the group.
 	GroupName *string `pulumi:"groupName"`
-	// The namespace. Currently, you should set this to `default`.
+	// Namespace. Currently, you should set this to `default`.
 	Namespace *string `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -116,11 +116,11 @@ type GroupState struct {
 	Arn pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// A description for the group.
+	// Description for the group.
 	Description pulumi.StringPtrInput
-	// A name for the group.
+	// Name for the group.
 	GroupName pulumi.StringPtrInput
-	// The namespace. Currently, you should set this to `default`.
+	// Namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -133,11 +133,11 @@ func (GroupState) ElementType() reflect.Type {
 type groupArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// A description for the group.
+	// Description for the group.
 	Description *string `pulumi:"description"`
-	// A name for the group.
+	// Name for the group.
 	GroupName string `pulumi:"groupName"`
-	// The namespace. Currently, you should set this to `default`.
+	// Namespace. Currently, you should set this to `default`.
 	Namespace *string `pulumi:"namespace"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -147,11 +147,11 @@ type groupArgs struct {
 type GroupArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// A description for the group.
+	// Description for the group.
 	Description pulumi.StringPtrInput
-	// A name for the group.
+	// Name for the group.
 	GroupName pulumi.StringInput
-	// The namespace. Currently, you should set this to `default`.
+	// Namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -254,17 +254,17 @@ func (o GroupOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// A description for the group.
+// Description for the group.
 func (o GroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A name for the group.
+// Name for the group.
 func (o GroupOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
-// The namespace. Currently, you should set this to `default`.
+// Namespace. Currently, you should set this to `default`.
 func (o GroupOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
 }

@@ -15,9 +15,17 @@ public final class GetDatabasePlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetDatabasePlainArgs Empty = new GetDatabasePlainArgs();
 
+    /**
+     * Name of the Timestream database. Minimum length of 3. Maximum length of 256.
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the Timestream database. Minimum length of 3. Maximum length of 256.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -62,6 +70,12 @@ public final class GetDatabasePlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetDatabasePlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the Timestream database. Minimum length of 3. Maximum length of 256.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;

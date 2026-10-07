@@ -26,7 +26,7 @@ type GetVoicesVoice struct {
 	LanguageName string `pulumi:"languageName"`
 	// Name of the voice.
 	Name string `pulumi:"name"`
-	// Specifies which engines are supported by a given voice.
+	// Engines supported by a given voice.
 	SupportedEngines []string `pulumi:"supportedEngines"`
 }
 
@@ -54,7 +54,7 @@ type GetVoicesVoiceArgs struct {
 	LanguageName pulumi.StringInput `pulumi:"languageName"`
 	// Name of the voice.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies which engines are supported by a given voice.
+	// Engines supported by a given voice.
 	SupportedEngines pulumi.StringArrayInput `pulumi:"supportedEngines"`
 }
 
@@ -139,7 +139,7 @@ func (o GetVoicesVoiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVoicesVoice) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies which engines are supported by a given voice.
+// Engines supported by a given voice.
 func (o GetVoicesVoiceOutput) SupportedEngines() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetVoicesVoice) []string { return v.SupportedEngines }).(pulumi.StringArrayOutput)
 }

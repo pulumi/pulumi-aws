@@ -65,70 +65,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:qldb/stream:Stream")
 public class Stream extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the QLDB Stream.
+     * ARN of the QLDB Stream.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the QLDB Stream.
+     * @return ARN of the QLDB Stream.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
+     * Exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
      * 
      */
     @Export(name="exclusiveEndTime", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> exclusiveEndTime;
 
     /**
-     * @return The exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
+     * @return Exclusive date and time that specifies when the stream ends. If you don&#39;t define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.
      * 
      */
     public Output<Optional<String>> exclusiveEndTime() {
         return Codegen.optional(this.exclusiveEndTime);
     }
     /**
-     * The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
+     * Inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
      * 
      */
     @Export(name="inclusiveStartTime", refs={String.class}, tree="[0]")
     private Output<String> inclusiveStartTime;
 
     /**
-     * @return The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
+     * @return Inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `&#34;2019-06-13T21:36:34Z&#34;`.  This cannot be in the future and must be before `exclusiveEndTime`.  If you provide a value that is before the ledger&#39;s `CreationDateTime`, QLDB effectively defaults it to the ledger&#39;s `CreationDateTime`.
      * 
      */
     public Output<String> inclusiveStartTime() {
         return this.inclusiveStartTime;
     }
     /**
-     * The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+     * Configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      * 
      */
     @Export(name="kinesisConfiguration", refs={StreamKinesisConfiguration.class}, tree="[0]")
     private Output<StreamKinesisConfiguration> kinesisConfiguration;
 
     /**
-     * @return The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+     * @return Configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
      * 
      */
     public Output<StreamKinesisConfiguration> kinesisConfiguration() {
         return this.kinesisConfiguration;
     }
     /**
-     * The name of the QLDB ledger.
+     * Name of the QLDB ledger.
      * 
      */
     @Export(name="ledgerName", refs={String.class}, tree="[0]")
     private Output<String> ledgerName;
 
     /**
-     * @return The name of the QLDB ledger.
+     * @return Name of the QLDB ledger.
      * 
      */
     public Output<String> ledgerName() {
@@ -163,14 +163,14 @@ public class Stream extends com.pulumi.resources.CustomResource {
         return this.roleArn;
     }
     /**
-     * The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+     * Name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
      * 
      */
     @Export(name="streamName", refs={String.class}, tree="[0]")
     private Output<String> streamName;
 
     /**
-     * @return The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
+     * @return Name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
      * 
      */
     public Output<String> streamName() {
@@ -191,14 +191,14 @@ public class Stream extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class CustomKeyStoreXksProxyAuthenticationCredential {
     /**
-     * @return A unique identifier for the raw secret access key.
+     * @return Unique identifier for the raw secret access key.
      * 
      */
     private String accessKeyId;
     /**
-     * @return A secret string of 43-64 characters.
+     * @return Secret string of 43-64 characters.
      * 
      */
     private String rawSecretAccessKey;
 
     private CustomKeyStoreXksProxyAuthenticationCredential() {}
     /**
-     * @return A unique identifier for the raw secret access key.
+     * @return Unique identifier for the raw secret access key.
      * 
      */
     public String accessKeyId() {
         return this.accessKeyId;
     }
     /**
-     * @return A secret string of 43-64 characters.
+     * @return Secret string of 43-64 characters.
      * 
      */
     public String rawSecretAccessKey() {

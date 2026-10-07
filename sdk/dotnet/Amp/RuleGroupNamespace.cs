@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Amp
     public partial class RuleGroupNamespace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the rule group namespace.
+        /// ARN of the rule group namespace.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Amp
         public Output<string> Data { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the rule group namespace.
+        /// Name of the rule group namespace.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Amp
         public Input<string> Data { get; set; } = null!;
 
         /// <summary>
-        /// The name of the rule group namespace.
+        /// Name of the rule group namespace.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Amp
     public sealed class RuleGroupNamespaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the rule group namespace.
+        /// ARN of the rule group namespace.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? Data { get; set; }
 
         /// <summary>
-        /// The name of the rule group namespace.
+        /// Name of the rule group namespace.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

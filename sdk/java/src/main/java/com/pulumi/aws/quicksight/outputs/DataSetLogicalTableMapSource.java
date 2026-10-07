@@ -18,7 +18,7 @@ public final class DataSetLogicalTableMapSource {
      */
     private @Nullable String dataSetArn;
     /**
-     * @return Specifies the result of a join of two logical tables. See join_instruction.
+     * @return Result of a join of two logical tables. See `joinInstruction` Block below.
      * 
      */
     private @Nullable DataSetLogicalTableMapSourceJoinInstruction joinInstruction;
@@ -37,7 +37,7 @@ public final class DataSetLogicalTableMapSource {
         return Optional.ofNullable(this.dataSetArn);
     }
     /**
-     * @return Specifies the result of a join of two logical tables. See join_instruction.
+     * @return Result of a join of two logical tables. See `joinInstruction` Block below.
      * 
      */
     public Optional<DataSetLogicalTableMapSourceJoinInstruction> joinInstruction() {

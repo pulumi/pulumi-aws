@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeTargetParametersSagemakerPipelineParameters {
     /**
-     * @return List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
+     * @return List of Parameter names and values for SageMaker AI Model Building Pipeline execution. See `pipelineParameter` Block for details.
      * 
      */
     private @Nullable List<PipeTargetParametersSagemakerPipelineParametersPipelineParameter> pipelineParameters;
 
     private PipeTargetParametersSagemakerPipelineParameters() {}
     /**
-     * @return List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
+     * @return List of Parameter names and values for SageMaker AI Model Building Pipeline execution. See `pipelineParameter` Block for details.
      * 
      */
     public List<PipeTargetParametersSagemakerPipelineParametersPipelineParameter> pipelineParameters() {

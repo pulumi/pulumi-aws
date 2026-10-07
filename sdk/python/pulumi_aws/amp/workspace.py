@@ -29,11 +29,11 @@ class WorkspaceArgs:
         """
         The set of arguments for constructing a Workspace resource.
 
-        :param pulumi.Input[_builtins.str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-        :param pulumi.Input['WorkspaceLoggingConfigurationArgs'] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
+        :param pulumi.Input[_builtins.str] alias: Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        :param pulumi.Input['WorkspaceLoggingConfigurationArgs'] logging_configuration: Logging configuration for the workspace. See `logging_configuration` Block below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -50,7 +50,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         """
         return pulumi.get(self, "alias")
 
@@ -62,7 +62,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -74,7 +74,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Input[Optional['WorkspaceLoggingConfigurationArgs']]:
         """
-        Logging configuration for the workspace. See Logging Configuration below for details.
+        Logging configuration for the workspace. See `logging_configuration` Block below for details.
         """
         return pulumi.get(self, "logging_configuration")
 
@@ -98,7 +98,7 @@ class WorkspaceArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -121,14 +121,14 @@ class _WorkspaceState:
         """
         Input properties used for looking up and filtering Workspace resources.
 
-        :param pulumi.Input[_builtins.str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        :param pulumi.Input[_builtins.str] alias: Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         :param pulumi.Input[_builtins.str] arn: ARN of the workspace.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-        :param pulumi.Input['WorkspaceLoggingConfigurationArgs'] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        :param pulumi.Input['WorkspaceLoggingConfigurationArgs'] logging_configuration: Logging configuration for the workspace. See `logging_configuration` Block below for details.
         :param pulumi.Input[_builtins.str] prometheus_endpoint: Prometheus endpoint available for this workspace.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if alias is not None:
             pulumi.set(__self__, "alias", alias)
@@ -151,7 +151,7 @@ class _WorkspaceState:
     @pulumi.getter
     def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         """
         return pulumi.get(self, "alias")
 
@@ -175,7 +175,7 @@ class _WorkspaceState:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -187,7 +187,7 @@ class _WorkspaceState:
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Input[Optional['WorkspaceLoggingConfigurationArgs']]:
         """
-        Logging configuration for the workspace. See Logging Configuration below for details.
+        Logging configuration for the workspace. See `logging_configuration` Block below for details.
         """
         return pulumi.get(self, "logging_configuration")
 
@@ -223,7 +223,7 @@ class _WorkspaceState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -235,7 +235,7 @@ class _WorkspaceState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -309,11 +309,11 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-        :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict', 'outputs.WorkspaceLoggingConfiguration']] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
+        :param pulumi.Input[_builtins.str] alias: Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict', 'outputs.WorkspaceLoggingConfiguration']] logging_configuration: Logging configuration for the workspace. See `logging_configuration` Block below for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -434,14 +434,14 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        :param pulumi.Input[_builtins.str] alias: Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         :param pulumi.Input[_builtins.str] arn: ARN of the workspace.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
-        :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict', 'outputs.WorkspaceLoggingConfiguration']] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict', 'outputs.WorkspaceLoggingConfiguration']] logging_configuration: Logging configuration for the workspace. See `logging_configuration` Block below for details.
         :param pulumi.Input[_builtins.str] prometheus_endpoint: Prometheus endpoint available for this workspace.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -461,7 +461,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def alias(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+        Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
         """
         return pulumi.get(self, "alias")
 
@@ -477,7 +477,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+        ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -485,7 +485,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> pulumi.Output[Optional['outputs.WorkspaceLoggingConfiguration']]:
         """
-        Logging configuration for the workspace. See Logging Configuration below for details.
+        Logging configuration for the workspace. See `logging_configuration` Block below for details.
         """
         return pulumi.get(self, "logging_configuration")
 
@@ -509,7 +509,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -517,7 +517,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

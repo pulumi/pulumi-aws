@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSourceParametersAmazonElasticsearch
     {
         /// <summary>
-        /// The OpenSearch domain.
+        /// OpenSearch domain.
         /// </summary>
         public readonly string Domain;
 

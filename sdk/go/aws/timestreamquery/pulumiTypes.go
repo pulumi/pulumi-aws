@@ -328,15 +328,15 @@ func (o ScheduledQueryErrorReportConfigurationS3ConfigurationPtrOutput) ObjectKe
 }
 
 type ScheduledQueryLastRunSummary struct {
-	// S3 location for error report.
+	// S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
 	ErrorReportLocations []ScheduledQueryLastRunSummaryErrorReportLocation `pulumi:"errorReportLocations"`
-	// Statistics for a single scheduled query run.
+	// Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
 	ExecutionStats []ScheduledQueryLastRunSummaryExecutionStat `pulumi:"executionStats"`
 	// Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
 	FailureReason *string `pulumi:"failureReason"`
 	// InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
 	InvocationTime *string `pulumi:"invocationTime"`
-	// Various insights and metrics related to the run summary of the scheduled query.
+	// Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
 	QueryInsightsResponses []ScheduledQueryLastRunSummaryQueryInsightsResponse `pulumi:"queryInsightsResponses"`
 	// Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
 	RunStatus *string `pulumi:"runStatus"`
@@ -356,15 +356,15 @@ type ScheduledQueryLastRunSummaryInput interface {
 }
 
 type ScheduledQueryLastRunSummaryArgs struct {
-	// S3 location for error report.
+	// S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
 	ErrorReportLocations ScheduledQueryLastRunSummaryErrorReportLocationArrayInput `pulumi:"errorReportLocations"`
-	// Statistics for a single scheduled query run.
+	// Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
 	ExecutionStats ScheduledQueryLastRunSummaryExecutionStatArrayInput `pulumi:"executionStats"`
 	// Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
 	FailureReason pulumi.StringPtrInput `pulumi:"failureReason"`
 	// InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
 	InvocationTime pulumi.StringPtrInput `pulumi:"invocationTime"`
-	// Various insights and metrics related to the run summary of the scheduled query.
+	// Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
 	QueryInsightsResponses ScheduledQueryLastRunSummaryQueryInsightsResponseArrayInput `pulumi:"queryInsightsResponses"`
 	// Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
 	RunStatus pulumi.StringPtrInput `pulumi:"runStatus"`
@@ -423,14 +423,14 @@ func (o ScheduledQueryLastRunSummaryOutput) ToScheduledQueryLastRunSummaryOutput
 	return o
 }
 
-// S3 location for error report.
+// S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
 func (o ScheduledQueryLastRunSummaryOutput) ErrorReportLocations() ScheduledQueryLastRunSummaryErrorReportLocationArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummary) []ScheduledQueryLastRunSummaryErrorReportLocation {
 		return v.ErrorReportLocations
 	}).(ScheduledQueryLastRunSummaryErrorReportLocationArrayOutput)
 }
 
-// Statistics for a single scheduled query run.
+// Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
 func (o ScheduledQueryLastRunSummaryOutput) ExecutionStats() ScheduledQueryLastRunSummaryExecutionStatArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummary) []ScheduledQueryLastRunSummaryExecutionStat {
 		return v.ExecutionStats
@@ -447,7 +447,7 @@ func (o ScheduledQueryLastRunSummaryOutput) InvocationTime() pulumi.StringPtrOut
 	return o.ApplyT(func(v ScheduledQueryLastRunSummary) *string { return v.InvocationTime }).(pulumi.StringPtrOutput)
 }
 
-// Various insights and metrics related to the run summary of the scheduled query.
+// Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
 func (o ScheduledQueryLastRunSummaryOutput) QueryInsightsResponses() ScheduledQueryLastRunSummaryQueryInsightsResponseArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummary) []ScheduledQueryLastRunSummaryQueryInsightsResponse {
 		return v.QueryInsightsResponses
@@ -485,7 +485,7 @@ func (o ScheduledQueryLastRunSummaryArrayOutput) Index(i pulumi.IntInput) Schedu
 }
 
 type ScheduledQueryLastRunSummaryErrorReportLocation struct {
-	// S3 location where error reports are written.
+	// S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
 	S3ReportLocations []ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation `pulumi:"s3ReportLocations"`
 }
 
@@ -501,7 +501,7 @@ type ScheduledQueryLastRunSummaryErrorReportLocationInput interface {
 }
 
 type ScheduledQueryLastRunSummaryErrorReportLocationArgs struct {
-	// S3 location where error reports are written.
+	// S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
 	S3ReportLocations ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArrayInput `pulumi:"s3ReportLocations"`
 }
 
@@ -556,7 +556,7 @@ func (o ScheduledQueryLastRunSummaryErrorReportLocationOutput) ToScheduledQueryL
 	return o
 }
 
-// S3 location where error reports are written.
+// S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
 func (o ScheduledQueryLastRunSummaryErrorReportLocationOutput) S3ReportLocations() ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryErrorReportLocation) []ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation {
 		return v.S3ReportLocations
@@ -836,11 +836,11 @@ type ScheduledQueryLastRunSummaryQueryInsightsResponse struct {
 	OutputBytes *int `pulumi:"outputBytes"`
 	// Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
 	OutputRows *int `pulumi:"outputRows"`
-	// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+	// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
 	QuerySpatialCoverages []ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage `pulumi:"querySpatialCoverages"`
 	// Number of tables in the query.
 	QueryTableCount *int `pulumi:"queryTableCount"`
-	// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+	// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
 	QueryTemporalRanges []ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange `pulumi:"queryTemporalRanges"`
 }
 
@@ -860,11 +860,11 @@ type ScheduledQueryLastRunSummaryQueryInsightsResponseArgs struct {
 	OutputBytes pulumi.IntPtrInput `pulumi:"outputBytes"`
 	// Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
 	OutputRows pulumi.IntPtrInput `pulumi:"outputRows"`
-	// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+	// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
 	QuerySpatialCoverages ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArrayInput `pulumi:"querySpatialCoverages"`
 	// Number of tables in the query.
 	QueryTableCount pulumi.IntPtrInput `pulumi:"queryTableCount"`
-	// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+	// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
 	QueryTemporalRanges ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArrayInput `pulumi:"queryTemporalRanges"`
 }
 
@@ -929,7 +929,7 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseOutput) OutputRows() pu
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponse) *int { return v.OutputRows }).(pulumi.IntPtrOutput)
 }
 
-// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseOutput) QuerySpatialCoverages() ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponse) []ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage {
 		return v.QuerySpatialCoverages
@@ -941,7 +941,7 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseOutput) QueryTableCount
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponse) *int { return v.QueryTableCount }).(pulumi.IntPtrOutput)
 }
 
-// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseOutput) QueryTemporalRanges() ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponse) []ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange {
 		return v.QueryTemporalRanges
@@ -969,7 +969,7 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseArrayOutput) Index(i pu
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
+	// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
 	Maxes []ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis `pulumi:"maxes"`
 }
 
@@ -985,7 +985,7 @@ type ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageInput 
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
+	// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
 	Maxes ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArrayInput `pulumi:"maxes"`
 }
 
@@ -1040,7 +1040,7 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageOut
 	return o
 }
 
-// Insights into the most sub-optimal performing table on the temporal axis:
+// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageOutput) Maxes() ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage) []ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis {
 		return v.Maxes
@@ -1189,7 +1189,7 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMax
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
+	// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
 	Maxes []ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis `pulumi:"maxes"`
 }
 
@@ -1205,7 +1205,7 @@ type ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeInput in
 }
 
 type ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
+	// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
 	Maxes ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArrayInput `pulumi:"maxes"`
 }
 
@@ -1260,7 +1260,7 @@ func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeOutpu
 	return o
 }
 
-// Insights into the most sub-optimal performing table on the temporal axis:
+// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
 func (o ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeOutput) Maxes() ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange) []ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis {
 		return v.Maxes
@@ -1672,15 +1672,15 @@ func (o ScheduledQueryNotificationConfigurationSnsConfigurationPtrOutput) TopicA
 }
 
 type ScheduledQueryRecentlyFailedRun struct {
-	// S3 location for error report.
+	// S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
 	ErrorReportLocations []ScheduledQueryRecentlyFailedRunErrorReportLocation `pulumi:"errorReportLocations"`
-	// Statistics for a single scheduled query run.
+	// Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
 	ExecutionStats []ScheduledQueryRecentlyFailedRunExecutionStat `pulumi:"executionStats"`
 	// Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
 	FailureReason *string `pulumi:"failureReason"`
 	// InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
 	InvocationTime *string `pulumi:"invocationTime"`
-	// Various insights and metrics related to the run summary of the scheduled query.
+	// Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
 	QueryInsightsResponses []ScheduledQueryRecentlyFailedRunQueryInsightsResponse `pulumi:"queryInsightsResponses"`
 	// Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
 	RunStatus *string `pulumi:"runStatus"`
@@ -1700,15 +1700,15 @@ type ScheduledQueryRecentlyFailedRunInput interface {
 }
 
 type ScheduledQueryRecentlyFailedRunArgs struct {
-	// S3 location for error report.
+	// S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
 	ErrorReportLocations ScheduledQueryRecentlyFailedRunErrorReportLocationArrayInput `pulumi:"errorReportLocations"`
-	// Statistics for a single scheduled query run.
+	// Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
 	ExecutionStats ScheduledQueryRecentlyFailedRunExecutionStatArrayInput `pulumi:"executionStats"`
 	// Error message for the scheduled query in case of failure. You might have to look at the error report to get more detailed error reasons.
 	FailureReason pulumi.StringPtrInput `pulumi:"failureReason"`
 	// InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
 	InvocationTime pulumi.StringPtrInput `pulumi:"invocationTime"`
-	// Various insights and metrics related to the run summary of the scheduled query.
+	// Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
 	QueryInsightsResponses ScheduledQueryRecentlyFailedRunQueryInsightsResponseArrayInput `pulumi:"queryInsightsResponses"`
 	// Status of a scheduled query run. Valid values: `AUTO_TRIGGER_SUCCESS`, `AUTO_TRIGGER_FAILURE`, `MANUAL_TRIGGER_SUCCESS`, `MANUAL_TRIGGER_FAILURE`.
 	RunStatus pulumi.StringPtrInput `pulumi:"runStatus"`
@@ -1767,14 +1767,14 @@ func (o ScheduledQueryRecentlyFailedRunOutput) ToScheduledQueryRecentlyFailedRun
 	return o
 }
 
-// S3 location for error report.
+// S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
 func (o ScheduledQueryRecentlyFailedRunOutput) ErrorReportLocations() ScheduledQueryRecentlyFailedRunErrorReportLocationArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRun) []ScheduledQueryRecentlyFailedRunErrorReportLocation {
 		return v.ErrorReportLocations
 	}).(ScheduledQueryRecentlyFailedRunErrorReportLocationArrayOutput)
 }
 
-// Statistics for a single scheduled query run.
+// Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
 func (o ScheduledQueryRecentlyFailedRunOutput) ExecutionStats() ScheduledQueryRecentlyFailedRunExecutionStatArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRun) []ScheduledQueryRecentlyFailedRunExecutionStat {
 		return v.ExecutionStats
@@ -1791,7 +1791,7 @@ func (o ScheduledQueryRecentlyFailedRunOutput) InvocationTime() pulumi.StringPtr
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRun) *string { return v.InvocationTime }).(pulumi.StringPtrOutput)
 }
 
-// Various insights and metrics related to the run summary of the scheduled query.
+// Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
 func (o ScheduledQueryRecentlyFailedRunOutput) QueryInsightsResponses() ScheduledQueryRecentlyFailedRunQueryInsightsResponseArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRun) []ScheduledQueryRecentlyFailedRunQueryInsightsResponse {
 		return v.QueryInsightsResponses
@@ -1829,7 +1829,7 @@ func (o ScheduledQueryRecentlyFailedRunArrayOutput) Index(i pulumi.IntInput) Sch
 }
 
 type ScheduledQueryRecentlyFailedRunErrorReportLocation struct {
-	// S3 location where error reports are written.
+	// S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
 	S3ReportLocations []ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation `pulumi:"s3ReportLocations"`
 }
 
@@ -1845,7 +1845,7 @@ type ScheduledQueryRecentlyFailedRunErrorReportLocationInput interface {
 }
 
 type ScheduledQueryRecentlyFailedRunErrorReportLocationArgs struct {
-	// S3 location where error reports are written.
+	// S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
 	S3ReportLocations ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArrayInput `pulumi:"s3ReportLocations"`
 }
 
@@ -1900,7 +1900,7 @@ func (o ScheduledQueryRecentlyFailedRunErrorReportLocationOutput) ToScheduledQue
 	return o
 }
 
-// S3 location where error reports are written.
+// S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
 func (o ScheduledQueryRecentlyFailedRunErrorReportLocationOutput) S3ReportLocations() ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunErrorReportLocation) []ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation {
 		return v.S3ReportLocations
@@ -2182,11 +2182,11 @@ type ScheduledQueryRecentlyFailedRunQueryInsightsResponse struct {
 	OutputBytes *int `pulumi:"outputBytes"`
 	// Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
 	OutputRows *int `pulumi:"outputRows"`
-	// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+	// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
 	QuerySpatialCoverages []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage `pulumi:"querySpatialCoverages"`
 	// Number of tables in the query.
 	QueryTableCount *int `pulumi:"queryTableCount"`
-	// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+	// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
 	QueryTemporalRanges []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange `pulumi:"queryTemporalRanges"`
 }
 
@@ -2206,11 +2206,11 @@ type ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs struct {
 	OutputBytes pulumi.IntPtrInput `pulumi:"outputBytes"`
 	// Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
 	OutputRows pulumi.IntPtrInput `pulumi:"outputRows"`
-	// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+	// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
 	QuerySpatialCoverages ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArrayInput `pulumi:"querySpatialCoverages"`
 	// Number of tables in the query.
 	QueryTableCount pulumi.IntPtrInput `pulumi:"queryTableCount"`
-	// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+	// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
 	QueryTemporalRanges ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArrayInput `pulumi:"queryTemporalRanges"`
 }
 
@@ -2275,7 +2275,7 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseOutput) OutputRows()
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponse) *int { return v.OutputRows }).(pulumi.IntPtrOutput)
 }
 
-// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+// Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseOutput) QuerySpatialCoverages() ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponse) []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage {
 		return v.QuerySpatialCoverages
@@ -2287,7 +2287,7 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseOutput) QueryTableCo
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponse) *int { return v.QueryTableCount }).(pulumi.IntPtrOutput)
 }
 
-// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+// Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseOutput) QueryTemporalRanges() ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponse) []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange {
 		return v.QueryTemporalRanges
@@ -2315,7 +2315,7 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseArrayOutput) Index(i
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
+	// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
 	Maxes []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis `pulumi:"maxes"`
 }
 
@@ -2331,7 +2331,7 @@ type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageInp
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
+	// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
 	Maxes ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArrayInput `pulumi:"maxes"`
 }
 
@@ -2386,7 +2386,7 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage
 	return o
 }
 
-// Insights into the most sub-optimal performing table on the temporal axis:
+// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageOutput) Maxes() ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage) []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis {
 		return v.Maxes
@@ -2535,7 +2535,7 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
+	// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
 	Maxes []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis `pulumi:"maxes"`
 }
 
@@ -2551,7 +2551,7 @@ type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeInput
 }
 
 type ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs struct {
-	// Insights into the most sub-optimal performing table on the temporal axis:
+	// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
 	Maxes ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArrayInput `pulumi:"maxes"`
 }
 
@@ -2606,7 +2606,7 @@ func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeOu
 	return o
 }
 
-// Insights into the most sub-optimal performing table on the temporal axis:
+// Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
 func (o ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeOutput) Maxes() ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange) []ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis {
 		return v.Maxes

@@ -16,17 +16,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeTargetParametersEcsTaskParametersOverrides {
     /**
-     * @return One or more container overrides that are sent to a task. Detailed below.
+     * @return One or more container overrides that are sent to a task. See `containerOverride` Block for details.
      * 
      */
     private @Nullable List<PipeTargetParametersEcsTaskParametersOverridesContainerOverride> containerOverrides;
     /**
-     * @return The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+     * @return CPU override for the task.
      * 
      */
     private @Nullable String cpu;
     /**
-     * @return The ephemeral storage setting override for the task.  Detailed below.
+     * @return Ephemeral storage setting override for the task. See `ephemeralStorage` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage ephemeralStorage;
@@ -36,12 +36,12 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
      */
     private @Nullable String executionRoleArn;
     /**
-     * @return List of Elastic Inference accelerator overrides for the task. Detailed below.
+     * @return List of Elastic Inference accelerator overrides for the task. See `inferenceAcceleratorOverride` Block for details.
      * 
      */
     private @Nullable List<PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides;
     /**
-     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+     * @return Memory override for the task.
      * 
      */
     private @Nullable String memory;
@@ -53,21 +53,21 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
 
     private PipeTargetParametersEcsTaskParametersOverrides() {}
     /**
-     * @return One or more container overrides that are sent to a task. Detailed below.
+     * @return One or more container overrides that are sent to a task. See `containerOverride` Block for details.
      * 
      */
     public List<PipeTargetParametersEcsTaskParametersOverridesContainerOverride> containerOverrides() {
         return this.containerOverrides == null ? List.of() : this.containerOverrides;
     }
     /**
-     * @return The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+     * @return CPU override for the task.
      * 
      */
     public Optional<String> cpu() {
         return Optional.ofNullable(this.cpu);
     }
     /**
-     * @return The ephemeral storage setting override for the task.  Detailed below.
+     * @return Ephemeral storage setting override for the task. See `ephemeralStorage` Block for details.
      * 
      */
     public Optional<PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage> ephemeralStorage() {
@@ -81,14 +81,14 @@ public final class PipeTargetParametersEcsTaskParametersOverrides {
         return Optional.ofNullable(this.executionRoleArn);
     }
     /**
-     * @return List of Elastic Inference accelerator overrides for the task. Detailed below.
+     * @return List of Elastic Inference accelerator overrides for the task. See `inferenceAcceleratorOverride` Block for details.
      * 
      */
     public List<PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride> inferenceAcceleratorOverrides() {
         return this.inferenceAcceleratorOverrides == null ? List.of() : this.inferenceAcceleratorOverrides;
     }
     /**
-     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+     * @return Memory override for the task.
      * 
      */
     public Optional<String> memory() {
