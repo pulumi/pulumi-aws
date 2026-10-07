@@ -33,10 +33,10 @@ index 000000000000..b432bed386eb
 +	}
 +}
 diff --git a/internal/service/acm/service_package_gen.go b/internal/service/acm/service_package_gen.go
-index 5084932d53be..5f632da4876d 100644
+index 8185bea7abec..31b4b61bd50d 100644
 --- a/internal/service/acm/service_package_gen.go
 +++ b/internal/service/acm/service_package_gen.go
-@@ -116,6 +116,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
+@@ -109,6 +109,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
  			}
  		},
  		withExtraOptions(ctx, p, config),
