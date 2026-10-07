@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Fsx.Outputs
     [OutputType]
     public sealed class GetWindowsFileSystemAuditLogConfigurationResult
     {
+        /// <summary>
+        /// ARN for the destination of the audit logs.
+        /// </summary>
         public readonly string AuditLogDestination;
+        /// <summary>
+        /// Attempt type logged by Amazon FSx for file and folder accesses.
+        /// </summary>
         public readonly string FileAccessAuditLogLevel;
+        /// <summary>
+        /// Attempt type logged by Amazon FSx for file share accesses.
+        /// </summary>
         public readonly string FileShareAccessAuditLogLevel;
 
         [OutputConstructor]

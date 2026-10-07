@@ -16,14 +16,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs();
 
     /**
-     * The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+     * Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
      * 
      */
     @Import(name="inputStartingPosition")
     private @Nullable Output<String> inputStartingPosition;
 
     /**
-     * @return The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+     * @return Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
      * 
      */
     public Optional<Output<String>> inputStartingPosition() {
@@ -55,7 +55,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param inputStartingPosition The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+         * @param inputStartingPosition Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param inputStartingPosition The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+         * @param inputStartingPosition Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
          * 
          * @return builder
          * 

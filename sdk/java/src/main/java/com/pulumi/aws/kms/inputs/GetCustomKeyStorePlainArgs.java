@@ -15,14 +15,14 @@ public final class GetCustomKeyStorePlainArgs extends com.pulumi.resources.Invok
     public static final GetCustomKeyStorePlainArgs Empty = new GetCustomKeyStorePlainArgs();
 
     /**
-     * The ID for the custom key store.
+     * ID for the custom key store.
      * 
      */
     @Import(name="customKeyStoreId")
     private @Nullable String customKeyStoreId;
 
     /**
-     * @return The ID for the custom key store.
+     * @return ID for the custom key store.
      * 
      */
     public Optional<String> customKeyStoreId() {
@@ -30,14 +30,14 @@ public final class GetCustomKeyStorePlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The user-specified friendly name for the custom key store.
+     * User-specified friendly name for the custom key store.
      * 
      */
     @Import(name="customKeyStoreName")
     private @Nullable String customKeyStoreName;
 
     /**
-     * @return The user-specified friendly name for the custom key store.
+     * @return User-specified friendly name for the custom key store.
      * 
      */
     public Optional<String> customKeyStoreName() {
@@ -86,7 +86,7 @@ public final class GetCustomKeyStorePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param customKeyStoreId The ID for the custom key store.
+         * @param customKeyStoreId ID for the custom key store.
          * 
          * @return builder
          * 
@@ -97,7 +97,7 @@ public final class GetCustomKeyStorePlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param customKeyStoreName The user-specified friendly name for the custom key store.
+         * @param customKeyStoreName User-specified friendly name for the custom key store.
          * 
          * @return builder
          * 

@@ -94,13 +94,13 @@ namespace Pulumi.Aws.Kms
     public sealed class GetCustomKeyStoreArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID for the custom key store.
+        /// ID for the custom key store.
         /// </summary>
         [Input("customKeyStoreId")]
         public string? CustomKeyStoreId { get; set; }
 
         /// <summary>
-        /// The user-specified friendly name for the custom key store.
+        /// User-specified friendly name for the custom key store.
         /// </summary>
         [Input("customKeyStoreName")]
         public string? CustomKeyStoreName { get; set; }
@@ -120,13 +120,13 @@ namespace Pulumi.Aws.Kms
     public sealed class GetCustomKeyStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID for the custom key store.
+        /// ID for the custom key store.
         /// </summary>
         [Input("customKeyStoreId")]
         public Input<string>? CustomKeyStoreId { get; set; }
 
         /// <summary>
-        /// The user-specified friendly name for the custom key store.
+        /// User-specified friendly name for the custom key store.
         /// </summary>
         [Input("customKeyStoreName")]
         public Input<string>? CustomKeyStoreName { get; set; }
@@ -147,13 +147,16 @@ namespace Pulumi.Aws.Kms
     [OutputType]
     public sealed class GetCustomKeyStoreResult
     {
+        /// <summary>
+        /// ID for the CloudHSM cluster that is associated with the custom key store.
+        /// </summary>
         public readonly string CloudHsmClusterId;
         /// <summary>
-        /// Indicates whether the custom key store is connected to its CloudHSM cluster.
+        /// Whether the custom key store is connected to its CloudHSM cluster.
         /// </summary>
         public readonly string ConnectionState;
         /// <summary>
-        /// The date and time when the custom key store was created.
+        /// Date and time when the custom key store was created.
         /// </summary>
         public readonly string CreationDate;
         public readonly string CustomKeyStoreId;
@@ -164,7 +167,7 @@ namespace Pulumi.Aws.Kms
         public readonly string Id;
         public readonly string Region;
         /// <summary>
-        /// The trust anchor certificate of the associated CloudHSM cluster.
+        /// Trust anchor certificate of the associated CloudHSM cluster.
         /// </summary>
         public readonly string TrustAnchorCertificate;
 

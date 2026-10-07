@@ -25,14 +25,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     public static final TableState Empty = new TableState();
 
     /**
-     * The ARN of the table.
+     * ARN of the table.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the table.
+     * @return ARN of the table.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -40,14 +40,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the read/write throughput capacity mode for the table.
+     * Read/write throughput capacity mode for the table. See `capacitySpecification` below.
      * 
      */
     @Import(name="capacitySpecification")
     private @Nullable Output<TableCapacitySpecificationArgs> capacitySpecification;
 
     /**
-     * @return Specifies the read/write throughput capacity mode for the table.
+     * @return Read/write throughput capacity mode for the table. See `capacitySpecification` below.
      * 
      */
     public Optional<Output<TableCapacitySpecificationArgs>> capacitySpecification() {
@@ -55,14 +55,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables client-side timestamps for the table. By default, the setting is disabled.
+     * Enables client-side timestamps for the table. By default, the setting is disabled. See `clientSideTimestamps` below.
      * 
      */
     @Import(name="clientSideTimestamps")
     private @Nullable Output<TableClientSideTimestampsArgs> clientSideTimestamps;
 
     /**
-     * @return Enables client-side timestamps for the table. By default, the setting is disabled.
+     * @return Enables client-side timestamps for the table. By default, the setting is disabled. See `clientSideTimestamps` below.
      * 
      */
     public Optional<Output<TableClientSideTimestampsArgs>> clientSideTimestamps() {
@@ -70,14 +70,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the table.
+     * Description of the table. See `comment` below.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<TableCommentArgs> comment;
 
     /**
-     * @return A description of the table.
+     * @return Description of the table. See `comment` below.
      * 
      */
     public Optional<Output<TableCommentArgs>> comment() {
@@ -85,14 +85,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+     * Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      * 
      */
     @Import(name="defaultTimeToLive")
     private @Nullable Output<Integer> defaultTimeToLive;
 
     /**
-     * @return The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+     * @return Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
      * 
      */
     public Optional<Output<Integer>> defaultTimeToLive() {
@@ -100,14 +100,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+     * Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryptionSpecification` below.
      * 
      */
     @Import(name="encryptionSpecification")
     private @Nullable Output<TableEncryptionSpecificationArgs> encryptionSpecification;
 
     /**
-     * @return Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+     * @return Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryptionSpecification` below.
      * 
      */
     public Optional<Output<TableEncryptionSpecificationArgs>> encryptionSpecification() {
@@ -115,14 +115,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the keyspace that the table is going to be created in.
+     * Name of the keyspace that the table is going to be created in.
      * 
      */
     @Import(name="keyspaceName")
     private @Nullable Output<String> keyspaceName;
 
     /**
-     * @return The name of the keyspace that the table is going to be created in.
+     * @return Name of the keyspace that the table is going to be created in.
      * 
      */
     public Optional<Output<String>> keyspaceName() {
@@ -130,14 +130,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+     * Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `pointInTimeRecovery` below.
      * 
      */
     @Import(name="pointInTimeRecovery")
     private @Nullable Output<TablePointInTimeRecoveryArgs> pointInTimeRecovery;
 
     /**
-     * @return Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+     * @return Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `pointInTimeRecovery` below.
      * 
      */
     public Optional<Output<TablePointInTimeRecoveryArgs>> pointInTimeRecovery() {
@@ -160,14 +160,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Describes the schema of the table.
+     * Schema of the table. See `schemaDefinition` below.
      * 
      */
     @Import(name="schemaDefinition")
     private @Nullable Output<TableSchemaDefinitionArgs> schemaDefinition;
 
     /**
-     * @return Describes the schema of the table.
+     * @return Schema of the table. See `schemaDefinition` below.
      * 
      */
     public Optional<Output<TableSchemaDefinitionArgs>> schemaDefinition() {
@@ -175,7 +175,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the table.
+     * Name of the table.
      * 
      * The following arguments are optional:
      * 
@@ -184,7 +184,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> tableName;
 
     /**
-     * @return The name of the table.
+     * @return Name of the table.
      * 
      * The following arguments are optional:
      * 
@@ -194,14 +194,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -209,14 +209,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -224,14 +224,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+     * Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
      * 
      */
     @Import(name="ttl")
     private @Nullable Output<TableTtlArgs> ttl;
 
     /**
-     * @return Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+     * @return Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
      * 
      */
     public Optional<Output<TableTtlArgs>> ttl() {
@@ -276,7 +276,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the table.
+         * @param arn ARN of the table.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the table.
+         * @param arn ARN of the table.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacitySpecification Specifies the read/write throughput capacity mode for the table.
+         * @param capacitySpecification Read/write throughput capacity mode for the table. See `capacitySpecification` below.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacitySpecification Specifies the read/write throughput capacity mode for the table.
+         * @param capacitySpecification Read/write throughput capacity mode for the table. See `capacitySpecification` below.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSideTimestamps Enables client-side timestamps for the table. By default, the setting is disabled.
+         * @param clientSideTimestamps Enables client-side timestamps for the table. By default, the setting is disabled. See `clientSideTimestamps` below.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSideTimestamps Enables client-side timestamps for the table. By default, the setting is disabled.
+         * @param clientSideTimestamps Enables client-side timestamps for the table. By default, the setting is disabled. See `clientSideTimestamps` below.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment A description of the table.
+         * @param comment Description of the table. See `comment` below.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment A description of the table.
+         * @param comment Description of the table. See `comment` below.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultTimeToLive The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+         * @param defaultTimeToLive Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultTimeToLive The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
+         * @param defaultTimeToLive Default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
          * 
          * @return builder
          * 
@@ -381,7 +381,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionSpecification Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+         * @param encryptionSpecification Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryptionSpecification` below.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionSpecification Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
+         * @param encryptionSpecification Encryption key management for encryption at rest for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html). See `encryptionSpecification` below.
          * 
          * @return builder
          * 
@@ -402,7 +402,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyspaceName The name of the keyspace that the table is going to be created in.
+         * @param keyspaceName Name of the keyspace that the table is going to be created in.
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyspaceName The name of the keyspace that the table is going to be created in.
+         * @param keyspaceName Name of the keyspace that the table is going to be created in.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pointInTimeRecovery Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+         * @param pointInTimeRecovery Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `pointInTimeRecovery` below.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pointInTimeRecovery Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+         * @param pointInTimeRecovery Enables or disables point-in-time recovery for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html). See `pointInTimeRecovery` below.
          * 
          * @return builder
          * 
@@ -465,7 +465,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaDefinition Describes the schema of the table.
+         * @param schemaDefinition Schema of the table. See `schemaDefinition` below.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schemaDefinition Describes the schema of the table.
+         * @param schemaDefinition Schema of the table. See `schemaDefinition` below.
          * 
          * @return builder
          * 
@@ -486,7 +486,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableName The name of the table.
+         * @param tableName Name of the table.
          * 
          * The following arguments are optional:
          * 
@@ -499,7 +499,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableName The name of the table.
+         * @param tableName Name of the table.
          * 
          * The following arguments are optional:
          * 
@@ -511,7 +511,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -522,7 +522,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -543,7 +543,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -553,7 +553,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ttl Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+         * @param ttl Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
          * 
          * @return builder
          * 
@@ -564,7 +564,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ttl Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
+         * @param ttl Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html). See `ttl` below.
          * 
          * @return builder
          * 

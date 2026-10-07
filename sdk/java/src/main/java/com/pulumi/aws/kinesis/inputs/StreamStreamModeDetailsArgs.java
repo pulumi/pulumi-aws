@@ -15,14 +15,14 @@ public final class StreamStreamModeDetailsArgs extends com.pulumi.resources.Reso
     public static final StreamStreamModeDetailsArgs Empty = new StreamStreamModeDetailsArgs();
 
     /**
-     * Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+     * Capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
      * 
      */
     @Import(name="streamMode", required=true)
     private Output<String> streamMode;
 
     /**
-     * @return Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+     * @return Capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
      * 
      */
     public Output<String> streamMode() {
@@ -54,7 +54,7 @@ public final class StreamStreamModeDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param streamMode Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+         * @param streamMode Capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class StreamStreamModeDetailsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param streamMode Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+         * @param streamMode Capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
          * 
          * @return builder
          * 

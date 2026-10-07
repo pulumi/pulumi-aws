@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput {
     /**
-     * @return The ARN of the destination delivery stream to write to.
+     * @return ARN of the destination delivery stream to write to.
      * 
      */
     private String resourceArn;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput() {}
     /**
-     * @return The ARN of the destination delivery stream to write to.
+     * @return ARN of the destination delivery stream to write to.
      * 
      */
     public String resourceArn() {

@@ -16,14 +16,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     public static final CustomPermissionsCapabilitiesArgs Empty = new CustomPermissionsCapabilitiesArgs();
 
     /**
-     * The ability to add or run anomaly detection. Valid values: `DENY`.
+     * Ability to add or run anomaly detection. Valid values: `DENY`.
      * 
      */
     @Import(name="addOrRunAnomalyDetectionForAnalyses")
     private @Nullable Output<String> addOrRunAnomalyDetectionForAnalyses;
 
     /**
-     * @return The ability to add or run anomaly detection. Valid values: `DENY`.
+     * @return Ability to add or run anomaly detection. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> addOrRunAnomalyDetectionForAnalyses() {
@@ -31,14 +31,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to create and update email reports. Valid values: `DENY`.
+     * Ability to create and update email reports. Valid values: `DENY`.
      * 
      */
     @Import(name="createAndUpdateDashboardEmailReports")
     private @Nullable Output<String> createAndUpdateDashboardEmailReports;
 
     /**
-     * @return The ability to create and update email reports. Valid values: `DENY`.
+     * @return Ability to create and update email reports. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> createAndUpdateDashboardEmailReports() {
@@ -46,14 +46,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to create and update data sources. Valid values: `DENY`.
+     * Ability to create and update data sources. Valid values: `DENY`.
      * 
      */
     @Import(name="createAndUpdateDataSources")
     private @Nullable Output<String> createAndUpdateDataSources;
 
     /**
-     * @return The ability to create and update data sources. Valid values: `DENY`.
+     * @return Ability to create and update data sources. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> createAndUpdateDataSources() {
@@ -61,14 +61,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to create and update datasets. Valid values: `DENY`.
+     * Ability to create and update datasets. Valid values: `DENY`.
      * 
      */
     @Import(name="createAndUpdateDatasets")
     private @Nullable Output<String> createAndUpdateDatasets;
 
     /**
-     * @return The ability to create and update datasets. Valid values: `DENY`.
+     * @return Ability to create and update datasets. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> createAndUpdateDatasets() {
@@ -76,14 +76,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to export to create and update themes. Valid values: `DENY`.
+     * Ability to create and update themes. Valid values: `DENY`.
      * 
      */
     @Import(name="createAndUpdateThemes")
     private @Nullable Output<String> createAndUpdateThemes;
 
     /**
-     * @return The ability to export to create and update themes. Valid values: `DENY`.
+     * @return Ability to create and update themes. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> createAndUpdateThemes() {
@@ -91,14 +91,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to create and update threshold alerts. Valid values: `DENY`.
+     * Ability to create and update threshold alerts. Valid values: `DENY`.
      * 
      */
     @Import(name="createAndUpdateThresholdAlerts")
     private @Nullable Output<String> createAndUpdateThresholdAlerts;
 
     /**
-     * @return The ability to create and update threshold alerts. Valid values: `DENY`.
+     * @return Ability to create and update threshold alerts. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> createAndUpdateThresholdAlerts() {
@@ -106,14 +106,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to create shared folders. Valid values: `DENY`.
+     * Ability to create shared folders. Valid values: `DENY`.
      * 
      */
     @Import(name="createSharedFolders")
     private @Nullable Output<String> createSharedFolders;
 
     /**
-     * @return The ability to create shared folders. Valid values: `DENY`.
+     * @return Ability to create shared folders. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> createSharedFolders() {
@@ -121,14 +121,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to create a SPICE dataset. Valid values: `DENY`.
+     * Ability to create a SPICE dataset. Valid values: `DENY`.
      * 
      */
     @Import(name="createSpiceDataset")
     private @Nullable Output<String> createSpiceDataset;
 
     /**
-     * @return The ability to create a SPICE dataset. Valid values: `DENY`.
+     * @return Ability to create a SPICE dataset. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> createSpiceDataset() {
@@ -136,14 +136,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to export to CSV files from the UI. Valid values: `DENY`.
+     * Ability to export to CSV files from the UI. Valid values: `DENY`.
      * 
      */
     @Import(name="exportToCsv")
     private @Nullable Output<String> exportToCsv;
 
     /**
-     * @return The ability to export to CSV files from the UI. Valid values: `DENY`.
+     * @return Ability to export to CSV files from the UI. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> exportToCsv() {
@@ -151,14 +151,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+     * Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
      * 
      */
     @Import(name="exportToCsvInScheduledReports")
     private @Nullable Output<String> exportToCsvInScheduledReports;
 
     /**
-     * @return The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+     * @return Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> exportToCsvInScheduledReports() {
@@ -166,14 +166,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to export to Excel files from the UI. Valid values: `DENY`.
+     * Ability to export to Excel files from the UI. Valid values: `DENY`.
      * 
      */
     @Import(name="exportToExcel")
     private @Nullable Output<String> exportToExcel;
 
     /**
-     * @return The ability to export to Excel files from the UI. Valid values: `DENY`.
+     * @return Ability to export to Excel files from the UI. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> exportToExcel() {
@@ -181,14 +181,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+     * Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
      * 
      */
     @Import(name="exportToExcelInScheduledReports")
     private @Nullable Output<String> exportToExcelInScheduledReports;
 
     /**
-     * @return The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+     * @return Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> exportToExcelInScheduledReports() {
@@ -196,14 +196,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to export to PDF files from the UI. Valid values: `DENY`.
+     * Ability to export to PDF files from the UI. Valid values: `DENY`.
      * 
      */
     @Import(name="exportToPdf")
     private @Nullable Output<String> exportToPdf;
 
     /**
-     * @return The ability to export to PDF files from the UI. Valid values: `DENY`.
+     * @return Ability to export to PDF files from the UI. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> exportToPdf() {
@@ -211,14 +211,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+     * Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
      * 
      */
     @Import(name="exportToPdfInScheduledReports")
     private @Nullable Output<String> exportToPdfInScheduledReports;
 
     /**
-     * @return The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+     * @return Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> exportToPdfInScheduledReports() {
@@ -226,14 +226,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to include content in scheduled email reports. Valid values: `DENY`.
+     * Ability to include content in scheduled email reports. Valid values: `DENY`.
      * 
      */
     @Import(name="includeContentInScheduledReportsEmail")
     private @Nullable Output<String> includeContentInScheduledReportsEmail;
 
     /**
-     * @return The ability to include content in scheduled email reports. Valid values: `DENY`.
+     * @return Ability to include content in scheduled email reports. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> includeContentInScheduledReportsEmail() {
@@ -241,14 +241,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to print reports. Valid values: `DENY`.
+     * Ability to print reports. Valid values: `DENY`.
      * 
      */
     @Import(name="printReports")
     private @Nullable Output<String> printReports;
 
     /**
-     * @return The ability to print reports. Valid values: `DENY`.
+     * @return Ability to print reports. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> printReports() {
@@ -256,14 +256,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to rename shared folders. Valid values: `DENY`.
+     * Ability to rename shared folders. Valid values: `DENY`.
      * 
      */
     @Import(name="renameSharedFolders")
     private @Nullable Output<String> renameSharedFolders;
 
     /**
-     * @return The ability to rename shared folders. Valid values: `DENY`.
+     * @return Ability to rename shared folders. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> renameSharedFolders() {
@@ -271,14 +271,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to share analyses. Valid values: `DENY`.
+     * Ability to share analyses. Valid values: `DENY`.
      * 
      */
     @Import(name="shareAnalyses")
     private @Nullable Output<String> shareAnalyses;
 
     /**
-     * @return The ability to share analyses. Valid values: `DENY`.
+     * @return Ability to share analyses. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> shareAnalyses() {
@@ -286,14 +286,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to share dashboards. Valid values: `DENY`.
+     * Ability to share dashboards. Valid values: `DENY`.
      * 
      */
     @Import(name="shareDashboards")
     private @Nullable Output<String> shareDashboards;
 
     /**
-     * @return The ability to share dashboards. Valid values: `DENY`.
+     * @return Ability to share dashboards. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> shareDashboards() {
@@ -301,14 +301,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to share data sources. Valid values: `DENY`.
+     * Ability to share data sources. Valid values: `DENY`.
      * 
      */
     @Import(name="shareDataSources")
     private @Nullable Output<String> shareDataSources;
 
     /**
-     * @return The ability to share data sources. Valid values: `DENY`.
+     * @return Ability to share data sources. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> shareDataSources() {
@@ -316,14 +316,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to share datasets. Valid values: `DENY`.
+     * Ability to share datasets. Valid values: `DENY`.
      * 
      */
     @Import(name="shareDatasets")
     private @Nullable Output<String> shareDatasets;
 
     /**
-     * @return The ability to share datasets. Valid values: `DENY`.
+     * @return Ability to share datasets. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> shareDatasets() {
@@ -331,14 +331,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to subscribe to email reports. Valid values: `DENY`.
+     * Ability to subscribe to email reports. Valid values: `DENY`.
      * 
      */
     @Import(name="subscribeDashboardEmailReports")
     private @Nullable Output<String> subscribeDashboardEmailReports;
 
     /**
-     * @return The ability to subscribe to email reports. Valid values: `DENY`.
+     * @return Ability to subscribe to email reports. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> subscribeDashboardEmailReports() {
@@ -346,14 +346,14 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
     }
 
     /**
-     * The ability to view account SPICE capacity. Valid values: `DENY`.
+     * Ability to view account SPICE capacity. Valid values: `DENY`.
      * 
      */
     @Import(name="viewAccountSpiceCapacity")
     private @Nullable Output<String> viewAccountSpiceCapacity;
 
     /**
-     * @return The ability to view account SPICE capacity. Valid values: `DENY`.
+     * @return Ability to view account SPICE capacity. Valid values: `DENY`.
      * 
      */
     public Optional<Output<String>> viewAccountSpiceCapacity() {
@@ -407,7 +407,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param addOrRunAnomalyDetectionForAnalyses The ability to add or run anomaly detection. Valid values: `DENY`.
+         * @param addOrRunAnomalyDetectionForAnalyses Ability to add or run anomaly detection. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param addOrRunAnomalyDetectionForAnalyses The ability to add or run anomaly detection. Valid values: `DENY`.
+         * @param addOrRunAnomalyDetectionForAnalyses Ability to add or run anomaly detection. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createAndUpdateDashboardEmailReports The ability to create and update email reports. Valid values: `DENY`.
+         * @param createAndUpdateDashboardEmailReports Ability to create and update email reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createAndUpdateDashboardEmailReports The ability to create and update email reports. Valid values: `DENY`.
+         * @param createAndUpdateDashboardEmailReports Ability to create and update email reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -449,7 +449,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createAndUpdateDataSources The ability to create and update data sources. Valid values: `DENY`.
+         * @param createAndUpdateDataSources Ability to create and update data sources. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -460,7 +460,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createAndUpdateDataSources The ability to create and update data sources. Valid values: `DENY`.
+         * @param createAndUpdateDataSources Ability to create and update data sources. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -470,7 +470,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createAndUpdateDatasets The ability to create and update datasets. Valid values: `DENY`.
+         * @param createAndUpdateDatasets Ability to create and update datasets. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createAndUpdateDatasets The ability to create and update datasets. Valid values: `DENY`.
+         * @param createAndUpdateDatasets Ability to create and update datasets. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createAndUpdateThemes The ability to export to create and update themes. Valid values: `DENY`.
+         * @param createAndUpdateThemes Ability to create and update themes. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createAndUpdateThemes The ability to export to create and update themes. Valid values: `DENY`.
+         * @param createAndUpdateThemes Ability to create and update themes. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createAndUpdateThresholdAlerts The ability to create and update threshold alerts. Valid values: `DENY`.
+         * @param createAndUpdateThresholdAlerts Ability to create and update threshold alerts. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -523,7 +523,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createAndUpdateThresholdAlerts The ability to create and update threshold alerts. Valid values: `DENY`.
+         * @param createAndUpdateThresholdAlerts Ability to create and update threshold alerts. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -533,7 +533,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createSharedFolders The ability to create shared folders. Valid values: `DENY`.
+         * @param createSharedFolders Ability to create shared folders. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createSharedFolders The ability to create shared folders. Valid values: `DENY`.
+         * @param createSharedFolders Ability to create shared folders. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createSpiceDataset The ability to create a SPICE dataset. Valid values: `DENY`.
+         * @param createSpiceDataset Ability to create a SPICE dataset. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param createSpiceDataset The ability to create a SPICE dataset. Valid values: `DENY`.
+         * @param createSpiceDataset Ability to create a SPICE dataset. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -575,7 +575,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param exportToCsv The ability to export to CSV files from the UI. Valid values: `DENY`.
+         * @param exportToCsv Ability to export to CSV files from the UI. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -586,7 +586,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param exportToCsv The ability to export to CSV files from the UI. Valid values: `DENY`.
+         * @param exportToCsv Ability to export to CSV files from the UI. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -596,7 +596,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param exportToCsvInScheduledReports The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+         * @param exportToCsvInScheduledReports Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -607,7 +607,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param exportToCsvInScheduledReports The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+         * @param exportToCsvInScheduledReports Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -617,7 +617,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param exportToExcel The ability to export to Excel files from the UI. Valid values: `DENY`.
+         * @param exportToExcel Ability to export to Excel files from the UI. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -628,7 +628,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param exportToExcel The ability to export to Excel files from the UI. Valid values: `DENY`.
+         * @param exportToExcel Ability to export to Excel files from the UI. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -638,7 +638,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param exportToExcelInScheduledReports The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+         * @param exportToExcelInScheduledReports Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -649,7 +649,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param exportToExcelInScheduledReports The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+         * @param exportToExcelInScheduledReports Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -659,7 +659,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param exportToPdf The ability to export to PDF files from the UI. Valid values: `DENY`.
+         * @param exportToPdf Ability to export to PDF files from the UI. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -670,7 +670,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param exportToPdf The ability to export to PDF files from the UI. Valid values: `DENY`.
+         * @param exportToPdf Ability to export to PDF files from the UI. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -680,7 +680,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param exportToPdfInScheduledReports The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+         * @param exportToPdfInScheduledReports Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param exportToPdfInScheduledReports The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+         * @param exportToPdfInScheduledReports Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -701,7 +701,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param includeContentInScheduledReportsEmail The ability to include content in scheduled email reports. Valid values: `DENY`.
+         * @param includeContentInScheduledReportsEmail Ability to include content in scheduled email reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -712,7 +712,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param includeContentInScheduledReportsEmail The ability to include content in scheduled email reports. Valid values: `DENY`.
+         * @param includeContentInScheduledReportsEmail Ability to include content in scheduled email reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -722,7 +722,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param printReports The ability to print reports. Valid values: `DENY`.
+         * @param printReports Ability to print reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param printReports The ability to print reports. Valid values: `DENY`.
+         * @param printReports Ability to print reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -743,7 +743,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param renameSharedFolders The ability to rename shared folders. Valid values: `DENY`.
+         * @param renameSharedFolders Ability to rename shared folders. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -754,7 +754,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param renameSharedFolders The ability to rename shared folders. Valid values: `DENY`.
+         * @param renameSharedFolders Ability to rename shared folders. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -764,7 +764,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param shareAnalyses The ability to share analyses. Valid values: `DENY`.
+         * @param shareAnalyses Ability to share analyses. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -775,7 +775,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param shareAnalyses The ability to share analyses. Valid values: `DENY`.
+         * @param shareAnalyses Ability to share analyses. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -785,7 +785,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param shareDashboards The ability to share dashboards. Valid values: `DENY`.
+         * @param shareDashboards Ability to share dashboards. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -796,7 +796,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param shareDashboards The ability to share dashboards. Valid values: `DENY`.
+         * @param shareDashboards Ability to share dashboards. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -806,7 +806,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param shareDataSources The ability to share data sources. Valid values: `DENY`.
+         * @param shareDataSources Ability to share data sources. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -817,7 +817,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param shareDataSources The ability to share data sources. Valid values: `DENY`.
+         * @param shareDataSources Ability to share data sources. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -827,7 +827,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param shareDatasets The ability to share datasets. Valid values: `DENY`.
+         * @param shareDatasets Ability to share datasets. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -838,7 +838,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param shareDatasets The ability to share datasets. Valid values: `DENY`.
+         * @param shareDatasets Ability to share datasets. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -848,7 +848,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param subscribeDashboardEmailReports The ability to subscribe to email reports. Valid values: `DENY`.
+         * @param subscribeDashboardEmailReports Ability to subscribe to email reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -859,7 +859,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param subscribeDashboardEmailReports The ability to subscribe to email reports. Valid values: `DENY`.
+         * @param subscribeDashboardEmailReports Ability to subscribe to email reports. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -869,7 +869,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param viewAccountSpiceCapacity The ability to view account SPICE capacity. Valid values: `DENY`.
+         * @param viewAccountSpiceCapacity Ability to view account SPICE capacity. Valid values: `DENY`.
          * 
          * @return builder
          * 
@@ -880,7 +880,7 @@ public final class CustomPermissionsCapabilitiesArgs extends com.pulumi.resource
         }
 
         /**
-         * @param viewAccountSpiceCapacity The ability to view account SPICE capacity. Valid values: `DENY`.
+         * @param viewAccountSpiceCapacity Ability to view account SPICE capacity. Valid values: `DENY`.
          * 
          * @return builder
          * 

@@ -88,7 +88,7 @@ class ClusterArgs:
                Default is `true`.
         :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
         :param pulumi.Input[_builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[_builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
         :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `master_password` and `master_password_wo`. One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
@@ -430,7 +430,7 @@ class ClusterArgs:
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
         """
         return pulumi.get(self, "iam_roles")
 
@@ -796,7 +796,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] endpoint: The connection endpoint
         :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
         :param pulumi.Input[_builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[_builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
         :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `master_password` and `master_password_wo`. One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
@@ -1233,7 +1233,7 @@ class _ClusterState:
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
         """
         return pulumi.get(self, "iam_roles")
 
@@ -1670,7 +1670,7 @@ class Cluster(pulumi.CustomResource):
                Default is `true`.
         :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
         :param pulumi.Input[_builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[_builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
         :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `master_password` and `master_password_wo`. One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
@@ -1974,7 +1974,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] endpoint: The connection endpoint
         :param pulumi.Input[_builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
         :param pulumi.Input[_builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[_builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
         :param pulumi.Input[_builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `master_password` and `master_password_wo`. One of `master_password` or `manage_master_password` is required unless `snapshot_identifier` is provided.
@@ -2267,7 +2267,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
+        A list of IAM Role ARNs to associate with the cluster. A maximum of 50 (or 10 in ISO regions) can be associated with the cluster at any time.
         """
         return pulumi.get(self, "iam_roles")
 

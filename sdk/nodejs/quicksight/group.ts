@@ -61,15 +61,15 @@ export class Group extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * A description for the group.
+     * Description for the group.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * A name for the group.
+     * Name for the group.
      */
     declare public readonly groupName: pulumi.Output<string>;
     /**
-     * The namespace. Currently, you should set this to `default`.
+     * Namespace. Currently, you should set this to `default`.
      */
     declare public readonly namespace: pulumi.Output<string | undefined>;
     /**
@@ -126,15 +126,15 @@ export interface GroupState {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * A description for the group.
+     * Description for the group.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A name for the group.
+     * Name for the group.
      */
     groupName?: pulumi.Input<string | undefined>;
     /**
-     * The namespace. Currently, you should set this to `default`.
+     * Namespace. Currently, you should set this to `default`.
      */
     namespace?: pulumi.Input<string | undefined>;
     /**
@@ -152,15 +152,15 @@ export interface GroupArgs {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * A description for the group.
+     * Description for the group.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * A name for the group.
+     * Name for the group.
      */
     groupName: pulumi.Input<string>;
     /**
-     * The namespace. Currently, you should set this to `default`.
+     * Namespace. Currently, you should set this to `default`.
      */
     namespace?: pulumi.Input<string | undefined>;
     /**

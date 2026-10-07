@@ -29,8 +29,8 @@ class GroupArgs:
         """
         The set of arguments for constructing a Group resource.
 
-        :param pulumi.Input[_builtins.str] filter_expression: The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-        :param pulumi.Input[_builtins.str] group_name: The name of the group.
+        :param pulumi.Input[_builtins.str] filter_expression: Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+        :param pulumi.Input[_builtins.str] group_name: Name of the group.
         :param pulumi.Input['GroupInsightsConfigurationArgs'] insights_configuration: Configuration options for enabling insights.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -48,7 +48,7 @@ class GroupArgs:
     @pulumi.getter(name="filterExpression")
     def filter_expression(self) -> pulumi.Input[_builtins.str]:
         """
-        The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+        Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         """
         return pulumi.get(self, "filter_expression")
 
@@ -60,7 +60,7 @@ class GroupArgs:
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the group.
+        Name of the group.
         """
         return pulumi.get(self, "group_name")
 
@@ -118,13 +118,13 @@ class _GroupState:
         """
         Input properties used for looking up and filtering Group resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Group.
-        :param pulumi.Input[_builtins.str] filter_expression: The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-        :param pulumi.Input[_builtins.str] group_name: The name of the group.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Group.
+        :param pulumi.Input[_builtins.str] filter_expression: Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+        :param pulumi.Input[_builtins.str] group_name: Name of the group.
         :param pulumi.Input['GroupInsightsConfigurationArgs'] insights_configuration: Configuration options for enabling insights.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -145,7 +145,7 @@ class _GroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Group.
+        ARN of the Group.
         """
         return pulumi.get(self, "arn")
 
@@ -157,7 +157,7 @@ class _GroupState:
     @pulumi.getter(name="filterExpression")
     def filter_expression(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+        Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         """
         return pulumi.get(self, "filter_expression")
 
@@ -169,7 +169,7 @@ class _GroupState:
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the group.
+        Name of the group.
         """
         return pulumi.get(self, "group_name")
 
@@ -217,7 +217,7 @@ class _GroupState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -273,8 +273,8 @@ class Group(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] filter_expression: The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-        :param pulumi.Input[_builtins.str] group_name: The name of the group.
+        :param pulumi.Input[_builtins.str] filter_expression: Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+        :param pulumi.Input[_builtins.str] group_name: Name of the group.
         :param pulumi.Input[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict', 'outputs.GroupInsightsConfiguration']] insights_configuration: Configuration options for enabling insights.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -382,13 +382,13 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Group.
-        :param pulumi.Input[_builtins.str] filter_expression: The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-        :param pulumi.Input[_builtins.str] group_name: The name of the group.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Group.
+        :param pulumi.Input[_builtins.str] filter_expression: Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+        :param pulumi.Input[_builtins.str] group_name: Name of the group.
         :param pulumi.Input[Union['GroupInsightsConfigurationArgs', 'GroupInsightsConfigurationArgsDict', 'outputs.GroupInsightsConfiguration']] insights_configuration: Configuration options for enabling insights.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -407,7 +407,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the Group.
+        ARN of the Group.
         """
         return pulumi.get(self, "arn")
 
@@ -415,7 +415,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="filterExpression")
     def filter_expression(self) -> pulumi.Output[_builtins.str]:
         """
-        The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+        Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         """
         return pulumi.get(self, "filter_expression")
 
@@ -423,7 +423,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the group.
+        Name of the group.
         """
         return pulumi.get(self, "group_name")
 
@@ -455,7 +455,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

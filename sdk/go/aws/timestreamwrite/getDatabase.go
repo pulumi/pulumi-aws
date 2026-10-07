@@ -52,6 +52,7 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseArgs struct {
+	// Name of the Timestream database. Minimum length of 3. Maximum length of 256.
 	Name string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -59,11 +60,11 @@ type LookupDatabaseArgs struct {
 
 // A collection of values returned by getDatabase.
 type LookupDatabaseResult struct {
-	// The ARN that uniquely identifies this database.
+	// ARN that uniquely identifies this database.
 	Arn string `pulumi:"arn"`
 	// Creation time of database.
 	CreatedTime string `pulumi:"createdTime"`
-	// The ARN of the KMS key used to encrypt the data stored in the database.
+	// ARN of the KMS key used to encrypt the data stored in the database.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Last time database was updated.
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
@@ -80,6 +81,7 @@ func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, op
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseOutputArgs struct {
+	// Name of the Timestream database. Minimum length of 3. Maximum length of 256.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -104,7 +106,7 @@ func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutputWithContext(ctx 
 	return o
 }
 
-// The ARN that uniquely identifies this database.
+// ARN that uniquely identifies this database.
 func (o LookupDatabaseResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -114,7 +116,7 @@ func (o LookupDatabaseResultOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// The ARN of the KMS key used to encrypt the data stored in the database.
+// ARN of the KMS key used to encrypt the data stored in the database.
 func (o LookupDatabaseResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }

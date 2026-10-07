@@ -14,31 +14,31 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSetLogicalTableMapDataTransform
     {
         /// <summary>
-        /// A transform operation that casts a column to a different type. See cast_column_type_operation.
+        /// Transform operation that casts a column to a different type. See `CastColumnTypeOperation` Block below.
         /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformCastColumnTypeOperation? CastColumnTypeOperation;
         /// <summary>
-        /// An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+        /// Operation that creates calculated columns. Columns created in one such operation form a lexical closure. See `CreateColumnsOperation` Block below.
         /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformCreateColumnsOperation? CreateColumnsOperation;
         /// <summary>
-        /// An operation that filters rows based on some condition. See filter_operation.
+        /// Operation that filters rows based on some condition. See `FilterOperation` Block below.
         /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformFilterOperation? FilterOperation;
         /// <summary>
-        /// An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+        /// Operation that projects columns. Operations that come after a projection can only refer to projected columns. See `ProjectOperation` Block below.
         /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformProjectOperation? ProjectOperation;
         /// <summary>
-        /// An operation that renames a column. See rename_column_operation.
+        /// Operation that renames a column. See `RenameColumnOperation` Block below.
         /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformRenameColumnOperation? RenameColumnOperation;
         /// <summary>
-        /// An operation that tags a column with additional information. See tag_column_operation.
+        /// Operation that tags a column with additional information. See `TagColumnOperation` Block below.
         /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformTagColumnOperation? TagColumnOperation;
         /// <summary>
-        /// A transform operation that removes tags associated with a column. See untag_column_operation.
+        /// Transform operation that removes tags associated with a column. See `UntagColumnOperation` Block below.
         /// </summary>
         public readonly Outputs.DataSetLogicalTableMapDataTransformUntagColumnOperation? UntagColumnOperation;
 

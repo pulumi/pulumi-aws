@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeTargetParametersEcsTaskParametersNetworkConfiguration {
     /**
-     * @return Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+     * @return Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. See `awsVpcConfiguration` Block for details.
      * 
      */
     private @Nullable PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration awsVpcConfiguration;
 
     private PipeTargetParametersEcsTaskParametersNetworkConfiguration() {}
     /**
-     * @return Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+     * @return Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. See `awsVpcConfiguration` Block for details.
      * 
      */
     public Optional<PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration> awsVpcConfiguration() {

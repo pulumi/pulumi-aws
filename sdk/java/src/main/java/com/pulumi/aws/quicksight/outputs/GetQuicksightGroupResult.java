@@ -19,7 +19,7 @@ public final class GetQuicksightGroupResult {
     private String arn;
     private String awsAccountId;
     /**
-     * @return The group description.
+     * @return Group description.
      * 
      */
     private String description;
@@ -31,7 +31,7 @@ public final class GetQuicksightGroupResult {
     private String id;
     private @Nullable String namespace;
     /**
-     * @return The principal ID of the group.
+     * @return Principal ID of the group.
      * 
      */
     private String principalId;
@@ -49,7 +49,7 @@ public final class GetQuicksightGroupResult {
         return this.awsAccountId;
     }
     /**
-     * @return The group description.
+     * @return Group description.
      * 
      */
     public String description() {
@@ -69,7 +69,7 @@ public final class GetQuicksightGroupResult {
         return Optional.ofNullable(this.namespace);
     }
     /**
-     * @return The principal ID of the group.
+     * @return Principal ID of the group.
      * 
      */
     public String principalId() {

@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AnalysisParameters {
     /**
-     * @return A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+     * @return List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
      * 
      */
     private @Nullable List<AnalysisParametersDateTimeParameter> dateTimeParameters;
     /**
-     * @return A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+     * @return List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
      * 
      */
     private @Nullable List<AnalysisParametersDecimalParameter> decimalParameters;
     /**
-     * @return A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+     * @return List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
      * 
      */
     private @Nullable List<AnalysisParametersIntegerParameter> integerParameters;
     /**
-     * @return A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+     * @return List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
      * 
      */
     private @Nullable List<AnalysisParametersStringParameter> stringParameters;
 
     private AnalysisParameters() {}
     /**
-     * @return A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+     * @return List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
      * 
      */
     public List<AnalysisParametersDateTimeParameter> dateTimeParameters() {
         return this.dateTimeParameters == null ? List.of() : this.dateTimeParameters;
     }
     /**
-     * @return A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+     * @return List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
      * 
      */
     public List<AnalysisParametersDecimalParameter> decimalParameters() {
         return this.decimalParameters == null ? List.of() : this.decimalParameters;
     }
     /**
-     * @return A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+     * @return List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
      * 
      */
     public List<AnalysisParametersIntegerParameter> integerParameters() {
         return this.integerParameters == null ? List.of() : this.integerParameters;
     }
     /**
-     * @return A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+     * @return List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
      * 
      */
     public List<AnalysisParametersStringParameter> stringParameters() {

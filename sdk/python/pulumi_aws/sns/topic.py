@@ -38,6 +38,7 @@ class TopicArgs:
                  lambda_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  lambda_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  lambda_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -70,6 +71,7 @@ class TopicArgs:
         :param pulumi.Input[_builtins.str] lambda_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[_builtins.str] lambda_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[_builtins.int] lambda_success_feedback_sample_rate: Percentage of success to sample
+        :param pulumi.Input[_builtins.int] maximum_message_size: The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximum_message_size` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
         :param pulumi.Input[_builtins.str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[_builtins.str] policy: The fully-formed AWS policy as JSON.
@@ -119,6 +121,8 @@ class TopicArgs:
             pulumi.set(__self__, "lambda_success_feedback_role_arn", lambda_success_feedback_role_arn)
         if lambda_success_feedback_sample_rate is not None:
             pulumi.set(__self__, "lambda_success_feedback_sample_rate", lambda_success_feedback_sample_rate)
+        if maximum_message_size is not None:
+            pulumi.set(__self__, "maximum_message_size", maximum_message_size)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -369,6 +373,18 @@ class TopicArgs:
         pulumi.set(self, "lambda_success_feedback_sample_rate", value)
 
     @_builtins.property
+    @pulumi.getter(name="maximumMessageSize")
+    def maximum_message_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximum_message_size` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+        """
+        return pulumi.get(self, "maximum_message_size")
+
+    @maximum_message_size.setter
+    def maximum_message_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "maximum_message_size", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -513,6 +529,7 @@ class _TopicState:
                  lambda_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  lambda_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  lambda_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
@@ -549,6 +566,7 @@ class _TopicState:
         :param pulumi.Input[_builtins.str] lambda_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[_builtins.str] lambda_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[_builtins.int] lambda_success_feedback_sample_rate: Percentage of success to sample
+        :param pulumi.Input[_builtins.int] maximum_message_size: The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximum_message_size` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
         :param pulumi.Input[_builtins.str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[_builtins.str] owner: The AWS Account ID of the SNS topic owner
@@ -604,6 +622,8 @@ class _TopicState:
             pulumi.set(__self__, "lambda_success_feedback_role_arn", lambda_success_feedback_role_arn)
         if lambda_success_feedback_sample_rate is not None:
             pulumi.set(__self__, "lambda_success_feedback_sample_rate", lambda_success_feedback_sample_rate)
+        if maximum_message_size is not None:
+            pulumi.set(__self__, "maximum_message_size", maximum_message_size)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
@@ -882,6 +902,18 @@ class _TopicState:
         pulumi.set(self, "lambda_success_feedback_sample_rate", value)
 
     @_builtins.property
+    @pulumi.getter(name="maximumMessageSize")
+    def maximum_message_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximum_message_size` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+        """
+        return pulumi.get(self, "maximum_message_size")
+
+    @maximum_message_size.setter
+    def maximum_message_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "maximum_message_size", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1051,6 +1083,7 @@ class Topic(pulumi.CustomResource):
                  lambda_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  lambda_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  lambda_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1165,6 +1198,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] lambda_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[_builtins.str] lambda_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[_builtins.int] lambda_success_feedback_sample_rate: Percentage of success to sample
+        :param pulumi.Input[_builtins.int] maximum_message_size: The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximum_message_size` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
         :param pulumi.Input[_builtins.str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[_builtins.str] policy: The fully-formed AWS policy as JSON.
@@ -1298,6 +1332,7 @@ class Topic(pulumi.CustomResource):
                  lambda_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  lambda_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  lambda_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+                 maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1336,6 +1371,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["lambda_failure_feedback_role_arn"] = lambda_failure_feedback_role_arn
             __props__.__dict__["lambda_success_feedback_role_arn"] = lambda_success_feedback_role_arn
             __props__.__dict__["lambda_success_feedback_sample_rate"] = lambda_success_feedback_sample_rate
+            __props__.__dict__["maximum_message_size"] = maximum_message_size
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["policy"] = policy
@@ -1381,6 +1417,7 @@ class Topic(pulumi.CustomResource):
             lambda_failure_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             lambda_success_feedback_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             lambda_success_feedback_sample_rate: pulumi.Input[Optional[_builtins.int]] = None,
+            maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             owner: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1421,6 +1458,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] lambda_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[_builtins.str] lambda_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[_builtins.int] lambda_success_feedback_sample_rate: Percentage of success to sample
+        :param pulumi.Input[_builtins.int] maximum_message_size: The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximum_message_size` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
         :param pulumi.Input[_builtins.str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[_builtins.str] owner: The AWS Account ID of the SNS topic owner
@@ -1459,6 +1497,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["lambda_failure_feedback_role_arn"] = lambda_failure_feedback_role_arn
         __props__.__dict__["lambda_success_feedback_role_arn"] = lambda_success_feedback_role_arn
         __props__.__dict__["lambda_success_feedback_sample_rate"] = lambda_success_feedback_sample_rate
+        __props__.__dict__["maximum_message_size"] = maximum_message_size
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["owner"] = owner
@@ -1640,6 +1679,14 @@ class Topic(pulumi.CustomResource):
         Percentage of success to sample
         """
         return pulumi.get(self, "lambda_success_feedback_sample_rate")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumMessageSize")
+    def maximum_message_size(self) -> pulumi.Output[_builtins.int]:
+        """
+        The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximum_message_size` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+        """
+        return pulumi.get(self, "maximum_message_size")
 
     @_builtins.property
     @pulumi.getter

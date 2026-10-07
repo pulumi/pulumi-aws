@@ -309,13 +309,13 @@ namespace Pulumi.Aws.Pipes
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the pipe. At most 512 characters.
+        /// Description of the pipe. At most 512 characters.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+        /// State the pipe should be in. One of: `RUNNING`, `STOPPED`.
         /// </summary>
         [Output("desiredState")]
         public Output<string?> DesiredState { get; private set; } = null!;
@@ -327,7 +327,7 @@ namespace Pulumi.Aws.Pipes
         public Output<string?> Enrichment { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters to configure enrichment for your pipe. Detailed below.
+        /// Parameters to configure enrichment for the pipe. See `EnrichmentParameters` Block for details.
         /// </summary>
         [Output("enrichmentParameters")]
         public Output<Outputs.PipeEnrichmentParameters?> EnrichmentParameters { get; private set; } = null!;
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.Pipes
         public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Logging configuration settings for the pipe. Detailed below.
+        /// Logging configuration settings for the pipe. See `LogConfiguration` Block for details.
         /// </summary>
         [Output("logConfiguration")]
         public Output<Outputs.PipeLogConfiguration?> LogConfiguration { get; private set; } = null!;
@@ -375,13 +375,13 @@ namespace Pulumi.Aws.Pipes
         public Output<string> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters to configure a source for the pipe. Detailed below.
+        /// Parameters to configure a source for the pipe. See `SourceParameters` Block for details.
         /// </summary>
         [Output("sourceParameters")]
         public Output<Outputs.PipeSourceParameters> SourceParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.Pipes
         public Output<string> Target { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters to configure a target for your pipe. Detailed below.
+        /// Parameters to configure a target for the pipe. See `TargetParameters` Block for details.
         /// </summary>
         [Output("targetParameters")]
         public Output<Outputs.PipeTargetParameters?> TargetParameters { get; private set; } = null!;
@@ -453,13 +453,13 @@ namespace Pulumi.Aws.Pipes
     public sealed class PipeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the pipe. At most 512 characters.
+        /// Description of the pipe. At most 512 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+        /// State the pipe should be in. One of: `RUNNING`, `STOPPED`.
         /// </summary>
         [Input("desiredState")]
         public Input<string>? DesiredState { get; set; }
@@ -471,7 +471,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string>? Enrichment { get; set; }
 
         /// <summary>
-        /// Parameters to configure enrichment for your pipe. Detailed below.
+        /// Parameters to configure enrichment for the pipe. See `EnrichmentParameters` Block for details.
         /// </summary>
         [Input("enrichmentParameters")]
         public Input<Inputs.PipeEnrichmentParametersArgs>? EnrichmentParameters { get; set; }
@@ -483,7 +483,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string>? KmsKeyIdentifier { get; set; }
 
         /// <summary>
-        /// Logging configuration settings for the pipe. Detailed below.
+        /// Logging configuration settings for the pipe. See `LogConfiguration` Block for details.
         /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.PipeLogConfigurationArgs>? LogConfiguration { get; set; }
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string> Source { get; set; } = null!;
 
         /// <summary>
-        /// Parameters to configure a source for the pipe. Detailed below.
+        /// Parameters to configure a source for the pipe. See `SourceParameters` Block for details.
         /// </summary>
         [Input("sourceParameters")]
         public Input<Inputs.PipeSourceParametersArgs>? SourceParameters { get; set; }
@@ -528,7 +528,7 @@ namespace Pulumi.Aws.Pipes
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -545,7 +545,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string> Target { get; set; } = null!;
 
         /// <summary>
-        /// Parameters to configure a target for your pipe. Detailed below.
+        /// Parameters to configure a target for the pipe. See `TargetParameters` Block for details.
         /// </summary>
         [Input("targetParameters")]
         public Input<Inputs.PipeTargetParametersArgs>? TargetParameters { get; set; }
@@ -565,13 +565,13 @@ namespace Pulumi.Aws.Pipes
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A description of the pipe. At most 512 characters.
+        /// Description of the pipe. At most 512 characters.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+        /// State the pipe should be in. One of: `RUNNING`, `STOPPED`.
         /// </summary>
         [Input("desiredState")]
         public Input<string>? DesiredState { get; set; }
@@ -583,7 +583,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string>? Enrichment { get; set; }
 
         /// <summary>
-        /// Parameters to configure enrichment for your pipe. Detailed below.
+        /// Parameters to configure enrichment for the pipe. See `EnrichmentParameters` Block for details.
         /// </summary>
         [Input("enrichmentParameters")]
         public Input<Inputs.PipeEnrichmentParametersGetArgs>? EnrichmentParameters { get; set; }
@@ -595,7 +595,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string>? KmsKeyIdentifier { get; set; }
 
         /// <summary>
-        /// Logging configuration settings for the pipe. Detailed below.
+        /// Logging configuration settings for the pipe. See `LogConfiguration` Block for details.
         /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.PipeLogConfigurationGetArgs>? LogConfiguration { get; set; }
@@ -631,7 +631,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string>? Source { get; set; }
 
         /// <summary>
-        /// Parameters to configure a source for the pipe. Detailed below.
+        /// Parameters to configure a source for the pipe. See `SourceParameters` Block for details.
         /// </summary>
         [Input("sourceParameters")]
         public Input<Inputs.PipeSourceParametersGetArgs>? SourceParameters { get; set; }
@@ -640,7 +640,7 @@ namespace Pulumi.Aws.Pipes
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -669,7 +669,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string>? Target { get; set; }
 
         /// <summary>
-        /// Parameters to configure a target for your pipe. Detailed below.
+        /// Parameters to configure a target for the pipe. See `TargetParameters` Block for details.
         /// </summary>
         [Input("targetParameters")]
         public Input<Inputs.PipeTargetParametersGetArgs>? TargetParameters { get; set; }

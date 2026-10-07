@@ -13,61 +13,61 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DashboardDashboardPublishOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+        /// Ad hoc (one-time) filtering option. See `AdHocFilteringOption`.
         /// </summary>
         [Input("adHocFilteringOption")]
         public Input<Inputs.DashboardDashboardPublishOptionsAdHocFilteringOptionArgs>? AdHocFilteringOption { get; set; }
 
         /// <summary>
-        /// The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+        /// Drill-down options of data points in a dashboard. See `DataPointDrillUpDownOption`.
         /// </summary>
         [Input("dataPointDrillUpDownOption")]
         public Input<Inputs.DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs>? DataPointDrillUpDownOption { get; set; }
 
         /// <summary>
-        /// The data point menu label options of a dashboard. See data_point_menu_label_option.
+        /// Data point menu label options of a dashboard. See `DataPointMenuLabelOption`.
         /// </summary>
         [Input("dataPointMenuLabelOption")]
         public Input<Inputs.DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs>? DataPointMenuLabelOption { get; set; }
 
         /// <summary>
-        /// The data point tool tip options of a dashboard. See data_point_tooltip_option.
+        /// Data point tool tip options of a dashboard. See `DataPointTooltipOption`.
         /// </summary>
         [Input("dataPointTooltipOption")]
         public Input<Inputs.DashboardDashboardPublishOptionsDataPointTooltipOptionArgs>? DataPointTooltipOption { get; set; }
 
         /// <summary>
-        /// Export to .csv option. See export_to_csv_option.
+        /// Export to .csv option. See `ExportToCsvOption`.
         /// </summary>
         [Input("exportToCsvOption")]
         public Input<Inputs.DashboardDashboardPublishOptionsExportToCsvOptionArgs>? ExportToCsvOption { get; set; }
 
         /// <summary>
-        /// Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+        /// Whether hidden fields are exported with a dashboard. See `ExportWithHiddenFieldsOption`.
         /// </summary>
         [Input("exportWithHiddenFieldsOption")]
         public Input<Inputs.DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs>? ExportWithHiddenFieldsOption { get; set; }
 
         /// <summary>
-        /// Sheet controls option. See sheet_controls_option.
+        /// Sheet controls option. See `SheetControlsOption`.
         /// </summary>
         [Input("sheetControlsOption")]
         public Input<Inputs.DashboardDashboardPublishOptionsSheetControlsOptionArgs>? SheetControlsOption { get; set; }
 
         /// <summary>
-        /// The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+        /// Sheet layout maximization options of a dashboard. See `SheetLayoutElementMaximizationOption`.
         /// </summary>
         [Input("sheetLayoutElementMaximizationOption")]
         public Input<Inputs.DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs>? SheetLayoutElementMaximizationOption { get; set; }
 
         /// <summary>
-        /// The axis sort options of a dashboard. See visual_axis_sort_option.
+        /// Axis sort options of a dashboard. See `VisualAxisSortOption`.
         /// </summary>
         [Input("visualAxisSortOption")]
         public Input<Inputs.DashboardDashboardPublishOptionsVisualAxisSortOptionArgs>? VisualAxisSortOption { get; set; }
 
         /// <summary>
-        /// The menu options of a visual in a dashboard. See visual_menu_option.
+        /// Menu options of a visual in a dashboard. See `VisualMenuOption`.
         /// </summary>
         [Input("visualMenuOption")]
         public Input<Inputs.DashboardDashboardPublishOptionsVisualMenuOptionArgs>? VisualMenuOption { get; set; }

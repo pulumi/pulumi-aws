@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class FirehoseDeliveryStreamSnowflakeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL of the Snowflake account. Format: https://[AccountIdentifier].snowflakecomputing.com.
+        /// URL of the Snowflake account. Format: https://[AccountIdentifier].snowflakecomputing.com.
         /// </summary>
         [Input("accountUrl", required: true)]
         public Input<string> AccountUrl { get; set; } = null!;
@@ -31,25 +31,25 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? BufferingSize { get; set; }
 
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         [Input("cloudwatchLoggingOptions")]
         public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs>? CloudwatchLoggingOptions { get; set; }
 
         /// <summary>
-        /// The name of the content column.
+        /// Name of the content column.
         /// </summary>
         [Input("contentColumnName")]
         public Input<string>? ContentColumnName { get; set; }
 
         /// <summary>
-        /// The data loading option.
+        /// Data loading option.
         /// </summary>
         [Input("dataLoadingOption")]
         public Input<string>? DataLoadingOption { get; set; }
 
         /// <summary>
-        /// The Snowflake database name.
+        /// Snowflake database name.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private Input<string>? _keyPassphrase;
 
         /// <summary>
-        /// The passphrase for the private key.
+        /// Passphrase for the private key.
         /// </summary>
         public Input<string>? KeyPassphrase
         {
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         }
 
         /// <summary>
-        /// The name of the metadata column.
+        /// Name of the metadata column.
         /// </summary>
         [Input("metadataColumnName")]
         public Input<string>? MetadataColumnName { get; set; }
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private Input<string>? _privateKey;
 
         /// <summary>
-        /// The private key for authentication. This value is required if `SecretsManagerConfiguration` is not provided.
+        /// Private key for authentication. This value is required if `SecretsManagerConfiguration` is not provided.
         /// </summary>
         public Input<string>? PrivateKey
         {
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         }
 
         /// <summary>
-        /// The processing configuration. See `ProcessingConfiguration` block below for details.
+        /// Processing configuration. See `ProcessingConfiguration` block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
@@ -105,55 +105,55 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<int>? RetryDuration { get; set; }
 
         /// <summary>
-        /// The ARN of the IAM role.
+        /// ARN of the IAM role.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The S3 backup mode.
+        /// S3 backup mode.
         /// </summary>
         [Input("s3BackupMode")]
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The S3 configuration. See `S3Configuration` block below for details.
+        /// S3 configuration. See `S3Configuration` block below for details.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgs> S3Configuration { get; set; } = null!;
 
         /// <summary>
-        /// The Snowflake schema name.
+        /// Snowflake schema name.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// The Secrets Manager configuration. See `SecretsManagerConfiguration` block below for details. This value is required if `User` and `PrivateKey` are not provided.
+        /// Secrets Manager configuration. See `SecretsManagerConfiguration` block below for details. This value is required if `User` and `PrivateKey` are not provided.
         /// </summary>
         [Input("secretsManagerConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs>? SecretsManagerConfiguration { get; set; }
 
         /// <summary>
-        /// The configuration for Snowflake role.
+        /// Configuration for Snowflake role. See `SnowflakeRoleConfiguration` block below for details.
         /// </summary>
         [Input("snowflakeRoleConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs>? SnowflakeRoleConfiguration { get; set; }
 
         /// <summary>
-        /// The VPC configuration for Snowflake.
+        /// VPC configuration for Snowflake. See `SnowflakeVpcConfiguration` block below for details.
         /// </summary>
         [Input("snowflakeVpcConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs>? SnowflakeVpcConfiguration { get; set; }
 
         /// <summary>
-        /// The Snowflake table name.
+        /// Snowflake table name.
         /// </summary>
         [Input("table", required: true)]
         public Input<string> Table { get; set; } = null!;
 
         /// <summary>
-        /// The user for authentication. This value is required if `SecretsManagerConfiguration` is not provided.
+        /// User for authentication. This value is required if `SecretsManagerConfiguration` is not provided.
         /// </summary>
         [Input("user")]
         public Input<string>? User { get; set; }

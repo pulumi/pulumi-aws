@@ -18,14 +18,14 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     public static final ApplicationApplicationConfigurationApplicationCodeConfigurationArgs Empty = new ApplicationApplicationConfigurationApplicationCodeConfigurationArgs();
 
     /**
-     * The location and type of the application code.
+     * Location and type of the application code. See `codeContent` Block below.
      * 
      */
     @Import(name="codeContent")
     private @Nullable Output<ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs> codeContent;
 
     /**
-     * @return The location and type of the application code.
+     * @return Location and type of the application code. See `codeContent` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs>> codeContent() {
@@ -33,14 +33,14 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     }
 
     /**
-     * Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
+     * Whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
      * 
      */
     @Import(name="codeContentType", required=true)
     private Output<String> codeContentType;
 
     /**
-     * @return Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
+     * @return Whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
      * 
      */
     public Output<String> codeContentType() {
@@ -73,7 +73,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param codeContent The location and type of the application code.
+         * @param codeContent Location and type of the application code. See `codeContent` Block below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param codeContent The location and type of the application code.
+         * @param codeContent Location and type of the application code. See `codeContent` Block below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param codeContentType Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
+         * @param codeContentType Whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param codeContentType Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
+         * @param codeContentType Whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
          * 
          * @return builder
          * 

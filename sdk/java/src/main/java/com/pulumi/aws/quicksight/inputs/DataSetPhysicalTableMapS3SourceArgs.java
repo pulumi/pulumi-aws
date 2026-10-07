@@ -33,14 +33,14 @@ public final class DataSetPhysicalTableMapS3SourceArgs extends com.pulumi.resour
     }
 
     /**
-     * Column schema of the table. See input_columns.
+     * Column schema of the table. See `inputColumns` Block below.
      * 
      */
     @Import(name="inputColumns", required=true)
     private Output<List<DataSetPhysicalTableMapS3SourceInputColumnArgs>> inputColumns;
 
     /**
-     * @return Column schema of the table. See input_columns.
+     * @return Column schema of the table. See `inputColumns` Block below.
      * 
      */
     public Output<List<DataSetPhysicalTableMapS3SourceInputColumnArgs>> inputColumns() {
@@ -48,14 +48,14 @@ public final class DataSetPhysicalTableMapS3SourceArgs extends com.pulumi.resour
     }
 
     /**
-     * Information about the format for the S3 source file or files. See upload_settings.
+     * Information about the format for the S3 source file or files. See `uploadSettings` Block below.
      * 
      */
     @Import(name="uploadSettings", required=true)
     private Output<DataSetPhysicalTableMapS3SourceUploadSettingsArgs> uploadSettings;
 
     /**
-     * @return Information about the format for the S3 source file or files. See upload_settings.
+     * @return Information about the format for the S3 source file or files. See `uploadSettings` Block below.
      * 
      */
     public Output<DataSetPhysicalTableMapS3SourceUploadSettingsArgs> uploadSettings() {
@@ -110,7 +110,7 @@ public final class DataSetPhysicalTableMapS3SourceArgs extends com.pulumi.resour
         }
 
         /**
-         * @param inputColumns Column schema of the table. See input_columns.
+         * @param inputColumns Column schema of the table. See `inputColumns` Block below.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class DataSetPhysicalTableMapS3SourceArgs extends com.pulumi.resour
         }
 
         /**
-         * @param inputColumns Column schema of the table. See input_columns.
+         * @param inputColumns Column schema of the table. See `inputColumns` Block below.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class DataSetPhysicalTableMapS3SourceArgs extends com.pulumi.resour
         }
 
         /**
-         * @param inputColumns Column schema of the table. See input_columns.
+         * @param inputColumns Column schema of the table. See `inputColumns` Block below.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class DataSetPhysicalTableMapS3SourceArgs extends com.pulumi.resour
         }
 
         /**
-         * @param uploadSettings Information about the format for the S3 source file or files. See upload_settings.
+         * @param uploadSettings Information about the format for the S3 source file or files. See `uploadSettings` Block below.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class DataSetPhysicalTableMapS3SourceArgs extends com.pulumi.resour
         }
 
         /**
-         * @param uploadSettings Information about the format for the S3 source file or files. See upload_settings.
+         * @param uploadSettings Information about the format for the S3 source file or files. See `uploadSettings` Block below.
          * 
          * @return builder
          * 

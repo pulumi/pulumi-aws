@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters {
     /**
-     * @return The path to the top-level parent that contains the records.
+     * @return Path to the top-level parent that contains the records.
      * 
      */
     private String recordRowPath;
 
     private ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters() {}
     /**
-     * @return The path to the top-level parent that contains the records.
+     * @return Path to the top-level parent that contains the records.
      * 
      */
     public String recordRowPath() {

@@ -15,14 +15,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs();
 
     /**
-     * The ARN of the Lambda function that operates on records in the stream.
+     * ARN of the Lambda function that operates on records in the stream.
      * 
      */
     @Import(name="resourceArn", required=true)
     private Output<String> resourceArn;
 
     /**
-     * @return The ARN of the Lambda function that operates on records in the stream.
+     * @return ARN of the Lambda function that operates on records in the stream.
      * 
      */
     public Output<String> resourceArn() {
@@ -54,7 +54,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param resourceArn The ARN of the Lambda function that operates on records in the stream.
+         * @param resourceArn ARN of the Lambda function that operates on records in the stream.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param resourceArn The ARN of the Lambda function that operates on records in the stream.
+         * @param resourceArn ARN of the Lambda function that operates on records in the stream.
          * 
          * @return builder
          * 

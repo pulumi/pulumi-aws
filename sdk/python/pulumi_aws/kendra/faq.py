@@ -33,11 +33,17 @@ class FaqArgs:
         """
         The set of arguments for constructing a Faq resource.
 
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
+        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a FAQ.
         :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
-        :param pulumi.Input[_builtins.str] name: The name that should be associated with the FAQ.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        :param pulumi.Input['FaqS3PathArgs'] s3_path: S3 location of the FAQ input data. Detailed below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] description: Description for a FAQ.
+        :param pulumi.Input[_builtins.str] file_format: File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+        :param pulumi.Input[_builtins.str] language_code: Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        :param pulumi.Input[_builtins.str] name: Name that should be associated with the FAQ.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -59,7 +65,7 @@ class FaqArgs:
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The identifier of the index for a FAQ.
+        Identifier of the index for a FAQ.
         """
         return pulumi.get(self, "index_id")
 
@@ -83,7 +89,9 @@ class FaqArgs:
     @pulumi.getter(name="s3Path")
     def s3_path(self) -> pulumi.Input['FaqS3PathArgs']:
         """
-        The S3 location of the FAQ input data. Detailed below.
+        S3 location of the FAQ input data. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "s3_path")
 
@@ -94,6 +102,9 @@ class FaqArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description for a FAQ.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -103,6 +114,9 @@ class FaqArgs:
     @_builtins.property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+        """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
@@ -112,6 +126,9 @@ class FaqArgs:
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -122,7 +139,7 @@ class FaqArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name that should be associated with the FAQ.
+        Name that should be associated with the FAQ.
         """
         return pulumi.get(self, "name")
 
@@ -134,7 +151,7 @@ class FaqArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -145,6 +162,9 @@ class FaqArgs:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -175,17 +195,23 @@ class _FaqState:
         Input properties used for looking up and filtering Faq resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the FAQ.
-        :param pulumi.Input[_builtins.str] created_at: The Unix datetime that the FAQ was created.
+        :param pulumi.Input[_builtins.str] created_at: Unix datetime that the FAQ was created.
+        :param pulumi.Input[_builtins.str] description: Description for a FAQ.
         :param pulumi.Input[_builtins.str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
-        :param pulumi.Input[_builtins.str] faq_id: The identifier of the FAQ.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
-        :param pulumi.Input[_builtins.str] name: The name that should be associated with the FAQ.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        :param pulumi.Input[_builtins.str] faq_id: Identifier of the FAQ.
+        :param pulumi.Input[_builtins.str] file_format: File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a FAQ.
+        :param pulumi.Input[_builtins.str] language_code: Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        :param pulumi.Input[_builtins.str] name: Name that should be associated with the FAQ.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
-        :param pulumi.Input[_builtins.str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] updated_at: The date and time that the FAQ was last updated.
+        :param pulumi.Input['FaqS3PathArgs'] s3_path: S3 location of the FAQ input data. Detailed below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] status: Status of the FAQ. It is ready to use when the status is ACTIVE.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] updated_at: Date and time that the FAQ was last updated.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -236,7 +262,7 @@ class _FaqState:
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Unix datetime that the FAQ was created.
+        Unix datetime that the FAQ was created.
         """
         return pulumi.get(self, "created_at")
 
@@ -247,6 +273,9 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description for a FAQ.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -269,7 +298,7 @@ class _FaqState:
     @pulumi.getter(name="faqId")
     def faq_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of the FAQ.
+        Identifier of the FAQ.
         """
         return pulumi.get(self, "faq_id")
 
@@ -280,6 +309,9 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+        """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
@@ -290,7 +322,7 @@ class _FaqState:
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of the index for a FAQ.
+        Identifier of the index for a FAQ.
         """
         return pulumi.get(self, "index_id")
 
@@ -301,6 +333,9 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        """
         return pulumi.get(self, "language_code")
 
     @language_code.setter
@@ -311,7 +346,7 @@ class _FaqState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name that should be associated with the FAQ.
+        Name that should be associated with the FAQ.
         """
         return pulumi.get(self, "name")
 
@@ -323,7 +358,7 @@ class _FaqState:
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -347,7 +382,9 @@ class _FaqState:
     @pulumi.getter(name="s3Path")
     def s3_path(self) -> pulumi.Input[Optional['FaqS3PathArgs']]:
         """
-        The S3 location of the FAQ input data. Detailed below.
+        S3 location of the FAQ input data. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "s3_path")
 
@@ -359,7 +396,7 @@ class _FaqState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of the FAQ. It is ready to use when the status is ACTIVE.
+        Status of the FAQ. It is ready to use when the status is ACTIVE.
         """
         return pulumi.get(self, "status")
 
@@ -370,6 +407,9 @@ class _FaqState:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -380,7 +420,7 @@ class _FaqState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -392,7 +432,7 @@ class _FaqState:
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The date and time that the FAQ was last updated.
+        Date and time that the FAQ was last updated.
         """
         return pulumi.get(self, "updated_at")
 
@@ -486,11 +526,17 @@ class Faq(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
-        :param pulumi.Input[_builtins.str] name: The name that should be associated with the FAQ.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        :param pulumi.Input[_builtins.str] description: Description for a FAQ.
+        :param pulumi.Input[_builtins.str] file_format: File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a FAQ.
+        :param pulumi.Input[_builtins.str] language_code: Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        :param pulumi.Input[_builtins.str] name: Name that should be associated with the FAQ.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict', 'outputs.FaqS3Path']] s3_path: The S3 location of the FAQ input data. Detailed below.
+        :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict', 'outputs.FaqS3Path']] s3_path: S3 location of the FAQ input data. Detailed below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -654,17 +700,23 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the FAQ.
-        :param pulumi.Input[_builtins.str] created_at: The Unix datetime that the FAQ was created.
+        :param pulumi.Input[_builtins.str] created_at: Unix datetime that the FAQ was created.
+        :param pulumi.Input[_builtins.str] description: Description for a FAQ.
         :param pulumi.Input[_builtins.str] error_message: When the Status field value is `FAILED`, this contains a message that explains why.
-        :param pulumi.Input[_builtins.str] faq_id: The identifier of the FAQ.
-        :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
-        :param pulumi.Input[_builtins.str] name: The name that should be associated with the FAQ.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        :param pulumi.Input[_builtins.str] faq_id: Identifier of the FAQ.
+        :param pulumi.Input[_builtins.str] file_format: File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+        :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a FAQ.
+        :param pulumi.Input[_builtins.str] language_code: Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        :param pulumi.Input[_builtins.str] name: Name that should be associated with the FAQ.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict', 'outputs.FaqS3Path']] s3_path: The S3 location of the FAQ input data. Detailed below.
-        :param pulumi.Input[_builtins.str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] updated_at: The date and time that the FAQ was last updated.
+        :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict', 'outputs.FaqS3Path']] s3_path: S3 location of the FAQ input data. Detailed below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] status: Status of the FAQ. It is ready to use when the status is ACTIVE.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] updated_at: Date and time that the FAQ was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -700,13 +752,16 @@ class Faq(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         """
-        The Unix datetime that the FAQ was created.
+        Unix datetime that the FAQ was created.
         """
         return pulumi.get(self, "created_at")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Description for a FAQ.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -721,33 +776,39 @@ class Faq(pulumi.CustomResource):
     @pulumi.getter(name="faqId")
     def faq_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The identifier of the FAQ.
+        Identifier of the FAQ.
         """
         return pulumi.get(self, "faq_id")
 
     @_builtins.property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+        """
         return pulumi.get(self, "file_format")
 
     @_builtins.property
     @pulumi.getter(name="indexId")
     def index_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The identifier of the index for a FAQ.
+        Identifier of the index for a FAQ.
         """
         return pulumi.get(self, "index_id")
 
     @_builtins.property
     @pulumi.getter(name="languageCode")
     def language_code(self) -> pulumi.Output[_builtins.str]:
+        """
+        Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+        """
         return pulumi.get(self, "language_code")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name that should be associated with the FAQ.
+        Name that should be associated with the FAQ.
         """
         return pulumi.get(self, "name")
 
@@ -755,7 +816,7 @@ class Faq(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -771,7 +832,9 @@ class Faq(pulumi.CustomResource):
     @pulumi.getter(name="s3Path")
     def s3_path(self) -> pulumi.Output['outputs.FaqS3Path']:
         """
-        The S3 location of the FAQ input data. Detailed below.
+        S3 location of the FAQ input data. Detailed below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "s3_path")
 
@@ -779,20 +842,23 @@ class Faq(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The status of the FAQ. It is ready to use when the status is ACTIVE.
+        Status of the FAQ. It is ready to use when the status is ACTIVE.
         """
         return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -800,7 +866,7 @@ class Faq(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
         """
-        The date and time that the FAQ was last updated.
+        Date and time that the FAQ was last updated.
         """
         return pulumi.get(self, "updated_at")
 

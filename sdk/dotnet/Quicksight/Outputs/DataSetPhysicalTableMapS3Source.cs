@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// </summary>
         public readonly string DataSourceArn;
         /// <summary>
-        /// Column schema of the table. See input_columns.
+        /// Column schema of the table. See `InputColumns` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetPhysicalTableMapS3SourceInputColumn> InputColumns;
         /// <summary>
-        /// Information about the format for the S3 source file or files. See upload_settings.
+        /// Information about the format for the S3 source file or files. See `UploadSettings` Block below.
         /// </summary>
         public readonly Outputs.DataSetPhysicalTableMapS3SourceUploadSettings UploadSettings;
 

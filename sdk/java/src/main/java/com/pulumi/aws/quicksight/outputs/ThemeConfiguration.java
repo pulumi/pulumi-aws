@@ -25,7 +25,7 @@ public final class ThemeConfiguration {
      */
     private @Nullable ThemeConfigurationSheet sheet;
     /**
-     * @return Determines the typography options. See typography.
+     * @return Typography options. See typography.
      * 
      */
     private @Nullable ThemeConfigurationTypography typography;
@@ -51,7 +51,7 @@ public final class ThemeConfiguration {
         return Optional.ofNullable(this.sheet);
     }
     /**
-     * @return Determines the typography options. See typography.
+     * @return Typography options. See typography.
      * 
      */
     public Optional<ThemeConfigurationTypography> typography() {

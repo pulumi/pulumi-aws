@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Kendra.Inputs
     public sealed class IndexUserTokenConfigurationsJsonTokenTypeConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The group attribute field. Minimum length of 1. Maximum length of 2048.
+        /// Group attribute field. Minimum length of 1. Maximum length of 2048.
         /// </summary>
         [Input("groupAttributeField", required: true)]
         public Input<string> GroupAttributeField { get; set; } = null!;
 
         /// <summary>
-        /// The user name attribute field. Minimum length of 1. Maximum length of 2048.
+        /// User name attribute field. Minimum length of 1. Maximum length of 2048.
         /// </summary>
         [Input("userNameAttributeField", required: true)]
         public Input<string> UserNameAttributeField { get; set; } = null!;

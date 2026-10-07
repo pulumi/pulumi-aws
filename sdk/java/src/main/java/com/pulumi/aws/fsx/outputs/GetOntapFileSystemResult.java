@@ -41,7 +41,7 @@ public final class GetOntapFileSystemResult {
      */
     private List<GetOntapFileSystemDiskIopsConfiguration> diskIopsConfigurations;
     /**
-     * @return DNS name for the file system.
+     * @return File system&#39;s DNS name. You can mount your file system using its DNS name.
      * 
      */
     private String dnsName;
@@ -51,7 +51,7 @@ public final class GetOntapFileSystemResult {
      */
     private String endpointIpAddressRange;
     /**
-     * @return Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+     * @return Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      * 
      */
     private List<GetOntapFileSystemEndpoint> endpoints;
@@ -174,7 +174,7 @@ public final class GetOntapFileSystemResult {
         return this.diskIopsConfigurations;
     }
     /**
-     * @return DNS name for the file system.
+     * @return File system&#39;s DNS name. You can mount your file system using its DNS name.
      * 
      */
     public String dnsName() {
@@ -188,7 +188,7 @@ public final class GetOntapFileSystemResult {
         return this.endpointIpAddressRange;
     }
     /**
-     * @return Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+     * @return Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      * 
      */
     public List<GetOntapFileSystemEndpoint> endpoints() {

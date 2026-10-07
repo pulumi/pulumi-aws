@@ -53,14 +53,14 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Options for publishing the dashboard. See dashboard_publish_options.
+     * Options for publishing the dashboard. See `dashboardPublishOptions`.
      * 
      */
     @Import(name="dashboardPublishOptions")
     private @Nullable Output<DashboardDashboardPublishOptionsArgs> dashboardPublishOptions;
 
     /**
-     * @return Options for publishing the dashboard. See dashboard_publish_options.
+     * @return Options for publishing the dashboard. See `dashboardPublishOptions`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsArgs>> dashboardPublishOptions() {
@@ -83,14 +83,14 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<DashboardParametersArgs> parameters;
 
     /**
-     * @return The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * @return Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
      * 
      */
     public Optional<Output<DashboardParametersArgs>> parameters() {
@@ -98,14 +98,14 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<DashboardPermissionArgs>> permissions;
 
     /**
-     * @return A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
      * 
      */
     public Optional<Output<List<DashboardPermissionArgs>>> permissions() {
@@ -128,14 +128,14 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
      * 
      */
     @Import(name="sourceEntity")
     private @Nullable Output<DashboardSourceEntityArgs> sourceEntity;
 
     /**
-     * @return The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * @return Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
      * 
      */
     public Optional<Output<DashboardSourceEntityArgs>> sourceEntity() {
@@ -173,7 +173,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the current dashboard version being created/updated.
+     * Description of the current dashboard version being created/updated.
      * 
      * The following arguments are optional:
      * 
@@ -182,7 +182,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> versionDescription;
 
     /**
-     * @return A description of the current dashboard version being created/updated.
+     * @return Description of the current dashboard version being created/updated.
      * 
      * The following arguments are optional:
      * 
@@ -268,7 +268,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardPublishOptions Options for publishing the dashboard. See dashboard_publish_options.
+         * @param dashboardPublishOptions Options for publishing the dashboard. See `dashboardPublishOptions`.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dashboardPublishOptions Options for publishing the dashboard. See dashboard_publish_options.
+         * @param dashboardPublishOptions Options for publishing the dashboard. See `dashboardPublishOptions`.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+         * @param parameters Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+         * @param parameters Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntity The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+         * @param sourceEntity Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntity The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+         * @param sourceEntity Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionDescription A description of the current dashboard version being created/updated.
+         * @param versionDescription Description of the current dashboard version being created/updated.
          * 
          * The following arguments are optional:
          * 
@@ -459,7 +459,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param versionDescription A description of the current dashboard version being created/updated.
+         * @param versionDescription Description of the current dashboard version being created/updated.
          * 
          * The following arguments are optional:
          * 

@@ -16,14 +16,14 @@ public final class PipeTargetParametersCloudwatchLogsParametersArgs extends com.
     public static final PipeTargetParametersCloudwatchLogsParametersArgs Empty = new PipeTargetParametersCloudwatchLogsParametersArgs();
 
     /**
-     * The name of the log stream.
+     * Name of the log stream.
      * 
      */
     @Import(name="logStreamName")
     private @Nullable Output<String> logStreamName;
 
     /**
-     * @return The name of the log stream.
+     * @return Name of the log stream.
      * 
      */
     public Optional<Output<String>> logStreamName() {
@@ -31,14 +31,14 @@ public final class PipeTargetParametersCloudwatchLogsParametersArgs extends com.
     }
 
     /**
-     * The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
+     * Time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
      * 
      */
     @Import(name="timestamp")
     private @Nullable Output<String> timestamp;
 
     /**
-     * @return The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
+     * @return Time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
      * 
      */
     public Optional<Output<String>> timestamp() {
@@ -71,7 +71,7 @@ public final class PipeTargetParametersCloudwatchLogsParametersArgs extends com.
         }
 
         /**
-         * @param logStreamName The name of the log stream.
+         * @param logStreamName Name of the log stream.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PipeTargetParametersCloudwatchLogsParametersArgs extends com.
         }
 
         /**
-         * @param logStreamName The name of the log stream.
+         * @param logStreamName Name of the log stream.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PipeTargetParametersCloudwatchLogsParametersArgs extends com.
         }
 
         /**
-         * @param timestamp The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
+         * @param timestamp Time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PipeTargetParametersCloudwatchLogsParametersArgs extends com.
         }
 
         /**
-         * @param timestamp The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
+         * @param timestamp Time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
          * 
          * @return builder
          * 

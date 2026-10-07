@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The Snowflake role.
+        /// Snowflake role.
         /// </summary>
         public readonly string? SnowflakeRole;
 

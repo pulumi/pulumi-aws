@@ -63,14 +63,14 @@ public final class DataSetPhysicalTableMapS3SourceUploadSettingsArgs extends com
     }
 
     /**
-     * A row number to start reading data from.
+     * Row number to start reading data from.
      * 
      */
     @Import(name="startFromRow")
     private @Nullable Output<Integer> startFromRow;
 
     /**
-     * @return A row number to start reading data from.
+     * @return Row number to start reading data from.
      * 
      */
     public Optional<Output<Integer>> startFromRow() {
@@ -184,7 +184,7 @@ public final class DataSetPhysicalTableMapS3SourceUploadSettingsArgs extends com
         }
 
         /**
-         * @param startFromRow A row number to start reading data from.
+         * @param startFromRow Row number to start reading data from.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class DataSetPhysicalTableMapS3SourceUploadSettingsArgs extends com
         }
 
         /**
-         * @param startFromRow A row number to start reading data from.
+         * @param startFromRow Row number to start reading data from.
          * 
          * @return builder
          * 

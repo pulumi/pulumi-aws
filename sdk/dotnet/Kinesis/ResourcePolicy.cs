@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Kinesis
     public partial class ResourcePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The policy document.
+        /// Policy document.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class ResourcePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The policy document.
+        /// Policy document.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class ResourcePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The policy document.
+        /// Policy document.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

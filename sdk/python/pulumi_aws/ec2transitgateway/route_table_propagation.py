@@ -27,6 +27,8 @@ class RouteTablePropagationArgs:
 
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
@@ -51,6 +53,8 @@ class RouteTablePropagationArgs:
     def transit_gateway_route_table_id(self) -> pulumi.Input[_builtins.str]:
         """
         Identifier of EC2 Transit Gateway Route Table.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
@@ -87,6 +91,8 @@ class _RouteTablePropagationState:
         :param pulumi.Input[_builtins.str] resource_type: Type of the resource
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+               
+               The following arguments are optional:
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -152,6 +158,8 @@ class _RouteTablePropagationState:
     def transit_gateway_route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier of EC2 Transit Gateway Route Table.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "transit_gateway_route_table_id")
 
@@ -237,6 +245,18 @@ class RouteTablePropagation(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `transit_gateway_attachment_id` (String) EC2 Transit Gateway Attachment identifier.
+        * `transit_gateway_route_table_id` (String) EC2 Transit Gateway Route Table identifier.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import `ec2transitgateway.RouteTablePropagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
@@ -249,6 +269,8 @@ class RouteTablePropagation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -323,6 +345,18 @@ class RouteTablePropagation(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `transit_gateway_attachment_id` (String) EC2 Transit Gateway Attachment identifier.
+        * `transit_gateway_route_table_id` (String) EC2 Transit Gateway Route Table identifier.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import `ec2transitgateway.RouteTablePropagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
@@ -393,6 +427,8 @@ class RouteTablePropagation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_type: Type of the resource
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[_builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -442,6 +478,8 @@ class RouteTablePropagation(pulumi.CustomResource):
     def transit_gateway_route_table_id(self) -> pulumi.Output[_builtins.str]:
         """
         Identifier of EC2 Transit Gateway Route Table.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "transit_gateway_route_table_id")
 

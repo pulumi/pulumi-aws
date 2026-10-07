@@ -137,7 +137,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * The time that the dashboard was created.
+     * Time that the dashboard was created.
      */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
@@ -145,12 +145,15 @@ export class Dashboard extends pulumi.CustomResource {
      */
     declare public readonly dashboardId: pulumi.Output<string>;
     /**
-     * Options for publishing the dashboard. See dashboard_publish_options.
+     * Options for publishing the dashboard. See `dashboardPublishOptions`.
      */
     declare public readonly dashboardPublishOptions: pulumi.Output<outputs.quicksight.DashboardDashboardPublishOptions>;
+    /**
+     * Time that the dashboard was last published.
+     */
     declare public /*out*/ readonly lastPublishedTime: pulumi.Output<string>;
     /**
-     * The time that the dashboard was last updated.
+     * Time that the dashboard was last updated.
      */
     declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
@@ -158,11 +161,11 @@ export class Dashboard extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
      */
     declare public readonly parameters: pulumi.Output<outputs.quicksight.DashboardParameters>;
     /**
-     * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
      */
     declare public readonly permissions: pulumi.Output<outputs.quicksight.DashboardPermission[] | undefined>;
     /**
@@ -170,7 +173,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
      */
     declare public readonly sourceEntity: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
     /**
@@ -178,7 +181,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly sourceEntityArn: pulumi.Output<string>;
     /**
-     * The dashboard creation status.
+     * Dashboard creation status.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -186,7 +189,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -194,13 +197,13 @@ export class Dashboard extends pulumi.CustomResource {
      */
     declare public readonly themeArn: pulumi.Output<string | undefined>;
     /**
-     * A description of the current dashboard version being created/updated.
+     * Description of the current dashboard version being created/updated.
      *
      * The following arguments are optional:
      */
     declare public readonly versionDescription: pulumi.Output<string>;
     /**
-     * The version number of the dashboard version.
+     * Version number of the dashboard version.
      */
     declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
 
@@ -282,7 +285,7 @@ export interface DashboardState {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The time that the dashboard was created.
+     * Time that the dashboard was created.
      */
     createdTime?: pulumi.Input<string | undefined>;
     /**
@@ -290,12 +293,15 @@ export interface DashboardState {
      */
     dashboardId?: pulumi.Input<string | undefined>;
     /**
-     * Options for publishing the dashboard. See dashboard_publish_options.
+     * Options for publishing the dashboard. See `dashboardPublishOptions`.
      */
     dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptions | undefined>;
+    /**
+     * Time that the dashboard was last published.
+     */
     lastPublishedTime?: pulumi.Input<string | undefined>;
     /**
-     * The time that the dashboard was last updated.
+     * Time that the dashboard was last updated.
      */
     lastUpdatedTime?: pulumi.Input<string | undefined>;
     /**
@@ -303,11 +309,11 @@ export interface DashboardState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
      */
     parameters?: pulumi.Input<inputs.quicksight.DashboardParameters | undefined>;
     /**
-     * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPermission>[] | undefined>;
     /**
@@ -315,7 +321,7 @@ export interface DashboardState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
      */
     sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntity | undefined>;
     /**
@@ -323,7 +329,7 @@ export interface DashboardState {
      */
     sourceEntityArn?: pulumi.Input<string | undefined>;
     /**
-     * The dashboard creation status.
+     * Dashboard creation status.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -331,7 +337,7 @@ export interface DashboardState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -339,13 +345,13 @@ export interface DashboardState {
      */
     themeArn?: pulumi.Input<string | undefined>;
     /**
-     * A description of the current dashboard version being created/updated.
+     * Description of the current dashboard version being created/updated.
      *
      * The following arguments are optional:
      */
     versionDescription?: pulumi.Input<string | undefined>;
     /**
-     * The version number of the dashboard version.
+     * Version number of the dashboard version.
      */
     versionNumber?: pulumi.Input<number | undefined>;
 }
@@ -363,7 +369,7 @@ export interface DashboardArgs {
      */
     dashboardId: pulumi.Input<string>;
     /**
-     * Options for publishing the dashboard. See dashboard_publish_options.
+     * Options for publishing the dashboard. See `dashboardPublishOptions`.
      */
     dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptions | undefined>;
     /**
@@ -371,11 +377,11 @@ export interface DashboardArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * Parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values. See `parameters`.
      */
     parameters?: pulumi.Input<inputs.quicksight.DashboardParameters | undefined>;
     /**
-     * A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the dashboard. Maximum of 64 items. See `permissions`.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardPermission>[] | undefined>;
     /**
@@ -383,7 +389,7 @@ export interface DashboardArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity`.
      */
     sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntity | undefined>;
     /**
@@ -395,7 +401,7 @@ export interface DashboardArgs {
      */
     themeArn?: pulumi.Input<string | undefined>;
     /**
-     * A description of the current dashboard version being created/updated.
+     * Description of the current dashboard version being created/updated.
      *
      * The following arguments are optional:
      */

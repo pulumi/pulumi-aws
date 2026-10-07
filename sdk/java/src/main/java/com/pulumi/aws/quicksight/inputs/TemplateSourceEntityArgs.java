@@ -17,14 +17,14 @@ public final class TemplateSourceEntityArgs extends com.pulumi.resources.Resourc
     public static final TemplateSourceEntityArgs Empty = new TemplateSourceEntityArgs();
 
     /**
-     * The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
+     * Source analysis, if it is based on an analysis. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceAnalysis` Block.
      * 
      */
     @Import(name="sourceAnalysis")
     private @Nullable Output<TemplateSourceEntitySourceAnalysisArgs> sourceAnalysis;
 
     /**
-     * @return The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
+     * @return Source analysis, if it is based on an analysis. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceAnalysis` Block.
      * 
      */
     public Optional<Output<TemplateSourceEntitySourceAnalysisArgs>> sourceAnalysis() {
@@ -32,14 +32,14 @@ public final class TemplateSourceEntityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
+     * Source template, if it is based on a template. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceTemplate` Block.
      * 
      */
     @Import(name="sourceTemplate")
     private @Nullable Output<TemplateSourceEntitySourceTemplateArgs> sourceTemplate;
 
     /**
-     * @return The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
+     * @return Source template, if it is based on a template. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceTemplate` Block.
      * 
      */
     public Optional<Output<TemplateSourceEntitySourceTemplateArgs>> sourceTemplate() {
@@ -72,7 +72,7 @@ public final class TemplateSourceEntityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sourceAnalysis The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
+         * @param sourceAnalysis Source analysis, if it is based on an analysis. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceAnalysis` Block.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class TemplateSourceEntityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sourceAnalysis The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
+         * @param sourceAnalysis Source analysis, if it is based on an analysis. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceAnalysis` Block.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class TemplateSourceEntityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sourceTemplate The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
+         * @param sourceTemplate Source template, if it is based on a template. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceTemplate` Block.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class TemplateSourceEntityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param sourceTemplate The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
+         * @param sourceTemplate Source template, if it is based on a template. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceTemplate` Block.
          * 
          * @return builder
          * 

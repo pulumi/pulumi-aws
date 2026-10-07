@@ -29,37 +29,37 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      */
     private @Nullable Integer bufferingSize;
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions cloudwatchLoggingOptions;
     /**
-     * @return The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+     * @return Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
      * 
      */
     private @Nullable String clusterEndpoint;
     /**
-     * @return The method for setting up document ID. See [`documentIdOptions` block] below for details.
+     * @return Method for setting up document ID. See `documentIdOptions` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions documentIdOptions;
     /**
-     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+     * @return ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
      * 
      */
     private @Nullable String domainArn;
     /**
-     * @return The OpenSearch index name.
+     * @return OpenSearch index name.
      * 
      */
     private String indexName;
     /**
-     * @return The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+     * @return OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
      * 
      */
     private @Nullable String indexRotationPeriod;
     /**
-     * @return The data processing configuration. See `processingConfiguration` block below for details.
+     * @return Data processing configuration. See `processingConfiguration` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration processingConfiguration;
@@ -69,27 +69,27 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
      */
     private @Nullable Integer retryDuration;
     /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+     * @return ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
      * 
      */
     private String roleArn;
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * @return How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
      * 
      */
     private @Nullable String s3BackupMode;
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     private FirehoseDeliveryStreamOpensearchConfigurationS3Configuration s3Configuration;
     /**
-     * @return The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+     * @return Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
      * 
      */
     private @Nullable String typeName;
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
+     * @return VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
      * 
      */
     private @Nullable FirehoseDeliveryStreamOpensearchConfigurationVpcConfig vpcConfig;
@@ -110,49 +110,49 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         return Optional.ofNullable(this.bufferingSize);
     }
     /**
-     * @return The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+     * @return CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions> cloudwatchLoggingOptions() {
         return Optional.ofNullable(this.cloudwatchLoggingOptions);
     }
     /**
-     * @return The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+     * @return Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
      * 
      */
     public Optional<String> clusterEndpoint() {
         return Optional.ofNullable(this.clusterEndpoint);
     }
     /**
-     * @return The method for setting up document ID. See [`documentIdOptions` block] below for details.
+     * @return Method for setting up document ID. See `documentIdOptions` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions> documentIdOptions() {
         return Optional.ofNullable(this.documentIdOptions);
     }
     /**
-     * @return The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+     * @return ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
      * 
      */
     public Optional<String> domainArn() {
         return Optional.ofNullable(this.domainArn);
     }
     /**
-     * @return The OpenSearch index name.
+     * @return OpenSearch index name.
      * 
      */
     public String indexName() {
         return this.indexName;
     }
     /**
-     * @return The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+     * @return OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
      * 
      */
     public Optional<String> indexRotationPeriod() {
         return Optional.ofNullable(this.indexRotationPeriod);
     }
     /**
-     * @return The data processing configuration. See `processingConfiguration` block below for details.
+     * @return Data processing configuration. See `processingConfiguration` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration> processingConfiguration() {
@@ -166,35 +166,35 @@ public final class FirehoseDeliveryStreamOpensearchConfiguration {
         return Optional.ofNullable(this.retryDuration);
     }
     /**
-     * @return The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+     * @return ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+     * @return How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
      * 
      */
     public Optional<String> s3BackupMode() {
         return Optional.ofNullable(this.s3BackupMode);
     }
     /**
-     * @return The S3 Configuration. See `s3Configuration` block below for details.
+     * @return S3 Configuration. See `s3Configuration` block below for details.
      * 
      */
     public FirehoseDeliveryStreamOpensearchConfigurationS3Configuration s3Configuration() {
         return this.s3Configuration;
     }
     /**
-     * @return The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+     * @return Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
      * 
      */
     public Optional<String> typeName() {
         return Optional.ofNullable(this.typeName);
     }
     /**
-     * @return The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
+     * @return VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
      * 
      */
     public Optional<FirehoseDeliveryStreamOpensearchConfigurationVpcConfig> vpcConfig() {

@@ -32,16 +32,12 @@ public final class QuerySuggestionsBlockListSourceS3PathArgs extends com.pulumi.
     /**
      * Name of the file.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
      * @return Name of the file.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> key() {
@@ -97,8 +93,6 @@ public final class QuerySuggestionsBlockListSourceS3PathArgs extends com.pulumi.
         /**
          * @param key Name of the file.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -109,8 +103,6 @@ public final class QuerySuggestionsBlockListSourceS3PathArgs extends com.pulumi.
 
         /**
          * @param key Name of the file.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

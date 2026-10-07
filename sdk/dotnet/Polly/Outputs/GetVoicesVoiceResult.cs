@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Polly.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies which engines are supported by a given voice.
+        /// Engines supported by a given voice.
         /// </summary>
         public readonly ImmutableArray<string> SupportedEngines;
 

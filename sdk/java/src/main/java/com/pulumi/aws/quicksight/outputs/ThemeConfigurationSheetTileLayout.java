@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ThemeConfigurationSheetTileLayout {
     /**
-     * @return The gutter settings that apply between tiles. See gutter.
+     * @return Gutter settings that apply between tiles. See gutter.
      * 
      */
     private @Nullable ThemeConfigurationSheetTileLayoutGutter gutter;
     /**
-     * @return The margin settings that apply around the outside edge of sheets. See margin.
+     * @return Margin settings that apply around the outside edge of sheets. See margin.
      * 
      */
     private @Nullable ThemeConfigurationSheetTileLayoutMargin margin;
 
     private ThemeConfigurationSheetTileLayout() {}
     /**
-     * @return The gutter settings that apply between tiles. See gutter.
+     * @return Gutter settings that apply between tiles. See gutter.
      * 
      */
     public Optional<ThemeConfigurationSheetTileLayoutGutter> gutter() {
         return Optional.ofNullable(this.gutter);
     }
     /**
-     * @return The margin settings that apply around the outside edge of sheets. See margin.
+     * @return Margin settings that apply around the outside edge of sheets. See margin.
      * 
      */
     public Optional<ThemeConfigurationSheetTileLayoutMargin> margin() {

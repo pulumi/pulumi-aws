@@ -16,14 +16,14 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
     public static final DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs Empty = new DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs();
 
     /**
-     * The name of the lookback window column.
+     * Name of the lookback window column.
      * 
      */
     @Import(name="columnName", required=true)
     private Output<String> columnName;
 
     /**
-     * @return The name of the lookback window column.
+     * @return Name of the lookback window column.
      * 
      */
     public Output<String> columnName() {
@@ -31,14 +31,14 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
     }
 
     /**
-     * The lookback window column size.
+     * Lookback window column size.
      * 
      */
     @Import(name="size", required=true)
     private Output<Integer> size;
 
     /**
-     * @return The lookback window column size.
+     * @return Lookback window column size.
      * 
      */
     public Output<Integer> size() {
@@ -46,14 +46,14 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
     }
 
     /**
-     * The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+     * Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
      * 
      */
     @Import(name="sizeUnit", required=true)
     private Output<String> sizeUnit;
 
     /**
-     * @return The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+     * @return Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
      * 
      */
     public Output<String> sizeUnit() {
@@ -87,7 +87,7 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
         }
 
         /**
-         * @param columnName The name of the lookback window column.
+         * @param columnName Name of the lookback window column.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
         }
 
         /**
-         * @param columnName The name of the lookback window column.
+         * @param columnName Name of the lookback window column.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
         }
 
         /**
-         * @param size The lookback window column size.
+         * @param size Lookback window column size.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
         }
 
         /**
-         * @param size The lookback window column size.
+         * @param size Lookback window column size.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
         }
 
         /**
-         * @param sizeUnit The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+         * @param sizeUnit Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
         }
 
         /**
-         * @param sizeUnit The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+         * @param sizeUnit Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
          * 
          * @return builder
          * 

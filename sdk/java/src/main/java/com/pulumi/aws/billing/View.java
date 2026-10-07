@@ -157,12 +157,16 @@ public class View extends com.pulumi.resources.CustomResource {
     /**
      * Name of the custom billing view to be created.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the custom billing view to be created.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -213,16 +217,12 @@ public class View extends com.pulumi.resources.CustomResource {
     /**
      * List of ARNs of the source data views for the custom billing view.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="sourceViews", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> sourceViews;
 
     /**
      * @return List of ARNs of the source data views for the custom billing view.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<Optional<List<String>>> sourceViews() {

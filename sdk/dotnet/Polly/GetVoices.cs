@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Polly
         private List<Inputs.GetVoicesVoiceArgs>? _voices;
 
         /// <summary>
-        /// List of voices with their properties. See `Voices` Attribute Reference below.
+        /// List of voices with their properties. See `Voices` Block below.
         /// </summary>
         public List<Inputs.GetVoicesVoiceArgs> Voices
         {
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Polly
         private InputList<Inputs.GetVoicesVoiceInputArgs>? _voices;
 
         /// <summary>
-        /// List of voices with their properties. See `Voices` Attribute Reference below.
+        /// List of voices with their properties. See `Voices` Block below.
         /// </summary>
         public InputList<Inputs.GetVoicesVoiceInputArgs> Voices
         {
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Polly
         public readonly string? LanguageCode;
         public readonly string Region;
         /// <summary>
-        /// List of voices with their properties. See `Voices` Attribute Reference below.
+        /// List of voices with their properties. See `Voices` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVoicesVoiceResult> Voices;
 

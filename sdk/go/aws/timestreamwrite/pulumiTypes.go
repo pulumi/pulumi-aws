@@ -14,9 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type TableMagneticStoreWriteProperties struct {
-	// A flag to enable magnetic store writes.
+	// Whether to enable magnetic store writes.
 	EnableMagneticStoreWrites *bool `pulumi:"enableMagneticStoreWrites"`
-	// The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+	// Location to write error reports for records rejected asynchronously during magnetic store writes. See `magneticStoreRejectedDataLocation` Block below for more details.
 	MagneticStoreRejectedDataLocation *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation `pulumi:"magneticStoreRejectedDataLocation"`
 }
 
@@ -32,9 +32,9 @@ type TableMagneticStoreWritePropertiesInput interface {
 }
 
 type TableMagneticStoreWritePropertiesArgs struct {
-	// A flag to enable magnetic store writes.
+	// Whether to enable magnetic store writes.
 	EnableMagneticStoreWrites pulumi.BoolPtrInput `pulumi:"enableMagneticStoreWrites"`
-	// The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+	// Location to write error reports for records rejected asynchronously during magnetic store writes. See `magneticStoreRejectedDataLocation` Block below for more details.
 	MagneticStoreRejectedDataLocation TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrInput `pulumi:"magneticStoreRejectedDataLocation"`
 }
 
@@ -115,12 +115,12 @@ func (o TableMagneticStoreWritePropertiesOutput) ToTableMagneticStoreWriteProper
 	}).(TableMagneticStoreWritePropertiesPtrOutput)
 }
 
-// A flag to enable magnetic store writes.
+// Whether to enable magnetic store writes.
 func (o TableMagneticStoreWritePropertiesOutput) EnableMagneticStoreWrites() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWriteProperties) *bool { return v.EnableMagneticStoreWrites }).(pulumi.BoolPtrOutput)
 }
 
-// The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+// Location to write error reports for records rejected asynchronously during magnetic store writes. See `magneticStoreRejectedDataLocation` Block below for more details.
 func (o TableMagneticStoreWritePropertiesOutput) MagneticStoreRejectedDataLocation() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWriteProperties) *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation {
 		return v.MagneticStoreRejectedDataLocation
@@ -151,7 +151,7 @@ func (o TableMagneticStoreWritePropertiesPtrOutput) Elem() TableMagneticStoreWri
 	}).(TableMagneticStoreWritePropertiesOutput)
 }
 
-// A flag to enable magnetic store writes.
+// Whether to enable magnetic store writes.
 func (o TableMagneticStoreWritePropertiesPtrOutput) EnableMagneticStoreWrites() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableMagneticStoreWriteProperties) *bool {
 		if v == nil {
@@ -161,7 +161,7 @@ func (o TableMagneticStoreWritePropertiesPtrOutput) EnableMagneticStoreWrites() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+// Location to write error reports for records rejected asynchronously during magnetic store writes. See `magneticStoreRejectedDataLocation` Block below for more details.
 func (o TableMagneticStoreWritePropertiesPtrOutput) MagneticStoreRejectedDataLocation() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput {
 	return o.ApplyT(func(v *TableMagneticStoreWriteProperties) *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation {
 		if v == nil {
@@ -172,7 +172,7 @@ func (o TableMagneticStoreWritePropertiesPtrOutput) MagneticStoreRejectedDataLoc
 }
 
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation struct {
-	// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+	// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3Configuration` Block below for more details.
 	S3Configuration *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration `pulumi:"s3Configuration"`
 }
 
@@ -188,7 +188,7 @@ type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationInput int
 }
 
 type TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs struct {
-	// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+	// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3Configuration` Block below for more details.
 	S3Configuration TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrInput `pulumi:"s3Configuration"`
 }
 
@@ -269,7 +269,7 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput
 	}).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput)
 }
 
-// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3Configuration` Block below for more details.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput) S3Configuration() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation) *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration {
 		return v.S3Configuration
@@ -300,7 +300,7 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOut
 	}).(TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationOutput)
 }
 
-// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+// Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3Configuration` Block below for more details.
 func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationPtrOutput) S3Configuration() TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationPtrOutput {
 	return o.ApplyT(func(v *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation) *TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration {
 		if v == nil {
@@ -513,9 +513,9 @@ func (o TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Conf
 }
 
 type TableRetentionProperties struct {
-	// The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+	// Duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
 	MagneticStoreRetentionPeriodInDays int `pulumi:"magneticStoreRetentionPeriodInDays"`
-	// The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+	// Duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
 	MemoryStoreRetentionPeriodInHours int `pulumi:"memoryStoreRetentionPeriodInHours"`
 }
 
@@ -531,9 +531,9 @@ type TableRetentionPropertiesInput interface {
 }
 
 type TableRetentionPropertiesArgs struct {
-	// The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+	// Duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
 	MagneticStoreRetentionPeriodInDays pulumi.IntInput `pulumi:"magneticStoreRetentionPeriodInDays"`
-	// The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+	// Duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
 	MemoryStoreRetentionPeriodInHours pulumi.IntInput `pulumi:"memoryStoreRetentionPeriodInHours"`
 }
 
@@ -614,12 +614,12 @@ func (o TableRetentionPropertiesOutput) ToTableRetentionPropertiesPtrOutputWithC
 	}).(TableRetentionPropertiesPtrOutput)
 }
 
-// The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+// Duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
 func (o TableRetentionPropertiesOutput) MagneticStoreRetentionPeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v TableRetentionProperties) int { return v.MagneticStoreRetentionPeriodInDays }).(pulumi.IntOutput)
 }
 
-// The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+// Duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
 func (o TableRetentionPropertiesOutput) MemoryStoreRetentionPeriodInHours() pulumi.IntOutput {
 	return o.ApplyT(func(v TableRetentionProperties) int { return v.MemoryStoreRetentionPeriodInHours }).(pulumi.IntOutput)
 }
@@ -648,7 +648,7 @@ func (o TableRetentionPropertiesPtrOutput) Elem() TableRetentionPropertiesOutput
 	}).(TableRetentionPropertiesOutput)
 }
 
-// The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+// Duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
 func (o TableRetentionPropertiesPtrOutput) MagneticStoreRetentionPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableRetentionProperties) *int {
 		if v == nil {
@@ -658,7 +658,7 @@ func (o TableRetentionPropertiesPtrOutput) MagneticStoreRetentionPeriodInDays() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+// Duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
 func (o TableRetentionPropertiesPtrOutput) MemoryStoreRetentionPeriodInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableRetentionProperties) *int {
 		if v == nil {
@@ -669,7 +669,7 @@ func (o TableRetentionPropertiesPtrOutput) MemoryStoreRetentionPeriodInHours() p
 }
 
 type TableSchema struct {
-	// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+	// Non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See `compositePartitionKey` Block below for more details.
 	CompositePartitionKey *TableSchemaCompositePartitionKey `pulumi:"compositePartitionKey"`
 }
 
@@ -685,7 +685,7 @@ type TableSchemaInput interface {
 }
 
 type TableSchemaArgs struct {
-	// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+	// Non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See `compositePartitionKey` Block below for more details.
 	CompositePartitionKey TableSchemaCompositePartitionKeyPtrInput `pulumi:"compositePartitionKey"`
 }
 
@@ -766,7 +766,7 @@ func (o TableSchemaOutput) ToTableSchemaPtrOutputWithContext(ctx context.Context
 	}).(TableSchemaPtrOutput)
 }
 
-// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+// Non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See `compositePartitionKey` Block below for more details.
 func (o TableSchemaOutput) CompositePartitionKey() TableSchemaCompositePartitionKeyPtrOutput {
 	return o.ApplyT(func(v TableSchema) *TableSchemaCompositePartitionKey { return v.CompositePartitionKey }).(TableSchemaCompositePartitionKeyPtrOutput)
 }
@@ -795,7 +795,7 @@ func (o TableSchemaPtrOutput) Elem() TableSchemaOutput {
 	}).(TableSchemaOutput)
 }
 
-// A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+// Non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See `compositePartitionKey` Block below for more details.
 func (o TableSchemaPtrOutput) CompositePartitionKey() TableSchemaCompositePartitionKeyPtrOutput {
 	return o.ApplyT(func(v *TableSchema) *TableSchemaCompositePartitionKey {
 		if v == nil {
@@ -806,11 +806,11 @@ func (o TableSchemaPtrOutput) CompositePartitionKey() TableSchemaCompositePartit
 }
 
 type TableSchemaCompositePartitionKey struct {
-	// The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+	// Level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
 	EnforcementInRecord *string `pulumi:"enforcementInRecord"`
-	// The name of the attribute used for a dimension key.
+	// Name of the attribute used for a dimension key.
 	Name *string `pulumi:"name"`
-	// The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+	// Type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
 	Type string `pulumi:"type"`
 }
 
@@ -826,11 +826,11 @@ type TableSchemaCompositePartitionKeyInput interface {
 }
 
 type TableSchemaCompositePartitionKeyArgs struct {
-	// The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+	// Level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
 	EnforcementInRecord pulumi.StringPtrInput `pulumi:"enforcementInRecord"`
-	// The name of the attribute used for a dimension key.
+	// Name of the attribute used for a dimension key.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+	// Type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -911,17 +911,17 @@ func (o TableSchemaCompositePartitionKeyOutput) ToTableSchemaCompositePartitionK
 	}).(TableSchemaCompositePartitionKeyPtrOutput)
 }
 
-// The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+// Level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
 func (o TableSchemaCompositePartitionKeyOutput) EnforcementInRecord() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableSchemaCompositePartitionKey) *string { return v.EnforcementInRecord }).(pulumi.StringPtrOutput)
 }
 
-// The name of the attribute used for a dimension key.
+// Name of the attribute used for a dimension key.
 func (o TableSchemaCompositePartitionKeyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableSchemaCompositePartitionKey) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+// Type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
 func (o TableSchemaCompositePartitionKeyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TableSchemaCompositePartitionKey) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -950,7 +950,7 @@ func (o TableSchemaCompositePartitionKeyPtrOutput) Elem() TableSchemaCompositePa
 	}).(TableSchemaCompositePartitionKeyOutput)
 }
 
-// The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+// Level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
 func (o TableSchemaCompositePartitionKeyPtrOutput) EnforcementInRecord() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableSchemaCompositePartitionKey) *string {
 		if v == nil {
@@ -960,7 +960,7 @@ func (o TableSchemaCompositePartitionKeyPtrOutput) EnforcementInRecord() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the attribute used for a dimension key.
+// Name of the attribute used for a dimension key.
 func (o TableSchemaCompositePartitionKeyPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableSchemaCompositePartitionKey) *string {
 		if v == nil {
@@ -970,7 +970,7 @@ func (o TableSchemaCompositePartitionKeyPtrOutput) Name() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+// Type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
 func (o TableSchemaCompositePartitionKeyPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableSchemaCompositePartitionKey) *string {
 		if v == nil {
@@ -1189,11 +1189,12 @@ func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationArray
 
 type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration struct {
 	// Name of S3 bucket.
-	BucketName       string `pulumi:"bucketName"`
+	BucketName string `pulumi:"bucketName"`
+	// Encryption option for S3 location.
 	EncryptionOption string `pulumi:"encryptionOption"`
-	// AWS KMS key ID for S3 location with AWS maanged key.
+	// AWS KMS key ID for S3 location with AWS managed key.
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	// Object key preview for S3 location.
+	// Object key prefix for S3 location.
 	ObjectKeyPrefix string `pulumi:"objectKeyPrefix"`
 }
 
@@ -1210,11 +1211,12 @@ type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Config
 
 type GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationArgs struct {
 	// Name of S3 bucket.
-	BucketName       pulumi.StringInput `pulumi:"bucketName"`
+	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// Encryption option for S3 location.
 	EncryptionOption pulumi.StringInput `pulumi:"encryptionOption"`
-	// AWS KMS key ID for S3 location with AWS maanged key.
+	// AWS KMS key ID for S3 location with AWS managed key.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
-	// Object key preview for S3 location.
+	// Object key prefix for S3 location.
 	ObjectKeyPrefix pulumi.StringInput `pulumi:"objectKeyPrefix"`
 }
 
@@ -1276,20 +1278,21 @@ func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Con
 	}).(pulumi.StringOutput)
 }
 
+// Encryption option for S3 location.
 func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput) EncryptionOption() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration) string {
 		return v.EncryptionOption
 	}).(pulumi.StringOutput)
 }
 
-// AWS KMS key ID for S3 location with AWS maanged key.
+// AWS KMS key ID for S3 location with AWS managed key.
 func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration) string {
 		return v.KmsKeyId
 	}).(pulumi.StringOutput)
 }
 
-// Object key preview for S3 location.
+// Object key prefix for S3 location.
 func (o GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3ConfigurationOutput) ObjectKeyPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableMagneticStoreWritePropertyMagneticStoreRejectedDataLocationS3Configuration) string {
 		return v.ObjectKeyPrefix
@@ -1423,6 +1426,7 @@ func (o GetTableRetentionPropertyArrayOutput) Index(i pulumi.IntInput) GetTableR
 }
 
 type GetTableSchema struct {
+	// Object containing the attributes to describe a composite partition key for the table.
 	CompositePartitionKeys []GetTableSchemaCompositePartitionKey `pulumi:"compositePartitionKeys"`
 }
 
@@ -1438,6 +1442,7 @@ type GetTableSchemaInput interface {
 }
 
 type GetTableSchemaArgs struct {
+	// Object containing the attributes to describe a composite partition key for the table.
 	CompositePartitionKeys GetTableSchemaCompositePartitionKeyArrayInput `pulumi:"compositePartitionKeys"`
 }
 
@@ -1492,6 +1497,7 @@ func (o GetTableSchemaOutput) ToGetTableSchemaOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Object containing the attributes to describe a composite partition key for the table.
 func (o GetTableSchemaOutput) CompositePartitionKeys() GetTableSchemaCompositePartitionKeyArrayOutput {
 	return o.ApplyT(func(v GetTableSchema) []GetTableSchemaCompositePartitionKey { return v.CompositePartitionKeys }).(GetTableSchemaCompositePartitionKeyArrayOutput)
 }
@@ -1517,6 +1523,7 @@ func (o GetTableSchemaArrayOutput) Index(i pulumi.IntInput) GetTableSchemaOutput
 }
 
 type GetTableSchemaCompositePartitionKey struct {
+	// Level of enforcement for the specification of a dimension key in ingested records.
 	EnforcementInRecord string `pulumi:"enforcementInRecord"`
 	// Name of the Timestream table.
 	Name string `pulumi:"name"`
@@ -1536,6 +1543,7 @@ type GetTableSchemaCompositePartitionKeyInput interface {
 }
 
 type GetTableSchemaCompositePartitionKeyArgs struct {
+	// Level of enforcement for the specification of a dimension key in ingested records.
 	EnforcementInRecord pulumi.StringInput `pulumi:"enforcementInRecord"`
 	// Name of the Timestream table.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1594,6 +1602,7 @@ func (o GetTableSchemaCompositePartitionKeyOutput) ToGetTableSchemaCompositePart
 	return o
 }
 
+// Level of enforcement for the specification of a dimension key in ingested records.
 func (o GetTableSchemaCompositePartitionKeyOutput) EnforcementInRecord() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableSchemaCompositePartitionKey) string { return v.EnforcementInRecord }).(pulumi.StringOutput)
 }

@@ -141,11 +141,11 @@ export class Template extends pulumi.CustomResource {
      */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
-     * The time that the template was created.
+     * Time that the template was created.
      */
     declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
-     * The time that the template was last updated.
+     * Time that the template was last updated.
      */
     declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
     /**
@@ -153,7 +153,7 @@ export class Template extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A set of resource permissions on the template. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
      */
     declare public readonly permissions: pulumi.Output<outputs.quicksight.TemplatePermission[] | undefined>;
     /**
@@ -161,7 +161,7 @@ export class Template extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
      */
     declare public readonly sourceEntity: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
     /**
@@ -169,7 +169,7 @@ export class Template extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly sourceEntityArn: pulumi.Output<string>;
     /**
-     * The template creation status.
+     * Template creation status.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export class Template extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -185,13 +185,13 @@ export class Template extends pulumi.CustomResource {
      */
     declare public readonly templateId: pulumi.Output<string>;
     /**
-     * A description of the current template version being created/updated.
+     * Description of the current template version being created/updated.
      *
      * The following arguments are optional:
      */
     declare public readonly versionDescription: pulumi.Output<string>;
     /**
-     * The version number of the template version.
+     * Version number of the template version.
      */
     declare public /*out*/ readonly versionNumber: pulumi.Output<number>;
 
@@ -265,11 +265,11 @@ export interface TemplateState {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The time that the template was created.
+     * Time that the template was created.
      */
     createdTime?: pulumi.Input<string | undefined>;
     /**
-     * The time that the template was last updated.
+     * Time that the template was last updated.
      */
     lastUpdatedTime?: pulumi.Input<string | undefined>;
     /**
@@ -277,7 +277,7 @@ export interface TemplateState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A set of resource permissions on the template. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePermission>[] | undefined>;
     /**
@@ -285,7 +285,7 @@ export interface TemplateState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
      */
     sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntity | undefined>;
     /**
@@ -293,7 +293,7 @@ export interface TemplateState {
      */
     sourceEntityArn?: pulumi.Input<string | undefined>;
     /**
-     * The template creation status.
+     * Template creation status.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -301,7 +301,7 @@ export interface TemplateState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -309,13 +309,13 @@ export interface TemplateState {
      */
     templateId?: pulumi.Input<string | undefined>;
     /**
-     * A description of the current template version being created/updated.
+     * Description of the current template version being created/updated.
      *
      * The following arguments are optional:
      */
     versionDescription?: pulumi.Input<string | undefined>;
     /**
-     * The version number of the template version.
+     * Version number of the template version.
      */
     versionNumber?: pulumi.Input<number | undefined>;
 }
@@ -333,7 +333,7 @@ export interface TemplateArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A set of resource permissions on the template. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplatePermission>[] | undefined>;
     /**
@@ -341,7 +341,7 @@ export interface TemplateArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See `sourceEntity` Block.
      */
     sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntity | undefined>;
     /**
@@ -353,7 +353,7 @@ export interface TemplateArgs {
      */
     templateId: pulumi.Input<string>;
     /**
-     * A description of the current template version being created/updated.
+     * Description of the current template version being created/updated.
      *
      * The following arguments are optional:
      */

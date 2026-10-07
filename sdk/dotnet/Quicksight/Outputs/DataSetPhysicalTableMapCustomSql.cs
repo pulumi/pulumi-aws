@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSetPhysicalTableMapCustomSql
     {
         /// <summary>
-        /// Column schema from the SQL query result set. See columns.
+        /// Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetPhysicalTableMapCustomSqlColumn> Columns;
         /// <summary>

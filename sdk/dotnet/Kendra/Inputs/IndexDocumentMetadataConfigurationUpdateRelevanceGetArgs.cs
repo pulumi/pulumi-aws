@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Kendra.Inputs
     public sealed class IndexDocumentMetadataConfigurationUpdateRelevanceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+        /// Time period that the boost applies to. Required if `Type` is `DATE_VALUE`. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
         /// </summary>
         [Input("duration")]
         public Input<string>? Duration { get; set; }
 
         /// <summary>
-        /// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+        /// Whether this field determines how "fresh" a document is. Required if `Type` is `DATE_VALUE`. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
         /// </summary>
         [Input("freshness")]
         public Input<bool>? Freshness { get; set; }
 
         /// <summary>
-        /// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+        /// Relative importance of the field in the search. Required for all types. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
         /// </summary>
         [Input("importance")]
         public Input<int>? Importance { get; set; }
 
         /// <summary>
-        /// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+        /// How values should be interpreted. Required if `Type` is `DATE_VALUE` or `LONG_VALUE`. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
         /// </summary>
         [Input("rankOrder")]
         public Input<string>? RankOrder { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Kendra.Inputs
         private InputMap<int>? _valuesImportanceMap;
 
         /// <summary>
-        /// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+        /// List of values that should be given a different boost when they appear in the result list. Required if `Type` is `STRING_VALUE`. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
         /// </summary>
         public InputMap<int> ValuesImportanceMap
         {

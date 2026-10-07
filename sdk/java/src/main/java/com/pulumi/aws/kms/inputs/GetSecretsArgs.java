@@ -18,22 +18,30 @@ public final class GetSecretsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSecretsArgs Empty = new GetSecretsArgs();
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
 
     /**
-     * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+     * One or more encrypted payload definitions from the KMS service. See `secret` below.
      * 
      */
     @Import(name="secrets", required=true)
     private Output<List<GetSecretsSecretArgs>> secrets;
 
     /**
-     * @return One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+     * @return One or more encrypted payload definitions from the KMS service. See `secret` below.
      * 
      */
     public Output<List<GetSecretsSecretArgs>> secrets() {
@@ -65,17 +73,29 @@ public final class GetSecretsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSecretsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(String region) {
             return region(Output.of(region));
         }
 
         /**
-         * @param secrets One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+         * @param secrets One or more encrypted payload definitions from the KMS service. See `secret` below.
          * 
          * @return builder
          * 
@@ -86,7 +106,7 @@ public final class GetSecretsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param secrets One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+         * @param secrets One or more encrypted payload definitions from the KMS service. See `secret` below.
          * 
          * @return builder
          * 
@@ -96,7 +116,7 @@ public final class GetSecretsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param secrets One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+         * @param secrets One or more encrypted payload definitions from the KMS service. See `secret` below.
          * 
          * @return builder
          * 

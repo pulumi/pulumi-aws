@@ -122,6 +122,10 @@ namespace Pulumi.Aws.Kinesis
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -162,6 +166,10 @@ namespace Pulumi.Aws.Kinesis
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -194,6 +202,9 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string Status;
         public readonly string StreamArn;
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

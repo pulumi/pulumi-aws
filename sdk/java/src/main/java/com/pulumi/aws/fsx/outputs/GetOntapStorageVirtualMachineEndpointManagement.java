@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetOntapStorageVirtualMachineEndpointManagement {
+    /**
+     * @return SVM endpoint&#39;s DNS name.
+     * 
+     */
     private String dnsName;
+    /**
+     * @return SVM endpoint&#39;s IP addresses.
+     * 
+     */
     private List<String> ipAddresses;
 
     private GetOntapStorageVirtualMachineEndpointManagement() {}
+    /**
+     * @return SVM endpoint&#39;s DNS name.
+     * 
+     */
     public String dnsName() {
         return this.dnsName;
     }
+    /**
+     * @return SVM endpoint&#39;s IP addresses.
+     * 
+     */
     public List<String> ipAddresses() {
         return this.ipAddresses;
     }

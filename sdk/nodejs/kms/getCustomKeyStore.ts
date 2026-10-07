@@ -35,11 +35,11 @@ export function getCustomKeyStore(args?: GetCustomKeyStoreArgs, opts?: pulumi.In
  */
 export interface GetCustomKeyStoreArgs {
     /**
-     * The ID for the custom key store.
+     * ID for the custom key store.
      */
     customKeyStoreId?: string;
     /**
-     * The user-specified friendly name for the custom key store.
+     * User-specified friendly name for the custom key store.
      */
     customKeyStoreName?: string;
     /**
@@ -52,13 +52,16 @@ export interface GetCustomKeyStoreArgs {
  * A collection of values returned by getCustomKeyStore.
  */
 export interface GetCustomKeyStoreResult {
+    /**
+     * ID for the CloudHSM cluster that is associated with the custom key store.
+     */
     readonly cloudHsmClusterId: string;
     /**
-     * Indicates whether the custom key store is connected to its CloudHSM cluster.
+     * Whether the custom key store is connected to its CloudHSM cluster.
      */
     readonly connectionState: string;
     /**
-     * The date and time when the custom key store was created.
+     * Date and time when the custom key store was created.
      */
     readonly creationDate: string;
     readonly customKeyStoreId: string;
@@ -69,7 +72,7 @@ export interface GetCustomKeyStoreResult {
     readonly id: string;
     readonly region: string;
     /**
-     * The trust anchor certificate of the associated CloudHSM cluster.
+     * Trust anchor certificate of the associated CloudHSM cluster.
      */
     readonly trustAnchorCertificate: string;
 }
@@ -104,11 +107,11 @@ export function getCustomKeyStoreOutput(args?: GetCustomKeyStoreOutputArgs, opts
  */
 export interface GetCustomKeyStoreOutputArgs {
     /**
-     * The ID for the custom key store.
+     * ID for the custom key store.
      */
     customKeyStoreId?: pulumi.Input<string | undefined>;
     /**
-     * The user-specified friendly name for the custom key store.
+     * User-specified friendly name for the custom key store.
      */
     customKeyStoreName?: pulumi.Input<string | undefined>;
     /**

@@ -27,7 +27,7 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelf
      */
     private String fileSystemAdministratorsGroup;
     /**
-     * @return Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+     * @return Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the SVM is joined.
      * 
      */
     private String organizationalUnitDistinguishedName;
@@ -60,7 +60,7 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelf
         return this.fileSystemAdministratorsGroup;
     }
     /**
-     * @return Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+     * @return Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the SVM is joined.
      * 
      */
     public String organizationalUnitDistinguishedName() {

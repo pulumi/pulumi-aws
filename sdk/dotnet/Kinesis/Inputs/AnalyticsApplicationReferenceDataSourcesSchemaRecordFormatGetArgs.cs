@@ -12,15 +12,11 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
     public sealed class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Mapping Information for the record format.
-        /// See Mapping Parameters below for more details.
-        /// </summary>
         [Input("mappingParameters")]
         public Input<Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersGetArgs>? MappingParameters { get; set; }
 
         /// <summary>
-        /// The type of Record Format. Can be `CSV` or `JSON`.
+        /// Type of Record Format of the reference data source.
         /// </summary>
         [Input("recordFormatType")]
         public Input<string>? RecordFormatType { get; set; }

@@ -75,7 +75,7 @@ export interface GetOntapFileSystemResult {
      */
     readonly diskIopsConfigurations: outputs.fsx.GetOntapFileSystemDiskIopsConfiguration[];
     /**
-     * DNS name for the file system.
+     * File system's DNS name. You can mount your file system using its DNS name.
      */
     readonly dnsName: string;
     /**
@@ -83,7 +83,7 @@ export interface GetOntapFileSystemResult {
      */
     readonly endpointIpAddressRange: string;
     /**
-     * Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See FileSystemEndpoints below.
+     * Management and Intercluster FileSystemEndpoints that are used to access data or to manage the file system using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
      */
     readonly endpoints: outputs.fsx.GetOntapFileSystemEndpoint[];
     /**

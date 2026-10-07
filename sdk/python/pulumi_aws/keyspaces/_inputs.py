@@ -93,15 +93,15 @@ class KeyspaceReplicationSpecificationArgs:
 class TableCapacitySpecificationArgsDict(TypedDict):
     read_capacity_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The throughput capacity specified for read operations defined in read capacity units (RCUs).
+    Throughput capacity specified for read operations defined in read capacity units (RCUs).
     """
     throughput_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
+    Read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
     """
     write_capacity_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The throughput capacity specified for write operations defined in write capacity units (WCUs).
+    Throughput capacity specified for write operations defined in write capacity units (WCUs).
     """
 
 @pulumi.input_type
@@ -111,9 +111,9 @@ class TableCapacitySpecificationArgs:
                  throughput_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  write_capacity_units: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] read_capacity_units: The throughput capacity specified for read operations defined in read capacity units (RCUs).
-        :param pulumi.Input[_builtins.str] throughput_mode: The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
-        :param pulumi.Input[_builtins.int] write_capacity_units: The throughput capacity specified for write operations defined in write capacity units (WCUs).
+        :param pulumi.Input[_builtins.int] read_capacity_units: Throughput capacity specified for read operations defined in read capacity units (RCUs).
+        :param pulumi.Input[_builtins.str] throughput_mode: Read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
+        :param pulumi.Input[_builtins.int] write_capacity_units: Throughput capacity specified for write operations defined in write capacity units (WCUs).
         """
         if read_capacity_units is not None:
             pulumi.set(__self__, "read_capacity_units", read_capacity_units)
@@ -126,7 +126,7 @@ class TableCapacitySpecificationArgs:
     @pulumi.getter(name="readCapacityUnits")
     def read_capacity_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The throughput capacity specified for read operations defined in read capacity units (RCUs).
+        Throughput capacity specified for read operations defined in read capacity units (RCUs).
         """
         return pulumi.get(self, "read_capacity_units")
 
@@ -138,7 +138,7 @@ class TableCapacitySpecificationArgs:
     @pulumi.getter(name="throughputMode")
     def throughput_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
+        Read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
         """
         return pulumi.get(self, "throughput_mode")
 
@@ -150,7 +150,7 @@ class TableCapacitySpecificationArgs:
     @pulumi.getter(name="writeCapacityUnits")
     def write_capacity_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The throughput capacity specified for write operations defined in write capacity units (WCUs).
+        Throughput capacity specified for write operations defined in write capacity units (WCUs).
         """
         return pulumi.get(self, "write_capacity_units")
 
@@ -190,7 +190,7 @@ class TableClientSideTimestampsArgs:
 class TableCommentArgsDict(TypedDict):
     message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A description of the table.
+    Description of the table.
     """
 
 @pulumi.input_type
@@ -198,7 +198,7 @@ class TableCommentArgs:
     def __init__(__self__, *,
                  message: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] message: A description of the table.
+        :param pulumi.Input[_builtins.str] message: Description of the table.
         """
         if message is not None:
             pulumi.set(__self__, "message", message)
@@ -207,7 +207,7 @@ class TableCommentArgs:
     @pulumi.getter
     def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the table.
+        Description of the table.
         """
         return pulumi.get(self, "message")
 
@@ -223,7 +223,7 @@ class TableEncryptionSpecificationArgsDict(TypedDict):
     """
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
+    Encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
     """
 
 @pulumi.input_type
@@ -233,7 +233,7 @@ class TableEncryptionSpecificationArgs:
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kms_key_identifier: ARN of the customer managed KMS key.
-        :param pulumi.Input[_builtins.str] type: The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
+        :param pulumi.Input[_builtins.str] type: Encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
         """
         if kms_key_identifier is not None:
             pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
@@ -256,7 +256,7 @@ class TableEncryptionSpecificationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
+        Encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
         """
         return pulumi.get(self, "type")
 
@@ -297,19 +297,19 @@ class TablePointInTimeRecoveryArgs:
 class TableSchemaDefinitionArgsDict(TypedDict):
     columns: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArgsDict']]]
     """
-    The regular columns of the table.
+    Regular columns of the table. See `column` below.
     """
     partition_keys: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArgsDict']]]
     """
-    The columns that are part of the partition key of the table .
+    Columns that are part of the partition key of the table. See `partition_key` below.
     """
     clustering_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgsDict']]]]]
     """
-    The columns that are part of the clustering key of the table.
+    Columns that are part of the clustering key of the table. See `clustering_key` below.
     """
     static_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgsDict']]]]]
     """
-    The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+    Columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition. See `static_column` below.
     """
 
 @pulumi.input_type
@@ -320,10 +320,10 @@ class TableSchemaDefinitionArgs:
                  clustering_keys: pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]] = None,
                  static_columns: pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArgs']]] columns: The regular columns of the table.
-        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArgs']]] partition_keys: The columns that are part of the partition key of the table .
-        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]] clustering_keys: The columns that are part of the clustering key of the table.
-        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]] static_columns: The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArgs']]] columns: Regular columns of the table. See `column` below.
+        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArgs']]] partition_keys: Columns that are part of the partition key of the table. See `partition_key` below.
+        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]] clustering_keys: Columns that are part of the clustering key of the table. See `clustering_key` below.
+        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]] static_columns: Columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition. See `static_column` below.
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "partition_keys", partition_keys)
@@ -336,7 +336,7 @@ class TableSchemaDefinitionArgs:
     @pulumi.getter
     def columns(self) -> pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArgs']]]:
         """
-        The regular columns of the table.
+        Regular columns of the table. See `column` below.
         """
         return pulumi.get(self, "columns")
 
@@ -348,7 +348,7 @@ class TableSchemaDefinitionArgs:
     @pulumi.getter(name="partitionKeys")
     def partition_keys(self) -> pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArgs']]]:
         """
-        The columns that are part of the partition key of the table .
+        Columns that are part of the partition key of the table. See `partition_key` below.
         """
         return pulumi.get(self, "partition_keys")
 
@@ -360,7 +360,7 @@ class TableSchemaDefinitionArgs:
     @pulumi.getter(name="clusteringKeys")
     def clustering_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]]:
         """
-        The columns that are part of the clustering key of the table.
+        Columns that are part of the clustering key of the table. See `clustering_key` below.
         """
         return pulumi.get(self, "clustering_keys")
 
@@ -372,7 +372,7 @@ class TableSchemaDefinitionArgs:
     @pulumi.getter(name="staticColumns")
     def static_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]]:
         """
-        The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+        Columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition. See `static_column` below.
         """
         return pulumi.get(self, "static_columns")
 
@@ -384,11 +384,11 @@ class TableSchemaDefinitionArgs:
 class TableSchemaDefinitionClusteringKeyArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The name of the clustering key column.
+    Name of the clustering key column.
     """
     order_by: pulumi.Input[_builtins.str]
     """
-    The order modifier. Valid values: `ASC`, `DESC`.
+    Order modifier. Valid values: `ASC`, `DESC`.
     """
 
 @pulumi.input_type
@@ -397,8 +397,8 @@ class TableSchemaDefinitionClusteringKeyArgs:
                  name: pulumi.Input[_builtins.str],
                  order_by: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the clustering key column.
-        :param pulumi.Input[_builtins.str] order_by: The order modifier. Valid values: `ASC`, `DESC`.
+        :param pulumi.Input[_builtins.str] name: Name of the clustering key column.
+        :param pulumi.Input[_builtins.str] order_by: Order modifier. Valid values: `ASC`, `DESC`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order_by", order_by)
@@ -407,7 +407,7 @@ class TableSchemaDefinitionClusteringKeyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the clustering key column.
+        Name of the clustering key column.
         """
         return pulumi.get(self, "name")
 
@@ -419,7 +419,7 @@ class TableSchemaDefinitionClusteringKeyArgs:
     @pulumi.getter(name="orderBy")
     def order_by(self) -> pulumi.Input[_builtins.str]:
         """
-        The order modifier. Valid values: `ASC`, `DESC`.
+        Order modifier. Valid values: `ASC`, `DESC`.
         """
         return pulumi.get(self, "order_by")
 
@@ -431,11 +431,11 @@ class TableSchemaDefinitionClusteringKeyArgs:
 class TableSchemaDefinitionColumnArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The name of the column.
+    Name of the column.
     """
     type: pulumi.Input[_builtins.str]
     """
-    The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
+    Data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
     """
 
 @pulumi.input_type
@@ -444,8 +444,8 @@ class TableSchemaDefinitionColumnArgs:
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the column.
-        :param pulumi.Input[_builtins.str] type: The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
+        :param pulumi.Input[_builtins.str] name: Name of the column.
+        :param pulumi.Input[_builtins.str] type: Data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -454,7 +454,7 @@ class TableSchemaDefinitionColumnArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the column.
+        Name of the column.
         """
         return pulumi.get(self, "name")
 
@@ -466,7 +466,7 @@ class TableSchemaDefinitionColumnArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
+        Data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
         """
         return pulumi.get(self, "type")
 
@@ -478,7 +478,7 @@ class TableSchemaDefinitionColumnArgs:
 class TableSchemaDefinitionPartitionKeyArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The name of the partition key column.
+    Name of the partition key column.
     """
 
 @pulumi.input_type
@@ -486,7 +486,7 @@ class TableSchemaDefinitionPartitionKeyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the partition key column.
+        :param pulumi.Input[_builtins.str] name: Name of the partition key column.
         """
         pulumi.set(__self__, "name", name)
 
@@ -494,7 +494,7 @@ class TableSchemaDefinitionPartitionKeyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the partition key column.
+        Name of the partition key column.
         """
         return pulumi.get(self, "name")
 
@@ -506,7 +506,7 @@ class TableSchemaDefinitionPartitionKeyArgs:
 class TableSchemaDefinitionStaticColumnArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The name of the static column.
+    Name of the static column.
     """
 
 @pulumi.input_type
@@ -514,7 +514,7 @@ class TableSchemaDefinitionStaticColumnArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the static column.
+        :param pulumi.Input[_builtins.str] name: Name of the static column.
         """
         pulumi.set(__self__, "name", name)
 
@@ -522,7 +522,7 @@ class TableSchemaDefinitionStaticColumnArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the static column.
+        Name of the static column.
         """
         return pulumi.get(self, "name")
 

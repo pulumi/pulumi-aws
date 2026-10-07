@@ -17,6 +17,9 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// NetBIOS name of the AD computer object to which the SVM is joined.
         /// </summary>
         public readonly string NetbiosName;
+        /// <summary>
+        /// Configuration of the self-managed Microsoft Active Directory (AD) directory to which the SVM is joined. See `SelfManagedActiveDirectoryConfiguration` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationResult> SelfManagedActiveDirectoryConfigurations;
 
         [OutputConstructor]

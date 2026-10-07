@@ -34,14 +34,14 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
     }
 
     /**
-     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+     * App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name.
      * 
      */
     @Import(name="dnsTarget")
     private @Nullable Output<String> dnsTarget;
 
     /**
-     * @return App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+     * @return App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name.
      * 
      */
     public Optional<Output<String>> dnsTarget() {
@@ -49,14 +49,14 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
     }
 
     /**
-     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+     * @return Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -64,14 +64,14 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
     }
 
     /**
-     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+     * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
      * 
      */
     @Import(name="enableWwwSubdomain")
     private @Nullable Output<Boolean> enableWwwSubdomain;
 
     /**
-     * @return Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+     * @return Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
      * 
      */
     public Optional<Output<Boolean>> enableWwwSubdomain() {
@@ -109,14 +109,14 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
     }
 
     /**
-     * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+     * @return Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      * 
      */
     public Optional<Output<String>> status() {
@@ -185,7 +185,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dnsTarget App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+         * @param dnsTarget App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param dnsTarget App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
+         * @param dnsTarget App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
+         * @param domainName Custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`. Must not end with a trailing period. `enableWwwSubdomain` must be set to `false` when using a wildcard domain.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enableWwwSubdomain Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+         * @param enableWwwSubdomain Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enableWwwSubdomain Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
+         * @param enableWwwSubdomain Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`. Must be set to `false` when `domainName` is a wildcard domain.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param status Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+         * @param status Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class CustomDomainAssociationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param status Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+         * @param status Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
          * 
          * @return builder
          * 

@@ -15,14 +15,14 @@ public final class PipeLogConfigurationCloudwatchLogsLogDestinationArgs extends 
     public static final PipeLogConfigurationCloudwatchLogsLogDestinationArgs Empty = new PipeLogConfigurationCloudwatchLogsLogDestinationArgs();
 
     /**
-     * Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+     * ARN for the CloudWatch log group to which EventBridge sends the log records.
      * 
      */
     @Import(name="logGroupArn", required=true)
     private Output<String> logGroupArn;
 
     /**
-     * @return Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+     * @return ARN for the CloudWatch log group to which EventBridge sends the log records.
      * 
      */
     public Output<String> logGroupArn() {
@@ -54,7 +54,7 @@ public final class PipeLogConfigurationCloudwatchLogsLogDestinationArgs extends 
         }
 
         /**
-         * @param logGroupArn Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+         * @param logGroupArn ARN for the CloudWatch log group to which EventBridge sends the log records.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class PipeLogConfigurationCloudwatchLogsLogDestinationArgs extends 
         }
 
         /**
-         * @param logGroupArn Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+         * @param logGroupArn ARN for the CloudWatch log group to which EventBridge sends the log records.
          * 
          * @return builder
          * 

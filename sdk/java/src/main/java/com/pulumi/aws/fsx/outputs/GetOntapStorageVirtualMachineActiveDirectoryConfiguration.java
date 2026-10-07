@@ -17,6 +17,10 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
      * 
      */
     private String netbiosName;
+    /**
+     * @return Configuration of the self-managed Microsoft Active Directory (AD) directory to which the SVM is joined. See `selfManagedActiveDirectoryConfiguration` Block below.
+     * 
+     */
     private List<GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration> selfManagedActiveDirectoryConfigurations;
 
     private GetOntapStorageVirtualMachineActiveDirectoryConfiguration() {}
@@ -27,6 +31,10 @@ public final class GetOntapStorageVirtualMachineActiveDirectoryConfiguration {
     public String netbiosName() {
         return this.netbiosName;
     }
+    /**
+     * @return Configuration of the self-managed Microsoft Active Directory (AD) directory to which the SVM is joined. See `selfManagedActiveDirectoryConfiguration` Block below.
+     * 
+     */
     public List<GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration> selfManagedActiveDirectoryConfigurations() {
         return this.selfManagedActiveDirectoryConfigurations;
     }

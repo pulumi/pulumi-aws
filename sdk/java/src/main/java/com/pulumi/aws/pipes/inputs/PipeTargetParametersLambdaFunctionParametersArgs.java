@@ -15,14 +15,14 @@ public final class PipeTargetParametersLambdaFunctionParametersArgs extends com.
     public static final PipeTargetParametersLambdaFunctionParametersArgs Empty = new PipeTargetParametersLambdaFunctionParametersArgs();
 
     /**
-     * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+     * Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
      * 
      */
     @Import(name="invocationType", required=true)
     private Output<String> invocationType;
 
     /**
-     * @return Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+     * @return Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
      * 
      */
     public Output<String> invocationType() {
@@ -54,7 +54,7 @@ public final class PipeTargetParametersLambdaFunctionParametersArgs extends com.
         }
 
         /**
-         * @param invocationType Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+         * @param invocationType Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class PipeTargetParametersLambdaFunctionParametersArgs extends com.
         }
 
         /**
-         * @param invocationType Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+         * @param invocationType Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
          * 
          * @return builder
          * 

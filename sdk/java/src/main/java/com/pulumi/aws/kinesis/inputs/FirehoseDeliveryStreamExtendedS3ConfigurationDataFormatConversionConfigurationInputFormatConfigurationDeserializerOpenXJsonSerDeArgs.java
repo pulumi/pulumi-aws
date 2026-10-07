@@ -33,14 +33,14 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
     }
 
     /**
-     * A map of column names to JSON keys that aren&#39;t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = &#34;timestamp&#34; }` to map this key to a column named ts.
+     * Map of column names to JSON keys that aren&#39;t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = &#34;timestamp&#34; }` to map this key to a column named ts.
      * 
      */
     @Import(name="columnToJsonKeyMappings")
     private @Nullable Output<Map<String,String>> columnToJsonKeyMappings;
 
     /**
-     * @return A map of column names to JSON keys that aren&#39;t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = &#34;timestamp&#34; }` to map this key to a column named ts.
+     * @return Map of column names to JSON keys that aren&#39;t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = &#34;timestamp&#34; }` to map this key to a column named ts.
      * 
      */
     public Optional<Output<Map<String,String>>> columnToJsonKeyMappings() {
@@ -110,7 +110,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param columnToJsonKeyMappings A map of column names to JSON keys that aren&#39;t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = &#34;timestamp&#34; }` to map this key to a column named ts.
+         * @param columnToJsonKeyMappings Map of column names to JSON keys that aren&#39;t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = &#34;timestamp&#34; }` to map this key to a column named ts.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConver
         }
 
         /**
-         * @param columnToJsonKeyMappings A map of column names to JSON keys that aren&#39;t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = &#34;timestamp&#34; }` to map this key to a column named ts.
+         * @param columnToJsonKeyMappings Map of column names to JSON keys that aren&#39;t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = &#34;timestamp&#34; }` to map this key to a column named ts.
          * 
          * @return builder
          * 

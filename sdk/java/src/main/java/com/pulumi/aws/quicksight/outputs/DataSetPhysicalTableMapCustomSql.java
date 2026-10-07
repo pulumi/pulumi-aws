@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSetPhysicalTableMapCustomSql {
     /**
-     * @return Column schema from the SQL query result set. See columns.
+     * @return Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
      * 
      */
     private @Nullable List<DataSetPhysicalTableMapCustomSqlColumn> columns;
@@ -36,7 +36,7 @@ public final class DataSetPhysicalTableMapCustomSql {
 
     private DataSetPhysicalTableMapCustomSql() {}
     /**
-     * @return Column schema from the SQL query result set. See columns.
+     * @return Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
      * 
      */
     public List<DataSetPhysicalTableMapCustomSqlColumn> columns() {

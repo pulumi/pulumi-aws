@@ -226,11 +226,11 @@ export class Pipe extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A description of the pipe. At most 512 characters.
+     * Description of the pipe. At most 512 characters.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+     * State the pipe should be in. One of: `RUNNING`, `STOPPED`.
      */
     declare public readonly desiredState: pulumi.Output<string | undefined>;
     /**
@@ -238,7 +238,7 @@ export class Pipe extends pulumi.CustomResource {
      */
     declare public readonly enrichment: pulumi.Output<string | undefined>;
     /**
-     * Parameters to configure enrichment for your pipe. Detailed below.
+     * Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
      */
     declare public readonly enrichmentParameters: pulumi.Output<outputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
@@ -246,7 +246,7 @@ export class Pipe extends pulumi.CustomResource {
      */
     declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
-     * Logging configuration settings for the pipe. Detailed below.
+     * Logging configuration settings for the pipe. See `logConfiguration` Block for details.
      */
     declare public readonly logConfiguration: pulumi.Output<outputs.pipes.PipeLogConfiguration | undefined>;
     /**
@@ -270,11 +270,11 @@ export class Pipe extends pulumi.CustomResource {
      */
     declare public readonly source: pulumi.Output<string>;
     /**
-     * Parameters to configure a source for the pipe. Detailed below.
+     * Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
      */
     declare public readonly sourceParameters: pulumi.Output<outputs.pipes.PipeSourceParameters>;
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -288,7 +288,7 @@ export class Pipe extends pulumi.CustomResource {
      */
     declare public readonly target: pulumi.Output<string>;
     /**
-     * Parameters to configure a target for your pipe. Detailed below.
+     * Parameters to configure a target for the pipe. See `targetParameters` Block for details.
      */
     declare public readonly targetParameters: pulumi.Output<outputs.pipes.PipeTargetParameters | undefined>;
 
@@ -365,11 +365,11 @@ export interface PipeState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A description of the pipe. At most 512 characters.
+     * Description of the pipe. At most 512 characters.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+     * State the pipe should be in. One of: `RUNNING`, `STOPPED`.
      */
     desiredState?: pulumi.Input<string | undefined>;
     /**
@@ -377,7 +377,7 @@ export interface PipeState {
      */
     enrichment?: pulumi.Input<string | undefined>;
     /**
-     * Parameters to configure enrichment for your pipe. Detailed below.
+     * Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
      */
     enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
@@ -385,7 +385,7 @@ export interface PipeState {
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * Logging configuration settings for the pipe. Detailed below.
+     * Logging configuration settings for the pipe. See `logConfiguration` Block for details.
      */
     logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfiguration | undefined>;
     /**
@@ -409,11 +409,11 @@ export interface PipeState {
      */
     source?: pulumi.Input<string | undefined>;
     /**
-     * Parameters to configure a source for the pipe. Detailed below.
+     * Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
      */
     sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParameters | undefined>;
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -427,7 +427,7 @@ export interface PipeState {
      */
     target?: pulumi.Input<string | undefined>;
     /**
-     * Parameters to configure a target for your pipe. Detailed below.
+     * Parameters to configure a target for the pipe. See `targetParameters` Block for details.
      */
     targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParameters | undefined>;
 }
@@ -437,11 +437,11 @@ export interface PipeState {
  */
 export interface PipeArgs {
     /**
-     * A description of the pipe. At most 512 characters.
+     * Description of the pipe. At most 512 characters.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+     * State the pipe should be in. One of: `RUNNING`, `STOPPED`.
      */
     desiredState?: pulumi.Input<string | undefined>;
     /**
@@ -449,7 +449,7 @@ export interface PipeArgs {
      */
     enrichment?: pulumi.Input<string | undefined>;
     /**
-     * Parameters to configure enrichment for your pipe. Detailed below.
+     * Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
      */
     enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
@@ -457,7 +457,7 @@ export interface PipeArgs {
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * Logging configuration settings for the pipe. Detailed below.
+     * Logging configuration settings for the pipe. See `logConfiguration` Block for details.
      */
     logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfiguration | undefined>;
     /**
@@ -481,11 +481,11 @@ export interface PipeArgs {
      */
     source: pulumi.Input<string>;
     /**
-     * Parameters to configure a source for the pipe. Detailed below.
+     * Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
      */
     sourceParameters?: pulumi.Input<inputs.pipes.PipeSourceParameters | undefined>;
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -495,7 +495,7 @@ export interface PipeArgs {
      */
     target: pulumi.Input<string>;
     /**
-     * Parameters to configure a target for your pipe. Detailed below.
+     * Parameters to configure a target for the pipe. See `targetParameters` Block for details.
      */
     targetParameters?: pulumi.Input<inputs.pipes.PipeTargetParameters | undefined>;
 }

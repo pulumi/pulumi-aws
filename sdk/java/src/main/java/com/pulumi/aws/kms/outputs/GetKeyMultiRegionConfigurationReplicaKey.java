@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetKeyMultiRegionConfigurationReplicaKey {
     /**
-     * @return The key ARN of a primary or replica key of a multi-Region key.
+     * @return Key ARN of a primary or replica key of a multi-Region key.
      * 
      */
     private String arn;
@@ -23,7 +23,7 @@ public final class GetKeyMultiRegionConfigurationReplicaKey {
 
     private GetKeyMultiRegionConfigurationReplicaKey() {}
     /**
-     * @return The key ARN of a primary or replica key of a multi-Region key.
+     * @return Key ARN of a primary or replica key of a multi-Region key.
      * 
      */
     public String arn() {

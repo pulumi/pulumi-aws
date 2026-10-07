@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:amp/ruleGroupNamespace:RuleGroupNamespace")
 public class RuleGroupNamespace extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the rule group namespace.
+     * ARN of the rule group namespace.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the rule group namespace.
+     * @return ARN of the rule group namespace.
      * 
      */
     public Output<String> arn() {
@@ -108,14 +108,14 @@ public class RuleGroupNamespace extends com.pulumi.resources.CustomResource {
         return this.data;
     }
     /**
-     * The name of the rule group namespace.
+     * Name of the rule group namespace.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the rule group namespace.
+     * @return Name of the rule group namespace.
      * 
      */
     public Output<String> name() {

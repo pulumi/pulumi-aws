@@ -121,7 +121,7 @@ class GetStreamResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
         """
-        The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
+        Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -129,7 +129,7 @@ class GetStreamResult:
     @pulumi.getter(name="maxRecordSizeInKib")
     def max_record_size_in_kib(self) -> _builtins.int:
         """
-        The maximum size for a single data record in KiB.
+        Maximum size for a single data record in KiB.
         """
         return pulumi.get(self, "max_record_size_in_kib")
 

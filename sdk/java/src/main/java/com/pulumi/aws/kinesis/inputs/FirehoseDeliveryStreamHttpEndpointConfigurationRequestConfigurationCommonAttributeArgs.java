@@ -15,14 +15,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
     public static final FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs Empty = new FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs();
 
     /**
-     * The name of the HTTP endpoint common attribute.
+     * Name of the HTTP endpoint common attribute.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the HTTP endpoint common attribute.
+     * @return Name of the HTTP endpoint common attribute.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
     }
 
     /**
-     * The value of the HTTP endpoint common attribute.
+     * Value of the HTTP endpoint common attribute.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the HTTP endpoint common attribute.
+     * @return Value of the HTTP endpoint common attribute.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
         }
 
         /**
-         * @param name The name of the HTTP endpoint common attribute.
+         * @param name Name of the HTTP endpoint common attribute.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
         }
 
         /**
-         * @param name The name of the HTTP endpoint common attribute.
+         * @param name Name of the HTTP endpoint common attribute.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
         }
 
         /**
-         * @param value The value of the HTTP endpoint common attribute.
+         * @param value Value of the HTTP endpoint common attribute.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigu
         }
 
         /**
-         * @param value The value of the HTTP endpoint common attribute.
+         * @param value Value of the HTTP endpoint common attribute.
          * 
          * @return builder
          * 

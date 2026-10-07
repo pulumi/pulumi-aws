@@ -16,14 +16,14 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
     public static final DataSetOutputColumnArgs Empty = new DataSetOutputColumnArgs();
 
     /**
-     * The description of the column.
+     * Description of the column.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the column.
+     * @return Description of the column.
      * 
      */
     public Optional<Output<String>> description() {
@@ -50,14 +50,14 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The data type of the column.
+     * Data type of the column.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The data type of the column.
+     * @return Data type of the column.
      * 
      */
     public Optional<Output<String>> type() {
@@ -91,7 +91,7 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description The description of the column.
+         * @param description Description of the column.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param description The description of the column.
+         * @param description Description of the column.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The data type of the column.
+         * @param type Data type of the column.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class DataSetOutputColumnArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type The data type of the column.
+         * @param type Data type of the column.
          * 
          * @return builder
          * 

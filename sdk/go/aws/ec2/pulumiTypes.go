@@ -2366,6 +2366,109 @@ func (o DefaultSecurityGroupEgressArrayOutput) Index(i pulumi.IntInput) DefaultS
 	}).(DefaultSecurityGroupEgressOutput)
 }
 
+type DefaultSecurityGroupFilter struct {
+	// Name of the security group.
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// DefaultSecurityGroupFilterInput is an input type that accepts DefaultSecurityGroupFilterArgs and DefaultSecurityGroupFilterOutput values.
+// You can construct a concrete instance of `DefaultSecurityGroupFilterInput` via:
+//
+//	DefaultSecurityGroupFilterArgs{...}
+type DefaultSecurityGroupFilterInput interface {
+	pulumi.Input
+
+	ToDefaultSecurityGroupFilterOutput() DefaultSecurityGroupFilterOutput
+	ToDefaultSecurityGroupFilterOutputWithContext(context.Context) DefaultSecurityGroupFilterOutput
+}
+
+type DefaultSecurityGroupFilterArgs struct {
+	// Name of the security group.
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (DefaultSecurityGroupFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultSecurityGroupFilter)(nil)).Elem()
+}
+
+func (i DefaultSecurityGroupFilterArgs) ToDefaultSecurityGroupFilterOutput() DefaultSecurityGroupFilterOutput {
+	return i.ToDefaultSecurityGroupFilterOutputWithContext(context.Background())
+}
+
+func (i DefaultSecurityGroupFilterArgs) ToDefaultSecurityGroupFilterOutputWithContext(ctx context.Context) DefaultSecurityGroupFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupFilterOutput)
+}
+
+// DefaultSecurityGroupFilterArrayInput is an input type that accepts DefaultSecurityGroupFilterArray and DefaultSecurityGroupFilterArrayOutput values.
+// You can construct a concrete instance of `DefaultSecurityGroupFilterArrayInput` via:
+//
+//	DefaultSecurityGroupFilterArray{ DefaultSecurityGroupFilterArgs{...} }
+type DefaultSecurityGroupFilterArrayInput interface {
+	pulumi.Input
+
+	ToDefaultSecurityGroupFilterArrayOutput() DefaultSecurityGroupFilterArrayOutput
+	ToDefaultSecurityGroupFilterArrayOutputWithContext(context.Context) DefaultSecurityGroupFilterArrayOutput
+}
+
+type DefaultSecurityGroupFilterArray []DefaultSecurityGroupFilterInput
+
+func (DefaultSecurityGroupFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DefaultSecurityGroupFilter)(nil)).Elem()
+}
+
+func (i DefaultSecurityGroupFilterArray) ToDefaultSecurityGroupFilterArrayOutput() DefaultSecurityGroupFilterArrayOutput {
+	return i.ToDefaultSecurityGroupFilterArrayOutputWithContext(context.Background())
+}
+
+func (i DefaultSecurityGroupFilterArray) ToDefaultSecurityGroupFilterArrayOutputWithContext(ctx context.Context) DefaultSecurityGroupFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DefaultSecurityGroupFilterArrayOutput)
+}
+
+type DefaultSecurityGroupFilterOutput struct{ *pulumi.OutputState }
+
+func (DefaultSecurityGroupFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultSecurityGroupFilter)(nil)).Elem()
+}
+
+func (o DefaultSecurityGroupFilterOutput) ToDefaultSecurityGroupFilterOutput() DefaultSecurityGroupFilterOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupFilterOutput) ToDefaultSecurityGroupFilterOutputWithContext(ctx context.Context) DefaultSecurityGroupFilterOutput {
+	return o
+}
+
+// Name of the security group.
+func (o DefaultSecurityGroupFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DefaultSecurityGroupFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DefaultSecurityGroupFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DefaultSecurityGroupFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type DefaultSecurityGroupFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (DefaultSecurityGroupFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DefaultSecurityGroupFilter)(nil)).Elem()
+}
+
+func (o DefaultSecurityGroupFilterArrayOutput) ToDefaultSecurityGroupFilterArrayOutput() DefaultSecurityGroupFilterArrayOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupFilterArrayOutput) ToDefaultSecurityGroupFilterArrayOutputWithContext(ctx context.Context) DefaultSecurityGroupFilterArrayOutput {
+	return o
+}
+
+func (o DefaultSecurityGroupFilterArrayOutput) Index(i pulumi.IntInput) DefaultSecurityGroupFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefaultSecurityGroupFilter {
+		return vs[0].([]DefaultSecurityGroupFilter)[vs[1].(int)]
+	}).(DefaultSecurityGroupFilterOutput)
+}
+
 type DefaultSecurityGroupIngress struct {
 	// List of CIDR blocks.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
@@ -69724,118 +69827,6 @@ func (o GetRouteTablesFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTables
 	}).(GetRouteTablesFilterOutput)
 }
 
-type GetSecurityGroupFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A Security Group will be selected if any one of the given values matches.
-	Values []string `pulumi:"values"`
-}
-
-// GetSecurityGroupFilterInput is an input type that accepts GetSecurityGroupFilterArgs and GetSecurityGroupFilterOutput values.
-// You can construct a concrete instance of `GetSecurityGroupFilterInput` via:
-//
-//	GetSecurityGroupFilterArgs{...}
-type GetSecurityGroupFilterInput interface {
-	pulumi.Input
-
-	ToGetSecurityGroupFilterOutput() GetSecurityGroupFilterOutput
-	ToGetSecurityGroupFilterOutputWithContext(context.Context) GetSecurityGroupFilterOutput
-}
-
-type GetSecurityGroupFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A Security Group will be selected if any one of the given values matches.
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (GetSecurityGroupFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSecurityGroupFilter)(nil)).Elem()
-}
-
-func (i GetSecurityGroupFilterArgs) ToGetSecurityGroupFilterOutput() GetSecurityGroupFilterOutput {
-	return i.ToGetSecurityGroupFilterOutputWithContext(context.Background())
-}
-
-func (i GetSecurityGroupFilterArgs) ToGetSecurityGroupFilterOutputWithContext(ctx context.Context) GetSecurityGroupFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupFilterOutput)
-}
-
-// GetSecurityGroupFilterArrayInput is an input type that accepts GetSecurityGroupFilterArray and GetSecurityGroupFilterArrayOutput values.
-// You can construct a concrete instance of `GetSecurityGroupFilterArrayInput` via:
-//
-//	GetSecurityGroupFilterArray{ GetSecurityGroupFilterArgs{...} }
-type GetSecurityGroupFilterArrayInput interface {
-	pulumi.Input
-
-	ToGetSecurityGroupFilterArrayOutput() GetSecurityGroupFilterArrayOutput
-	ToGetSecurityGroupFilterArrayOutputWithContext(context.Context) GetSecurityGroupFilterArrayOutput
-}
-
-type GetSecurityGroupFilterArray []GetSecurityGroupFilterInput
-
-func (GetSecurityGroupFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSecurityGroupFilter)(nil)).Elem()
-}
-
-func (i GetSecurityGroupFilterArray) ToGetSecurityGroupFilterArrayOutput() GetSecurityGroupFilterArrayOutput {
-	return i.ToGetSecurityGroupFilterArrayOutputWithContext(context.Background())
-}
-
-func (i GetSecurityGroupFilterArray) ToGetSecurityGroupFilterArrayOutputWithContext(ctx context.Context) GetSecurityGroupFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSecurityGroupFilterArrayOutput)
-}
-
-type GetSecurityGroupFilterOutput struct{ *pulumi.OutputState }
-
-func (GetSecurityGroupFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSecurityGroupFilter)(nil)).Elem()
-}
-
-func (o GetSecurityGroupFilterOutput) ToGetSecurityGroupFilterOutput() GetSecurityGroupFilterOutput {
-	return o
-}
-
-func (o GetSecurityGroupFilterOutput) ToGetSecurityGroupFilterOutputWithContext(ctx context.Context) GetSecurityGroupFilterOutput {
-	return o
-}
-
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-func (o GetSecurityGroupFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSecurityGroupFilter) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Set of values that are accepted for the given field.
-// A Security Group will be selected if any one of the given values matches.
-func (o GetSecurityGroupFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetSecurityGroupFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type GetSecurityGroupFilterArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSecurityGroupFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSecurityGroupFilter)(nil)).Elem()
-}
-
-func (o GetSecurityGroupFilterArrayOutput) ToGetSecurityGroupFilterArrayOutput() GetSecurityGroupFilterArrayOutput {
-	return o
-}
-
-func (o GetSecurityGroupFilterArrayOutput) ToGetSecurityGroupFilterArrayOutputWithContext(ctx context.Context) GetSecurityGroupFilterArrayOutput {
-	return o
-}
-
-func (o GetSecurityGroupFilterArrayOutput) Index(i pulumi.IntInput) GetSecurityGroupFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecurityGroupFilter {
-		return vs[0].([]GetSecurityGroupFilter)[vs[1].(int)]
-	}).(GetSecurityGroupFilterOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowedImagesSettingsImageCriterionInput)(nil)).Elem(), AllowedImagesSettingsImageCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowedImagesSettingsImageCriterionArrayInput)(nil)).Elem(), AllowedImagesSettingsImageCriterionArray{})
@@ -69867,6 +69858,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTableRouteArrayInput)(nil)).Elem(), DefaultRouteTableRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupEgressInput)(nil)).Elem(), DefaultSecurityGroupEgressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupEgressArrayInput)(nil)).Elem(), DefaultSecurityGroupEgressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupFilterInput)(nil)).Elem(), DefaultSecurityGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupFilterArrayInput)(nil)).Elem(), DefaultSecurityGroupFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupIngressInput)(nil)).Elem(), DefaultSecurityGroupIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultSecurityGroupIngressArrayInput)(nil)).Elem(), DefaultSecurityGroupIngressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EipDomainNameTimeoutsInput)(nil)).Elem(), EipDomainNameTimeoutsArgs{})
@@ -70831,8 +70824,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableRouteArrayInput)(nil)).Elem(), GetRouteTableRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTablesFilterInput)(nil)).Elem(), GetRouteTablesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTablesFilterArrayInput)(nil)).Elem(), GetRouteTablesFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupFilterInput)(nil)).Elem(), GetSecurityGroupFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupFilterArrayInput)(nil)).Elem(), GetSecurityGroupFilterArray{})
 	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionOutput{})
 	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionArrayOutput{})
 	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionCreationDateConditionOutput{})
@@ -70863,6 +70854,8 @@ func init() {
 	pulumi.RegisterOutputType(DefaultRouteTableRouteArrayOutput{})
 	pulumi.RegisterOutputType(DefaultSecurityGroupEgressOutput{})
 	pulumi.RegisterOutputType(DefaultSecurityGroupEgressArrayOutput{})
+	pulumi.RegisterOutputType(DefaultSecurityGroupFilterOutput{})
+	pulumi.RegisterOutputType(DefaultSecurityGroupFilterArrayOutput{})
 	pulumi.RegisterOutputType(DefaultSecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(DefaultSecurityGroupIngressArrayOutput{})
 	pulumi.RegisterOutputType(EipDomainNameTimeoutsOutput{})
@@ -71827,6 +71820,4 @@ func init() {
 	pulumi.RegisterOutputType(GetRouteTableRouteArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTablesFilterOutput{})
 	pulumi.RegisterOutputType(GetRouteTablesFilterArrayOutput{})
-	pulumi.RegisterOutputType(GetSecurityGroupFilterOutput{})
-	pulumi.RegisterOutputType(GetSecurityGroupFilterArrayOutput{})
 }

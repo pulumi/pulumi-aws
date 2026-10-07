@@ -73,9 +73,9 @@ type LookupStreamResult struct {
 	EncryptionType string `pulumi:"encryptionType"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
+	// Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	// The maximum size for a single data record in KiB.
+	// Maximum size for a single data record in KiB.
 	MaxRecordSizeInKib int `pulumi:"maxRecordSizeInKib"`
 	// Name of the Kinesis Stream.
 	Name string `pulumi:"name"`
@@ -155,12 +155,12 @@ func (o LookupStreamResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
+// Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN.
 func (o LookupStreamResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The maximum size for a single data record in KiB.
+// Maximum size for a single data record in KiB.
 func (o LookupStreamResultOutput) MaxRecordSizeInKib() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupStreamResult) int { return v.MaxRecordSizeInKib }).(pulumi.IntOutput)
 }

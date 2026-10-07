@@ -14,42 +14,40 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class AnalyticsApplicationInputs
     {
         /// <summary>
-        /// The ARN of the Kinesis Analytics Application.
+        /// ARN of the Kinesis Analytics Application.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The Kinesis Firehose configuration for the streaming source. Conflicts with `KinesisStream`.
-        /// See Kinesis Firehose below for more details.
+        /// Kinesis Firehose configuration for the streaming source. Conflicts with `KinesisStream`. See `inputs.kinesis_firehose` Block below for details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationInputsKinesisFirehose? KinesisFirehose;
         /// <summary>
-        /// The Kinesis Stream configuration for the streaming source. Conflicts with `KinesisFirehose`.
-        /// See Kinesis Stream below for more details.
+        /// Kinesis Stream configuration for the streaming source. Conflicts with `KinesisFirehose`. See `inputs.kinesis_stream` Block below for details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationInputsKinesisStream? KinesisStream;
         /// <summary>
-        /// The Name Prefix to use when creating an in-application stream.
+        /// Name Prefix to use when creating an in-application stream.
         /// </summary>
         public readonly string NamePrefix;
         /// <summary>
-        /// The number of Parallel in-application streams to create.
-        /// See Parallelism below for more details.
+        /// Number of Parallel in-application streams to create. See `inputs.parallelism` Block below for details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationInputsParallelism? Parallelism;
         /// <summary>
-        /// The Processing Configuration to transform records as they are received from the stream.
-        /// See Processing Configuration below for more details.
+        /// Processing Configuration to transform records as they are received from the stream. See `inputs.processing_configuration` Block below for details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationInputsProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
-        /// The Schema format of the data in the streaming source. See Source Schema below for more details.
+        /// Schema format of the data in the streaming source. See `inputs.schema` Block below for details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationInputsSchema Schema;
         /// <summary>
-        /// The point at which the application starts processing records from the streaming source.
-        /// See Starting Position Configuration below for more details.
+        /// Point at which the application starts processing records from the streaming source. See `inputs.starting_position_configuration` Block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalyticsApplicationInputsStartingPositionConfiguration> StartingPositionConfigurations;
+        /// <summary>
+        /// Names of the in-application streams created for the input.
+        /// </summary>
         public readonly ImmutableArray<string> StreamNames;
 
         [OutputConstructor]

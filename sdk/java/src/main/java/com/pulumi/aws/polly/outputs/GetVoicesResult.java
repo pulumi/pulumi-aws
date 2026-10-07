@@ -29,7 +29,7 @@ public final class GetVoicesResult {
     private @Nullable String languageCode;
     private String region;
     /**
-     * @return List of voices with their properties. See `voices` Attribute Reference below.
+     * @return List of voices with their properties. See `voices` Block below.
      * 
      */
     private @Nullable List<GetVoicesVoice> voices;
@@ -59,7 +59,7 @@ public final class GetVoicesResult {
         return this.region;
     }
     /**
-     * @return List of voices with their properties. See `voices` Attribute Reference below.
+     * @return List of voices with their properties. See `voices` Block below.
      * 
      */
     public List<GetVoicesVoice> voices() {

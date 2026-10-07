@@ -170,22 +170,30 @@ public class Faq extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The Unix datetime that the FAQ was created.
+     * Unix datetime that the FAQ was created.
      * 
      */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
     /**
-     * @return The Unix datetime that the FAQ was created.
+     * @return Unix datetime that the FAQ was created.
      * 
      */
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * Description for a FAQ.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description for a FAQ.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -204,68 +212,84 @@ public class Faq extends com.pulumi.resources.CustomResource {
         return this.errorMessage;
     }
     /**
-     * The identifier of the FAQ.
+     * Identifier of the FAQ.
      * 
      */
     @Export(name="faqId", refs={String.class}, tree="[0]")
     private Output<String> faqId;
 
     /**
-     * @return The identifier of the FAQ.
+     * @return Identifier of the FAQ.
      * 
      */
     public Output<String> faqId() {
         return this.faqId;
     }
+    /**
+     * File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+     * 
+     */
     @Export(name="fileFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileFormat;
 
+    /**
+     * @return File format used by the input files for the FAQ. Valid Values are `CSV`, `CSV_WITH_HEADER`, `JSON`.
+     * 
+     */
     public Output<Optional<String>> fileFormat() {
         return Codegen.optional(this.fileFormat);
     }
     /**
-     * The identifier of the index for a FAQ.
+     * Identifier of the index for a FAQ.
      * 
      */
     @Export(name="indexId", refs={String.class}, tree="[0]")
     private Output<String> indexId;
 
     /**
-     * @return The identifier of the index for a FAQ.
+     * @return Identifier of the index for a FAQ.
      * 
      */
     public Output<String> indexId() {
         return this.indexId;
     }
+    /**
+     * Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * 
+     */
     @Export(name="languageCode", refs={String.class}, tree="[0]")
     private Output<String> languageCode;
 
+    /**
+     * @return Code for a language. This shows a supported language for the FAQ document. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * 
+     */
     public Output<String> languageCode() {
         return this.languageCode;
     }
     /**
-     * The name that should be associated with the FAQ.
+     * Name that should be associated with the FAQ.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name that should be associated with the FAQ.
+     * @return Name that should be associated with the FAQ.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -286,62 +310,74 @@ public class Faq extends com.pulumi.resources.CustomResource {
         return this.roleArn;
     }
     /**
-     * The S3 location of the FAQ input data. Detailed below.
+     * S3 location of the FAQ input data. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="s3Path", refs={FaqS3Path.class}, tree="[0]")
     private Output<FaqS3Path> s3Path;
 
     /**
-     * @return The S3 location of the FAQ input data. Detailed below.
+     * @return S3 location of the FAQ input data. Detailed below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<FaqS3Path> s3Path() {
         return this.s3Path;
     }
     /**
-     * The status of the FAQ. It is ready to use when the status is ACTIVE.
+     * Status of the FAQ. It is ready to use when the status is ACTIVE.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the FAQ. It is ready to use when the status is ACTIVE.
+     * @return Status of the FAQ. It is ready to use when the status is ACTIVE.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The date and time that the FAQ was last updated.
+     * Date and time that the FAQ was last updated.
      * 
      */
     @Export(name="updatedAt", refs={String.class}, tree="[0]")
     private Output<String> updatedAt;
 
     /**
-     * @return The date and time that the FAQ was last updated.
+     * @return Date and time that the FAQ was last updated.
      * 
      */
     public Output<String> updatedAt() {

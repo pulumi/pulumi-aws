@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PipeSourceParametersManagedStreamingKafkaParametersCredentials {
     /**
-     * @return The ARN of the Secrets Manager secret containing the credentials.
+     * @return ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     private @Nullable String clientCertificateTlsAuth;
     /**
-     * @return The ARN of the Secrets Manager secret containing the credentials.
+     * @return ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     private @Nullable String saslScram512Auth;
 
     private PipeSourceParametersManagedStreamingKafkaParametersCredentials() {}
     /**
-     * @return The ARN of the Secrets Manager secret containing the credentials.
+     * @return ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     public Optional<String> clientCertificateTlsAuth() {
         return Optional.ofNullable(this.clientCertificateTlsAuth);
     }
     /**
-     * @return The ARN of the Secrets Manager secret containing the credentials.
+     * @return ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     public Optional<String> saslScram512Auth() {

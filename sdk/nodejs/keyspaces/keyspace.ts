@@ -58,11 +58,11 @@ export class Keyspace extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the keyspace.
+     * ARN of the keyspace.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The name of the keyspace to be created.
+     * Name of the keyspace to be created.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -70,15 +70,15 @@ export class Keyspace extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The replication specification of the keyspace.
+     * Replication specification of the keyspace. See below.
      */
     declare public readonly replicationSpecification: pulumi.Output<outputs.keyspaces.KeyspaceReplicationSpecification>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -120,11 +120,11 @@ export class Keyspace extends pulumi.CustomResource {
  */
 export interface KeyspaceState {
     /**
-     * The ARN of the keyspace.
+     * ARN of the keyspace.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the keyspace to be created.
+     * Name of the keyspace to be created.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -132,15 +132,15 @@ export interface KeyspaceState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The replication specification of the keyspace.
+     * Replication specification of the keyspace. See below.
      */
     replicationSpecification?: pulumi.Input<inputs.keyspaces.KeyspaceReplicationSpecification | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -150,7 +150,7 @@ export interface KeyspaceState {
  */
 export interface KeyspaceArgs {
     /**
-     * The name of the keyspace to be created.
+     * Name of the keyspace to be created.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -158,11 +158,11 @@ export interface KeyspaceArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The replication specification of the keyspace.
+     * Replication specification of the keyspace. See below.
      */
     replicationSpecification?: pulumi.Input<inputs.keyspaces.KeyspaceReplicationSpecification | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -170,13 +170,13 @@ func (o AccountSettingsTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type AnalysisParameters struct {
-	// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+	// List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
 	DateTimeParameters []AnalysisParametersDateTimeParameter `pulumi:"dateTimeParameters"`
-	// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+	// List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
 	DecimalParameters []AnalysisParametersDecimalParameter `pulumi:"decimalParameters"`
-	// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+	// List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
 	IntegerParameters []AnalysisParametersIntegerParameter `pulumi:"integerParameters"`
-	// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+	// List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
 	StringParameters []AnalysisParametersStringParameter `pulumi:"stringParameters"`
 }
 
@@ -192,13 +192,13 @@ type AnalysisParametersInput interface {
 }
 
 type AnalysisParametersArgs struct {
-	// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+	// List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
 	DateTimeParameters AnalysisParametersDateTimeParameterArrayInput `pulumi:"dateTimeParameters"`
-	// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+	// List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
 	DecimalParameters AnalysisParametersDecimalParameterArrayInput `pulumi:"decimalParameters"`
-	// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+	// List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
 	IntegerParameters AnalysisParametersIntegerParameterArrayInput `pulumi:"integerParameters"`
-	// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+	// List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
 	StringParameters AnalysisParametersStringParameterArrayInput `pulumi:"stringParameters"`
 }
 
@@ -279,22 +279,22 @@ func (o AnalysisParametersOutput) ToAnalysisParametersPtrOutputWithContext(ctx c
 	}).(AnalysisParametersPtrOutput)
 }
 
-// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+// List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
 func (o AnalysisParametersOutput) DateTimeParameters() AnalysisParametersDateTimeParameterArrayOutput {
 	return o.ApplyT(func(v AnalysisParameters) []AnalysisParametersDateTimeParameter { return v.DateTimeParameters }).(AnalysisParametersDateTimeParameterArrayOutput)
 }
 
-// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+// List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
 func (o AnalysisParametersOutput) DecimalParameters() AnalysisParametersDecimalParameterArrayOutput {
 	return o.ApplyT(func(v AnalysisParameters) []AnalysisParametersDecimalParameter { return v.DecimalParameters }).(AnalysisParametersDecimalParameterArrayOutput)
 }
 
-// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+// List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
 func (o AnalysisParametersOutput) IntegerParameters() AnalysisParametersIntegerParameterArrayOutput {
 	return o.ApplyT(func(v AnalysisParameters) []AnalysisParametersIntegerParameter { return v.IntegerParameters }).(AnalysisParametersIntegerParameterArrayOutput)
 }
 
-// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+// List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
 func (o AnalysisParametersOutput) StringParameters() AnalysisParametersStringParameterArrayOutput {
 	return o.ApplyT(func(v AnalysisParameters) []AnalysisParametersStringParameter { return v.StringParameters }).(AnalysisParametersStringParameterArrayOutput)
 }
@@ -323,7 +323,7 @@ func (o AnalysisParametersPtrOutput) Elem() AnalysisParametersOutput {
 	}).(AnalysisParametersOutput)
 }
 
-// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+// List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
 func (o AnalysisParametersPtrOutput) DateTimeParameters() AnalysisParametersDateTimeParameterArrayOutput {
 	return o.ApplyT(func(v *AnalysisParameters) []AnalysisParametersDateTimeParameter {
 		if v == nil {
@@ -333,7 +333,7 @@ func (o AnalysisParametersPtrOutput) DateTimeParameters() AnalysisParametersDate
 	}).(AnalysisParametersDateTimeParameterArrayOutput)
 }
 
-// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+// List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
 func (o AnalysisParametersPtrOutput) DecimalParameters() AnalysisParametersDecimalParameterArrayOutput {
 	return o.ApplyT(func(v *AnalysisParameters) []AnalysisParametersDecimalParameter {
 		if v == nil {
@@ -343,7 +343,7 @@ func (o AnalysisParametersPtrOutput) DecimalParameters() AnalysisParametersDecim
 	}).(AnalysisParametersDecimalParameterArrayOutput)
 }
 
-// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+// List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
 func (o AnalysisParametersPtrOutput) IntegerParameters() AnalysisParametersIntegerParameterArrayOutput {
 	return o.ApplyT(func(v *AnalysisParameters) []AnalysisParametersIntegerParameter {
 		if v == nil {
@@ -353,7 +353,7 @@ func (o AnalysisParametersPtrOutput) IntegerParameters() AnalysisParametersInteg
 	}).(AnalysisParametersIntegerParameterArrayOutput)
 }
 
-// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+// List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
 func (o AnalysisParametersPtrOutput) StringParameters() AnalysisParametersStringParameterArrayOutput {
 	return o.ApplyT(func(v *AnalysisParameters) []AnalysisParametersStringParameter {
 		if v == nil {
@@ -906,7 +906,7 @@ func (o AnalysisPermissionArrayOutput) Index(i pulumi.IntInput) AnalysisPermissi
 }
 
 type AnalysisSourceEntity struct {
-	// The source template. See source_template.
+	// Source template. See source_template.
 	SourceTemplate *AnalysisSourceEntitySourceTemplate `pulumi:"sourceTemplate"`
 }
 
@@ -922,7 +922,7 @@ type AnalysisSourceEntityInput interface {
 }
 
 type AnalysisSourceEntityArgs struct {
-	// The source template. See source_template.
+	// Source template. See source_template.
 	SourceTemplate AnalysisSourceEntitySourceTemplatePtrInput `pulumi:"sourceTemplate"`
 }
 
@@ -1003,7 +1003,7 @@ func (o AnalysisSourceEntityOutput) ToAnalysisSourceEntityPtrOutputWithContext(c
 	}).(AnalysisSourceEntityPtrOutput)
 }
 
-// The source template. See source_template.
+// Source template. See source_template.
 func (o AnalysisSourceEntityOutput) SourceTemplate() AnalysisSourceEntitySourceTemplatePtrOutput {
 	return o.ApplyT(func(v AnalysisSourceEntity) *AnalysisSourceEntitySourceTemplate { return v.SourceTemplate }).(AnalysisSourceEntitySourceTemplatePtrOutput)
 }
@@ -1032,7 +1032,7 @@ func (o AnalysisSourceEntityPtrOutput) Elem() AnalysisSourceEntityOutput {
 	}).(AnalysisSourceEntityOutput)
 }
 
-// The source template. See source_template.
+// Source template. See source_template.
 func (o AnalysisSourceEntityPtrOutput) SourceTemplate() AnalysisSourceEntitySourceTemplatePtrOutput {
 	return o.ApplyT(func(v *AnalysisSourceEntity) *AnalysisSourceEntitySourceTemplate {
 		if v == nil {
@@ -1307,51 +1307,51 @@ func (o AnalysisSourceEntitySourceTemplateDataSetReferenceArrayOutput) Index(i p
 }
 
 type CustomPermissionsCapabilities struct {
-	// The ability to add or run anomaly detection. Valid values: `DENY`.
+	// Ability to add or run anomaly detection. Valid values: `DENY`.
 	AddOrRunAnomalyDetectionForAnalyses *string `pulumi:"addOrRunAnomalyDetectionForAnalyses"`
-	// The ability to create and update email reports. Valid values: `DENY`.
+	// Ability to create and update email reports. Valid values: `DENY`.
 	CreateAndUpdateDashboardEmailReports *string `pulumi:"createAndUpdateDashboardEmailReports"`
-	// The ability to create and update data sources. Valid values: `DENY`.
+	// Ability to create and update data sources. Valid values: `DENY`.
 	CreateAndUpdateDataSources *string `pulumi:"createAndUpdateDataSources"`
-	// The ability to create and update datasets. Valid values: `DENY`.
+	// Ability to create and update datasets. Valid values: `DENY`.
 	CreateAndUpdateDatasets *string `pulumi:"createAndUpdateDatasets"`
-	// The ability to export to create and update themes. Valid values: `DENY`.
+	// Ability to create and update themes. Valid values: `DENY`.
 	CreateAndUpdateThemes *string `pulumi:"createAndUpdateThemes"`
-	// The ability to create and update threshold alerts. Valid values: `DENY`.
+	// Ability to create and update threshold alerts. Valid values: `DENY`.
 	CreateAndUpdateThresholdAlerts *string `pulumi:"createAndUpdateThresholdAlerts"`
-	// The ability to create shared folders. Valid values: `DENY`.
+	// Ability to create shared folders. Valid values: `DENY`.
 	CreateSharedFolders *string `pulumi:"createSharedFolders"`
-	// The ability to create a SPICE dataset. Valid values: `DENY`.
+	// Ability to create a SPICE dataset. Valid values: `DENY`.
 	CreateSpiceDataset *string `pulumi:"createSpiceDataset"`
-	// The ability to export to CSV files from the UI. Valid values: `DENY`.
+	// Ability to export to CSV files from the UI. Valid values: `DENY`.
 	ExportToCsv *string `pulumi:"exportToCsv"`
-	// The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+	// Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
 	ExportToCsvInScheduledReports *string `pulumi:"exportToCsvInScheduledReports"`
-	// The ability to export to Excel files from the UI. Valid values: `DENY`.
+	// Ability to export to Excel files from the UI. Valid values: `DENY`.
 	ExportToExcel *string `pulumi:"exportToExcel"`
-	// The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+	// Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
 	ExportToExcelInScheduledReports *string `pulumi:"exportToExcelInScheduledReports"`
-	// The ability to export to PDF files from the UI. Valid values: `DENY`.
+	// Ability to export to PDF files from the UI. Valid values: `DENY`.
 	ExportToPdf *string `pulumi:"exportToPdf"`
-	// The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+	// Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
 	ExportToPdfInScheduledReports *string `pulumi:"exportToPdfInScheduledReports"`
-	// The ability to include content in scheduled email reports. Valid values: `DENY`.
+	// Ability to include content in scheduled email reports. Valid values: `DENY`.
 	IncludeContentInScheduledReportsEmail *string `pulumi:"includeContentInScheduledReportsEmail"`
-	// The ability to print reports. Valid values: `DENY`.
+	// Ability to print reports. Valid values: `DENY`.
 	PrintReports *string `pulumi:"printReports"`
-	// The ability to rename shared folders. Valid values: `DENY`.
+	// Ability to rename shared folders. Valid values: `DENY`.
 	RenameSharedFolders *string `pulumi:"renameSharedFolders"`
-	// The ability to share analyses. Valid values: `DENY`.
+	// Ability to share analyses. Valid values: `DENY`.
 	ShareAnalyses *string `pulumi:"shareAnalyses"`
-	// The ability to share dashboards. Valid values: `DENY`.
+	// Ability to share dashboards. Valid values: `DENY`.
 	ShareDashboards *string `pulumi:"shareDashboards"`
-	// The ability to share data sources. Valid values: `DENY`.
+	// Ability to share data sources. Valid values: `DENY`.
 	ShareDataSources *string `pulumi:"shareDataSources"`
-	// The ability to share datasets. Valid values: `DENY`.
+	// Ability to share datasets. Valid values: `DENY`.
 	ShareDatasets *string `pulumi:"shareDatasets"`
-	// The ability to subscribe to email reports. Valid values: `DENY`.
+	// Ability to subscribe to email reports. Valid values: `DENY`.
 	SubscribeDashboardEmailReports *string `pulumi:"subscribeDashboardEmailReports"`
-	// The ability to view account SPICE capacity. Valid values: `DENY`.
+	// Ability to view account SPICE capacity. Valid values: `DENY`.
 	ViewAccountSpiceCapacity *string `pulumi:"viewAccountSpiceCapacity"`
 }
 
@@ -1367,51 +1367,51 @@ type CustomPermissionsCapabilitiesInput interface {
 }
 
 type CustomPermissionsCapabilitiesArgs struct {
-	// The ability to add or run anomaly detection. Valid values: `DENY`.
+	// Ability to add or run anomaly detection. Valid values: `DENY`.
 	AddOrRunAnomalyDetectionForAnalyses pulumi.StringPtrInput `pulumi:"addOrRunAnomalyDetectionForAnalyses"`
-	// The ability to create and update email reports. Valid values: `DENY`.
+	// Ability to create and update email reports. Valid values: `DENY`.
 	CreateAndUpdateDashboardEmailReports pulumi.StringPtrInput `pulumi:"createAndUpdateDashboardEmailReports"`
-	// The ability to create and update data sources. Valid values: `DENY`.
+	// Ability to create and update data sources. Valid values: `DENY`.
 	CreateAndUpdateDataSources pulumi.StringPtrInput `pulumi:"createAndUpdateDataSources"`
-	// The ability to create and update datasets. Valid values: `DENY`.
+	// Ability to create and update datasets. Valid values: `DENY`.
 	CreateAndUpdateDatasets pulumi.StringPtrInput `pulumi:"createAndUpdateDatasets"`
-	// The ability to export to create and update themes. Valid values: `DENY`.
+	// Ability to create and update themes. Valid values: `DENY`.
 	CreateAndUpdateThemes pulumi.StringPtrInput `pulumi:"createAndUpdateThemes"`
-	// The ability to create and update threshold alerts. Valid values: `DENY`.
+	// Ability to create and update threshold alerts. Valid values: `DENY`.
 	CreateAndUpdateThresholdAlerts pulumi.StringPtrInput `pulumi:"createAndUpdateThresholdAlerts"`
-	// The ability to create shared folders. Valid values: `DENY`.
+	// Ability to create shared folders. Valid values: `DENY`.
 	CreateSharedFolders pulumi.StringPtrInput `pulumi:"createSharedFolders"`
-	// The ability to create a SPICE dataset. Valid values: `DENY`.
+	// Ability to create a SPICE dataset. Valid values: `DENY`.
 	CreateSpiceDataset pulumi.StringPtrInput `pulumi:"createSpiceDataset"`
-	// The ability to export to CSV files from the UI. Valid values: `DENY`.
+	// Ability to export to CSV files from the UI. Valid values: `DENY`.
 	ExportToCsv pulumi.StringPtrInput `pulumi:"exportToCsv"`
-	// The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+	// Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
 	ExportToCsvInScheduledReports pulumi.StringPtrInput `pulumi:"exportToCsvInScheduledReports"`
-	// The ability to export to Excel files from the UI. Valid values: `DENY`.
+	// Ability to export to Excel files from the UI. Valid values: `DENY`.
 	ExportToExcel pulumi.StringPtrInput `pulumi:"exportToExcel"`
-	// The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+	// Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
 	ExportToExcelInScheduledReports pulumi.StringPtrInput `pulumi:"exportToExcelInScheduledReports"`
-	// The ability to export to PDF files from the UI. Valid values: `DENY`.
+	// Ability to export to PDF files from the UI. Valid values: `DENY`.
 	ExportToPdf pulumi.StringPtrInput `pulumi:"exportToPdf"`
-	// The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+	// Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
 	ExportToPdfInScheduledReports pulumi.StringPtrInput `pulumi:"exportToPdfInScheduledReports"`
-	// The ability to include content in scheduled email reports. Valid values: `DENY`.
+	// Ability to include content in scheduled email reports. Valid values: `DENY`.
 	IncludeContentInScheduledReportsEmail pulumi.StringPtrInput `pulumi:"includeContentInScheduledReportsEmail"`
-	// The ability to print reports. Valid values: `DENY`.
+	// Ability to print reports. Valid values: `DENY`.
 	PrintReports pulumi.StringPtrInput `pulumi:"printReports"`
-	// The ability to rename shared folders. Valid values: `DENY`.
+	// Ability to rename shared folders. Valid values: `DENY`.
 	RenameSharedFolders pulumi.StringPtrInput `pulumi:"renameSharedFolders"`
-	// The ability to share analyses. Valid values: `DENY`.
+	// Ability to share analyses. Valid values: `DENY`.
 	ShareAnalyses pulumi.StringPtrInput `pulumi:"shareAnalyses"`
-	// The ability to share dashboards. Valid values: `DENY`.
+	// Ability to share dashboards. Valid values: `DENY`.
 	ShareDashboards pulumi.StringPtrInput `pulumi:"shareDashboards"`
-	// The ability to share data sources. Valid values: `DENY`.
+	// Ability to share data sources. Valid values: `DENY`.
 	ShareDataSources pulumi.StringPtrInput `pulumi:"shareDataSources"`
-	// The ability to share datasets. Valid values: `DENY`.
+	// Ability to share datasets. Valid values: `DENY`.
 	ShareDatasets pulumi.StringPtrInput `pulumi:"shareDatasets"`
-	// The ability to subscribe to email reports. Valid values: `DENY`.
+	// Ability to subscribe to email reports. Valid values: `DENY`.
 	SubscribeDashboardEmailReports pulumi.StringPtrInput `pulumi:"subscribeDashboardEmailReports"`
-	// The ability to view account SPICE capacity. Valid values: `DENY`.
+	// Ability to view account SPICE capacity. Valid values: `DENY`.
 	ViewAccountSpiceCapacity pulumi.StringPtrInput `pulumi:"viewAccountSpiceCapacity"`
 }
 
@@ -1492,117 +1492,117 @@ func (o CustomPermissionsCapabilitiesOutput) ToCustomPermissionsCapabilitiesPtrO
 	}).(CustomPermissionsCapabilitiesPtrOutput)
 }
 
-// The ability to add or run anomaly detection. Valid values: `DENY`.
+// Ability to add or run anomaly detection. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) AddOrRunAnomalyDetectionForAnalyses() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.AddOrRunAnomalyDetectionForAnalyses }).(pulumi.StringPtrOutput)
 }
 
-// The ability to create and update email reports. Valid values: `DENY`.
+// Ability to create and update email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateDashboardEmailReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateAndUpdateDashboardEmailReports }).(pulumi.StringPtrOutput)
 }
 
-// The ability to create and update data sources. Valid values: `DENY`.
+// Ability to create and update data sources. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateDataSources() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateAndUpdateDataSources }).(pulumi.StringPtrOutput)
 }
 
-// The ability to create and update datasets. Valid values: `DENY`.
+// Ability to create and update datasets. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateDatasets() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateAndUpdateDatasets }).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to create and update themes. Valid values: `DENY`.
+// Ability to create and update themes. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateThemes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateAndUpdateThemes }).(pulumi.StringPtrOutput)
 }
 
-// The ability to create and update threshold alerts. Valid values: `DENY`.
+// Ability to create and update threshold alerts. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) CreateAndUpdateThresholdAlerts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateAndUpdateThresholdAlerts }).(pulumi.StringPtrOutput)
 }
 
-// The ability to create shared folders. Valid values: `DENY`.
+// Ability to create shared folders. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) CreateSharedFolders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateSharedFolders }).(pulumi.StringPtrOutput)
 }
 
-// The ability to create a SPICE dataset. Valid values: `DENY`.
+// Ability to create a SPICE dataset. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) CreateSpiceDataset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.CreateSpiceDataset }).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to CSV files from the UI. Valid values: `DENY`.
+// Ability to export to CSV files from the UI. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) ExportToCsv() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToCsv }).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+// Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) ExportToCsvInScheduledReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToCsvInScheduledReports }).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to Excel files from the UI. Valid values: `DENY`.
+// Ability to export to Excel files from the UI. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) ExportToExcel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToExcel }).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+// Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) ExportToExcelInScheduledReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToExcelInScheduledReports }).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to PDF files from the UI. Valid values: `DENY`.
+// Ability to export to PDF files from the UI. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) ExportToPdf() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToPdf }).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+// Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) ExportToPdfInScheduledReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ExportToPdfInScheduledReports }).(pulumi.StringPtrOutput)
 }
 
-// The ability to include content in scheduled email reports. Valid values: `DENY`.
+// Ability to include content in scheduled email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) IncludeContentInScheduledReportsEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.IncludeContentInScheduledReportsEmail }).(pulumi.StringPtrOutput)
 }
 
-// The ability to print reports. Valid values: `DENY`.
+// Ability to print reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) PrintReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.PrintReports }).(pulumi.StringPtrOutput)
 }
 
-// The ability to rename shared folders. Valid values: `DENY`.
+// Ability to rename shared folders. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) RenameSharedFolders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.RenameSharedFolders }).(pulumi.StringPtrOutput)
 }
 
-// The ability to share analyses. Valid values: `DENY`.
+// Ability to share analyses. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) ShareAnalyses() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ShareAnalyses }).(pulumi.StringPtrOutput)
 }
 
-// The ability to share dashboards. Valid values: `DENY`.
+// Ability to share dashboards. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) ShareDashboards() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ShareDashboards }).(pulumi.StringPtrOutput)
 }
 
-// The ability to share data sources. Valid values: `DENY`.
+// Ability to share data sources. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) ShareDataSources() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ShareDataSources }).(pulumi.StringPtrOutput)
 }
 
-// The ability to share datasets. Valid values: `DENY`.
+// Ability to share datasets. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) ShareDatasets() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ShareDatasets }).(pulumi.StringPtrOutput)
 }
 
-// The ability to subscribe to email reports. Valid values: `DENY`.
+// Ability to subscribe to email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) SubscribeDashboardEmailReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.SubscribeDashboardEmailReports }).(pulumi.StringPtrOutput)
 }
 
-// The ability to view account SPICE capacity. Valid values: `DENY`.
+// Ability to view account SPICE capacity. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesOutput) ViewAccountSpiceCapacity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomPermissionsCapabilities) *string { return v.ViewAccountSpiceCapacity }).(pulumi.StringPtrOutput)
 }
@@ -1631,7 +1631,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) Elem() CustomPermissionsCapabili
 	}).(CustomPermissionsCapabilitiesOutput)
 }
 
-// The ability to add or run anomaly detection. Valid values: `DENY`.
+// Ability to add or run anomaly detection. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) AddOrRunAnomalyDetectionForAnalyses() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1641,7 +1641,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) AddOrRunAnomalyDetectionForAnaly
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to create and update email reports. Valid values: `DENY`.
+// Ability to create and update email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateDashboardEmailReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1651,7 +1651,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateDashboardEmailRep
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to create and update data sources. Valid values: `DENY`.
+// Ability to create and update data sources. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateDataSources() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1661,7 +1661,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateDataSources() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to create and update datasets. Valid values: `DENY`.
+// Ability to create and update datasets. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateDatasets() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1671,7 +1671,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateDatasets() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to create and update themes. Valid values: `DENY`.
+// Ability to create and update themes. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateThemes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1681,7 +1681,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateThemes() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to create and update threshold alerts. Valid values: `DENY`.
+// Ability to create and update threshold alerts. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateThresholdAlerts() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1691,7 +1691,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateAndUpdateThresholdAlerts()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to create shared folders. Valid values: `DENY`.
+// Ability to create shared folders. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateSharedFolders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1701,7 +1701,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateSharedFolders() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to create a SPICE dataset. Valid values: `DENY`.
+// Ability to create a SPICE dataset. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) CreateSpiceDataset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1711,7 +1711,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) CreateSpiceDataset() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to CSV files from the UI. Valid values: `DENY`.
+// Ability to export to CSV files from the UI. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) ExportToCsv() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1721,7 +1721,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ExportToCsv() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+// Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) ExportToCsvInScheduledReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1731,7 +1731,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ExportToCsvInScheduledReports() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to Excel files from the UI. Valid values: `DENY`.
+// Ability to export to Excel files from the UI. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) ExportToExcel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1741,7 +1741,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ExportToExcel() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+// Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) ExportToExcelInScheduledReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1751,7 +1751,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ExportToExcelInScheduledReports(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to PDF files from the UI. Valid values: `DENY`.
+// Ability to export to PDF files from the UI. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) ExportToPdf() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1761,7 +1761,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ExportToPdf() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+// Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) ExportToPdfInScheduledReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1771,7 +1771,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ExportToPdfInScheduledReports() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to include content in scheduled email reports. Valid values: `DENY`.
+// Ability to include content in scheduled email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) IncludeContentInScheduledReportsEmail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1781,7 +1781,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) IncludeContentInScheduledReports
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to print reports. Valid values: `DENY`.
+// Ability to print reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) PrintReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1791,7 +1791,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) PrintReports() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to rename shared folders. Valid values: `DENY`.
+// Ability to rename shared folders. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) RenameSharedFolders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1801,7 +1801,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) RenameSharedFolders() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to share analyses. Valid values: `DENY`.
+// Ability to share analyses. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareAnalyses() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1811,7 +1811,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareAnalyses() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to share dashboards. Valid values: `DENY`.
+// Ability to share dashboards. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareDashboards() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1821,7 +1821,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareDashboards() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to share data sources. Valid values: `DENY`.
+// Ability to share data sources. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareDataSources() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1831,7 +1831,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareDataSources() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to share datasets. Valid values: `DENY`.
+// Ability to share datasets. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) ShareDatasets() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1841,7 +1841,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ShareDatasets() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to subscribe to email reports. Valid values: `DENY`.
+// Ability to subscribe to email reports. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) SubscribeDashboardEmailReports() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1851,7 +1851,7 @@ func (o CustomPermissionsCapabilitiesPtrOutput) SubscribeDashboardEmailReports()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ability to view account SPICE capacity. Valid values: `DENY`.
+// Ability to view account SPICE capacity. Valid values: `DENY`.
 func (o CustomPermissionsCapabilitiesPtrOutput) ViewAccountSpiceCapacity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPermissionsCapabilities) *string {
 		if v == nil {
@@ -1862,25 +1862,25 @@ func (o CustomPermissionsCapabilitiesPtrOutput) ViewAccountSpiceCapacity() pulum
 }
 
 type DashboardDashboardPublishOptions struct {
-	// Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+	// Ad hoc (one-time) filtering option. See `adHocFilteringOption`.
 	AdHocFilteringOption *DashboardDashboardPublishOptionsAdHocFilteringOption `pulumi:"adHocFilteringOption"`
-	// The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+	// Drill-down options of data points in a dashboard. See `dataPointDrillUpDownOption`.
 	DataPointDrillUpDownOption *DashboardDashboardPublishOptionsDataPointDrillUpDownOption `pulumi:"dataPointDrillUpDownOption"`
-	// The data point menu label options of a dashboard. See data_point_menu_label_option.
+	// Data point menu label options of a dashboard. See `dataPointMenuLabelOption`.
 	DataPointMenuLabelOption *DashboardDashboardPublishOptionsDataPointMenuLabelOption `pulumi:"dataPointMenuLabelOption"`
-	// The data point tool tip options of a dashboard. See data_point_tooltip_option.
+	// Data point tool tip options of a dashboard. See `dataPointTooltipOption`.
 	DataPointTooltipOption *DashboardDashboardPublishOptionsDataPointTooltipOption `pulumi:"dataPointTooltipOption"`
-	// Export to .csv option. See export_to_csv_option.
+	// Export to .csv option. See `exportToCsvOption`.
 	ExportToCsvOption *DashboardDashboardPublishOptionsExportToCsvOption `pulumi:"exportToCsvOption"`
-	// Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+	// Whether hidden fields are exported with a dashboard. See `exportWithHiddenFieldsOption`.
 	ExportWithHiddenFieldsOption *DashboardDashboardPublishOptionsExportWithHiddenFieldsOption `pulumi:"exportWithHiddenFieldsOption"`
-	// Sheet controls option. See sheet_controls_option.
+	// Sheet controls option. See `sheetControlsOption`.
 	SheetControlsOption *DashboardDashboardPublishOptionsSheetControlsOption `pulumi:"sheetControlsOption"`
-	// The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+	// Sheet layout maximization options of a dashboard. See `sheetLayoutElementMaximizationOption`.
 	SheetLayoutElementMaximizationOption *DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption `pulumi:"sheetLayoutElementMaximizationOption"`
-	// The axis sort options of a dashboard. See visual_axis_sort_option.
+	// Axis sort options of a dashboard. See `visualAxisSortOption`.
 	VisualAxisSortOption *DashboardDashboardPublishOptionsVisualAxisSortOption `pulumi:"visualAxisSortOption"`
-	// The menu options of a visual in a dashboard. See visual_menu_option.
+	// Menu options of a visual in a dashboard. See `visualMenuOption`.
 	VisualMenuOption *DashboardDashboardPublishOptionsVisualMenuOption `pulumi:"visualMenuOption"`
 }
 
@@ -1896,25 +1896,25 @@ type DashboardDashboardPublishOptionsInput interface {
 }
 
 type DashboardDashboardPublishOptionsArgs struct {
-	// Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+	// Ad hoc (one-time) filtering option. See `adHocFilteringOption`.
 	AdHocFilteringOption DashboardDashboardPublishOptionsAdHocFilteringOptionPtrInput `pulumi:"adHocFilteringOption"`
-	// The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+	// Drill-down options of data points in a dashboard. See `dataPointDrillUpDownOption`.
 	DataPointDrillUpDownOption DashboardDashboardPublishOptionsDataPointDrillUpDownOptionPtrInput `pulumi:"dataPointDrillUpDownOption"`
-	// The data point menu label options of a dashboard. See data_point_menu_label_option.
+	// Data point menu label options of a dashboard. See `dataPointMenuLabelOption`.
 	DataPointMenuLabelOption DashboardDashboardPublishOptionsDataPointMenuLabelOptionPtrInput `pulumi:"dataPointMenuLabelOption"`
-	// The data point tool tip options of a dashboard. See data_point_tooltip_option.
+	// Data point tool tip options of a dashboard. See `dataPointTooltipOption`.
 	DataPointTooltipOption DashboardDashboardPublishOptionsDataPointTooltipOptionPtrInput `pulumi:"dataPointTooltipOption"`
-	// Export to .csv option. See export_to_csv_option.
+	// Export to .csv option. See `exportToCsvOption`.
 	ExportToCsvOption DashboardDashboardPublishOptionsExportToCsvOptionPtrInput `pulumi:"exportToCsvOption"`
-	// Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+	// Whether hidden fields are exported with a dashboard. See `exportWithHiddenFieldsOption`.
 	ExportWithHiddenFieldsOption DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionPtrInput `pulumi:"exportWithHiddenFieldsOption"`
-	// Sheet controls option. See sheet_controls_option.
+	// Sheet controls option. See `sheetControlsOption`.
 	SheetControlsOption DashboardDashboardPublishOptionsSheetControlsOptionPtrInput `pulumi:"sheetControlsOption"`
-	// The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+	// Sheet layout maximization options of a dashboard. See `sheetLayoutElementMaximizationOption`.
 	SheetLayoutElementMaximizationOption DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionPtrInput `pulumi:"sheetLayoutElementMaximizationOption"`
-	// The axis sort options of a dashboard. See visual_axis_sort_option.
+	// Axis sort options of a dashboard. See `visualAxisSortOption`.
 	VisualAxisSortOption DashboardDashboardPublishOptionsVisualAxisSortOptionPtrInput `pulumi:"visualAxisSortOption"`
-	// The menu options of a visual in a dashboard. See visual_menu_option.
+	// Menu options of a visual in a dashboard. See `visualMenuOption`.
 	VisualMenuOption DashboardDashboardPublishOptionsVisualMenuOptionPtrInput `pulumi:"visualMenuOption"`
 }
 
@@ -1995,70 +1995,70 @@ func (o DashboardDashboardPublishOptionsOutput) ToDashboardDashboardPublishOptio
 	}).(DashboardDashboardPublishOptionsPtrOutput)
 }
 
-// Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+// Ad hoc (one-time) filtering option. See `adHocFilteringOption`.
 func (o DashboardDashboardPublishOptionsOutput) AdHocFilteringOption() DashboardDashboardPublishOptionsAdHocFilteringOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsAdHocFilteringOption {
 		return v.AdHocFilteringOption
 	}).(DashboardDashboardPublishOptionsAdHocFilteringOptionPtrOutput)
 }
 
-// The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+// Drill-down options of data points in a dashboard. See `dataPointDrillUpDownOption`.
 func (o DashboardDashboardPublishOptionsOutput) DataPointDrillUpDownOption() DashboardDashboardPublishOptionsDataPointDrillUpDownOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsDataPointDrillUpDownOption {
 		return v.DataPointDrillUpDownOption
 	}).(DashboardDashboardPublishOptionsDataPointDrillUpDownOptionPtrOutput)
 }
 
-// The data point menu label options of a dashboard. See data_point_menu_label_option.
+// Data point menu label options of a dashboard. See `dataPointMenuLabelOption`.
 func (o DashboardDashboardPublishOptionsOutput) DataPointMenuLabelOption() DashboardDashboardPublishOptionsDataPointMenuLabelOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsDataPointMenuLabelOption {
 		return v.DataPointMenuLabelOption
 	}).(DashboardDashboardPublishOptionsDataPointMenuLabelOptionPtrOutput)
 }
 
-// The data point tool tip options of a dashboard. See data_point_tooltip_option.
+// Data point tool tip options of a dashboard. See `dataPointTooltipOption`.
 func (o DashboardDashboardPublishOptionsOutput) DataPointTooltipOption() DashboardDashboardPublishOptionsDataPointTooltipOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsDataPointTooltipOption {
 		return v.DataPointTooltipOption
 	}).(DashboardDashboardPublishOptionsDataPointTooltipOptionPtrOutput)
 }
 
-// Export to .csv option. See export_to_csv_option.
+// Export to .csv option. See `exportToCsvOption`.
 func (o DashboardDashboardPublishOptionsOutput) ExportToCsvOption() DashboardDashboardPublishOptionsExportToCsvOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsExportToCsvOption {
 		return v.ExportToCsvOption
 	}).(DashboardDashboardPublishOptionsExportToCsvOptionPtrOutput)
 }
 
-// Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+// Whether hidden fields are exported with a dashboard. See `exportWithHiddenFieldsOption`.
 func (o DashboardDashboardPublishOptionsOutput) ExportWithHiddenFieldsOption() DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsExportWithHiddenFieldsOption {
 		return v.ExportWithHiddenFieldsOption
 	}).(DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionPtrOutput)
 }
 
-// Sheet controls option. See sheet_controls_option.
+// Sheet controls option. See `sheetControlsOption`.
 func (o DashboardDashboardPublishOptionsOutput) SheetControlsOption() DashboardDashboardPublishOptionsSheetControlsOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsSheetControlsOption {
 		return v.SheetControlsOption
 	}).(DashboardDashboardPublishOptionsSheetControlsOptionPtrOutput)
 }
 
-// The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+// Sheet layout maximization options of a dashboard. See `sheetLayoutElementMaximizationOption`.
 func (o DashboardDashboardPublishOptionsOutput) SheetLayoutElementMaximizationOption() DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption {
 		return v.SheetLayoutElementMaximizationOption
 	}).(DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionPtrOutput)
 }
 
-// The axis sort options of a dashboard. See visual_axis_sort_option.
+// Axis sort options of a dashboard. See `visualAxisSortOption`.
 func (o DashboardDashboardPublishOptionsOutput) VisualAxisSortOption() DashboardDashboardPublishOptionsVisualAxisSortOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsVisualAxisSortOption {
 		return v.VisualAxisSortOption
 	}).(DashboardDashboardPublishOptionsVisualAxisSortOptionPtrOutput)
 }
 
-// The menu options of a visual in a dashboard. See visual_menu_option.
+// Menu options of a visual in a dashboard. See `visualMenuOption`.
 func (o DashboardDashboardPublishOptionsOutput) VisualMenuOption() DashboardDashboardPublishOptionsVisualMenuOptionPtrOutput {
 	return o.ApplyT(func(v DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsVisualMenuOption {
 		return v.VisualMenuOption
@@ -2089,7 +2089,7 @@ func (o DashboardDashboardPublishOptionsPtrOutput) Elem() DashboardDashboardPubl
 	}).(DashboardDashboardPublishOptionsOutput)
 }
 
-// Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+// Ad hoc (one-time) filtering option. See `adHocFilteringOption`.
 func (o DashboardDashboardPublishOptionsPtrOutput) AdHocFilteringOption() DashboardDashboardPublishOptionsAdHocFilteringOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsAdHocFilteringOption {
 		if v == nil {
@@ -2099,7 +2099,7 @@ func (o DashboardDashboardPublishOptionsPtrOutput) AdHocFilteringOption() Dashbo
 	}).(DashboardDashboardPublishOptionsAdHocFilteringOptionPtrOutput)
 }
 
-// The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+// Drill-down options of data points in a dashboard. See `dataPointDrillUpDownOption`.
 func (o DashboardDashboardPublishOptionsPtrOutput) DataPointDrillUpDownOption() DashboardDashboardPublishOptionsDataPointDrillUpDownOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsDataPointDrillUpDownOption {
 		if v == nil {
@@ -2109,7 +2109,7 @@ func (o DashboardDashboardPublishOptionsPtrOutput) DataPointDrillUpDownOption() 
 	}).(DashboardDashboardPublishOptionsDataPointDrillUpDownOptionPtrOutput)
 }
 
-// The data point menu label options of a dashboard. See data_point_menu_label_option.
+// Data point menu label options of a dashboard. See `dataPointMenuLabelOption`.
 func (o DashboardDashboardPublishOptionsPtrOutput) DataPointMenuLabelOption() DashboardDashboardPublishOptionsDataPointMenuLabelOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsDataPointMenuLabelOption {
 		if v == nil {
@@ -2119,7 +2119,7 @@ func (o DashboardDashboardPublishOptionsPtrOutput) DataPointMenuLabelOption() Da
 	}).(DashboardDashboardPublishOptionsDataPointMenuLabelOptionPtrOutput)
 }
 
-// The data point tool tip options of a dashboard. See data_point_tooltip_option.
+// Data point tool tip options of a dashboard. See `dataPointTooltipOption`.
 func (o DashboardDashboardPublishOptionsPtrOutput) DataPointTooltipOption() DashboardDashboardPublishOptionsDataPointTooltipOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsDataPointTooltipOption {
 		if v == nil {
@@ -2129,7 +2129,7 @@ func (o DashboardDashboardPublishOptionsPtrOutput) DataPointTooltipOption() Dash
 	}).(DashboardDashboardPublishOptionsDataPointTooltipOptionPtrOutput)
 }
 
-// Export to .csv option. See export_to_csv_option.
+// Export to .csv option. See `exportToCsvOption`.
 func (o DashboardDashboardPublishOptionsPtrOutput) ExportToCsvOption() DashboardDashboardPublishOptionsExportToCsvOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsExportToCsvOption {
 		if v == nil {
@@ -2139,7 +2139,7 @@ func (o DashboardDashboardPublishOptionsPtrOutput) ExportToCsvOption() Dashboard
 	}).(DashboardDashboardPublishOptionsExportToCsvOptionPtrOutput)
 }
 
-// Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+// Whether hidden fields are exported with a dashboard. See `exportWithHiddenFieldsOption`.
 func (o DashboardDashboardPublishOptionsPtrOutput) ExportWithHiddenFieldsOption() DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsExportWithHiddenFieldsOption {
 		if v == nil {
@@ -2149,7 +2149,7 @@ func (o DashboardDashboardPublishOptionsPtrOutput) ExportWithHiddenFieldsOption(
 	}).(DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionPtrOutput)
 }
 
-// Sheet controls option. See sheet_controls_option.
+// Sheet controls option. See `sheetControlsOption`.
 func (o DashboardDashboardPublishOptionsPtrOutput) SheetControlsOption() DashboardDashboardPublishOptionsSheetControlsOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsSheetControlsOption {
 		if v == nil {
@@ -2159,7 +2159,7 @@ func (o DashboardDashboardPublishOptionsPtrOutput) SheetControlsOption() Dashboa
 	}).(DashboardDashboardPublishOptionsSheetControlsOptionPtrOutput)
 }
 
-// The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+// Sheet layout maximization options of a dashboard. See `sheetLayoutElementMaximizationOption`.
 func (o DashboardDashboardPublishOptionsPtrOutput) SheetLayoutElementMaximizationOption() DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption {
 		if v == nil {
@@ -2169,7 +2169,7 @@ func (o DashboardDashboardPublishOptionsPtrOutput) SheetLayoutElementMaximizatio
 	}).(DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionPtrOutput)
 }
 
-// The axis sort options of a dashboard. See visual_axis_sort_option.
+// Axis sort options of a dashboard. See `visualAxisSortOption`.
 func (o DashboardDashboardPublishOptionsPtrOutput) VisualAxisSortOption() DashboardDashboardPublishOptionsVisualAxisSortOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsVisualAxisSortOption {
 		if v == nil {
@@ -2179,7 +2179,7 @@ func (o DashboardDashboardPublishOptionsPtrOutput) VisualAxisSortOption() Dashbo
 	}).(DashboardDashboardPublishOptionsVisualAxisSortOptionPtrOutput)
 }
 
-// The menu options of a visual in a dashboard. See visual_menu_option.
+// Menu options of a visual in a dashboard. See `visualMenuOption`.
 func (o DashboardDashboardPublishOptionsPtrOutput) VisualMenuOption() DashboardDashboardPublishOptionsVisualMenuOptionPtrOutput {
 	return o.ApplyT(func(v *DashboardDashboardPublishOptions) *DashboardDashboardPublishOptionsVisualMenuOption {
 		if v == nil {
@@ -3566,13 +3566,13 @@ func (o DashboardDashboardPublishOptionsVisualMenuOptionPtrOutput) AvailabilityS
 }
 
 type DashboardParameters struct {
-	// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+	// List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
 	DateTimeParameters []DashboardParametersDateTimeParameter `pulumi:"dateTimeParameters"`
-	// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+	// List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
 	DecimalParameters []DashboardParametersDecimalParameter `pulumi:"decimalParameters"`
-	// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+	// List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
 	IntegerParameters []DashboardParametersIntegerParameter `pulumi:"integerParameters"`
-	// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+	// List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
 	StringParameters []DashboardParametersStringParameter `pulumi:"stringParameters"`
 }
 
@@ -3588,13 +3588,13 @@ type DashboardParametersInput interface {
 }
 
 type DashboardParametersArgs struct {
-	// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+	// List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
 	DateTimeParameters DashboardParametersDateTimeParameterArrayInput `pulumi:"dateTimeParameters"`
-	// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+	// List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
 	DecimalParameters DashboardParametersDecimalParameterArrayInput `pulumi:"decimalParameters"`
-	// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+	// List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
 	IntegerParameters DashboardParametersIntegerParameterArrayInput `pulumi:"integerParameters"`
-	// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+	// List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
 	StringParameters DashboardParametersStringParameterArrayInput `pulumi:"stringParameters"`
 }
 
@@ -3675,22 +3675,22 @@ func (o DashboardParametersOutput) ToDashboardParametersPtrOutputWithContext(ctx
 	}).(DashboardParametersPtrOutput)
 }
 
-// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+// List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
 func (o DashboardParametersOutput) DateTimeParameters() DashboardParametersDateTimeParameterArrayOutput {
 	return o.ApplyT(func(v DashboardParameters) []DashboardParametersDateTimeParameter { return v.DateTimeParameters }).(DashboardParametersDateTimeParameterArrayOutput)
 }
 
-// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+// List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
 func (o DashboardParametersOutput) DecimalParameters() DashboardParametersDecimalParameterArrayOutput {
 	return o.ApplyT(func(v DashboardParameters) []DashboardParametersDecimalParameter { return v.DecimalParameters }).(DashboardParametersDecimalParameterArrayOutput)
 }
 
-// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+// List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
 func (o DashboardParametersOutput) IntegerParameters() DashboardParametersIntegerParameterArrayOutput {
 	return o.ApplyT(func(v DashboardParameters) []DashboardParametersIntegerParameter { return v.IntegerParameters }).(DashboardParametersIntegerParameterArrayOutput)
 }
 
-// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+// List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
 func (o DashboardParametersOutput) StringParameters() DashboardParametersStringParameterArrayOutput {
 	return o.ApplyT(func(v DashboardParameters) []DashboardParametersStringParameter { return v.StringParameters }).(DashboardParametersStringParameterArrayOutput)
 }
@@ -3719,7 +3719,7 @@ func (o DashboardParametersPtrOutput) Elem() DashboardParametersOutput {
 	}).(DashboardParametersOutput)
 }
 
-// A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+// List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
 func (o DashboardParametersPtrOutput) DateTimeParameters() DashboardParametersDateTimeParameterArrayOutput {
 	return o.ApplyT(func(v *DashboardParameters) []DashboardParametersDateTimeParameter {
 		if v == nil {
@@ -3729,7 +3729,7 @@ func (o DashboardParametersPtrOutput) DateTimeParameters() DashboardParametersDa
 	}).(DashboardParametersDateTimeParameterArrayOutput)
 }
 
-// A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+// List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
 func (o DashboardParametersPtrOutput) DecimalParameters() DashboardParametersDecimalParameterArrayOutput {
 	return o.ApplyT(func(v *DashboardParameters) []DashboardParametersDecimalParameter {
 		if v == nil {
@@ -3739,7 +3739,7 @@ func (o DashboardParametersPtrOutput) DecimalParameters() DashboardParametersDec
 	}).(DashboardParametersDecimalParameterArrayOutput)
 }
 
-// A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+// List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
 func (o DashboardParametersPtrOutput) IntegerParameters() DashboardParametersIntegerParameterArrayOutput {
 	return o.ApplyT(func(v *DashboardParameters) []DashboardParametersIntegerParameter {
 		if v == nil {
@@ -3749,7 +3749,7 @@ func (o DashboardParametersPtrOutput) IntegerParameters() DashboardParametersInt
 	}).(DashboardParametersIntegerParameterArrayOutput)
 }
 
-// A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+// List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
 func (o DashboardParametersPtrOutput) StringParameters() DashboardParametersStringParameterArrayOutput {
 	return o.ApplyT(func(v *DashboardParameters) []DashboardParametersStringParameter {
 		if v == nil {
@@ -4278,7 +4278,7 @@ func (o DashboardPermissionArrayOutput) Index(i pulumi.IntInput) DashboardPermis
 }
 
 type DashboardSourceEntity struct {
-	// The source template. See source_template.
+	// Source template. See `sourceTemplate`.
 	SourceTemplate *DashboardSourceEntitySourceTemplate `pulumi:"sourceTemplate"`
 }
 
@@ -4294,7 +4294,7 @@ type DashboardSourceEntityInput interface {
 }
 
 type DashboardSourceEntityArgs struct {
-	// The source template. See source_template.
+	// Source template. See `sourceTemplate`.
 	SourceTemplate DashboardSourceEntitySourceTemplatePtrInput `pulumi:"sourceTemplate"`
 }
 
@@ -4375,7 +4375,7 @@ func (o DashboardSourceEntityOutput) ToDashboardSourceEntityPtrOutputWithContext
 	}).(DashboardSourceEntityPtrOutput)
 }
 
-// The source template. See source_template.
+// Source template. See `sourceTemplate`.
 func (o DashboardSourceEntityOutput) SourceTemplate() DashboardSourceEntitySourceTemplatePtrOutput {
 	return o.ApplyT(func(v DashboardSourceEntity) *DashboardSourceEntitySourceTemplate { return v.SourceTemplate }).(DashboardSourceEntitySourceTemplatePtrOutput)
 }
@@ -4404,7 +4404,7 @@ func (o DashboardSourceEntityPtrOutput) Elem() DashboardSourceEntityOutput {
 	}).(DashboardSourceEntityOutput)
 }
 
-// The source template. See source_template.
+// Source template. See `sourceTemplate`.
 func (o DashboardSourceEntityPtrOutput) SourceTemplate() DashboardSourceEntitySourceTemplatePtrOutput {
 	return o.ApplyT(func(v *DashboardSourceEntity) *DashboardSourceEntitySourceTemplate {
 		if v == nil {
@@ -4417,7 +4417,7 @@ func (o DashboardSourceEntityPtrOutput) SourceTemplate() DashboardSourceEntitySo
 type DashboardSourceEntitySourceTemplate struct {
 	// ARN of the resource.
 	Arn string `pulumi:"arn"`
-	// List of dataset references. See data_set_references.
+	// List of dataset references. See `dataSetReferences`.
 	DataSetReferences []DashboardSourceEntitySourceTemplateDataSetReference `pulumi:"dataSetReferences"`
 }
 
@@ -4435,7 +4435,7 @@ type DashboardSourceEntitySourceTemplateInput interface {
 type DashboardSourceEntitySourceTemplateArgs struct {
 	// ARN of the resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// List of dataset references. See data_set_references.
+	// List of dataset references. See `dataSetReferences`.
 	DataSetReferences DashboardSourceEntitySourceTemplateDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
 }
 
@@ -4521,7 +4521,7 @@ func (o DashboardSourceEntitySourceTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardSourceEntitySourceTemplate) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// List of dataset references. See data_set_references.
+// List of dataset references. See `dataSetReferences`.
 func (o DashboardSourceEntitySourceTemplateOutput) DataSetReferences() DashboardSourceEntitySourceTemplateDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v DashboardSourceEntitySourceTemplate) []DashboardSourceEntitySourceTemplateDataSetReference {
 		return v.DataSetReferences
@@ -4562,7 +4562,7 @@ func (o DashboardSourceEntitySourceTemplatePtrOutput) Arn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of dataset references. See data_set_references.
+// List of dataset references. See `dataSetReferences`.
 func (o DashboardSourceEntitySourceTemplatePtrOutput) DataSetReferences() DashboardSourceEntitySourceTemplateDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v *DashboardSourceEntitySourceTemplate) []DashboardSourceEntitySourceTemplateDataSetReference {
 		if v == nil {
@@ -4679,7 +4679,7 @@ func (o DashboardSourceEntitySourceTemplateDataSetReferenceArrayOutput) Index(i 
 }
 
 type DataSetColumnGroup struct {
-	// Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+	// Geospatial column group that denotes a hierarchy. See `geoSpatialColumnGroup` Block below.
 	GeoSpatialColumnGroup *DataSetColumnGroupGeoSpatialColumnGroup `pulumi:"geoSpatialColumnGroup"`
 }
 
@@ -4695,7 +4695,7 @@ type DataSetColumnGroupInput interface {
 }
 
 type DataSetColumnGroupArgs struct {
-	// Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+	// Geospatial column group that denotes a hierarchy. See `geoSpatialColumnGroup` Block below.
 	GeoSpatialColumnGroup DataSetColumnGroupGeoSpatialColumnGroupPtrInput `pulumi:"geoSpatialColumnGroup"`
 }
 
@@ -4750,7 +4750,7 @@ func (o DataSetColumnGroupOutput) ToDataSetColumnGroupOutputWithContext(ctx cont
 	return o
 }
 
-// Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+// Geospatial column group that denotes a hierarchy. See `geoSpatialColumnGroup` Block below.
 func (o DataSetColumnGroupOutput) GeoSpatialColumnGroup() DataSetColumnGroupGeoSpatialColumnGroupPtrOutput {
 	return o.ApplyT(func(v DataSetColumnGroup) *DataSetColumnGroupGeoSpatialColumnGroup { return v.GeoSpatialColumnGroup }).(DataSetColumnGroupGeoSpatialColumnGroupPtrOutput)
 }
@@ -4780,7 +4780,7 @@ type DataSetColumnGroupGeoSpatialColumnGroup struct {
 	Columns []string `pulumi:"columns"`
 	// Country code. Valid values are `US`.
 	CountryCode string `pulumi:"countryCode"`
-	// A display name for the hierarchy.
+	// Display name for the hierarchy.
 	Name string `pulumi:"name"`
 }
 
@@ -4800,7 +4800,7 @@ type DataSetColumnGroupGeoSpatialColumnGroupArgs struct {
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
 	// Country code. Valid values are `US`.
 	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	// A display name for the hierarchy.
+	// Display name for the hierarchy.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -4891,7 +4891,7 @@ func (o DataSetColumnGroupGeoSpatialColumnGroupOutput) CountryCode() pulumi.Stri
 	return o.ApplyT(func(v DataSetColumnGroupGeoSpatialColumnGroup) string { return v.CountryCode }).(pulumi.StringOutput)
 }
 
-// A display name for the hierarchy.
+// Display name for the hierarchy.
 func (o DataSetColumnGroupGeoSpatialColumnGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetColumnGroupGeoSpatialColumnGroup) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4940,7 +4940,7 @@ func (o DataSetColumnGroupGeoSpatialColumnGroupPtrOutput) CountryCode() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A display name for the hierarchy.
+// Display name for the hierarchy.
 func (o DataSetColumnGroupGeoSpatialColumnGroupPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetColumnGroupGeoSpatialColumnGroup) *string {
 		if v == nil {
@@ -4951,9 +4951,9 @@ func (o DataSetColumnGroupGeoSpatialColumnGroupPtrOutput) Name() pulumi.StringPt
 }
 
 type DataSetColumnLevelPermissionRule struct {
-	// An array of column names.
+	// Array of column names.
 	ColumnNames []string `pulumi:"columnNames"`
-	// An array of ARNs for Amazon QuickSight users or groups.
+	// Array of ARNs for Amazon QuickSight users or groups.
 	Principals []string `pulumi:"principals"`
 }
 
@@ -4969,9 +4969,9 @@ type DataSetColumnLevelPermissionRuleInput interface {
 }
 
 type DataSetColumnLevelPermissionRuleArgs struct {
-	// An array of column names.
+	// Array of column names.
 	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
-	// An array of ARNs for Amazon QuickSight users or groups.
+	// Array of ARNs for Amazon QuickSight users or groups.
 	Principals pulumi.StringArrayInput `pulumi:"principals"`
 }
 
@@ -5026,12 +5026,12 @@ func (o DataSetColumnLevelPermissionRuleOutput) ToDataSetColumnLevelPermissionRu
 	return o
 }
 
-// An array of column names.
+// Array of column names.
 func (o DataSetColumnLevelPermissionRuleOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetColumnLevelPermissionRule) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
 }
 
-// An array of ARNs for Amazon QuickSight users or groups.
+// Array of ARNs for Amazon QuickSight users or groups.
 func (o DataSetColumnLevelPermissionRuleOutput) Principals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetColumnLevelPermissionRule) []string { return v.Principals }).(pulumi.StringArrayOutput)
 }
@@ -5057,9 +5057,9 @@ func (o DataSetColumnLevelPermissionRuleArrayOutput) Index(i pulumi.IntInput) Da
 }
 
 type DataSetDataSetUsageConfiguration struct {
-	// Controls whether a child dataset of a direct query can use this dataset as a source.
+	// Whether to prevent a child dataset of a direct query from using this dataset as a source.
 	DisableUseAsDirectQuerySource *bool `pulumi:"disableUseAsDirectQuerySource"`
-	// Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+	// Whether to prevent a child dataset that's stored in QuickSight from using this dataset as a source.
 	DisableUseAsImportedSource *bool `pulumi:"disableUseAsImportedSource"`
 }
 
@@ -5075,9 +5075,9 @@ type DataSetDataSetUsageConfigurationInput interface {
 }
 
 type DataSetDataSetUsageConfigurationArgs struct {
-	// Controls whether a child dataset of a direct query can use this dataset as a source.
+	// Whether to prevent a child dataset of a direct query from using this dataset as a source.
 	DisableUseAsDirectQuerySource pulumi.BoolPtrInput `pulumi:"disableUseAsDirectQuerySource"`
-	// Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+	// Whether to prevent a child dataset that's stored in QuickSight from using this dataset as a source.
 	DisableUseAsImportedSource pulumi.BoolPtrInput `pulumi:"disableUseAsImportedSource"`
 }
 
@@ -5158,12 +5158,12 @@ func (o DataSetDataSetUsageConfigurationOutput) ToDataSetDataSetUsageConfigurati
 	}).(DataSetDataSetUsageConfigurationPtrOutput)
 }
 
-// Controls whether a child dataset of a direct query can use this dataset as a source.
+// Whether to prevent a child dataset of a direct query from using this dataset as a source.
 func (o DataSetDataSetUsageConfigurationOutput) DisableUseAsDirectQuerySource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSetDataSetUsageConfiguration) *bool { return v.DisableUseAsDirectQuerySource }).(pulumi.BoolPtrOutput)
 }
 
-// Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+// Whether to prevent a child dataset that's stored in QuickSight from using this dataset as a source.
 func (o DataSetDataSetUsageConfigurationOutput) DisableUseAsImportedSource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSetDataSetUsageConfiguration) *bool { return v.DisableUseAsImportedSource }).(pulumi.BoolPtrOutput)
 }
@@ -5192,7 +5192,7 @@ func (o DataSetDataSetUsageConfigurationPtrOutput) Elem() DataSetDataSetUsageCon
 	}).(DataSetDataSetUsageConfigurationOutput)
 }
 
-// Controls whether a child dataset of a direct query can use this dataset as a source.
+// Whether to prevent a child dataset of a direct query from using this dataset as a source.
 func (o DataSetDataSetUsageConfigurationPtrOutput) DisableUseAsDirectQuerySource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSetDataSetUsageConfiguration) *bool {
 		if v == nil {
@@ -5202,7 +5202,7 @@ func (o DataSetDataSetUsageConfigurationPtrOutput) DisableUseAsDirectQuerySource
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+// Whether to prevent a child dataset that's stored in QuickSight from using this dataset as a source.
 func (o DataSetDataSetUsageConfigurationPtrOutput) DisableUseAsImportedSource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSetDataSetUsageConfiguration) *bool {
 		if v == nil {
@@ -5213,7 +5213,7 @@ func (o DataSetDataSetUsageConfigurationPtrOutput) DisableUseAsImportedSource() 
 }
 
 type DataSetFieldFolder struct {
-	// An array of column names to add to the folder. A column can only be in one folder.
+	// Array of column names to add to the folder. A column can only be in one folder.
 	Columns []string `pulumi:"columns"`
 	// Field folder description.
 	Description *string `pulumi:"description"`
@@ -5233,7 +5233,7 @@ type DataSetFieldFolderInput interface {
 }
 
 type DataSetFieldFolderArgs struct {
-	// An array of column names to add to the folder. A column can only be in one folder.
+	// Array of column names to add to the folder. A column can only be in one folder.
 	Columns pulumi.StringArrayInput `pulumi:"columns"`
 	// Field folder description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -5292,7 +5292,7 @@ func (o DataSetFieldFolderOutput) ToDataSetFieldFolderOutputWithContext(ctx cont
 	return o
 }
 
-// An array of column names to add to the folder. A column can only be in one folder.
+// Array of column names to add to the folder. A column can only be in one folder.
 func (o DataSetFieldFolderOutput) Columns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetFieldFolder) []string { return v.Columns }).(pulumi.StringArrayOutput)
 }
@@ -5328,13 +5328,13 @@ func (o DataSetFieldFolderArrayOutput) Index(i pulumi.IntInput) DataSetFieldFold
 }
 
 type DataSetLogicalTableMap struct {
-	// A display name for the logical table.
+	// Display name for the logical table.
 	Alias string `pulumi:"alias"`
-	// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+	// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `dataTransforms` Block below.
 	DataTransforms []DataSetLogicalTableMapDataTransform `pulumi:"dataTransforms"`
 	// Key of the logical table map.
 	LogicalTableMapId string `pulumi:"logicalTableMapId"`
-	// Source of this logical table. See source.
+	// Source of this logical table. See `source` Block below.
 	Source DataSetLogicalTableMapSource `pulumi:"source"`
 }
 
@@ -5350,13 +5350,13 @@ type DataSetLogicalTableMapInput interface {
 }
 
 type DataSetLogicalTableMapArgs struct {
-	// A display name for the logical table.
+	// Display name for the logical table.
 	Alias pulumi.StringInput `pulumi:"alias"`
-	// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+	// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `dataTransforms` Block below.
 	DataTransforms DataSetLogicalTableMapDataTransformArrayInput `pulumi:"dataTransforms"`
 	// Key of the logical table map.
 	LogicalTableMapId pulumi.StringInput `pulumi:"logicalTableMapId"`
-	// Source of this logical table. See source.
+	// Source of this logical table. See `source` Block below.
 	Source DataSetLogicalTableMapSourceInput `pulumi:"source"`
 }
 
@@ -5411,12 +5411,12 @@ func (o DataSetLogicalTableMapOutput) ToDataSetLogicalTableMapOutputWithContext(
 	return o
 }
 
-// A display name for the logical table.
+// Display name for the logical table.
 func (o DataSetLogicalTableMapOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMap) string { return v.Alias }).(pulumi.StringOutput)
 }
 
-// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+// Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `dataTransforms` Block below.
 func (o DataSetLogicalTableMapOutput) DataTransforms() DataSetLogicalTableMapDataTransformArrayOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMap) []DataSetLogicalTableMapDataTransform { return v.DataTransforms }).(DataSetLogicalTableMapDataTransformArrayOutput)
 }
@@ -5426,7 +5426,7 @@ func (o DataSetLogicalTableMapOutput) LogicalTableMapId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMap) string { return v.LogicalTableMapId }).(pulumi.StringOutput)
 }
 
-// Source of this logical table. See source.
+// Source of this logical table. See `source` Block below.
 func (o DataSetLogicalTableMapOutput) Source() DataSetLogicalTableMapSourceOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMap) DataSetLogicalTableMapSource { return v.Source }).(DataSetLogicalTableMapSourceOutput)
 }
@@ -5452,19 +5452,19 @@ func (o DataSetLogicalTableMapArrayOutput) Index(i pulumi.IntInput) DataSetLogic
 }
 
 type DataSetLogicalTableMapDataTransform struct {
-	// A transform operation that casts a column to a different type. See cast_column_type_operation.
+	// Transform operation that casts a column to a different type. See `castColumnTypeOperation` Block below.
 	CastColumnTypeOperation *DataSetLogicalTableMapDataTransformCastColumnTypeOperation `pulumi:"castColumnTypeOperation"`
-	// An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+	// Operation that creates calculated columns. Columns created in one such operation form a lexical closure. See `createColumnsOperation` Block below.
 	CreateColumnsOperation *DataSetLogicalTableMapDataTransformCreateColumnsOperation `pulumi:"createColumnsOperation"`
-	// An operation that filters rows based on some condition. See filter_operation.
+	// Operation that filters rows based on some condition. See `filterOperation` Block below.
 	FilterOperation *DataSetLogicalTableMapDataTransformFilterOperation `pulumi:"filterOperation"`
-	// An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+	// Operation that projects columns. Operations that come after a projection can only refer to projected columns. See `projectOperation` Block below.
 	ProjectOperation *DataSetLogicalTableMapDataTransformProjectOperation `pulumi:"projectOperation"`
-	// An operation that renames a column. See rename_column_operation.
+	// Operation that renames a column. See `renameColumnOperation` Block below.
 	RenameColumnOperation *DataSetLogicalTableMapDataTransformRenameColumnOperation `pulumi:"renameColumnOperation"`
-	// An operation that tags a column with additional information. See tag_column_operation.
+	// Operation that tags a column with additional information. See `tagColumnOperation` Block below.
 	TagColumnOperation *DataSetLogicalTableMapDataTransformTagColumnOperation `pulumi:"tagColumnOperation"`
-	// A transform operation that removes tags associated with a column. See untag_column_operation.
+	// Transform operation that removes tags associated with a column. See `untagColumnOperation` Block below.
 	UntagColumnOperation *DataSetLogicalTableMapDataTransformUntagColumnOperation `pulumi:"untagColumnOperation"`
 }
 
@@ -5480,19 +5480,19 @@ type DataSetLogicalTableMapDataTransformInput interface {
 }
 
 type DataSetLogicalTableMapDataTransformArgs struct {
-	// A transform operation that casts a column to a different type. See cast_column_type_operation.
+	// Transform operation that casts a column to a different type. See `castColumnTypeOperation` Block below.
 	CastColumnTypeOperation DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrInput `pulumi:"castColumnTypeOperation"`
-	// An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+	// Operation that creates calculated columns. Columns created in one such operation form a lexical closure. See `createColumnsOperation` Block below.
 	CreateColumnsOperation DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrInput `pulumi:"createColumnsOperation"`
-	// An operation that filters rows based on some condition. See filter_operation.
+	// Operation that filters rows based on some condition. See `filterOperation` Block below.
 	FilterOperation DataSetLogicalTableMapDataTransformFilterOperationPtrInput `pulumi:"filterOperation"`
-	// An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+	// Operation that projects columns. Operations that come after a projection can only refer to projected columns. See `projectOperation` Block below.
 	ProjectOperation DataSetLogicalTableMapDataTransformProjectOperationPtrInput `pulumi:"projectOperation"`
-	// An operation that renames a column. See rename_column_operation.
+	// Operation that renames a column. See `renameColumnOperation` Block below.
 	RenameColumnOperation DataSetLogicalTableMapDataTransformRenameColumnOperationPtrInput `pulumi:"renameColumnOperation"`
-	// An operation that tags a column with additional information. See tag_column_operation.
+	// Operation that tags a column with additional information. See `tagColumnOperation` Block below.
 	TagColumnOperation DataSetLogicalTableMapDataTransformTagColumnOperationPtrInput `pulumi:"tagColumnOperation"`
-	// A transform operation that removes tags associated with a column. See untag_column_operation.
+	// Transform operation that removes tags associated with a column. See `untagColumnOperation` Block below.
 	UntagColumnOperation DataSetLogicalTableMapDataTransformUntagColumnOperationPtrInput `pulumi:"untagColumnOperation"`
 }
 
@@ -5547,49 +5547,49 @@ func (o DataSetLogicalTableMapDataTransformOutput) ToDataSetLogicalTableMapDataT
 	return o
 }
 
-// A transform operation that casts a column to a different type. See cast_column_type_operation.
+// Transform operation that casts a column to a different type. See `castColumnTypeOperation` Block below.
 func (o DataSetLogicalTableMapDataTransformOutput) CastColumnTypeOperation() DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformCastColumnTypeOperation {
 		return v.CastColumnTypeOperation
 	}).(DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput)
 }
 
-// An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+// Operation that creates calculated columns. Columns created in one such operation form a lexical closure. See `createColumnsOperation` Block below.
 func (o DataSetLogicalTableMapDataTransformOutput) CreateColumnsOperation() DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformCreateColumnsOperation {
 		return v.CreateColumnsOperation
 	}).(DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput)
 }
 
-// An operation that filters rows based on some condition. See filter_operation.
+// Operation that filters rows based on some condition. See `filterOperation` Block below.
 func (o DataSetLogicalTableMapDataTransformOutput) FilterOperation() DataSetLogicalTableMapDataTransformFilterOperationPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformFilterOperation {
 		return v.FilterOperation
 	}).(DataSetLogicalTableMapDataTransformFilterOperationPtrOutput)
 }
 
-// An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+// Operation that projects columns. Operations that come after a projection can only refer to projected columns. See `projectOperation` Block below.
 func (o DataSetLogicalTableMapDataTransformOutput) ProjectOperation() DataSetLogicalTableMapDataTransformProjectOperationPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformProjectOperation {
 		return v.ProjectOperation
 	}).(DataSetLogicalTableMapDataTransformProjectOperationPtrOutput)
 }
 
-// An operation that renames a column. See rename_column_operation.
+// Operation that renames a column. See `renameColumnOperation` Block below.
 func (o DataSetLogicalTableMapDataTransformOutput) RenameColumnOperation() DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformRenameColumnOperation {
 		return v.RenameColumnOperation
 	}).(DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput)
 }
 
-// An operation that tags a column with additional information. See tag_column_operation.
+// Operation that tags a column with additional information. See `tagColumnOperation` Block below.
 func (o DataSetLogicalTableMapDataTransformOutput) TagColumnOperation() DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformTagColumnOperation {
 		return v.TagColumnOperation
 	}).(DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput)
 }
 
-// A transform operation that removes tags associated with a column. See untag_column_operation.
+// Transform operation that removes tags associated with a column. See `untagColumnOperation` Block below.
 func (o DataSetLogicalTableMapDataTransformOutput) UntagColumnOperation() DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransform) *DataSetLogicalTableMapDataTransformUntagColumnOperation {
 		return v.UntagColumnOperation
@@ -5792,7 +5792,7 @@ func (o DataSetLogicalTableMapDataTransformCastColumnTypeOperationPtrOutput) New
 }
 
 type DataSetLogicalTableMapDataTransformCreateColumnsOperation struct {
-	// Calculated columns to create. See columns.
+	// Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
 	Columns []DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn `pulumi:"columns"`
 }
 
@@ -5808,7 +5808,7 @@ type DataSetLogicalTableMapDataTransformCreateColumnsOperationInput interface {
 }
 
 type DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs struct {
-	// Calculated columns to create. See columns.
+	// Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
 	Columns DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayInput `pulumi:"columns"`
 }
 
@@ -5889,7 +5889,7 @@ func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput) ToDataS
 	}).(DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput)
 }
 
-// Calculated columns to create. See columns.
+// Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
 func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput) Columns() DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformCreateColumnsOperation) []DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn {
 		return v.Columns
@@ -5920,7 +5920,7 @@ func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput) Elem
 	}).(DataSetLogicalTableMapDataTransformCreateColumnsOperationOutput)
 }
 
-// Calculated columns to create. See columns.
+// Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
 func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput) Columns() DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutput {
 	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformCreateColumnsOperation) []DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn {
 		if v == nil {
@@ -5931,11 +5931,10 @@ func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationPtrOutput) Colu
 }
 
 type DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn struct {
-	// A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
-	ColumnId string `pulumi:"columnId"`
-	// Column name.
+	// Unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+	ColumnId   string `pulumi:"columnId"`
 	ColumnName string `pulumi:"columnName"`
-	// An expression that defines the calculated column.
+	// Expression that defines the calculated column.
 	Expression string `pulumi:"expression"`
 }
 
@@ -5951,11 +5950,10 @@ type DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnInput interf
 }
 
 type DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArgs struct {
-	// A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
-	ColumnId pulumi.StringInput `pulumi:"columnId"`
-	// Column name.
+	// Unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+	ColumnId   pulumi.StringInput `pulumi:"columnId"`
 	ColumnName pulumi.StringInput `pulumi:"columnName"`
-	// An expression that defines the calculated column.
+	// Expression that defines the calculated column.
 	Expression pulumi.StringInput `pulumi:"expression"`
 }
 
@@ -6010,17 +6008,16 @@ func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) T
 	return o
 }
 
-// A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+// Unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
 func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ColumnId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) string { return v.ColumnId }).(pulumi.StringOutput)
 }
 
-// Column name.
 func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) ColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) string { return v.ColumnName }).(pulumi.StringOutput)
 }
 
-// An expression that defines the calculated column.
+// Expression that defines the calculated column.
 func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn) string { return v.Expression }).(pulumi.StringOutput)
 }
@@ -6046,7 +6043,7 @@ func (o DataSetLogicalTableMapDataTransformCreateColumnsOperationColumnArrayOutp
 }
 
 type DataSetLogicalTableMapDataTransformFilterOperation struct {
-	// An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+	// Expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
 	ConditionExpression string `pulumi:"conditionExpression"`
 }
 
@@ -6062,7 +6059,7 @@ type DataSetLogicalTableMapDataTransformFilterOperationInput interface {
 }
 
 type DataSetLogicalTableMapDataTransformFilterOperationArgs struct {
-	// An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+	// Expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
 	ConditionExpression pulumi.StringInput `pulumi:"conditionExpression"`
 }
 
@@ -6143,7 +6140,7 @@ func (o DataSetLogicalTableMapDataTransformFilterOperationOutput) ToDataSetLogic
 	}).(DataSetLogicalTableMapDataTransformFilterOperationPtrOutput)
 }
 
-// An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+// Expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
 func (o DataSetLogicalTableMapDataTransformFilterOperationOutput) ConditionExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformFilterOperation) string { return v.ConditionExpression }).(pulumi.StringOutput)
 }
@@ -6172,7 +6169,7 @@ func (o DataSetLogicalTableMapDataTransformFilterOperationPtrOutput) Elem() Data
 	}).(DataSetLogicalTableMapDataTransformFilterOperationOutput)
 }
 
-// An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+// Expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
 func (o DataSetLogicalTableMapDataTransformFilterOperationPtrOutput) ConditionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformFilterOperation) *string {
 		if v == nil {
@@ -6478,7 +6475,7 @@ func (o DataSetLogicalTableMapDataTransformRenameColumnOperationPtrOutput) NewCo
 type DataSetLogicalTableMapDataTransformTagColumnOperation struct {
 	// Column name.
 	ColumnName string `pulumi:"columnName"`
-	// The dataset column tag, currently only used for geospatial type tagging. See tags.
+	// Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
 	Tags []DataSetLogicalTableMapDataTransformTagColumnOperationTag `pulumi:"tags"`
 }
 
@@ -6496,7 +6493,7 @@ type DataSetLogicalTableMapDataTransformTagColumnOperationInput interface {
 type DataSetLogicalTableMapDataTransformTagColumnOperationArgs struct {
 	// Column name.
 	ColumnName pulumi.StringInput `pulumi:"columnName"`
-	// The dataset column tag, currently only used for geospatial type tagging. See tags.
+	// Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
 	Tags DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayInput `pulumi:"tags"`
 }
 
@@ -6582,7 +6579,7 @@ func (o DataSetLogicalTableMapDataTransformTagColumnOperationOutput) ColumnName(
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformTagColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
 }
 
-// The dataset column tag, currently only used for geospatial type tagging. See tags.
+// Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
 func (o DataSetLogicalTableMapDataTransformTagColumnOperationOutput) Tags() DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformTagColumnOperation) []DataSetLogicalTableMapDataTransformTagColumnOperationTag {
 		return v.Tags
@@ -6623,7 +6620,7 @@ func (o DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput) ColumnNa
 	}).(pulumi.StringPtrOutput)
 }
 
-// The dataset column tag, currently only used for geospatial type tagging. See tags.
+// Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
 func (o DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput) Tags() DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput {
 	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformTagColumnOperation) []DataSetLogicalTableMapDataTransformTagColumnOperationTag {
 		if v == nil {
@@ -6634,9 +6631,9 @@ func (o DataSetLogicalTableMapDataTransformTagColumnOperationPtrOutput) Tags() D
 }
 
 type DataSetLogicalTableMapDataTransformTagColumnOperationTag struct {
-	// A description for a column. See column_description.
+	// Description for a column. See `columnDescription` Block below.
 	ColumnDescription *DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription `pulumi:"columnDescription"`
-	// A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+	// Geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
 	ColumnGeographicRole *string `pulumi:"columnGeographicRole"`
 }
 
@@ -6652,9 +6649,9 @@ type DataSetLogicalTableMapDataTransformTagColumnOperationTagInput interface {
 }
 
 type DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs struct {
-	// A description for a column. See column_description.
+	// Description for a column. See `columnDescription` Block below.
 	ColumnDescription DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrInput `pulumi:"columnDescription"`
-	// A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+	// Geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
 	ColumnGeographicRole pulumi.StringPtrInput `pulumi:"columnGeographicRole"`
 }
 
@@ -6709,14 +6706,14 @@ func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ToDataSe
 	return o
 }
 
-// A description for a column. See column_description.
+// Description for a column. See `columnDescription` Block below.
 func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ColumnDescription() DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformTagColumnOperationTag) *DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription {
 		return v.ColumnDescription
 	}).(DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput)
 }
 
-// A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+// Geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
 func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagOutput) ColumnGeographicRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformTagColumnOperationTag) *string {
 		return v.ColumnGeographicRole
@@ -6744,7 +6741,7 @@ func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagArrayOutput) Ind
 }
 
 type DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription struct {
-	// The text of a description for a column.
+	// Text of a description for a column.
 	Text *string `pulumi:"text"`
 }
 
@@ -6760,7 +6757,7 @@ type DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionIn
 }
 
 type DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs struct {
-	// The text of a description for a column.
+	// Text of a description for a column.
 	Text pulumi.StringPtrInput `pulumi:"text"`
 }
 
@@ -6841,7 +6838,7 @@ func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptio
 	}).(DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput)
 }
 
-// The text of a description for a column.
+// Text of a description for a column.
 func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription) *string {
 		return v.Text
@@ -6872,7 +6869,7 @@ func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptio
 	}).(DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionOutput)
 }
 
-// The text of a description for a column.
+// Text of a description for a column.
 func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionPtrOutput) Text() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription) *string {
 		if v == nil {
@@ -6885,7 +6882,7 @@ func (o DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptio
 type DataSetLogicalTableMapDataTransformUntagColumnOperation struct {
 	// Column name.
 	ColumnName string `pulumi:"columnName"`
-	// The column tags to remove from this column.
+	// Column tags to remove from this column.
 	TagNames []string `pulumi:"tagNames"`
 }
 
@@ -6903,7 +6900,7 @@ type DataSetLogicalTableMapDataTransformUntagColumnOperationInput interface {
 type DataSetLogicalTableMapDataTransformUntagColumnOperationArgs struct {
 	// Column name.
 	ColumnName pulumi.StringInput `pulumi:"columnName"`
-	// The column tags to remove from this column.
+	// Column tags to remove from this column.
 	TagNames pulumi.StringArrayInput `pulumi:"tagNames"`
 }
 
@@ -6989,7 +6986,7 @@ func (o DataSetLogicalTableMapDataTransformUntagColumnOperationOutput) ColumnNam
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformUntagColumnOperation) string { return v.ColumnName }).(pulumi.StringOutput)
 }
 
-// The column tags to remove from this column.
+// Column tags to remove from this column.
 func (o DataSetLogicalTableMapDataTransformUntagColumnOperationOutput) TagNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapDataTransformUntagColumnOperation) []string { return v.TagNames }).(pulumi.StringArrayOutput)
 }
@@ -7028,7 +7025,7 @@ func (o DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput) Column
 	}).(pulumi.StringPtrOutput)
 }
 
-// The column tags to remove from this column.
+// Column tags to remove from this column.
 func (o DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput) TagNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataSetLogicalTableMapDataTransformUntagColumnOperation) []string {
 		if v == nil {
@@ -7041,7 +7038,7 @@ func (o DataSetLogicalTableMapDataTransformUntagColumnOperationPtrOutput) TagNam
 type DataSetLogicalTableMapSource struct {
 	// ARN of the parent data set.
 	DataSetArn *string `pulumi:"dataSetArn"`
-	// Specifies the result of a join of two logical tables. See join_instruction.
+	// Result of a join of two logical tables. See `joinInstruction` Block below.
 	JoinInstruction *DataSetLogicalTableMapSourceJoinInstruction `pulumi:"joinInstruction"`
 	// Physical table ID.
 	PhysicalTableId *string `pulumi:"physicalTableId"`
@@ -7061,7 +7058,7 @@ type DataSetLogicalTableMapSourceInput interface {
 type DataSetLogicalTableMapSourceArgs struct {
 	// ARN of the parent data set.
 	DataSetArn pulumi.StringPtrInput `pulumi:"dataSetArn"`
-	// Specifies the result of a join of two logical tables. See join_instruction.
+	// Result of a join of two logical tables. See `joinInstruction` Block below.
 	JoinInstruction DataSetLogicalTableMapSourceJoinInstructionPtrInput `pulumi:"joinInstruction"`
 	// Physical table ID.
 	PhysicalTableId pulumi.StringPtrInput `pulumi:"physicalTableId"`
@@ -7098,7 +7095,7 @@ func (o DataSetLogicalTableMapSourceOutput) DataSetArn() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v DataSetLogicalTableMapSource) *string { return v.DataSetArn }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the result of a join of two logical tables. See join_instruction.
+// Result of a join of two logical tables. See `joinInstruction` Block below.
 func (o DataSetLogicalTableMapSourceOutput) JoinInstruction() DataSetLogicalTableMapSourceJoinInstructionPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapSource) *DataSetLogicalTableMapSourceJoinInstruction {
 		return v.JoinInstruction
@@ -7111,13 +7108,13 @@ func (o DataSetLogicalTableMapSourceOutput) PhysicalTableId() pulumi.StringPtrOu
 }
 
 type DataSetLogicalTableMapSourceJoinInstruction struct {
-	// Join key properties of the left operand. See left_join_key_properties.
+	// Join key properties of the left operand. See `leftJoinKeyProperties` Block below.
 	LeftJoinKeyProperties *DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties `pulumi:"leftJoinKeyProperties"`
 	// Operand on the left side of a join.
 	LeftOperand string `pulumi:"leftOperand"`
 	// Join instructions provided in the ON clause of a join.
 	OnClause string `pulumi:"onClause"`
-	// Join key properties of the right operand. See right_join_key_properties.
+	// Join key properties of the right operand. See `rightJoinKeyProperties` Block below.
 	RightJoinKeyProperties *DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties `pulumi:"rightJoinKeyProperties"`
 	// Operand on the right side of a join.
 	RightOperand string `pulumi:"rightOperand"`
@@ -7137,13 +7134,13 @@ type DataSetLogicalTableMapSourceJoinInstructionInput interface {
 }
 
 type DataSetLogicalTableMapSourceJoinInstructionArgs struct {
-	// Join key properties of the left operand. See left_join_key_properties.
+	// Join key properties of the left operand. See `leftJoinKeyProperties` Block below.
 	LeftJoinKeyProperties DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrInput `pulumi:"leftJoinKeyProperties"`
 	// Operand on the left side of a join.
 	LeftOperand pulumi.StringInput `pulumi:"leftOperand"`
 	// Join instructions provided in the ON clause of a join.
 	OnClause pulumi.StringInput `pulumi:"onClause"`
-	// Join key properties of the right operand. See right_join_key_properties.
+	// Join key properties of the right operand. See `rightJoinKeyProperties` Block below.
 	RightJoinKeyProperties DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrInput `pulumi:"rightJoinKeyProperties"`
 	// Operand on the right side of a join.
 	RightOperand pulumi.StringInput `pulumi:"rightOperand"`
@@ -7228,7 +7225,7 @@ func (o DataSetLogicalTableMapSourceJoinInstructionOutput) ToDataSetLogicalTable
 	}).(DataSetLogicalTableMapSourceJoinInstructionPtrOutput)
 }
 
-// Join key properties of the left operand. See left_join_key_properties.
+// Join key properties of the left operand. See `leftJoinKeyProperties` Block below.
 func (o DataSetLogicalTableMapSourceJoinInstructionOutput) LeftJoinKeyProperties() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstruction) *DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties {
 		return v.LeftJoinKeyProperties
@@ -7245,7 +7242,7 @@ func (o DataSetLogicalTableMapSourceJoinInstructionOutput) OnClause() pulumi.Str
 	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstruction) string { return v.OnClause }).(pulumi.StringOutput)
 }
 
-// Join key properties of the right operand. See right_join_key_properties.
+// Join key properties of the right operand. See `rightJoinKeyProperties` Block below.
 func (o DataSetLogicalTableMapSourceJoinInstructionOutput) RightJoinKeyProperties() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstruction) *DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties {
 		return v.RightJoinKeyProperties
@@ -7286,7 +7283,7 @@ func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) Elem() DataSetLogi
 	}).(DataSetLogicalTableMapSourceJoinInstructionOutput)
 }
 
-// Join key properties of the left operand. See left_join_key_properties.
+// Join key properties of the left operand. See `leftJoinKeyProperties` Block below.
 func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) LeftJoinKeyProperties() DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstruction) *DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties {
 		if v == nil {
@@ -7316,7 +7313,7 @@ func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) OnClause() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Join key properties of the right operand. See right_join_key_properties.
+// Join key properties of the right operand. See `rightJoinKeyProperties` Block below.
 func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) RightJoinKeyProperties() DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstruction) *DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties {
 		if v == nil {
@@ -7347,7 +7344,7 @@ func (o DataSetLogicalTableMapSourceJoinInstructionPtrOutput) Type() pulumi.Stri
 }
 
 type DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties struct {
-	// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+	// Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
 	UniqueKey *bool `pulumi:"uniqueKey"`
 }
 
@@ -7363,7 +7360,7 @@ type DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesInput inter
 }
 
 type DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs struct {
-	// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+	// Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
 	UniqueKey pulumi.BoolPtrInput `pulumi:"uniqueKey"`
 }
 
@@ -7444,7 +7441,7 @@ func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput) 
 	}).(DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput)
 }
 
-// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+// Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
 func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput) UniqueKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties) *bool { return v.UniqueKey }).(pulumi.BoolPtrOutput)
 }
@@ -7473,7 +7470,7 @@ func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutpu
 	}).(DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesOutput)
 }
 
-// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+// Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
 func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutput) UniqueKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties) *bool {
 		if v == nil {
@@ -7484,7 +7481,7 @@ func (o DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesPtrOutpu
 }
 
 type DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties struct {
-	// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+	// Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
 	UniqueKey *bool `pulumi:"uniqueKey"`
 }
 
@@ -7500,7 +7497,7 @@ type DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesInput inte
 }
 
 type DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs struct {
-	// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+	// Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
 	UniqueKey pulumi.BoolPtrInput `pulumi:"uniqueKey"`
 }
 
@@ -7581,7 +7578,7 @@ func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput)
 	}).(DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput)
 }
 
-// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+// Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
 func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput) UniqueKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties) *bool { return v.UniqueKey }).(pulumi.BoolPtrOutput)
 }
@@ -7610,7 +7607,7 @@ func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutp
 	}).(DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesOutput)
 }
 
-// A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+// Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
 func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutput) UniqueKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties) *bool {
 		if v == nil {
@@ -7621,13 +7618,13 @@ func (o DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesPtrOutp
 }
 
 type DataSetOutputColumn struct {
-	// The description of the column.
+	// Description of the column.
 	Description *string `pulumi:"description"`
 	// Display name for the dataset.
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
-	// The data type of the column.
+	// Data type of the column.
 	Type *string `pulumi:"type"`
 }
 
@@ -7643,13 +7640,13 @@ type DataSetOutputColumnInput interface {
 }
 
 type DataSetOutputColumnArgs struct {
-	// The description of the column.
+	// Description of the column.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Display name for the dataset.
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The data type of the column.
+	// Data type of the column.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -7704,7 +7701,7 @@ func (o DataSetOutputColumnOutput) ToDataSetOutputColumnOutputWithContext(ctx co
 	return o
 }
 
-// The description of the column.
+// Description of the column.
 func (o DataSetOutputColumnOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -7716,7 +7713,7 @@ func (o DataSetOutputColumnOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The data type of the column.
+// Data type of the column.
 func (o DataSetOutputColumnOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetOutputColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -7848,13 +7845,13 @@ func (o DataSetPermissionArrayOutput) Index(i pulumi.IntInput) DataSetPermission
 }
 
 type DataSetPhysicalTableMap struct {
-	// A physical table type built from the results of the custom SQL query. See custom_sql.
+	// Physical table type built from the results of the custom SQL query. See `customSql` Block below.
 	CustomSql *DataSetPhysicalTableMapCustomSql `pulumi:"customSql"`
 	// Key of the physical table map.
 	PhysicalTableMapId string `pulumi:"physicalTableMapId"`
-	// A physical table type for relational data sources. See relational_table.
+	// Physical table type for relational data sources. See `relationalTable` Block below.
 	RelationalTable *DataSetPhysicalTableMapRelationalTable `pulumi:"relationalTable"`
-	// A physical table type for as S3 data source. See s3_source.
+	// Physical table type for an S3 data source. See `s3Source` Block below.
 	S3Source *DataSetPhysicalTableMapS3Source `pulumi:"s3Source"`
 }
 
@@ -7870,13 +7867,13 @@ type DataSetPhysicalTableMapInput interface {
 }
 
 type DataSetPhysicalTableMapArgs struct {
-	// A physical table type built from the results of the custom SQL query. See custom_sql.
+	// Physical table type built from the results of the custom SQL query. See `customSql` Block below.
 	CustomSql DataSetPhysicalTableMapCustomSqlPtrInput `pulumi:"customSql"`
 	// Key of the physical table map.
 	PhysicalTableMapId pulumi.StringInput `pulumi:"physicalTableMapId"`
-	// A physical table type for relational data sources. See relational_table.
+	// Physical table type for relational data sources. See `relationalTable` Block below.
 	RelationalTable DataSetPhysicalTableMapRelationalTablePtrInput `pulumi:"relationalTable"`
-	// A physical table type for as S3 data source. See s3_source.
+	// Physical table type for an S3 data source. See `s3Source` Block below.
 	S3Source DataSetPhysicalTableMapS3SourcePtrInput `pulumi:"s3Source"`
 }
 
@@ -7931,7 +7928,7 @@ func (o DataSetPhysicalTableMapOutput) ToDataSetPhysicalTableMapOutputWithContex
 	return o
 }
 
-// A physical table type built from the results of the custom SQL query. See custom_sql.
+// Physical table type built from the results of the custom SQL query. See `customSql` Block below.
 func (o DataSetPhysicalTableMapOutput) CustomSql() DataSetPhysicalTableMapCustomSqlPtrOutput {
 	return o.ApplyT(func(v DataSetPhysicalTableMap) *DataSetPhysicalTableMapCustomSql { return v.CustomSql }).(DataSetPhysicalTableMapCustomSqlPtrOutput)
 }
@@ -7941,12 +7938,12 @@ func (o DataSetPhysicalTableMapOutput) PhysicalTableMapId() pulumi.StringOutput 
 	return o.ApplyT(func(v DataSetPhysicalTableMap) string { return v.PhysicalTableMapId }).(pulumi.StringOutput)
 }
 
-// A physical table type for relational data sources. See relational_table.
+// Physical table type for relational data sources. See `relationalTable` Block below.
 func (o DataSetPhysicalTableMapOutput) RelationalTable() DataSetPhysicalTableMapRelationalTablePtrOutput {
 	return o.ApplyT(func(v DataSetPhysicalTableMap) *DataSetPhysicalTableMapRelationalTable { return v.RelationalTable }).(DataSetPhysicalTableMapRelationalTablePtrOutput)
 }
 
-// A physical table type for as S3 data source. See s3_source.
+// Physical table type for an S3 data source. See `s3Source` Block below.
 func (o DataSetPhysicalTableMapOutput) S3Source() DataSetPhysicalTableMapS3SourcePtrOutput {
 	return o.ApplyT(func(v DataSetPhysicalTableMap) *DataSetPhysicalTableMapS3Source { return v.S3Source }).(DataSetPhysicalTableMapS3SourcePtrOutput)
 }
@@ -7972,7 +7969,7 @@ func (o DataSetPhysicalTableMapArrayOutput) Index(i pulumi.IntInput) DataSetPhys
 }
 
 type DataSetPhysicalTableMapCustomSql struct {
-	// Column schema from the SQL query result set. See columns.
+	// Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
 	Columns []DataSetPhysicalTableMapCustomSqlColumn `pulumi:"columns"`
 	// ARN of the data source.
 	DataSourceArn string `pulumi:"dataSourceArn"`
@@ -7994,7 +7991,7 @@ type DataSetPhysicalTableMapCustomSqlInput interface {
 }
 
 type DataSetPhysicalTableMapCustomSqlArgs struct {
-	// Column schema from the SQL query result set. See columns.
+	// Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
 	Columns DataSetPhysicalTableMapCustomSqlColumnArrayInput `pulumi:"columns"`
 	// ARN of the data source.
 	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
@@ -8081,7 +8078,7 @@ func (o DataSetPhysicalTableMapCustomSqlOutput) ToDataSetPhysicalTableMapCustomS
 	}).(DataSetPhysicalTableMapCustomSqlPtrOutput)
 }
 
-// Column schema from the SQL query result set. See columns.
+// Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
 func (o DataSetPhysicalTableMapCustomSqlOutput) Columns() DataSetPhysicalTableMapCustomSqlColumnArrayOutput {
 	return o.ApplyT(func(v DataSetPhysicalTableMapCustomSql) []DataSetPhysicalTableMapCustomSqlColumn { return v.Columns }).(DataSetPhysicalTableMapCustomSqlColumnArrayOutput)
 }
@@ -8125,7 +8122,7 @@ func (o DataSetPhysicalTableMapCustomSqlPtrOutput) Elem() DataSetPhysicalTableMa
 	}).(DataSetPhysicalTableMapCustomSqlOutput)
 }
 
-// Column schema from the SQL query result set. See columns.
+// Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
 func (o DataSetPhysicalTableMapCustomSqlPtrOutput) Columns() DataSetPhysicalTableMapCustomSqlColumnArrayOutput {
 	return o.ApplyT(func(v *DataSetPhysicalTableMapCustomSql) []DataSetPhysicalTableMapCustomSqlColumn {
 		if v == nil {
@@ -8166,7 +8163,9 @@ func (o DataSetPhysicalTableMapCustomSqlPtrOutput) SqlQuery() pulumi.StringPtrOu
 }
 
 type DataSetPhysicalTableMapCustomSqlColumn struct {
-	// Name of this column in the underlying data source.
+	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
 	// Data type of the column.
 	Type string `pulumi:"type"`
@@ -8184,7 +8183,9 @@ type DataSetPhysicalTableMapCustomSqlColumnInput interface {
 }
 
 type DataSetPhysicalTableMapCustomSqlColumnArgs struct {
-	// Name of this column in the underlying data source.
+	// Display name for the dataset.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
 	// Data type of the column.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -8241,7 +8242,9 @@ func (o DataSetPhysicalTableMapCustomSqlColumnOutput) ToDataSetPhysicalTableMapC
 	return o
 }
 
-// Name of this column in the underlying data source.
+// Display name for the dataset.
+//
+// The following arguments are optional:
 func (o DataSetPhysicalTableMapCustomSqlColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetPhysicalTableMapCustomSqlColumn) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -8276,7 +8279,7 @@ type DataSetPhysicalTableMapRelationalTable struct {
 	Catalog *string `pulumi:"catalog"`
 	// ARN of the data source.
 	DataSourceArn string `pulumi:"dataSourceArn"`
-	// Column schema of the table. See input_columns.
+	// Column schema of the table. See `inputColumns` Block below.
 	InputColumns []DataSetPhysicalTableMapRelationalTableInputColumn `pulumi:"inputColumns"`
 	// Name of the relational table.
 	Name string `pulumi:"name"`
@@ -8300,7 +8303,7 @@ type DataSetPhysicalTableMapRelationalTableArgs struct {
 	Catalog pulumi.StringPtrInput `pulumi:"catalog"`
 	// ARN of the data source.
 	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
-	// Column schema of the table. See input_columns.
+	// Column schema of the table. See `inputColumns` Block below.
 	InputColumns DataSetPhysicalTableMapRelationalTableInputColumnArrayInput `pulumi:"inputColumns"`
 	// Name of the relational table.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -8395,7 +8398,7 @@ func (o DataSetPhysicalTableMapRelationalTableOutput) DataSourceArn() pulumi.Str
 	return o.ApplyT(func(v DataSetPhysicalTableMapRelationalTable) string { return v.DataSourceArn }).(pulumi.StringOutput)
 }
 
-// Column schema of the table. See input_columns.
+// Column schema of the table. See `inputColumns` Block below.
 func (o DataSetPhysicalTableMapRelationalTableOutput) InputColumns() DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
 	return o.ApplyT(func(v DataSetPhysicalTableMapRelationalTable) []DataSetPhysicalTableMapRelationalTableInputColumn {
 		return v.InputColumns
@@ -8456,7 +8459,7 @@ func (o DataSetPhysicalTableMapRelationalTablePtrOutput) DataSourceArn() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Column schema of the table. See input_columns.
+// Column schema of the table. See `inputColumns` Block below.
 func (o DataSetPhysicalTableMapRelationalTablePtrOutput) InputColumns() DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput {
 	return o.ApplyT(func(v *DataSetPhysicalTableMapRelationalTable) []DataSetPhysicalTableMapRelationalTableInputColumn {
 		if v == nil {
@@ -8595,9 +8598,9 @@ func (o DataSetPhysicalTableMapRelationalTableInputColumnArrayOutput) Index(i pu
 type DataSetPhysicalTableMapS3Source struct {
 	// ARN of the data source.
 	DataSourceArn string `pulumi:"dataSourceArn"`
-	// Column schema of the table. See input_columns.
+	// Column schema of the table. See `inputColumns` Block below.
 	InputColumns []DataSetPhysicalTableMapS3SourceInputColumn `pulumi:"inputColumns"`
-	// Information about the format for the S3 source file or files. See upload_settings.
+	// Information about the format for the S3 source file or files. See `uploadSettings` Block below.
 	UploadSettings DataSetPhysicalTableMapS3SourceUploadSettings `pulumi:"uploadSettings"`
 }
 
@@ -8615,9 +8618,9 @@ type DataSetPhysicalTableMapS3SourceInput interface {
 type DataSetPhysicalTableMapS3SourceArgs struct {
 	// ARN of the data source.
 	DataSourceArn pulumi.StringInput `pulumi:"dataSourceArn"`
-	// Column schema of the table. See input_columns.
+	// Column schema of the table. See `inputColumns` Block below.
 	InputColumns DataSetPhysicalTableMapS3SourceInputColumnArrayInput `pulumi:"inputColumns"`
-	// Information about the format for the S3 source file or files. See upload_settings.
+	// Information about the format for the S3 source file or files. See `uploadSettings` Block below.
 	UploadSettings DataSetPhysicalTableMapS3SourceUploadSettingsInput `pulumi:"uploadSettings"`
 }
 
@@ -8703,14 +8706,14 @@ func (o DataSetPhysicalTableMapS3SourceOutput) DataSourceArn() pulumi.StringOutp
 	return o.ApplyT(func(v DataSetPhysicalTableMapS3Source) string { return v.DataSourceArn }).(pulumi.StringOutput)
 }
 
-// Column schema of the table. See input_columns.
+// Column schema of the table. See `inputColumns` Block below.
 func (o DataSetPhysicalTableMapS3SourceOutput) InputColumns() DataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
 	return o.ApplyT(func(v DataSetPhysicalTableMapS3Source) []DataSetPhysicalTableMapS3SourceInputColumn {
 		return v.InputColumns
 	}).(DataSetPhysicalTableMapS3SourceInputColumnArrayOutput)
 }
 
-// Information about the format for the S3 source file or files. See upload_settings.
+// Information about the format for the S3 source file or files. See `uploadSettings` Block below.
 func (o DataSetPhysicalTableMapS3SourceOutput) UploadSettings() DataSetPhysicalTableMapS3SourceUploadSettingsOutput {
 	return o.ApplyT(func(v DataSetPhysicalTableMapS3Source) DataSetPhysicalTableMapS3SourceUploadSettings {
 		return v.UploadSettings
@@ -8751,7 +8754,7 @@ func (o DataSetPhysicalTableMapS3SourcePtrOutput) DataSourceArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Column schema of the table. See input_columns.
+// Column schema of the table. See `inputColumns` Block below.
 func (o DataSetPhysicalTableMapS3SourcePtrOutput) InputColumns() DataSetPhysicalTableMapS3SourceInputColumnArrayOutput {
 	return o.ApplyT(func(v *DataSetPhysicalTableMapS3Source) []DataSetPhysicalTableMapS3SourceInputColumn {
 		if v == nil {
@@ -8761,7 +8764,7 @@ func (o DataSetPhysicalTableMapS3SourcePtrOutput) InputColumns() DataSetPhysical
 	}).(DataSetPhysicalTableMapS3SourceInputColumnArrayOutput)
 }
 
-// Information about the format for the S3 source file or files. See upload_settings.
+// Information about the format for the S3 source file or files. See `uploadSettings` Block below.
 func (o DataSetPhysicalTableMapS3SourcePtrOutput) UploadSettings() DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput {
 	return o.ApplyT(func(v *DataSetPhysicalTableMapS3Source) *DataSetPhysicalTableMapS3SourceUploadSettings {
 		if v == nil {
@@ -8884,7 +8887,7 @@ type DataSetPhysicalTableMapS3SourceUploadSettings struct {
 	Delimiter *string `pulumi:"delimiter"`
 	// File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
 	Format *string `pulumi:"format"`
-	// A row number to start reading data from.
+	// Row number to start reading data from.
 	StartFromRow *int `pulumi:"startFromRow"`
 	// Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
 	TextQualifier *string `pulumi:"textQualifier"`
@@ -8908,7 +8911,7 @@ type DataSetPhysicalTableMapS3SourceUploadSettingsArgs struct {
 	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
 	// File format. Valid values are `CSV`, `TSV`, `CLF`, `ELF`, `XLSX`, and `JSON`.
 	Format pulumi.StringPtrInput `pulumi:"format"`
-	// A row number to start reading data from.
+	// Row number to start reading data from.
 	StartFromRow pulumi.IntPtrInput `pulumi:"startFromRow"`
 	// Text qualifier. Valid values are `DOUBLE_QUOTE` and `SINGLE_QUOTE`.
 	TextQualifier pulumi.StringPtrInput `pulumi:"textQualifier"`
@@ -9006,7 +9009,7 @@ func (o DataSetPhysicalTableMapS3SourceUploadSettingsOutput) Format() pulumi.Str
 	return o.ApplyT(func(v DataSetPhysicalTableMapS3SourceUploadSettings) *string { return v.Format }).(pulumi.StringPtrOutput)
 }
 
-// A row number to start reading data from.
+// Row number to start reading data from.
 func (o DataSetPhysicalTableMapS3SourceUploadSettingsOutput) StartFromRow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSetPhysicalTableMapS3SourceUploadSettings) *int { return v.StartFromRow }).(pulumi.IntPtrOutput)
 }
@@ -9070,7 +9073,7 @@ func (o DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput) Format() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// A row number to start reading data from.
+// Row number to start reading data from.
 func (o DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput) StartFromRow() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSetPhysicalTableMapS3SourceUploadSettings) *int {
 		if v == nil {
@@ -9091,7 +9094,7 @@ func (o DataSetPhysicalTableMapS3SourceUploadSettingsPtrOutput) TextQualifier() 
 }
 
 type DataSetRefreshProperties struct {
-	// The refresh configuration for the data set. See refresh_configuration.
+	// Refresh configuration for the data set. See `refreshConfiguration` Block below.
 	RefreshConfiguration DataSetRefreshPropertiesRefreshConfiguration `pulumi:"refreshConfiguration"`
 }
 
@@ -9107,7 +9110,7 @@ type DataSetRefreshPropertiesInput interface {
 }
 
 type DataSetRefreshPropertiesArgs struct {
-	// The refresh configuration for the data set. See refresh_configuration.
+	// Refresh configuration for the data set. See `refreshConfiguration` Block below.
 	RefreshConfiguration DataSetRefreshPropertiesRefreshConfigurationInput `pulumi:"refreshConfiguration"`
 }
 
@@ -9188,7 +9191,7 @@ func (o DataSetRefreshPropertiesOutput) ToDataSetRefreshPropertiesPtrOutputWithC
 	}).(DataSetRefreshPropertiesPtrOutput)
 }
 
-// The refresh configuration for the data set. See refresh_configuration.
+// Refresh configuration for the data set. See `refreshConfiguration` Block below.
 func (o DataSetRefreshPropertiesOutput) RefreshConfiguration() DataSetRefreshPropertiesRefreshConfigurationOutput {
 	return o.ApplyT(func(v DataSetRefreshProperties) DataSetRefreshPropertiesRefreshConfiguration {
 		return v.RefreshConfiguration
@@ -9219,7 +9222,7 @@ func (o DataSetRefreshPropertiesPtrOutput) Elem() DataSetRefreshPropertiesOutput
 	}).(DataSetRefreshPropertiesOutput)
 }
 
-// The refresh configuration for the data set. See refresh_configuration.
+// Refresh configuration for the data set. See `refreshConfiguration` Block below.
 func (o DataSetRefreshPropertiesPtrOutput) RefreshConfiguration() DataSetRefreshPropertiesRefreshConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSetRefreshProperties) *DataSetRefreshPropertiesRefreshConfiguration {
 		if v == nil {
@@ -9230,7 +9233,7 @@ func (o DataSetRefreshPropertiesPtrOutput) RefreshConfiguration() DataSetRefresh
 }
 
 type DataSetRefreshPropertiesRefreshConfiguration struct {
-	// The incremental refresh for the data set. See incremental_refresh.
+	// Incremental refresh for the data set. See `incrementalRefresh` Block below.
 	IncrementalRefresh DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh `pulumi:"incrementalRefresh"`
 }
 
@@ -9246,7 +9249,7 @@ type DataSetRefreshPropertiesRefreshConfigurationInput interface {
 }
 
 type DataSetRefreshPropertiesRefreshConfigurationArgs struct {
-	// The incremental refresh for the data set. See incremental_refresh.
+	// Incremental refresh for the data set. See `incrementalRefresh` Block below.
 	IncrementalRefresh DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshInput `pulumi:"incrementalRefresh"`
 }
 
@@ -9327,7 +9330,7 @@ func (o DataSetRefreshPropertiesRefreshConfigurationOutput) ToDataSetRefreshProp
 	}).(DataSetRefreshPropertiesRefreshConfigurationPtrOutput)
 }
 
-// The incremental refresh for the data set. See incremental_refresh.
+// Incremental refresh for the data set. See `incrementalRefresh` Block below.
 func (o DataSetRefreshPropertiesRefreshConfigurationOutput) IncrementalRefresh() DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshOutput {
 	return o.ApplyT(func(v DataSetRefreshPropertiesRefreshConfiguration) DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh {
 		return v.IncrementalRefresh
@@ -9358,7 +9361,7 @@ func (o DataSetRefreshPropertiesRefreshConfigurationPtrOutput) Elem() DataSetRef
 	}).(DataSetRefreshPropertiesRefreshConfigurationOutput)
 }
 
-// The incremental refresh for the data set. See incremental_refresh.
+// Incremental refresh for the data set. See `incrementalRefresh` Block below.
 func (o DataSetRefreshPropertiesRefreshConfigurationPtrOutput) IncrementalRefresh() DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshPtrOutput {
 	return o.ApplyT(func(v *DataSetRefreshPropertiesRefreshConfiguration) *DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh {
 		if v == nil {
@@ -9369,7 +9372,7 @@ func (o DataSetRefreshPropertiesRefreshConfigurationPtrOutput) IncrementalRefres
 }
 
 type DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh struct {
-	// The lookback window setup for an incremental refresh configuration. See lookback_window.
+	// Lookback window setup for an incremental refresh configuration. See `lookbackWindow` Block below.
 	LookbackWindow DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow `pulumi:"lookbackWindow"`
 }
 
@@ -9385,7 +9388,7 @@ type DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshInput interfa
 }
 
 type DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs struct {
-	// The lookback window setup for an incremental refresh configuration. See lookback_window.
+	// Lookback window setup for an incremental refresh configuration. See `lookbackWindow` Block below.
 	LookbackWindow DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowInput `pulumi:"lookbackWindow"`
 }
 
@@ -9466,7 +9469,7 @@ func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshOutput) To
 	}).(DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshPtrOutput)
 }
 
-// The lookback window setup for an incremental refresh configuration. See lookback_window.
+// Lookback window setup for an incremental refresh configuration. See `lookbackWindow` Block below.
 func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshOutput) LookbackWindow() DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowOutput {
 	return o.ApplyT(func(v DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh) DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow {
 		return v.LookbackWindow
@@ -9497,7 +9500,7 @@ func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshPtrOutput)
 	}).(DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshOutput)
 }
 
-// The lookback window setup for an incremental refresh configuration. See lookback_window.
+// Lookback window setup for an incremental refresh configuration. See `lookbackWindow` Block below.
 func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshPtrOutput) LookbackWindow() DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowPtrOutput {
 	return o.ApplyT(func(v *DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh) *DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow {
 		if v == nil {
@@ -9508,11 +9511,11 @@ func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshPtrOutput)
 }
 
 type DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow struct {
-	// The name of the lookback window column.
+	// Name of the lookback window column.
 	ColumnName string `pulumi:"columnName"`
-	// The lookback window column size.
+	// Lookback window column size.
 	Size int `pulumi:"size"`
-	// The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+	// Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
 	SizeUnit string `pulumi:"sizeUnit"`
 }
 
@@ -9528,11 +9531,11 @@ type DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindo
 }
 
 type DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs struct {
-	// The name of the lookback window column.
+	// Name of the lookback window column.
 	ColumnName pulumi.StringInput `pulumi:"columnName"`
-	// The lookback window column size.
+	// Lookback window column size.
 	Size pulumi.IntInput `pulumi:"size"`
-	// The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+	// Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
 	SizeUnit pulumi.StringInput `pulumi:"sizeUnit"`
 }
 
@@ -9613,21 +9616,21 @@ func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWi
 	}).(DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowPtrOutput)
 }
 
-// The name of the lookback window column.
+// Name of the lookback window column.
 func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowOutput) ColumnName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow) string {
 		return v.ColumnName
 	}).(pulumi.StringOutput)
 }
 
-// The lookback window column size.
+// Lookback window column size.
 func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow) int {
 		return v.Size
 	}).(pulumi.IntOutput)
 }
 
-// The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+// Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
 func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowOutput) SizeUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow) string {
 		return v.SizeUnit
@@ -9658,7 +9661,7 @@ func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWi
 	}).(DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowOutput)
 }
 
-// The name of the lookback window column.
+// Name of the lookback window column.
 func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowPtrOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow) *string {
 		if v == nil {
@@ -9668,7 +9671,7 @@ func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The lookback window column size.
+// Lookback window column size.
 func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowPtrOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow) *int {
 		if v == nil {
@@ -9678,7 +9681,7 @@ func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+// Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
 func (o DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowPtrOutput) SizeUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow) *string {
 		if v == nil {
@@ -9902,9 +9905,9 @@ func (o DataSetRowLevelPermissionDataSetPtrOutput) Status() pulumi.StringPtrOutp
 }
 
 type DataSetRowLevelPermissionTagConfiguration struct {
-	// The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+	// Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
 	Status *string `pulumi:"status"`
-	// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+	// Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tagRules` Block below.
 	TagRules []DataSetRowLevelPermissionTagConfigurationTagRule `pulumi:"tagRules"`
 }
 
@@ -9920,9 +9923,9 @@ type DataSetRowLevelPermissionTagConfigurationInput interface {
 }
 
 type DataSetRowLevelPermissionTagConfigurationArgs struct {
-	// The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+	// Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
-	// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+	// Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tagRules` Block below.
 	TagRules DataSetRowLevelPermissionTagConfigurationTagRuleArrayInput `pulumi:"tagRules"`
 }
 
@@ -10003,12 +10006,12 @@ func (o DataSetRowLevelPermissionTagConfigurationOutput) ToDataSetRowLevelPermis
 	}).(DataSetRowLevelPermissionTagConfigurationPtrOutput)
 }
 
-// The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+// Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
 func (o DataSetRowLevelPermissionTagConfigurationOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetRowLevelPermissionTagConfiguration) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+// Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tagRules` Block below.
 func (o DataSetRowLevelPermissionTagConfigurationOutput) TagRules() DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
 	return o.ApplyT(func(v DataSetRowLevelPermissionTagConfiguration) []DataSetRowLevelPermissionTagConfigurationTagRule {
 		return v.TagRules
@@ -10039,7 +10042,7 @@ func (o DataSetRowLevelPermissionTagConfigurationPtrOutput) Elem() DataSetRowLev
 	}).(DataSetRowLevelPermissionTagConfigurationOutput)
 }
 
-// The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+// Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
 func (o DataSetRowLevelPermissionTagConfigurationPtrOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSetRowLevelPermissionTagConfiguration) *string {
 		if v == nil {
@@ -10049,7 +10052,7 @@ func (o DataSetRowLevelPermissionTagConfigurationPtrOutput) Status() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+// Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tagRules` Block below.
 func (o DataSetRowLevelPermissionTagConfigurationPtrOutput) TagRules() DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput {
 	return o.ApplyT(func(v *DataSetRowLevelPermissionTagConfiguration) []DataSetRowLevelPermissionTagConfigurationTagRule {
 		if v == nil {
@@ -10062,11 +10065,11 @@ func (o DataSetRowLevelPermissionTagConfigurationPtrOutput) TagRules() DataSetRo
 type DataSetRowLevelPermissionTagConfigurationTagRule struct {
 	// Column name that a tag key is assigned to.
 	ColumnName string `pulumi:"columnName"`
-	// A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+	// String that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
 	MatchAllValue *string `pulumi:"matchAllValue"`
 	// Unique key for a tag.
 	TagKey string `pulumi:"tagKey"`
-	// A string that you want to use to delimit the values when you pass the values at run time.
+	// String that you want to use to delimit the values when you pass the values at run time.
 	TagMultiValueDelimiter *string `pulumi:"tagMultiValueDelimiter"`
 }
 
@@ -10084,11 +10087,11 @@ type DataSetRowLevelPermissionTagConfigurationTagRuleInput interface {
 type DataSetRowLevelPermissionTagConfigurationTagRuleArgs struct {
 	// Column name that a tag key is assigned to.
 	ColumnName pulumi.StringInput `pulumi:"columnName"`
-	// A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+	// String that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
 	MatchAllValue pulumi.StringPtrInput `pulumi:"matchAllValue"`
 	// Unique key for a tag.
 	TagKey pulumi.StringInput `pulumi:"tagKey"`
-	// A string that you want to use to delimit the values when you pass the values at run time.
+	// String that you want to use to delimit the values when you pass the values at run time.
 	TagMultiValueDelimiter pulumi.StringPtrInput `pulumi:"tagMultiValueDelimiter"`
 }
 
@@ -10148,7 +10151,7 @@ func (o DataSetRowLevelPermissionTagConfigurationTagRuleOutput) ColumnName() pul
 	return o.ApplyT(func(v DataSetRowLevelPermissionTagConfigurationTagRule) string { return v.ColumnName }).(pulumi.StringOutput)
 }
 
-// A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+// String that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
 func (o DataSetRowLevelPermissionTagConfigurationTagRuleOutput) MatchAllValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetRowLevelPermissionTagConfigurationTagRule) *string { return v.MatchAllValue }).(pulumi.StringPtrOutput)
 }
@@ -10158,7 +10161,7 @@ func (o DataSetRowLevelPermissionTagConfigurationTagRuleOutput) TagKey() pulumi.
 	return o.ApplyT(func(v DataSetRowLevelPermissionTagConfigurationTagRule) string { return v.TagKey }).(pulumi.StringOutput)
 }
 
-// A string that you want to use to delimit the values when you pass the values at run time.
+// String that you want to use to delimit the values when you pass the values at run time.
 func (o DataSetRowLevelPermissionTagConfigurationTagRuleOutput) TagMultiValueDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetRowLevelPermissionTagConfigurationTagRule) *string { return v.TagMultiValueDelimiter }).(pulumi.StringPtrOutput)
 }
@@ -10184,12 +10187,11 @@ func (o DataSetRowLevelPermissionTagConfigurationTagRuleArrayOutput) Index(i pul
 }
 
 type DataSourceCredentials struct {
-	// The ARN of a data source that has the credential pair that you want to use.
-	// When the value is not null, the `credentialPair` from the data source in the ARN is used.
+	// ARN of a data source that has the credential pair to use. When the value is not null, the `credentialPair` from the data source in the ARN is used.
 	CopySourceArn *string `pulumi:"copySourceArn"`
-	// Credential pair. See Credential Pair below for more details.
+	// Credential pair. See `credentialPair` Block below for more details.
 	CredentialPair *DataSourceCredentialsCredentialPair `pulumi:"credentialPair"`
-	// The ARN of the secret associated with the data source in Amazon Secrets Manager.
+	// ARN of the secret associated with the data source in Amazon Secrets Manager.
 	SecretArn *string `pulumi:"secretArn"`
 }
 
@@ -10205,12 +10207,11 @@ type DataSourceCredentialsInput interface {
 }
 
 type DataSourceCredentialsArgs struct {
-	// The ARN of a data source that has the credential pair that you want to use.
-	// When the value is not null, the `credentialPair` from the data source in the ARN is used.
+	// ARN of a data source that has the credential pair to use. When the value is not null, the `credentialPair` from the data source in the ARN is used.
 	CopySourceArn pulumi.StringPtrInput `pulumi:"copySourceArn"`
-	// Credential pair. See Credential Pair below for more details.
+	// Credential pair. See `credentialPair` Block below for more details.
 	CredentialPair DataSourceCredentialsCredentialPairPtrInput `pulumi:"credentialPair"`
-	// The ARN of the secret associated with the data source in Amazon Secrets Manager.
+	// ARN of the secret associated with the data source in Amazon Secrets Manager.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 }
 
@@ -10291,18 +10292,17 @@ func (o DataSourceCredentialsOutput) ToDataSourceCredentialsPtrOutputWithContext
 	}).(DataSourceCredentialsPtrOutput)
 }
 
-// The ARN of a data source that has the credential pair that you want to use.
-// When the value is not null, the `credentialPair` from the data source in the ARN is used.
+// ARN of a data source that has the credential pair to use. When the value is not null, the `credentialPair` from the data source in the ARN is used.
 func (o DataSourceCredentialsOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *string { return v.CopySourceArn }).(pulumi.StringPtrOutput)
 }
 
-// Credential pair. See Credential Pair below for more details.
+// Credential pair. See `credentialPair` Block below for more details.
 func (o DataSourceCredentialsOutput) CredentialPair() DataSourceCredentialsCredentialPairPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *DataSourceCredentialsCredentialPair { return v.CredentialPair }).(DataSourceCredentialsCredentialPairPtrOutput)
 }
 
-// The ARN of the secret associated with the data source in Amazon Secrets Manager.
+// ARN of the secret associated with the data source in Amazon Secrets Manager.
 func (o DataSourceCredentialsOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -10331,8 +10331,7 @@ func (o DataSourceCredentialsPtrOutput) Elem() DataSourceCredentialsOutput {
 	}).(DataSourceCredentialsOutput)
 }
 
-// The ARN of a data source that has the credential pair that you want to use.
-// When the value is not null, the `credentialPair` from the data source in the ARN is used.
+// ARN of a data source that has the credential pair to use. When the value is not null, the `credentialPair` from the data source in the ARN is used.
 func (o DataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *string {
 		if v == nil {
@@ -10342,7 +10341,7 @@ func (o DataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Credential pair. See Credential Pair below for more details.
+// Credential pair. See `credentialPair` Block below for more details.
 func (o DataSourceCredentialsPtrOutput) CredentialPair() DataSourceCredentialsCredentialPairPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *DataSourceCredentialsCredentialPair {
 		if v == nil {
@@ -10352,7 +10351,7 @@ func (o DataSourceCredentialsPtrOutput) CredentialPair() DataSourceCredentialsCr
 	}).(DataSourceCredentialsCredentialPairPtrOutput)
 }
 
-// The ARN of the secret associated with the data source in Amazon Secrets Manager.
+// ARN of the secret associated with the data source in Amazon Secrets Manager.
 func (o DataSourceCredentialsPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *string {
 		if v == nil {
@@ -11036,7 +11035,7 @@ func (o DataSourceParametersPtrOutput) Twitter() DataSourceParametersTwitterPtrO
 }
 
 type DataSourceParametersAmazonElasticsearch struct {
-	// The OpenSearch domain.
+	// OpenSearch domain.
 	Domain string `pulumi:"domain"`
 }
 
@@ -11052,7 +11051,7 @@ type DataSourceParametersAmazonElasticsearchInput interface {
 }
 
 type DataSourceParametersAmazonElasticsearchArgs struct {
-	// The OpenSearch domain.
+	// OpenSearch domain.
 	Domain pulumi.StringInput `pulumi:"domain"`
 }
 
@@ -11133,7 +11132,7 @@ func (o DataSourceParametersAmazonElasticsearchOutput) ToDataSourceParametersAma
 	}).(DataSourceParametersAmazonElasticsearchPtrOutput)
 }
 
-// The OpenSearch domain.
+// OpenSearch domain.
 func (o DataSourceParametersAmazonElasticsearchOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersAmazonElasticsearch) string { return v.Domain }).(pulumi.StringOutput)
 }
@@ -11162,7 +11161,7 @@ func (o DataSourceParametersAmazonElasticsearchPtrOutput) Elem() DataSourceParam
 	}).(DataSourceParametersAmazonElasticsearchOutput)
 }
 
-// The OpenSearch domain.
+// OpenSearch domain.
 func (o DataSourceParametersAmazonElasticsearchPtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAmazonElasticsearch) *string {
 		if v == nil {
@@ -11173,9 +11172,9 @@ func (o DataSourceParametersAmazonElasticsearchPtrOutput) Domain() pulumi.String
 }
 
 type DataSourceParametersAthena struct {
-	// Use the `roleArn` to override an account-wide role for a specific athena data source.
+	// Use the `roleArn` to override an account-wide role for a specific Athena data source.
 	RoleArn *string `pulumi:"roleArn"`
-	// The work-group to which to connect.
+	// Work-group to which to connect.
 	WorkGroup *string `pulumi:"workGroup"`
 }
 
@@ -11191,9 +11190,9 @@ type DataSourceParametersAthenaInput interface {
 }
 
 type DataSourceParametersAthenaArgs struct {
-	// Use the `roleArn` to override an account-wide role for a specific athena data source.
+	// Use the `roleArn` to override an account-wide role for a specific Athena data source.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// The work-group to which to connect.
+	// Work-group to which to connect.
 	WorkGroup pulumi.StringPtrInput `pulumi:"workGroup"`
 }
 
@@ -11274,12 +11273,12 @@ func (o DataSourceParametersAthenaOutput) ToDataSourceParametersAthenaPtrOutputW
 	}).(DataSourceParametersAthenaPtrOutput)
 }
 
-// Use the `roleArn` to override an account-wide role for a specific athena data source.
+// Use the `roleArn` to override an account-wide role for a specific Athena data source.
 func (o DataSourceParametersAthenaOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceParametersAthena) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The work-group to which to connect.
+// Work-group to which to connect.
 func (o DataSourceParametersAthenaOutput) WorkGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceParametersAthena) *string { return v.WorkGroup }).(pulumi.StringPtrOutput)
 }
@@ -11308,7 +11307,7 @@ func (o DataSourceParametersAthenaPtrOutput) Elem() DataSourceParametersAthenaOu
 	}).(DataSourceParametersAthenaOutput)
 }
 
-// Use the `roleArn` to override an account-wide role for a specific athena data source.
+// Use the `roleArn` to override an account-wide role for a specific Athena data source.
 func (o DataSourceParametersAthenaPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAthena) *string {
 		if v == nil {
@@ -11318,7 +11317,7 @@ func (o DataSourceParametersAthenaPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The work-group to which to connect.
+// Work-group to which to connect.
 func (o DataSourceParametersAthenaPtrOutput) WorkGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAthena) *string {
 		if v == nil {
@@ -11329,11 +11328,11 @@ func (o DataSourceParametersAthenaPtrOutput) WorkGroup() pulumi.StringPtrOutput 
 }
 
 type DataSourceParametersAurora struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host string `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port int `pulumi:"port"`
 }
 
@@ -11349,11 +11348,11 @@ type DataSourceParametersAuroraInput interface {
 }
 
 type DataSourceParametersAuroraArgs struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -11434,17 +11433,17 @@ func (o DataSourceParametersAuroraOutput) ToDataSourceParametersAuroraPtrOutputW
 	}).(DataSourceParametersAuroraPtrOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersAuroraOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersAurora) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersAuroraOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersAurora) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersAuroraOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersAurora) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -11473,7 +11472,7 @@ func (o DataSourceParametersAuroraPtrOutput) Elem() DataSourceParametersAuroraOu
 	}).(DataSourceParametersAuroraOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersAuroraPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAurora) *string {
 		if v == nil {
@@ -11483,7 +11482,7 @@ func (o DataSourceParametersAuroraPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersAuroraPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAurora) *string {
 		if v == nil {
@@ -11493,7 +11492,7 @@ func (o DataSourceParametersAuroraPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersAuroraPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAurora) *int {
 		if v == nil {
@@ -11504,11 +11503,11 @@ func (o DataSourceParametersAuroraPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersAuroraPostgresql struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host string `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port int `pulumi:"port"`
 }
 
@@ -11524,11 +11523,11 @@ type DataSourceParametersAuroraPostgresqlInput interface {
 }
 
 type DataSourceParametersAuroraPostgresqlArgs struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -11609,17 +11608,17 @@ func (o DataSourceParametersAuroraPostgresqlOutput) ToDataSourceParametersAurora
 	}).(DataSourceParametersAuroraPostgresqlPtrOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersAuroraPostgresqlOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersAuroraPostgresql) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersAuroraPostgresqlOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersAuroraPostgresql) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersAuroraPostgresqlOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersAuroraPostgresql) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -11648,7 +11647,7 @@ func (o DataSourceParametersAuroraPostgresqlPtrOutput) Elem() DataSourceParamete
 	}).(DataSourceParametersAuroraPostgresqlOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersAuroraPostgresqlPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAuroraPostgresql) *string {
 		if v == nil {
@@ -11658,7 +11657,7 @@ func (o DataSourceParametersAuroraPostgresqlPtrOutput) Database() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersAuroraPostgresqlPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAuroraPostgresql) *string {
 		if v == nil {
@@ -11668,7 +11667,7 @@ func (o DataSourceParametersAuroraPostgresqlPtrOutput) Host() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersAuroraPostgresqlPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAuroraPostgresql) *int {
 		if v == nil {
@@ -11679,7 +11678,7 @@ func (o DataSourceParametersAuroraPostgresqlPtrOutput) Port() pulumi.IntPtrOutpu
 }
 
 type DataSourceParametersAwsIotAnalytics struct {
-	// The name of the data set to which to connect.
+	// Name of the data set to which to connect.
 	DataSetName string `pulumi:"dataSetName"`
 }
 
@@ -11695,7 +11694,7 @@ type DataSourceParametersAwsIotAnalyticsInput interface {
 }
 
 type DataSourceParametersAwsIotAnalyticsArgs struct {
-	// The name of the data set to which to connect.
+	// Name of the data set to which to connect.
 	DataSetName pulumi.StringInput `pulumi:"dataSetName"`
 }
 
@@ -11776,7 +11775,7 @@ func (o DataSourceParametersAwsIotAnalyticsOutput) ToDataSourceParametersAwsIotA
 	}).(DataSourceParametersAwsIotAnalyticsPtrOutput)
 }
 
-// The name of the data set to which to connect.
+// Name of the data set to which to connect.
 func (o DataSourceParametersAwsIotAnalyticsOutput) DataSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersAwsIotAnalytics) string { return v.DataSetName }).(pulumi.StringOutput)
 }
@@ -11805,7 +11804,7 @@ func (o DataSourceParametersAwsIotAnalyticsPtrOutput) Elem() DataSourceParameter
 	}).(DataSourceParametersAwsIotAnalyticsOutput)
 }
 
-// The name of the data set to which to connect.
+// Name of the data set to which to connect.
 func (o DataSourceParametersAwsIotAnalyticsPtrOutput) DataSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersAwsIotAnalytics) *string {
 		if v == nil {
@@ -11816,11 +11815,11 @@ func (o DataSourceParametersAwsIotAnalyticsPtrOutput) DataSetName() pulumi.Strin
 }
 
 type DataSourceParametersDatabricks struct {
-	// The host name of the Databricks data source.
+	// Host name of the Databricks data source.
 	Host string `pulumi:"host"`
-	// The port for the Databricks data source.
+	// Port for the Databricks data source.
 	Port int `pulumi:"port"`
-	// The HTTP path of the Databricks data source.
+	// HTTP path of the Databricks data source.
 	SqlEndpointPath string `pulumi:"sqlEndpointPath"`
 }
 
@@ -11836,11 +11835,11 @@ type DataSourceParametersDatabricksInput interface {
 }
 
 type DataSourceParametersDatabricksArgs struct {
-	// The host name of the Databricks data source.
+	// Host name of the Databricks data source.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The port for the Databricks data source.
+	// Port for the Databricks data source.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The HTTP path of the Databricks data source.
+	// HTTP path of the Databricks data source.
 	SqlEndpointPath pulumi.StringInput `pulumi:"sqlEndpointPath"`
 }
 
@@ -11921,17 +11920,17 @@ func (o DataSourceParametersDatabricksOutput) ToDataSourceParametersDatabricksPt
 	}).(DataSourceParametersDatabricksPtrOutput)
 }
 
-// The host name of the Databricks data source.
+// Host name of the Databricks data source.
 func (o DataSourceParametersDatabricksOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersDatabricks) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port for the Databricks data source.
+// Port for the Databricks data source.
 func (o DataSourceParametersDatabricksOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersDatabricks) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// The HTTP path of the Databricks data source.
+// HTTP path of the Databricks data source.
 func (o DataSourceParametersDatabricksOutput) SqlEndpointPath() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersDatabricks) string { return v.SqlEndpointPath }).(pulumi.StringOutput)
 }
@@ -11960,7 +11959,7 @@ func (o DataSourceParametersDatabricksPtrOutput) Elem() DataSourceParametersData
 	}).(DataSourceParametersDatabricksOutput)
 }
 
-// The host name of the Databricks data source.
+// Host name of the Databricks data source.
 func (o DataSourceParametersDatabricksPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersDatabricks) *string {
 		if v == nil {
@@ -11970,7 +11969,7 @@ func (o DataSourceParametersDatabricksPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port for the Databricks data source.
+// Port for the Databricks data source.
 func (o DataSourceParametersDatabricksPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersDatabricks) *int {
 		if v == nil {
@@ -11980,7 +11979,7 @@ func (o DataSourceParametersDatabricksPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The HTTP path of the Databricks data source.
+// HTTP path of the Databricks data source.
 func (o DataSourceParametersDatabricksPtrOutput) SqlEndpointPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersDatabricks) *string {
 		if v == nil {
@@ -11991,7 +11990,7 @@ func (o DataSourceParametersDatabricksPtrOutput) SqlEndpointPath() pulumi.String
 }
 
 type DataSourceParametersJira struct {
-	// The base URL of the Jira instance's site to which to connect.
+	// Base URL of the Jira instance's site to which to connect.
 	SiteBaseUrl string `pulumi:"siteBaseUrl"`
 }
 
@@ -12007,7 +12006,7 @@ type DataSourceParametersJiraInput interface {
 }
 
 type DataSourceParametersJiraArgs struct {
-	// The base URL of the Jira instance's site to which to connect.
+	// Base URL of the Jira instance's site to which to connect.
 	SiteBaseUrl pulumi.StringInput `pulumi:"siteBaseUrl"`
 }
 
@@ -12088,7 +12087,7 @@ func (o DataSourceParametersJiraOutput) ToDataSourceParametersJiraPtrOutputWithC
 	}).(DataSourceParametersJiraPtrOutput)
 }
 
-// The base URL of the Jira instance's site to which to connect.
+// Base URL of the Jira instance's site to which to connect.
 func (o DataSourceParametersJiraOutput) SiteBaseUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersJira) string { return v.SiteBaseUrl }).(pulumi.StringOutput)
 }
@@ -12117,7 +12116,7 @@ func (o DataSourceParametersJiraPtrOutput) Elem() DataSourceParametersJiraOutput
 	}).(DataSourceParametersJiraOutput)
 }
 
-// The base URL of the Jira instance's site to which to connect.
+// Base URL of the Jira instance's site to which to connect.
 func (o DataSourceParametersJiraPtrOutput) SiteBaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersJira) *string {
 		if v == nil {
@@ -12128,11 +12127,11 @@ func (o DataSourceParametersJiraPtrOutput) SiteBaseUrl() pulumi.StringPtrOutput 
 }
 
 type DataSourceParametersMariaDb struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host string `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port int `pulumi:"port"`
 }
 
@@ -12148,11 +12147,11 @@ type DataSourceParametersMariaDbInput interface {
 }
 
 type DataSourceParametersMariaDbArgs struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -12233,17 +12232,17 @@ func (o DataSourceParametersMariaDbOutput) ToDataSourceParametersMariaDbPtrOutpu
 	}).(DataSourceParametersMariaDbPtrOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersMariaDbOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersMariaDb) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersMariaDbOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersMariaDb) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersMariaDbOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersMariaDb) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -12272,7 +12271,7 @@ func (o DataSourceParametersMariaDbPtrOutput) Elem() DataSourceParametersMariaDb
 	}).(DataSourceParametersMariaDbOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersMariaDbPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersMariaDb) *string {
 		if v == nil {
@@ -12282,7 +12281,7 @@ func (o DataSourceParametersMariaDbPtrOutput) Database() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersMariaDbPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersMariaDb) *string {
 		if v == nil {
@@ -12292,7 +12291,7 @@ func (o DataSourceParametersMariaDbPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersMariaDbPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersMariaDb) *int {
 		if v == nil {
@@ -12303,11 +12302,11 @@ func (o DataSourceParametersMariaDbPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersMysql struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host string `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port int `pulumi:"port"`
 }
 
@@ -12323,11 +12322,11 @@ type DataSourceParametersMysqlInput interface {
 }
 
 type DataSourceParametersMysqlArgs struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -12408,17 +12407,17 @@ func (o DataSourceParametersMysqlOutput) ToDataSourceParametersMysqlPtrOutputWit
 	}).(DataSourceParametersMysqlPtrOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersMysqlOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersMysql) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersMysqlOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersMysql) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersMysqlOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersMysql) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -12447,7 +12446,7 @@ func (o DataSourceParametersMysqlPtrOutput) Elem() DataSourceParametersMysqlOutp
 	}).(DataSourceParametersMysqlOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersMysqlPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersMysql) *string {
 		if v == nil {
@@ -12457,7 +12456,7 @@ func (o DataSourceParametersMysqlPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersMysqlPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersMysql) *string {
 		if v == nil {
@@ -12467,7 +12466,7 @@ func (o DataSourceParametersMysqlPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersMysqlPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersMysql) *int {
 		if v == nil {
@@ -12478,11 +12477,11 @@ func (o DataSourceParametersMysqlPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersOracle struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host string `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port int `pulumi:"port"`
 }
 
@@ -12498,11 +12497,11 @@ type DataSourceParametersOracleInput interface {
 }
 
 type DataSourceParametersOracleArgs struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -12583,17 +12582,17 @@ func (o DataSourceParametersOracleOutput) ToDataSourceParametersOraclePtrOutputW
 	}).(DataSourceParametersOraclePtrOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersOracleOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersOracle) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersOracleOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersOracle) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersOracleOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersOracle) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -12622,7 +12621,7 @@ func (o DataSourceParametersOraclePtrOutput) Elem() DataSourceParametersOracleOu
 	}).(DataSourceParametersOracleOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersOraclePtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersOracle) *string {
 		if v == nil {
@@ -12632,7 +12631,7 @@ func (o DataSourceParametersOraclePtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersOraclePtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersOracle) *string {
 		if v == nil {
@@ -12642,7 +12641,7 @@ func (o DataSourceParametersOraclePtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersOraclePtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersOracle) *int {
 		if v == nil {
@@ -12653,11 +12652,11 @@ func (o DataSourceParametersOraclePtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersPostgresql struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host string `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port int `pulumi:"port"`
 }
 
@@ -12673,11 +12672,11 @@ type DataSourceParametersPostgresqlInput interface {
 }
 
 type DataSourceParametersPostgresqlArgs struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -12758,17 +12757,17 @@ func (o DataSourceParametersPostgresqlOutput) ToDataSourceParametersPostgresqlPt
 	}).(DataSourceParametersPostgresqlPtrOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersPostgresqlOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersPostgresql) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersPostgresqlOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersPostgresql) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersPostgresqlOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersPostgresql) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -12797,7 +12796,7 @@ func (o DataSourceParametersPostgresqlPtrOutput) Elem() DataSourceParametersPost
 	}).(DataSourceParametersPostgresqlOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersPostgresqlPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersPostgresql) *string {
 		if v == nil {
@@ -12807,7 +12806,7 @@ func (o DataSourceParametersPostgresqlPtrOutput) Database() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersPostgresqlPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersPostgresql) *string {
 		if v == nil {
@@ -12817,7 +12816,7 @@ func (o DataSourceParametersPostgresqlPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersPostgresqlPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersPostgresql) *int {
 		if v == nil {
@@ -12828,11 +12827,11 @@ func (o DataSourceParametersPostgresqlPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersPresto struct {
-	// The catalog to which to connect.
+	// Catalog to which to connect.
 	Catalog string `pulumi:"catalog"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host string `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port int `pulumi:"port"`
 }
 
@@ -12848,11 +12847,11 @@ type DataSourceParametersPrestoInput interface {
 }
 
 type DataSourceParametersPrestoArgs struct {
-	// The catalog to which to connect.
+	// Catalog to which to connect.
 	Catalog pulumi.StringInput `pulumi:"catalog"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -12933,17 +12932,17 @@ func (o DataSourceParametersPrestoOutput) ToDataSourceParametersPrestoPtrOutputW
 	}).(DataSourceParametersPrestoPtrOutput)
 }
 
-// The catalog to which to connect.
+// Catalog to which to connect.
 func (o DataSourceParametersPrestoOutput) Catalog() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersPresto) string { return v.Catalog }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersPrestoOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersPresto) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersPrestoOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersPresto) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -12972,7 +12971,7 @@ func (o DataSourceParametersPrestoPtrOutput) Elem() DataSourceParametersPrestoOu
 	}).(DataSourceParametersPrestoOutput)
 }
 
-// The catalog to which to connect.
+// Catalog to which to connect.
 func (o DataSourceParametersPrestoPtrOutput) Catalog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersPresto) *string {
 		if v == nil {
@@ -12982,7 +12981,7 @@ func (o DataSourceParametersPrestoPtrOutput) Catalog() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersPrestoPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersPresto) *string {
 		if v == nil {
@@ -12992,7 +12991,7 @@ func (o DataSourceParametersPrestoPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersPrestoPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersPresto) *int {
 		if v == nil {
@@ -13003,9 +13002,9 @@ func (o DataSourceParametersPrestoPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersRds struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database string `pulumi:"database"`
-	// The instance ID to which to connect.
+	// Instance ID to which to connect.
 	InstanceId string `pulumi:"instanceId"`
 }
 
@@ -13021,9 +13020,9 @@ type DataSourceParametersRdsInput interface {
 }
 
 type DataSourceParametersRdsArgs struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The instance ID to which to connect.
+	// Instance ID to which to connect.
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 }
 
@@ -13104,12 +13103,12 @@ func (o DataSourceParametersRdsOutput) ToDataSourceParametersRdsPtrOutputWithCon
 	}).(DataSourceParametersRdsPtrOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersRdsOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersRds) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The instance ID to which to connect.
+// Instance ID to which to connect.
 func (o DataSourceParametersRdsOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersRds) string { return v.InstanceId }).(pulumi.StringOutput)
 }
@@ -13138,7 +13137,7 @@ func (o DataSourceParametersRdsPtrOutput) Elem() DataSourceParametersRdsOutput {
 	}).(DataSourceParametersRdsOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersRdsPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersRds) *string {
 		if v == nil {
@@ -13148,7 +13147,7 @@ func (o DataSourceParametersRdsPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance ID to which to connect.
+// Instance ID to which to connect.
 func (o DataSourceParametersRdsPtrOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersRds) *string {
 		if v == nil {
@@ -13159,13 +13158,13 @@ func (o DataSourceParametersRdsPtrOutput) InstanceId() pulumi.StringPtrOutput {
 }
 
 type DataSourceParametersRedshift struct {
-	// The ID of the cluster to which to connect.
+	// ID of the cluster to which to connect.
 	ClusterId *string `pulumi:"clusterId"`
-	// The database to which to connect.
+	// Database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host *string `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port *int `pulumi:"port"`
 }
 
@@ -13181,13 +13180,13 @@ type DataSourceParametersRedshiftInput interface {
 }
 
 type DataSourceParametersRedshiftArgs struct {
-	// The ID of the cluster to which to connect.
+	// ID of the cluster to which to connect.
 	ClusterId pulumi.StringPtrInput `pulumi:"clusterId"`
-	// The database to which to connect.
+	// Database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	// The port to which to connect.
+	// Port to which to connect.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
@@ -13268,22 +13267,22 @@ func (o DataSourceParametersRedshiftOutput) ToDataSourceParametersRedshiftPtrOut
 	}).(DataSourceParametersRedshiftPtrOutput)
 }
 
-// The ID of the cluster to which to connect.
+// ID of the cluster to which to connect.
 func (o DataSourceParametersRedshiftOutput) ClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceParametersRedshift) *string { return v.ClusterId }).(pulumi.StringPtrOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersRedshiftOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersRedshift) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersRedshiftOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceParametersRedshift) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersRedshiftOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataSourceParametersRedshift) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -13312,7 +13311,7 @@ func (o DataSourceParametersRedshiftPtrOutput) Elem() DataSourceParametersRedshi
 	}).(DataSourceParametersRedshiftOutput)
 }
 
-// The ID of the cluster to which to connect.
+// ID of the cluster to which to connect.
 func (o DataSourceParametersRedshiftPtrOutput) ClusterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersRedshift) *string {
 		if v == nil {
@@ -13322,7 +13321,7 @@ func (o DataSourceParametersRedshiftPtrOutput) ClusterId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersRedshiftPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersRedshift) *string {
 		if v == nil {
@@ -13332,7 +13331,7 @@ func (o DataSourceParametersRedshiftPtrOutput) Database() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersRedshiftPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersRedshift) *string {
 		if v == nil {
@@ -13342,7 +13341,7 @@ func (o DataSourceParametersRedshiftPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The port to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersRedshiftPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersRedshift) *int {
 		if v == nil {
@@ -13353,7 +13352,7 @@ func (o DataSourceParametersRedshiftPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersS3 struct {
-	// An object containing the S3 location of the S3 manifest file.
+	// S3 location of the S3 manifest file. See `manifestFileLocation` Block below for more details.
 	ManifestFileLocation DataSourceParametersS3ManifestFileLocation `pulumi:"manifestFileLocation"`
 	// Use the `roleArn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `roleArn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
 	RoleArn *string `pulumi:"roleArn"`
@@ -13371,7 +13370,7 @@ type DataSourceParametersS3Input interface {
 }
 
 type DataSourceParametersS3Args struct {
-	// An object containing the S3 location of the S3 manifest file.
+	// S3 location of the S3 manifest file. See `manifestFileLocation` Block below for more details.
 	ManifestFileLocation DataSourceParametersS3ManifestFileLocationInput `pulumi:"manifestFileLocation"`
 	// Use the `roleArn` to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use `roleArn` to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -13454,7 +13453,7 @@ func (o DataSourceParametersS3Output) ToDataSourceParametersS3PtrOutputWithConte
 	}).(DataSourceParametersS3PtrOutput)
 }
 
-// An object containing the S3 location of the S3 manifest file.
+// S3 location of the S3 manifest file. See `manifestFileLocation` Block below for more details.
 func (o DataSourceParametersS3Output) ManifestFileLocation() DataSourceParametersS3ManifestFileLocationOutput {
 	return o.ApplyT(func(v DataSourceParametersS3) DataSourceParametersS3ManifestFileLocation {
 		return v.ManifestFileLocation
@@ -13490,7 +13489,7 @@ func (o DataSourceParametersS3PtrOutput) Elem() DataSourceParametersS3Output {
 	}).(DataSourceParametersS3Output)
 }
 
-// An object containing the S3 location of the S3 manifest file.
+// S3 location of the S3 manifest file. See `manifestFileLocation` Block below for more details.
 func (o DataSourceParametersS3PtrOutput) ManifestFileLocation() DataSourceParametersS3ManifestFileLocationPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersS3) *DataSourceParametersS3ManifestFileLocation {
 		if v == nil {
@@ -13511,9 +13510,9 @@ func (o DataSourceParametersS3PtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type DataSourceParametersS3ManifestFileLocation struct {
-	// The name of the bucket that contains the manifest file.
+	// Name of the bucket that contains the manifest file.
 	Bucket string `pulumi:"bucket"`
-	// The key of the manifest file within the bucket.
+	// Key of the manifest file within the bucket.
 	Key string `pulumi:"key"`
 }
 
@@ -13529,9 +13528,9 @@ type DataSourceParametersS3ManifestFileLocationInput interface {
 }
 
 type DataSourceParametersS3ManifestFileLocationArgs struct {
-	// The name of the bucket that contains the manifest file.
+	// Name of the bucket that contains the manifest file.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// The key of the manifest file within the bucket.
+	// Key of the manifest file within the bucket.
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -13612,12 +13611,12 @@ func (o DataSourceParametersS3ManifestFileLocationOutput) ToDataSourceParameters
 	}).(DataSourceParametersS3ManifestFileLocationPtrOutput)
 }
 
-// The name of the bucket that contains the manifest file.
+// Name of the bucket that contains the manifest file.
 func (o DataSourceParametersS3ManifestFileLocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersS3ManifestFileLocation) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// The key of the manifest file within the bucket.
+// Key of the manifest file within the bucket.
 func (o DataSourceParametersS3ManifestFileLocationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersS3ManifestFileLocation) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -13646,7 +13645,7 @@ func (o DataSourceParametersS3ManifestFileLocationPtrOutput) Elem() DataSourcePa
 	}).(DataSourceParametersS3ManifestFileLocationOutput)
 }
 
-// The name of the bucket that contains the manifest file.
+// Name of the bucket that contains the manifest file.
 func (o DataSourceParametersS3ManifestFileLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersS3ManifestFileLocation) *string {
 		if v == nil {
@@ -13656,7 +13655,7 @@ func (o DataSourceParametersS3ManifestFileLocationPtrOutput) Bucket() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The key of the manifest file within the bucket.
+// Key of the manifest file within the bucket.
 func (o DataSourceParametersS3ManifestFileLocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersS3ManifestFileLocation) *string {
 		if v == nil {
@@ -13667,7 +13666,7 @@ func (o DataSourceParametersS3ManifestFileLocationPtrOutput) Key() pulumi.String
 }
 
 type DataSourceParametersServiceNow struct {
-	// The base URL of the Jira instance's site to which to connect.
+	// Base URL of the ServiceNow instance's site to which to connect.
 	SiteBaseUrl string `pulumi:"siteBaseUrl"`
 }
 
@@ -13683,7 +13682,7 @@ type DataSourceParametersServiceNowInput interface {
 }
 
 type DataSourceParametersServiceNowArgs struct {
-	// The base URL of the Jira instance's site to which to connect.
+	// Base URL of the ServiceNow instance's site to which to connect.
 	SiteBaseUrl pulumi.StringInput `pulumi:"siteBaseUrl"`
 }
 
@@ -13764,7 +13763,7 @@ func (o DataSourceParametersServiceNowOutput) ToDataSourceParametersServiceNowPt
 	}).(DataSourceParametersServiceNowPtrOutput)
 }
 
-// The base URL of the Jira instance's site to which to connect.
+// Base URL of the ServiceNow instance's site to which to connect.
 func (o DataSourceParametersServiceNowOutput) SiteBaseUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersServiceNow) string { return v.SiteBaseUrl }).(pulumi.StringOutput)
 }
@@ -13793,7 +13792,7 @@ func (o DataSourceParametersServiceNowPtrOutput) Elem() DataSourceParametersServ
 	}).(DataSourceParametersServiceNowOutput)
 }
 
-// The base URL of the Jira instance's site to which to connect.
+// Base URL of the ServiceNow instance's site to which to connect.
 func (o DataSourceParametersServiceNowPtrOutput) SiteBaseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersServiceNow) *string {
 		if v == nil {
@@ -13804,11 +13803,11 @@ func (o DataSourceParametersServiceNowPtrOutput) SiteBaseUrl() pulumi.StringPtrO
 }
 
 type DataSourceParametersSnowflake struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host string `pulumi:"host"`
-	// The warehouse to which to connect.
+	// Warehouse to which to connect.
 	Warehouse string `pulumi:"warehouse"`
 }
 
@@ -13824,11 +13823,11 @@ type DataSourceParametersSnowflakeInput interface {
 }
 
 type DataSourceParametersSnowflakeArgs struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The warehouse to which to connect.
+	// Warehouse to which to connect.
 	Warehouse pulumi.StringInput `pulumi:"warehouse"`
 }
 
@@ -13909,17 +13908,17 @@ func (o DataSourceParametersSnowflakeOutput) ToDataSourceParametersSnowflakePtrO
 	}).(DataSourceParametersSnowflakePtrOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersSnowflakeOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersSnowflake) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersSnowflakeOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersSnowflake) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The warehouse to which to connect.
+// Warehouse to which to connect.
 func (o DataSourceParametersSnowflakeOutput) Warehouse() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersSnowflake) string { return v.Warehouse }).(pulumi.StringOutput)
 }
@@ -13948,7 +13947,7 @@ func (o DataSourceParametersSnowflakePtrOutput) Elem() DataSourceParametersSnowf
 	}).(DataSourceParametersSnowflakeOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersSnowflakePtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSnowflake) *string {
 		if v == nil {
@@ -13958,7 +13957,7 @@ func (o DataSourceParametersSnowflakePtrOutput) Database() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersSnowflakePtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSnowflake) *string {
 		if v == nil {
@@ -13968,7 +13967,7 @@ func (o DataSourceParametersSnowflakePtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The warehouse to which to connect.
+// Warehouse to which to connect.
 func (o DataSourceParametersSnowflakePtrOutput) Warehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSnowflake) *string {
 		if v == nil {
@@ -13979,9 +13978,9 @@ func (o DataSourceParametersSnowflakePtrOutput) Warehouse() pulumi.StringPtrOutp
 }
 
 type DataSourceParametersSpark struct {
-	// The host to which to connect.
+	// Host to which to connect.
 	Host string `pulumi:"host"`
-	// The warehouse to which to connect.
+	// Port to which to connect.
 	Port int `pulumi:"port"`
 }
 
@@ -13997,9 +13996,9 @@ type DataSourceParametersSparkInput interface {
 }
 
 type DataSourceParametersSparkArgs struct {
-	// The host to which to connect.
+	// Host to which to connect.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The warehouse to which to connect.
+	// Port to which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -14080,12 +14079,12 @@ func (o DataSourceParametersSparkOutput) ToDataSourceParametersSparkPtrOutputWit
 	}).(DataSourceParametersSparkPtrOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersSparkOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersSpark) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The warehouse to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersSparkOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersSpark) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -14114,7 +14113,7 @@ func (o DataSourceParametersSparkPtrOutput) Elem() DataSourceParametersSparkOutp
 	}).(DataSourceParametersSparkOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersSparkPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSpark) *string {
 		if v == nil {
@@ -14124,7 +14123,7 @@ func (o DataSourceParametersSparkPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The warehouse to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersSparkPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSpark) *int {
 		if v == nil {
@@ -14135,11 +14134,11 @@ func (o DataSourceParametersSparkPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersSqlServer struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host string `pulumi:"host"`
-	// The warehouse to which to connect.
+	// Port to which to connect.
 	Port int `pulumi:"port"`
 }
 
@@ -14155,11 +14154,11 @@ type DataSourceParametersSqlServerInput interface {
 }
 
 type DataSourceParametersSqlServerArgs struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The warehouse to which to connect.
+	// Port to which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -14240,17 +14239,17 @@ func (o DataSourceParametersSqlServerOutput) ToDataSourceParametersSqlServerPtrO
 	}).(DataSourceParametersSqlServerPtrOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersSqlServerOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersSqlServer) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersSqlServerOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersSqlServer) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The warehouse to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersSqlServerOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersSqlServer) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -14279,7 +14278,7 @@ func (o DataSourceParametersSqlServerPtrOutput) Elem() DataSourceParametersSqlSe
 	}).(DataSourceParametersSqlServerOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersSqlServerPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSqlServer) *string {
 		if v == nil {
@@ -14289,7 +14288,7 @@ func (o DataSourceParametersSqlServerPtrOutput) Database() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersSqlServerPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSqlServer) *string {
 		if v == nil {
@@ -14299,7 +14298,7 @@ func (o DataSourceParametersSqlServerPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The warehouse to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersSqlServerPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersSqlServer) *int {
 		if v == nil {
@@ -14310,11 +14309,11 @@ func (o DataSourceParametersSqlServerPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersTeradata struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database string `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host string `pulumi:"host"`
-	// The warehouse to which to connect.
+	// Port to which to connect.
 	Port int `pulumi:"port"`
 }
 
@@ -14330,11 +14329,11 @@ type DataSourceParametersTeradataInput interface {
 }
 
 type DataSourceParametersTeradataArgs struct {
-	// The database to which to connect.
+	// Database to which to connect.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The host to which to connect.
+	// Host to which to connect.
 	Host pulumi.StringInput `pulumi:"host"`
-	// The warehouse to which to connect.
+	// Port to which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -14415,17 +14414,17 @@ func (o DataSourceParametersTeradataOutput) ToDataSourceParametersTeradataPtrOut
 	}).(DataSourceParametersTeradataPtrOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersTeradataOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersTeradata) string { return v.Database }).(pulumi.StringOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersTeradataOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersTeradata) string { return v.Host }).(pulumi.StringOutput)
 }
 
-// The warehouse to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersTeradataOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersTeradata) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -14454,7 +14453,7 @@ func (o DataSourceParametersTeradataPtrOutput) Elem() DataSourceParametersTerada
 	}).(DataSourceParametersTeradataOutput)
 }
 
-// The database to which to connect.
+// Database to which to connect.
 func (o DataSourceParametersTeradataPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersTeradata) *string {
 		if v == nil {
@@ -14464,7 +14463,7 @@ func (o DataSourceParametersTeradataPtrOutput) Database() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host to which to connect.
+// Host to which to connect.
 func (o DataSourceParametersTeradataPtrOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersTeradata) *string {
 		if v == nil {
@@ -14474,7 +14473,7 @@ func (o DataSourceParametersTeradataPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The warehouse to which to connect.
+// Port to which to connect.
 func (o DataSourceParametersTeradataPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersTeradata) *int {
 		if v == nil {
@@ -14485,9 +14484,9 @@ func (o DataSourceParametersTeradataPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type DataSourceParametersTwitter struct {
-	// The maximum number of rows to query.
+	// Maximum number of rows to query.
 	MaxRows int `pulumi:"maxRows"`
-	// The Twitter query to retrieve the data.
+	// Twitter query to retrieve the data.
 	Query string `pulumi:"query"`
 }
 
@@ -14503,9 +14502,9 @@ type DataSourceParametersTwitterInput interface {
 }
 
 type DataSourceParametersTwitterArgs struct {
-	// The maximum number of rows to query.
+	// Maximum number of rows to query.
 	MaxRows pulumi.IntInput `pulumi:"maxRows"`
-	// The Twitter query to retrieve the data.
+	// Twitter query to retrieve the data.
 	Query pulumi.StringInput `pulumi:"query"`
 }
 
@@ -14586,12 +14585,12 @@ func (o DataSourceParametersTwitterOutput) ToDataSourceParametersTwitterPtrOutpu
 	}).(DataSourceParametersTwitterPtrOutput)
 }
 
-// The maximum number of rows to query.
+// Maximum number of rows to query.
 func (o DataSourceParametersTwitterOutput) MaxRows() pulumi.IntOutput {
 	return o.ApplyT(func(v DataSourceParametersTwitter) int { return v.MaxRows }).(pulumi.IntOutput)
 }
 
-// The Twitter query to retrieve the data.
+// Twitter query to retrieve the data.
 func (o DataSourceParametersTwitterOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceParametersTwitter) string { return v.Query }).(pulumi.StringOutput)
 }
@@ -14620,7 +14619,7 @@ func (o DataSourceParametersTwitterPtrOutput) Elem() DataSourceParametersTwitter
 	}).(DataSourceParametersTwitterOutput)
 }
 
-// The maximum number of rows to query.
+// Maximum number of rows to query.
 func (o DataSourceParametersTwitterPtrOutput) MaxRows() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersTwitter) *int {
 		if v == nil {
@@ -14630,7 +14629,7 @@ func (o DataSourceParametersTwitterPtrOutput) MaxRows() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Twitter query to retrieve the data.
+// Twitter query to retrieve the data.
 func (o DataSourceParametersTwitterPtrOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceParametersTwitter) *string {
 		if v == nil {
@@ -14747,7 +14746,7 @@ func (o DataSourcePermissionArrayOutput) Index(i pulumi.IntInput) DataSourcePerm
 }
 
 type DataSourceSslProperties struct {
-	// A Boolean option to control whether SSL should be disabled.
+	// Whether to disable SSL.
 	DisableSsl bool `pulumi:"disableSsl"`
 }
 
@@ -14763,7 +14762,7 @@ type DataSourceSslPropertiesInput interface {
 }
 
 type DataSourceSslPropertiesArgs struct {
-	// A Boolean option to control whether SSL should be disabled.
+	// Whether to disable SSL.
 	DisableSsl pulumi.BoolInput `pulumi:"disableSsl"`
 }
 
@@ -14844,7 +14843,7 @@ func (o DataSourceSslPropertiesOutput) ToDataSourceSslPropertiesPtrOutputWithCon
 	}).(DataSourceSslPropertiesPtrOutput)
 }
 
-// A Boolean option to control whether SSL should be disabled.
+// Whether to disable SSL.
 func (o DataSourceSslPropertiesOutput) DisableSsl() pulumi.BoolOutput {
 	return o.ApplyT(func(v DataSourceSslProperties) bool { return v.DisableSsl }).(pulumi.BoolOutput)
 }
@@ -14873,7 +14872,7 @@ func (o DataSourceSslPropertiesPtrOutput) Elem() DataSourceSslPropertiesOutput {
 	}).(DataSourceSslPropertiesOutput)
 }
 
-// A Boolean option to control whether SSL should be disabled.
+// Whether to disable SSL.
 func (o DataSourceSslPropertiesPtrOutput) DisableSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataSourceSslProperties) *bool {
 		if v == nil {
@@ -15545,9 +15544,9 @@ func (o NamespaceTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type RefreshScheduleSchedule struct {
-	// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+	// Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
 	RefreshType string `pulumi:"refreshType"`
-	// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+	// Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `scheduleFrequency` Block.
 	ScheduleFrequency RefreshScheduleScheduleScheduleFrequency `pulumi:"scheduleFrequency"`
 	// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
 	StartAfterDateTime *string `pulumi:"startAfterDateTime"`
@@ -15565,9 +15564,9 @@ type RefreshScheduleScheduleInput interface {
 }
 
 type RefreshScheduleScheduleArgs struct {
-	// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+	// Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
 	RefreshType pulumi.StringInput `pulumi:"refreshType"`
-	// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+	// Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `scheduleFrequency` Block.
 	ScheduleFrequency RefreshScheduleScheduleScheduleFrequencyInput `pulumi:"scheduleFrequency"`
 	// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
 	StartAfterDateTime pulumi.StringPtrInput `pulumi:"startAfterDateTime"`
@@ -15650,12 +15649,12 @@ func (o RefreshScheduleScheduleOutput) ToRefreshScheduleSchedulePtrOutputWithCon
 	}).(RefreshScheduleSchedulePtrOutput)
 }
 
-// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+// Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
 func (o RefreshScheduleScheduleOutput) RefreshType() pulumi.StringOutput {
 	return o.ApplyT(func(v RefreshScheduleSchedule) string { return v.RefreshType }).(pulumi.StringOutput)
 }
 
-// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+// Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `scheduleFrequency` Block.
 func (o RefreshScheduleScheduleOutput) ScheduleFrequency() RefreshScheduleScheduleScheduleFrequencyOutput {
 	return o.ApplyT(func(v RefreshScheduleSchedule) RefreshScheduleScheduleScheduleFrequency { return v.ScheduleFrequency }).(RefreshScheduleScheduleScheduleFrequencyOutput)
 }
@@ -15689,7 +15688,7 @@ func (o RefreshScheduleSchedulePtrOutput) Elem() RefreshScheduleScheduleOutput {
 	}).(RefreshScheduleScheduleOutput)
 }
 
-// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+// Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
 func (o RefreshScheduleSchedulePtrOutput) RefreshType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshScheduleSchedule) *string {
 		if v == nil {
@@ -15699,7 +15698,7 @@ func (o RefreshScheduleSchedulePtrOutput) RefreshType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+// Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `scheduleFrequency` Block.
 func (o RefreshScheduleSchedulePtrOutput) ScheduleFrequency() RefreshScheduleScheduleScheduleFrequencyPtrOutput {
 	return o.ApplyT(func(v *RefreshScheduleSchedule) *RefreshScheduleScheduleScheduleFrequency {
 		if v == nil {
@@ -15720,13 +15719,13 @@ func (o RefreshScheduleSchedulePtrOutput) StartAfterDateTime() pulumi.StringPtrO
 }
 
 type RefreshScheduleScheduleScheduleFrequency struct {
-	// The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+	// Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
 	Interval string `pulumi:"interval"`
-	// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+	// [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `refreshOnDay` Block.
 	RefreshOnDay *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay `pulumi:"refreshOnDay"`
-	// The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+	// Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
 	TimeOfTheDay *string `pulumi:"timeOfTheDay"`
-	// The timezone that you want the refresh schedule to use.
+	// Timezone that you want the refresh schedule to use.
 	Timezone *string `pulumi:"timezone"`
 }
 
@@ -15742,13 +15741,13 @@ type RefreshScheduleScheduleScheduleFrequencyInput interface {
 }
 
 type RefreshScheduleScheduleScheduleFrequencyArgs struct {
-	// The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+	// Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
 	Interval pulumi.StringInput `pulumi:"interval"`
-	// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+	// [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `refreshOnDay` Block.
 	RefreshOnDay RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrInput `pulumi:"refreshOnDay"`
-	// The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+	// Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
 	TimeOfTheDay pulumi.StringPtrInput `pulumi:"timeOfTheDay"`
-	// The timezone that you want the refresh schedule to use.
+	// Timezone that you want the refresh schedule to use.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
 }
 
@@ -15829,24 +15828,24 @@ func (o RefreshScheduleScheduleScheduleFrequencyOutput) ToRefreshScheduleSchedul
 	}).(RefreshScheduleScheduleScheduleFrequencyPtrOutput)
 }
 
-// The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+// Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
 func (o RefreshScheduleScheduleScheduleFrequencyOutput) Interval() pulumi.StringOutput {
 	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequency) string { return v.Interval }).(pulumi.StringOutput)
 }
 
-// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+// [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `refreshOnDay` Block.
 func (o RefreshScheduleScheduleScheduleFrequencyOutput) RefreshOnDay() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput {
 	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequency) *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay {
 		return v.RefreshOnDay
 	}).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput)
 }
 
-// The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+// Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
 func (o RefreshScheduleScheduleScheduleFrequencyOutput) TimeOfTheDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequency) *string { return v.TimeOfTheDay }).(pulumi.StringPtrOutput)
 }
 
-// The timezone that you want the refresh schedule to use.
+// Timezone that you want the refresh schedule to use.
 func (o RefreshScheduleScheduleScheduleFrequencyOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequency) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -15875,7 +15874,7 @@ func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) Elem() RefreshSchedul
 	}).(RefreshScheduleScheduleScheduleFrequencyOutput)
 }
 
-// The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+// Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
 func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequency) *string {
 		if v == nil {
@@ -15885,7 +15884,7 @@ func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) Interval() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+// [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `refreshOnDay` Block.
 func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) RefreshOnDay() RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput {
 	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequency) *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay {
 		if v == nil {
@@ -15895,7 +15894,7 @@ func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) RefreshOnDay() Refres
 	}).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput)
 }
 
-// The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+// Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
 func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) TimeOfTheDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequency) *string {
 		if v == nil {
@@ -15905,7 +15904,7 @@ func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) TimeOfTheDay() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The timezone that you want the refresh schedule to use.
+// Timezone that you want the refresh schedule to use.
 func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequency) *string {
 		if v == nil {
@@ -15916,9 +15915,9 @@ func (o RefreshScheduleScheduleScheduleFrequencyPtrOutput) Timezone() pulumi.Str
 }
 
 type RefreshScheduleScheduleScheduleFrequencyRefreshOnDay struct {
-	// The day of the month that you want to schedule refresh on.
+	// Day of the month that you want to schedule refresh on.
 	DayOfMonth *string `pulumi:"dayOfMonth"`
-	// The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+	// Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
 	DayOfWeek *string `pulumi:"dayOfWeek"`
 }
 
@@ -15934,9 +15933,9 @@ type RefreshScheduleScheduleScheduleFrequencyRefreshOnDayInput interface {
 }
 
 type RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs struct {
-	// The day of the month that you want to schedule refresh on.
+	// Day of the month that you want to schedule refresh on.
 	DayOfMonth pulumi.StringPtrInput `pulumi:"dayOfMonth"`
-	// The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+	// Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
 	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
 }
 
@@ -16017,12 +16016,12 @@ func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput) ToRefreshSch
 	}).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput)
 }
 
-// The day of the month that you want to schedule refresh on.
+// Day of the month that you want to schedule refresh on.
 func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput) DayOfMonth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequencyRefreshOnDay) *string { return v.DayOfMonth }).(pulumi.StringPtrOutput)
 }
 
-// The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+// Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
 func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RefreshScheduleScheduleScheduleFrequencyRefreshOnDay) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
 }
@@ -16051,7 +16050,7 @@ func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput) Elem() Re
 	}).(RefreshScheduleScheduleScheduleFrequencyRefreshOnDayOutput)
 }
 
-// The day of the month that you want to schedule refresh on.
+// Day of the month that you want to schedule refresh on.
 func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput) DayOfMonth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay) *string {
 		if v == nil {
@@ -16061,7 +16060,7 @@ func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput) DayOfMont
 	}).(pulumi.StringPtrOutput)
 }
 
-// The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+// Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
 func (o RefreshScheduleScheduleScheduleFrequencyRefreshOnDayPtrOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshScheduleScheduleScheduleFrequencyRefreshOnDay) *string {
 		if v == nil {
@@ -16178,9 +16177,9 @@ func (o TemplatePermissionArrayOutput) Index(i pulumi.IntInput) TemplatePermissi
 }
 
 type TemplateSourceEntity struct {
-	// The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
+	// Source analysis, if it is based on an analysis. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceAnalysis` Block.
 	SourceAnalysis *TemplateSourceEntitySourceAnalysis `pulumi:"sourceAnalysis"`
-	// The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
+	// Source template, if it is based on a template. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceTemplate` Block.
 	SourceTemplate *TemplateSourceEntitySourceTemplate `pulumi:"sourceTemplate"`
 }
 
@@ -16196,9 +16195,9 @@ type TemplateSourceEntityInput interface {
 }
 
 type TemplateSourceEntityArgs struct {
-	// The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
+	// Source analysis, if it is based on an analysis. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceAnalysis` Block.
 	SourceAnalysis TemplateSourceEntitySourceAnalysisPtrInput `pulumi:"sourceAnalysis"`
-	// The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
+	// Source template, if it is based on a template. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceTemplate` Block.
 	SourceTemplate TemplateSourceEntitySourceTemplatePtrInput `pulumi:"sourceTemplate"`
 }
 
@@ -16279,12 +16278,12 @@ func (o TemplateSourceEntityOutput) ToTemplateSourceEntityPtrOutputWithContext(c
 	}).(TemplateSourceEntityPtrOutput)
 }
 
-// The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
+// Source analysis, if it is based on an analysis. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceAnalysis` Block.
 func (o TemplateSourceEntityOutput) SourceAnalysis() TemplateSourceEntitySourceAnalysisPtrOutput {
 	return o.ApplyT(func(v TemplateSourceEntity) *TemplateSourceEntitySourceAnalysis { return v.SourceAnalysis }).(TemplateSourceEntitySourceAnalysisPtrOutput)
 }
 
-// The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
+// Source template, if it is based on a template. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceTemplate` Block.
 func (o TemplateSourceEntityOutput) SourceTemplate() TemplateSourceEntitySourceTemplatePtrOutput {
 	return o.ApplyT(func(v TemplateSourceEntity) *TemplateSourceEntitySourceTemplate { return v.SourceTemplate }).(TemplateSourceEntitySourceTemplatePtrOutput)
 }
@@ -16313,7 +16312,7 @@ func (o TemplateSourceEntityPtrOutput) Elem() TemplateSourceEntityOutput {
 	}).(TemplateSourceEntityOutput)
 }
 
-// The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
+// Source analysis, if it is based on an analysis. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceAnalysis` Block.
 func (o TemplateSourceEntityPtrOutput) SourceAnalysis() TemplateSourceEntitySourceAnalysisPtrOutput {
 	return o.ApplyT(func(v *TemplateSourceEntity) *TemplateSourceEntitySourceAnalysis {
 		if v == nil {
@@ -16323,7 +16322,7 @@ func (o TemplateSourceEntityPtrOutput) SourceAnalysis() TemplateSourceEntitySour
 	}).(TemplateSourceEntitySourceAnalysisPtrOutput)
 }
 
-// The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
+// Source template, if it is based on a template. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceTemplate` Block.
 func (o TemplateSourceEntityPtrOutput) SourceTemplate() TemplateSourceEntitySourceTemplatePtrOutput {
 	return o.ApplyT(func(v *TemplateSourceEntity) *TemplateSourceEntitySourceTemplate {
 		if v == nil {
@@ -16336,7 +16335,7 @@ func (o TemplateSourceEntityPtrOutput) SourceTemplate() TemplateSourceEntitySour
 type TemplateSourceEntitySourceAnalysis struct {
 	// ARN of the resource.
 	Arn string `pulumi:"arn"`
-	// A list of dataset references used as placeholders in the template. See data_set_references.
+	// List of dataset references used as placeholders in the template. See `dataSetReferences` Block.
 	DataSetReferences []TemplateSourceEntitySourceAnalysisDataSetReference `pulumi:"dataSetReferences"`
 }
 
@@ -16354,7 +16353,7 @@ type TemplateSourceEntitySourceAnalysisInput interface {
 type TemplateSourceEntitySourceAnalysisArgs struct {
 	// ARN of the resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// A list of dataset references used as placeholders in the template. See data_set_references.
+	// List of dataset references used as placeholders in the template. See `dataSetReferences` Block.
 	DataSetReferences TemplateSourceEntitySourceAnalysisDataSetReferenceArrayInput `pulumi:"dataSetReferences"`
 }
 
@@ -16440,7 +16439,7 @@ func (o TemplateSourceEntitySourceAnalysisOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSourceEntitySourceAnalysis) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A list of dataset references used as placeholders in the template. See data_set_references.
+// List of dataset references used as placeholders in the template. See `dataSetReferences` Block.
 func (o TemplateSourceEntitySourceAnalysisOutput) DataSetReferences() TemplateSourceEntitySourceAnalysisDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v TemplateSourceEntitySourceAnalysis) []TemplateSourceEntitySourceAnalysisDataSetReference {
 		return v.DataSetReferences
@@ -16481,7 +16480,7 @@ func (o TemplateSourceEntitySourceAnalysisPtrOutput) Arn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of dataset references used as placeholders in the template. See data_set_references.
+// List of dataset references used as placeholders in the template. See `dataSetReferences` Block.
 func (o TemplateSourceEntitySourceAnalysisPtrOutput) DataSetReferences() TemplateSourceEntitySourceAnalysisDataSetReferenceArrayOutput {
 	return o.ApplyT(func(v *TemplateSourceEntitySourceAnalysis) []TemplateSourceEntitySourceAnalysisDataSetReference {
 		if v == nil {
@@ -16739,7 +16738,7 @@ type ThemeConfiguration struct {
 	DataColorPalette *ThemeConfigurationDataColorPalette `pulumi:"dataColorPalette"`
 	// Display options related to sheets. See sheet.
 	Sheet *ThemeConfigurationSheet `pulumi:"sheet"`
-	// Determines the typography options. See typography.
+	// Typography options. See typography.
 	Typography *ThemeConfigurationTypography `pulumi:"typography"`
 	// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
 	UiColorPalette *ThemeConfigurationUiColorPalette `pulumi:"uiColorPalette"`
@@ -16761,7 +16760,7 @@ type ThemeConfigurationArgs struct {
 	DataColorPalette ThemeConfigurationDataColorPalettePtrInput `pulumi:"dataColorPalette"`
 	// Display options related to sheets. See sheet.
 	Sheet ThemeConfigurationSheetPtrInput `pulumi:"sheet"`
-	// Determines the typography options. See typography.
+	// Typography options. See typography.
 	Typography ThemeConfigurationTypographyPtrInput `pulumi:"typography"`
 	// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
 	UiColorPalette ThemeConfigurationUiColorPalettePtrInput `pulumi:"uiColorPalette"`
@@ -16854,7 +16853,7 @@ func (o ThemeConfigurationOutput) Sheet() ThemeConfigurationSheetPtrOutput {
 	return o.ApplyT(func(v ThemeConfiguration) *ThemeConfigurationSheet { return v.Sheet }).(ThemeConfigurationSheetPtrOutput)
 }
 
-// Determines the typography options. See typography.
+// Typography options. See typography.
 func (o ThemeConfigurationOutput) Typography() ThemeConfigurationTypographyPtrOutput {
 	return o.ApplyT(func(v ThemeConfiguration) *ThemeConfigurationTypography { return v.Typography }).(ThemeConfigurationTypographyPtrOutput)
 }
@@ -16908,7 +16907,7 @@ func (o ThemeConfigurationPtrOutput) Sheet() ThemeConfigurationSheetPtrOutput {
 	}).(ThemeConfigurationSheetPtrOutput)
 }
 
-// Determines the typography options. See typography.
+// Typography options. See typography.
 func (o ThemeConfigurationPtrOutput) Typography() ThemeConfigurationTypographyPtrOutput {
 	return o.ApplyT(func(v *ThemeConfiguration) *ThemeConfigurationTypography {
 		if v == nil {
@@ -16931,9 +16930,9 @@ func (o ThemeConfigurationPtrOutput) UiColorPalette() ThemeConfigurationUiColorP
 type ThemeConfigurationDataColorPalette struct {
 	// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
 	Colors []string `pulumi:"colors"`
-	// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+	// Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
 	EmptyFillColor *string `pulumi:"emptyFillColor"`
-	// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+	// Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
 	MinMaxGradients []string `pulumi:"minMaxGradients"`
 }
 
@@ -16951,9 +16950,9 @@ type ThemeConfigurationDataColorPaletteInput interface {
 type ThemeConfigurationDataColorPaletteArgs struct {
 	// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
 	Colors pulumi.StringArrayInput `pulumi:"colors"`
-	// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+	// Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
 	EmptyFillColor pulumi.StringPtrInput `pulumi:"emptyFillColor"`
-	// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+	// Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
 	MinMaxGradients pulumi.StringArrayInput `pulumi:"minMaxGradients"`
 }
 
@@ -17039,12 +17038,12 @@ func (o ThemeConfigurationDataColorPaletteOutput) Colors() pulumi.StringArrayOut
 	return o.ApplyT(func(v ThemeConfigurationDataColorPalette) []string { return v.Colors }).(pulumi.StringArrayOutput)
 }
 
-// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+// Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
 func (o ThemeConfigurationDataColorPaletteOutput) EmptyFillColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeConfigurationDataColorPalette) *string { return v.EmptyFillColor }).(pulumi.StringPtrOutput)
 }
 
-// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+// Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
 func (o ThemeConfigurationDataColorPaletteOutput) MinMaxGradients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ThemeConfigurationDataColorPalette) []string { return v.MinMaxGradients }).(pulumi.StringArrayOutput)
 }
@@ -17083,7 +17082,7 @@ func (o ThemeConfigurationDataColorPalettePtrOutput) Colors() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+// Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
 func (o ThemeConfigurationDataColorPalettePtrOutput) EmptyFillColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThemeConfigurationDataColorPalette) *string {
 		if v == nil {
@@ -17093,7 +17092,7 @@ func (o ThemeConfigurationDataColorPalettePtrOutput) EmptyFillColor() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+// Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
 func (o ThemeConfigurationDataColorPalettePtrOutput) MinMaxGradients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ThemeConfigurationDataColorPalette) []string {
 		if v == nil {
@@ -17104,9 +17103,9 @@ func (o ThemeConfigurationDataColorPalettePtrOutput) MinMaxGradients() pulumi.St
 }
 
 type ThemeConfigurationSheet struct {
-	// The display options for tiles. See tile.
+	// Display options for tiles. See tile.
 	Tile *ThemeConfigurationSheetTile `pulumi:"tile"`
-	// The layout options for tiles. See tile_layout.
+	// Layout options for tiles. See tile_layout.
 	TileLayout *ThemeConfigurationSheetTileLayout `pulumi:"tileLayout"`
 }
 
@@ -17122,9 +17121,9 @@ type ThemeConfigurationSheetInput interface {
 }
 
 type ThemeConfigurationSheetArgs struct {
-	// The display options for tiles. See tile.
+	// Display options for tiles. See tile.
 	Tile ThemeConfigurationSheetTilePtrInput `pulumi:"tile"`
-	// The layout options for tiles. See tile_layout.
+	// Layout options for tiles. See tile_layout.
 	TileLayout ThemeConfigurationSheetTileLayoutPtrInput `pulumi:"tileLayout"`
 }
 
@@ -17205,12 +17204,12 @@ func (o ThemeConfigurationSheetOutput) ToThemeConfigurationSheetPtrOutputWithCon
 	}).(ThemeConfigurationSheetPtrOutput)
 }
 
-// The display options for tiles. See tile.
+// Display options for tiles. See tile.
 func (o ThemeConfigurationSheetOutput) Tile() ThemeConfigurationSheetTilePtrOutput {
 	return o.ApplyT(func(v ThemeConfigurationSheet) *ThemeConfigurationSheetTile { return v.Tile }).(ThemeConfigurationSheetTilePtrOutput)
 }
 
-// The layout options for tiles. See tile_layout.
+// Layout options for tiles. See tile_layout.
 func (o ThemeConfigurationSheetOutput) TileLayout() ThemeConfigurationSheetTileLayoutPtrOutput {
 	return o.ApplyT(func(v ThemeConfigurationSheet) *ThemeConfigurationSheetTileLayout { return v.TileLayout }).(ThemeConfigurationSheetTileLayoutPtrOutput)
 }
@@ -17239,7 +17238,7 @@ func (o ThemeConfigurationSheetPtrOutput) Elem() ThemeConfigurationSheetOutput {
 	}).(ThemeConfigurationSheetOutput)
 }
 
-// The display options for tiles. See tile.
+// Display options for tiles. See tile.
 func (o ThemeConfigurationSheetPtrOutput) Tile() ThemeConfigurationSheetTilePtrOutput {
 	return o.ApplyT(func(v *ThemeConfigurationSheet) *ThemeConfigurationSheetTile {
 		if v == nil {
@@ -17249,7 +17248,7 @@ func (o ThemeConfigurationSheetPtrOutput) Tile() ThemeConfigurationSheetTilePtrO
 	}).(ThemeConfigurationSheetTilePtrOutput)
 }
 
-// The layout options for tiles. See tile_layout.
+// Layout options for tiles. See tile_layout.
 func (o ThemeConfigurationSheetPtrOutput) TileLayout() ThemeConfigurationSheetTileLayoutPtrOutput {
 	return o.ApplyT(func(v *ThemeConfigurationSheet) *ThemeConfigurationSheetTileLayout {
 		if v == nil {
@@ -17260,7 +17259,7 @@ func (o ThemeConfigurationSheetPtrOutput) TileLayout() ThemeConfigurationSheetTi
 }
 
 type ThemeConfigurationSheetTile struct {
-	// The border around a tile. See border.
+	// Border around a tile. See border.
 	Border *ThemeConfigurationSheetTileBorder `pulumi:"border"`
 }
 
@@ -17276,7 +17275,7 @@ type ThemeConfigurationSheetTileInput interface {
 }
 
 type ThemeConfigurationSheetTileArgs struct {
-	// The border around a tile. See border.
+	// Border around a tile. See border.
 	Border ThemeConfigurationSheetTileBorderPtrInput `pulumi:"border"`
 }
 
@@ -17357,7 +17356,7 @@ func (o ThemeConfigurationSheetTileOutput) ToThemeConfigurationSheetTilePtrOutpu
 	}).(ThemeConfigurationSheetTilePtrOutput)
 }
 
-// The border around a tile. See border.
+// Border around a tile. See border.
 func (o ThemeConfigurationSheetTileOutput) Border() ThemeConfigurationSheetTileBorderPtrOutput {
 	return o.ApplyT(func(v ThemeConfigurationSheetTile) *ThemeConfigurationSheetTileBorder { return v.Border }).(ThemeConfigurationSheetTileBorderPtrOutput)
 }
@@ -17386,7 +17385,7 @@ func (o ThemeConfigurationSheetTilePtrOutput) Elem() ThemeConfigurationSheetTile
 	}).(ThemeConfigurationSheetTileOutput)
 }
 
-// The border around a tile. See border.
+// Border around a tile. See border.
 func (o ThemeConfigurationSheetTilePtrOutput) Border() ThemeConfigurationSheetTileBorderPtrOutput {
 	return o.ApplyT(func(v *ThemeConfigurationSheetTile) *ThemeConfigurationSheetTileBorder {
 		if v == nil {
@@ -17397,7 +17396,7 @@ func (o ThemeConfigurationSheetTilePtrOutput) Border() ThemeConfigurationSheetTi
 }
 
 type ThemeConfigurationSheetTileBorder struct {
-	// The option to enable display of borders for visuals.
+	// Whether to enable display of borders for visuals.
 	Show *bool `pulumi:"show"`
 }
 
@@ -17413,7 +17412,7 @@ type ThemeConfigurationSheetTileBorderInput interface {
 }
 
 type ThemeConfigurationSheetTileBorderArgs struct {
-	// The option to enable display of borders for visuals.
+	// Whether to enable display of borders for visuals.
 	Show pulumi.BoolPtrInput `pulumi:"show"`
 }
 
@@ -17494,7 +17493,7 @@ func (o ThemeConfigurationSheetTileBorderOutput) ToThemeConfigurationSheetTileBo
 	}).(ThemeConfigurationSheetTileBorderPtrOutput)
 }
 
-// The option to enable display of borders for visuals.
+// Whether to enable display of borders for visuals.
 func (o ThemeConfigurationSheetTileBorderOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ThemeConfigurationSheetTileBorder) *bool { return v.Show }).(pulumi.BoolPtrOutput)
 }
@@ -17523,7 +17522,7 @@ func (o ThemeConfigurationSheetTileBorderPtrOutput) Elem() ThemeConfigurationShe
 	}).(ThemeConfigurationSheetTileBorderOutput)
 }
 
-// The option to enable display of borders for visuals.
+// Whether to enable display of borders for visuals.
 func (o ThemeConfigurationSheetTileBorderPtrOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThemeConfigurationSheetTileBorder) *bool {
 		if v == nil {
@@ -17534,9 +17533,9 @@ func (o ThemeConfigurationSheetTileBorderPtrOutput) Show() pulumi.BoolPtrOutput 
 }
 
 type ThemeConfigurationSheetTileLayout struct {
-	// The gutter settings that apply between tiles. See gutter.
+	// Gutter settings that apply between tiles. See gutter.
 	Gutter *ThemeConfigurationSheetTileLayoutGutter `pulumi:"gutter"`
-	// The margin settings that apply around the outside edge of sheets. See margin.
+	// Margin settings that apply around the outside edge of sheets. See margin.
 	Margin *ThemeConfigurationSheetTileLayoutMargin `pulumi:"margin"`
 }
 
@@ -17552,9 +17551,9 @@ type ThemeConfigurationSheetTileLayoutInput interface {
 }
 
 type ThemeConfigurationSheetTileLayoutArgs struct {
-	// The gutter settings that apply between tiles. See gutter.
+	// Gutter settings that apply between tiles. See gutter.
 	Gutter ThemeConfigurationSheetTileLayoutGutterPtrInput `pulumi:"gutter"`
-	// The margin settings that apply around the outside edge of sheets. See margin.
+	// Margin settings that apply around the outside edge of sheets. See margin.
 	Margin ThemeConfigurationSheetTileLayoutMarginPtrInput `pulumi:"margin"`
 }
 
@@ -17635,12 +17634,12 @@ func (o ThemeConfigurationSheetTileLayoutOutput) ToThemeConfigurationSheetTileLa
 	}).(ThemeConfigurationSheetTileLayoutPtrOutput)
 }
 
-// The gutter settings that apply between tiles. See gutter.
+// Gutter settings that apply between tiles. See gutter.
 func (o ThemeConfigurationSheetTileLayoutOutput) Gutter() ThemeConfigurationSheetTileLayoutGutterPtrOutput {
 	return o.ApplyT(func(v ThemeConfigurationSheetTileLayout) *ThemeConfigurationSheetTileLayoutGutter { return v.Gutter }).(ThemeConfigurationSheetTileLayoutGutterPtrOutput)
 }
 
-// The margin settings that apply around the outside edge of sheets. See margin.
+// Margin settings that apply around the outside edge of sheets. See margin.
 func (o ThemeConfigurationSheetTileLayoutOutput) Margin() ThemeConfigurationSheetTileLayoutMarginPtrOutput {
 	return o.ApplyT(func(v ThemeConfigurationSheetTileLayout) *ThemeConfigurationSheetTileLayoutMargin { return v.Margin }).(ThemeConfigurationSheetTileLayoutMarginPtrOutput)
 }
@@ -17669,7 +17668,7 @@ func (o ThemeConfigurationSheetTileLayoutPtrOutput) Elem() ThemeConfigurationShe
 	}).(ThemeConfigurationSheetTileLayoutOutput)
 }
 
-// The gutter settings that apply between tiles. See gutter.
+// Gutter settings that apply between tiles. See gutter.
 func (o ThemeConfigurationSheetTileLayoutPtrOutput) Gutter() ThemeConfigurationSheetTileLayoutGutterPtrOutput {
 	return o.ApplyT(func(v *ThemeConfigurationSheetTileLayout) *ThemeConfigurationSheetTileLayoutGutter {
 		if v == nil {
@@ -17679,7 +17678,7 @@ func (o ThemeConfigurationSheetTileLayoutPtrOutput) Gutter() ThemeConfigurationS
 	}).(ThemeConfigurationSheetTileLayoutGutterPtrOutput)
 }
 
-// The margin settings that apply around the outside edge of sheets. See margin.
+// Margin settings that apply around the outside edge of sheets. See margin.
 func (o ThemeConfigurationSheetTileLayoutPtrOutput) Margin() ThemeConfigurationSheetTileLayoutMarginPtrOutput {
 	return o.ApplyT(func(v *ThemeConfigurationSheetTileLayout) *ThemeConfigurationSheetTileLayoutMargin {
 		if v == nil {
@@ -17690,7 +17689,7 @@ func (o ThemeConfigurationSheetTileLayoutPtrOutput) Margin() ThemeConfigurationS
 }
 
 type ThemeConfigurationSheetTileLayoutGutter struct {
-	// This Boolean value controls whether to display a gutter space between sheet tiles.
+	// Whether to display a gutter space between sheet tiles.
 	Show *bool `pulumi:"show"`
 }
 
@@ -17706,7 +17705,7 @@ type ThemeConfigurationSheetTileLayoutGutterInput interface {
 }
 
 type ThemeConfigurationSheetTileLayoutGutterArgs struct {
-	// This Boolean value controls whether to display a gutter space between sheet tiles.
+	// Whether to display a gutter space between sheet tiles.
 	Show pulumi.BoolPtrInput `pulumi:"show"`
 }
 
@@ -17787,7 +17786,7 @@ func (o ThemeConfigurationSheetTileLayoutGutterOutput) ToThemeConfigurationSheet
 	}).(ThemeConfigurationSheetTileLayoutGutterPtrOutput)
 }
 
-// This Boolean value controls whether to display a gutter space between sheet tiles.
+// Whether to display a gutter space between sheet tiles.
 func (o ThemeConfigurationSheetTileLayoutGutterOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ThemeConfigurationSheetTileLayoutGutter) *bool { return v.Show }).(pulumi.BoolPtrOutput)
 }
@@ -17816,7 +17815,7 @@ func (o ThemeConfigurationSheetTileLayoutGutterPtrOutput) Elem() ThemeConfigurat
 	}).(ThemeConfigurationSheetTileLayoutGutterOutput)
 }
 
-// This Boolean value controls whether to display a gutter space between sheet tiles.
+// Whether to display a gutter space between sheet tiles.
 func (o ThemeConfigurationSheetTileLayoutGutterPtrOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThemeConfigurationSheetTileLayoutGutter) *bool {
 		if v == nil {
@@ -17827,7 +17826,7 @@ func (o ThemeConfigurationSheetTileLayoutGutterPtrOutput) Show() pulumi.BoolPtrO
 }
 
 type ThemeConfigurationSheetTileLayoutMargin struct {
-	// This Boolean value controls whether to display sheet margins.
+	// Whether to display sheet margins.
 	Show *bool `pulumi:"show"`
 }
 
@@ -17843,7 +17842,7 @@ type ThemeConfigurationSheetTileLayoutMarginInput interface {
 }
 
 type ThemeConfigurationSheetTileLayoutMarginArgs struct {
-	// This Boolean value controls whether to display sheet margins.
+	// Whether to display sheet margins.
 	Show pulumi.BoolPtrInput `pulumi:"show"`
 }
 
@@ -17924,7 +17923,7 @@ func (o ThemeConfigurationSheetTileLayoutMarginOutput) ToThemeConfigurationSheet
 	}).(ThemeConfigurationSheetTileLayoutMarginPtrOutput)
 }
 
-// This Boolean value controls whether to display sheet margins.
+// Whether to display sheet margins.
 func (o ThemeConfigurationSheetTileLayoutMarginOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ThemeConfigurationSheetTileLayoutMargin) *bool { return v.Show }).(pulumi.BoolPtrOutput)
 }
@@ -17953,7 +17952,7 @@ func (o ThemeConfigurationSheetTileLayoutMarginPtrOutput) Elem() ThemeConfigurat
 	}).(ThemeConfigurationSheetTileLayoutMarginOutput)
 }
 
-// This Boolean value controls whether to display sheet margins.
+// Whether to display sheet margins.
 func (o ThemeConfigurationSheetTileLayoutMarginPtrOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThemeConfigurationSheetTileLayoutMargin) *bool {
 		if v == nil {
@@ -17964,7 +17963,7 @@ func (o ThemeConfigurationSheetTileLayoutMarginPtrOutput) Show() pulumi.BoolPtrO
 }
 
 type ThemeConfigurationTypography struct {
-	// Determines the list of font families. Maximum number of 5 items. See font_families.
+	// List of font families. Maximum number of 5 items. See font_families.
 	FontFamilies []ThemeConfigurationTypographyFontFamily `pulumi:"fontFamilies"`
 }
 
@@ -17980,7 +17979,7 @@ type ThemeConfigurationTypographyInput interface {
 }
 
 type ThemeConfigurationTypographyArgs struct {
-	// Determines the list of font families. Maximum number of 5 items. See font_families.
+	// List of font families. Maximum number of 5 items. See font_families.
 	FontFamilies ThemeConfigurationTypographyFontFamilyArrayInput `pulumi:"fontFamilies"`
 }
 
@@ -18061,7 +18060,7 @@ func (o ThemeConfigurationTypographyOutput) ToThemeConfigurationTypographyPtrOut
 	}).(ThemeConfigurationTypographyPtrOutput)
 }
 
-// Determines the list of font families. Maximum number of 5 items. See font_families.
+// List of font families. Maximum number of 5 items. See font_families.
 func (o ThemeConfigurationTypographyOutput) FontFamilies() ThemeConfigurationTypographyFontFamilyArrayOutput {
 	return o.ApplyT(func(v ThemeConfigurationTypography) []ThemeConfigurationTypographyFontFamily { return v.FontFamilies }).(ThemeConfigurationTypographyFontFamilyArrayOutput)
 }
@@ -18090,7 +18089,7 @@ func (o ThemeConfigurationTypographyPtrOutput) Elem() ThemeConfigurationTypograp
 	}).(ThemeConfigurationTypographyOutput)
 }
 
-// Determines the list of font families. Maximum number of 5 items. See font_families.
+// List of font families. Maximum number of 5 items. See font_families.
 func (o ThemeConfigurationTypographyPtrOutput) FontFamilies() ThemeConfigurationTypographyFontFamilyArrayOutput {
 	return o.ApplyT(func(v *ThemeConfigurationTypography) []ThemeConfigurationTypographyFontFamily {
 		if v == nil {
@@ -22499,7 +22498,7 @@ type GetThemeConfiguration struct {
 	DataColorPalettes []GetThemeConfigurationDataColorPalette `pulumi:"dataColorPalettes"`
 	// Display options related to sheets. See sheet.
 	Sheets []GetThemeConfigurationSheet `pulumi:"sheets"`
-	// Determines the typography options. See typography.
+	// Typography options. See typography.
 	Typographies []GetThemeConfigurationTypography `pulumi:"typographies"`
 	// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
 	UiColorPalettes []GetThemeConfigurationUiColorPalette `pulumi:"uiColorPalettes"`
@@ -22521,7 +22520,7 @@ type GetThemeConfigurationArgs struct {
 	DataColorPalettes GetThemeConfigurationDataColorPaletteArrayInput `pulumi:"dataColorPalettes"`
 	// Display options related to sheets. See sheet.
 	Sheets GetThemeConfigurationSheetArrayInput `pulumi:"sheets"`
-	// Determines the typography options. See typography.
+	// Typography options. See typography.
 	Typographies GetThemeConfigurationTypographyArrayInput `pulumi:"typographies"`
 	// Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
 	UiColorPalettes GetThemeConfigurationUiColorPaletteArrayInput `pulumi:"uiColorPalettes"`
@@ -22588,7 +22587,7 @@ func (o GetThemeConfigurationOutput) Sheets() GetThemeConfigurationSheetArrayOut
 	return o.ApplyT(func(v GetThemeConfiguration) []GetThemeConfigurationSheet { return v.Sheets }).(GetThemeConfigurationSheetArrayOutput)
 }
 
-// Determines the typography options. See typography.
+// Typography options. See typography.
 func (o GetThemeConfigurationOutput) Typographies() GetThemeConfigurationTypographyArrayOutput {
 	return o.ApplyT(func(v GetThemeConfiguration) []GetThemeConfigurationTypography { return v.Typographies }).(GetThemeConfigurationTypographyArrayOutput)
 }
@@ -22621,9 +22620,9 @@ func (o GetThemeConfigurationArrayOutput) Index(i pulumi.IntInput) GetThemeConfi
 type GetThemeConfigurationDataColorPalette struct {
 	// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
 	Colors []string `pulumi:"colors"`
-	// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+	// Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
 	EmptyFillColor string `pulumi:"emptyFillColor"`
-	// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+	// Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
 	MinMaxGradients []string `pulumi:"minMaxGradients"`
 }
 
@@ -22641,9 +22640,9 @@ type GetThemeConfigurationDataColorPaletteInput interface {
 type GetThemeConfigurationDataColorPaletteArgs struct {
 	// List of hexadecimal codes for the colors. Minimum of 8 items and maximum of 20 items.
 	Colors pulumi.StringArrayInput `pulumi:"colors"`
-	// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+	// Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
 	EmptyFillColor pulumi.StringInput `pulumi:"emptyFillColor"`
-	// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+	// Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
 	MinMaxGradients pulumi.StringArrayInput `pulumi:"minMaxGradients"`
 }
 
@@ -22703,12 +22702,12 @@ func (o GetThemeConfigurationDataColorPaletteOutput) Colors() pulumi.StringArray
 	return o.ApplyT(func(v GetThemeConfigurationDataColorPalette) []string { return v.Colors }).(pulumi.StringArrayOutput)
 }
 
-// The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+// Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
 func (o GetThemeConfigurationDataColorPaletteOutput) EmptyFillColor() pulumi.StringOutput {
 	return o.ApplyT(func(v GetThemeConfigurationDataColorPalette) string { return v.EmptyFillColor }).(pulumi.StringOutput)
 }
 
-// The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+// Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
 func (o GetThemeConfigurationDataColorPaletteOutput) MinMaxGradients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetThemeConfigurationDataColorPalette) []string { return v.MinMaxGradients }).(pulumi.StringArrayOutput)
 }
@@ -22734,9 +22733,9 @@ func (o GetThemeConfigurationDataColorPaletteArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetThemeConfigurationSheet struct {
-	// The layout options for tiles. See tile_layout.
+	// Layout options for tiles. See tile_layout.
 	TileLayouts []GetThemeConfigurationSheetTileLayout `pulumi:"tileLayouts"`
-	// The display options for tiles. See tile.
+	// Display options for tiles. See tile.
 	Tiles []GetThemeConfigurationSheetTile `pulumi:"tiles"`
 }
 
@@ -22752,9 +22751,9 @@ type GetThemeConfigurationSheetInput interface {
 }
 
 type GetThemeConfigurationSheetArgs struct {
-	// The layout options for tiles. See tile_layout.
+	// Layout options for tiles. See tile_layout.
 	TileLayouts GetThemeConfigurationSheetTileLayoutArrayInput `pulumi:"tileLayouts"`
-	// The display options for tiles. See tile.
+	// Display options for tiles. See tile.
 	Tiles GetThemeConfigurationSheetTileArrayInput `pulumi:"tiles"`
 }
 
@@ -22809,12 +22808,12 @@ func (o GetThemeConfigurationSheetOutput) ToGetThemeConfigurationSheetOutputWith
 	return o
 }
 
-// The layout options for tiles. See tile_layout.
+// Layout options for tiles. See tile_layout.
 func (o GetThemeConfigurationSheetOutput) TileLayouts() GetThemeConfigurationSheetTileLayoutArrayOutput {
 	return o.ApplyT(func(v GetThemeConfigurationSheet) []GetThemeConfigurationSheetTileLayout { return v.TileLayouts }).(GetThemeConfigurationSheetTileLayoutArrayOutput)
 }
 
-// The display options for tiles. See tile.
+// Display options for tiles. See tile.
 func (o GetThemeConfigurationSheetOutput) Tiles() GetThemeConfigurationSheetTileArrayOutput {
 	return o.ApplyT(func(v GetThemeConfigurationSheet) []GetThemeConfigurationSheetTile { return v.Tiles }).(GetThemeConfigurationSheetTileArrayOutput)
 }
@@ -22840,7 +22839,7 @@ func (o GetThemeConfigurationSheetArrayOutput) Index(i pulumi.IntInput) GetTheme
 }
 
 type GetThemeConfigurationSheetTile struct {
-	// The border around a tile. See border.
+	// Border around a tile. See border.
 	Borders []GetThemeConfigurationSheetTileBorder `pulumi:"borders"`
 }
 
@@ -22856,7 +22855,7 @@ type GetThemeConfigurationSheetTileInput interface {
 }
 
 type GetThemeConfigurationSheetTileArgs struct {
-	// The border around a tile. See border.
+	// Border around a tile. See border.
 	Borders GetThemeConfigurationSheetTileBorderArrayInput `pulumi:"borders"`
 }
 
@@ -22911,7 +22910,7 @@ func (o GetThemeConfigurationSheetTileOutput) ToGetThemeConfigurationSheetTileOu
 	return o
 }
 
-// The border around a tile. See border.
+// Border around a tile. See border.
 func (o GetThemeConfigurationSheetTileOutput) Borders() GetThemeConfigurationSheetTileBorderArrayOutput {
 	return o.ApplyT(func(v GetThemeConfigurationSheetTile) []GetThemeConfigurationSheetTileBorder { return v.Borders }).(GetThemeConfigurationSheetTileBorderArrayOutput)
 }
@@ -22937,7 +22936,7 @@ func (o GetThemeConfigurationSheetTileArrayOutput) Index(i pulumi.IntInput) GetT
 }
 
 type GetThemeConfigurationSheetTileBorder struct {
-	// This Boolean value controls whether to display sheet margins.
+	// Whether to display sheet margins.
 	Show bool `pulumi:"show"`
 }
 
@@ -22953,7 +22952,7 @@ type GetThemeConfigurationSheetTileBorderInput interface {
 }
 
 type GetThemeConfigurationSheetTileBorderArgs struct {
-	// This Boolean value controls whether to display sheet margins.
+	// Whether to display sheet margins.
 	Show pulumi.BoolInput `pulumi:"show"`
 }
 
@@ -23008,7 +23007,7 @@ func (o GetThemeConfigurationSheetTileBorderOutput) ToGetThemeConfigurationSheet
 	return o
 }
 
-// This Boolean value controls whether to display sheet margins.
+// Whether to display sheet margins.
 func (o GetThemeConfigurationSheetTileBorderOutput) Show() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetThemeConfigurationSheetTileBorder) bool { return v.Show }).(pulumi.BoolOutput)
 }
@@ -23034,9 +23033,9 @@ func (o GetThemeConfigurationSheetTileBorderArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetThemeConfigurationSheetTileLayout struct {
-	// The gutter settings that apply between tiles. See gutter.
+	// Gutter settings that apply between tiles. See gutter.
 	Gutters []GetThemeConfigurationSheetTileLayoutGutter `pulumi:"gutters"`
-	// The margin settings that apply around the outside edge of sheets. See margin.
+	// Margin settings that apply around the outside edge of sheets. See margin.
 	Margins []GetThemeConfigurationSheetTileLayoutMargin `pulumi:"margins"`
 }
 
@@ -23052,9 +23051,9 @@ type GetThemeConfigurationSheetTileLayoutInput interface {
 }
 
 type GetThemeConfigurationSheetTileLayoutArgs struct {
-	// The gutter settings that apply between tiles. See gutter.
+	// Gutter settings that apply between tiles. See gutter.
 	Gutters GetThemeConfigurationSheetTileLayoutGutterArrayInput `pulumi:"gutters"`
-	// The margin settings that apply around the outside edge of sheets. See margin.
+	// Margin settings that apply around the outside edge of sheets. See margin.
 	Margins GetThemeConfigurationSheetTileLayoutMarginArrayInput `pulumi:"margins"`
 }
 
@@ -23109,14 +23108,14 @@ func (o GetThemeConfigurationSheetTileLayoutOutput) ToGetThemeConfigurationSheet
 	return o
 }
 
-// The gutter settings that apply between tiles. See gutter.
+// Gutter settings that apply between tiles. See gutter.
 func (o GetThemeConfigurationSheetTileLayoutOutput) Gutters() GetThemeConfigurationSheetTileLayoutGutterArrayOutput {
 	return o.ApplyT(func(v GetThemeConfigurationSheetTileLayout) []GetThemeConfigurationSheetTileLayoutGutter {
 		return v.Gutters
 	}).(GetThemeConfigurationSheetTileLayoutGutterArrayOutput)
 }
 
-// The margin settings that apply around the outside edge of sheets. See margin.
+// Margin settings that apply around the outside edge of sheets. See margin.
 func (o GetThemeConfigurationSheetTileLayoutOutput) Margins() GetThemeConfigurationSheetTileLayoutMarginArrayOutput {
 	return o.ApplyT(func(v GetThemeConfigurationSheetTileLayout) []GetThemeConfigurationSheetTileLayoutMargin {
 		return v.Margins
@@ -23144,7 +23143,7 @@ func (o GetThemeConfigurationSheetTileLayoutArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetThemeConfigurationSheetTileLayoutGutter struct {
-	// This Boolean value controls whether to display sheet margins.
+	// Whether to display sheet margins.
 	Show bool `pulumi:"show"`
 }
 
@@ -23160,7 +23159,7 @@ type GetThemeConfigurationSheetTileLayoutGutterInput interface {
 }
 
 type GetThemeConfigurationSheetTileLayoutGutterArgs struct {
-	// This Boolean value controls whether to display sheet margins.
+	// Whether to display sheet margins.
 	Show pulumi.BoolInput `pulumi:"show"`
 }
 
@@ -23215,7 +23214,7 @@ func (o GetThemeConfigurationSheetTileLayoutGutterOutput) ToGetThemeConfiguratio
 	return o
 }
 
-// This Boolean value controls whether to display sheet margins.
+// Whether to display sheet margins.
 func (o GetThemeConfigurationSheetTileLayoutGutterOutput) Show() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetThemeConfigurationSheetTileLayoutGutter) bool { return v.Show }).(pulumi.BoolOutput)
 }
@@ -23241,7 +23240,7 @@ func (o GetThemeConfigurationSheetTileLayoutGutterArrayOutput) Index(i pulumi.In
 }
 
 type GetThemeConfigurationSheetTileLayoutMargin struct {
-	// This Boolean value controls whether to display sheet margins.
+	// Whether to display sheet margins.
 	Show bool `pulumi:"show"`
 }
 
@@ -23257,7 +23256,7 @@ type GetThemeConfigurationSheetTileLayoutMarginInput interface {
 }
 
 type GetThemeConfigurationSheetTileLayoutMarginArgs struct {
-	// This Boolean value controls whether to display sheet margins.
+	// Whether to display sheet margins.
 	Show pulumi.BoolInput `pulumi:"show"`
 }
 
@@ -23312,7 +23311,7 @@ func (o GetThemeConfigurationSheetTileLayoutMarginOutput) ToGetThemeConfiguratio
 	return o
 }
 
-// This Boolean value controls whether to display sheet margins.
+// Whether to display sheet margins.
 func (o GetThemeConfigurationSheetTileLayoutMarginOutput) Show() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetThemeConfigurationSheetTileLayoutMargin) bool { return v.Show }).(pulumi.BoolOutput)
 }
@@ -23338,7 +23337,7 @@ func (o GetThemeConfigurationSheetTileLayoutMarginArrayOutput) Index(i pulumi.In
 }
 
 type GetThemeConfigurationTypography struct {
-	// Determines the list of font families. Maximum number of 5 items. See font_families.
+	// List of font families. Maximum number of 5 items. See font_families.
 	FontFamilies []GetThemeConfigurationTypographyFontFamily `pulumi:"fontFamilies"`
 }
 
@@ -23354,7 +23353,7 @@ type GetThemeConfigurationTypographyInput interface {
 }
 
 type GetThemeConfigurationTypographyArgs struct {
-	// Determines the list of font families. Maximum number of 5 items. See font_families.
+	// List of font families. Maximum number of 5 items. See font_families.
 	FontFamilies GetThemeConfigurationTypographyFontFamilyArrayInput `pulumi:"fontFamilies"`
 }
 
@@ -23409,7 +23408,7 @@ func (o GetThemeConfigurationTypographyOutput) ToGetThemeConfigurationTypography
 	return o
 }
 
-// Determines the list of font families. Maximum number of 5 items. See font_families.
+// List of font families. Maximum number of 5 items. See font_families.
 func (o GetThemeConfigurationTypographyOutput) FontFamilies() GetThemeConfigurationTypographyFontFamilyArrayOutput {
 	return o.ApplyT(func(v GetThemeConfigurationTypography) []GetThemeConfigurationTypographyFontFamily {
 		return v.FontFamilies

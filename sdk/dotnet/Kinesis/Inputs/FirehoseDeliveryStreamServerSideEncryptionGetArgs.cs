@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<string>? KeyArn { get; set; }
 
         /// <summary>
-        /// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+        /// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`.
         /// </summary>
         [Input("keyType")]
         public Input<string>? KeyType { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class FirehoseDeliveryStreamHttpEndpointConfiguration
     {
         /// <summary>
-        /// The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+        /// Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
         /// </summary>
         public readonly string? AccessKey;
         /// <summary>
@@ -26,19 +26,19 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
-        /// The HTTP endpoint name.
+        /// HTTP endpoint name.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
+        /// Data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
-        /// The request configuration.  See `RequestConfiguration` block below for details.
+        /// Request configuration.  See `RequestConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration? RequestConfiguration;
         /// <summary>
@@ -50,19 +50,19 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>
-        /// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+        /// How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
         /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See `S3Configuration` block below for details.
+        /// S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration S3Configuration;
         /// <summary>
-        /// The Secret Manager Configuration. See `SecretsManagerConfiguration` block below for details.
+        /// Secret Manager Configuration. See `SecretsManagerConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration? SecretsManagerConfiguration;
         /// <summary>
-        /// The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+        /// HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
         /// </summary>
         public readonly string Url;
 

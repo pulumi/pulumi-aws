@@ -36,14 +36,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+     * Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
      * 
      */
     @Import(name="encryptionType")
     private @Nullable Output<String> encryptionType;
 
     /**
-     * @return The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+     * @return Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
      * 
      */
     public Optional<Output<String>> encryptionType() {
@@ -51,14 +51,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+     * Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
      * 
      */
     @Import(name="enforceConsumerDeletion")
     private @Nullable Output<Boolean> enforceConsumerDeletion;
 
     /**
-     * @return A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+     * @return Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> enforceConsumerDeletion() {
@@ -66,14 +66,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+     * Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+     * @return Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -81,14 +81,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+     * Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
      * 
      */
     @Import(name="maxRecordSizeInKib")
     private @Nullable Output<Integer> maxRecordSizeInKib;
 
     /**
-     * @return The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+     * @return Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
      * 
      */
     public Optional<Output<Integer>> maxRecordSizeInKib() {
@@ -96,14 +96,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+     * Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+     * @return Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
      * 
      */
     public Optional<Output<String>> name() {
@@ -141,14 +141,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+     * Number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      * 
      */
     @Import(name="shardCount")
     private @Nullable Output<Integer> shardCount;
 
     /**
-     * @return The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+     * @return Number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      * 
      */
     public Optional<Output<Integer>> shardCount() {
@@ -156,14 +156,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+     * List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      * 
      */
     @Import(name="shardLevelMetrics")
     private @Nullable Output<List<String>> shardLevelMetrics;
 
     /**
-     * @return A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+     * @return List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      * 
      */
     public Optional<Output<List<String>>> shardLevelMetrics() {
@@ -171,14 +171,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+     * [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      * 
      */
     @Import(name="streamModeDetails")
     private @Nullable Output<StreamStreamModeDetailsArgs> streamModeDetails;
 
     /**
-     * @return Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+     * @return [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
      * 
      */
     public Optional<Output<StreamStreamModeDetailsArgs>> streamModeDetails() {
@@ -186,14 +186,14 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -273,7 +273,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionType The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+         * @param encryptionType Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionType The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
+         * @param encryptionType Encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enforceConsumerDeletion A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+         * @param enforceConsumerDeletion Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enforceConsumerDeletion A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
+         * @param enforceConsumerDeletion Whether to deregister all registered consumers from the stream so that the stream can be destroyed without error. The default value is `false`.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+         * @param kmsKeyId Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
+         * @param kmsKeyId Identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxRecordSizeInKib The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+         * @param maxRecordSizeInKib Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
          * 
          * @return builder
          * 
@@ -347,7 +347,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxRecordSizeInKib The maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
+         * @param maxRecordSizeInKib Maximum size for a single data record in KiB. The minimum value is 1024. The maximum value is 10240.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+         * @param name Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+         * @param name Name to identify the stream. This is unique to the AWS account and region the Stream is created in.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shardCount The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+         * @param shardCount Number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shardCount The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+         * @param shardCount Number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shardLevelMetrics A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+         * @param shardLevelMetrics List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shardLevelMetrics A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+         * @param shardLevelMetrics List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shardLevelMetrics A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
+         * @param shardLevelMetrics List of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
          * 
          * @return builder
          * 
@@ -472,7 +472,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamModeDetails Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+         * @param streamModeDetails [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamModeDetails Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+         * @param streamModeDetails [Capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class StreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

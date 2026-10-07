@@ -17,7 +17,7 @@ public final class BucketV2Website {
      */
     private @Nullable String errorDocument;
     /**
-     * @return Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+     * @return Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
      * 
      */
     private @Nullable String indexDocument;
@@ -41,7 +41,7 @@ public final class BucketV2Website {
         return Optional.ofNullable(this.errorDocument);
     }
     /**
-     * @return Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+     * @return Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
      * 
      */
     public Optional<String> indexDocument() {

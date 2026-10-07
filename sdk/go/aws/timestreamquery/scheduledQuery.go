@@ -428,7 +428,7 @@ type ScheduledQuery struct {
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `errorReportConfiguration` uses `SSE_KMS` as the encryption type, the same `kmsKeyId` is used to encrypt the error report at rest.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// Runtime summary for the last scheduled query run.
+	// Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
 	LastRunSummaries ScheduledQueryLastRunSummaryArrayOutput `pulumi:"lastRunSummaries"`
 	// Name of the scheduled query.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -440,7 +440,7 @@ type ScheduledQuery struct {
 	PreviousInvocationTime pulumi.StringOutput `pulumi:"previousInvocationTime"`
 	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 	QueryString pulumi.StringOutput `pulumi:"queryString"`
-	// Runtime summary for the last five failed scheduled query runs.
+	// Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayOutput `pulumi:"recentlyFailedRuns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -517,7 +517,7 @@ type scheduledQueryState struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `errorReportConfiguration` uses `SSE_KMS` as the encryption type, the same `kmsKeyId` is used to encrypt the error report at rest.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Runtime summary for the last scheduled query run.
+	// Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
 	LastRunSummaries []ScheduledQueryLastRunSummary `pulumi:"lastRunSummaries"`
 	// Name of the scheduled query.
 	Name *string `pulumi:"name"`
@@ -529,7 +529,7 @@ type scheduledQueryState struct {
 	PreviousInvocationTime *string `pulumi:"previousInvocationTime"`
 	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 	QueryString *string `pulumi:"queryString"`
-	// Runtime summary for the last five failed scheduled query runs.
+	// Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
 	RecentlyFailedRuns []ScheduledQueryRecentlyFailedRun `pulumi:"recentlyFailedRuns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -559,7 +559,7 @@ type ScheduledQueryState struct {
 	ExecutionRoleArn pulumi.StringPtrInput
 	// Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `errorReportConfiguration` uses `SSE_KMS` as the encryption type, the same `kmsKeyId` is used to encrypt the error report at rest.
 	KmsKeyId pulumi.StringPtrInput
-	// Runtime summary for the last scheduled query run.
+	// Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
 	LastRunSummaries ScheduledQueryLastRunSummaryArrayInput
 	// Name of the scheduled query.
 	Name pulumi.StringPtrInput
@@ -571,7 +571,7 @@ type ScheduledQueryState struct {
 	PreviousInvocationTime pulumi.StringPtrInput
 	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 	QueryString pulumi.StringPtrInput
-	// Runtime summary for the last five failed scheduled query runs.
+	// Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -601,7 +601,7 @@ type scheduledQueryArgs struct {
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `errorReportConfiguration` uses `SSE_KMS` as the encryption type, the same `kmsKeyId` is used to encrypt the error report at rest.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Runtime summary for the last scheduled query run.
+	// Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
 	LastRunSummaries []ScheduledQueryLastRunSummary `pulumi:"lastRunSummaries"`
 	// Name of the scheduled query.
 	Name *string `pulumi:"name"`
@@ -609,7 +609,7 @@ type scheduledQueryArgs struct {
 	NotificationConfiguration ScheduledQueryNotificationConfiguration `pulumi:"notificationConfiguration"`
 	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 	QueryString string `pulumi:"queryString"`
-	// Runtime summary for the last five failed scheduled query runs.
+	// Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
 	RecentlyFailedRuns []ScheduledQueryRecentlyFailedRun `pulumi:"recentlyFailedRuns"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -632,7 +632,7 @@ type ScheduledQueryArgs struct {
 	ExecutionRoleArn pulumi.StringInput
 	// Amazon KMS key used to encrypt the scheduled query resource, at-rest. If not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with "alias/". If `errorReportConfiguration` uses `SSE_KMS` as the encryption type, the same `kmsKeyId` is used to encrypt the error report at rest.
 	KmsKeyId pulumi.StringPtrInput
-	// Runtime summary for the last scheduled query run.
+	// Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
 	LastRunSummaries ScheduledQueryLastRunSummaryArrayInput
 	// Name of the scheduled query.
 	Name pulumi.StringPtrInput
@@ -640,7 +640,7 @@ type ScheduledQueryArgs struct {
 	NotificationConfiguration ScheduledQueryNotificationConfigurationInput
 	// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `scheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 	QueryString pulumi.StringInput
-	// Runtime summary for the last five failed scheduled query runs.
+	// Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -769,7 +769,7 @@ func (o ScheduledQueryOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Runtime summary for the last scheduled query run.
+// Runtime summary for the last scheduled query run. See `lastRunSummary` Block for details.
 func (o ScheduledQueryOutput) LastRunSummaries() ScheduledQueryLastRunSummaryArrayOutput {
 	return o.ApplyT(func(v *ScheduledQuery) ScheduledQueryLastRunSummaryArrayOutput { return v.LastRunSummaries }).(ScheduledQueryLastRunSummaryArrayOutput)
 }
@@ -801,7 +801,7 @@ func (o ScheduledQueryOutput) QueryString() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringOutput { return v.QueryString }).(pulumi.StringOutput)
 }
 
-// Runtime summary for the last five failed scheduled query runs.
+// Runtime summary for the last five failed scheduled query runs. See `recentlyFailedRuns` Block for details.
 func (o ScheduledQueryOutput) RecentlyFailedRuns() ScheduledQueryRecentlyFailedRunArrayOutput {
 	return o.ApplyT(func(v *ScheduledQuery) ScheduledQueryRecentlyFailedRunArrayOutput { return v.RecentlyFailedRuns }).(ScheduledQueryRecentlyFailedRunArrayOutput)
 }

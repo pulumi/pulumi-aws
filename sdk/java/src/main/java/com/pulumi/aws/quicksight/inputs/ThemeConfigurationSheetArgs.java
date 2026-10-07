@@ -17,14 +17,14 @@ public final class ThemeConfigurationSheetArgs extends com.pulumi.resources.Reso
     public static final ThemeConfigurationSheetArgs Empty = new ThemeConfigurationSheetArgs();
 
     /**
-     * The display options for tiles. See tile.
+     * Display options for tiles. See tile.
      * 
      */
     @Import(name="tile")
     private @Nullable Output<ThemeConfigurationSheetTileArgs> tile;
 
     /**
-     * @return The display options for tiles. See tile.
+     * @return Display options for tiles. See tile.
      * 
      */
     public Optional<Output<ThemeConfigurationSheetTileArgs>> tile() {
@@ -32,14 +32,14 @@ public final class ThemeConfigurationSheetArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The layout options for tiles. See tile_layout.
+     * Layout options for tiles. See tile_layout.
      * 
      */
     @Import(name="tileLayout")
     private @Nullable Output<ThemeConfigurationSheetTileLayoutArgs> tileLayout;
 
     /**
-     * @return The layout options for tiles. See tile_layout.
+     * @return Layout options for tiles. See tile_layout.
      * 
      */
     public Optional<Output<ThemeConfigurationSheetTileLayoutArgs>> tileLayout() {
@@ -72,7 +72,7 @@ public final class ThemeConfigurationSheetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tile The display options for tiles. See tile.
+         * @param tile Display options for tiles. See tile.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ThemeConfigurationSheetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tile The display options for tiles. See tile.
+         * @param tile Display options for tiles. See tile.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ThemeConfigurationSheetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tileLayout The layout options for tiles. See tile_layout.
+         * @param tileLayout Layout options for tiles. See tile_layout.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ThemeConfigurationSheetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tileLayout The layout options for tiles. See tile_layout.
+         * @param tileLayout Layout options for tiles. See tile_layout.
          * 
          * @return builder
          * 

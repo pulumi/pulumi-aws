@@ -404,23 +404,23 @@ export class DataSource extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+     * Configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      */
     declare public readonly configuration: pulumi.Output<outputs.kendra.DataSourceConfiguration | undefined>;
     /**
-     * The Unix time stamp of when the Data Source was created.
+     * Unix time stamp of when the Data Source was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+     * Configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
      */
     declare public readonly customDocumentEnrichmentConfiguration: pulumi.Output<outputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration | undefined>;
     /**
-     * The unique identifiers of the Data Source.
+     * Unique identifiers of the Data Source.
      */
     declare public /*out*/ readonly dataSourceId: pulumi.Output<string>;
     /**
-     * A description for the Data Source connector.
+     * Description for the Data Source connector.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -428,15 +428,15 @@ export class DataSource extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
     /**
-     * The identifier of the index for your Amazon Kendra data source.
+     * Identifier of the index for your Amazon Kendra data source.
      */
     declare public readonly indexId: pulumi.Output<string>;
     /**
-     * The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * Code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      */
     declare public readonly languageCode: pulumi.Output<string>;
     /**
-     * A name for your data source connector.
+     * Name for your data source connector.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -452,7 +452,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     declare public readonly schedule: pulumi.Output<string | undefined>;
     /**
-     * The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
+     * Current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -460,17 +460,17 @@ export class DataSource extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     * Type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
      *
      * The following arguments are optional:
      */
     declare public readonly type: pulumi.Output<string>;
     /**
-     * The Unix time stamp of when the Data Source was last updated.
+     * Unix time stamp of when the Data Source was last updated.
      */
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
@@ -546,23 +546,23 @@ export interface DataSourceState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+     * Configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      */
     configuration?: pulumi.Input<inputs.kendra.DataSourceConfiguration | undefined>;
     /**
-     * The Unix time stamp of when the Data Source was created.
+     * Unix time stamp of when the Data Source was created.
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
-     * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+     * Configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
      */
     customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration | undefined>;
     /**
-     * The unique identifiers of the Data Source.
+     * Unique identifiers of the Data Source.
      */
     dataSourceId?: pulumi.Input<string | undefined>;
     /**
-     * A description for the Data Source connector.
+     * Description for the Data Source connector.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -570,15 +570,15 @@ export interface DataSourceState {
      */
     errorMessage?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the index for your Amazon Kendra data source.
+     * Identifier of the index for your Amazon Kendra data source.
      */
     indexId?: pulumi.Input<string | undefined>;
     /**
-     * The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * Code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      */
     languageCode?: pulumi.Input<string | undefined>;
     /**
-     * A name for your data source connector.
+     * Name for your data source connector.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -594,7 +594,7 @@ export interface DataSourceState {
      */
     schedule?: pulumi.Input<string | undefined>;
     /**
-     * The current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
+     * Current status of the Data Source. When the status is `ACTIVE` the Data Source is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that the Data Source failed.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -602,17 +602,17 @@ export interface DataSourceState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     * Type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
      *
      * The following arguments are optional:
      */
     type?: pulumi.Input<string | undefined>;
     /**
-     * The Unix time stamp of when the Data Source was last updated.
+     * Unix time stamp of when the Data Source was last updated.
      */
     updatedAt?: pulumi.Input<string | undefined>;
 }
@@ -622,27 +622,27 @@ export interface DataSourceState {
  */
 export interface DataSourceArgs {
     /**
-     * A block with the configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
+     * Configuration information to connect to your Data Source repository. You can't specify the `configuration` block when the `type` parameter is set to `CUSTOM`. Detailed below.
      */
     configuration?: pulumi.Input<inputs.kendra.DataSourceConfiguration | undefined>;
     /**
-     * A block with the configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
+     * Configuration information for altering document metadata and content during the document ingestion process. For more information on how to create, modify and delete document metadata, or make other content alterations when you ingest documents into Amazon Kendra, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html). Detailed below.
      */
     customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration | undefined>;
     /**
-     * A description for the Data Source connector.
+     * Description for the Data Source connector.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the index for your Amazon Kendra data source.
+     * Identifier of the index for your Amazon Kendra data source.
      */
     indexId: pulumi.Input<string>;
     /**
-     * The code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
+     * Code for a language. This allows you to support a language for all documents when creating the Data Source connector. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
      */
     languageCode?: pulumi.Input<string | undefined>;
     /**
-     * A name for your data source connector.
+     * Name for your data source connector.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -662,7 +662,7 @@ export interface DataSourceArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
+     * Type of data source repository. For an updated list of values, refer to [Valid Values for Type](https://docs.aws.amazon.com/kendra/latest/dg/API_CreateDataSource.html#Kendra-CreateDataSource-request-Type).
      *
      * The following arguments are optional:
      */

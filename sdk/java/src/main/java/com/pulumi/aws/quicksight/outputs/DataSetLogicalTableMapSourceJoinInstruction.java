@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSetLogicalTableMapSourceJoinInstruction {
     /**
-     * @return Join key properties of the left operand. See left_join_key_properties.
+     * @return Join key properties of the left operand. See `leftJoinKeyProperties` Block below.
      * 
      */
     private @Nullable DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties leftJoinKeyProperties;
@@ -30,7 +30,7 @@ public final class DataSetLogicalTableMapSourceJoinInstruction {
      */
     private String onClause;
     /**
-     * @return Join key properties of the right operand. See right_join_key_properties.
+     * @return Join key properties of the right operand. See `rightJoinKeyProperties` Block below.
      * 
      */
     private @Nullable DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties rightJoinKeyProperties;
@@ -47,7 +47,7 @@ public final class DataSetLogicalTableMapSourceJoinInstruction {
 
     private DataSetLogicalTableMapSourceJoinInstruction() {}
     /**
-     * @return Join key properties of the left operand. See left_join_key_properties.
+     * @return Join key properties of the left operand. See `leftJoinKeyProperties` Block below.
      * 
      */
     public Optional<DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties> leftJoinKeyProperties() {
@@ -68,7 +68,7 @@ public final class DataSetLogicalTableMapSourceJoinInstruction {
         return this.onClause;
     }
     /**
-     * @return Join key properties of the right operand. See right_join_key_properties.
+     * @return Join key properties of the right operand. See `rightJoinKeyProperties` Block below.
      * 
      */
     public Optional<DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties> rightJoinKeyProperties() {

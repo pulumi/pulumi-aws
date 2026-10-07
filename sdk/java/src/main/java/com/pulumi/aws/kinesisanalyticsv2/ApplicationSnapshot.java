@@ -64,28 +64,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot")
 public class ApplicationSnapshot extends com.pulumi.resources.CustomResource {
     /**
-     * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+     * Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      * 
      */
     @Export(name="applicationName", refs={String.class}, tree="[0]")
     private Output<String> applicationName;
 
     /**
-     * @return The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+     * @return Name of an existing Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      * 
      */
     public Output<String> applicationName() {
         return this.applicationName;
     }
     /**
-     * The current application version ID when the snapshot was created.
+     * Current application version ID when the snapshot was created.
      * 
      */
     @Export(name="applicationVersionId", refs={Integer.class}, tree="[0]")
     private Output<Integer> applicationVersionId;
 
     /**
-     * @return The current application version ID when the snapshot was created.
+     * @return Current application version ID when the snapshot was created.
      * 
      */
     public Output<Integer> applicationVersionId() {
@@ -106,28 +106,28 @@ public class ApplicationSnapshot extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The timestamp of the application snapshot.
+     * Timestamp of the application snapshot.
      * 
      */
     @Export(name="snapshotCreationTimestamp", refs={String.class}, tree="[0]")
     private Output<String> snapshotCreationTimestamp;
 
     /**
-     * @return The timestamp of the application snapshot.
+     * @return Timestamp of the application snapshot.
      * 
      */
     public Output<String> snapshotCreationTimestamp() {
         return this.snapshotCreationTimestamp;
     }
     /**
-     * The name of the application snapshot.
+     * Name of the application snapshot.
      * 
      */
     @Export(name="snapshotName", refs={String.class}, tree="[0]")
     private Output<String> snapshotName;
 
     /**
-     * @return The name of the application snapshot.
+     * @return Name of the application snapshot.
      * 
      */
     public Output<String> snapshotName() {

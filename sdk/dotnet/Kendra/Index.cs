@@ -756,19 +756,19 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+        /// Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         /// </summary>
         [Output("capacityUnits")]
         public Output<Outputs.IndexCapacityUnits> CapacityUnits { get; private set; } = null!;
 
         /// <summary>
-        /// The Unix datetime that the index was created.
+        /// Unix datetime that the index was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the Index.
+        /// Description of the Index.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -780,7 +780,7 @@ namespace Pulumi.Aws.Kendra
         public Output<ImmutableArray<Outputs.IndexDocumentMetadataConfigurationUpdate>> DocumentMetadataConfigurationUpdates { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
+        /// Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         /// </summary>
         [Output("edition")]
         public Output<string?> Edition { get; private set; } = null!;
@@ -792,13 +792,13 @@ namespace Pulumi.Aws.Kendra
         public Output<string> ErrorMessage { get; private set; } = null!;
 
         /// <summary>
-        /// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+        /// Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         /// </summary>
         [Output("indexStatistics")]
         public Output<ImmutableArray<Outputs.IndexIndexStatistic>> IndexStatistics { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Index.
+        /// Name of the Index.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -810,56 +810,55 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+        /// AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+        /// Block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.IndexServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `ErrorMessage` field contains a message that explains why.
+        /// Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `ErrorMessage` field contains a message that explains why.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to apply to the Index. If configured with a provider
-        /// `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Unix datetime that the index was last updated.
+        /// Unix datetime that the index was last updated.
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+        /// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         /// </summary>
         [Output("userContextPolicy")]
         public Output<string?> UserContextPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+        /// Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         /// </summary>
         [Output("userGroupResolutionConfiguration")]
         public Output<Outputs.IndexUserGroupResolutionConfiguration?> UserGroupResolutionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A block that specifies the user token configuration. Detailed below.
+        /// Block that specifies the user token configuration. Detailed below.
         /// </summary>
         [Output("userTokenConfigurations")]
         public Output<Outputs.IndexUserTokenConfigurations?> UserTokenConfigurations { get; private set; } = null!;
@@ -911,13 +910,13 @@ namespace Pulumi.Aws.Kendra
     public sealed class IndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+        /// Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         /// </summary>
         [Input("capacityUnits")]
         public Input<Inputs.IndexCapacityUnitsArgs>? CapacityUnits { get; set; }
 
         /// <summary>
-        /// The description of the Index.
+        /// Description of the Index.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -935,13 +934,13 @@ namespace Pulumi.Aws.Kendra
         }
 
         /// <summary>
-        /// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
+        /// Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         /// </summary>
         [Input("edition")]
         public Input<string>? Edition { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Index.
+        /// Name of the Index.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -953,13 +952,13 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+        /// AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+        /// Block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.IndexServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
@@ -968,8 +967,7 @@ namespace Pulumi.Aws.Kendra
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the Index. If configured with a provider
-        /// `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -978,19 +976,19 @@ namespace Pulumi.Aws.Kendra
         }
 
         /// <summary>
-        /// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+        /// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         /// </summary>
         [Input("userContextPolicy")]
         public Input<string>? UserContextPolicy { get; set; }
 
         /// <summary>
-        /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+        /// Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         /// </summary>
         [Input("userGroupResolutionConfiguration")]
         public Input<Inputs.IndexUserGroupResolutionConfigurationArgs>? UserGroupResolutionConfiguration { get; set; }
 
         /// <summary>
-        /// A block that specifies the user token configuration. Detailed below.
+        /// Block that specifies the user token configuration. Detailed below.
         /// </summary>
         [Input("userTokenConfigurations")]
         public Input<Inputs.IndexUserTokenConfigurationsArgs>? UserTokenConfigurations { get; set; }
@@ -1010,19 +1008,19 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
+        /// Block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         /// </summary>
         [Input("capacityUnits")]
         public Input<Inputs.IndexCapacityUnitsGetArgs>? CapacityUnits { get; set; }
 
         /// <summary>
-        /// The Unix datetime that the index was created.
+        /// Unix datetime that the index was created.
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// The description of the Index.
+        /// Description of the Index.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -1040,7 +1038,7 @@ namespace Pulumi.Aws.Kendra
         }
 
         /// <summary>
-        /// The Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
+        /// Amazon Kendra edition to use for the index. Choose `DEVELOPER_EDITION` for indexes intended for development, testing, or proof of concept. Use `ENTERPRISE_EDITION` for your production databases. Use `GEN_AI_ENTERPRISE_EDITION` for creating generative AI applications. Once you set the edition for an index, it can't be changed. Defaults to `ENTERPRISE_EDITION`.
         /// </summary>
         [Input("edition")]
         public Input<string>? Edition { get; set; }
@@ -1055,7 +1053,7 @@ namespace Pulumi.Aws.Kendra
         private InputList<Inputs.IndexIndexStatisticGetArgs>? _indexStatistics;
 
         /// <summary>
-        /// A block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
+        /// Block that provides information about the number of FAQ questions and answers and the number of text documents indexed. Detailed below.
         /// </summary>
         public InputList<Inputs.IndexIndexStatisticGetArgs> IndexStatistics
         {
@@ -1064,7 +1062,7 @@ namespace Pulumi.Aws.Kendra
         }
 
         /// <summary>
-        /// Specifies the name of the Index.
+        /// Name of the Index.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1076,19 +1074,19 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
+        /// AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// A block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
+        /// Block that specifies the identifier of the AWS KMS customer managed key (CMK) that's used to encrypt data indexed by Amazon Kendra. Amazon Kendra doesn't support asymmetric CMKs. Detailed below.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.IndexServerSideEncryptionConfigurationGetArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// The current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `ErrorMessage` field contains a message that explains why.
+        /// Current status of the index. When the value is `ACTIVE`, the index is ready for use. If the Status field value is `FAILED`, the `ErrorMessage` field contains a message that explains why.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -1097,8 +1095,7 @@ namespace Pulumi.Aws.Kendra
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Tags to apply to the Index. If configured with a provider
-        /// `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the Index. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1110,7 +1107,7 @@ namespace Pulumi.Aws.Kendra
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -1119,25 +1116,25 @@ namespace Pulumi.Aws.Kendra
         }
 
         /// <summary>
-        /// The Unix datetime that the index was last updated.
+        /// Unix datetime that the index was last updated.
         /// </summary>
         [Input("updatedAt")]
         public Input<string>? UpdatedAt { get; set; }
 
         /// <summary>
-        /// The user context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
+        /// User context policy. Valid values are `ATTRIBUTE_FILTER` or `USER_TOKEN`. For more information, refer to [UserContextPolicy](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateIndex.html#kendra-CreateIndex-request-UserContextPolicy). Defaults to `ATTRIBUTE_FILTER`.
         /// </summary>
         [Input("userContextPolicy")]
         public Input<string>? UserContextPolicy { get; set; }
 
         /// <summary>
-        /// A block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
+        /// Block that enables fetching access levels of groups and users from an AWS Single Sign-On identity source. To configure this, see [UserGroupResolutionConfiguration](https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html). Detailed below.
         /// </summary>
         [Input("userGroupResolutionConfiguration")]
         public Input<Inputs.IndexUserGroupResolutionConfigurationGetArgs>? UserGroupResolutionConfiguration { get; set; }
 
         /// <summary>
-        /// A block that specifies the user token configuration. Detailed below.
+        /// Block that specifies the user token configuration. Detailed below.
         /// </summary>
         [Input("userTokenConfigurations")]
         public Input<Inputs.IndexUserTokenConfigurationsGetArgs>? UserTokenConfigurations { get; set; }

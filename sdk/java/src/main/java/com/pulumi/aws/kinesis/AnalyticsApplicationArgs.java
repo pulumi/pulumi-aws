@@ -23,16 +23,14 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
     public static final AnalyticsApplicationArgs Empty = new AnalyticsApplicationArgs();
 
     /**
-     * The CloudWatch log stream options to monitor application errors.
-     * See CloudWatch Logging Options below for more details.
+     * CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
      * 
      */
     @Import(name="cloudwatchLoggingOptions")
     private @Nullable Output<AnalyticsApplicationCloudwatchLoggingOptionsArgs> cloudwatchLoggingOptions;
 
     /**
-     * @return The CloudWatch log stream options to monitor application errors.
-     * See CloudWatch Logging Options below for more details.
+     * @return CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
      * 
      */
     public Optional<Output<AnalyticsApplicationCloudwatchLoggingOptionsArgs>> cloudwatchLoggingOptions() {
@@ -70,14 +68,14 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Input configuration of the application. See Inputs below for more details.
+     * Input configuration of the application. See `inputs` Block below for details.
      * 
      */
     @Import(name="inputs")
     private @Nullable Output<AnalyticsApplicationInputsArgs> inputs;
 
     /**
-     * @return Input configuration of the application. See Inputs below for more details.
+     * @return Input configuration of the application. See `inputs` Block below for details.
      * 
      */
     public Optional<Output<AnalyticsApplicationInputsArgs>> inputs() {
@@ -100,14 +98,14 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Output destination configuration of the application. See Outputs below for more details.
+     * Output destination configuration of the application. See `outputs` Block below for details.
      * 
      */
     @Import(name="outputs")
     private @Nullable Output<List<AnalyticsApplicationOutputArgs>> outputs;
 
     /**
-     * @return Output destination configuration of the application. See Outputs below for more details.
+     * @return Output destination configuration of the application. See `outputs` Block below for details.
      * 
      */
     public Optional<Output<List<AnalyticsApplicationOutputArgs>>> outputs() {
@@ -115,16 +113,14 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * An S3 Reference Data Source for the application.
-     * See Reference Data Sources below for more details.
+     * S3 Reference Data Source for the application. See `referenceDataSources` Block below for details.
      * 
      */
     @Import(name="referenceDataSources")
     private @Nullable Output<AnalyticsApplicationReferenceDataSourcesArgs> referenceDataSources;
 
     /**
-     * @return An S3 Reference Data Source for the application.
-     * See Reference Data Sources below for more details.
+     * @return S3 Reference Data Source for the application. See `referenceDataSources` Block below for details.
      * 
      */
     public Optional<Output<AnalyticsApplicationReferenceDataSourcesArgs>> referenceDataSources() {
@@ -147,16 +143,14 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
-     * To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+     * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured. To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      * 
      */
     @Import(name="startApplication")
     private @Nullable Output<Boolean> startApplication;
 
     /**
-     * @return Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
-     * To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+     * @return Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured. To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      * 
      */
     public Optional<Output<Boolean>> startApplication() {
@@ -164,14 +158,14 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -212,8 +206,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch log stream options to monitor application errors.
-         * See CloudWatch Logging Options below for more details.
+         * @param cloudwatchLoggingOptions CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
          * 
          * @return builder
          * 
@@ -224,8 +217,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param cloudwatchLoggingOptions The CloudWatch log stream options to monitor application errors.
-         * See CloudWatch Logging Options below for more details.
+         * @param cloudwatchLoggingOptions CloudWatch log stream options to monitor application errors. See `cloudwatchLoggingOptions` Block below for details.
          * 
          * @return builder
          * 
@@ -277,7 +269,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param inputs Input configuration of the application. See Inputs below for more details.
+         * @param inputs Input configuration of the application. See `inputs` Block below for details.
          * 
          * @return builder
          * 
@@ -288,7 +280,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param inputs Input configuration of the application. See Inputs below for more details.
+         * @param inputs Input configuration of the application. See `inputs` Block below for details.
          * 
          * @return builder
          * 
@@ -319,7 +311,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param outputs Output destination configuration of the application. See Outputs below for more details.
+         * @param outputs Output destination configuration of the application. See `outputs` Block below for details.
          * 
          * @return builder
          * 
@@ -330,7 +322,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param outputs Output destination configuration of the application. See Outputs below for more details.
+         * @param outputs Output destination configuration of the application. See `outputs` Block below for details.
          * 
          * @return builder
          * 
@@ -340,7 +332,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param outputs Output destination configuration of the application. See Outputs below for more details.
+         * @param outputs Output destination configuration of the application. See `outputs` Block below for details.
          * 
          * @return builder
          * 
@@ -350,8 +342,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param referenceDataSources An S3 Reference Data Source for the application.
-         * See Reference Data Sources below for more details.
+         * @param referenceDataSources S3 Reference Data Source for the application. See `referenceDataSources` Block below for details.
          * 
          * @return builder
          * 
@@ -362,8 +353,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param referenceDataSources An S3 Reference Data Source for the application.
-         * See Reference Data Sources below for more details.
+         * @param referenceDataSources S3 Reference Data Source for the application. See `referenceDataSources` Block below for details.
          * 
          * @return builder
          * 
@@ -394,8 +384,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param startApplication Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
-         * To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+         * @param startApplication Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured. To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
          * 
          * @return builder
          * 
@@ -406,8 +395,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param startApplication Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
-         * To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
+         * @param startApplication Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured. To modify an application&#39;s starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
          * 
          * @return builder
          * 
@@ -417,7 +405,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -428,7 +416,7 @@ public final class AnalyticsApplicationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

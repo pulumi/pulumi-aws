@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Kinesis.Outputs
     [OutputType]
     public sealed class FirehoseDeliveryStreamIcebergConfiguration
     {
+        /// <summary>
+        /// Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
+        /// </summary>
         public readonly bool? AppendOnly;
         /// <summary>
         /// Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
@@ -23,11 +26,11 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly int? BufferingSize;
         /// <summary>
-        /// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+        /// Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
         /// </summary>
         public readonly string CatalogArn;
         /// <summary>
-        /// The CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
+        /// CloudWatch Logging Options for the delivery stream. See `CloudwatchLoggingOptions` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions? CloudwatchLoggingOptions;
         /// <summary>
@@ -35,20 +38,23 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration> DestinationTableConfigurations;
         /// <summary>
-        /// The data processing configuration.  See `ProcessingConfiguration` block below for details.
+        /// Data processing configuration.  See `ProcessingConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
-        /// The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+        /// Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
         /// </summary>
         public readonly int? RetryDuration;
         /// <summary>
-        /// The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+        /// ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
         /// </summary>
         public readonly string RoleArn;
+        /// <summary>
+        /// Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
+        /// </summary>
         public readonly string? S3BackupMode;
         /// <summary>
-        /// The S3 Configuration. See `S3Configuration` block below for details.
+        /// S3 Configuration. See `S3Configuration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamIcebergConfigurationS3Configuration S3Configuration;
 

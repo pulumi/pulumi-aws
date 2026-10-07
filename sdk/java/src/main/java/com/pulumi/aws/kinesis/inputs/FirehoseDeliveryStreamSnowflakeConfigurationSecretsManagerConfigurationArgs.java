@@ -32,14 +32,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerCon
     }
 
     /**
-     * The ARN of the role the stream assumes.
+     * ARN of the role the stream assumes.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The ARN of the role the stream assumes.
+     * @return ARN of the role the stream assumes.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -47,14 +47,14 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerCon
     }
 
     /**
-     * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+     * ARN of the Secrets Manager secret. This value is required if `enabled` is true.
      * 
      */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
     /**
-     * @return The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+     * @return ARN of the Secrets Manager secret. This value is required if `enabled` is true.
      * 
      */
     public Optional<Output<String>> secretArn() {
@@ -109,7 +109,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerCon
         }
 
         /**
-         * @param roleArn The ARN of the role the stream assumes.
+         * @param roleArn ARN of the role the stream assumes.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerCon
         }
 
         /**
-         * @param roleArn The ARN of the role the stream assumes.
+         * @param roleArn ARN of the role the stream assumes.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerCon
         }
 
         /**
-         * @param secretArn The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         * @param secretArn ARN of the Secrets Manager secret. This value is required if `enabled` is true.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerCon
         }
 
         /**
-         * @param secretArn The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         * @param secretArn ARN of the Secrets Manager secret. This value is required if `enabled` is true.
          * 
          * @return builder
          * 

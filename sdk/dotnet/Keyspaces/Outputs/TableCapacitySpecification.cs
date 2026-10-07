@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     public sealed class TableCapacitySpecification
     {
         /// <summary>
-        /// The throughput capacity specified for read operations defined in read capacity units (RCUs).
+        /// Throughput capacity specified for read operations defined in read capacity units (RCUs).
         /// </summary>
         public readonly int? ReadCapacityUnits;
         /// <summary>
-        /// The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
+        /// Read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
         /// </summary>
         public readonly string? ThroughputMode;
         /// <summary>
-        /// The throughput capacity specified for write operations defined in write capacity units (WCUs).
+        /// Throughput capacity specified for write operations defined in write capacity units (WCUs).
         /// </summary>
         public readonly int? WriteCapacityUnits;
 

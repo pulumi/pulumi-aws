@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSetDataSetUsageConfiguration {
     /**
-     * @return Controls whether a child dataset of a direct query can use this dataset as a source.
+     * @return Whether to prevent a child dataset of a direct query from using this dataset as a source.
      * 
      */
     private @Nullable Boolean disableUseAsDirectQuerySource;
     /**
-     * @return Controls whether a child dataset that&#39;s stored in QuickSight can use this dataset as a source.
+     * @return Whether to prevent a child dataset that&#39;s stored in QuickSight from using this dataset as a source.
      * 
      */
     private @Nullable Boolean disableUseAsImportedSource;
 
     private DataSetDataSetUsageConfiguration() {}
     /**
-     * @return Controls whether a child dataset of a direct query can use this dataset as a source.
+     * @return Whether to prevent a child dataset of a direct query from using this dataset as a source.
      * 
      */
     public Optional<Boolean> disableUseAsDirectQuerySource() {
         return Optional.ofNullable(this.disableUseAsDirectQuerySource);
     }
     /**
-     * @return Controls whether a child dataset that&#39;s stored in QuickSight can use this dataset as a source.
+     * @return Whether to prevent a child dataset that&#39;s stored in QuickSight from using this dataset as a source.
      * 
      */
     public Optional<Boolean> disableUseAsImportedSource() {

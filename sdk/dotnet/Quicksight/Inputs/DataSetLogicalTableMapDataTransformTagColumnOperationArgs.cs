@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         private InputList<Inputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs>? _tags;
 
         /// <summary>
-        /// The dataset column tag, currently only used for geospatial type tagging. See tags.
+        /// Dataset column tag, currently only used for geospatial type tagging. See `Tags` Block below.
         /// </summary>
         public InputList<Inputs.DataSetLogicalTableMapDataTransformTagColumnOperationTagArgs> Tags
         {

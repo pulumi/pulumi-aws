@@ -16,14 +16,14 @@ public final class DataSourceParametersSparkArgs extends com.pulumi.resources.Re
     public static final DataSourceParametersSparkArgs Empty = new DataSourceParametersSparkArgs();
 
     /**
-     * The host to which to connect.
+     * Host to which to connect.
      * 
      */
     @Import(name="host", required=true)
     private Output<String> host;
 
     /**
-     * @return The host to which to connect.
+     * @return Host to which to connect.
      * 
      */
     public Output<String> host() {
@@ -31,14 +31,14 @@ public final class DataSourceParametersSparkArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The warehouse to which to connect.
+     * Port to which to connect.
      * 
      */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
     /**
-     * @return The warehouse to which to connect.
+     * @return Port to which to connect.
      * 
      */
     public Output<Integer> port() {
@@ -71,7 +71,7 @@ public final class DataSourceParametersSparkArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param host The host to which to connect.
+         * @param host Host to which to connect.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DataSourceParametersSparkArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param host The host to which to connect.
+         * @param host Host to which to connect.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DataSourceParametersSparkArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param port The warehouse to which to connect.
+         * @param port Port to which to connect.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DataSourceParametersSparkArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param port The warehouse to which to connect.
+         * @param port Port to which to connect.
          * 
          * @return builder
          * 

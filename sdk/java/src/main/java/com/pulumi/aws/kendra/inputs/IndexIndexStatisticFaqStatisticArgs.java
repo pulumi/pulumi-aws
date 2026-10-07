@@ -16,14 +16,14 @@ public final class IndexIndexStatisticFaqStatisticArgs extends com.pulumi.resour
     public static final IndexIndexStatisticFaqStatisticArgs Empty = new IndexIndexStatisticFaqStatisticArgs();
 
     /**
-     * The total number of FAQ questions and answers contained in the index.
+     * Total number of FAQ questions and answers contained in the index.
      * 
      */
     @Import(name="indexedQuestionAnswersCount")
     private @Nullable Output<Integer> indexedQuestionAnswersCount;
 
     /**
-     * @return The total number of FAQ questions and answers contained in the index.
+     * @return Total number of FAQ questions and answers contained in the index.
      * 
      */
     public Optional<Output<Integer>> indexedQuestionAnswersCount() {
@@ -55,7 +55,7 @@ public final class IndexIndexStatisticFaqStatisticArgs extends com.pulumi.resour
         }
 
         /**
-         * @param indexedQuestionAnswersCount The total number of FAQ questions and answers contained in the index.
+         * @param indexedQuestionAnswersCount Total number of FAQ questions and answers contained in the index.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class IndexIndexStatisticFaqStatisticArgs extends com.pulumi.resour
         }
 
         /**
-         * @param indexedQuestionAnswersCount The total number of FAQ questions and answers contained in the index.
+         * @param indexedQuestionAnswersCount Total number of FAQ questions and answers contained in the index.
          * 
          * @return builder
          * 

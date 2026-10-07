@@ -20,14 +20,14 @@ public final class DataSetPhysicalTableMapArgs extends com.pulumi.resources.Reso
     public static final DataSetPhysicalTableMapArgs Empty = new DataSetPhysicalTableMapArgs();
 
     /**
-     * A physical table type built from the results of the custom SQL query. See custom_sql.
+     * Physical table type built from the results of the custom SQL query. See `customSql` Block below.
      * 
      */
     @Import(name="customSql")
     private @Nullable Output<DataSetPhysicalTableMapCustomSqlArgs> customSql;
 
     /**
-     * @return A physical table type built from the results of the custom SQL query. See custom_sql.
+     * @return Physical table type built from the results of the custom SQL query. See `customSql` Block below.
      * 
      */
     public Optional<Output<DataSetPhysicalTableMapCustomSqlArgs>> customSql() {
@@ -50,14 +50,14 @@ public final class DataSetPhysicalTableMapArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A physical table type for relational data sources. See relational_table.
+     * Physical table type for relational data sources. See `relationalTable` Block below.
      * 
      */
     @Import(name="relationalTable")
     private @Nullable Output<DataSetPhysicalTableMapRelationalTableArgs> relationalTable;
 
     /**
-     * @return A physical table type for relational data sources. See relational_table.
+     * @return Physical table type for relational data sources. See `relationalTable` Block below.
      * 
      */
     public Optional<Output<DataSetPhysicalTableMapRelationalTableArgs>> relationalTable() {
@@ -65,14 +65,14 @@ public final class DataSetPhysicalTableMapArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A physical table type for as S3 data source. See s3_source.
+     * Physical table type for an S3 data source. See `s3Source` Block below.
      * 
      */
     @Import(name="s3Source")
     private @Nullable Output<DataSetPhysicalTableMapS3SourceArgs> s3Source;
 
     /**
-     * @return A physical table type for as S3 data source. See s3_source.
+     * @return Physical table type for an S3 data source. See `s3Source` Block below.
      * 
      */
     public Optional<Output<DataSetPhysicalTableMapS3SourceArgs>> s3Source() {
@@ -107,7 +107,7 @@ public final class DataSetPhysicalTableMapArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customSql A physical table type built from the results of the custom SQL query. See custom_sql.
+         * @param customSql Physical table type built from the results of the custom SQL query. See `customSql` Block below.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class DataSetPhysicalTableMapArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param customSql A physical table type built from the results of the custom SQL query. See custom_sql.
+         * @param customSql Physical table type built from the results of the custom SQL query. See `customSql` Block below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class DataSetPhysicalTableMapArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param relationalTable A physical table type for relational data sources. See relational_table.
+         * @param relationalTable Physical table type for relational data sources. See `relationalTable` Block below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class DataSetPhysicalTableMapArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param relationalTable A physical table type for relational data sources. See relational_table.
+         * @param relationalTable Physical table type for relational data sources. See `relationalTable` Block below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class DataSetPhysicalTableMapArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param s3Source A physical table type for as S3 data source. See s3_source.
+         * @param s3Source Physical table type for an S3 data source. See `s3Source` Block below.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class DataSetPhysicalTableMapArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param s3Source A physical table type for as S3 data source. See s3_source.
+         * @param s3Source Physical table type for an S3 data source. See `s3Source` Block below.
          * 
          * @return builder
          * 

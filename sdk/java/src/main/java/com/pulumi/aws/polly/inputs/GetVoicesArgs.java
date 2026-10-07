@@ -79,14 +79,14 @@ public final class GetVoicesArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * List of voices with their properties. See `voices` Attribute Reference below.
+     * List of voices with their properties. See `voices` Block below.
      * 
      */
     @Import(name="voices")
     private @Nullable Output<List<GetVoicesVoiceArgs>> voices;
 
     /**
-     * @return List of voices with their properties. See `voices` Attribute Reference below.
+     * @return List of voices with their properties. See `voices` Block below.
      * 
      */
     public Optional<Output<List<GetVoicesVoiceArgs>>> voices() {
@@ -206,7 +206,7 @@ public final class GetVoicesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param voices List of voices with their properties. See `voices` Attribute Reference below.
+         * @param voices List of voices with their properties. See `voices` Block below.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class GetVoicesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param voices List of voices with their properties. See `voices` Attribute Reference below.
+         * @param voices List of voices with their properties. See `voices` Block below.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class GetVoicesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param voices List of voices with their properties. See `voices` Attribute Reference below.
+         * @param voices List of voices with their properties. See `voices` Block below.
          * 
          * @return builder
          * 

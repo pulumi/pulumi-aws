@@ -69,15 +69,15 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Group.
+     * ARN of the Group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+     * Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
      */
     declare public readonly filterExpression: pulumi.Output<string>;
     /**
-     * The name of the group.
+     * Name of the group.
      */
     declare public readonly groupName: pulumi.Output<string>;
     /**
@@ -93,7 +93,7 @@ export class Group extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -143,15 +143,15 @@ export class Group extends pulumi.CustomResource {
  */
 export interface GroupState {
     /**
-     * The ARN of the Group.
+     * ARN of the Group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+     * Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
      */
     filterExpression?: pulumi.Input<string | undefined>;
     /**
-     * The name of the group.
+     * Name of the group.
      */
     groupName?: pulumi.Input<string | undefined>;
     /**
@@ -167,7 +167,7 @@ export interface GroupState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -177,11 +177,11 @@ export interface GroupState {
  */
 export interface GroupArgs {
     /**
-     * The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
+     * Filter expression defining criteria by which to group traces. More info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
      */
     filterExpression: pulumi.Input<string>;
     /**
-     * The name of the group.
+     * Name of the group.
      */
     groupName: pulumi.Input<string>;
     /**

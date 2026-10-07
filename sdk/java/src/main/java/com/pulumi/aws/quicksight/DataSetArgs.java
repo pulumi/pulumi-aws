@@ -44,14 +44,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+     * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See `columnGroups` Block below.
      * 
      */
     @Import(name="columnGroups")
     private @Nullable Output<List<DataSetColumnGroupArgs>> columnGroups;
 
     /**
-     * @return Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+     * @return Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See `columnGroups` Block below.
      * 
      */
     public Optional<Output<List<DataSetColumnGroupArgs>>> columnGroups() {
@@ -59,14 +59,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+     * Set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See `columnLevelPermissionRules` Block below.
      * 
      */
     @Import(name="columnLevelPermissionRules")
     private @Nullable Output<List<DataSetColumnLevelPermissionRuleArgs>> columnLevelPermissionRules;
 
     /**
-     * @return A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+     * @return Set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See `columnLevelPermissionRules` Block below.
      * 
      */
     public Optional<Output<List<DataSetColumnLevelPermissionRuleArgs>>> columnLevelPermissionRules() {
@@ -89,14 +89,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
+     * Usage configuration to apply to child datasets that reference this dataset as a source. See `dataSetUsageConfiguration` Block below.
      * 
      */
     @Import(name="dataSetUsageConfiguration")
     private @Nullable Output<DataSetDataSetUsageConfigurationArgs> dataSetUsageConfiguration;
 
     /**
-     * @return The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
+     * @return Usage configuration to apply to child datasets that reference this dataset as a source. See `dataSetUsageConfiguration` Block below.
      * 
      */
     public Optional<Output<DataSetDataSetUsageConfigurationArgs>> dataSetUsageConfiguration() {
@@ -104,14 +104,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The folder that contains fields and nested subfolders for your dataset. See field_folders.
+     * Folder that contains fields and nested subfolders for your dataset. See `fieldFolders` Block below.
      * 
      */
     @Import(name="fieldFolders")
     private @Nullable Output<List<DataSetFieldFolderArgs>> fieldFolders;
 
     /**
-     * @return The folder that contains fields and nested subfolders for your dataset. See field_folders.
+     * @return Folder that contains fields and nested subfolders for your dataset. See `fieldFolders` Block below.
      * 
      */
     public Optional<Output<List<DataSetFieldFolderArgs>>> fieldFolders() {
@@ -119,14 +119,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
+     * Whether to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
      * 
      */
     @Import(name="importMode", required=true)
     private Output<String> importMode;
 
     /**
-     * @return Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
+     * @return Whether to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
      * 
      */
     public Output<String> importMode() {
@@ -134,14 +134,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+     * Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See `logicalTableMap` Block below.
      * 
      */
     @Import(name="logicalTableMaps")
     private @Nullable Output<List<DataSetLogicalTableMapArgs>> logicalTableMaps;
 
     /**
-     * @return Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+     * @return Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See `logicalTableMap` Block below.
      * 
      */
     public Optional<Output<List<DataSetLogicalTableMapArgs>>> logicalTableMaps() {
@@ -168,14 +168,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the data source. Maximum of 64 items. See `permissions` Block below.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<DataSetPermissionArgs>> permissions;
 
     /**
-     * @return A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the data source. Maximum of 64 items. See `permissions` Block below.
      * 
      */
     public Optional<Output<List<DataSetPermissionArgs>>> permissions() {
@@ -183,14 +183,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+     * Declares the physical tables that are available in the underlying data sources. See `physicalTableMap` Block below.
      * 
      */
     @Import(name="physicalTableMaps")
     private @Nullable Output<List<DataSetPhysicalTableMapArgs>> physicalTableMaps;
 
     /**
-     * @return Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+     * @return Declares the physical tables that are available in the underlying data sources. See `physicalTableMap` Block below.
      * 
      */
     public Optional<Output<List<DataSetPhysicalTableMapArgs>>> physicalTableMaps() {
@@ -198,14 +198,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+     * Refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See `refreshProperties` Block below.
      * 
      */
     @Import(name="refreshProperties")
     private @Nullable Output<DataSetRefreshPropertiesArgs> refreshProperties;
 
     /**
-     * @return The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+     * @return Refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See `refreshProperties` Block below.
      * 
      */
     public Optional<Output<DataSetRefreshPropertiesArgs>> refreshProperties() {
@@ -228,14 +228,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
+     * Row-level security configuration for the data that you want to create. See `rowLevelPermissionDataSet` Block below.
      * 
      */
     @Import(name="rowLevelPermissionDataSet")
     private @Nullable Output<DataSetRowLevelPermissionDataSetArgs> rowLevelPermissionDataSet;
 
     /**
-     * @return The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
+     * @return Row-level security configuration for the data that you want to create. See `rowLevelPermissionDataSet` Block below.
      * 
      */
     public Optional<Output<DataSetRowLevelPermissionDataSetArgs>> rowLevelPermissionDataSet() {
@@ -243,14 +243,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+     * Configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See `rowLevelPermissionTagConfiguration` Block below.
      * 
      */
     @Import(name="rowLevelPermissionTagConfiguration")
     private @Nullable Output<DataSetRowLevelPermissionTagConfigurationArgs> rowLevelPermissionTagConfiguration;
 
     /**
-     * @return The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+     * @return Configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See `rowLevelPermissionTagConfiguration` Block below.
      * 
      */
     public Optional<Output<DataSetRowLevelPermissionTagConfigurationArgs>> rowLevelPermissionTagConfiguration() {
@@ -273,14 +273,14 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+     * Purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
      * 
      */
     @Import(name="useAs")
     private @Nullable Output<String> useAs;
 
     /**
-     * @return Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+     * @return Purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
      * 
      */
     public Optional<Output<String>> useAs() {
@@ -349,7 +349,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param columnGroups Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+         * @param columnGroups Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See `columnGroups` Block below.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param columnGroups Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+         * @param columnGroups Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See `columnGroups` Block below.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param columnGroups Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
+         * @param columnGroups Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See `columnGroups` Block below.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param columnLevelPermissionRules A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+         * @param columnLevelPermissionRules Set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See `columnLevelPermissionRules` Block below.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param columnLevelPermissionRules A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+         * @param columnLevelPermissionRules Set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See `columnLevelPermissionRules` Block below.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param columnLevelPermissionRules A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
+         * @param columnLevelPermissionRules Set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See `columnLevelPermissionRules` Block below.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSetUsageConfiguration The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
+         * @param dataSetUsageConfiguration Usage configuration to apply to child datasets that reference this dataset as a source. See `dataSetUsageConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataSetUsageConfiguration The usage configuration to apply to child datasets that reference this dataset as a source. See data_set_usage_configuration.
+         * @param dataSetUsageConfiguration Usage configuration to apply to child datasets that reference this dataset as a source. See `dataSetUsageConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fieldFolders The folder that contains fields and nested subfolders for your dataset. See field_folders.
+         * @param fieldFolders Folder that contains fields and nested subfolders for your dataset. See `fieldFolders` Block below.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fieldFolders The folder that contains fields and nested subfolders for your dataset. See field_folders.
+         * @param fieldFolders Folder that contains fields and nested subfolders for your dataset. See `fieldFolders` Block below.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fieldFolders The folder that contains fields and nested subfolders for your dataset. See field_folders.
+         * @param fieldFolders Folder that contains fields and nested subfolders for your dataset. See `fieldFolders` Block below.
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param importMode Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
+         * @param importMode Whether to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param importMode Indicates whether you want to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
+         * @param importMode Whether to import the data into SPICE. Valid values are `SPICE` and `DIRECT_QUERY`.
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logicalTableMaps Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+         * @param logicalTableMaps Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See `logicalTableMap` Block below.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logicalTableMaps Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+         * @param logicalTableMaps Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See `logicalTableMap` Block below.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logicalTableMaps Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See logical_table_map.
+         * @param logicalTableMaps Configures the combination and transformation of the data from the physical tables. Maximum of 1 entry. See `logicalTableMap` Block below.
          * 
          * @return builder
          * 
@@ -561,7 +561,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the data source. Maximum of 64 items. See `permissions` Block below.
          * 
          * @return builder
          * 
@@ -572,7 +572,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the data source. Maximum of 64 items. See `permissions` Block below.
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the data source. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the data source. Maximum of 64 items. See `permissions` Block below.
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param physicalTableMaps Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+         * @param physicalTableMaps Declares the physical tables that are available in the underlying data sources. See `physicalTableMap` Block below.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param physicalTableMaps Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+         * @param physicalTableMaps Declares the physical tables that are available in the underlying data sources. See `physicalTableMap` Block below.
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param physicalTableMaps Declares the physical tables that are available in the underlying data sources. See physical_table_map.
+         * @param physicalTableMaps Declares the physical tables that are available in the underlying data sources. See `physicalTableMap` Block below.
          * 
          * @return builder
          * 
@@ -623,7 +623,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshProperties The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+         * @param refreshProperties Refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See `refreshProperties` Block below.
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshProperties The refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See refresh_properties.
+         * @param refreshProperties Refresh properties for the data set. **NOTE**: Only valid when `importMode` is set to `SPICE`. See `refreshProperties` Block below.
          * 
          * @return builder
          * 
@@ -665,7 +665,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rowLevelPermissionDataSet The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
+         * @param rowLevelPermissionDataSet Row-level security configuration for the data that you want to create. See `rowLevelPermissionDataSet` Block below.
          * 
          * @return builder
          * 
@@ -676,7 +676,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rowLevelPermissionDataSet The row-level security configuration for the data that you want to create. See row_level_permission_data_set.
+         * @param rowLevelPermissionDataSet Row-level security configuration for the data that you want to create. See `rowLevelPermissionDataSet` Block below.
          * 
          * @return builder
          * 
@@ -686,7 +686,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rowLevelPermissionTagConfiguration The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+         * @param rowLevelPermissionTagConfiguration Configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See `rowLevelPermissionTagConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -697,7 +697,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rowLevelPermissionTagConfiguration The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See row_level_permission_tag_configuration.
+         * @param rowLevelPermissionTagConfiguration Configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only. See `rowLevelPermissionTagConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -728,7 +728,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useAs Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+         * @param useAs Purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class DataSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useAs Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+         * @param useAs Purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
          * 
          * @return builder
          * 

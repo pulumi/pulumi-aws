@@ -19075,7 +19075,7 @@ func (o BucketV2VersioningArrayOutput) Index(i pulumi.IntInput) BucketV2Versioni
 type BucketV2Website struct {
 	// Absolute path to the document to return in case of a 4XX error.
 	ErrorDocument *string `pulumi:"errorDocument"`
-	// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+	// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
 	IndexDocument *string `pulumi:"indexDocument"`
 	// Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
 	RedirectAllRequestsTo *string `pulumi:"redirectAllRequestsTo"`
@@ -19097,7 +19097,7 @@ type BucketV2WebsiteInput interface {
 type BucketV2WebsiteArgs struct {
 	// Absolute path to the document to return in case of a 4XX error.
 	ErrorDocument pulumi.StringPtrInput `pulumi:"errorDocument"`
-	// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+	// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
 	IndexDocument pulumi.StringPtrInput `pulumi:"indexDocument"`
 	// Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
 	RedirectAllRequestsTo pulumi.StringPtrInput `pulumi:"redirectAllRequestsTo"`
@@ -19161,7 +19161,7 @@ func (o BucketV2WebsiteOutput) ErrorDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2Website) *string { return v.ErrorDocument }).(pulumi.StringPtrOutput)
 }
 
-// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
 func (o BucketV2WebsiteOutput) IndexDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2Website) *string { return v.IndexDocument }).(pulumi.StringPtrOutput)
 }
@@ -19667,7 +19667,7 @@ func (o BucketVersioningVersioningConfigurationPtrOutput) Status() pulumi.String
 type BucketWebsite struct {
 	// Absolute path to the document to return in case of a 4XX error.
 	ErrorDocument *string `pulumi:"errorDocument"`
-	// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+	// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
 	IndexDocument *string `pulumi:"indexDocument"`
 	// Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
 	RedirectAllRequestsTo *string `pulumi:"redirectAllRequestsTo"`
@@ -19689,7 +19689,7 @@ type BucketWebsiteInput interface {
 type BucketWebsiteArgs struct {
 	// Absolute path to the document to return in case of a 4XX error.
 	ErrorDocument pulumi.StringPtrInput `pulumi:"errorDocument"`
-	// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+	// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
 	IndexDocument pulumi.StringPtrInput `pulumi:"indexDocument"`
 	// Hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
 	RedirectAllRequestsTo pulumi.StringPtrInput `pulumi:"redirectAllRequestsTo"`
@@ -19779,7 +19779,7 @@ func (o BucketWebsiteOutput) ErrorDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketWebsite) *string { return v.ErrorDocument }).(pulumi.StringPtrOutput)
 }
 
-// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
 func (o BucketWebsiteOutput) IndexDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketWebsite) *string { return v.IndexDocument }).(pulumi.StringPtrOutput)
 }
@@ -19828,7 +19828,7 @@ func (o BucketWebsitePtrOutput) ErrorDocument() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
 func (o BucketWebsitePtrOutput) IndexDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketWebsite) *string {
 		if v == nil {

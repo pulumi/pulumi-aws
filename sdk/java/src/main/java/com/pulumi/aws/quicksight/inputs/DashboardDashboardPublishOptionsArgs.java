@@ -25,14 +25,14 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
     public static final DashboardDashboardPublishOptionsArgs Empty = new DashboardDashboardPublishOptionsArgs();
 
     /**
-     * Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+     * Ad hoc (one-time) filtering option. See `adHocFilteringOption`.
      * 
      */
     @Import(name="adHocFilteringOption")
     private @Nullable Output<DashboardDashboardPublishOptionsAdHocFilteringOptionArgs> adHocFilteringOption;
 
     /**
-     * @return Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+     * @return Ad hoc (one-time) filtering option. See `adHocFilteringOption`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsAdHocFilteringOptionArgs>> adHocFilteringOption() {
@@ -40,14 +40,14 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
     }
 
     /**
-     * The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+     * Drill-down options of data points in a dashboard. See `dataPointDrillUpDownOption`.
      * 
      */
     @Import(name="dataPointDrillUpDownOption")
     private @Nullable Output<DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs> dataPointDrillUpDownOption;
 
     /**
-     * @return The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+     * @return Drill-down options of data points in a dashboard. See `dataPointDrillUpDownOption`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs>> dataPointDrillUpDownOption() {
@@ -55,14 +55,14 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
     }
 
     /**
-     * The data point menu label options of a dashboard. See data_point_menu_label_option.
+     * Data point menu label options of a dashboard. See `dataPointMenuLabelOption`.
      * 
      */
     @Import(name="dataPointMenuLabelOption")
     private @Nullable Output<DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs> dataPointMenuLabelOption;
 
     /**
-     * @return The data point menu label options of a dashboard. See data_point_menu_label_option.
+     * @return Data point menu label options of a dashboard. See `dataPointMenuLabelOption`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs>> dataPointMenuLabelOption() {
@@ -70,14 +70,14 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
     }
 
     /**
-     * The data point tool tip options of a dashboard. See data_point_tooltip_option.
+     * Data point tool tip options of a dashboard. See `dataPointTooltipOption`.
      * 
      */
     @Import(name="dataPointTooltipOption")
     private @Nullable Output<DashboardDashboardPublishOptionsDataPointTooltipOptionArgs> dataPointTooltipOption;
 
     /**
-     * @return The data point tool tip options of a dashboard. See data_point_tooltip_option.
+     * @return Data point tool tip options of a dashboard. See `dataPointTooltipOption`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsDataPointTooltipOptionArgs>> dataPointTooltipOption() {
@@ -85,14 +85,14 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
     }
 
     /**
-     * Export to .csv option. See export_to_csv_option.
+     * Export to .csv option. See `exportToCsvOption`.
      * 
      */
     @Import(name="exportToCsvOption")
     private @Nullable Output<DashboardDashboardPublishOptionsExportToCsvOptionArgs> exportToCsvOption;
 
     /**
-     * @return Export to .csv option. See export_to_csv_option.
+     * @return Export to .csv option. See `exportToCsvOption`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsExportToCsvOptionArgs>> exportToCsvOption() {
@@ -100,14 +100,14 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
     }
 
     /**
-     * Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+     * Whether hidden fields are exported with a dashboard. See `exportWithHiddenFieldsOption`.
      * 
      */
     @Import(name="exportWithHiddenFieldsOption")
     private @Nullable Output<DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs> exportWithHiddenFieldsOption;
 
     /**
-     * @return Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+     * @return Whether hidden fields are exported with a dashboard. See `exportWithHiddenFieldsOption`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs>> exportWithHiddenFieldsOption() {
@@ -115,14 +115,14 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
     }
 
     /**
-     * Sheet controls option. See sheet_controls_option.
+     * Sheet controls option. See `sheetControlsOption`.
      * 
      */
     @Import(name="sheetControlsOption")
     private @Nullable Output<DashboardDashboardPublishOptionsSheetControlsOptionArgs> sheetControlsOption;
 
     /**
-     * @return Sheet controls option. See sheet_controls_option.
+     * @return Sheet controls option. See `sheetControlsOption`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsSheetControlsOptionArgs>> sheetControlsOption() {
@@ -130,14 +130,14 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
     }
 
     /**
-     * The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+     * Sheet layout maximization options of a dashboard. See `sheetLayoutElementMaximizationOption`.
      * 
      */
     @Import(name="sheetLayoutElementMaximizationOption")
     private @Nullable Output<DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs> sheetLayoutElementMaximizationOption;
 
     /**
-     * @return The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+     * @return Sheet layout maximization options of a dashboard. See `sheetLayoutElementMaximizationOption`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs>> sheetLayoutElementMaximizationOption() {
@@ -145,14 +145,14 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
     }
 
     /**
-     * The axis sort options of a dashboard. See visual_axis_sort_option.
+     * Axis sort options of a dashboard. See `visualAxisSortOption`.
      * 
      */
     @Import(name="visualAxisSortOption")
     private @Nullable Output<DashboardDashboardPublishOptionsVisualAxisSortOptionArgs> visualAxisSortOption;
 
     /**
-     * @return The axis sort options of a dashboard. See visual_axis_sort_option.
+     * @return Axis sort options of a dashboard. See `visualAxisSortOption`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsVisualAxisSortOptionArgs>> visualAxisSortOption() {
@@ -160,14 +160,14 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
     }
 
     /**
-     * The menu options of a visual in a dashboard. See visual_menu_option.
+     * Menu options of a visual in a dashboard. See `visualMenuOption`.
      * 
      */
     @Import(name="visualMenuOption")
     private @Nullable Output<DashboardDashboardPublishOptionsVisualMenuOptionArgs> visualMenuOption;
 
     /**
-     * @return The menu options of a visual in a dashboard. See visual_menu_option.
+     * @return Menu options of a visual in a dashboard. See `visualMenuOption`.
      * 
      */
     public Optional<Output<DashboardDashboardPublishOptionsVisualMenuOptionArgs>> visualMenuOption() {
@@ -208,7 +208,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param adHocFilteringOption Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+         * @param adHocFilteringOption Ad hoc (one-time) filtering option. See `adHocFilteringOption`.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param adHocFilteringOption Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+         * @param adHocFilteringOption Ad hoc (one-time) filtering option. See `adHocFilteringOption`.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param dataPointDrillUpDownOption The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+         * @param dataPointDrillUpDownOption Drill-down options of data points in a dashboard. See `dataPointDrillUpDownOption`.
          * 
          * @return builder
          * 
@@ -240,7 +240,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param dataPointDrillUpDownOption The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+         * @param dataPointDrillUpDownOption Drill-down options of data points in a dashboard. See `dataPointDrillUpDownOption`.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param dataPointMenuLabelOption The data point menu label options of a dashboard. See data_point_menu_label_option.
+         * @param dataPointMenuLabelOption Data point menu label options of a dashboard. See `dataPointMenuLabelOption`.
          * 
          * @return builder
          * 
@@ -261,7 +261,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param dataPointMenuLabelOption The data point menu label options of a dashboard. See data_point_menu_label_option.
+         * @param dataPointMenuLabelOption Data point menu label options of a dashboard. See `dataPointMenuLabelOption`.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param dataPointTooltipOption The data point tool tip options of a dashboard. See data_point_tooltip_option.
+         * @param dataPointTooltipOption Data point tool tip options of a dashboard. See `dataPointTooltipOption`.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param dataPointTooltipOption The data point tool tip options of a dashboard. See data_point_tooltip_option.
+         * @param dataPointTooltipOption Data point tool tip options of a dashboard. See `dataPointTooltipOption`.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param exportToCsvOption Export to .csv option. See export_to_csv_option.
+         * @param exportToCsvOption Export to .csv option. See `exportToCsvOption`.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param exportToCsvOption Export to .csv option. See export_to_csv_option.
+         * @param exportToCsvOption Export to .csv option. See `exportToCsvOption`.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param exportWithHiddenFieldsOption Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+         * @param exportWithHiddenFieldsOption Whether hidden fields are exported with a dashboard. See `exportWithHiddenFieldsOption`.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param exportWithHiddenFieldsOption Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+         * @param exportWithHiddenFieldsOption Whether hidden fields are exported with a dashboard. See `exportWithHiddenFieldsOption`.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sheetControlsOption Sheet controls option. See sheet_controls_option.
+         * @param sheetControlsOption Sheet controls option. See `sheetControlsOption`.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sheetControlsOption Sheet controls option. See sheet_controls_option.
+         * @param sheetControlsOption Sheet controls option. See `sheetControlsOption`.
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sheetLayoutElementMaximizationOption The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+         * @param sheetLayoutElementMaximizationOption Sheet layout maximization options of a dashboard. See `sheetLayoutElementMaximizationOption`.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param sheetLayoutElementMaximizationOption The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+         * @param sheetLayoutElementMaximizationOption Sheet layout maximization options of a dashboard. See `sheetLayoutElementMaximizationOption`.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param visualAxisSortOption The axis sort options of a dashboard. See visual_axis_sort_option.
+         * @param visualAxisSortOption Axis sort options of a dashboard. See `visualAxisSortOption`.
          * 
          * @return builder
          * 
@@ -387,7 +387,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param visualAxisSortOption The axis sort options of a dashboard. See visual_axis_sort_option.
+         * @param visualAxisSortOption Axis sort options of a dashboard. See `visualAxisSortOption`.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param visualMenuOption The menu options of a visual in a dashboard. See visual_menu_option.
+         * @param visualMenuOption Menu options of a visual in a dashboard. See `visualMenuOption`.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class DashboardDashboardPublishOptionsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param visualMenuOption The menu options of a visual in a dashboard. See visual_menu_option.
+         * @param visualMenuOption Menu options of a visual in a dashboard. See `visualMenuOption`.
          * 
          * @return builder
          * 

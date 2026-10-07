@@ -490,6 +490,20 @@ public class Topic extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.lambdaSuccessFeedbackSampleRate);
     }
     /**
+     * The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximumMessageSize` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+     * 
+     */
+    @Export(name="maximumMessageSize", refs={Integer.class}, tree="[0]")
+    private Output<Integer> maximumMessageSize;
+
+    /**
+     * @return The maximum size, in bytes, of a message that can be published to the topic. Valid values are `1024` to `1048576` (1 MiB). The default is `262144` (256 KiB). A topic with a `maximumMessageSize` above 256 KiB must have 100 or fewer subscriptions, and each subscription must be an Amazon SQS, Amazon Data Firehose, or AWS Lambda subscription.
+     * 
+     */
+    public Output<Integer> maximumMessageSize() {
+        return this.maximumMessageSize;
+    }
+    /**
      * The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`
      * 
      */

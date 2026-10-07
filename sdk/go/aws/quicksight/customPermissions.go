@@ -58,7 +58,7 @@ type CustomPermissions struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// Actions to include in the custom permissions profile. See capabilities.
+	// Actions to include in the custom permissions profile. See `capabilities` Block.
 	Capabilities CustomPermissionsCapabilitiesOutput `pulumi:"capabilities"`
 	// Custom permissions profile name.
 	//
@@ -68,7 +68,7 @@ type CustomPermissions struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -112,7 +112,7 @@ type customPermissionsState struct {
 	Arn *string `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Actions to include in the custom permissions profile. See capabilities.
+	// Actions to include in the custom permissions profile. See `capabilities` Block.
 	Capabilities *CustomPermissionsCapabilities `pulumi:"capabilities"`
 	// Custom permissions profile name.
 	//
@@ -122,7 +122,7 @@ type customPermissionsState struct {
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -131,7 +131,7 @@ type CustomPermissionsState struct {
 	Arn pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// Actions to include in the custom permissions profile. See capabilities.
+	// Actions to include in the custom permissions profile. See `capabilities` Block.
 	Capabilities CustomPermissionsCapabilitiesPtrInput
 	// Custom permissions profile name.
 	//
@@ -141,7 +141,7 @@ type CustomPermissionsState struct {
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -152,7 +152,7 @@ func (CustomPermissionsState) ElementType() reflect.Type {
 type customPermissionsArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// Actions to include in the custom permissions profile. See capabilities.
+	// Actions to include in the custom permissions profile. See `capabilities` Block.
 	Capabilities CustomPermissionsCapabilities `pulumi:"capabilities"`
 	// Custom permissions profile name.
 	//
@@ -168,7 +168,7 @@ type customPermissionsArgs struct {
 type CustomPermissionsArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// Actions to include in the custom permissions profile. See capabilities.
+	// Actions to include in the custom permissions profile. See `capabilities` Block.
 	Capabilities CustomPermissionsCapabilitiesInput
 	// Custom permissions profile name.
 	//
@@ -277,7 +277,7 @@ func (o CustomPermissionsOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// Actions to include in the custom permissions profile. See capabilities.
+// Actions to include in the custom permissions profile. See `capabilities` Block.
 func (o CustomPermissionsOutput) Capabilities() CustomPermissionsCapabilitiesOutput {
 	return o.ApplyT(func(v *CustomPermissions) CustomPermissionsCapabilitiesOutput { return v.Capabilities }).(CustomPermissionsCapabilitiesOutput)
 }
@@ -299,7 +299,7 @@ func (o CustomPermissionsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CustomPermissionsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -13,19 +13,19 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
     public sealed class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes an application's checkpointing configuration.
+        /// Application's checkpointing configuration. See `CheckpointConfiguration` Block below.
         /// </summary>
         [Input("checkpointConfiguration")]
         public Input<Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs>? CheckpointConfiguration { get; set; }
 
         /// <summary>
-        /// Describes configuration parameters for CloudWatch logging for an application.
+        /// Configuration parameters for CloudWatch logging for an application. See `MonitoringConfiguration` Block below.
         /// </summary>
         [Input("monitoringConfiguration")]
         public Input<Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs>? MonitoringConfiguration { get; set; }
 
         /// <summary>
-        /// Describes parameters for how an application executes multiple tasks simultaneously.
+        /// Parameters for how an application executes multiple tasks simultaneously. See `ParallelismConfiguration` Block below.
         /// </summary>
         [Input("parallelismConfiguration")]
         public Input<Inputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs>? ParallelismConfiguration { get; set; }

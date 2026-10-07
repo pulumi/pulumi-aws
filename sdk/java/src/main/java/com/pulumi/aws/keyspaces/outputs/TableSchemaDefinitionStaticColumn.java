@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class TableSchemaDefinitionStaticColumn {
     /**
-     * @return The name of the static column.
+     * @return Name of the static column.
      * 
      */
     private String name;
 
     private TableSchemaDefinitionStaticColumn() {}
     /**
-     * @return The name of the static column.
+     * @return Name of the static column.
      * 
      */
     public String name() {

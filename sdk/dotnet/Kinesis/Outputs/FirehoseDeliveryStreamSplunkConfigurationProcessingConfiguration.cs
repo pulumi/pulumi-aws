@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Specifies the data processors as multiple blocks. See `Processors` block below for details.
+        /// Data processors as multiple blocks. See `Processors` block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor> Processors;
 

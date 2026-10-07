@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Registered keys. See key_registration.
+        /// Registered keys. See `KeyRegistration` Block.
         /// </summary>
         [Output("keyRegistrations")]
         public Output<ImmutableArray<Outputs.KeyRegistrationKeyRegistration>> KeyRegistrations { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.KeyRegistrationKeyRegistrationArgs>? _keyRegistrations;
 
         /// <summary>
-        /// Registered keys. See key_registration.
+        /// Registered keys. See `KeyRegistration` Block.
         /// </summary>
         public InputList<Inputs.KeyRegistrationKeyRegistrationArgs> KeyRegistrations
         {
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.KeyRegistrationKeyRegistrationGetArgs>? _keyRegistrations;
 
         /// <summary>
-        /// Registered keys. See key_registration.
+        /// Registered keys. See `KeyRegistration` Block.
         /// </summary>
         public InputList<Inputs.KeyRegistrationKeyRegistrationGetArgs> KeyRegistrations
         {

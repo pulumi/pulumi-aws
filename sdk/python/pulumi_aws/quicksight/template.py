@@ -33,14 +33,14 @@ class TemplateArgs:
         The set of arguments for constructing a Template resource.
 
         :param pulumi.Input[_builtins.str] template_id: Identifier for the template.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current template version being created/updated.
+        :param pulumi.Input[_builtins.str] version_description: Description of the current template version being created/updated.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] name: Display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See `source_entity` Block.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "template_id", template_id)
@@ -74,7 +74,7 @@ class TemplateArgs:
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Input[_builtins.str]:
         """
-        A description of the current template version being created/updated.
+        Description of the current template version being created/updated.
 
         The following arguments are optional:
         """
@@ -112,7 +112,7 @@ class TemplateArgs:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplatePermissionArgs']]]]:
         """
-        A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
         """
         return pulumi.get(self, "permissions")
 
@@ -136,7 +136,7 @@ class TemplateArgs:
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Input[Optional['TemplateSourceEntityArgs']]:
         """
-        The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See `source_entity` Block.
         """
         return pulumi.get(self, "source_entity")
 
@@ -180,21 +180,21 @@ class _TemplateState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the template.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] created_time: The time that the template was created.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the template was last updated.
+        :param pulumi.Input[_builtins.str] created_time: Time that the template was created.
+        :param pulumi.Input[_builtins.str] last_updated_time: Time that the template was last updated.
         :param pulumi.Input[_builtins.str] name: Display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See `source_entity` Block.
         :param pulumi.Input[_builtins.str] source_entity_arn: ARN of an analysis or template that was used to create this template.
-        :param pulumi.Input[_builtins.str] status: The template creation status.
+        :param pulumi.Input[_builtins.str] status: Template creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] template_id: Identifier for the template.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current template version being created/updated.
+        :param pulumi.Input[_builtins.str] version_description: Description of the current template version being created/updated.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.int] version_number: The version number of the template version.
+        :param pulumi.Input[_builtins.int] version_number: Version number of the template version.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -255,7 +255,7 @@ class _TemplateState:
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time that the template was created.
+        Time that the template was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -267,7 +267,7 @@ class _TemplateState:
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time that the template was last updated.
+        Time that the template was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
@@ -291,7 +291,7 @@ class _TemplateState:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TemplatePermissionArgs']]]]:
         """
-        A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
         """
         return pulumi.get(self, "permissions")
 
@@ -315,7 +315,7 @@ class _TemplateState:
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Input[Optional['TemplateSourceEntityArgs']]:
         """
-        The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See `source_entity` Block.
         """
         return pulumi.get(self, "source_entity")
 
@@ -339,7 +339,7 @@ class _TemplateState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The template creation status.
+        Template creation status.
         """
         return pulumi.get(self, "status")
 
@@ -363,7 +363,7 @@ class _TemplateState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -387,7 +387,7 @@ class _TemplateState:
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the current template version being created/updated.
+        Description of the current template version being created/updated.
 
         The following arguments are optional:
         """
@@ -401,7 +401,7 @@ class _TemplateState:
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The version number of the template version.
+        Version number of the template version.
         """
         return pulumi.get(self, "version_number")
 
@@ -525,12 +525,12 @@ class Template(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] name: Display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict', 'outputs.TemplatePermission']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict', 'outputs.TemplatePermission']]]] permissions: Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict', 'outputs.TemplateSourceEntity']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict', 'outputs.TemplateSourceEntity']] source_entity: Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See `source_entity` Block.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] template_id: Identifier for the template.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current template version being created/updated.
+        :param pulumi.Input[_builtins.str] version_description: Description of the current template version being created/updated.
                
                The following arguments are optional:
         """
@@ -721,21 +721,21 @@ class Template(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the template.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] created_time: The time that the template was created.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the template was last updated.
+        :param pulumi.Input[_builtins.str] created_time: Time that the template was created.
+        :param pulumi.Input[_builtins.str] last_updated_time: Time that the template was last updated.
         :param pulumi.Input[_builtins.str] name: Display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict', 'outputs.TemplatePermission']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict', 'outputs.TemplatePermission']]]] permissions: Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict', 'outputs.TemplateSourceEntity']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict', 'outputs.TemplateSourceEntity']] source_entity: Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See `source_entity` Block.
         :param pulumi.Input[_builtins.str] source_entity_arn: ARN of an analysis or template that was used to create this template.
-        :param pulumi.Input[_builtins.str] status: The template creation status.
+        :param pulumi.Input[_builtins.str] status: Template creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] template_id: Identifier for the template.
-        :param pulumi.Input[_builtins.str] version_description: A description of the current template version being created/updated.
+        :param pulumi.Input[_builtins.str] version_description: Description of the current template version being created/updated.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.int] version_number: The version number of the template version.
+        :param pulumi.Input[_builtins.int] version_number: Version number of the template version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -778,7 +778,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter(name="createdTime")
     def created_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time that the template was created.
+        Time that the template was created.
         """
         return pulumi.get(self, "created_time")
 
@@ -786,7 +786,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time that the template was last updated.
+        Time that the template was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
@@ -802,7 +802,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.TemplatePermission']]]:
         """
-        A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        Set of resource permissions on the template. Maximum of 64 items. See `permissions` Block.
         """
         return pulumi.get(self, "permissions")
 
@@ -818,7 +818,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.TemplateSourceEntity']]:
         """
-        The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        Entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See `source_entity` Block.
         """
         return pulumi.get(self, "source_entity")
 
@@ -834,7 +834,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The template creation status.
+        Template creation status.
         """
         return pulumi.get(self, "status")
 
@@ -850,7 +850,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -866,7 +866,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter(name="versionDescription")
     def version_description(self) -> pulumi.Output[_builtins.str]:
         """
-        A description of the current template version being created/updated.
+        Description of the current template version being created/updated.
 
         The following arguments are optional:
         """
@@ -876,7 +876,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Output[_builtins.int]:
         """
-        The version number of the template version.
+        Version number of the template version.
         """
         return pulumi.get(self, "version_number")
 

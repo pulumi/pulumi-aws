@@ -13,7 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
     public sealed class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key of the application execution property key-value map.
+        /// Key of the application execution property key-value map.
         /// </summary>
         [Input("propertyGroupId", required: true)]
         public Input<string> PropertyGroupId { get; set; } = null!;

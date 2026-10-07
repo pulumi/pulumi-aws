@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Kinesis.Outputs
     public sealed class AnalyticsApplicationReferenceDataSources
     {
         /// <summary>
-        /// The ARN of the Kinesis Analytics Application.
+        /// ARN of the Kinesis Analytics Application.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The S3 configuration for the reference data source. See S3 Reference below for more details.
+        /// S3 configuration for the reference data source. See `reference_data_sources.s3` Block below for details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationReferenceDataSourcesS3 S3;
         /// <summary>
-        /// The Schema format of the data in the streaming source. See Source Schema below for more details.
+        /// Schema format of the data in the streaming source. See `reference_data_sources.schema` Block below for details.
         /// </summary>
         public readonly Outputs.AnalyticsApplicationReferenceDataSourcesSchema Schema;
         /// <summary>
-        /// The in-application Table Name.
+        /// In-application Table Name.
         /// </summary>
         public readonly string TableName;
 

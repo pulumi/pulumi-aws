@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class DataSetRefreshProperties
     {
         /// <summary>
-        /// The refresh configuration for the data set. See refresh_configuration.
+        /// Refresh configuration for the data set. See `RefreshConfiguration` Block below.
         /// </summary>
         public readonly Outputs.DataSetRefreshPropertiesRefreshConfiguration RefreshConfiguration;
 

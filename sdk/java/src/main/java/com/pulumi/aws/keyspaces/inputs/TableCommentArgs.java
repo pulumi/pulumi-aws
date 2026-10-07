@@ -16,14 +16,14 @@ public final class TableCommentArgs extends com.pulumi.resources.ResourceArgs {
     public static final TableCommentArgs Empty = new TableCommentArgs();
 
     /**
-     * A description of the table.
+     * Description of the table.
      * 
      */
     @Import(name="message")
     private @Nullable Output<String> message;
 
     /**
-     * @return A description of the table.
+     * @return Description of the table.
      * 
      */
     public Optional<Output<String>> message() {
@@ -55,7 +55,7 @@ public final class TableCommentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param message A description of the table.
+         * @param message Description of the table.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class TableCommentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param message A description of the table.
+         * @param message Description of the table.
          * 
          * @return builder
          * 

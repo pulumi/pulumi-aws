@@ -55,12 +55,12 @@ type AggregateAuthorization struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The ARN of the authorization
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The region authorized to collect aggregated data.
-	AuthorizedAwsRegion pulumi.StringPtrOutput `pulumi:"authorizedAwsRegion"`
-	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+	// The region authorized to collect aggregated data. Exactly one of `authorizedAwsRegion` or `region` is required.
+	AuthorizedAwsRegion pulumi.StringOutput `pulumi:"authorizedAwsRegion"`
+	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
 	//
 	// Deprecated: region is deprecated. Use authorizedAwsRegion instead.
-	Region pulumi.StringPtrOutput `pulumi:"region"`
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -104,9 +104,9 @@ type aggregateAuthorizationState struct {
 	AccountId *string `pulumi:"accountId"`
 	// The ARN of the authorization
 	Arn *string `pulumi:"arn"`
-	// The region authorized to collect aggregated data.
+	// The region authorized to collect aggregated data. Exactly one of `authorizedAwsRegion` or `region` is required.
 	AuthorizedAwsRegion *string `pulumi:"authorizedAwsRegion"`
-	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
 	//
 	// Deprecated: region is deprecated. Use authorizedAwsRegion instead.
 	Region *string `pulumi:"region"`
@@ -121,9 +121,9 @@ type AggregateAuthorizationState struct {
 	AccountId pulumi.StringPtrInput
 	// The ARN of the authorization
 	Arn pulumi.StringPtrInput
-	// The region authorized to collect aggregated data.
+	// The region authorized to collect aggregated data. Exactly one of `authorizedAwsRegion` or `region` is required.
 	AuthorizedAwsRegion pulumi.StringPtrInput
-	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
 	//
 	// Deprecated: region is deprecated. Use authorizedAwsRegion instead.
 	Region pulumi.StringPtrInput
@@ -140,9 +140,9 @@ func (AggregateAuthorizationState) ElementType() reflect.Type {
 type aggregateAuthorizationArgs struct {
 	// Account ID.
 	AccountId string `pulumi:"accountId"`
-	// The region authorized to collect aggregated data.
+	// The region authorized to collect aggregated data. Exactly one of `authorizedAwsRegion` or `region` is required.
 	AuthorizedAwsRegion *string `pulumi:"authorizedAwsRegion"`
-	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
 	//
 	// Deprecated: region is deprecated. Use authorizedAwsRegion instead.
 	Region *string `pulumi:"region"`
@@ -154,9 +154,9 @@ type aggregateAuthorizationArgs struct {
 type AggregateAuthorizationArgs struct {
 	// Account ID.
 	AccountId pulumi.StringInput
-	// The region authorized to collect aggregated data.
+	// The region authorized to collect aggregated data. Exactly one of `authorizedAwsRegion` or `region` is required.
 	AuthorizedAwsRegion pulumi.StringPtrInput
-	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+	// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
 	//
 	// Deprecated: region is deprecated. Use authorizedAwsRegion instead.
 	Region pulumi.StringPtrInput
@@ -261,16 +261,16 @@ func (o AggregateAuthorizationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The region authorized to collect aggregated data.
-func (o AggregateAuthorizationOutput) AuthorizedAwsRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringPtrOutput { return v.AuthorizedAwsRegion }).(pulumi.StringPtrOutput)
+// The region authorized to collect aggregated data. Exactly one of `authorizedAwsRegion` or `region` is required.
+func (o AggregateAuthorizationOutput) AuthorizedAwsRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringOutput { return v.AuthorizedAwsRegion }).(pulumi.StringOutput)
 }
 
-// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead.
+// The region authorized to collect aggregated data. Use `authorizedAwsRegion` instead. Exactly one of `authorizedAwsRegion` or `region` is required.
 //
 // Deprecated: region is deprecated. Use authorizedAwsRegion instead.
-func (o AggregateAuthorizationOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
+func (o AggregateAuthorizationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

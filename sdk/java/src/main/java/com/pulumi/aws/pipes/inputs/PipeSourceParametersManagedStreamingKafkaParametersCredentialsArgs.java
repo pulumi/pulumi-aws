@@ -16,14 +16,14 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
     public static final PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs Empty = new PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs();
 
     /**
-     * The ARN of the Secrets Manager secret containing the credentials.
+     * ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     @Import(name="clientCertificateTlsAuth")
     private @Nullable Output<String> clientCertificateTlsAuth;
 
     /**
-     * @return The ARN of the Secrets Manager secret containing the credentials.
+     * @return ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     public Optional<Output<String>> clientCertificateTlsAuth() {
@@ -31,14 +31,14 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
     }
 
     /**
-     * The ARN of the Secrets Manager secret containing the credentials.
+     * ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     @Import(name="saslScram512Auth")
     private @Nullable Output<String> saslScram512Auth;
 
     /**
-     * @return The ARN of the Secrets Manager secret containing the credentials.
+     * @return ARN of the Secrets Manager secret containing the credentials.
      * 
      */
     public Optional<Output<String>> saslScram512Auth() {
@@ -71,7 +71,7 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
         }
 
         /**
-         * @param clientCertificateTlsAuth The ARN of the Secrets Manager secret containing the credentials.
+         * @param clientCertificateTlsAuth ARN of the Secrets Manager secret containing the credentials.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
         }
 
         /**
-         * @param clientCertificateTlsAuth The ARN of the Secrets Manager secret containing the credentials.
+         * @param clientCertificateTlsAuth ARN of the Secrets Manager secret containing the credentials.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
         }
 
         /**
-         * @param saslScram512Auth The ARN of the Secrets Manager secret containing the credentials.
+         * @param saslScram512Auth ARN of the Secrets Manager secret containing the credentials.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PipeSourceParametersManagedStreamingKafkaParametersCredential
         }
 
         /**
-         * @param saslScram512Auth The ARN of the Secrets Manager secret containing the credentials.
+         * @param saslScram512Auth ARN of the Secrets Manager secret containing the credentials.
          * 
          * @return builder
          * 

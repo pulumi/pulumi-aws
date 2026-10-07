@@ -22,14 +22,14 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
     public static final DataSetLogicalTableMapDataTransformArgs Empty = new DataSetLogicalTableMapDataTransformArgs();
 
     /**
-     * A transform operation that casts a column to a different type. See cast_column_type_operation.
+     * Transform operation that casts a column to a different type. See `castColumnTypeOperation` Block below.
      * 
      */
     @Import(name="castColumnTypeOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs> castColumnTypeOperation;
 
     /**
-     * @return A transform operation that casts a column to a different type. See cast_column_type_operation.
+     * @return Transform operation that casts a column to a different type. See `castColumnTypeOperation` Block below.
      * 
      */
     public Optional<Output<DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs>> castColumnTypeOperation() {
@@ -37,14 +37,14 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
     }
 
     /**
-     * An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+     * Operation that creates calculated columns. Columns created in one such operation form a lexical closure. See `createColumnsOperation` Block below.
      * 
      */
     @Import(name="createColumnsOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs> createColumnsOperation;
 
     /**
-     * @return An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+     * @return Operation that creates calculated columns. Columns created in one such operation form a lexical closure. See `createColumnsOperation` Block below.
      * 
      */
     public Optional<Output<DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs>> createColumnsOperation() {
@@ -52,14 +52,14 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
     }
 
     /**
-     * An operation that filters rows based on some condition. See filter_operation.
+     * Operation that filters rows based on some condition. See `filterOperation` Block below.
      * 
      */
     @Import(name="filterOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformFilterOperationArgs> filterOperation;
 
     /**
-     * @return An operation that filters rows based on some condition. See filter_operation.
+     * @return Operation that filters rows based on some condition. See `filterOperation` Block below.
      * 
      */
     public Optional<Output<DataSetLogicalTableMapDataTransformFilterOperationArgs>> filterOperation() {
@@ -67,14 +67,14 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
     }
 
     /**
-     * An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+     * Operation that projects columns. Operations that come after a projection can only refer to projected columns. See `projectOperation` Block below.
      * 
      */
     @Import(name="projectOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformProjectOperationArgs> projectOperation;
 
     /**
-     * @return An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+     * @return Operation that projects columns. Operations that come after a projection can only refer to projected columns. See `projectOperation` Block below.
      * 
      */
     public Optional<Output<DataSetLogicalTableMapDataTransformProjectOperationArgs>> projectOperation() {
@@ -82,14 +82,14 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
     }
 
     /**
-     * An operation that renames a column. See rename_column_operation.
+     * Operation that renames a column. See `renameColumnOperation` Block below.
      * 
      */
     @Import(name="renameColumnOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformRenameColumnOperationArgs> renameColumnOperation;
 
     /**
-     * @return An operation that renames a column. See rename_column_operation.
+     * @return Operation that renames a column. See `renameColumnOperation` Block below.
      * 
      */
     public Optional<Output<DataSetLogicalTableMapDataTransformRenameColumnOperationArgs>> renameColumnOperation() {
@@ -97,14 +97,14 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
     }
 
     /**
-     * An operation that tags a column with additional information. See tag_column_operation.
+     * Operation that tags a column with additional information. See `tagColumnOperation` Block below.
      * 
      */
     @Import(name="tagColumnOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformTagColumnOperationArgs> tagColumnOperation;
 
     /**
-     * @return An operation that tags a column with additional information. See tag_column_operation.
+     * @return Operation that tags a column with additional information. See `tagColumnOperation` Block below.
      * 
      */
     public Optional<Output<DataSetLogicalTableMapDataTransformTagColumnOperationArgs>> tagColumnOperation() {
@@ -112,14 +112,14 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
     }
 
     /**
-     * A transform operation that removes tags associated with a column. See untag_column_operation.
+     * Transform operation that removes tags associated with a column. See `untagColumnOperation` Block below.
      * 
      */
     @Import(name="untagColumnOperation")
     private @Nullable Output<DataSetLogicalTableMapDataTransformUntagColumnOperationArgs> untagColumnOperation;
 
     /**
-     * @return A transform operation that removes tags associated with a column. See untag_column_operation.
+     * @return Transform operation that removes tags associated with a column. See `untagColumnOperation` Block below.
      * 
      */
     public Optional<Output<DataSetLogicalTableMapDataTransformUntagColumnOperationArgs>> untagColumnOperation() {
@@ -157,7 +157,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param castColumnTypeOperation A transform operation that casts a column to a different type. See cast_column_type_operation.
+         * @param castColumnTypeOperation Transform operation that casts a column to a different type. See `castColumnTypeOperation` Block below.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param castColumnTypeOperation A transform operation that casts a column to a different type. See cast_column_type_operation.
+         * @param castColumnTypeOperation Transform operation that casts a column to a different type. See `castColumnTypeOperation` Block below.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param createColumnsOperation An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+         * @param createColumnsOperation Operation that creates calculated columns. Columns created in one such operation form a lexical closure. See `createColumnsOperation` Block below.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param createColumnsOperation An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+         * @param createColumnsOperation Operation that creates calculated columns. Columns created in one such operation form a lexical closure. See `createColumnsOperation` Block below.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param filterOperation An operation that filters rows based on some condition. See filter_operation.
+         * @param filterOperation Operation that filters rows based on some condition. See `filterOperation` Block below.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param filterOperation An operation that filters rows based on some condition. See filter_operation.
+         * @param filterOperation Operation that filters rows based on some condition. See `filterOperation` Block below.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param projectOperation An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+         * @param projectOperation Operation that projects columns. Operations that come after a projection can only refer to projected columns. See `projectOperation` Block below.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param projectOperation An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+         * @param projectOperation Operation that projects columns. Operations that come after a projection can only refer to projected columns. See `projectOperation` Block below.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param renameColumnOperation An operation that renames a column. See rename_column_operation.
+         * @param renameColumnOperation Operation that renames a column. See `renameColumnOperation` Block below.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param renameColumnOperation An operation that renames a column. See rename_column_operation.
+         * @param renameColumnOperation Operation that renames a column. See `renameColumnOperation` Block below.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param tagColumnOperation An operation that tags a column with additional information. See tag_column_operation.
+         * @param tagColumnOperation Operation that tags a column with additional information. See `tagColumnOperation` Block below.
          * 
          * @return builder
          * 
@@ -273,7 +273,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param tagColumnOperation An operation that tags a column with additional information. See tag_column_operation.
+         * @param tagColumnOperation Operation that tags a column with additional information. See `tagColumnOperation` Block below.
          * 
          * @return builder
          * 
@@ -283,7 +283,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param untagColumnOperation A transform operation that removes tags associated with a column. See untag_column_operation.
+         * @param untagColumnOperation Transform operation that removes tags associated with a column. See `untagColumnOperation` Block below.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class DataSetLogicalTableMapDataTransformArgs extends com.pulumi.re
         }
 
         /**
-         * @param untagColumnOperation A transform operation that removes tags associated with a column. See untag_column_operation.
+         * @param untagColumnOperation Transform operation that removes tags associated with a column. See `untagColumnOperation` Block below.
          * 
          * @return builder
          * 

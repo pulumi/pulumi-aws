@@ -348,18 +348,18 @@ public class AgentcoreHarness extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.environmentArtifact);
     }
     /**
-     * Map of environment variables.
+     * Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
      * 
      */
     @Export(name="environmentVariables", refs={Map.class,String.class}, tree="[0,1,1]")
-    private Output</* @Nullable */ Map<String,String>> environmentVariables;
+    private Output<Map<String,String>> environmentVariables;
 
     /**
-     * @return Map of environment variables.
+     * @return Map of environment variables. Set to an empty map (`{}`) to remove all environment variables.
      * 
      */
-    public Output<Optional<Map<String,String>>> environmentVariables() {
-        return Codegen.optional(this.environmentVariables);
+    public Output<Map<String,String>> environmentVariables() {
+        return this.environmentVariables;
     }
     /**
      * Compute environment configuration. See `environment` Block below.If not specified, configured values can be found in `environmentActual`. Clearing this value will leave the environment configuration as is, but Terraform will not track changes.

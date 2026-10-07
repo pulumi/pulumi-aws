@@ -18,7 +18,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConf
      */
     private @Nullable Boolean enabled;
     /**
-     * @return The Snowflake role.
+     * @return Snowflake role.
      * 
      */
     private @Nullable String snowflakeRole;
@@ -32,7 +32,7 @@ public final class FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConf
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return The Snowflake role.
+     * @return Snowflake role.
      * 
      */
     public Optional<String> snowflakeRole() {

@@ -62,9 +62,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:quicksight/groupMembership:GroupMembership")
 public class GroupMembership extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the group membership.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the group membership.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }
@@ -83,42 +91,42 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
         return this.awsAccountId;
     }
     /**
-     * The name of the group in which the member will be added.
+     * Name of the group in which the member will be added.
      * 
      */
     @Export(name="groupName", refs={String.class}, tree="[0]")
     private Output<String> groupName;
 
     /**
-     * @return The name of the group in which the member will be added.
+     * @return Name of the group in which the member will be added.
      * 
      */
     public Output<String> groupName() {
         return this.groupName;
     }
     /**
-     * The name of the member to add to the group.
+     * Name of the member to add to the group.
      * 
      */
     @Export(name="memberName", refs={String.class}, tree="[0]")
     private Output<String> memberName;
 
     /**
-     * @return The name of the member to add to the group.
+     * @return Name of the member to add to the group.
      * 
      */
     public Output<String> memberName() {
         return this.memberName;
     }
     /**
-     * The namespace that you want the user to be a part of. Defaults to `default`.
+     * Namespace that you want the user to be a part of. Defaults to `default`.
      * 
      */
     @Export(name="namespace", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> namespace;
 
     /**
-     * @return The namespace that you want the user to be a part of. Defaults to `default`.
+     * @return Namespace that you want the user to be a part of. Defaults to `default`.
      * 
      */
     public Output<Optional<String>> namespace() {

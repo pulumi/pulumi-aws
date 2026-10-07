@@ -70,23 +70,19 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A flag to indicate whether to bypass the key policy lockout safety check.
-     * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-     * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-     * The default value is `false`.
+     * Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
      */
     declare public readonly bypassPolicyLockoutSafetyCheck: pulumi.Output<boolean | undefined>;
     /**
-     * The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-     * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+     * Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      */
     declare public readonly deletionWindowInDays: pulumi.Output<number | undefined>;
     /**
-     * A description of the KMS key.
+     * Description of the KMS key.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+     * Whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      */
     declare public readonly enabled: pulumi.Output<boolean>;
     /**
@@ -94,7 +90,7 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly expirationModel: pulumi.Output<string>;
     /**
-     * The key ID of the replica key. Related multi-Region keys have the same key ID.
+     * Key ID of the replica key. Related multi-Region keys have the same key ID.
      */
     declare public /*out*/ readonly keyId: pulumi.Output<string>;
     /**
@@ -102,19 +98,19 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
      */
     declare public readonly keyMaterialBase64: pulumi.Output<string | undefined>;
     /**
-     * The state of the replica key.
+     * State of the replica key.
      */
     declare public /*out*/ readonly keyState: pulumi.Output<string>;
     /**
-     * The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
+     * [Cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      */
     declare public /*out*/ readonly keyUsage: pulumi.Output<string>;
     /**
-     * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+     * Key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
-     * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
+     * ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      */
     declare public readonly primaryKeyArn: pulumi.Output<string>;
     /**
@@ -122,11 +118,11 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -201,23 +197,19 @@ export interface ReplicaExternalKeyState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A flag to indicate whether to bypass the key policy lockout safety check.
-     * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-     * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-     * The default value is `false`.
+     * Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
      */
     bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean | undefined>;
     /**
-     * The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-     * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+     * Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      */
     deletionWindowInDays?: pulumi.Input<number | undefined>;
     /**
-     * A description of the KMS key.
+     * Description of the KMS key.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+     * Whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -225,7 +217,7 @@ export interface ReplicaExternalKeyState {
      */
     expirationModel?: pulumi.Input<string | undefined>;
     /**
-     * The key ID of the replica key. Related multi-Region keys have the same key ID.
+     * Key ID of the replica key. Related multi-Region keys have the same key ID.
      */
     keyId?: pulumi.Input<string | undefined>;
     /**
@@ -233,19 +225,19 @@ export interface ReplicaExternalKeyState {
      */
     keyMaterialBase64?: pulumi.Input<string | undefined>;
     /**
-     * The state of the replica key.
+     * State of the replica key.
      */
     keyState?: pulumi.Input<string | undefined>;
     /**
-     * The [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
+     * [Cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations) for which you can use the KMS key. This is a shared property of multi-Region keys.
      */
     keyUsage?: pulumi.Input<string | undefined>;
     /**
-     * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+     * Key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
+     * ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      */
     primaryKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -253,11 +245,11 @@ export interface ReplicaExternalKeyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -271,23 +263,19 @@ export interface ReplicaExternalKeyState {
  */
 export interface ReplicaExternalKeyArgs {
     /**
-     * A flag to indicate whether to bypass the key policy lockout safety check.
-     * Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-     * For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
-     * The default value is `false`.
+     * Whether to bypass the key policy lockout safety check. Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_. The default value is `false`.
      */
     bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean | undefined>;
     /**
-     * The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
-     * If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+     * Waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key. If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
      */
     deletionWindowInDays?: pulumi.Input<number | undefined>;
     /**
-     * A description of the KMS key.
+     * Description of the KMS key.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
+     * Whether the replica key is enabled. Disabled KMS keys cannot be used in cryptographic operations. Keys pending import can only be `false`. Imported keys default to `true` unless expired.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -295,11 +283,11 @@ export interface ReplicaExternalKeyArgs {
      */
     keyMaterialBase64?: pulumi.Input<string | undefined>;
     /**
-     * The key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
+     * Key policy to attach to the KMS key. If you do not specify a key policy, AWS KMS attaches the [default key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default) to the KMS key.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
+     * ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      */
     primaryKeyArn: pulumi.Input<string>;
     /**
@@ -307,7 +295,7 @@ export interface ReplicaExternalKeyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**

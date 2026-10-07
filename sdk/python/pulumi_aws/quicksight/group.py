@@ -27,10 +27,10 @@ class GroupArgs:
         """
         The set of arguments for constructing a Group resource.
 
-        :param pulumi.Input[_builtins.str] group_name: A name for the group.
+        :param pulumi.Input[_builtins.str] group_name: Name for the group.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] description: A description for the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace. Currently, you should set this to `default`.
+        :param pulumi.Input[_builtins.str] description: Description for the group.
+        :param pulumi.Input[_builtins.str] namespace: Namespace. Currently, you should set this to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_name", group_name)
@@ -47,7 +47,7 @@ class GroupArgs:
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        A name for the group.
+        Name for the group.
         """
         return pulumi.get(self, "group_name")
 
@@ -71,7 +71,7 @@ class GroupArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the group.
+        Description for the group.
         """
         return pulumi.get(self, "description")
 
@@ -83,7 +83,7 @@ class GroupArgs:
     @pulumi.getter
     def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The namespace. Currently, you should set this to `default`.
+        Namespace. Currently, you should set this to `default`.
         """
         return pulumi.get(self, "namespace")
 
@@ -118,9 +118,9 @@ class _GroupState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of group
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] description: A description for the group.
-        :param pulumi.Input[_builtins.str] group_name: A name for the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace. Currently, you should set this to `default`.
+        :param pulumi.Input[_builtins.str] description: Description for the group.
+        :param pulumi.Input[_builtins.str] group_name: Name for the group.
+        :param pulumi.Input[_builtins.str] namespace: Namespace. Currently, you should set this to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
@@ -164,7 +164,7 @@ class _GroupState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the group.
+        Description for the group.
         """
         return pulumi.get(self, "description")
 
@@ -176,7 +176,7 @@ class _GroupState:
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name for the group.
+        Name for the group.
         """
         return pulumi.get(self, "group_name")
 
@@ -188,7 +188,7 @@ class _GroupState:
     @pulumi.getter
     def namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The namespace. Currently, you should set this to `default`.
+        Namespace. Currently, you should set this to `default`.
         """
         return pulumi.get(self, "namespace")
 
@@ -245,9 +245,9 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] description: A description for the group.
-        :param pulumi.Input[_builtins.str] group_name: A name for the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace. Currently, you should set this to `default`.
+        :param pulumi.Input[_builtins.str] description: Description for the group.
+        :param pulumi.Input[_builtins.str] group_name: Name for the group.
+        :param pulumi.Input[_builtins.str] namespace: Namespace. Currently, you should set this to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -339,9 +339,9 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of group
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
-        :param pulumi.Input[_builtins.str] description: A description for the group.
-        :param pulumi.Input[_builtins.str] group_name: A name for the group.
-        :param pulumi.Input[_builtins.str] namespace: The namespace. Currently, you should set this to `default`.
+        :param pulumi.Input[_builtins.str] description: Description for the group.
+        :param pulumi.Input[_builtins.str] group_name: Name for the group.
+        :param pulumi.Input[_builtins.str] namespace: Namespace. Currently, you should set this to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -376,7 +376,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description for the group.
+        Description for the group.
         """
         return pulumi.get(self, "description")
 
@@ -384,7 +384,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        A name for the group.
+        Name for the group.
         """
         return pulumi.get(self, "group_name")
 
@@ -392,7 +392,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def namespace(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The namespace. Currently, you should set this to `default`.
+        Namespace. Currently, you should set this to `default`.
         """
         return pulumi.get(self, "namespace")
 

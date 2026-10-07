@@ -36,14 +36,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
     }
 
     /**
-     * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+     * Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     @Import(name="cpu")
     private @Nullable Output<Integer> cpu;
 
     /**
-     * @return The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+     * @return Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     public Optional<Output<Integer>> cpu() {
@@ -51,14 +51,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
     }
 
     /**
-     * A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
+     * List of files containing the environment variables to pass to a container, instead of the value from the container definition. See `environmentFile` Block for details.
      * 
      */
     @Import(name="environmentFiles")
     private @Nullable Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs>> environmentFiles;
 
     /**
-     * @return A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
+     * @return List of files containing the environment variables to pass to a container, instead of the value from the container definition. See `environmentFile` Block for details.
      * 
      */
     public Optional<Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs>>> environmentFiles() {
@@ -66,14 +66,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
     }
 
     /**
-     * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+     * Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. See `target_parameters.ecs_task_parameters.overrides.container_override.environment` Block for details.
      * 
      */
     @Import(name="environments")
     private @Nullable Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs>> environments;
 
     /**
-     * @return The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+     * @return Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. See `target_parameters.ecs_task_parameters.overrides.container_override.environment` Block for details.
      * 
      */
     public Optional<Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs>>> environments() {
@@ -81,14 +81,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
     }
 
     /**
-     * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+     * Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
      * 
      */
     @Import(name="memory")
     private @Nullable Output<Integer> memory;
 
     /**
-     * @return The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+     * @return Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
      * 
      */
     public Optional<Output<Integer>> memory() {
@@ -96,14 +96,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
     }
 
     /**
-     * The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+     * Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     @Import(name="memoryReservation")
     private @Nullable Output<Integer> memoryReservation;
 
     /**
-     * @return The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+     * @return Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
      * 
      */
     public Optional<Output<Integer>> memoryReservation() {
@@ -111,14 +111,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
     }
 
     /**
-     * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * Name of the container that receives the override. This parameter is required if any override is specified.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+     * @return Name of the container that receives the override. This parameter is required if any override is specified.
      * 
      */
     public Optional<Output<String>> name() {
@@ -126,14 +126,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
     }
 
     /**
-     * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+     * Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See `target_parameters.ecs_task_parameters.overrides.container_override.resource_requirement` Block for details.
      * 
      */
     @Import(name="resourceRequirements")
     private @Nullable Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs>> resourceRequirements;
 
     /**
-     * @return The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+     * @return Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See `target_parameters.ecs_task_parameters.overrides.container_override.resource_requirement` Block for details.
      * 
      */
     public Optional<Output<List<PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs>>> resourceRequirements() {
@@ -203,7 +203,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+         * @param cpu Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param cpu The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+         * @param cpu Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param environmentFiles A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
+         * @param environmentFiles List of files containing the environment variables to pass to a container, instead of the value from the container definition. See `environmentFile` Block for details.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param environmentFiles A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
+         * @param environmentFiles List of files containing the environment variables to pass to a container, instead of the value from the container definition. See `environmentFile` Block for details.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param environmentFiles A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
+         * @param environmentFiles List of files containing the environment variables to pass to a container, instead of the value from the container definition. See `environmentFile` Block for details.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+         * @param environments Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. See `target_parameters.ecs_task_parameters.overrides.container_override.environment` Block for details.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+         * @param environments Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. See `target_parameters.ecs_task_parameters.overrides.container_override.environment` Block for details.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param environments The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+         * @param environments Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. See `target_parameters.ecs_task_parameters.overrides.container_override.environment` Block for details.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+         * @param memory Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
          * 
          * @return builder
          * 
@@ -297,7 +297,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param memory The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+         * @param memory Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param memoryReservation The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+         * @param memoryReservation Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param memoryReservation The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+         * @param memoryReservation Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Name of the container that receives the override. This parameter is required if any override is specified.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param name Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * @param name Name of the container that receives the override. This parameter is required if any override is specified.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+         * @param resourceRequirements Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See `target_parameters.ecs_task_parameters.overrides.container_override.resource_requirement` Block for details.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+         * @param resourceRequirements Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See `target_parameters.ecs_task_parameters.overrides.container_override.resource_requirement` Block for details.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesContainerOverri
         }
 
         /**
-         * @param resourceRequirements The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+         * @param resourceRequirements Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See `target_parameters.ecs_task_parameters.overrides.container_override.resource_requirement` Block for details.
          * 
          * @return builder
          * 

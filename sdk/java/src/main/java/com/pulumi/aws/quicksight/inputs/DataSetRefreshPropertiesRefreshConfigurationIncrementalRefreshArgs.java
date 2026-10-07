@@ -15,14 +15,14 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
     public static final DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs Empty = new DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshArgs();
 
     /**
-     * The lookback window setup for an incremental refresh configuration. See lookback_window.
+     * Lookback window setup for an incremental refresh configuration. See `lookbackWindow` Block below.
      * 
      */
     @Import(name="lookbackWindow", required=true)
     private Output<DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs> lookbackWindow;
 
     /**
-     * @return The lookback window setup for an incremental refresh configuration. See lookback_window.
+     * @return Lookback window setup for an incremental refresh configuration. See `lookbackWindow` Block below.
      * 
      */
     public Output<DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindowArgs> lookbackWindow() {
@@ -54,7 +54,7 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
         }
 
         /**
-         * @param lookbackWindow The lookback window setup for an incremental refresh configuration. See lookback_window.
+         * @param lookbackWindow Lookback window setup for an incremental refresh configuration. See `lookbackWindow` Block below.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class DataSetRefreshPropertiesRefreshConfigurationIncrementalRefres
         }
 
         /**
-         * @param lookbackWindow The lookback window setup for an incremental refresh configuration. See lookback_window.
+         * @param lookbackWindow Lookback window setup for an incremental refresh configuration. See `lookbackWindow` Block below.
          * 
          * @return builder
          * 

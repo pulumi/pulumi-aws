@@ -62,19 +62,19 @@ namespace Pulumi.Aws.Ec2
     public partial class KeyPair : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The key pair ARN.
+        /// Key pair ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+        /// MD5 public key fingerprint as specified in section 4 of RFC 4716.
         /// </summary>
         [Output("fingerprint")]
         public Output<string> Fingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// The name for the key pair. If neither `KeyName` nor `KeyNamePrefix` is provided, the provider will create a unique key name.
+        /// Name for the key pair. If neither `KeyName` nor `KeyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
         /// </summary>
         [Output("keyName")]
         public Output<string> KeyName { get; private set; } = null!;
@@ -86,19 +86,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> KeyNamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The key pair ID.
+        /// Key pair ID.
         /// </summary>
         [Output("keyPairId")]
         public Output<string> KeyPairId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of key pair.
+        /// Type of key pair.
         /// </summary>
         [Output("keyType")]
         public Output<string> KeyType { get; private set; } = null!;
 
         /// <summary>
-        /// The public key material.
+        /// Public key material.
         /// </summary>
         [Output("publicKey")]
         public Output<string> PublicKey { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class KeyPairArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name for the key pair. If neither `KeyName` nor `KeyNamePrefix` is provided, the provider will create a unique key name.
+        /// Name for the key pair. If neither `KeyName` nor `KeyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? KeyNamePrefix { get; set; }
 
         /// <summary>
-        /// The public key material.
+        /// Public key material.
         /// </summary>
         [Input("publicKey", required: true)]
         public Input<string> PublicKey { get; set; } = null!;
@@ -212,19 +212,19 @@ namespace Pulumi.Aws.Ec2
     public sealed class KeyPairState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key pair ARN.
+        /// Key pair ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
+        /// MD5 public key fingerprint as specified in section 4 of RFC 4716.
         /// </summary>
         [Input("fingerprint")]
         public Input<string>? Fingerprint { get; set; }
 
         /// <summary>
-        /// The name for the key pair. If neither `KeyName` nor `KeyNamePrefix` is provided, the provider will create a unique key name.
+        /// Name for the key pair. If neither `KeyName` nor `KeyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
@@ -236,19 +236,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? KeyNamePrefix { get; set; }
 
         /// <summary>
-        /// The key pair ID.
+        /// Key pair ID.
         /// </summary>
         [Input("keyPairId")]
         public Input<string>? KeyPairId { get; set; }
 
         /// <summary>
-        /// The type of key pair.
+        /// Type of key pair.
         /// </summary>
         [Input("keyType")]
         public Input<string>? KeyType { get; set; }
 
         /// <summary>
-        /// The public key material.
+        /// Public key material.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

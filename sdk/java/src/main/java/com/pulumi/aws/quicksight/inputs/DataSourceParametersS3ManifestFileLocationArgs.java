@@ -15,14 +15,14 @@ public final class DataSourceParametersS3ManifestFileLocationArgs extends com.pu
     public static final DataSourceParametersS3ManifestFileLocationArgs Empty = new DataSourceParametersS3ManifestFileLocationArgs();
 
     /**
-     * The name of the bucket that contains the manifest file.
+     * Name of the bucket that contains the manifest file.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the bucket that contains the manifest file.
+     * @return Name of the bucket that contains the manifest file.
      * 
      */
     public Output<String> bucket() {
@@ -30,14 +30,14 @@ public final class DataSourceParametersS3ManifestFileLocationArgs extends com.pu
     }
 
     /**
-     * The key of the manifest file within the bucket.
+     * Key of the manifest file within the bucket.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The key of the manifest file within the bucket.
+     * @return Key of the manifest file within the bucket.
      * 
      */
     public Output<String> key() {
@@ -70,7 +70,7 @@ public final class DataSourceParametersS3ManifestFileLocationArgs extends com.pu
         }
 
         /**
-         * @param bucket The name of the bucket that contains the manifest file.
+         * @param bucket Name of the bucket that contains the manifest file.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class DataSourceParametersS3ManifestFileLocationArgs extends com.pu
         }
 
         /**
-         * @param bucket The name of the bucket that contains the manifest file.
+         * @param bucket Name of the bucket that contains the manifest file.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class DataSourceParametersS3ManifestFileLocationArgs extends com.pu
         }
 
         /**
-         * @param key The key of the manifest file within the bucket.
+         * @param key Key of the manifest file within the bucket.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class DataSourceParametersS3ManifestFileLocationArgs extends com.pu
         }
 
         /**
-         * @param key The key of the manifest file within the bucket.
+         * @param key Key of the manifest file within the bucket.
          * 
          * @return builder
          * 

@@ -32,7 +32,7 @@ public final class GetQuicksightGroupArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The name of the group that you want to match.
+     * Name of the group that you want to match.
      * 
      * The following arguments are optional:
      * 
@@ -41,7 +41,7 @@ public final class GetQuicksightGroupArgs extends com.pulumi.resources.InvokeArg
     private Output<String> groupName;
 
     /**
-     * @return The name of the group that you want to match.
+     * @return Name of the group that you want to match.
      * 
      * The following arguments are optional:
      * 
@@ -129,7 +129,7 @@ public final class GetQuicksightGroupArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param groupName The name of the group that you want to match.
+         * @param groupName Name of the group that you want to match.
          * 
          * The following arguments are optional:
          * 
@@ -142,7 +142,7 @@ public final class GetQuicksightGroupArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param groupName The name of the group that you want to match.
+         * @param groupName Name of the group that you want to match.
          * 
          * The following arguments are optional:
          * 

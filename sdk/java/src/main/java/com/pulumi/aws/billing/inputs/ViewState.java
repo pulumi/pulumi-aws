@@ -113,12 +113,16 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the custom billing view to be created.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the custom billing view to be created.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -173,16 +177,12 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     /**
      * List of ARNs of the source data views for the custom billing view.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="sourceViews")
     private @Nullable Output<List<String>> sourceViews;
 
     /**
      * @return List of ARNs of the source data views for the custom billing view.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<String>>> sourceViews() {
@@ -424,6 +424,8 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Name of the custom billing view to be created.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -434,6 +436,8 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Name of the custom billing view to be created.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -508,8 +512,6 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sourceViews List of ARNs of the source data views for the custom billing view.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -521,8 +523,6 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sourceViews List of ARNs of the source data views for the custom billing view.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -532,8 +532,6 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param sourceViews List of ARNs of the source data views for the custom billing view.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

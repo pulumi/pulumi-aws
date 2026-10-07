@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     public sealed class TableSchemaDefinitionClusteringKey
     {
         /// <summary>
-        /// The name of the clustering key column.
+        /// Name of the clustering key column.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The order modifier. Valid values: `ASC`, `DESC`.
+        /// Order modifier. Valid values: `ASC`, `DESC`.
         /// </summary>
         public readonly string OrderBy;
 

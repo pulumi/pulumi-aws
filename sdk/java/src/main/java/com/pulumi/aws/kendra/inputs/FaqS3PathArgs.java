@@ -15,14 +15,14 @@ public final class FaqS3PathArgs extends com.pulumi.resources.ResourceArgs {
     public static final FaqS3PathArgs Empty = new FaqS3PathArgs();
 
     /**
-     * The name of the S3 bucket that contains the file.
+     * Name of the S3 bucket that contains the file.
      * 
      */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
     /**
-     * @return The name of the S3 bucket that contains the file.
+     * @return Name of the S3 bucket that contains the file.
      * 
      */
     public Output<String> bucket() {
@@ -30,18 +30,14 @@ public final class FaqS3PathArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the file.
-     * 
-     * The following arguments are optional:
+     * Name of the file.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The name of the file.
-     * 
-     * The following arguments are optional:
+     * @return Name of the file.
      * 
      */
     public Output<String> key() {
@@ -74,7 +70,7 @@ public final class FaqS3PathArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket The name of the S3 bucket that contains the file.
+         * @param bucket Name of the S3 bucket that contains the file.
          * 
          * @return builder
          * 
@@ -85,7 +81,7 @@ public final class FaqS3PathArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bucket The name of the S3 bucket that contains the file.
+         * @param bucket Name of the S3 bucket that contains the file.
          * 
          * @return builder
          * 
@@ -95,9 +91,7 @@ public final class FaqS3PathArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The name of the file.
-         * 
-         * The following arguments are optional:
+         * @param key Name of the file.
          * 
          * @return builder
          * 
@@ -108,9 +102,7 @@ public final class FaqS3PathArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param key The name of the file.
-         * 
-         * The following arguments are optional:
+         * @param key Name of the file.
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class GetCipherTextPlainArgs extends com.pulumi.resources.InvokeArg
     public static final GetCipherTextPlainArgs Empty = new GetCipherTextPlainArgs();
 
     /**
-     * An optional mapping that makes up the encryption context.
+     * Mapping that makes up the encryption context.
      * 
      */
     @Import(name="context")
     private @Nullable Map<String,String> context;
 
     /**
-     * @return An optional mapping that makes up the encryption context.
+     * @return Mapping that makes up the encryption context.
      * 
      */
     public Optional<Map<String,String>> context() {
@@ -104,7 +104,7 @@ public final class GetCipherTextPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param context An optional mapping that makes up the encryption context.
+         * @param context Mapping that makes up the encryption context.
          * 
          * @return builder
          * 

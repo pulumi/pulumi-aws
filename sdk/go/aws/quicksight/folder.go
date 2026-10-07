@@ -134,29 +134,29 @@ type Folder struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// The time that the folder was created.
+	// Time that the folder was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// Identifier for the folder.
-	FolderId pulumi.StringOutput `pulumi:"folderId"`
-	// An array of ancestor ARN strings for the folder. Empty for root-level folders.
-	FolderPaths pulumi.StringArrayOutput `pulumi:"folderPaths"`
-	// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-	FolderType pulumi.StringPtrOutput `pulumi:"folderType"`
-	// The time that the folder was last updated.
-	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
-	// Display name for the folder.
 	//
 	// The following arguments are optional:
+	FolderId pulumi.StringOutput `pulumi:"folderId"`
+	// Array of ancestor ARN strings for the folder. Empty for root-level folders.
+	FolderPaths pulumi.StringArrayOutput `pulumi:"folderPaths"`
+	// Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+	FolderType pulumi.StringPtrOutput `pulumi:"folderType"`
+	// Time that the folder was last updated.
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// Display name for the folder.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ARN for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn pulumi.StringPtrOutput `pulumi:"parentFolderArn"`
-	// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+	// Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
 	Permissions FolderPermissionArrayOutput `pulumi:"permissions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -197,29 +197,29 @@ type folderState struct {
 	Arn *string `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// The time that the folder was created.
+	// Time that the folder was created.
 	CreatedTime *string `pulumi:"createdTime"`
 	// Identifier for the folder.
-	FolderId *string `pulumi:"folderId"`
-	// An array of ancestor ARN strings for the folder. Empty for root-level folders.
-	FolderPaths []string `pulumi:"folderPaths"`
-	// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-	FolderType *string `pulumi:"folderType"`
-	// The time that the folder was last updated.
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// Display name for the folder.
 	//
 	// The following arguments are optional:
+	FolderId *string `pulumi:"folderId"`
+	// Array of ancestor ARN strings for the folder. Empty for root-level folders.
+	FolderPaths []string `pulumi:"folderPaths"`
+	// Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+	FolderType *string `pulumi:"folderType"`
+	// Time that the folder was last updated.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// Display name for the folder.
 	Name *string `pulumi:"name"`
 	// ARN for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn *string `pulumi:"parentFolderArn"`
-	// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+	// Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
 	Permissions []FolderPermission `pulumi:"permissions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -228,29 +228,29 @@ type FolderState struct {
 	Arn pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
-	// The time that the folder was created.
+	// Time that the folder was created.
 	CreatedTime pulumi.StringPtrInput
 	// Identifier for the folder.
-	FolderId pulumi.StringPtrInput
-	// An array of ancestor ARN strings for the folder. Empty for root-level folders.
-	FolderPaths pulumi.StringArrayInput
-	// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-	FolderType pulumi.StringPtrInput
-	// The time that the folder was last updated.
-	LastUpdatedTime pulumi.StringPtrInput
-	// Display name for the folder.
 	//
 	// The following arguments are optional:
+	FolderId pulumi.StringPtrInput
+	// Array of ancestor ARN strings for the folder. Empty for root-level folders.
+	FolderPaths pulumi.StringArrayInput
+	// Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+	FolderType pulumi.StringPtrInput
+	// Time that the folder was last updated.
+	LastUpdatedTime pulumi.StringPtrInput
+	// Display name for the folder.
 	Name pulumi.StringPtrInput
 	// ARN for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn pulumi.StringPtrInput
-	// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+	// Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
 	Permissions FolderPermissionArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -262,16 +262,16 @@ type folderArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Identifier for the folder.
-	FolderId string `pulumi:"folderId"`
-	// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-	FolderType *string `pulumi:"folderType"`
-	// Display name for the folder.
 	//
 	// The following arguments are optional:
+	FolderId string `pulumi:"folderId"`
+	// Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+	FolderType *string `pulumi:"folderType"`
+	// Display name for the folder.
 	Name *string `pulumi:"name"`
 	// ARN for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn *string `pulumi:"parentFolderArn"`
-	// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+	// Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
 	Permissions []FolderPermission `pulumi:"permissions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -284,16 +284,16 @@ type FolderArgs struct {
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Identifier for the folder.
-	FolderId pulumi.StringInput
-	// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-	FolderType pulumi.StringPtrInput
-	// Display name for the folder.
 	//
 	// The following arguments are optional:
+	FolderId pulumi.StringInput
+	// Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+	FolderType pulumi.StringPtrInput
+	// Display name for the folder.
 	Name pulumi.StringPtrInput
 	// ARN for the parent folder. If not set, creates a root-level folder.
 	ParentFolderArn pulumi.StringPtrInput
-	// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+	// Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
 	Permissions FolderPermissionArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -398,34 +398,34 @@ func (o FolderOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
-// The time that the folder was created.
+// Time that the folder was created.
 func (o FolderOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
 // Identifier for the folder.
+//
+// The following arguments are optional:
 func (o FolderOutput) FolderId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.FolderId }).(pulumi.StringOutput)
 }
 
-// An array of ancestor ARN strings for the folder. Empty for root-level folders.
+// Array of ancestor ARN strings for the folder. Empty for root-level folders.
 func (o FolderOutput) FolderPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringArrayOutput { return v.FolderPaths }).(pulumi.StringArrayOutput)
 }
 
-// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
+// Type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
 func (o FolderOutput) FolderType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringPtrOutput { return v.FolderType }).(pulumi.StringPtrOutput)
 }
 
-// The time that the folder was last updated.
+// Time that the folder was last updated.
 func (o FolderOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
 // Display name for the folder.
-//
-// The following arguments are optional:
 func (o FolderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -435,7 +435,7 @@ func (o FolderOutput) ParentFolderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringPtrOutput { return v.ParentFolderArn }).(pulumi.StringPtrOutput)
 }
 
-// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+// Set of resource permissions on the folder. Maximum of 64 items. See `permissions` Block.
 func (o FolderOutput) Permissions() FolderPermissionArrayOutput {
 	return o.ApplyT(func(v *Folder) FolderPermissionArrayOutput { return v.Permissions }).(FolderPermissionArrayOutput)
 }
@@ -450,7 +450,7 @@ func (o FolderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o FolderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

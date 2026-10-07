@@ -19,14 +19,14 @@ public final class DataSetRowLevelPermissionTagConfigurationArgs extends com.pul
     public static final DataSetRowLevelPermissionTagConfigurationArgs Empty = new DataSetRowLevelPermissionTagConfigurationArgs();
 
     /**
-     * The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+     * Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+     * @return Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -34,14 +34,14 @@ public final class DataSetRowLevelPermissionTagConfigurationArgs extends com.pul
     }
 
     /**
-     * A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+     * Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tagRules` Block below.
      * 
      */
     @Import(name="tagRules", required=true)
     private Output<List<DataSetRowLevelPermissionTagConfigurationTagRuleArgs>> tagRules;
 
     /**
-     * @return A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+     * @return Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tagRules` Block below.
      * 
      */
     public Output<List<DataSetRowLevelPermissionTagConfigurationTagRuleArgs>> tagRules() {
@@ -74,7 +74,7 @@ public final class DataSetRowLevelPermissionTagConfigurationArgs extends com.pul
         }
 
         /**
-         * @param status The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+         * @param status Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class DataSetRowLevelPermissionTagConfigurationArgs extends com.pul
         }
 
         /**
-         * @param status The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+         * @param status Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class DataSetRowLevelPermissionTagConfigurationArgs extends com.pul
         }
 
         /**
-         * @param tagRules A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+         * @param tagRules Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tagRules` Block below.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class DataSetRowLevelPermissionTagConfigurationArgs extends com.pul
         }
 
         /**
-         * @param tagRules A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+         * @param tagRules Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tagRules` Block below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class DataSetRowLevelPermissionTagConfigurationArgs extends com.pul
         }
 
         /**
-         * @param tagRules A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+         * @param tagRules Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tagRules` Block below.
          * 
          * @return builder
          * 

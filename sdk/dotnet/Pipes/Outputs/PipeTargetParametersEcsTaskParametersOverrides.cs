@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Pipes.Outputs
     public sealed class PipeTargetParametersEcsTaskParametersOverrides
     {
         /// <summary>
-        /// One or more container overrides that are sent to a task. Detailed below.
+        /// One or more container overrides that are sent to a task. See `ContainerOverride` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeTargetParametersEcsTaskParametersOverridesContainerOverride> ContainerOverrides;
         /// <summary>
-        /// The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+        /// CPU override for the task.
         /// </summary>
         public readonly string? Cpu;
         /// <summary>
-        /// The ephemeral storage setting override for the task.  Detailed below.
+        /// Ephemeral storage setting override for the task. See `EphemeralStorage` Block for details.
         /// </summary>
         public readonly Outputs.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage? EphemeralStorage;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly string? ExecutionRoleArn;
         /// <summary>
-        /// List of Elastic Inference accelerator overrides for the task. Detailed below.
+        /// List of Elastic Inference accelerator overrides for the task. See `InferenceAcceleratorOverride` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride> InferenceAcceleratorOverrides;
         /// <summary>
-        /// The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+        /// Memory override for the task.
         /// </summary>
         public readonly string? Memory;
         /// <summary>

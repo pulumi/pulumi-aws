@@ -126,7 +126,7 @@ def get_cipher_text(context: Optional[Mapping[str, _builtins.str]] = None,
     ```
 
 
-    :param Mapping[str, _builtins.str] context: An optional mapping that makes up the encryption context.
+    :param Mapping[str, _builtins.str] context: Mapping that makes up the encryption context.
     :param _builtins.str key_id: Globally unique key ID for the customer master key.
     :param _builtins.str plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -175,7 +175,7 @@ def get_cipher_text_output(context: pulumi.Input[Optional[Optional[Mapping[str, 
     ```
 
 
-    :param Mapping[str, _builtins.str] context: An optional mapping that makes up the encryption context.
+    :param Mapping[str, _builtins.str] context: Mapping that makes up the encryption context.
     :param _builtins.str key_id: Globally unique key ID for the customer master key.
     :param _builtins.str plaintext: Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

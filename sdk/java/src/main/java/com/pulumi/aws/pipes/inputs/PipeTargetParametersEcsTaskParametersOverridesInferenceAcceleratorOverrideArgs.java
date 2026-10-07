@@ -16,14 +16,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesInferenceAccele
     public static final PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs Empty = new PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs();
 
     /**
-     * The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+     * Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
      * 
      */
     @Import(name="deviceName")
     private @Nullable Output<String> deviceName;
 
     /**
-     * @return The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+     * @return Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
      * 
      */
     public Optional<Output<String>> deviceName() {
@@ -31,14 +31,14 @@ public final class PipeTargetParametersEcsTaskParametersOverridesInferenceAccele
     }
 
     /**
-     * The Elastic Inference accelerator type to use.
+     * Elastic Inference accelerator type to use.
      * 
      */
     @Import(name="deviceType")
     private @Nullable Output<String> deviceType;
 
     /**
-     * @return The Elastic Inference accelerator type to use.
+     * @return Elastic Inference accelerator type to use.
      * 
      */
     public Optional<Output<String>> deviceType() {
@@ -71,7 +71,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesInferenceAccele
         }
 
         /**
-         * @param deviceName The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+         * @param deviceName Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesInferenceAccele
         }
 
         /**
-         * @param deviceName The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+         * @param deviceName Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesInferenceAccele
         }
 
         /**
-         * @param deviceType The Elastic Inference accelerator type to use.
+         * @param deviceType Elastic Inference accelerator type to use.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PipeTargetParametersEcsTaskParametersOverridesInferenceAccele
         }
 
         /**
-         * @param deviceType The Elastic Inference accelerator type to use.
+         * @param deviceType Elastic Inference accelerator type to use.
          * 
          * @return builder
          * 

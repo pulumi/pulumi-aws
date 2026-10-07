@@ -51,8 +51,8 @@ class CustomKeyStoreXksProxyAuthenticationCredential(dict):
                  access_key_id: _builtins.str,
                  raw_secret_access_key: _builtins.str):
         """
-        :param _builtins.str access_key_id: A unique identifier for the raw secret access key.
-        :param _builtins.str raw_secret_access_key: A secret string of 43-64 characters.
+        :param _builtins.str access_key_id: Unique identifier for the raw secret access key.
+        :param _builtins.str raw_secret_access_key: Secret string of 43-64 characters.
         """
         pulumi.set(__self__, "access_key_id", access_key_id)
         pulumi.set(__self__, "raw_secret_access_key", raw_secret_access_key)
@@ -61,7 +61,7 @@ class CustomKeyStoreXksProxyAuthenticationCredential(dict):
     @pulumi.getter(name="accessKeyId")
     def access_key_id(self) -> _builtins.str:
         """
-        A unique identifier for the raw secret access key.
+        Unique identifier for the raw secret access key.
         """
         return pulumi.get(self, "access_key_id")
 
@@ -69,7 +69,7 @@ class CustomKeyStoreXksProxyAuthenticationCredential(dict):
     @pulumi.getter(name="rawSecretAccessKey")
     def raw_secret_access_key(self) -> _builtins.str:
         """
-        A secret string of 43-64 characters.
+        Secret string of 43-64 characters.
         """
         return pulumi.get(self, "raw_secret_access_key")
 
@@ -99,8 +99,8 @@ class GrantConstraint(dict):
                  encryption_context_equals: Optional[Mapping[str, _builtins.str]] = None,
                  encryption_context_subset: Optional[Mapping[str, _builtins.str]] = None):
         """
-        :param Mapping[str, _builtins.str] encryption_context_equals: A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
-        :param Mapping[str, _builtins.str] encryption_context_subset: A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
+        :param Mapping[str, _builtins.str] encryption_context_equals: List of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
+        :param Mapping[str, _builtins.str] encryption_context_subset: List of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
         """
         if encryption_context_equals is not None:
             pulumi.set(__self__, "encryption_context_equals", encryption_context_equals)
@@ -111,7 +111,7 @@ class GrantConstraint(dict):
     @pulumi.getter(name="encryptionContextEquals")
     def encryption_context_equals(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
+        List of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
         """
         return pulumi.get(self, "encryption_context_equals")
 
@@ -119,7 +119,7 @@ class GrantConstraint(dict):
     @pulumi.getter(name="encryptionContextSubset")
     def encryption_context_subset(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
+        List of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
         """
         return pulumi.get(self, "encryption_context_subset")
 
@@ -131,9 +131,9 @@ class GetKeyMultiRegionConfigurationResult(dict):
                  primary_keys: Sequence['outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult'],
                  replica_keys: Sequence['outputs.GetKeyMultiRegionConfigurationReplicaKeyResult']):
         """
-        :param _builtins.str multi_region_key_type: Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
-        :param Sequence['GetKeyMultiRegionConfigurationPrimaryKeyArgs'] primary_keys: The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
-        :param Sequence['GetKeyMultiRegionConfigurationReplicaKeyArgs'] replica_keys: The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
+        :param _builtins.str multi_region_key_type: Whether the KMS key is a `PRIMARY` or `REPLICA` key.
+        :param Sequence['GetKeyMultiRegionConfigurationPrimaryKeyArgs'] primary_keys: Key ARN and Region of the primary key. This is the current KMS key if it is the primary key. See `multi_region_configuration.primary_key` Block below.
+        :param Sequence['GetKeyMultiRegionConfigurationReplicaKeyArgs'] replica_keys: Key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key. See `multi_region_configuration.replica_keys` Block below.
         """
         pulumi.set(__self__, "multi_region_key_type", multi_region_key_type)
         pulumi.set(__self__, "primary_keys", primary_keys)
@@ -143,7 +143,7 @@ class GetKeyMultiRegionConfigurationResult(dict):
     @pulumi.getter(name="multiRegionKeyType")
     def multi_region_key_type(self) -> _builtins.str:
         """
-        Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
+        Whether the KMS key is a `PRIMARY` or `REPLICA` key.
         """
         return pulumi.get(self, "multi_region_key_type")
 
@@ -151,7 +151,7 @@ class GetKeyMultiRegionConfigurationResult(dict):
     @pulumi.getter(name="primaryKeys")
     def primary_keys(self) -> Sequence['outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult']:
         """
-        The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
+        Key ARN and Region of the primary key. This is the current KMS key if it is the primary key. See `multi_region_configuration.primary_key` Block below.
         """
         return pulumi.get(self, "primary_keys")
 
@@ -159,7 +159,7 @@ class GetKeyMultiRegionConfigurationResult(dict):
     @pulumi.getter(name="replicaKeys")
     def replica_keys(self) -> Sequence['outputs.GetKeyMultiRegionConfigurationReplicaKeyResult']:
         """
-        The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
+        Key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key. See `multi_region_configuration.replica_keys` Block below.
         """
         return pulumi.get(self, "replica_keys")
 
@@ -170,7 +170,7 @@ class GetKeyMultiRegionConfigurationPrimaryKeyResult(dict):
                  arn: _builtins.str,
                  region: _builtins.str):
         """
-        :param _builtins.str arn: The key ARN of a primary or replica key of a multi-Region key.
+        :param _builtins.str arn: Key ARN of a primary or replica key of a multi-Region key.
         :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "arn", arn)
@@ -180,7 +180,7 @@ class GetKeyMultiRegionConfigurationPrimaryKeyResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The key ARN of a primary or replica key of a multi-Region key.
+        Key ARN of a primary or replica key of a multi-Region key.
         """
         return pulumi.get(self, "arn")
 
@@ -199,7 +199,7 @@ class GetKeyMultiRegionConfigurationReplicaKeyResult(dict):
                  arn: _builtins.str,
                  region: _builtins.str):
         """
-        :param _builtins.str arn: The key ARN of a primary or replica key of a multi-Region key.
+        :param _builtins.str arn: Key ARN of a primary or replica key of a multi-Region key.
         :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "arn", arn)
@@ -209,7 +209,7 @@ class GetKeyMultiRegionConfigurationReplicaKeyResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The key ARN of a primary or replica key of a multi-Region key.
+        Key ARN of a primary or replica key of a multi-Region key.
         """
         return pulumi.get(self, "arn")
 
@@ -227,7 +227,7 @@ class GetKeyXksKeyConfigurationResult(dict):
     def __init__(__self__, *,
                  id: _builtins.str):
         """
-        :param _builtins.str id: The globally unique identifier for the key
+        :param _builtins.str id: ID of the external key in the external key manager.
         """
         pulumi.set(__self__, "id", id)
 
@@ -235,7 +235,7 @@ class GetKeyXksKeyConfigurationResult(dict):
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The globally unique identifier for the key
+        ID of the external key in the external key manager.
         """
         return pulumi.get(self, "id")
 
@@ -287,13 +287,10 @@ class GetSecretsSecretResult(dict):
         """
         :param _builtins.str name: Name to export this secret under in the attributes.
         :param _builtins.str payload: Base64 encoded payload, as returned from a KMS encrypt operation.
-        :param Mapping[str, _builtins.str] context: An optional mapping that makes up the Encryption Context for the secret.
-        :param _builtins.str encryption_algorithm: The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
-        :param Sequence[_builtins.str] grant_tokens: An optional list of Grant Tokens for the secret.
-        :param _builtins.str key_id: Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
-               
-               For more information on `context` and `grant_tokens` see the [KMS
-               Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+        :param Mapping[str, _builtins.str] context: Mapping that makes up the Encryption Context for the secret.
+        :param _builtins.str encryption_algorithm: Encryption algorithm used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+        :param Sequence[_builtins.str] grant_tokens: List of Grant Tokens for the secret.
+        :param _builtins.str key_id: KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "payload", payload)
@@ -326,7 +323,7 @@ class GetSecretsSecretResult(dict):
     @pulumi.getter
     def context(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        An optional mapping that makes up the Encryption Context for the secret.
+        Mapping that makes up the Encryption Context for the secret.
         """
         return pulumi.get(self, "context")
 
@@ -334,7 +331,7 @@ class GetSecretsSecretResult(dict):
     @pulumi.getter(name="encryptionAlgorithm")
     def encryption_algorithm(self) -> Optional[_builtins.str]:
         """
-        The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+        Encryption algorithm used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
         """
         return pulumi.get(self, "encryption_algorithm")
 
@@ -342,7 +339,7 @@ class GetSecretsSecretResult(dict):
     @pulumi.getter(name="grantTokens")
     def grant_tokens(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An optional list of Grant Tokens for the secret.
+        List of Grant Tokens for the secret.
         """
         return pulumi.get(self, "grant_tokens")
 
@@ -350,10 +347,7 @@ class GetSecretsSecretResult(dict):
     @pulumi.getter(name="keyId")
     def key_id(self) -> Optional[_builtins.str]:
         """
-        Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
-
-        For more information on `context` and `grant_tokens` see the [KMS
-        Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+        KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
         """
         return pulumi.get(self, "key_id")
 

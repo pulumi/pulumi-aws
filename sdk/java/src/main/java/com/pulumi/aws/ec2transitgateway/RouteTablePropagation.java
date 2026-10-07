@@ -190,6 +190,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `transitGatewayAttachmentId` (String) EC2 Transit Gateway Attachment identifier.
+ * * `transitGatewayRouteTableId` (String) EC2 Transit Gateway Route Table identifier.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import `aws.ec2transitgateway.RouteTablePropagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
  * 
  * ```sh
@@ -258,12 +270,16 @@ public class RouteTablePropagation extends com.pulumi.resources.CustomResource {
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="transitGatewayRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayRouteTableId;
 
     /**
      * @return Identifier of EC2 Transit Gateway Route Table.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> transitGatewayRouteTableId() {

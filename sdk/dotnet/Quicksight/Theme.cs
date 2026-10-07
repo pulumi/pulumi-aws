@@ -83,25 +83,25 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+        /// ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         /// </summary>
         [Output("baseThemeId")]
         public Output<string> BaseThemeId { get; private set; } = null!;
 
         /// <summary>
-        /// The theme configuration, which contains the theme display properties. See configuration.
+        /// Theme configuration, which contains the theme display properties. See configuration.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.ThemeConfiguration?> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// The time that the theme was created.
+        /// Time that the theme was created.
         /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// The time that the theme was last updated.
+        /// Time that the theme was last updated.
         /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the theme. Maximum of 64 items. See permissions.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.ThemePermission>> Permissions { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The theme creation status.
+        /// Theme creation status.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -151,13 +151,13 @@ namespace Pulumi.Aws.Quicksight
         public Output<string> ThemeId { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the current theme version being created/updated.
+        /// Description of the current theme version being created/updated.
         /// </summary>
         [Output("versionDescription")]
         public Output<string?> VersionDescription { get; private set; } = null!;
 
         /// <summary>
-        /// The version number of the theme version.
+        /// Version number of the theme version.
         /// </summary>
         [Output("versionNumber")]
         public Output<int> VersionNumber { get; private set; } = null!;
@@ -215,13 +215,13 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+        /// ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         /// </summary>
         [Input("baseThemeId", required: true)]
         public Input<string> BaseThemeId { get; set; } = null!;
 
         /// <summary>
-        /// The theme configuration, which contains the theme display properties. See configuration.
+        /// Theme configuration, which contains the theme display properties. See configuration.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ThemeConfigurationArgs>? Configuration { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.ThemePermissionArgs>? _permissions;
 
         /// <summary>
-        /// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the theme. Maximum of 64 items. See permissions.
         /// </summary>
         public InputList<Inputs.ThemePermissionArgs> Permissions
         {
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string> ThemeId { get; set; } = null!;
 
         /// <summary>
-        /// A description of the current theme version being created/updated.
+        /// Description of the current theme version being created/updated.
         /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }
@@ -297,25 +297,25 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
+        /// ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         /// </summary>
         [Input("baseThemeId")]
         public Input<string>? BaseThemeId { get; set; }
 
         /// <summary>
-        /// The theme configuration, which contains the theme display properties. See configuration.
+        /// Theme configuration, which contains the theme display properties. See configuration.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.ThemeConfigurationGetArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// The time that the theme was created.
+        /// Time that the theme was created.
         /// </summary>
         [Input("createdTime")]
         public Input<string>? CreatedTime { get; set; }
 
         /// <summary>
-        /// The time that the theme was last updated.
+        /// Time that the theme was last updated.
         /// </summary>
         [Input("lastUpdatedTime")]
         public Input<string>? LastUpdatedTime { get; set; }
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.Quicksight
         private InputList<Inputs.ThemePermissionGetArgs>? _permissions;
 
         /// <summary>
-        /// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+        /// Set of resource permissions on the theme. Maximum of 64 items. See permissions.
         /// </summary>
         public InputList<Inputs.ThemePermissionGetArgs> Permissions
         {
@@ -345,7 +345,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The theme creation status.
+        /// Theme creation status.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -366,7 +366,7 @@ namespace Pulumi.Aws.Quicksight
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -383,13 +383,13 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? ThemeId { get; set; }
 
         /// <summary>
-        /// A description of the current theme version being created/updated.
+        /// Description of the current theme version being created/updated.
         /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }
 
         /// <summary>
-        /// The version number of the theme version.
+        /// Version number of the theme version.
         /// </summary>
         [Input("versionNumber")]
         public Input<int>? VersionNumber { get; set; }

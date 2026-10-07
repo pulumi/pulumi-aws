@@ -148,14 +148,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:amp/workspace:Workspace")
 public class Workspace extends com.pulumi.resources.CustomResource {
     /**
-     * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+     * Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      * 
      */
     @Export(name="alias", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alias;
 
     /**
-     * @return The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
+     * @return Alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      * 
      */
     public Output<Optional<String>> alias() {
@@ -176,28 +176,28 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     * ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
-     * @return The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
+     * @return ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
      * 
      */
     public Output<Optional<String>> kmsKeyArn() {
         return Codegen.optional(this.kmsKeyArn);
     }
     /**
-     * Logging configuration for the workspace. See Logging Configuration below for details.
+     * Logging configuration for the workspace. See `loggingConfiguration` Block below for details.
      * 
      */
     @Export(name="loggingConfiguration", refs={WorkspaceLoggingConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceLoggingConfiguration> loggingConfiguration;
 
     /**
-     * @return Logging configuration for the workspace. See Logging Configuration below for details.
+     * @return Logging configuration for the workspace. See `loggingConfiguration` Block below for details.
      * 
      */
     public Output<Optional<WorkspaceLoggingConfiguration>> loggingConfiguration() {
@@ -232,28 +232,28 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

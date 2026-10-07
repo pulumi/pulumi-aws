@@ -87,9 +87,17 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Description for a block list.
+     * 
+     */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
+    /**
+     * @return Description for a block list.
+     * 
+     */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
@@ -136,14 +144,14 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
         return this.querySuggestionsBlockListId;
     }
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -164,28 +172,48 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
         return this.roleArn;
     }
     /**
-     * S3 path where your block list text file is located. See details below.
+     * S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="sourceS3Path", refs={QuerySuggestionsBlockListSourceS3Path.class}, tree="[0]")
     private Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path;
 
     /**
-     * @return S3 path where your block list text file is located. See details below.
+     * @return S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<QuerySuggestionsBlockListSourceS3Path> sourceS3Path() {
         return this.sourceS3Path;
     }
+    /**
+     * Current status of the block list.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return Current status of the block list.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

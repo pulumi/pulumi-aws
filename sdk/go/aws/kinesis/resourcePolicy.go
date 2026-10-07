@@ -78,7 +78,7 @@ import (
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	// The policy document.
+	// Policy document.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -122,7 +122,7 @@ func GetResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourcePolicy resources.
 type resourcePolicyState struct {
-	// The policy document.
+	// Policy document.
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -131,7 +131,7 @@ type resourcePolicyState struct {
 }
 
 type ResourcePolicyState struct {
-	// The policy document.
+	// Policy document.
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -144,7 +144,7 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 }
 
 type resourcePolicyArgs struct {
-	// The policy document.
+	// Policy document.
 	Policy string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -154,7 +154,7 @@ type resourcePolicyArgs struct {
 
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
-	// The policy document.
+	// Policy document.
 	Policy pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -249,7 +249,7 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The policy document.
+// Policy document.
 func (o ResourcePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

@@ -42,7 +42,7 @@ public final class GetVoicesVoice {
      */
     private String name;
     /**
-     * @return Specifies which engines are supported by a given voice.
+     * @return Engines supported by a given voice.
      * 
      */
     private List<String> supportedEngines;
@@ -91,7 +91,7 @@ public final class GetVoicesVoice {
         return this.name;
     }
     /**
-     * @return Specifies which engines are supported by a given voice.
+     * @return Engines supported by a given voice.
      * 
      */
     public List<String> supportedEngines() {

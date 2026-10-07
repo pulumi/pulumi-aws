@@ -19,14 +19,14 @@ public final class DataSetPhysicalTableMapCustomSqlArgs extends com.pulumi.resou
     public static final DataSetPhysicalTableMapCustomSqlArgs Empty = new DataSetPhysicalTableMapCustomSqlArgs();
 
     /**
-     * Column schema from the SQL query result set. See columns.
+     * Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
      * 
      */
     @Import(name="columns")
     private @Nullable Output<List<DataSetPhysicalTableMapCustomSqlColumnArgs>> columns;
 
     /**
-     * @return Column schema from the SQL query result set. See columns.
+     * @return Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
      * 
      */
     public Optional<Output<List<DataSetPhysicalTableMapCustomSqlColumnArgs>>> columns() {
@@ -106,7 +106,7 @@ public final class DataSetPhysicalTableMapCustomSqlArgs extends com.pulumi.resou
         }
 
         /**
-         * @param columns Column schema from the SQL query result set. See columns.
+         * @param columns Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class DataSetPhysicalTableMapCustomSqlArgs extends com.pulumi.resou
         }
 
         /**
-         * @param columns Column schema from the SQL query result set. See columns.
+         * @param columns Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class DataSetPhysicalTableMapCustomSqlArgs extends com.pulumi.resou
         }
 
         /**
-         * @param columns Column schema from the SQL query result set. See columns.
+         * @param columns Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
          * 
          * @return builder
          * 

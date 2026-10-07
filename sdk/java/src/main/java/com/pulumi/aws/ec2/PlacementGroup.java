@@ -80,46 +80,42 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The name of the placement group.
+     * Name of the placement group.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the placement group.
+     * @return Name of the placement group.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The number of partitions to create in the
-     * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Must be at least `1`. (default is `2`).
+     * Number of partitions to create in the placement group. Can only be specified when the `strategy` is set to `partition`. Must be at least `1`. (default is `2`).
      * 
      */
     @Export(name="partitionCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> partitionCount;
 
     /**
-     * @return The number of partitions to create in the
-     * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Must be at least `1`. (default is `2`).
+     * @return Number of partitions to create in the placement group. Can only be specified when the `strategy` is set to `partition`. Must be at least `1`. (default is `2`).
      * 
      */
     public Output<Integer> partitionCount() {
         return this.partitionCount;
     }
     /**
-     * The ID of the placement group.
+     * ID of the placement group.
      * 
      */
     @Export(name="placementGroupId", refs={String.class}, tree="[0]")
     private Output<String> placementGroupId;
 
     /**
-     * @return The ID of the placement group.
+     * @return ID of the placement group.
      * 
      */
     public Output<String> placementGroupId() {
@@ -140,30 +136,28 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+     * How placement groups spread instances. Can only be used when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
      */
     @Export(name="spreadLevel", refs={String.class}, tree="[0]")
     private Output<String> spreadLevel;
 
     /**
-     * @return Determines how placement groups spread instances. Can only be used
-     * when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
+     * @return How placement groups spread instances. Can only be used when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
      * 
      */
     public Output<String> spreadLevel() {
         return this.spreadLevel;
     }
     /**
-     * The placement strategy. Can be `cluster`, `partition` or `spread`.
+     * Placement strategy. Can be `cluster`, `partition` or `spread`.
      * 
      */
     @Export(name="strategy", refs={String.class}, tree="[0]")
     private Output<String> strategy;
 
     /**
-     * @return The placement strategy. Can be `cluster`, `partition` or `spread`.
+     * @return Placement strategy. Can be `cluster`, `partition` or `spread`.
      * 
      */
     public Output<String> strategy() {
@@ -184,14 +178,14 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

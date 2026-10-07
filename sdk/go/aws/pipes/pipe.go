@@ -347,17 +347,17 @@ type Pipe struct {
 
 	// ARN of this pipe.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description of the pipe. At most 512 characters.
+	// Description of the pipe. At most 512 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+	// State the pipe should be in. One of: `RUNNING`, `STOPPED`.
 	DesiredState pulumi.StringPtrOutput `pulumi:"desiredState"`
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment pulumi.StringPtrOutput `pulumi:"enrichment"`
-	// Parameters to configure enrichment for your pipe. Detailed below.
+	// Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
 	EnrichmentParameters PipeEnrichmentParametersPtrOutput `pulumi:"enrichmentParameters"`
 	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
-	// Logging configuration settings for the pipe. Detailed below.
+	// Logging configuration settings for the pipe. See `logConfiguration` Block for details.
 	LogConfiguration PipeLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -369,9 +369,9 @@ type Pipe struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source pulumi.StringOutput `pulumi:"source"`
-	// Parameters to configure a source for the pipe. Detailed below.
+	// Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
 	SourceParameters PipeSourceParametersOutput `pulumi:"sourceParameters"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -379,7 +379,7 @@ type Pipe struct {
 	//
 	// The following arguments are optional:
 	Target pulumi.StringOutput `pulumi:"target"`
-	// Parameters to configure a target for your pipe. Detailed below.
+	// Parameters to configure a target for the pipe. See `targetParameters` Block for details.
 	TargetParameters PipeTargetParametersPtrOutput `pulumi:"targetParameters"`
 }
 
@@ -424,17 +424,17 @@ func GetPipe(ctx *pulumi.Context,
 type pipeState struct {
 	// ARN of this pipe.
 	Arn *string `pulumi:"arn"`
-	// A description of the pipe. At most 512 characters.
+	// Description of the pipe. At most 512 characters.
 	Description *string `pulumi:"description"`
-	// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+	// State the pipe should be in. One of: `RUNNING`, `STOPPED`.
 	DesiredState *string `pulumi:"desiredState"`
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment *string `pulumi:"enrichment"`
-	// Parameters to configure enrichment for your pipe. Detailed below.
+	// Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
 	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
-	// Logging configuration settings for the pipe. Detailed below.
+	// Logging configuration settings for the pipe. See `logConfiguration` Block for details.
 	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -446,9 +446,9 @@ type pipeState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source *string `pulumi:"source"`
-	// Parameters to configure a source for the pipe. Detailed below.
+	// Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
 	SourceParameters *PipeSourceParameters `pulumi:"sourceParameters"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -456,24 +456,24 @@ type pipeState struct {
 	//
 	// The following arguments are optional:
 	Target *string `pulumi:"target"`
-	// Parameters to configure a target for your pipe. Detailed below.
+	// Parameters to configure a target for the pipe. See `targetParameters` Block for details.
 	TargetParameters *PipeTargetParameters `pulumi:"targetParameters"`
 }
 
 type PipeState struct {
 	// ARN of this pipe.
 	Arn pulumi.StringPtrInput
-	// A description of the pipe. At most 512 characters.
+	// Description of the pipe. At most 512 characters.
 	Description pulumi.StringPtrInput
-	// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+	// State the pipe should be in. One of: `RUNNING`, `STOPPED`.
 	DesiredState pulumi.StringPtrInput
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment pulumi.StringPtrInput
-	// Parameters to configure enrichment for your pipe. Detailed below.
+	// Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
 	EnrichmentParameters PipeEnrichmentParametersPtrInput
 	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
 	KmsKeyIdentifier pulumi.StringPtrInput
-	// Logging configuration settings for the pipe. Detailed below.
+	// Logging configuration settings for the pipe. See `logConfiguration` Block for details.
 	LogConfiguration PipeLogConfigurationPtrInput
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -485,9 +485,9 @@ type PipeState struct {
 	RoleArn pulumi.StringPtrInput
 	// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source pulumi.StringPtrInput
-	// Parameters to configure a source for the pipe. Detailed below.
+	// Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
 	SourceParameters PipeSourceParametersPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -495,7 +495,7 @@ type PipeState struct {
 	//
 	// The following arguments are optional:
 	Target pulumi.StringPtrInput
-	// Parameters to configure a target for your pipe. Detailed below.
+	// Parameters to configure a target for the pipe. See `targetParameters` Block for details.
 	TargetParameters PipeTargetParametersPtrInput
 }
 
@@ -504,17 +504,17 @@ func (PipeState) ElementType() reflect.Type {
 }
 
 type pipeArgs struct {
-	// A description of the pipe. At most 512 characters.
+	// Description of the pipe. At most 512 characters.
 	Description *string `pulumi:"description"`
-	// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+	// State the pipe should be in. One of: `RUNNING`, `STOPPED`.
 	DesiredState *string `pulumi:"desiredState"`
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment *string `pulumi:"enrichment"`
-	// Parameters to configure enrichment for your pipe. Detailed below.
+	// Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
 	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
-	// Logging configuration settings for the pipe. Detailed below.
+	// Logging configuration settings for the pipe. See `logConfiguration` Block for details.
 	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
@@ -526,31 +526,31 @@ type pipeArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source string `pulumi:"source"`
-	// Parameters to configure a source for the pipe. Detailed below.
+	// Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
 	SourceParameters *PipeSourceParameters `pulumi:"sourceParameters"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Target resource of the pipe (typically an ARN).
 	//
 	// The following arguments are optional:
 	Target string `pulumi:"target"`
-	// Parameters to configure a target for your pipe. Detailed below.
+	// Parameters to configure a target for the pipe. See `targetParameters` Block for details.
 	TargetParameters *PipeTargetParameters `pulumi:"targetParameters"`
 }
 
 // The set of arguments for constructing a Pipe resource.
 type PipeArgs struct {
-	// A description of the pipe. At most 512 characters.
+	// Description of the pipe. At most 512 characters.
 	Description pulumi.StringPtrInput
-	// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+	// State the pipe should be in. One of: `RUNNING`, `STOPPED`.
 	DesiredState pulumi.StringPtrInput
 	// Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
 	Enrichment pulumi.StringPtrInput
-	// Parameters to configure enrichment for your pipe. Detailed below.
+	// Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
 	EnrichmentParameters PipeEnrichmentParametersPtrInput
 	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
 	KmsKeyIdentifier pulumi.StringPtrInput
-	// Logging configuration settings for the pipe. Detailed below.
+	// Logging configuration settings for the pipe. See `logConfiguration` Block for details.
 	LogConfiguration PipeLogConfigurationPtrInput
 	// Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
@@ -562,15 +562,15 @@ type PipeArgs struct {
 	RoleArn pulumi.StringInput
 	// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
 	Source pulumi.StringInput
-	// Parameters to configure a source for the pipe. Detailed below.
+	// Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
 	SourceParameters PipeSourceParametersPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Target resource of the pipe (typically an ARN).
 	//
 	// The following arguments are optional:
 	Target pulumi.StringInput
-	// Parameters to configure a target for your pipe. Detailed below.
+	// Parameters to configure a target for the pipe. See `targetParameters` Block for details.
 	TargetParameters PipeTargetParametersPtrInput
 }
 
@@ -666,12 +666,12 @@ func (o PipeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description of the pipe. At most 512 characters.
+// Description of the pipe. At most 512 characters.
 func (o PipeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+// State the pipe should be in. One of: `RUNNING`, `STOPPED`.
 func (o PipeOutput) DesiredState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.DesiredState }).(pulumi.StringPtrOutput)
 }
@@ -681,7 +681,7 @@ func (o PipeOutput) Enrichment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.Enrichment }).(pulumi.StringPtrOutput)
 }
 
-// Parameters to configure enrichment for your pipe. Detailed below.
+// Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
 func (o PipeOutput) EnrichmentParameters() PipeEnrichmentParametersPtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeEnrichmentParametersPtrOutput { return v.EnrichmentParameters }).(PipeEnrichmentParametersPtrOutput)
 }
@@ -691,7 +691,7 @@ func (o PipeOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Logging configuration settings for the pipe. Detailed below.
+// Logging configuration settings for the pipe. See `logConfiguration` Block for details.
 func (o PipeOutput) LogConfiguration() PipeLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeLogConfigurationPtrOutput { return v.LogConfiguration }).(PipeLogConfigurationPtrOutput)
 }
@@ -721,12 +721,12 @@ func (o PipeOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }
 
-// Parameters to configure a source for the pipe. Detailed below.
+// Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
 func (o PipeOutput) SourceParameters() PipeSourceParametersOutput {
 	return o.ApplyT(func(v *Pipe) PipeSourceParametersOutput { return v.SourceParameters }).(PipeSourceParametersOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PipeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -743,7 +743,7 @@ func (o PipeOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.Target }).(pulumi.StringOutput)
 }
 
-// Parameters to configure a target for your pipe. Detailed below.
+// Parameters to configure a target for the pipe. See `targetParameters` Block for details.
 func (o PipeOutput) TargetParameters() PipeTargetParametersPtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeTargetParametersPtrOutput { return v.TargetParameters }).(PipeTargetParametersPtrOutput)
 }

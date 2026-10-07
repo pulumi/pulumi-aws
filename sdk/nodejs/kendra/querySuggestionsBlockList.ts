@@ -72,6 +72,9 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
      * ARN of the block list.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Description for a block list.
+     */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Identifier of the index for a block list.
@@ -86,7 +89,7 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly querySuggestionsBlockListId: pulumi.Output<string>;
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
@@ -94,10 +97,18 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
-     * S3 path where your block list text file is located. See details below.
+     * S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+     *
+     * The following arguments are optional:
      */
     declare public readonly sourceS3Path: pulumi.Output<outputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
+    /**
+     * Current status of the block list.
+     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+     */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
@@ -164,6 +175,9 @@ export interface QuerySuggestionsBlockListState {
      * ARN of the block list.
      */
     arn?: pulumi.Input<string | undefined>;
+    /**
+     * Description for a block list.
+     */
     description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the index for a block list.
@@ -178,7 +192,7 @@ export interface QuerySuggestionsBlockListState {
      */
     querySuggestionsBlockListId?: pulumi.Input<string | undefined>;
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     /**
@@ -186,10 +200,18 @@ export interface QuerySuggestionsBlockListState {
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * S3 path where your block list text file is located. See details below.
+     * S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+     *
+     * The following arguments are optional:
      */
     sourceS3Path?: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path | undefined>;
+    /**
+     * Current status of the block list.
+     */
     status?: pulumi.Input<string | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
@@ -201,6 +223,9 @@ export interface QuerySuggestionsBlockListState {
  * The set of arguments for constructing a QuerySuggestionsBlockList resource.
  */
 export interface QuerySuggestionsBlockListArgs {
+    /**
+     * Description for a block list.
+     */
     description?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the index for a block list.
@@ -211,7 +236,7 @@ export interface QuerySuggestionsBlockListArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     /**
@@ -219,8 +244,13 @@ export interface QuerySuggestionsBlockListArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * S3 path where your block list text file is located. See details below.
+     * S3 path where your block list text file is located. See `sourceS3Path` Block for details.
+     *
+     * The following arguments are optional:
      */
     sourceS3Path: pulumi.Input<inputs.kendra.QuerySuggestionsBlockListSourceS3Path>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -36,14 +36,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the pipe. At most 512 characters.
+     * Description of the pipe. At most 512 characters.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the pipe. At most 512 characters.
+     * @return Description of the pipe. At most 512 characters.
      * 
      */
     public Optional<Output<String>> description() {
@@ -51,14 +51,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+     * State the pipe should be in. One of: `RUNNING`, `STOPPED`.
      * 
      */
     @Import(name="desiredState")
     private @Nullable Output<String> desiredState;
 
     /**
-     * @return The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+     * @return State the pipe should be in. One of: `RUNNING`, `STOPPED`.
      * 
      */
     public Optional<Output<String>> desiredState() {
@@ -81,14 +81,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameters to configure enrichment for your pipe. Detailed below.
+     * Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
      * 
      */
     @Import(name="enrichmentParameters")
     private @Nullable Output<PipeEnrichmentParametersArgs> enrichmentParameters;
 
     /**
-     * @return Parameters to configure enrichment for your pipe. Detailed below.
+     * @return Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
      * 
      */
     public Optional<Output<PipeEnrichmentParametersArgs>> enrichmentParameters() {
@@ -111,14 +111,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Logging configuration settings for the pipe. Detailed below.
+     * Logging configuration settings for the pipe. See `logConfiguration` Block for details.
      * 
      */
     @Import(name="logConfiguration")
     private @Nullable Output<PipeLogConfigurationArgs> logConfiguration;
 
     /**
-     * @return Logging configuration settings for the pipe. Detailed below.
+     * @return Logging configuration settings for the pipe. See `logConfiguration` Block for details.
      * 
      */
     public Optional<Output<PipeLogConfigurationArgs>> logConfiguration() {
@@ -201,14 +201,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameters to configure a source for the pipe. Detailed below.
+     * Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
      * 
      */
     @Import(name="sourceParameters")
     private @Nullable Output<PipeSourceParametersArgs> sourceParameters;
 
     /**
-     * @return Parameters to configure a source for the pipe. Detailed below.
+     * @return Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
      * 
      */
     public Optional<Output<PipeSourceParametersArgs>> sourceParameters() {
@@ -216,14 +216,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -265,14 +265,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameters to configure a target for your pipe. Detailed below.
+     * Parameters to configure a target for the pipe. See `targetParameters` Block for details.
      * 
      */
     @Import(name="targetParameters")
     private @Nullable Output<PipeTargetParametersArgs> targetParameters;
 
     /**
-     * @return Parameters to configure a target for your pipe. Detailed below.
+     * @return Parameters to configure a target for the pipe. See `targetParameters` Block for details.
      * 
      */
     public Optional<Output<PipeTargetParametersArgs>> targetParameters() {
@@ -341,7 +341,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the pipe. At most 512 characters.
+         * @param description Description of the pipe. At most 512 characters.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the pipe. At most 512 characters.
+         * @param description Description of the pipe. At most 512 characters.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param desiredState The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+         * @param desiredState State the pipe should be in. One of: `RUNNING`, `STOPPED`.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param desiredState The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
+         * @param desiredState State the pipe should be in. One of: `RUNNING`, `STOPPED`.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enrichmentParameters Parameters to configure enrichment for your pipe. Detailed below.
+         * @param enrichmentParameters Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
          * 
          * @return builder
          * 
@@ -415,7 +415,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enrichmentParameters Parameters to configure enrichment for your pipe. Detailed below.
+         * @param enrichmentParameters Parameters to configure enrichment for the pipe. See `enrichmentParameters` Block for details.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logConfiguration Logging configuration settings for the pipe. Detailed below.
+         * @param logConfiguration Logging configuration settings for the pipe. See `logConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -457,7 +457,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logConfiguration Logging configuration settings for the pipe. Detailed below.
+         * @param logConfiguration Logging configuration settings for the pipe. See `logConfiguration` Block for details.
          * 
          * @return builder
          * 
@@ -572,7 +572,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceParameters Parameters to configure a source for the pipe. Detailed below.
+         * @param sourceParameters Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
          * 
          * @return builder
          * 
@@ -583,7 +583,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceParameters Parameters to configure a source for the pipe. Detailed below.
+         * @param sourceParameters Parameters to configure a source for the pipe. See `sourceParameters` Block for details.
          * 
          * @return builder
          * 
@@ -593,7 +593,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -660,7 +660,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetParameters Parameters to configure a target for your pipe. Detailed below.
+         * @param targetParameters Parameters to configure a target for the pipe. See `targetParameters` Block for details.
          * 
          * @return builder
          * 
@@ -671,7 +671,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetParameters Parameters to configure a target for your pipe. Detailed below.
+         * @param targetParameters Parameters to configure a target for the pipe. See `targetParameters` Block for details.
          * 
          * @return builder
          * 

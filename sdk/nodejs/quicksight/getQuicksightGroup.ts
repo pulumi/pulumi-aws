@@ -41,7 +41,7 @@ export interface GetQuicksightGroupArgs {
      */
     awsAccountId?: string;
     /**
-     * The name of the group that you want to match.
+     * Name of the group that you want to match.
      *
      * The following arguments are optional:
      */
@@ -66,7 +66,7 @@ export interface GetQuicksightGroupResult {
     readonly arn: string;
     readonly awsAccountId: string;
     /**
-     * The group description.
+     * Group description.
      */
     readonly description: string;
     readonly groupName: string;
@@ -76,7 +76,7 @@ export interface GetQuicksightGroupResult {
     readonly id: string;
     readonly namespace?: string;
     /**
-     * The principal ID of the group.
+     * Principal ID of the group.
      */
     readonly principalId: string;
     readonly region: string;
@@ -118,7 +118,7 @@ export interface GetQuicksightGroupOutputArgs {
      */
     awsAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the group that you want to match.
+     * Name of the group that you want to match.
      *
      * The following arguments are optional:
      */

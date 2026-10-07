@@ -106,7 +106,7 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly identityType: pulumi.Output<string>;
     /**
-     * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+     * Amazon Quicksight namespace to create the user in. Defaults to `default`.
      */
     declare public readonly namespace: pulumi.Output<string | undefined>;
     /**
@@ -209,7 +209,7 @@ export interface UserState {
      */
     identityType?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+     * Amazon Quicksight namespace to create the user in. Defaults to `default`.
      */
     namespace?: pulumi.Input<string | undefined>;
     /**
@@ -257,7 +257,7 @@ export interface UserArgs {
      */
     identityType: pulumi.Input<string>;
     /**
-     * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+     * Amazon Quicksight namespace to create the user in. Defaults to `default`.
      */
     namespace?: pulumi.Input<string | undefined>;
     /**

@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetIndexUserTokenConfigurationJsonTokenTypeConfiguration {
     /**
-     * @return The group attribute field.
+     * @return Group attribute field.
      * 
      */
     private String groupAttributeField;
     /**
-     * @return The user name attribute field.
+     * @return User name attribute field.
      * 
      */
     private String userNameAttributeField;
 
     private GetIndexUserTokenConfigurationJsonTokenTypeConfiguration() {}
     /**
-     * @return The group attribute field.
+     * @return Group attribute field.
      * 
      */
     public String groupAttributeField() {
         return this.groupAttributeField;
     }
     /**
-     * @return The user name attribute field.
+     * @return User name attribute field.
      * 
      */
     public String userNameAttributeField() {

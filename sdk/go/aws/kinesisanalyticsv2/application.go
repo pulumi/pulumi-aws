@@ -312,39 +312,41 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	// The application's configuration
+	// Application configuration. See `applicationConfiguration` Block below.
 	ApplicationConfiguration ApplicationApplicationConfigurationOutput `pulumi:"applicationConfiguration"`
-	// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+	// Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
 	ApplicationMode pulumi.StringOutput `pulumi:"applicationMode"`
-	// The ARN of the application.
+	// ARN of the application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A CloudWatch log stream to monitor application configuration errors.
+	// CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
 	CloudwatchLoggingOptions ApplicationCloudwatchLoggingOptionsPtrOutput `pulumi:"cloudwatchLoggingOptions"`
-	// The current timestamp when the application was created.
+	// Current timestamp when the application was created.
 	CreateTimestamp pulumi.StringOutput `pulumi:"createTimestamp"`
-	// A summary description of the application.
+	// Summary description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether to force stop an unresponsive Flink-based application.
 	ForceStop pulumi.BoolPtrOutput `pulumi:"forceStop"`
-	// The current timestamp when the application was last updated.
+	// Current timestamp when the application was last updated.
 	LastUpdateTimestamp pulumi.StringOutput `pulumi:"lastUpdateTimestamp"`
-	// The name of the application.
+	// Name of the application.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+	// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
 	RuntimeEnvironment pulumi.StringOutput `pulumi:"runtimeEnvironment"`
-	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	// ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	//
+	// The following arguments are optional:
 	ServiceExecutionRole pulumi.StringOutput `pulumi:"serviceExecutionRole"`
 	// Whether to start or stop the application.
 	StartApplication pulumi.BoolPtrOutput `pulumi:"startApplication"`
-	// The status of the application.
+	// Status of the application.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
+	// Current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
 	VersionId pulumi.IntOutput `pulumi:"versionId"`
 }
 
@@ -384,76 +386,80 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
-	// The application's configuration
+	// Application configuration. See `applicationConfiguration` Block below.
 	ApplicationConfiguration *ApplicationApplicationConfiguration `pulumi:"applicationConfiguration"`
-	// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+	// Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
 	ApplicationMode *string `pulumi:"applicationMode"`
-	// The ARN of the application.
+	// ARN of the application.
 	Arn *string `pulumi:"arn"`
-	// A CloudWatch log stream to monitor application configuration errors.
+	// CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
 	CloudwatchLoggingOptions *ApplicationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The current timestamp when the application was created.
+	// Current timestamp when the application was created.
 	CreateTimestamp *string `pulumi:"createTimestamp"`
-	// A summary description of the application.
+	// Summary description of the application.
 	Description *string `pulumi:"description"`
 	// Whether to force stop an unresponsive Flink-based application.
 	ForceStop *bool `pulumi:"forceStop"`
-	// The current timestamp when the application was last updated.
+	// Current timestamp when the application was last updated.
 	LastUpdateTimestamp *string `pulumi:"lastUpdateTimestamp"`
-	// The name of the application.
+	// Name of the application.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+	// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
 	RuntimeEnvironment *string `pulumi:"runtimeEnvironment"`
-	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	// ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	//
+	// The following arguments are optional:
 	ServiceExecutionRole *string `pulumi:"serviceExecutionRole"`
 	// Whether to start or stop the application.
 	StartApplication *bool `pulumi:"startApplication"`
-	// The status of the application.
+	// Status of the application.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
+	// Current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
 	VersionId *int `pulumi:"versionId"`
 }
 
 type ApplicationState struct {
-	// The application's configuration
+	// Application configuration. See `applicationConfiguration` Block below.
 	ApplicationConfiguration ApplicationApplicationConfigurationPtrInput
-	// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+	// Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
 	ApplicationMode pulumi.StringPtrInput
-	// The ARN of the application.
+	// ARN of the application.
 	Arn pulumi.StringPtrInput
-	// A CloudWatch log stream to monitor application configuration errors.
+	// CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
 	CloudwatchLoggingOptions ApplicationCloudwatchLoggingOptionsPtrInput
-	// The current timestamp when the application was created.
+	// Current timestamp when the application was created.
 	CreateTimestamp pulumi.StringPtrInput
-	// A summary description of the application.
+	// Summary description of the application.
 	Description pulumi.StringPtrInput
 	// Whether to force stop an unresponsive Flink-based application.
 	ForceStop pulumi.BoolPtrInput
-	// The current timestamp when the application was last updated.
+	// Current timestamp when the application was last updated.
 	LastUpdateTimestamp pulumi.StringPtrInput
-	// The name of the application.
+	// Name of the application.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+	// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
 	RuntimeEnvironment pulumi.StringPtrInput
-	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	// ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	//
+	// The following arguments are optional:
 	ServiceExecutionRole pulumi.StringPtrInput
 	// Whether to start or stop the application.
 	StartApplication pulumi.BoolPtrInput
-	// The status of the application.
+	// Status of the application.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
+	// Current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
 	VersionId pulumi.IntPtrInput
 }
 
@@ -462,53 +468,57 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// The application's configuration
+	// Application configuration. See `applicationConfiguration` Block below.
 	ApplicationConfiguration *ApplicationApplicationConfiguration `pulumi:"applicationConfiguration"`
-	// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+	// Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
 	ApplicationMode *string `pulumi:"applicationMode"`
-	// A CloudWatch log stream to monitor application configuration errors.
+	// CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
 	CloudwatchLoggingOptions *ApplicationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// A summary description of the application.
+	// Summary description of the application.
 	Description *string `pulumi:"description"`
 	// Whether to force stop an unresponsive Flink-based application.
 	ForceStop *bool `pulumi:"forceStop"`
-	// The name of the application.
+	// Name of the application.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+	// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
 	RuntimeEnvironment string `pulumi:"runtimeEnvironment"`
-	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	// ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	//
+	// The following arguments are optional:
 	ServiceExecutionRole string `pulumi:"serviceExecutionRole"`
 	// Whether to start or stop the application.
 	StartApplication *bool `pulumi:"startApplication"`
-	// A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// The application's configuration
+	// Application configuration. See `applicationConfiguration` Block below.
 	ApplicationConfiguration ApplicationApplicationConfigurationPtrInput
-	// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+	// Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
 	ApplicationMode pulumi.StringPtrInput
-	// A CloudWatch log stream to monitor application configuration errors.
+	// CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
 	CloudwatchLoggingOptions ApplicationCloudwatchLoggingOptionsPtrInput
-	// A summary description of the application.
+	// Summary description of the application.
 	Description pulumi.StringPtrInput
 	// Whether to force stop an unresponsive Flink-based application.
 	ForceStop pulumi.BoolPtrInput
-	// The name of the application.
+	// Name of the application.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+	// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
 	RuntimeEnvironment pulumi.StringInput
-	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	// ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+	//
+	// The following arguments are optional:
 	ServiceExecutionRole pulumi.StringInput
 	// Whether to start or stop the application.
 	StartApplication pulumi.BoolPtrInput
-	// A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -599,32 +609,32 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// The application's configuration
+// Application configuration. See `applicationConfiguration` Block below.
 func (o ApplicationOutput) ApplicationConfiguration() ApplicationApplicationConfigurationOutput {
 	return o.ApplyT(func(v *Application) ApplicationApplicationConfigurationOutput { return v.ApplicationConfiguration }).(ApplicationApplicationConfigurationOutput)
 }
 
-// The application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
+// Application's mode. Valid values are `STREAMING`, `INTERACTIVE`.
 func (o ApplicationOutput) ApplicationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationMode }).(pulumi.StringOutput)
 }
 
-// The ARN of the application.
+// ARN of the application.
 func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A CloudWatch log stream to monitor application configuration errors.
+// CloudWatch log stream to monitor application configuration errors. See `cloudwatchLoggingOptions` Block below.
 func (o ApplicationOutput) CloudwatchLoggingOptions() ApplicationCloudwatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationCloudwatchLoggingOptionsPtrOutput { return v.CloudwatchLoggingOptions }).(ApplicationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The current timestamp when the application was created.
+// Current timestamp when the application was created.
 func (o ApplicationOutput) CreateTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.CreateTimestamp }).(pulumi.StringOutput)
 }
 
-// A summary description of the application.
+// Summary description of the application.
 func (o ApplicationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -634,12 +644,12 @@ func (o ApplicationOutput) ForceStop() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.ForceStop }).(pulumi.BoolPtrOutput)
 }
 
-// The current timestamp when the application was last updated.
+// Current timestamp when the application was last updated.
 func (o ApplicationOutput) LastUpdateTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.LastUpdateTimestamp }).(pulumi.StringOutput)
 }
 
-// The name of the application.
+// Name of the application.
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -649,12 +659,14 @@ func (o ApplicationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
+// Runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`, `FLINK-1_20`, `FLINK-2_2`.
 func (o ApplicationOutput) RuntimeEnvironment() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.RuntimeEnvironment }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+// ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
+//
+// The following arguments are optional:
 func (o ApplicationOutput) ServiceExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ServiceExecutionRole }).(pulumi.StringOutput)
 }
@@ -664,22 +676,22 @@ func (o ApplicationOutput) StartApplication() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.StartApplication }).(pulumi.BoolPtrOutput)
 }
 
-// The status of the application.
+// Status of the application.
 func (o ApplicationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+// Map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
+// Current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
 func (o ApplicationOutput) VersionId() pulumi.IntOutput {
 	return o.ApplyT(func(v *Application) pulumi.IntOutput { return v.VersionId }).(pulumi.IntOutput)
 }

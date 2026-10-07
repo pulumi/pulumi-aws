@@ -47,14 +47,14 @@ public final class FirehoseDeliveryStreamServerSideEncryptionArgs extends com.pu
     }
 
     /**
-     * Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+     * Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`.
      * 
      */
     @Import(name="keyType")
     private @Nullable Output<String> keyType;
 
     /**
-     * @return Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+     * @return Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`.
      * 
      */
     public Optional<Output<String>> keyType() {
@@ -130,7 +130,7 @@ public final class FirehoseDeliveryStreamServerSideEncryptionArgs extends com.pu
         }
 
         /**
-         * @param keyType Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+         * @param keyType Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class FirehoseDeliveryStreamServerSideEncryptionArgs extends com.pu
         }
 
         /**
-         * @param keyType Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+         * @param keyType Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`.
          * 
          * @return builder
          * 

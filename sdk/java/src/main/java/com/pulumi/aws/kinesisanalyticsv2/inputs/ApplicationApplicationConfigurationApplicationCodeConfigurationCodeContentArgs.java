@@ -17,14 +17,14 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     public static final ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs Empty = new ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs();
 
     /**
-     * Information about the Amazon S3 bucket containing the application code.
+     * Information about the Amazon S3 bucket containing the application code. See `s3ContentLocation` Block below.
      * 
      */
     @Import(name="s3ContentLocation")
     private @Nullable Output<ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs> s3ContentLocation;
 
     /**
-     * @return Information about the Amazon S3 bucket containing the application code.
+     * @return Information about the Amazon S3 bucket containing the application code. See `s3ContentLocation` Block below.
      * 
      */
     public Optional<Output<ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs>> s3ContentLocation() {
@@ -32,14 +32,14 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
     }
 
     /**
-     * The text-format code for the application.
+     * Text-format code for the application.
      * 
      */
     @Import(name="textContent")
     private @Nullable Output<String> textContent;
 
     /**
-     * @return The text-format code for the application.
+     * @return Text-format code for the application.
      * 
      */
     public Optional<Output<String>> textContent() {
@@ -72,7 +72,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param s3ContentLocation Information about the Amazon S3 bucket containing the application code.
+         * @param s3ContentLocation Information about the Amazon S3 bucket containing the application code. See `s3ContentLocation` Block below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param s3ContentLocation Information about the Amazon S3 bucket containing the application code.
+         * @param s3ContentLocation Information about the Amazon S3 bucket containing the application code. See `s3ContentLocation` Block below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param textContent The text-format code for the application.
+         * @param textContent Text-format code for the application.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ApplicationApplicationConfigurationApplicationCodeConfigurati
         }
 
         /**
-         * @param textContent The text-format code for the application.
+         * @param textContent Text-format code for the application.
          * 
          * @return builder
          * 

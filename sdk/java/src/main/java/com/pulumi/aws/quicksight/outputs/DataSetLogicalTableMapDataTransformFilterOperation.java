@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DataSetLogicalTableMapDataTransformFilterOperation {
     /**
-     * @return An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+     * @return Expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
      * 
      */
     private String conditionExpression;
 
     private DataSetLogicalTableMapDataTransformFilterOperation() {}
     /**
-     * @return An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+     * @return Expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
      * 
      */
     public String conditionExpression() {

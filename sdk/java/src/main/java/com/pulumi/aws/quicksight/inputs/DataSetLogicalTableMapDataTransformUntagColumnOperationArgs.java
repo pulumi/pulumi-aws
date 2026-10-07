@@ -31,14 +31,14 @@ public final class DataSetLogicalTableMapDataTransformUntagColumnOperationArgs e
     }
 
     /**
-     * The column tags to remove from this column.
+     * Column tags to remove from this column.
      * 
      */
     @Import(name="tagNames", required=true)
     private Output<List<String>> tagNames;
 
     /**
-     * @return The column tags to remove from this column.
+     * @return Column tags to remove from this column.
      * 
      */
     public Output<List<String>> tagNames() {
@@ -92,7 +92,7 @@ public final class DataSetLogicalTableMapDataTransformUntagColumnOperationArgs e
         }
 
         /**
-         * @param tagNames The column tags to remove from this column.
+         * @param tagNames Column tags to remove from this column.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DataSetLogicalTableMapDataTransformUntagColumnOperationArgs e
         }
 
         /**
-         * @param tagNames The column tags to remove from this column.
+         * @param tagNames Column tags to remove from this column.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class DataSetLogicalTableMapDataTransformUntagColumnOperationArgs e
         }
 
         /**
-         * @param tagNames The column tags to remove from this column.
+         * @param tagNames Column tags to remove from this column.
          * 
          * @return builder
          * 

@@ -14,27 +14,15 @@ namespace Pulumi.Aws.Kinesis.Inputs
     {
         [Input("recordColumns", required: true)]
         private InputList<Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs>? _recordColumns;
-
-        /// <summary>
-        /// The Record Column mapping for the streaming source data element.
-        /// See Record Columns below for more details.
-        /// </summary>
         public InputList<Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs> RecordColumns
         {
             get => _recordColumns ?? (_recordColumns = new InputList<Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs>());
             set => _recordColumns = value;
         }
 
-        /// <summary>
-        /// The Encoding of the record in the streaming source.
-        /// </summary>
         [Input("recordEncoding")]
         public Input<string>? RecordEncoding { get; set; }
 
-        /// <summary>
-        /// The Record Format and mapping information to schematize a record.
-        /// See Record Format below for more details.
-        /// </summary>
         [Input("recordFormat", required: true)]
         public Input<Inputs.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs> RecordFormat { get; set; } = null!;
 

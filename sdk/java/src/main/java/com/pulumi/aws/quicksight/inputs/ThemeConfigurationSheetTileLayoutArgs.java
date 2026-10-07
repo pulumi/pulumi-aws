@@ -17,14 +17,14 @@ public final class ThemeConfigurationSheetTileLayoutArgs extends com.pulumi.reso
     public static final ThemeConfigurationSheetTileLayoutArgs Empty = new ThemeConfigurationSheetTileLayoutArgs();
 
     /**
-     * The gutter settings that apply between tiles. See gutter.
+     * Gutter settings that apply between tiles. See gutter.
      * 
      */
     @Import(name="gutter")
     private @Nullable Output<ThemeConfigurationSheetTileLayoutGutterArgs> gutter;
 
     /**
-     * @return The gutter settings that apply between tiles. See gutter.
+     * @return Gutter settings that apply between tiles. See gutter.
      * 
      */
     public Optional<Output<ThemeConfigurationSheetTileLayoutGutterArgs>> gutter() {
@@ -32,14 +32,14 @@ public final class ThemeConfigurationSheetTileLayoutArgs extends com.pulumi.reso
     }
 
     /**
-     * The margin settings that apply around the outside edge of sheets. See margin.
+     * Margin settings that apply around the outside edge of sheets. See margin.
      * 
      */
     @Import(name="margin")
     private @Nullable Output<ThemeConfigurationSheetTileLayoutMarginArgs> margin;
 
     /**
-     * @return The margin settings that apply around the outside edge of sheets. See margin.
+     * @return Margin settings that apply around the outside edge of sheets. See margin.
      * 
      */
     public Optional<Output<ThemeConfigurationSheetTileLayoutMarginArgs>> margin() {
@@ -72,7 +72,7 @@ public final class ThemeConfigurationSheetTileLayoutArgs extends com.pulumi.reso
         }
 
         /**
-         * @param gutter The gutter settings that apply between tiles. See gutter.
+         * @param gutter Gutter settings that apply between tiles. See gutter.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ThemeConfigurationSheetTileLayoutArgs extends com.pulumi.reso
         }
 
         /**
-         * @param gutter The gutter settings that apply between tiles. See gutter.
+         * @param gutter Gutter settings that apply between tiles. See gutter.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ThemeConfigurationSheetTileLayoutArgs extends com.pulumi.reso
         }
 
         /**
-         * @param margin The margin settings that apply around the outside edge of sheets. See margin.
+         * @param margin Margin settings that apply around the outside edge of sheets. See margin.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ThemeConfigurationSheetTileLayoutArgs extends com.pulumi.reso
         }
 
         /**
-         * @param margin The margin settings that apply around the outside edge of sheets. See margin.
+         * @param margin Margin settings that apply around the outside edge of sheets. See margin.
          * 
          * @return builder
          * 

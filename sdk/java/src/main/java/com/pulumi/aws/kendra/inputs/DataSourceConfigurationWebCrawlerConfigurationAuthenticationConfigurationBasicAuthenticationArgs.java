@@ -31,14 +31,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
     }
 
     /**
-     * The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
+     * Name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
      * 
      */
     @Import(name="host", required=true)
     private Output<String> host;
 
     /**
-     * @return The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
+     * @return Name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
      * 
      */
     public Output<String> host() {
@@ -46,14 +46,14 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
     }
 
     /**
-     * The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+     * Port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
      * 
      */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
     /**
-     * @return The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+     * @return Port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
      * 
      */
     public Output<Integer> port() {
@@ -108,7 +108,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
         }
 
         /**
-         * @param host The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
+         * @param host Name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
         }
 
         /**
-         * @param host The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
+         * @param host Name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `&#34;a.example.com&#34;`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
         }
 
         /**
-         * @param port The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+         * @param port Port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class DataSourceConfigurationWebCrawlerConfigurationAuthenticationC
         }
 
         /**
-         * @param port The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+         * @param port Port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
          * 
          * @return builder
          * 

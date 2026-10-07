@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class GetIndexIndexStatistic {
     /**
-     * @return Block that specifies the number of question and answer topics in the index. Documented below.
+     * @return Block that specifies the number of question and answer topics in the index. Detailed below.
      * 
      */
     private List<GetIndexIndexStatisticFaqStatistic> faqStatistics;
     /**
-     * @return A block that specifies the number of text documents indexed.
+     * @return Block that specifies the number of text documents indexed. Detailed below.
      * 
      */
     private List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics;
 
     private GetIndexIndexStatistic() {}
     /**
-     * @return Block that specifies the number of question and answer topics in the index. Documented below.
+     * @return Block that specifies the number of question and answer topics in the index. Detailed below.
      * 
      */
     public List<GetIndexIndexStatisticFaqStatistic> faqStatistics() {
         return this.faqStatistics;
     }
     /**
-     * @return A block that specifies the number of text documents indexed.
+     * @return Block that specifies the number of text documents indexed. Detailed below.
      * 
      */
     public List<GetIndexIndexStatisticTextDocumentStatistic> textDocumentStatistics() {

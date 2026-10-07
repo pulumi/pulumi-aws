@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget
     {
         /// <summary>
-        /// The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+        /// Identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
         /// </summary>
         public readonly string? TargetDocumentAttributeKey;
         /// <summary>
-        /// The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
+        /// Target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
         /// </summary>
         public readonly Outputs.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue? TargetDocumentAttributeValue;
         /// <summary>

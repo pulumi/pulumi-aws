@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Quicksight.Outputs
     public sealed class TemplateSourceEntity
     {
         /// <summary>
-        /// The source analysis, if it is based on an analysis.. Only one of `SourceAnalysis` or `SourceTemplate` should be configured. See source_analysis.
+        /// Source analysis, if it is based on an analysis. Only one of `SourceAnalysis` or `SourceTemplate` should be configured. See `SourceAnalysis` Block.
         /// </summary>
         public readonly Outputs.TemplateSourceEntitySourceAnalysis? SourceAnalysis;
         /// <summary>
-        /// The source template, if it is based on an template.. Only one of `SourceAnalysis` or `SourceTemplate` should be configured. See source_template.
+        /// Source template, if it is based on a template. Only one of `SourceAnalysis` or `SourceTemplate` should be configured. See `SourceTemplate` Block.
         /// </summary>
         public readonly Outputs.TemplateSourceEntitySourceTemplate? SourceTemplate;
 

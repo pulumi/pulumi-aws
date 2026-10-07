@@ -39,6 +39,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` - (String) Name of the workload identity.
+ *
+ * #### Optional
+ *
+ * * `accountId` - (String) AWS Account where this resource is managed.
+ * * `region` - (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import Bedrock AgentCore Workload Identity using the workload identity name. For example:
  *
  * ```sh
@@ -88,6 +99,14 @@ export class AgentcoreWorkloadIdentity extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
      * ARN of the Workload Identity.
      */
     declare public /*out*/ readonly workloadIdentityArn: pulumi.Output<string>;
@@ -108,12 +127,16 @@ export class AgentcoreWorkloadIdentity extends pulumi.CustomResource {
             resourceInputs["allowedResourceOauth2ReturnUrls"] = state?.allowedResourceOauth2ReturnUrls;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["workloadIdentityArn"] = state?.workloadIdentityArn;
         } else {
             const args = argsOrState as AgentcoreWorkloadIdentityArgs | undefined;
             resourceInputs["allowedResourceOauth2ReturnUrls"] = args?.allowedResourceOauth2ReturnUrls;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["workloadIdentityArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -140,6 +163,14 @@ export interface AgentcoreWorkloadIdentityState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
      * ARN of the Workload Identity.
      */
     workloadIdentityArn?: pulumi.Input<string | undefined>;
@@ -163,4 +194,8 @@ export interface AgentcoreWorkloadIdentityArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

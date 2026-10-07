@@ -72,14 +72,14 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<AnalysisParametersArgs> parameters;
 
     /**
-     * @return The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+     * @return Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
      * 
      */
     public Optional<Output<AnalysisParametersArgs>> parameters() {
@@ -87,14 +87,14 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+     * Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      * 
      */
     @Import(name="permissions")
     private @Nullable Output<List<AnalysisPermissionArgs>> permissions;
 
     /**
-     * @return A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+     * @return Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
      * 
      */
     public Optional<Output<List<AnalysisPermissionArgs>>> permissions() {
@@ -102,14 +102,14 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+     * Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      * 
      */
     @Import(name="recoveryWindowInDays")
     private @Nullable Output<Integer> recoveryWindowInDays;
 
     /**
-     * @return A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+     * @return Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
      * 
      */
     public Optional<Output<Integer>> recoveryWindowInDays() {
@@ -132,14 +132,14 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      * 
      */
     @Import(name="sourceEntity")
     private @Nullable Output<AnalysisSourceEntityArgs> sourceEntity;
 
     /**
-     * @return The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+     * @return Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
      * 
      */
     public Optional<Output<AnalysisSourceEntityArgs>> sourceEntity() {
@@ -277,7 +277,7 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+         * @param parameters Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters The parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
+         * @param parameters Parameters for the creation of the analysis, which you want to use to override the default settings. An analysis can have any type of parameters, and some parameters might accept multiple values. See parameters.
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
          * 
          * @return builder
          * 
@@ -319,7 +319,7 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissions A set of resource permissions on the analysis. Maximum of 64 items. See permissions.
+         * @param permissions Set of resource permissions on the analysis. Maximum of 64 items. See permissions.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryWindowInDays A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+         * @param recoveryWindowInDays Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
          * 
          * @return builder
          * 
@@ -340,7 +340,7 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recoveryWindowInDays A value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
+         * @param recoveryWindowInDays Value that specifies the number of days that Amazon QuickSight waits before it deletes the analysis. Use `0` to force deletion without recovery. Minimum value of `7`. Maximum value of `30`. Default to `30`.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntity The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+         * @param sourceEntity Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class AnalysisArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntity The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
+         * @param sourceEntity Entity that you are using as a source when you create the analysis (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
          * 
          * @return builder
          * 

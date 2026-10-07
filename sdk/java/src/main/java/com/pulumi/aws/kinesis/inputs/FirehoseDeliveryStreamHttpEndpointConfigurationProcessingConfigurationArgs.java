@@ -33,14 +33,14 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
     }
 
     /**
-     * Specifies the data processors as multiple blocks. See `processors` block below for details.
+     * Data processors as multiple blocks. See `processors` block below for details.
      * 
      */
     @Import(name="processors")
     private @Nullable Output<List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs>> processors;
 
     /**
-     * @return Specifies the data processors as multiple blocks. See `processors` block below for details.
+     * @return Data processors as multiple blocks. See `processors` block below for details.
      * 
      */
     public Optional<Output<List<FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs>>> processors() {
@@ -94,7 +94,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
         }
 
         /**
-         * @param processors Specifies the data processors as multiple blocks. See `processors` block below for details.
+         * @param processors Data processors as multiple blocks. See `processors` block below for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
         }
 
         /**
-         * @param processors Specifies the data processors as multiple blocks. See `processors` block below for details.
+         * @param processors Data processors as multiple blocks. See `processors` block below for details.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConf
         }
 
         /**
-         * @param processors Specifies the data processors as multiple blocks. See `processors` block below for details.
+         * @param processors Data processors as multiple blocks. See `processors` block below for details.
          * 
          * @return builder
          * 

@@ -18,15 +18,15 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `InputFormatConfiguration` block below for details.
+        /// Deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `InputFormatConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration InputFormatConfiguration;
         /// <summary>
-        /// Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `OutputFormatConfiguration` block below for details.
+        /// Serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `OutputFormatConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration OutputFormatConfiguration;
         /// <summary>
-        /// Specifies the AWS Glue Data Catalog table that contains the column information. See `SchemaConfiguration` block below for details.
+        /// AWS Glue Data Catalog table that contains the column information. See `SchemaConfiguration` block below for details.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration SchemaConfiguration;
 

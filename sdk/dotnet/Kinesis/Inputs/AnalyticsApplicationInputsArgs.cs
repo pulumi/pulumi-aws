@@ -13,47 +13,43 @@ namespace Pulumi.Aws.Kinesis.Inputs
     public sealed class AnalyticsApplicationInputsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Kinesis Analytics Application.
+        /// ARN of the Kinesis Analytics Application.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The Kinesis Firehose configuration for the streaming source. Conflicts with `KinesisStream`.
-        /// See Kinesis Firehose below for more details.
+        /// Kinesis Firehose configuration for the streaming source. Conflicts with `KinesisStream`. See `inputs.kinesis_firehose` Block below for details.
         /// </summary>
         [Input("kinesisFirehose")]
         public Input<Inputs.AnalyticsApplicationInputsKinesisFirehoseArgs>? KinesisFirehose { get; set; }
 
         /// <summary>
-        /// The Kinesis Stream configuration for the streaming source. Conflicts with `KinesisFirehose`.
-        /// See Kinesis Stream below for more details.
+        /// Kinesis Stream configuration for the streaming source. Conflicts with `KinesisFirehose`. See `inputs.kinesis_stream` Block below for details.
         /// </summary>
         [Input("kinesisStream")]
         public Input<Inputs.AnalyticsApplicationInputsKinesisStreamArgs>? KinesisStream { get; set; }
 
         /// <summary>
-        /// The Name Prefix to use when creating an in-application stream.
+        /// Name Prefix to use when creating an in-application stream.
         /// </summary>
         [Input("namePrefix", required: true)]
         public Input<string> NamePrefix { get; set; } = null!;
 
         /// <summary>
-        /// The number of Parallel in-application streams to create.
-        /// See Parallelism below for more details.
+        /// Number of Parallel in-application streams to create. See `inputs.parallelism` Block below for details.
         /// </summary>
         [Input("parallelism")]
         public Input<Inputs.AnalyticsApplicationInputsParallelismArgs>? Parallelism { get; set; }
 
         /// <summary>
-        /// The Processing Configuration to transform records as they are received from the stream.
-        /// See Processing Configuration below for more details.
+        /// Processing Configuration to transform records as they are received from the stream. See `inputs.processing_configuration` Block below for details.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.AnalyticsApplicationInputsProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// The Schema format of the data in the streaming source. See Source Schema below for more details.
+        /// Schema format of the data in the streaming source. See `inputs.schema` Block below for details.
         /// </summary>
         [Input("schema", required: true)]
         public Input<Inputs.AnalyticsApplicationInputsSchemaArgs> Schema { get; set; } = null!;
@@ -62,8 +58,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         private InputList<Inputs.AnalyticsApplicationInputsStartingPositionConfigurationArgs>? _startingPositionConfigurations;
 
         /// <summary>
-        /// The point at which the application starts processing records from the streaming source.
-        /// See Starting Position Configuration below for more details.
+        /// Point at which the application starts processing records from the streaming source. See `inputs.starting_position_configuration` Block below for details.
         /// </summary>
         public InputList<Inputs.AnalyticsApplicationInputsStartingPositionConfigurationArgs> StartingPositionConfigurations
         {
@@ -73,6 +68,10 @@ namespace Pulumi.Aws.Kinesis.Inputs
 
         [Input("streamNames")]
         private InputList<string>? _streamNames;
+
+        /// <summary>
+        /// Names of the in-application streams created for the input.
+        /// </summary>
         public InputList<string> StreamNames
         {
             get => _streamNames ?? (_streamNames = new InputList<string>());

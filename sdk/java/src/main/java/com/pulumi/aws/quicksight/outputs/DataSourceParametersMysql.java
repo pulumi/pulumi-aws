@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class DataSourceParametersMysql {
     /**
-     * @return The database to which to connect.
+     * @return Database to which to connect.
      * 
      */
     private String database;
     /**
-     * @return The host to which to connect.
+     * @return Host to which to connect.
      * 
      */
     private String host;
     /**
-     * @return The port to which to connect.
+     * @return Port to which to connect.
      * 
      */
     private Integer port;
 
     private DataSourceParametersMysql() {}
     /**
-     * @return The database to which to connect.
+     * @return Database to which to connect.
      * 
      */
     public String database() {
         return this.database;
     }
     /**
-     * @return The host to which to connect.
+     * @return Host to which to connect.
      * 
      */
     public String host() {
         return this.host;
     }
     /**
-     * @return The port to which to connect.
+     * @return Port to which to connect.
      * 
      */
     public Integer port() {

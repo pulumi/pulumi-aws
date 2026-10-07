@@ -18,14 +18,14 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
     public static final ResourcePolicyArgs Empty = new ResourcePolicyArgs();
 
     /**
-     * Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+     * Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
      * 
      */
     @Import(name="bypassPolicyLockoutCheck")
     private @Nullable Output<Boolean> bypassPolicyLockoutCheck;
 
     /**
-     * @return Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+     * @return Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> bypassPolicyLockoutCheck() {
@@ -35,16 +35,12 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="policyDocument", required=true)
     private Output<String> policyDocument;
 
     /**
      * @return JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> policyDocument() {
@@ -54,6 +50,8 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Name of the resource policy. Must be unique within a specific Amazon Web Services account.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="policyName", required=true)
     private Output<String> policyName;
@@ -61,20 +59,22 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return Name of the resource policy. Must be unique within a specific Amazon Web Services account.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> policyName() {
         return this.policyName;
     }
 
     /**
-     * Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+     * Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
      * 
      */
     @Import(name="policyRevisionId")
     private @Nullable Output<String> policyRevisionId;
 
     /**
-     * @return Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+     * @return Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
      * 
      */
     public Optional<Output<String>> policyRevisionId() {
@@ -125,7 +125,7 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param bypassPolicyLockoutCheck Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+         * @param bypassPolicyLockoutCheck Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param bypassPolicyLockoutCheck Flag to indicate whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
+         * @param bypassPolicyLockoutCheck Whether to bypass the resource policy lockout safety check. Setting this value to true increases the risk that the policy becomes unmanageable. Do not set this value to true indiscriminately. Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent PutResourcePolicy request. The default value is `false`.
          * 
          * @return builder
          * 
@@ -147,8 +147,6 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param policyDocument JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -161,8 +159,6 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param policyDocument JSON string of the resource policy or resource policy document, which can be up to 5kb in size.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -172,6 +168,8 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param policyName Name of the resource policy. Must be unique within a specific Amazon Web Services account.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -184,6 +182,8 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param policyName Name of the resource policy. Must be unique within a specific Amazon Web Services account.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -192,7 +192,7 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param policyRevisionId Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+         * @param policyRevisionId Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param policyRevisionId Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
+         * @param policyRevisionId Specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
          * 
          * @return builder
          * 

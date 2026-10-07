@@ -16,14 +16,14 @@ public final class ApplicationApplicationConfigurationRunConfigurationFlinkRunCo
     public static final ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs Empty = new ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs();
 
     /**
-     * When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+     * Whether the runtime is allowed to skip a state that cannot be mapped to the new program when restoring from a snapshot. Default is `false`.
      * 
      */
     @Import(name="allowNonRestoredState")
     private @Nullable Output<Boolean> allowNonRestoredState;
 
     /**
-     * @return When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+     * @return Whether the runtime is allowed to skip a state that cannot be mapped to the new program when restoring from a snapshot. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> allowNonRestoredState() {
@@ -55,7 +55,7 @@ public final class ApplicationApplicationConfigurationRunConfigurationFlinkRunCo
         }
 
         /**
-         * @param allowNonRestoredState When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+         * @param allowNonRestoredState Whether the runtime is allowed to skip a state that cannot be mapped to the new program when restoring from a snapshot. Default is `false`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ApplicationApplicationConfigurationRunConfigurationFlinkRunCo
         }
 
         /**
-         * @param allowNonRestoredState When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+         * @param allowNonRestoredState Whether the runtime is allowed to skip a state that cannot be mapped to the new program when restoring from a snapshot. Default is `false`.
          * 
          * @return builder
          * 

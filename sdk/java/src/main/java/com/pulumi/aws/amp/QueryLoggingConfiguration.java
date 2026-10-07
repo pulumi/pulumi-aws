@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration")
 public class QueryLoggingConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * Configuration block for the logging destinations. See `destination`.
+     * Configuration block for the logging destinations. See `destination` Block.
      * 
      */
     @Export(name="destinations", refs={List.class,QueryLoggingConfigurationDestination.class}, tree="[0,1]")
     private Output<List<QueryLoggingConfigurationDestination>> destinations;
 
     /**
-     * @return Configuration block for the logging destinations. See `destination`.
+     * @return Configuration block for the logging destinations. See `destination` Block.
      * 
      */
     public Output<List<QueryLoggingConfigurationDestination>> destinations() {
@@ -114,7 +114,7 @@ public class QueryLoggingConfiguration extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The ID of the AMP workspace for which to configure query logging.
+     * ID of the AMP workspace for which to configure query logging.
      * 
      * The following arguments are optional:
      * 
@@ -123,7 +123,7 @@ public class QueryLoggingConfiguration extends com.pulumi.resources.CustomResour
     private Output<String> workspaceId;
 
     /**
-     * @return The ID of the AMP workspace for which to configure query logging.
+     * @return ID of the AMP workspace for which to configure query logging.
      * 
      * The following arguments are optional:
      * 

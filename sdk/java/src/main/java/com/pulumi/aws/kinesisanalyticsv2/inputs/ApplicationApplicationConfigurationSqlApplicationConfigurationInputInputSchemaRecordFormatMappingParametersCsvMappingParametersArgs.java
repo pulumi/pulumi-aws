@@ -15,14 +15,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     public static final ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs Empty = new ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs();
 
     /**
-     * The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+     * Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
      * 
      */
     @Import(name="recordColumnDelimiter", required=true)
     private Output<String> recordColumnDelimiter;
 
     /**
-     * @return The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+     * @return Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
      * 
      */
     public Output<String> recordColumnDelimiter() {
@@ -30,14 +30,14 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
     }
 
     /**
-     * The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+     * Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
      * 
      */
     @Import(name="recordRowDelimiter", required=true)
     private Output<String> recordRowDelimiter;
 
     /**
-     * @return The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+     * @return Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
      * 
      */
     public Output<String> recordRowDelimiter() {
@@ -70,7 +70,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordColumnDelimiter The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+         * @param recordColumnDelimiter Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordColumnDelimiter The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+         * @param recordColumnDelimiter Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordRowDelimiter The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+         * @param recordRowDelimiter Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ApplicationApplicationConfigurationSqlApplicationConfiguratio
         }
 
         /**
-         * @param recordRowDelimiter The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+         * @param recordRowDelimiter Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
          * 
          * @return builder
          * 

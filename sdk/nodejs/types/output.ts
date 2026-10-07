@@ -2087,25 +2087,25 @@ export namespace amp {
 
     export interface QueryLoggingConfigurationDestination {
         /**
-         * Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
+         * Configuration block for CloudWatch Logs destination. See `cloudwatchLogs` Block.
          */
         cloudwatchLogs: outputs.amp.QueryLoggingConfigurationDestinationCloudwatchLogs;
         /**
-         * A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+         * List of filter configurations that specify which logs should be sent to the destination. See `filters` Block.
          */
         filters: outputs.amp.QueryLoggingConfigurationDestinationFilters;
     }
 
     export interface QueryLoggingConfigurationDestinationCloudwatchLogs {
         /**
-         * The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
+         * ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
          */
         logGroupArn: string;
     }
 
     export interface QueryLoggingConfigurationDestinationFilters {
         /**
-         * The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+         * Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
          */
         qspThreshold: number;
     }
@@ -2306,7 +2306,7 @@ export namespace amp {
 
     export interface WorkspaceLoggingConfiguration {
         /**
-         * The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
+         * ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
          */
         logGroupArn: string;
     }
@@ -8978,11 +8978,11 @@ export namespace appmesh {
 export namespace apprunner {
     export interface CustomDomainAssociationCertificateValidationRecord {
         /**
-         * Certificate CNAME record name.
+         * Certificate `CNAME` record name.
          */
         name: string;
         /**
-         * Current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
+         * Current state of the certificate `CNAME` record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
          */
         status: string;
         /**
@@ -8990,7 +8990,7 @@ export namespace apprunner {
          */
         type: string;
         /**
-         * Certificate CNAME record value.
+         * Certificate `CNAME` record value.
          */
         value: string;
     }
@@ -40108,6 +40108,43 @@ export namespace directoryservice {
         vpcId: string;
     }
 
+    export interface IpRouteTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+    }
+
+    export interface IpRoutesExclusiveIpRoute {
+        /**
+         * IPv4 CIDR block, such as `10.0.0.0/24`. For a single address, use a `/32` block, such as `10.0.0.0/32`. Must be unique across all `ipRoute` blocks.
+         */
+        cidrIp?: string;
+        /**
+         * IPv6 CIDR block, such as `2001:db8::/64`. For a single address, use a `/128` block. Must be unique across all `ipRoute` blocks.
+         */
+        cidrIpv6?: string;
+        /**
+         * Description of the address block.
+         */
+        description?: string;
+    }
+
+    export interface IpRoutesExclusiveTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
     export interface ServiceRegionVpcSettings {
         /**
          * The identifiers of the subnets for the directory servers.
@@ -58608,28 +58645,34 @@ export namespace fsx {
 
     export interface GetOntapFileSystemEndpoint {
         /**
-         * FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
+         * FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint below.
          */
         interclusters: outputs.fsx.GetOntapFileSystemEndpointIntercluster[];
         /**
-         * FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
+         * FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint below.
          */
         managements: outputs.fsx.GetOntapFileSystemEndpointManagement[];
     }
 
     export interface GetOntapFileSystemEndpointIntercluster {
         /**
-         * DNS name for the file system.
+         * File system's DNS name. You can mount your file system using its DNS name.
          */
         dnsName: string;
+        /**
+         * IP addresses of the file system endpoint.
+         */
         ipAddresses: string[];
     }
 
     export interface GetOntapFileSystemEndpointManagement {
         /**
-         * DNS name for the file system.
+         * File system's DNS name. You can mount your file system using its DNS name.
          */
         dnsName: string;
+        /**
+         * IP addresses of the file system endpoint.
+         */
         ipAddresses: string[];
     }
 
@@ -58638,6 +58681,9 @@ export namespace fsx {
          * NetBIOS name of the AD computer object to which the SVM is joined.
          */
         netbiosName: string;
+        /**
+         * Configuration of the self-managed Microsoft Active Directory (AD) directory to which the SVM is joined. See `selfManagedActiveDirectoryConfiguration` Block below.
+         */
         selfManagedActiveDirectoryConfigurations: outputs.fsx.GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration[];
     }
 
@@ -58655,7 +58701,7 @@ export namespace fsx {
          */
         fileSystemAdministratorsGroup: string;
         /**
-         * Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the Windows File Server or ONTAP storage virtual machine (SVM) instance is joined.
+         * Fully qualified distinguished name of the organizational unit within the self-managed AD directory to which the SVM is joined.
          */
         organizationalUnitDistinguishedName: string;
         /**
@@ -58665,38 +58711,65 @@ export namespace fsx {
     }
 
     export interface GetOntapStorageVirtualMachineEndpoint {
+        /**
+         * Endpoint for connecting using the Internet Small Computer Systems Interface (iSCSI) protocol. See `iscsi` Block below.
+         */
         iscsis: outputs.fsx.GetOntapStorageVirtualMachineEndpointIscsi[];
         /**
-         * Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+         * Endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See `management` Block below.
          */
         managements: outputs.fsx.GetOntapStorageVirtualMachineEndpointManagement[];
         /**
-         * Endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+         * Endpoint for connecting using the Network File System (NFS) protocol. See `nfs` Block below.
          */
         nfs: outputs.fsx.GetOntapStorageVirtualMachineEndpointNf[];
         /**
-         * Endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+         * Endpoint for connecting using the Server Message Block (SMB) protocol. See `smb` Block below.
          */
         smbs: outputs.fsx.GetOntapStorageVirtualMachineEndpointSmb[];
     }
 
     export interface GetOntapStorageVirtualMachineEndpointIscsi {
+        /**
+         * SVM endpoint's DNS name.
+         */
         dnsName: string;
+        /**
+         * SVM endpoint's IP addresses.
+         */
         ipAddresses: string[];
     }
 
     export interface GetOntapStorageVirtualMachineEndpointManagement {
+        /**
+         * SVM endpoint's DNS name.
+         */
         dnsName: string;
+        /**
+         * SVM endpoint's IP addresses.
+         */
         ipAddresses: string[];
     }
 
     export interface GetOntapStorageVirtualMachineEndpointNf {
+        /**
+         * SVM endpoint's DNS name.
+         */
         dnsName: string;
+        /**
+         * SVM endpoint's IP addresses.
+         */
         ipAddresses: string[];
     }
 
     export interface GetOntapStorageVirtualMachineEndpointSmb {
+        /**
+         * SVM endpoint's DNS name.
+         */
         dnsName: string;
+        /**
+         * SVM endpoint's IP addresses.
+         */
         ipAddresses: string[];
     }
 
@@ -58741,13 +58814,28 @@ export namespace fsx {
     }
 
     export interface GetWindowsFileSystemAuditLogConfiguration {
+        /**
+         * ARN for the destination of the audit logs.
+         */
         auditLogDestination: string;
+        /**
+         * Attempt type logged by Amazon FSx for file and folder accesses.
+         */
         fileAccessAuditLogLevel: string;
+        /**
+         * Attempt type logged by Amazon FSx for file share accesses.
+         */
         fileShareAccessAuditLogLevel: string;
     }
 
     export interface GetWindowsFileSystemDiskIopsConfiguration {
+        /**
+         * Total number of SSD IOPS provisioned for the file system.
+         */
         iops: number;
+        /**
+         * Mode for the number of IOPS for the file system.
+         */
         mode: string;
     }
 
@@ -66150,17 +66238,17 @@ export namespace ivschat {
 export namespace kendra {
     export interface DataSourceConfiguration {
         /**
-         * A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+         * Configuration information to connect to an Amazon S3 bucket as your data source. Required when `type` is set to `S3`. Detailed below.
          *
          * @deprecated s3_configuration is deprecated. Use templateConfiguration instead.
          */
         s3Configuration?: outputs.kendra.DataSourceConfigurationS3Configuration;
         /**
-         * A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+         * Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `TEMPLATE`. Detailed below.
          */
         templateConfiguration?: outputs.kendra.DataSourceConfigurationTemplateConfiguration;
         /**
-         * A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+         * Configuration information required for Amazon Kendra Web Crawler. Required when `type` is set to `WEBCRAWLER`. Detailed below.
          *
          * @deprecated web_crawler_configuration is deprecated. Use templateConfiguration instead.
          */
@@ -66169,27 +66257,27 @@ export namespace kendra {
 
     export interface DataSourceConfigurationS3Configuration {
         /**
-         * A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
+         * Path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
          */
         accessControlListConfiguration?: outputs.kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfiguration;
         /**
-         * The name of the bucket that contains the documents.
+         * Name of the bucket that contains the documents.
          */
         bucketName: string;
         /**
-         * A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+         * Block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
          */
         documentsMetadataConfiguration?: outputs.kendra.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration;
         /**
-         * A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
+         * List of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
          */
         exclusionPatterns?: string[];
         /**
-         * A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
+         * List of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
          */
         inclusionPatterns?: string[];
         /**
-         * A list of S3 prefixes for the documents that should be included in the index.
+         * List of S3 prefixes for the documents that should be included in the index.
          */
         inclusionPrefixes?: string[];
     }
@@ -66203,7 +66291,7 @@ export namespace kendra {
 
     export interface DataSourceConfigurationS3ConfigurationDocumentsMetadataConfiguration {
         /**
-         * A prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
+         * Prefix used to filter metadata configuration files in the AWS S3 bucket. The S3 bucket might contain multiple metadata files. Use `s3Prefix` to include only the desired metadata files.
          */
         s3Prefix?: string;
     }
@@ -66217,23 +66305,23 @@ export namespace kendra {
 
     export interface DataSourceConfigurationWebCrawlerConfiguration {
         /**
-         * A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
+         * Configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
          */
         authenticationConfiguration?: outputs.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration;
         /**
-         * Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
+         * Number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels - index level (i.e. seed in this example), sections level, and subsections level - and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
          */
         crawlDepth?: number;
         /**
-         * The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
+         * Maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
          */
         maxContentSizePerPageInMegaBytes?: number;
         /**
-         * The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
+         * Maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
          */
         maxLinksPerPage?: number;
         /**
-         * The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
+         * Maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
          */
         maxUrlsPerMinuteCrawlRate?: number;
         /**
@@ -66241,11 +66329,11 @@ export namespace kendra {
          */
         proxyConfiguration?: outputs.kendra.DataSourceConfigurationWebCrawlerConfigurationProxyConfiguration;
         /**
-         * A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+         * List of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
          */
         urlExclusionPatterns?: string[];
         /**
-         * A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
+         * List of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
          */
         urlInclusionPatterns?: string[];
         /**
@@ -66256,7 +66344,7 @@ export namespace kendra {
 
     export interface DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfiguration {
         /**
-         * The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
+         * List of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
          */
         basicAuthentications?: outputs.kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthentication[];
     }
@@ -66267,11 +66355,11 @@ export namespace kendra {
          */
         credentials: string;
         /**
-         * The name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
+         * Name of the website host you want to connect to using authentication credentials. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
          */
         host: string;
         /**
-         * The port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+         * Port number of the website host you want to connect to using authentication credentials. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
          */
         port: number;
     }
@@ -66282,43 +66370,40 @@ export namespace kendra {
          */
         credentials?: string;
         /**
-         * The name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
+         * Name of the website host you want to connect to via a web proxy server. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"`.
          */
         host: string;
         /**
-         * The port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
+         * Port number of the website host you want to connect to via a web proxy server. For example, the port for `https://a.example.com/page1.html` is `443`, the standard port for HTTPS.
          */
         port: number;
     }
 
     export interface DataSourceConfigurationWebCrawlerConfigurationUrls {
         /**
-         * A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
+         * Block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
          */
         seedUrlConfiguration?: outputs.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration;
         /**
-         * A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
+         * Block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
          */
         siteMapsConfiguration?: outputs.kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration;
     }
 
     export interface DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfiguration {
         /**
-         * The list of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
+         * List of seed or starting point URLs of the websites you want to crawl. The list can include a maximum of `100` seed URLs. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `2048`.
          */
         seedUrls: string[];
         /**
-         * The default mode is set to `HOST_ONLY`. You can choose one of the following modes:
-         * * `HOST_ONLY` - crawl only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled.
-         * * `SUBDOMAINS` - crawl the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled.
-         * * `EVERYTHING` - crawl the website host names with subdomains and other domains that the webpages link to.
+         * Default mode is set to `HOST_ONLY`. Valid values are `EVERYTHING`, `HOST_ONLY`, and `SUBDOMAINS`. `HOST_ONLY` crawls only the website host names. For example, if the seed URL is `"abc.example.com"`, then only URLs with host name `"abc.example.com"` are crawled. `SUBDOMAINS` crawls the website host names with subdomains. For example, if the seed URL is `"abc.example.com"`, then `"a.abc.example.com"` and `"b.abc.example.com"` are also crawled. `EVERYTHING` crawls the website host names with subdomains and other domains that the webpages link to.
          */
         webCrawlerMode?: string;
     }
 
     export interface DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfiguration {
         /**
-         * The list of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
+         * List of sitemap URLs of the websites you want to crawl. The list can include a maximum of `3` sitemap URLs.
          */
         siteMaps: string[];
     }
@@ -66329,7 +66414,7 @@ export namespace kendra {
          */
         inlineConfigurations?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationInlineConfiguration[];
         /**
-         * A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+         * Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
          */
         postExtractionHookConfiguration?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration;
         /**
@@ -66359,42 +66444,45 @@ export namespace kendra {
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationCondition {
         /**
-         * The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+         * Identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
          */
         conditionDocumentAttributeKey: string;
         /**
-         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+         * Value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          */
         conditionOnValue?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue;
         /**
-         * The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+         * Condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
          */
         operator: string;
     }
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValue {
         /**
-         * A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+         * Date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
          */
         dateValue?: string;
         /**
-         * A long integer value.
+         * Long integer value.
          */
         longValue?: number;
         /**
-         * A list of strings.
+         * List of strings.
          */
         stringListValues?: string[];
+        /**
+         * String, such as "department".
+         */
         stringValue?: string;
     }
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTarget {
         /**
-         * The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
+         * Identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
          */
         targetDocumentAttributeKey?: string;
         /**
-         * The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
+         * Target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
          */
         targetDocumentAttributeValue?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue;
         /**
@@ -66405,23 +66493,26 @@ export namespace kendra {
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValue {
         /**
-         * A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+         * Date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
          */
         dateValue?: string;
         /**
-         * A long integer value.
+         * Long integer value.
          */
         longValue?: number;
         /**
-         * A list of strings.
+         * List of strings.
          */
         stringListValues?: string[];
+        /**
+         * String, such as "department".
+         */
         stringValue?: string;
     }
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfiguration {
         /**
-         * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
+         * Condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
          */
         invocationCondition?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition;
         /**
@@ -66436,38 +66527,41 @@ export namespace kendra {
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition {
         /**
-         * The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+         * Identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
          */
         conditionDocumentAttributeKey: string;
         /**
-         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+         * Value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          */
         conditionOnValue?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue;
         /**
-         * The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+         * Condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
          */
         operator: string;
     }
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValue {
         /**
-         * A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+         * Date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
          */
         dateValue?: string;
         /**
-         * A long integer value.
+         * Long integer value.
          */
         longValue?: number;
         /**
-         * A list of strings.
+         * List of strings.
          */
         stringListValues?: string[];
+        /**
+         * String, such as "department".
+         */
         stringValue?: string;
     }
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration {
         /**
-         * A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
+         * Condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
          */
         invocationCondition?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition;
         /**
@@ -66482,49 +66576,52 @@ export namespace kendra {
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition {
         /**
-         * The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
+         * Identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
          */
         conditionDocumentAttributeKey: string;
         /**
-         * The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+         * Value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
          */
         conditionOnValue?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue;
         /**
-         * The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
+         * Condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
          */
         operator: string;
     }
 
     export interface DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValue {
         /**
-         * A date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
+         * Date expressed as an ISO 8601 string. It is important for the time zone to be included in the ISO 8601 date-time format. As of this writing only UTC is supported. For example, `2012-03-25T12:30:10+00:00`.
          */
         dateValue?: string;
         /**
-         * A long integer value.
+         * Long integer value.
          */
         longValue?: number;
         /**
-         * A list of strings.
+         * List of strings.
          */
         stringListValues?: string[];
+        /**
+         * String, such as "department".
+         */
         stringValue?: string;
     }
 
     export interface ExperienceConfiguration {
         /**
-         * The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+         * Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
          */
         contentSourceConfiguration: outputs.kendra.ExperienceConfigurationContentSourceConfiguration;
         /**
-         * The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+         * AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
          */
         userIdentityConfiguration?: outputs.kendra.ExperienceConfigurationUserIdentityConfiguration;
     }
 
     export interface ExperienceConfigurationContentSourceConfiguration {
         /**
-         * The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+         * Identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
          */
         dataSourceIds?: string[];
         /**
@@ -66532,49 +66629,47 @@ export namespace kendra {
          */
         directPutContent?: boolean;
         /**
-         * The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+         * Identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
          */
         faqIds?: string[];
     }
 
     export interface ExperienceConfigurationUserIdentityConfiguration {
         /**
-         * The AWS SSO field name that contains the identifiers of your users, such as their emails.
+         * AWS SSO field name that contains the identifiers of your users, such as their emails.
          */
         identityAttributeName: string;
     }
 
     export interface ExperienceEndpoint {
         /**
-         * The endpoint of your Amazon Kendra experience.
+         * Endpoint of your Amazon Kendra experience.
          */
         endpoint: string;
         /**
-         * The type of endpoint for your Amazon Kendra experience.
+         * Type of endpoint for your Amazon Kendra experience.
          */
         endpointType: string;
     }
 
     export interface FaqS3Path {
         /**
-         * The name of the S3 bucket that contains the file.
+         * Name of the S3 bucket that contains the file.
          */
         bucket: string;
         /**
-         * The name of the file.
-         *
-         * The following arguments are optional:
+         * Name of the file.
          */
         key: string;
     }
 
     export interface GetExperienceConfiguration {
         /**
-         * The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
+         * Identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience.
          */
         contentSourceConfigurations: outputs.kendra.GetExperienceConfigurationContentSourceConfiguration[];
         /**
-         * The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
+         * AWS SSO field name that contains the identifiers of your users, such as their emails.
          */
         userIdentityConfigurations: outputs.kendra.GetExperienceConfigurationUserIdentityConfiguration[];
     }
@@ -66596,7 +66691,7 @@ export namespace kendra {
 
     export interface GetExperienceConfigurationUserIdentityConfiguration {
         /**
-         * The AWS SSO field name that contains the identifiers of your users, such as their emails.
+         * AWS SSO field name that contains the identifiers of your users, such as their emails.
          */
         identityAttributeName: string;
     }
@@ -66625,11 +66720,11 @@ export namespace kendra {
 
     export interface GetIndexCapacityUnit {
         /**
-         * The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+         * Amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
          */
         queryCapacityUnits: number;
         /**
-         * The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+         * Amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
          */
         storageCapacityUnits: number;
     }
@@ -66640,11 +66735,11 @@ export namespace kendra {
          */
         name: string;
         /**
-         * Block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+         * Block that provides manual tuning parameters to determine how the field affects the search results. Detailed below.
          */
         relevances: outputs.kendra.GetIndexDocumentMetadataConfigurationUpdateRelevance[];
         /**
-         * Block that provides information about how the field is used during a search. Documented below.
+         * Block that provides information about how the field is used during a search. Detailed below.
          */
         searches: outputs.kendra.GetIndexDocumentMetadataConfigurationUpdateSearch[];
         /**
@@ -66667,18 +66762,18 @@ export namespace kendra {
          */
         importance: number;
         /**
-         * Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+         * How values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
          */
         rankOrder: string;
         /**
-         * A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+         * List of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/APIReference/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
          */
         valuesImportanceMap: {[key: string]: number};
     }
 
     export interface GetIndexDocumentMetadataConfigurationUpdateSearch {
         /**
-         * Determines whether the field is returned in the query response. The default is `true`.
+         * Whether the field is returned in the query response. The default is `true`.
          */
         displayable: boolean;
         /**
@@ -66686,29 +66781,29 @@ export namespace kendra {
          */
         facetable: boolean;
         /**
-         * Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
+         * Whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
          */
         searchable: boolean;
         /**
-         * Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
+         * Whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
          */
         sortable: boolean;
     }
 
     export interface GetIndexIndexStatistic {
         /**
-         * Block that specifies the number of question and answer topics in the index. Documented below.
+         * Block that specifies the number of question and answer topics in the index. Detailed below.
          */
         faqStatistics: outputs.kendra.GetIndexIndexStatisticFaqStatistic[];
         /**
-         * A block that specifies the number of text documents indexed.
+         * Block that specifies the number of text documents indexed. Detailed below.
          */
         textDocumentStatistics: outputs.kendra.GetIndexIndexStatisticTextDocumentStatistic[];
     }
 
     export interface GetIndexIndexStatisticFaqStatistic {
         /**
-         * The total number of FAQ questions and answers contained in the index.
+         * Total number of FAQ questions and answers contained in the index.
          */
         indexedQuestionAnswersCount: number;
     }
@@ -66719,43 +66814,43 @@ export namespace kendra {
          */
         indexedTextBytes: number;
         /**
-         * The number of text documents indexed.
+         * Number of text documents indexed.
          */
         indexedTextDocumentsCount: number;
     }
 
     export interface GetIndexServerSideEncryptionConfiguration {
         /**
-         * Identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
+         * Identifier of the AWS KMS customer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
          */
         kmsKeyId: string;
     }
 
     export interface GetIndexUserGroupResolutionConfiguration {
         /**
-         * The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
+         * Identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
          */
         userGroupResolutionMode: string;
     }
 
     export interface GetIndexUserTokenConfiguration {
         /**
-         * A block that specifies the information about the JSON token type configuration.
+         * Block that specifies the information about the JSON token type configuration. Detailed below.
          */
         jsonTokenTypeConfigurations: outputs.kendra.GetIndexUserTokenConfigurationJsonTokenTypeConfiguration[];
         /**
-         * A block that specifies the information about the JWT token type configuration.
+         * Block that specifies the information about the JWT token type configuration. Detailed below.
          */
         jwtTokenTypeConfigurations: outputs.kendra.GetIndexUserTokenConfigurationJwtTokenTypeConfiguration[];
     }
 
     export interface GetIndexUserTokenConfigurationJsonTokenTypeConfiguration {
         /**
-         * The group attribute field.
+         * Group attribute field.
          */
         groupAttributeField: string;
         /**
-         * The user name attribute field.
+         * User name attribute field.
          */
         userNameAttributeField: string;
     }
@@ -66766,7 +66861,7 @@ export namespace kendra {
          */
         claimRegex: string;
         /**
-         * The group attribute field.
+         * Group attribute field.
          */
         groupAttributeField: string;
         /**
@@ -66774,7 +66869,7 @@ export namespace kendra {
          */
         issuer: string;
         /**
-         * Location of the key. Valid values are `URL` or `SECRET_MANAGER`
+         * Location of the key. Valid values are `URL` or `SECRET_MANAGER`.
          */
         keyLocation: string;
         /**
@@ -66786,7 +66881,7 @@ export namespace kendra {
          */
         url: string;
         /**
-         * The user name attribute field.
+         * User name attribute field.
          */
         userNameAttributeField: string;
     }
@@ -66815,156 +66910,156 @@ export namespace kendra {
 
     export interface IndexCapacityUnits {
         /**
-         * The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+         * Amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
          */
         queryCapacityUnits: number;
         /**
-         * The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+         * Amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
          */
         storageCapacityUnits: number;
     }
 
     export interface IndexDocumentMetadataConfigurationUpdate {
         /**
-         * The name of the index field. Minimum length of 1. Maximum length of 30.
+         * Name of the index field. Minimum length of 1. Maximum length of 30.
          */
         name: string;
         /**
-         * A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+         * Block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
          */
         relevance: outputs.kendra.IndexDocumentMetadataConfigurationUpdateRelevance;
         /**
-         * A block that provides information about how the field is used during a search. Documented below. Detailed below
+         * Block that provides information about how the field is used during a search. Detailed below
          */
         search: outputs.kendra.IndexDocumentMetadataConfigurationUpdateSearch;
         /**
-         * The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+         * Data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
          */
         type: string;
     }
 
     export interface IndexDocumentMetadataConfigurationUpdateRelevance {
         /**
-         * Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+         * Time period that the boost applies to. Required if `type` is `DATE_VALUE`. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
          */
         duration: string;
         /**
-         * Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+         * Whether this field determines how "fresh" a document is. Required if `type` is `DATE_VALUE`. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
          */
         freshness: boolean;
         /**
-         * The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+         * Relative importance of the field in the search. Required for all types. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
          */
         importance: number;
         /**
-         * Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+         * How values should be interpreted. Required if `type` is `DATE_VALUE` or `LONG_VALUE`. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
          */
         rankOrder: string;
         /**
-         * A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+         * List of values that should be given a different boost when they appear in the result list. Required if `type` is `STRING_VALUE`. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
          */
         valuesImportanceMap: {[key: string]: number};
     }
 
     export interface IndexDocumentMetadataConfigurationUpdateSearch {
         /**
-         * Determines whether the field is returned in the query response. The default is `true`.
+         * Whether the field is returned in the query response. The default is `true`.
          */
         displayable: boolean;
         /**
-         * Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+         * Whether the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
          */
         facetable: boolean;
         /**
-         * Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
+         * Whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
          */
         searchable: boolean;
         /**
-         * Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
+         * Whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
          */
         sortable: boolean;
     }
 
     export interface IndexIndexStatistic {
         /**
-         * A block that specifies the number of question and answer topics in the index. Detailed below.
+         * Block that specifies the number of question and answer topics in the index. Detailed below.
          */
         faqStatistics: outputs.kendra.IndexIndexStatisticFaqStatistic[];
         /**
-         * A block that specifies the number of text documents indexed. Detailed below.
+         * Block that specifies the number of text documents indexed. Detailed below.
          */
         textDocumentStatistics: outputs.kendra.IndexIndexStatisticTextDocumentStatistic[];
     }
 
     export interface IndexIndexStatisticFaqStatistic {
         /**
-         * The total number of FAQ questions and answers contained in the index.
+         * Total number of FAQ questions and answers contained in the index.
          */
         indexedQuestionAnswersCount: number;
     }
 
     export interface IndexIndexStatisticTextDocumentStatistic {
         /**
-         * The total size, in bytes, of the indexed documents.
+         * Total size, in bytes, of the indexed documents.
          */
         indexedTextBytes: number;
         /**
-         * The number of text documents indexed.
+         * Number of text documents indexed.
          */
         indexedTextDocumentsCount: number;
     }
 
     export interface IndexServerSideEncryptionConfiguration {
         /**
-         * The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
+         * Identifier of the AWS KMS customer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
          */
         kmsKeyId?: string;
     }
 
     export interface IndexUserGroupResolutionConfiguration {
         /**
-         * The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
+         * Identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
          */
         userGroupResolutionMode: string;
     }
 
     export interface IndexUserTokenConfigurations {
         /**
-         * A block that specifies the information about the JSON token type configuration. Detailed below.
+         * Block that specifies the information about the JSON token type configuration. Detailed below.
          */
         jsonTokenTypeConfiguration?: outputs.kendra.IndexUserTokenConfigurationsJsonTokenTypeConfiguration;
         /**
-         * A block that specifies the information about the JWT token type configuration. Detailed below.
+         * Block that specifies the information about the JWT token type configuration. Detailed below.
          */
         jwtTokenTypeConfiguration?: outputs.kendra.IndexUserTokenConfigurationsJwtTokenTypeConfiguration;
     }
 
     export interface IndexUserTokenConfigurationsJsonTokenTypeConfiguration {
         /**
-         * The group attribute field. Minimum length of 1. Maximum length of 2048.
+         * Group attribute field. Minimum length of 1. Maximum length of 2048.
          */
         groupAttributeField: string;
         /**
-         * The user name attribute field. Minimum length of 1. Maximum length of 2048.
+         * User name attribute field. Minimum length of 1. Maximum length of 2048.
          */
         userNameAttributeField: string;
     }
 
     export interface IndexUserTokenConfigurationsJwtTokenTypeConfiguration {
         /**
-         * The regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
+         * Regular expression that identifies the claim. Minimum length of 1. Maximum length of 100.
          */
         claimRegex?: string;
         /**
-         * The group attribute field. Minimum length of 1. Maximum length of 100.
+         * Group attribute field. Minimum length of 1. Maximum length of 100.
          */
         groupAttributeField?: string;
         /**
-         * The issuer of the token. Minimum length of 1. Maximum length of 65.
+         * Issuer of the token. Minimum length of 1. Maximum length of 65.
          */
         issuer?: string;
         /**
-         * The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+         * Location of the key. Valid values are `URL` or `SECRET_MANAGER`.
          */
         keyLocation: string;
         /**
@@ -66972,11 +67067,11 @@ export namespace kendra {
          */
         secretsManagerArn?: string;
         /**
-         * The signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`
+         * Signing key URL. Valid pattern is `^(https?|ftp|file):\/\/([^\s]*)`.
          */
         url?: string;
         /**
-         * The user name attribute field. Minimum length of 1. Maximum length of 100.
+         * User name attribute field. Minimum length of 1. Maximum length of 100.
          */
         userNameAttributeField?: string;
     }
@@ -66988,21 +67083,17 @@ export namespace kendra {
         bucket: string;
         /**
          * Name of the file.
-         *
-         * The following arguments are optional:
          */
         key: string;
     }
 
     export interface ThesaurusSourceS3Path {
         /**
-         * The name of the S3 bucket that contains the file.
+         * Name of the S3 bucket that contains the file.
          */
         bucket: string;
         /**
-         * The name of the file.
-         *
-         * The following arguments are optional:
+         * Name of the file.
          */
         key: string;
     }
@@ -67023,15 +67114,15 @@ export namespace keyspaces {
 
     export interface TableCapacitySpecification {
         /**
-         * The throughput capacity specified for read operations defined in read capacity units (RCUs).
+         * Throughput capacity specified for read operations defined in read capacity units (RCUs).
          */
         readCapacityUnits?: number;
         /**
-         * The read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
+         * Read/write throughput capacity mode for a table. Valid values: `PAY_PER_REQUEST`, `PROVISIONED`. The default value is `PAY_PER_REQUEST`.
          */
         throughputMode: string;
         /**
-         * The throughput capacity specified for write operations defined in write capacity units (WCUs).
+         * Throughput capacity specified for write operations defined in write capacity units (WCUs).
          */
         writeCapacityUnits?: number;
     }
@@ -67045,7 +67136,7 @@ export namespace keyspaces {
 
     export interface TableComment {
         /**
-         * A description of the table.
+         * Description of the table.
          */
         message: string;
     }
@@ -67056,7 +67147,7 @@ export namespace keyspaces {
          */
         kmsKeyIdentifier?: string;
         /**
-         * The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
+         * Encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
          */
         type: string;
     }
@@ -67070,55 +67161,55 @@ export namespace keyspaces {
 
     export interface TableSchemaDefinition {
         /**
-         * The columns that are part of the clustering key of the table.
+         * Columns that are part of the clustering key of the table. See `clusteringKey` below.
          */
         clusteringKeys?: outputs.keyspaces.TableSchemaDefinitionClusteringKey[];
         /**
-         * The regular columns of the table.
+         * Regular columns of the table. See `column` below.
          */
         columns: outputs.keyspaces.TableSchemaDefinitionColumn[];
         /**
-         * The columns that are part of the partition key of the table .
+         * Columns that are part of the partition key of the table. See `partitionKey` below.
          */
         partitionKeys: outputs.keyspaces.TableSchemaDefinitionPartitionKey[];
         /**
-         * The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+         * Columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition. See `staticColumn` below.
          */
         staticColumns?: outputs.keyspaces.TableSchemaDefinitionStaticColumn[];
     }
 
     export interface TableSchemaDefinitionClusteringKey {
         /**
-         * The name of the clustering key column.
+         * Name of the clustering key column.
          */
         name: string;
         /**
-         * The order modifier. Valid values: `ASC`, `DESC`.
+         * Order modifier. Valid values: `ASC`, `DESC`.
          */
         orderBy: string;
     }
 
     export interface TableSchemaDefinitionColumn {
         /**
-         * The name of the column.
+         * Name of the column.
          */
         name: string;
         /**
-         * The data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
+         * Data type of the column. See the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/cql.elements.html#cql.data-types) for a list of available data types.
          */
         type: string;
     }
 
     export interface TableSchemaDefinitionPartitionKey {
         /**
-         * The name of the partition key column.
+         * Name of the partition key column.
          */
         name: string;
     }
 
     export interface TableSchemaDefinitionStaticColumn {
         /**
-         * The name of the static column.
+         * Name of the static column.
          */
         name: string;
     }
@@ -67146,364 +67237,242 @@ export namespace kinesis {
 
     export interface AnalyticsApplicationCloudwatchLoggingOptions {
         /**
-         * The ARN of the Kinesis Analytics Application.
+         * ARN of the Kinesis Analytics Application.
          */
         id: string;
         /**
-         * The ARN of the CloudWatch Log Stream.
+         * ARN of the CloudWatch Log Stream.
          */
         logStreamArn: string;
         /**
-         * The ARN of the IAM Role used to send application messages.
+         * ARN of the IAM Role used to send application messages.
          */
         roleArn: string;
     }
 
     export interface AnalyticsApplicationInputs {
         /**
-         * The ARN of the Kinesis Analytics Application.
+         * ARN of the Kinesis Analytics Application.
          */
         id: string;
         /**
-         * The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`.
-         * See Kinesis Firehose below for more details.
+         * Kinesis Firehose configuration for the streaming source. Conflicts with `kinesisStream`. See `inputs.kinesis_firehose` Block below for details.
          */
         kinesisFirehose?: outputs.kinesis.AnalyticsApplicationInputsKinesisFirehose;
         /**
-         * The Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`.
-         * See Kinesis Stream below for more details.
+         * Kinesis Stream configuration for the streaming source. Conflicts with `kinesisFirehose`. See `inputs.kinesis_stream` Block below for details.
          */
         kinesisStream?: outputs.kinesis.AnalyticsApplicationInputsKinesisStream;
         /**
-         * The Name Prefix to use when creating an in-application stream.
+         * Name Prefix to use when creating an in-application stream.
          */
         namePrefix: string;
         /**
-         * The number of Parallel in-application streams to create.
-         * See Parallelism below for more details.
+         * Number of Parallel in-application streams to create. See `inputs.parallelism` Block below for details.
          */
         parallelism: outputs.kinesis.AnalyticsApplicationInputsParallelism;
         /**
-         * The Processing Configuration to transform records as they are received from the stream.
-         * See Processing Configuration below for more details.
+         * Processing Configuration to transform records as they are received from the stream. See `inputs.processing_configuration` Block below for details.
          */
         processingConfiguration?: outputs.kinesis.AnalyticsApplicationInputsProcessingConfiguration;
         /**
-         * The Schema format of the data in the streaming source. See Source Schema below for more details.
+         * Schema format of the data in the streaming source. See `inputs.schema` Block below for details.
          */
         schema: outputs.kinesis.AnalyticsApplicationInputsSchema;
         /**
-         * The point at which the application starts processing records from the streaming source.
-         * See Starting Position Configuration below for more details.
+         * Point at which the application starts processing records from the streaming source. See `inputs.starting_position_configuration` Block below for details.
          */
         startingPositionConfigurations: outputs.kinesis.AnalyticsApplicationInputsStartingPositionConfiguration[];
+        /**
+         * Names of the in-application streams created for the input.
+         */
         streamNames: string[];
     }
 
     export interface AnalyticsApplicationInputsKinesisFirehose {
-        /**
-         * The ARN of the Kinesis Firehose delivery stream.
-         */
         resourceArn: string;
-        /**
-         * The ARN of the IAM Role used to access the stream.
-         */
         roleArn: string;
     }
 
     export interface AnalyticsApplicationInputsKinesisStream {
-        /**
-         * The ARN of the Kinesis Stream.
-         */
         resourceArn: string;
-        /**
-         * The ARN of the IAM Role used to access the stream.
-         */
         roleArn: string;
     }
 
     export interface AnalyticsApplicationInputsParallelism {
         /**
-         * The Count of streams.
+         * Count of streams.
          */
         count: number;
     }
 
     export interface AnalyticsApplicationInputsProcessingConfiguration {
-        /**
-         * The Lambda function configuration. See Lambda below for more details.
-         */
         lambda: outputs.kinesis.AnalyticsApplicationInputsProcessingConfigurationLambda;
     }
 
     export interface AnalyticsApplicationInputsProcessingConfigurationLambda {
-        /**
-         * The ARN of the Lambda function.
-         */
         resourceArn: string;
-        /**
-         * The ARN of the IAM Role used to access the Lambda function.
-         */
         roleArn: string;
     }
 
     export interface AnalyticsApplicationInputsSchema {
-        /**
-         * The Record Column mapping for the streaming source data element.
-         * See Record Columns below for more details.
-         */
         recordColumns: outputs.kinesis.AnalyticsApplicationInputsSchemaRecordColumn[];
-        /**
-         * The Encoding of the record in the streaming source.
-         */
         recordEncoding?: string;
-        /**
-         * The Record Format and mapping information to schematize a record.
-         * See Record Format below for more details.
-         */
         recordFormat: outputs.kinesis.AnalyticsApplicationInputsSchemaRecordFormat;
     }
 
     export interface AnalyticsApplicationInputsSchemaRecordColumn {
-        /**
-         * The Mapping reference to the data element.
-         */
         mapping?: string;
         /**
-         * Name of the column.
+         * Name of the Kinesis Analytics Application.
          */
         name: string;
-        /**
-         * The SQL Type of the column.
-         */
         sqlType: string;
     }
 
     export interface AnalyticsApplicationInputsSchemaRecordFormat {
-        /**
-         * The Mapping Information for the record format.
-         * See Mapping Parameters below for more details.
-         */
         mappingParameters?: outputs.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParameters;
         /**
-         * The type of Record Format. Can be `CSV` or `JSON`.
+         * Type of Record Format of the input streaming source.
          */
         recordFormatType: string;
     }
 
     export interface AnalyticsApplicationInputsSchemaRecordFormatMappingParameters {
-        /**
-         * Mapping information when the record format uses delimiters.
-         * See CSV Mapping Parameters below for more details.
-         */
         csv?: outputs.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv;
-        /**
-         * Mapping information when JSON is the record format on the streaming source.
-         * See JSON Mapping Parameters below for more details.
-         */
         json?: outputs.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson;
     }
 
     export interface AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv {
-        /**
-         * The Column Delimiter.
-         */
         recordColumnDelimiter: string;
-        /**
-         * The Row Delimiter.
-         */
         recordRowDelimiter: string;
     }
 
     export interface AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson {
-        /**
-         * Path to the top-level parent that contains the records.
-         */
         recordRowPath: string;
     }
 
     export interface AnalyticsApplicationInputsStartingPositionConfiguration {
         /**
-         * The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+         * Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
          */
         startingPosition: string;
     }
 
     export interface AnalyticsApplicationOutput {
         /**
-         * The ARN of the Kinesis Analytics Application.
+         * ARN of the Kinesis Analytics Application.
          */
         id: string;
         /**
-         * The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`.
-         * See Kinesis Firehose below for more details.
+         * Kinesis Firehose configuration for the destination stream. Conflicts with `kinesisStream`. See `outputs.kinesis_firehose` Block below for details.
          */
         kinesisFirehose?: outputs.kinesis.AnalyticsApplicationOutputKinesisFirehose;
         /**
-         * The Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`.
-         * See Kinesis Stream below for more details.
+         * Kinesis Stream configuration for the destination stream. Conflicts with `kinesisFirehose`. See `outputs.kinesis_stream` Block below for details.
          */
         kinesisStream?: outputs.kinesis.AnalyticsApplicationOutputKinesisStream;
         /**
-         * The Lambda function destination. See Lambda below for more details.
+         * Lambda function destination. See `outputs.lambda` Block below for details.
          */
         lambda?: outputs.kinesis.AnalyticsApplicationOutputLambda;
         /**
-         * The Name of the in-application stream.
+         * Name of the in-application stream.
          */
         name: string;
         /**
-         * The Schema format of the data written to the destination. See Destination Schema below for more details.
+         * Schema format of the data written to the destination. See `outputs.schema` Block below for details.
          */
         schema: outputs.kinesis.AnalyticsApplicationOutputSchema;
     }
 
     export interface AnalyticsApplicationOutputKinesisFirehose {
-        /**
-         * The ARN of the Kinesis Firehose delivery stream.
-         */
         resourceArn: string;
-        /**
-         * The ARN of the IAM Role used to access the stream.
-         */
         roleArn: string;
     }
 
     export interface AnalyticsApplicationOutputKinesisStream {
-        /**
-         * The ARN of the Kinesis Stream.
-         */
         resourceArn: string;
-        /**
-         * The ARN of the IAM Role used to access the stream.
-         */
         roleArn: string;
     }
 
     export interface AnalyticsApplicationOutputLambda {
-        /**
-         * The ARN of the Lambda function.
-         */
         resourceArn: string;
-        /**
-         * The ARN of the IAM Role used to access the Lambda function.
-         */
         roleArn: string;
     }
 
     export interface AnalyticsApplicationOutputSchema {
         /**
-         * The Format Type of the records on the output stream. Can be `CSV` or `JSON`.
+         * Format Type of the records on the output stream. Can be `CSV` or `JSON`.
          */
         recordFormatType: string;
     }
 
     export interface AnalyticsApplicationReferenceDataSources {
         /**
-         * The ARN of the Kinesis Analytics Application.
+         * ARN of the Kinesis Analytics Application.
          */
         id: string;
         /**
-         * The S3 configuration for the reference data source. See S3 Reference below for more details.
+         * S3 configuration for the reference data source. See `reference_data_sources.s3` Block below for details.
          */
         s3: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesS3;
         /**
-         * The Schema format of the data in the streaming source. See Source Schema below for more details.
+         * Schema format of the data in the streaming source. See `reference_data_sources.schema` Block below for details.
          */
         schema: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchema;
         /**
-         * The in-application Table Name.
+         * In-application Table Name.
          */
         tableName: string;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesS3 {
         /**
-         * The S3 Bucket ARN.
+         * S3 Bucket ARN.
          */
         bucketArn: string;
         /**
-         * The File Key name containing reference data.
+         * File Key name containing reference data.
          */
         fileKey: string;
-        /**
-         * The IAM Role ARN to read the data.
-         */
         roleArn: string;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchema {
-        /**
-         * The Record Column mapping for the streaming source data element.
-         * See Record Columns below for more details.
-         */
         recordColumns: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn[];
-        /**
-         * The Encoding of the record in the streaming source.
-         */
         recordEncoding?: string;
-        /**
-         * The Record Format and mapping information to schematize a record.
-         * See Record Format below for more details.
-         */
         recordFormat: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchemaRecordColumn {
-        /**
-         * The Mapping reference to the data element.
-         */
         mapping?: string;
         /**
-         * Name of the column.
+         * Name of the Kinesis Analytics Application.
          */
         name: string;
-        /**
-         * The SQL Type of the column.
-         */
         sqlType: string;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
-        /**
-         * The Mapping Information for the record format.
-         * See Mapping Parameters below for more details.
-         */
         mappingParameters?: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters;
         /**
-         * The type of Record Format. Can be `CSV` or `JSON`.
+         * Type of Record Format of the reference data source.
          */
         recordFormatType: string;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
-        /**
-         * Mapping information when the record format uses delimiters.
-         * See CSV Mapping Parameters below for more details.
-         */
         csv?: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv;
-        /**
-         * Mapping information when JSON is the record format on the streaming source.
-         * See JSON Mapping Parameters below for more details.
-         */
         json?: outputs.kinesis.AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv {
-        /**
-         * The Column Delimiter.
-         */
         recordColumnDelimiter: string;
-        /**
-         * The Row Delimiter.
-         */
         recordRowDelimiter: string;
     }
 
     export interface AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson {
-        /**
-         * Path to the top-level parent that contains the records.
-         */
         recordRowPath: string;
     }
 
@@ -67517,27 +67486,27 @@ export namespace kinesis {
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions;
         /**
-         * The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+         * Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
          */
         clusterEndpoint?: string;
         /**
-         * The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+         * ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
          */
         domainArn?: string;
         /**
-         * The Elasticsearch index name.
+         * Elasticsearch index name.
          */
         indexName: string;
         /**
-         * The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+         * Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
          */
         indexRotationPeriod?: string;
         /**
-         * The data processing configuration.  See `processingConfiguration` block below for details.
+         * Data processing configuration.  See `processingConfiguration` block below for details.
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration;
         /**
@@ -67545,23 +67514,23 @@ export namespace kinesis {
          */
         retryDuration?: number;
         /**
-         * The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
+         * ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeElasticsearchDomain`, `DescribeElasticsearchDomains`, and `DescribeElasticsearchDomainConfig`.  The pattern needs to be `arn:.*`.
          */
         roleArn: string;
         /**
-         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         * How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
          */
         s3BackupMode?: string;
         /**
-         * The S3 Configuration. See `s3Configuration` block below for details.
+         * S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration;
         /**
-         * The Elasticsearch type name with maximum length of 100 characters.
+         * Elasticsearch type name with maximum length of 100 characters.
          */
         typeName?: string;
         /**
-         * The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
+         * VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpcConfig` block below for details.
          */
         vpcConfig?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig;
     }
@@ -67572,11 +67541,11 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
@@ -67587,18 +67556,18 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * Specifies the data processors as multiple blocks. See `processors` block below for details.
+         * Data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor[];
     }
 
     export interface FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor {
         /**
-         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         * Processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+         * Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: string;
     }
@@ -67618,7 +67587,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamElasticsearchConfigurationS3Configuration {
         /**
-         * The ARN of the S3 bucket
+         * ARN of the S3 bucket.
          */
         bucketArn: string;
         /**
@@ -67626,16 +67595,15 @@ export namespace kinesis {
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
@@ -67643,16 +67611,15 @@ export namespace kinesis {
          */
         errorOutputPrefix?: string;
         /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          */
         kmsKeyArn?: string;
         /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          */
         prefix?: string;
         /**
-         * The ARN of the AWS credentials.
+         * ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -67663,45 +67630,57 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
 
     export interface FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
         /**
-         * The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+         * ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
          */
         roleArn: string;
         /**
-         * A list of security group IDs to associate with Kinesis Firehose.
+         * List of security group IDs to associate with Kinesis Firehose.
          */
         securityGroupIds: string[];
         /**
-         * A list of subnet IDs to associate with Kinesis Firehose.
+         * List of subnet IDs to associate with Kinesis Firehose.
          */
         subnetIds: string[];
+        /**
+         * ID of the VPC associated with the delivery stream.
+         */
         vpcId: string;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3Configuration {
         /**
-         * The ARN of the S3 bucket
+         * ARN of the S3 bucket.
          */
         bucketArn: string;
+        /**
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+         */
         bufferingInterval?: number;
+        /**
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
+         */
         bufferingSize?: number;
+        /**
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
-         * The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
+         * Time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
          */
         customTimeZone?: string;
         /**
@@ -67709,7 +67688,7 @@ export namespace kinesis {
          */
         dataFormatConversionConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration;
         /**
-         * The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
+         * Configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamicPartitioningConfiguration` block below for details.
          */
         dynamicPartitioningConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration;
         /**
@@ -67717,29 +67696,31 @@ export namespace kinesis {
          */
         errorOutputPrefix?: string;
         /**
-         * The file extension to override the default file extension (for example, `.json`).
+         * File extension to override the default file extension (for example, `.json`).
          */
         fileExtension?: string;
         /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          */
         kmsKeyArn?: string;
         /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          */
         prefix?: string;
         /**
-         * The data processing configuration.  See `processingConfiguration` block below for details.
+         * Data processing configuration. See `processingConfiguration` block below for details.
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration;
+        /**
+         * ARN of the AWS credentials.
+         */
         roleArn: string;
         /**
-         * The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
+         * Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
          */
         s3BackupConfiguration?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration;
         /**
-         * The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+         * Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
          */
         s3BackupMode?: string;
     }
@@ -67750,11 +67731,11 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
@@ -67765,40 +67746,40 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
+         * Deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. See `inputFormatConfiguration` block below for details.
          */
         inputFormatConfiguration: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration;
         /**
-         * Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
+         * Serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. See `outputFormatConfiguration` block below for details.
          */
         outputFormatConfiguration: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration;
         /**
-         * Specifies the AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
+         * AWS Glue Data Catalog table that contains the column information. See `schemaConfiguration` block below for details.
          */
         schemaConfiguration: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration {
         /**
-         * Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
+         * Which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. See `deserializer` block below for details.
          */
         deserializer: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
         /**
-         * Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hiveJsonSerDe` block below for details.
+         * Native Hive / HCatalog JsonSerDe. See `hiveJsonSerDe` block below for details.
          */
         hiveJsonSerDe?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe;
         /**
-         * Specifies the OpenX SerDe. See `openXJsonSerDe` block below for details.
+         * OpenX SerDe. See `openXJsonSerDe` block below for details.
          */
         openXJsonSerDe?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe {
         /**
-         * A list of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
+         * List of how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see [Class DateTimeFormat](https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html). You can also use the special value millis to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses java.sql.Timestamp::valueOf by default.
          */
         timestampFormats?: string[];
     }
@@ -67809,7 +67790,7 @@ export namespace kinesis {
          */
         caseInsensitive?: boolean;
         /**
-         * A map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
+         * Map of column names to JSON keys that aren't identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, timestamp is a Hive keyword. If you have a JSON key named timestamp, set this parameter to `{ ts = "timestamp" }` to map this key to a column named ts.
          */
         columnToJsonKeyMappings?: {[key: string]: string};
         /**
@@ -67820,41 +67801,41 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration {
         /**
-         * Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
+         * Which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. See `serializer` block below for details.
          */
         serializer: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer {
         /**
-         * Specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orcSerDe` block below for details.
+         * Converts data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orcSerDe` block below for details.
          */
         orcSerDe?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe;
         /**
-         * Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). More details below.
+         * Converts data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). See `parquetSerDe` block below for details.
          */
         parquetSerDe?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe {
         /**
-         * The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+         * Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
          */
         blockSizeBytes?: number;
         /**
-         * A list of column names for which you want Kinesis Data Firehose to create bloom filters.
+         * List of column names for which you want Kinesis Data Firehose to create bloom filters.
          */
         bloomFilterColumns?: string[];
         /**
-         * The Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
+         * Bloom filter false positive probability (FPP). The lower the FPP, the bigger the Bloom filter. The default value is `0.05`, the minimum is `0`, and the maximum is `1`.
          */
         bloomFilterFalsePositiveProbability?: number;
         /**
-         * The compression code to use over data blocks. The default is `SNAPPY`.
+         * Compression code to use over data blocks. The default is `SNAPPY`.
          */
         compression?: string;
         /**
-         * A float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
+         * Float that represents the fraction of the total number of non-null rows. To turn off dictionary encoding, set this fraction to a number that is less than the number of distinct keys in a dictionary. To always use dictionary encoding, set this threshold to `1`.
          */
         dictionaryKeyThreshold?: number;
         /**
@@ -67862,57 +67843,57 @@ export namespace kinesis {
          */
         enablePadding?: boolean;
         /**
-         * The version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
+         * Version of the file to write. The possible values are `V0_11` and `V0_12`. The default is `V0_12`.
          */
         formatVersion?: string;
         /**
-         * A float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
+         * Float between 0 and 1 that defines the tolerance for block padding as a decimal fraction of stripe size. The default value is `0.05`, which means 5 percent of stripe size. For the default values of 64 MiB ORC stripes and 256 MiB HDFS blocks, the default block padding tolerance of 5 percent reserves a maximum of 3.2 MiB for padding within the 256 MiB block. In such a case, if the available size within the block is more than 3.2 MiB, a new, smaller stripe is inserted to fit within that space. This ensures that no stripe crosses block boundaries and causes remote reads within a node-local task. Kinesis Data Firehose ignores this parameter when `enablePadding` is `false`.
          */
         paddingTolerance?: number;
         /**
-         * The number of rows between index entries. The default is `10000` and the minimum is `1000`.
+         * Number of rows between index entries. The default is `10000` and the minimum is `1000`.
          */
         rowIndexStride?: number;
         /**
-         * The number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
+         * Number of bytes in each stripe. The default is 64 MiB and the minimum is 8 MiB.
          */
         stripeSizeBytes?: number;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe {
         /**
-         * The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+         * Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
          */
         blockSizeBytes?: number;
         /**
-         * The compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
+         * Compression code to use over data blocks. The possible values are `UNCOMPRESSED`, `SNAPPY`, and `GZIP`, with the default being `SNAPPY`. Use `SNAPPY` for higher decompression speed. Use `GZIP` if the compression ratio is more important than speed.
          */
         compression?: string;
         /**
-         * Indicates whether to enable dictionary compression.
+         * Whether to enable dictionary compression.
          */
         enableDictionaryCompression?: boolean;
         /**
-         * The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
+         * Maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is `0`.
          */
         maxPaddingBytes?: number;
         /**
-         * The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
+         * Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
          */
         pageSizeBytes?: number;
         /**
-         * Indicates the version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
+         * Version of row format to output. The possible values are `V1` and `V2`. The default is `V1`.
          */
         writerVersion?: string;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration {
         /**
-         * The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+         * ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
          */
         catalogId: string;
         /**
-         * Specifies the name of the AWS Glue database that contains the schema for the output data.
+         * Name of the AWS Glue database that contains the schema for the output data.
          */
         databaseName: string;
         /**
@@ -67920,15 +67901,15 @@ export namespace kinesis {
          */
         region: string;
         /**
-         * The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+         * Role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
          */
         roleArn: string;
         /**
-         * Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+         * AWS Glue table that contains the column information that constitutes your data schema.
          */
         tableName: string;
         /**
-         * Specifies the table version for the output data schema. Defaults to `LATEST`.
+         * Table version for the output data schema. Defaults to `LATEST`.
          */
         versionId?: string;
     }
@@ -67952,18 +67933,18 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * Specifies the data processors as multiple blocks. See `processors` block below for details.
+         * Data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor[];
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor {
         /**
-         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         * Processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+         * Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: string;
     }
@@ -67983,29 +67964,40 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration {
         /**
-         * The ARN of the S3 bucket
+         * ARN of the S3 bucket.
          */
         bucketArn: string;
+        /**
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+         */
         bufferingInterval?: number;
+        /**
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         */
         bufferingSize?: number;
+        /**
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
-         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         * Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
          */
         errorOutputPrefix?: string;
         /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          */
         kmsKeyArn?: string;
         /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          */
         prefix?: string;
+        /**
+         * ARN of the AWS credentials.
+         */
         roleArn: string;
     }
 
@@ -68015,18 +68007,18 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
 
     export interface FirehoseDeliveryStreamHttpEndpointConfiguration {
         /**
-         * The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
+         * Access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination.
          */
         accessKey?: string;
         /**
@@ -68038,19 +68030,19 @@ export namespace kinesis {
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions;
         /**
-         * The HTTP endpoint name.
+         * HTTP endpoint name.
          */
         name?: string;
         /**
-         * The data processing configuration.  See `processingConfiguration` block below for details.
+         * Data processing configuration.  See `processingConfiguration` block below for details.
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration;
         /**
-         * The request configuration.  See `requestConfiguration` block below for details.
+         * Request configuration.  See `requestConfiguration` block below for details.
          */
         requestConfiguration: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration;
         /**
@@ -68062,19 +68054,19 @@ export namespace kinesis {
          */
         roleArn?: string;
         /**
-         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
+         * How documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
          */
         s3BackupMode?: string;
         /**
-         * The S3 Configuration. See `s3Configuration` block below for details.
+         * S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration;
         /**
-         * The Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
+         * Secret Manager Configuration. See `secretsManagerConfiguration` block below for details.
          */
         secretsManagerConfiguration: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfiguration;
         /**
-         * The HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
+         * HTTP endpoint URL to which Kinesis Firehose sends your data. Refer to the target vendor's documentation for the correct intake URL (for example, [New Relic](https://docs.newrelic.com/docs/infrastructure/amazon-integrations/connect/aws-firehose/) or [Datadog](https://docs.datadoghq.com/integrations/amazon_kinesis_data_firehose/)).
          */
         url: string;
     }
@@ -68085,11 +68077,11 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
@@ -68100,18 +68092,18 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * Specifies the data processors as multiple blocks. See `processors` block below for details.
+         * Data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor[];
     }
 
     export interface FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor {
         /**
-         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         * Processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+         * Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: string;
     }
@@ -68131,7 +68123,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
         /**
-         * Describes the metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
+         * Metadata sent to the HTTP endpoint destination. See `commonAttributes` block below for details.
          */
         commonAttributes?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute[];
         /**
@@ -68142,18 +68134,18 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttribute {
         /**
-         * The name of the HTTP endpoint common attribute.
+         * Name of the HTTP endpoint common attribute.
          */
         name: string;
         /**
-         * The value of the HTTP endpoint common attribute.
+         * Value of the HTTP endpoint common attribute.
          */
         value: string;
     }
 
     export interface FirehoseDeliveryStreamHttpEndpointConfigurationS3Configuration {
         /**
-         * The ARN of the S3 bucket
+         * ARN of the S3 bucket.
          */
         bucketArn: string;
         /**
@@ -68161,16 +68153,15 @@ export namespace kinesis {
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
@@ -68178,16 +68169,15 @@ export namespace kinesis {
          */
         errorOutputPrefix?: string;
         /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          */
         kmsKeyArn?: string;
         /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          */
         prefix?: string;
         /**
-         * The ARN of the AWS credentials.
+         * ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -68198,11 +68188,11 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
@@ -68213,16 +68203,19 @@ export namespace kinesis {
          */
         enabled: boolean;
         /**
-         * The ARN of the role the stream assumes.
+         * ARN of the role the stream assumes.
          */
         roleArn?: string;
         /**
-         * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         * ARN of the Secrets Manager secret. This value is required if `enabled` is true.
          */
         secretArn?: string;
     }
 
     export interface FirehoseDeliveryStreamIcebergConfiguration {
+        /**
+         * Whether to enable append only operations. When set, Firehose only performs insert operations on the destination Apache Iceberg Tables.
+         */
         appendOnly: boolean;
         /**
          * Buffer incoming data for the specified period of time, in seconds between 0 and 900, before delivering it to the destination. The default value is 300.
@@ -68233,11 +68226,11 @@ export namespace kinesis {
          */
         bufferingSize?: number;
         /**
-         * Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`
+         * Glue catalog ARN identifier of the destination Apache Iceberg Tables. You must specify the ARN in the format `arn:aws:glue:region:account-id:catalog`.
          */
         catalogArn: string;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptions;
         /**
@@ -68245,20 +68238,23 @@ export namespace kinesis {
          */
         destinationTableConfigurations?: outputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration[];
         /**
-         * The data processing configuration.  See `processingConfiguration` block below for details.
+         * Data processing configuration.  See `processingConfiguration` block below for details.
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfiguration;
         /**
-         * The period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
+         * Period of time, in seconds between 0 to 7200, during which Firehose retries to deliver data to the specified destination.
          */
         retryDuration?: number;
         /**
-         * The ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
+         * ARN of the IAM role to be assumed by Firehose for calling Apache Iceberg Tables.
          */
         roleArn: string;
+        /**
+         * Amazon S3 backup mode. Valid values are `FailedDataOnly` and `AllData`. Default value is `FailedDataOnly`.
+         */
         s3BackupMode?: string;
         /**
-         * The S3 Configuration. See `s3Configuration` block below for details.
+         * S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: outputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationS3Configuration;
     }
@@ -68269,30 +68265,30 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
 
     export interface FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfiguration {
         /**
-         * The name of the Apache Iceberg database.
+         * Name of the Apache Iceberg database.
          */
         databaseName: string;
         /**
-         * The table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
+         * Table specific S3 error output prefix. All the errors that occurred while delivering to this table will be prefixed with this value in S3 destination.
          */
         s3ErrorOutputPrefix?: string;
         /**
-         * The name of the Apache Iceberg Table.
+         * Name of the Apache Iceberg Table.
          */
         tableName: string;
         /**
-         * A list of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
+         * List of unique keys for a given Apache Iceberg table. Firehose will use these for running Create, Update, or Delete operations on the given Iceberg table.
          */
         uniqueKeys?: string[];
     }
@@ -68303,18 +68299,18 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * Specifies the data processors as multiple blocks. See `processors` block below for details.
+         * Data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: outputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor[];
     }
 
     export interface FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor {
         /**
-         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         * Processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+         * Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: string;
     }
@@ -68334,7 +68330,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamIcebergConfigurationS3Configuration {
         /**
-         * The ARN of the S3 bucket
+         * ARN of the S3 bucket.
          */
         bucketArn: string;
         /**
@@ -68342,16 +68338,15 @@ export namespace kinesis {
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
@@ -68359,16 +68354,15 @@ export namespace kinesis {
          */
         errorOutputPrefix?: string;
         /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          */
         kmsKeyArn?: string;
         /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          */
         prefix?: string;
         /**
-         * The ARN of the AWS credentials.
+         * ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -68379,52 +68373,52 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
 
     export interface FirehoseDeliveryStreamKinesisSourceConfiguration {
         /**
-         * The kinesis stream used as the source of the firehose delivery stream.
+         * Kinesis stream used as the source of the firehose delivery stream.
          */
         kinesisStreamArn: string;
         /**
-         * The ARN of the role that provides access to the source Kinesis stream.
+         * ARN of the role that provides access to the source Kinesis stream.
          */
         roleArn: string;
     }
 
     export interface FirehoseDeliveryStreamMskSourceConfiguration {
         /**
-         * The authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
+         * Authentication configuration of the Amazon MSK cluster. See `authenticationConfiguration` block below for details.
          */
         authenticationConfiguration: outputs.kinesis.FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration;
         /**
-         * The ARN of the Amazon MSK cluster.
+         * ARN of the Amazon MSK cluster.
          */
         mskClusterArn: string;
         /**
-         * The start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
+         * Start date and time in UTC for the offset position within your MSK topic from where Firehose begins to read. By default, this is set to timestamp when Firehose becomes Active. If you want to create a Firehose stream with Earliest start position set the `readFromTimestamp` parameter to Epoch (1970-01-01T00:00:00Z).
          */
         readFromTimestamp?: string;
         /**
-         * The topic name within the Amazon MSK cluster.
+         * Topic name within the Amazon MSK cluster.
          */
         topicName: string;
     }
 
     export interface FirehoseDeliveryStreamMskSourceConfigurationAuthenticationConfiguration {
         /**
-         * The type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
+         * Type of connectivity used to access the Amazon MSK cluster. Valid values: `PUBLIC`, `PRIVATE`.
          */
         connectivity: string;
         /**
-         * The ARN of the role used to access the Amazon MSK cluster.
+         * ARN of the role used to access the Amazon MSK cluster.
          */
         roleArn: string;
     }
@@ -68439,31 +68433,31 @@ export namespace kinesis {
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptions;
         /**
-         * The endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
+         * Endpoint to use when communicating with the cluster. Conflicts with `domainArn`.
          */
         clusterEndpoint?: string;
         /**
-         * The method for setting up document ID. See [`documentIdOptions` block] below for details.
+         * Method for setting up document ID. See `documentIdOptions` block below for details.
          */
         documentIdOptions?: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions;
         /**
-         * The ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
+         * ARN of the Amazon ES domain.  The pattern needs to be `arn:.*`.  Conflicts with `clusterEndpoint`.
          */
         domainArn?: string;
         /**
-         * The OpenSearch index name.
+         * OpenSearch index name.
          */
         indexName: string;
         /**
-         * The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
+         * OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
          */
         indexRotationPeriod?: string;
         /**
-         * The data processing configuration. See `processingConfiguration` block below for details.
+         * Data processing configuration. See `processingConfiguration` block below for details.
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfiguration;
         /**
@@ -68471,23 +68465,23 @@ export namespace kinesis {
          */
         retryDuration?: number;
         /**
-         * The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
+         * ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration API and for indexing documents.  The IAM role must have permission for `DescribeDomain`, `DescribeDomains`, and `DescribeDomainConfig`.  The pattern needs to be `arn:.*`.
          */
         roleArn: string;
         /**
-         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         * How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
          */
         s3BackupMode?: string;
         /**
-         * The S3 Configuration. See `s3Configuration` block below for details.
+         * S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3Configuration;
         /**
-         * The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
+         * Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
          */
         typeName?: string;
         /**
-         * The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
+         * VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpcConfig` block below for details.
          */
         vpcConfig?: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationVpcConfig;
     }
@@ -68498,18 +68492,18 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
 
     export interface FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptions {
         /**
-         * The method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
+         * Method for setting up document ID. Valid values: `FIREHOSE_DEFAULT`, `NO_DOCUMENT_ID`.
          */
         defaultDocumentIdFormat: string;
     }
@@ -68520,18 +68514,18 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * Specifies the data processors as multiple blocks. See `processors` block below for details.
+         * Data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor[];
     }
 
     export interface FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessor {
         /**
-         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         * Processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+         * Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: string;
     }
@@ -68551,7 +68545,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamOpensearchConfigurationS3Configuration {
         /**
-         * The ARN of the S3 bucket
+         * ARN of the S3 bucket.
          */
         bucketArn: string;
         /**
@@ -68559,16 +68553,15 @@ export namespace kinesis {
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
@@ -68576,16 +68569,15 @@ export namespace kinesis {
          */
         errorOutputPrefix?: string;
         /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          */
         kmsKeyArn?: string;
         /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          */
         prefix?: string;
         /**
-         * The ARN of the AWS credentials.
+         * ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -68596,28 +68588,31 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
 
     export interface FirehoseDeliveryStreamOpensearchConfigurationVpcConfig {
         /**
-         * The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+         * ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
          */
         roleArn: string;
         /**
-         * A list of security group IDs to associate with Kinesis Firehose.
+         * List of security group IDs to associate with Kinesis Firehose.
          */
         securityGroupIds: string[];
         /**
-         * A list of subnet IDs to associate with Kinesis Firehose.
+         * List of subnet IDs to associate with Kinesis Firehose.
          */
         subnetIds: string[];
+        /**
+         * ID of the VPC associated with the delivery stream.
+         */
         vpcId: string;
     }
 
@@ -68631,19 +68626,19 @@ export namespace kinesis {
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptions;
         /**
-         * The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
+         * Endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
          */
         collectionEndpoint: string;
         /**
-         * The Serverless offering for Amazon OpenSearch Service index name.
+         * Serverless offering for Amazon OpenSearch Service index name.
          */
         indexName: string;
         /**
-         * The data processing configuration.  See `processingConfiguration` block below for details.
+         * Data processing configuration.  See `processingConfiguration` block below for details.
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration;
         /**
@@ -68655,15 +68650,15 @@ export namespace kinesis {
          */
         roleArn: string;
         /**
-         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
+         * How documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
          */
         s3BackupMode?: string;
         /**
-         * The S3 Configuration. See `s3Configuration` block below for details.
+         * S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration;
         /**
-         * The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
+         * VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpcConfig` block below for details.
          */
         vpcConfig?: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig;
     }
@@ -68674,11 +68669,11 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
@@ -68689,18 +68684,18 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * Specifies the data processors as multiple blocks. See `processors` block below for details.
+         * Data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor[];
     }
 
     export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessor {
         /**
-         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         * Processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+         * Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: string;
     }
@@ -68720,7 +68715,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationS3Configuration {
         /**
-         * The ARN of the S3 bucket
+         * ARN of the S3 bucket.
          */
         bucketArn: string;
         /**
@@ -68728,16 +68723,15 @@ export namespace kinesis {
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
@@ -68745,16 +68739,15 @@ export namespace kinesis {
          */
         errorOutputPrefix?: string;
         /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          */
         kmsKeyArn?: string;
         /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          */
         prefix?: string;
         /**
-         * The ARN of the AWS credentials.
+         * ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -68765,84 +68758,89 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
 
     export interface FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfig {
         /**
-         * The ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc)
+         * ARN of the IAM role to be assumed by Firehose for calling the Amazon EC2 configuration API and for creating network interfaces. Make sure role has necessary [IAM permissions](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-es-vpc).
          */
         roleArn: string;
         /**
-         * A list of security group IDs to associate with Kinesis Firehose.
+         * List of security group IDs to associate with Kinesis Firehose.
          */
         securityGroupIds: string[];
         /**
-         * A list of subnet IDs to associate with Kinesis Firehose.
+         * List of subnet IDs to associate with Kinesis Firehose.
          */
         subnetIds: string[];
+        /**
+         * ID of the VPC associated with the delivery stream.
+         */
         vpcId: string;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfiguration {
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions;
         /**
-         * The jdbcurl of the redshift cluster.
+         * JDBC URL of the redshift cluster.
          */
         clusterJdbcurl: string;
         /**
-         * Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html)
+         * Copy options for copying the data from the s3 intermediate bucket into redshift, for example to change the default delimiter. For valid values, see the [AWS documentation](http://docs.aws.amazon.com/firehose/latest/APIReference/API_CopyCommand.html).
          */
         copyOptions?: string;
         /**
-         * The data table columns that will be targeted by the copy command.
+         * Data table columns that will be targeted by the copy command.
          */
         dataTableColumns?: string;
         /**
-         * The name of the table in the redshift cluster that the s3 bucket will copy to.
+         * Name of the table in the redshift cluster that the s3 bucket will copy to.
          */
         dataTableName: string;
         /**
-         * The password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
+         * Password for the username above. This value is required if `secretsManagerConfiguration` is not provided.
          */
         password?: string;
         /**
-         * The data processing configuration.  See `processingConfiguration` block below for details.
+         * Data processing configuration. See `processingConfiguration` block below for details.
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration;
         /**
-         * The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+         * Length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
          */
         retryDuration?: number;
         /**
-         * The arn of the role the stream assumes.
+         * ARN of the role the stream assumes.
          */
         roleArn: string;
         /**
-         * The configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. Supports the same fields as `s3Configuration` object.
-         * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+         * Configuration for backup in Amazon S3. Required if `s3BackupMode` is `Enabled`. See `s3BackupConfiguration` block below for details.
          */
         s3BackupConfiguration?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration;
         /**
-         * The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
+         * Amazon S3 backup mode. Valid values are `Disabled` and `Enabled`. Default value is `Disabled`.
          */
         s3BackupMode?: string;
         /**
-         * The S3 Configuration. See s3Configuration below for details.
+         * S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3Configuration;
+        /**
+         * Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `username` and `password` are not provided.
+         */
         secretsManagerConfiguration: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfiguration;
         /**
-         * The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
+         * Username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secretsManagerConfiguration` is not provided.
          */
         username?: string;
     }
@@ -68853,11 +68851,11 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
@@ -68868,18 +68866,18 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * Specifies the data processors as multiple blocks. See `processors` block below for details.
+         * Data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor[];
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor {
         /**
-         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         * Processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+         * Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: string;
     }
@@ -68899,29 +68897,40 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
         /**
-         * The ARN of the S3 bucket
+         * ARN of the S3 bucket.
          */
         bucketArn: string;
+        /**
+         * Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 300.
+         */
         bufferingInterval?: number;
+        /**
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+         */
         bufferingSize?: number;
+        /**
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
-         * Prefix added to failed records before writing them to S3. Not currently supported for `redshift` destination. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+         * Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
          */
         errorOutputPrefix?: string;
         /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          */
         kmsKeyArn?: string;
         /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          */
         prefix?: string;
+        /**
+         * ARN of the AWS credentials.
+         */
         roleArn: string;
     }
 
@@ -68931,18 +68940,18 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationS3Configuration {
         /**
-         * The ARN of the S3 bucket
+         * ARN of the S3 bucket.
          */
         bucketArn: string;
         /**
@@ -68950,16 +68959,15 @@ export namespace kinesis {
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
@@ -68967,16 +68975,15 @@ export namespace kinesis {
          */
         errorOutputPrefix?: string;
         /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          */
         kmsKeyArn?: string;
         /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          */
         prefix?: string;
         /**
-         * The ARN of the AWS credentials.
+         * ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -68987,11 +68994,11 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
@@ -69002,11 +69009,11 @@ export namespace kinesis {
          */
         enabled: boolean;
         /**
-         * The ARN of the role the stream assumes.
+         * ARN of the role the stream assumes.
          */
         roleArn?: string;
         /**
-         * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         * ARN of the Secrets Manager secret. This value is required if `enabled` is true.
          */
         secretArn?: string;
     }
@@ -69021,14 +69028,14 @@ export namespace kinesis {
          */
         keyArn?: string;
         /**
-         * Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
+         * Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`.
          */
         keyType?: string;
     }
 
     export interface FirehoseDeliveryStreamSnowflakeConfiguration {
         /**
-         * The URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
+         * URL of the Snowflake account. Format: https://[accountIdentifier].snowflakecomputing.com.
          */
         accountUrl: string;
         /**
@@ -69040,35 +69047,35 @@ export namespace kinesis {
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptions;
         /**
-         * The name of the content column.
+         * Name of the content column.
          */
         contentColumnName?: string;
         /**
-         * The data loading option.
+         * Data loading option.
          */
         dataLoadingOption?: string;
         /**
-         * The Snowflake database name.
+         * Snowflake database name.
          */
         database: string;
         /**
-         * The passphrase for the private key.
+         * Passphrase for the private key.
          */
         keyPassphrase?: string;
         /**
-         * The name of the metadata column.
+         * Name of the metadata column.
          */
         metadataColumnName?: string;
         /**
-         * The private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+         * Private key for authentication. This value is required if `secretsManagerConfiguration` is not provided.
          */
         privateKey?: string;
         /**
-         * The processing configuration. See `processingConfiguration` block below for details.
+         * Processing configuration. See `processingConfiguration` block below for details.
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfiguration;
         /**
@@ -69076,39 +69083,39 @@ export namespace kinesis {
          */
         retryDuration?: number;
         /**
-         * The ARN of the IAM role.
+         * ARN of the IAM role.
          */
         roleArn: string;
         /**
-         * The S3 backup mode.
+         * S3 backup mode.
          */
         s3BackupMode?: string;
         /**
-         * The S3 configuration. See `s3Configuration` block below for details.
+         * S3 configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration;
         /**
-         * The Snowflake schema name.
+         * Snowflake schema name.
          */
         schema: string;
         /**
-         * The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
+         * Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `user` and `privateKey` are not provided.
          */
         secretsManagerConfiguration: outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfiguration;
         /**
-         * The configuration for Snowflake role.
+         * Configuration for Snowflake role. See `snowflakeRoleConfiguration` block below for details.
          */
         snowflakeRoleConfiguration?: outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfiguration;
         /**
-         * The VPC configuration for Snowflake.
+         * VPC configuration for Snowflake. See `snowflakeVpcConfiguration` block below for details.
          */
         snowflakeVpcConfiguration?: outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration;
         /**
-         * The Snowflake table name.
+         * Snowflake table name.
          */
         table: string;
         /**
-         * The user for authentication. This value is required if `secretsManagerConfiguration` is not provided.
+         * User for authentication. This value is required if `secretsManagerConfiguration` is not provided.
          */
         user?: string;
     }
@@ -69119,11 +69126,11 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
@@ -69134,18 +69141,18 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * Specifies the data processors as multiple blocks. See `processors` block below for details.
+         * Data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor[];
     }
 
     export interface FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessor {
         /**
-         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         * Processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+         * Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: string;
     }
@@ -69165,7 +69172,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamSnowflakeConfigurationS3Configuration {
         /**
-         * The ARN of the S3 bucket
+         * ARN of the S3 bucket.
          */
         bucketArn: string;
         /**
@@ -69173,16 +69180,15 @@ export namespace kinesis {
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
@@ -69190,16 +69196,15 @@ export namespace kinesis {
          */
         errorOutputPrefix?: string;
         /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          */
         kmsKeyArn?: string;
         /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          */
         prefix?: string;
         /**
-         * The ARN of the AWS credentials.
+         * ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -69210,11 +69215,11 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
@@ -69225,11 +69230,11 @@ export namespace kinesis {
          */
         enabled: boolean;
         /**
-         * The ARN of the role the stream assumes.
+         * ARN of the role the stream assumes.
          */
         roleArn?: string;
         /**
-         * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         * ARN of the Secrets Manager secret. This value is required if `enabled` is true.
          */
         secretArn?: string;
     }
@@ -69240,14 +69245,14 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The Snowflake role.
+         * Snowflake role.
          */
         snowflakeRole?: string;
     }
 
     export interface FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfiguration {
         /**
-         * The VPCE ID for Firehose to privately connect with Snowflake.
+         * VPCE ID for Firehose to privately connect with Snowflake.
          */
         privateLinkVpceId: string;
     }
@@ -69262,27 +69267,27 @@ export namespace kinesis {
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions;
         /**
-         * The amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
+         * Amount of time, in seconds between 180 and 600, that Kinesis Firehose waits to receive an acknowledgment from Splunk after it sends it data.
          */
         hecAcknowledgmentTimeout?: number;
         /**
-         * The HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
+         * HTTP Event Collector (HEC) endpoint to which Kinesis Firehose sends your data.
          */
         hecEndpoint: string;
         /**
-         * The HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
+         * HEC endpoint type. Valid values are `Raw` or `Event`. The default value is `Raw`.
          */
         hecEndpointType?: string;
         /**
-         * The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
+         * GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secretsManagerConfiguration` is not provided.
          */
         hecToken?: string;
         /**
-         * The data processing configuration.  See `processingConfiguration` block below for details.
+         * Data processing configuration.  See `processingConfiguration` block below for details.
          */
         processingConfiguration?: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration;
         /**
@@ -69290,14 +69295,16 @@ export namespace kinesis {
          */
         retryDuration?: number;
         /**
-         * Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
-         * `secretsManagerConfiguration` - (Optional) The Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+         * How documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
          */
         s3BackupMode?: string;
         /**
-         * The S3 Configuration. See `s3Configuration` block below for details.
+         * S3 Configuration. See `s3Configuration` block below for details.
          */
         s3Configuration: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationS3Configuration;
+        /**
+         * Secrets Manager configuration. See `secretsManagerConfiguration` block below for details. This value is required if `hecToken` is not provided.
+         */
         secretsManagerConfiguration: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration;
     }
 
@@ -69307,11 +69314,11 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
@@ -69322,18 +69329,18 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * Specifies the data processors as multiple blocks. See `processors` block below for details.
+         * Data processors as multiple blocks. See `processors` block below for details.
          */
         processors?: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor[];
     }
 
     export interface FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor {
         /**
-         * Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
+         * Processor parameters as multiple blocks. See `parameters` block below for details.
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
+         * Type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
          */
         type: string;
     }
@@ -69353,7 +69360,7 @@ export namespace kinesis {
 
     export interface FirehoseDeliveryStreamSplunkConfigurationS3Configuration {
         /**
-         * The ARN of the S3 bucket
+         * ARN of the S3 bucket.
          */
         bucketArn: string;
         /**
@@ -69361,16 +69368,15 @@ export namespace kinesis {
          */
         bufferingInterval?: number;
         /**
-         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
-         * We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
+         * Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5. We recommend setting this value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec, set this value to 10 MB or higher.
          */
         bufferingSize?: number;
         /**
-         * The CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
+         * CloudWatch Logging Options for the delivery stream. See `cloudwatchLoggingOptions` block below for details.
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
+         * Compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
@@ -69378,16 +69384,15 @@ export namespace kinesis {
          */
         errorOutputPrefix?: string;
         /**
-         * Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
-         * be used.
+         * KMS key ARN the stream will use to encrypt data. If not set, no encryption will be used.
          */
         kmsKeyArn?: string;
         /**
-         * The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
+         * Extra prefix added in front of the "YYYY/MM/DD/HH" time format prefix that is automatically used for delivered S3 files. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket.
          */
         prefix?: string;
         /**
-         * The ARN of the AWS credentials.
+         * ARN of the AWS credentials.
          */
         roleArn: string;
     }
@@ -69398,11 +69403,11 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * The CloudWatch group name for logging. This value is required if `enabled` is true.
+         * CloudWatch group name for logging. This value is required if `enabled` is true.
          */
         logGroupName?: string;
         /**
-         * The CloudWatch log stream name for logging. This value is required if `enabled` is true.
+         * CloudWatch log stream name for logging. This value is required if `enabled` is true.
          */
         logStreamName?: string;
     }
@@ -69413,11 +69418,11 @@ export namespace kinesis {
          */
         enabled: boolean;
         /**
-         * The ARN of the role the stream assumes.
+         * ARN of the role the stream assumes.
          */
         roleArn?: string;
         /**
-         * The ARN of the Secrets Manager secret. This value is required if `enabled` is true.
+         * ARN of the Secrets Manager secret. This value is required if `enabled` is true.
          */
         secretArn?: string;
     }
@@ -69442,7 +69447,7 @@ export namespace kinesis {
 
     export interface StreamStreamModeDetails {
         /**
-         * Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+         * Capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
          */
         streamMode: string;
     }
@@ -69452,104 +69457,104 @@ export namespace kinesis {
 export namespace kinesisanalyticsv2 {
     export interface ApplicationApplicationConfiguration {
         /**
-         * The code location and type parameters for the application.
+         * Code location and type parameters for the application. See `applicationCodeConfiguration` Block below.
          */
         applicationCodeConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfiguration;
         /**
-         * The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+         * Encryption configuration for the application. Use this to encrypt data at rest in the application. See `applicationEncryptionConfiguration` Block below.
          */
         applicationEncryptionConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationEncryptionConfiguration;
         /**
-         * Describes whether snapshots are enabled for a Flink-based application.
+         * Snapshot configuration for a Flink-based application. See `applicationSnapshotConfiguration` Block below.
          */
         applicationSnapshotConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationSnapshotConfiguration;
         /**
-         * Describes execution properties for a Flink-based application.
+         * Execution properties for a Flink-based application. See `environmentProperties` Block below.
          */
         environmentProperties?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentProperties;
         /**
-         * The configuration of a Flink-based application.
+         * Configuration of a Flink-based application. See `flinkApplicationConfiguration` Block below.
          */
         flinkApplicationConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfiguration;
         /**
-         * Describes the starting properties for a Flink-based application.
+         * Starting properties for a Flink-based application. See `runConfiguration` Block below.
          */
         runConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfiguration;
         /**
-         * The configuration of a SQL-based application.
+         * Configuration of a SQL-based application. See `sqlApplicationConfiguration` Block below.
          */
         sqlApplicationConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfiguration;
         /**
-         * The VPC configuration of a Flink-based application.
+         * VPC configuration of a Flink-based application. See `vpcConfiguration` Block below.
          */
         vpcConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfiguration;
     }
 
     export interface ApplicationApplicationConfigurationApplicationCodeConfiguration {
         /**
-         * The location and type of the application code.
+         * Location and type of the application code. See `codeContent` Block below.
          */
         codeContent?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent;
         /**
-         * Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
+         * Whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
          */
         codeContentType: string;
     }
 
     export interface ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent {
         /**
-         * Information about the Amazon S3 bucket containing the application code.
+         * Information about the Amazon S3 bucket containing the application code. See `s3ContentLocation` Block below.
          */
         s3ContentLocation?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation;
         /**
-         * The text-format code for the application.
+         * Text-format code for the application.
          */
         textContent?: string;
     }
 
     export interface ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation {
         /**
-         * The ARN for the S3 bucket containing the application code.
+         * ARN for the S3 bucket containing the application code.
          */
         bucketArn: string;
         /**
-         * The file key for the object containing the application code.
+         * File key for the object containing the application code.
          */
         fileKey: string;
         /**
-         * The version of the object containing the application code.
+         * Version of the object containing the application code.
          */
         objectVersion?: string;
     }
 
     export interface ApplicationApplicationConfigurationApplicationEncryptionConfiguration {
         /**
-         * The ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+         * ARN of the KMS key to use for encryption. Required when `keyType` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same Region as the application.
          */
         keyId?: string;
         /**
-         * The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+         * Type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
          */
         keyType: string;
     }
 
     export interface ApplicationApplicationConfigurationApplicationSnapshotConfiguration {
         /**
-         * Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+         * Whether snapshots are enabled for a Flink-based application.
          */
         snapshotsEnabled: boolean;
     }
 
     export interface ApplicationApplicationConfigurationEnvironmentProperties {
         /**
-         * Describes the execution property groups.
+         * Execution property groups. See `propertyGroup` Block below.
          */
         propertyGroups: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup[];
     }
 
     export interface ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup {
         /**
-         * The key of the application execution property key-value map.
+         * Key of the application execution property key-value map.
          */
         propertyGroupId: string;
         /**
@@ -69560,431 +69565,448 @@ export namespace kinesisanalyticsv2 {
 
     export interface ApplicationApplicationConfigurationFlinkApplicationConfiguration {
         /**
-         * Describes an application's checkpointing configuration.
+         * Application's checkpointing configuration. See `checkpointConfiguration` Block below.
          */
         checkpointConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration;
         /**
-         * Describes configuration parameters for CloudWatch logging for an application.
+         * Configuration parameters for CloudWatch logging for an application. See `monitoringConfiguration` Block below.
          */
         monitoringConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration;
         /**
-         * Describes parameters for how an application executes multiple tasks simultaneously.
+         * Parameters for how an application executes multiple tasks simultaneously. See `parallelismConfiguration` Block below.
          */
         parallelismConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration;
     }
 
     export interface ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration {
         /**
-         * Describes the interval in milliseconds between checkpoint operations.
+         * Interval in milliseconds between checkpoint operations.
          */
         checkpointInterval: number;
         /**
-         * Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
+         * Whether checkpointing is enabled for a Flink-based application.
          */
         checkpointingEnabled: boolean;
         /**
-         * Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-         * * `checkpointingEnabled = true`
-         * * `checkpointInterval = 60000`
-         * * `minPauseBetweenCheckpoints = 5000`
+         * Whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointingEnabled`, `checkpointInterval`, or `minPauseBetweenCheckpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values: `checkpointingEnabled = true`, `checkpointInterval = 60000`, and `minPauseBetweenCheckpoints = 5000`.
          */
         configurationType: string;
         /**
-         * Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
+         * Minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
          */
         minPauseBetweenCheckpoints: number;
     }
 
     export interface ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration {
         /**
-         * Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
+         * Whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `logLevel` or `metricsLevel` attribute values to be effective.
          */
         configurationType: string;
         /**
-         * Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
+         * Verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
          */
         logLevel: string;
         /**
-         * Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
+         * Granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
          */
         metricsLevel: string;
     }
 
     export interface ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration {
         /**
-         * Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
+         * Whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
          */
         autoScalingEnabled: boolean;
         /**
-         * Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
+         * Whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `autoScalingEnabled`, `parallelism`, or `parallelismPerKpu` attribute values to be effective.
          */
         configurationType: string;
         /**
-         * Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
+         * Initial number of parallel tasks that a Flink-based application can perform.
          */
         parallelism: number;
         /**
-         * Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
+         * Number of parallel tasks that a Flink-based application can perform per Kinesis Processing Unit (KPU) used by the application.
          */
         parallelismPerKpu: number;
     }
 
     export interface ApplicationApplicationConfigurationRunConfiguration {
         /**
-         * The restore behavior of a restarting application.
+         * Restore behavior of a restarting application. See `applicationRestoreConfiguration` Block below.
          */
         applicationRestoreConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration;
         /**
-         * The starting parameters for a Flink-based Kinesis Data Analytics application.
+         * Starting parameters for a Flink-based application. See `flinkRunConfiguration` Block below.
          */
         flinkRunConfiguration: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration;
     }
 
     export interface ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration {
         /**
-         * Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+         * How the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
          */
         applicationRestoreType: string;
         /**
-         * The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
+         * Identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `applicationRestoreType`.
          */
         snapshotName?: string;
     }
 
     export interface ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration {
         /**
-         * When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+         * Whether the runtime is allowed to skip a state that cannot be mapped to the new program when restoring from a snapshot. Default is `false`.
          */
         allowNonRestoredState: boolean;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfiguration {
         /**
-         * The input stream used by the application.
+         * Input stream used by the application. See `input` Block below.
          */
         input?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInput;
         /**
-         * The destination streams used by the application.
+         * Destination streams used by the application. See `output` Block below.
          */
         outputs?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutput[];
         /**
-         * The reference data source used by the application.
+         * Reference data source used by the application. See `referenceDataSource` Block below.
          */
         referenceDataSource?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInput {
+        /**
+         * In-application stream names.
+         */
         inAppStreamNames: string[];
+        /**
+         * Identifier of the input configuration.
+         */
         inputId: string;
         /**
-         * Describes the number of in-application streams to create.
+         * Number of in-application streams to create. See `inputParallelism` Block below.
          */
         inputParallelism: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism;
         /**
-         * The input processing configuration for the input.
-         * An input processor transforms records as they are received from the stream, before the application's SQL code executes.
+         * Input processing configuration for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. See `inputProcessingConfiguration` Block below.
          */
         inputProcessingConfiguration?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration;
         /**
-         * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+         * Format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created. See `inputSchema` Block below.
          */
         inputSchema: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema;
         /**
-         * The point at which the application starts processing records from the streaming source.
+         * Point at which the application starts processing records from the streaming source. See `inputStartingPositionConfiguration` Block below.
          */
         inputStartingPositionConfigurations: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration[];
         /**
-         * If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+         * If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN. See `kinesisFirehoseInput` Block below.
          */
         kinesisFirehoseInput?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput;
         /**
-         * If the streaming source is a Kinesis data stream, identifies the stream's ARN.
+         * If the streaming source is a Kinesis data stream, identifies the stream's ARN. See `kinesisStreamsInput` Block below.
          */
         kinesisStreamsInput?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput;
         /**
-         * The name prefix to use when creating an in-application stream.
+         * Name prefix to use when creating an in-application stream.
          */
         namePrefix: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism {
         /**
-         * The number of in-application streams to create.
+         * Number of in-application streams to create.
          */
         count: number;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
         /**
-         * Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
+         * Lambda function used to preprocess the records in the stream before being processed by your application code. See `inputLambdaProcessor` Block below.
          */
         inputLambdaProcessor: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor {
         /**
-         * The ARN of the Lambda function that operates on records in the stream.
+         * ARN of the Lambda function that operates on records in the stream.
          */
         resourceArn: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema {
         /**
-         * Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+         * Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block below.
          */
         recordColumns: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn[];
         /**
-         * Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+         * Encoding of the records in the streaming source. For example, `UTF-8`.
          */
         recordEncoding?: string;
         /**
-         * Specifies the format of the records on the streaming source.
+         * Format of the records on the streaming source. See `recordFormat` Block below.
          */
         recordFormat: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn {
         /**
-         * A reference to the data element in the streaming input or the reference data source.
+         * Reference to the data element in the streaming input or the reference data source.
          */
         mapping?: string;
         /**
-         * The name of the column that is created in the in-application input stream or reference table.
+         * Name of the column that is created in the in-application input stream or reference table.
          */
         name: string;
         /**
-         * The type of column created in the in-application input stream or reference table.
+         * Type of column created in the in-application input stream or reference table.
          */
         sqlType: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat {
         /**
-         * Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+         * Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
          */
         mappingParameters: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters;
         /**
-         * The type of record format. Valid values: `CSV`, `JSON`.
+         * Type of record format. Valid values: `CSV`, `JSON`.
          */
         recordFormatType: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters {
         /**
-         * Provides additional mapping information when the record format uses delimiters (for example, CSV).
+         * Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
          */
         csvMappingParameters?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters;
         /**
-         * Provides additional mapping information when JSON is the record format on the streaming source.
+         * Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
          */
         jsonMappingParameters?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters {
         /**
-         * The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+         * Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
          */
         recordColumnDelimiter: string;
         /**
-         * The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+         * Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
          */
         recordRowDelimiter: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters {
         /**
-         * The path to the top-level parent that contains the records.
+         * Path to the top-level parent that contains the records.
          */
         recordRowPath: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration {
         /**
-         * The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+         * Starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
          */
         inputStartingPosition: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
         /**
-         * The ARN of the delivery stream.
+         * ARN of the delivery stream.
          */
         resourceArn: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
         /**
-         * The ARN of the input Kinesis data stream to read.
+         * ARN of the input Kinesis data stream to read.
          */
         resourceArn: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationOutput {
         /**
-         * Describes the data format when records are written to the destination.
+         * Data format when records are written to the destination. See `destinationSchema` Block below.
          */
         destinationSchema: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema;
         /**
-         * Identifies a Kinesis Data Firehose delivery stream as the destination.
+         * Destination Kinesis Data Firehose delivery stream. See `kinesisFirehoseOutput` Block below.
          */
         kinesisFirehoseOutput?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput;
         /**
-         * Identifies a Kinesis data stream as the destination.
+         * Destination Kinesis data stream. See `kinesisStreamsOutput` Block below.
          */
         kinesisStreamsOutput?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput;
         /**
-         * Identifies a Lambda function as the destination.
+         * Destination Lambda function. See `lambdaOutput` Block below.
          */
         lambdaOutput?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput;
         /**
-         * The name of the in-application stream.
+         * Name of the in-application stream.
          */
         name: string;
+        /**
+         * Identifier of the output configuration.
+         */
         outputId: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema {
         /**
-         * Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
+         * Format of the records on the output stream. Valid values: `CSV`, `JSON`.
          */
         recordFormatType: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput {
         /**
-         * The ARN of the destination delivery stream to write to.
+         * ARN of the destination delivery stream to write to.
          */
         resourceArn: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput {
         /**
-         * The ARN of the destination Kinesis data stream to write to.
+         * ARN of the destination Kinesis data stream to write to.
          */
         resourceArn: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput {
         /**
-         * The ARN of the destination Lambda function to write to.
+         * ARN of the destination Lambda function to write to.
          */
         resourceArn: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource {
+        /**
+         * Identifier of the reference data source.
+         */
         referenceId: string;
         /**
-         * Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+         * Format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. See `referenceSchema` Block below.
          */
         referenceSchema: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema;
         /**
-         * Identifies the S3 bucket and object that contains the reference data.
+         * S3 bucket and object that contains the reference data. See `s3ReferenceDataSource` Block below.
          */
         s3ReferenceDataSource: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource;
         /**
-         * The name of the in-application table to create.
+         * Name of the in-application table to create.
          */
         tableName: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema {
         /**
-         * Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+         * Mapping of each data element in the streaming source to the corresponding column in the in-application stream. See `recordColumn` Block above.
          */
         recordColumns: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn[];
         /**
-         * Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+         * Encoding of the records in the streaming source. For example, `UTF-8`.
          */
         recordEncoding?: string;
         /**
-         * Specifies the format of the records on the streaming source.
+         * Format of the records on the streaming source. See `recordFormat` Block above.
          */
         recordFormat: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn {
         /**
-         * A reference to the data element in the streaming input or the reference data source.
+         * Reference to the data element in the streaming input or the reference data source.
          */
         mapping?: string;
         /**
-         * The name of the column that is created in the in-application input stream or reference table.
+         * Name of the column that is created in the in-application input stream or reference table.
          */
         name: string;
         /**
-         * The type of column created in the in-application input stream or reference table.
+         * Type of column created in the in-application input stream or reference table.
          */
         sqlType: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat {
         /**
-         * Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+         * Additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source. See `mappingParameters` Block below.
          */
         mappingParameters: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters;
         /**
-         * The type of record format. Valid values: `CSV`, `JSON`.
+         * Type of record format. Valid values: `CSV`, `JSON`.
          */
         recordFormatType: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters {
         /**
-         * Provides additional mapping information when the record format uses delimiters (for example, CSV).
+         * Additional mapping information when the record format uses delimiters (for example, CSV). See `csvMappingParameters` Block below.
          */
         csvMappingParameters?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters;
         /**
-         * Provides additional mapping information when JSON is the record format on the streaming source.
+         * Additional mapping information when JSON is the record format on the streaming source. See `jsonMappingParameters` Block below.
          */
         jsonMappingParameters?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters {
         /**
-         * The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+         * Column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
          */
         recordColumnDelimiter: string;
         /**
-         * The row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
+         * Row delimiter. For example, in a CSV format, `\n` is the typical row delimiter.
          */
         recordRowDelimiter: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters {
         /**
-         * The path to the top-level parent that contains the records.
+         * Path to the top-level parent that contains the records.
          */
         recordRowPath: string;
     }
 
     export interface ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource {
         /**
-         * The ARN of the S3 bucket.
+         * ARN of the S3 bucket.
          */
         bucketArn: string;
         /**
-         * The object key name containing the reference data.
+         * Object key name containing the reference data.
          */
         fileKey: string;
     }
 
     export interface ApplicationApplicationConfigurationVpcConfiguration {
         /**
-         * The Security Group IDs used by the VPC configuration.
+         * Security Group IDs used by the VPC configuration.
          */
         securityGroupIds: string[];
         /**
-         * The Subnet IDs used by the VPC configuration.
+         * Subnet IDs used by the VPC configuration.
          */
         subnetIds: string[];
+        /**
+         * Identifier of the VPC configuration.
+         */
         vpcConfigurationId: string;
+        /**
+         * Identifier of the VPC.
+         */
         vpcId: string;
     }
 
     export interface ApplicationCloudwatchLoggingOptions {
+        /**
+         * Identifier of the CloudWatch logging option.
+         */
         cloudwatchLoggingOptionId: string;
         /**
-         * The ARN of the CloudWatch log stream to receive application messages.
+         * ARN of the CloudWatch log stream to receive application messages.
          */
         logStreamArn: string;
     }
@@ -69994,33 +70016,33 @@ export namespace kinesisanalyticsv2 {
 export namespace kms {
     export interface CustomKeyStoreXksProxyAuthenticationCredential {
         /**
-         * A unique identifier for the raw secret access key.
+         * Unique identifier for the raw secret access key.
          */
         accessKeyId: string;
         /**
-         * A secret string of 43-64 characters.
+         * Secret string of 43-64 characters.
          */
         rawSecretAccessKey: string;
     }
 
     export interface GetKeyMultiRegionConfiguration {
         /**
-         * Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
+         * Whether the KMS key is a `PRIMARY` or `REPLICA` key.
          */
         multiRegionKeyType: string;
         /**
-         * The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
+         * Key ARN and Region of the primary key. This is the current KMS key if it is the primary key. See `multi_region_configuration.primary_key` Block below.
          */
         primaryKeys: outputs.kms.GetKeyMultiRegionConfigurationPrimaryKey[];
         /**
-         * The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
+         * Key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key. See `multi_region_configuration.replica_keys` Block below.
          */
         replicaKeys: outputs.kms.GetKeyMultiRegionConfigurationReplicaKey[];
     }
 
     export interface GetKeyMultiRegionConfigurationPrimaryKey {
         /**
-         * The key ARN of a primary or replica key of a multi-Region key.
+         * Key ARN of a primary or replica key of a multi-Region key.
          */
         arn: string;
         /**
@@ -70031,7 +70053,7 @@ export namespace kms {
 
     export interface GetKeyMultiRegionConfigurationReplicaKey {
         /**
-         * The key ARN of a primary or replica key of a multi-Region key.
+         * Key ARN of a primary or replica key of a multi-Region key.
          */
         arn: string;
         /**
@@ -70042,7 +70064,7 @@ export namespace kms {
 
     export interface GetKeyXksKeyConfiguration {
         /**
-         * The globally unique identifier for the key
+         * ID of the external key in the external key manager.
          */
         id: string;
     }
@@ -70056,22 +70078,19 @@ export namespace kms {
 
     export interface GetSecretsSecret {
         /**
-         * An optional mapping that makes up the Encryption Context for the secret.
+         * Mapping that makes up the Encryption Context for the secret.
          */
         context?: {[key: string]: string};
         /**
-         * The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+         * Encryption algorithm used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
          */
         encryptionAlgorithm?: string;
         /**
-         * An optional list of Grant Tokens for the secret.
+         * List of Grant Tokens for the secret.
          */
         grantTokens?: string[];
         /**
-         * Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
-         *
-         * For more information on `context` and `grantTokens` see the [KMS
-         * Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+         * KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
          */
         keyId?: string;
         /**
@@ -70086,11 +70105,11 @@ export namespace kms {
 
     export interface GrantConstraint {
         /**
-         * A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
+         * List of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryptionContextSubset`.
          */
         encryptionContextEquals?: {[key: string]: string};
         /**
-         * A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
+         * List of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryptionContextEquals`.
          */
         encryptionContextSubset?: {[key: string]: string};
     }
@@ -97984,7 +98003,7 @@ export namespace pinpoint {
 export namespace pipes {
     export interface PipeEnrichmentParameters {
         /**
-         * Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
+         * HTTP parameters to use when the target is an API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. See `enrichment_parameters.http_parameters` Block for details.
          */
         httpParameters?: outputs.pipes.PipeEnrichmentParametersHttpParameters;
         /**
@@ -98001,11 +98020,11 @@ export namespace pipes {
 
     export interface PipeLogConfiguration {
         /**
-         * Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
+         * Amazon CloudWatch Logs logging configuration settings for the pipe. See `cloudwatchLogsLogDestination` Block for details.
          */
         cloudwatchLogsLogDestination?: outputs.pipes.PipeLogConfigurationCloudwatchLogsLogDestination;
         /**
-         * Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
+         * Amazon Kinesis Data Firehose logging configuration settings for the pipe. See `firehoseLogDestination` Block for details.
          */
         firehoseLogDestination?: outputs.pipes.PipeLogConfigurationFirehoseLogDestination;
         /**
@@ -98013,18 +98032,18 @@ export namespace pipes {
          */
         includeExecutionDatas?: string[];
         /**
-         * The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
+         * Level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
          */
         level: string;
         /**
-         * Amazon S3 logging configuration settings for the pipe. Detailed below.
+         * Amazon S3 logging configuration settings for the pipe. See `s3LogDestination` Block for details.
          */
         s3LogDestination?: outputs.pipes.PipeLogConfigurationS3LogDestination;
     }
 
     export interface PipeLogConfigurationCloudwatchLogsLogDestination {
         /**
-         * Amazon Web Services Resource Name (ARN) for the CloudWatch log group to which EventBridge sends the log records.
+         * ARN for the CloudWatch log group to which EventBridge sends the log records.
          */
         logGroupArn: string;
     }
@@ -98057,76 +98076,76 @@ export namespace pipes {
 
     export interface PipeSourceParameters {
         /**
-         * The parameters for using an Active MQ broker as a source. Detailed below.
+         * Parameters for using an Active MQ broker as a source. See `activemqBrokerParameters` Block for details.
          */
         activemqBrokerParameters: outputs.pipes.PipeSourceParametersActivemqBrokerParameters;
         /**
-         * The parameters for using a DynamoDB stream as a source.  Detailed below.
+         * Parameters for using a DynamoDB stream as a source. See `dynamodbStreamParameters` Block for details.
          */
         dynamodbStreamParameters: outputs.pipes.PipeSourceParametersDynamodbStreamParameters;
         /**
-         * The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
+         * Collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). See `filterCriteria` Block for details.
          */
         filterCriteria?: outputs.pipes.PipeSourceParametersFilterCriteria;
         /**
-         * The parameters for using a Kinesis stream as a source. Detailed below.
+         * Parameters for using a Kinesis stream as a source. See `source_parameters.kinesis_stream_parameters` Block for details.
          */
         kinesisStreamParameters: outputs.pipes.PipeSourceParametersKinesisStreamParameters;
         /**
-         * The parameters for using an MSK stream as a source. Detailed below.
+         * Parameters for using an MSK stream as a source. See `managedStreamingKafkaParameters` Block for details.
          */
         managedStreamingKafkaParameters: outputs.pipes.PipeSourceParametersManagedStreamingKafkaParameters;
         /**
-         * The parameters for using a Rabbit MQ broker as a source. Detailed below.
+         * Parameters for using a Rabbit MQ broker as a source. See `rabbitmqBrokerParameters` Block for details.
          */
         rabbitmqBrokerParameters: outputs.pipes.PipeSourceParametersRabbitmqBrokerParameters;
         /**
-         * The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+         * Parameters for using a self-managed Apache Kafka stream as a source. See `selfManagedKafkaParameters` Block for details.
          */
         selfManagedKafkaParameters: outputs.pipes.PipeSourceParametersSelfManagedKafkaParameters;
         /**
-         * The parameters for using a Amazon SQS stream as a source. Detailed below.
+         * Parameters for using an Amazon SQS stream as a source. See `source_parameters.sqs_queue_parameters` Block for details.
          */
         sqsQueueParameters: outputs.pipes.PipeSourceParametersSqsQueueParameters;
     }
 
     export interface PipeSourceParametersActivemqBrokerParameters {
         /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
+         * Maximum number of records to include in each batch. Maximum value of 10000.
          */
         batchSize: number;
         /**
-         * The credentials needed to access the resource. Detailed below.
+         * Credentials needed to access the resource. See `source_parameters.activemq_broker_parameters.credentials` Block for details.
          */
         credentials: outputs.pipes.PipeSourceParametersActivemqBrokerParametersCredentials;
         /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
+         * Maximum length of a time to wait for events. Maximum value of 300.
          */
         maximumBatchingWindowInSeconds: number;
         /**
-         * The name of the destination queue to consume. Maximum length of 1000.
+         * Name of the destination queue to consume. Maximum length of 1000.
          */
         queueName: string;
     }
 
     export interface PipeSourceParametersActivemqBrokerParametersCredentials {
         /**
-         * The ARN of the Secrets Manager secret containing the credentials.
+         * ARN of the Secrets Manager secret containing the credentials.
          */
         basicAuth: string;
     }
 
     export interface PipeSourceParametersDynamodbStreamParameters {
         /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
+         * Maximum number of records to include in each batch. Maximum value of 10000.
          */
         batchSize: number;
         /**
-         * Define the target queue to send dead-letter queue events to. Detailed below.
+         * Define the target queue to send dead-letter queue events to. See `deadLetterConfig` Block for details.
          */
         deadLetterConfig?: outputs.pipes.PipeSourceParametersDynamodbStreamParametersDeadLetterConfig;
         /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
+         * Maximum length of a time to wait for events. Maximum value of 300.
          */
         maximumBatchingWindowInSeconds: number;
         /**
@@ -98142,68 +98161,44 @@ export namespace pipes {
          */
         onPartialBatchItemFailure?: string;
         /**
-         * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
+         * Number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
          */
         parallelizationFactor: number;
         /**
-         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         * Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
          */
         startingPosition: string;
     }
 
     export interface PipeSourceParametersDynamodbStreamParametersDeadLetterConfig {
         /**
-         * ARN of this pipe.
+         * ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
          */
         arn?: string;
     }
 
     export interface PipeSourceParametersFilterCriteria {
         /**
-         * An array of up to 5 event patterns. Detailed below.
+         * Array of up to 5 event patterns. See `filter` Block for details.
          */
         filters?: outputs.pipes.PipeSourceParametersFilterCriteriaFilter[];
     }
 
     export interface PipeSourceParametersFilterCriteriaFilter {
         /**
-         * The event pattern. At most 4096 characters.
+         * Event pattern. At most 4096 characters.
          */
         pattern: string;
     }
 
     export interface PipeSourceParametersKinesisStreamParameters {
-        /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
-         */
         batchSize: number;
-        /**
-         * Define the target queue to send dead-letter queue events to. Detailed below.
-         */
         deadLetterConfig?: outputs.pipes.PipeSourceParametersKinesisStreamParametersDeadLetterConfig;
-        /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
-         */
         maximumBatchingWindowInSeconds: number;
-        /**
-         * Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
-         */
         maximumRecordAgeInSeconds: number;
-        /**
-         * Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
-         */
         maximumRetryAttempts?: number;
-        /**
-         * Define how to handle item process failures. AUTOMATIC_BISECT halves each batch and retry each half until all the records are processed or there is one failed message left in the batch. Valid values: AUTOMATIC_BISECT.
-         */
         onPartialBatchItemFailure?: string;
-        /**
-         * The number of batches to process concurrently from each shard. The default value is 1. Maximum value of 10.
-         */
         parallelizationFactor: number;
-        /**
-         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-         */
         startingPosition: string;
         /**
          * With StartingPosition set to AT_TIMESTAMP, the time from which to start reading, in Unix time seconds.
@@ -98213,172 +98208,172 @@ export namespace pipes {
 
     export interface PipeSourceParametersKinesisStreamParametersDeadLetterConfig {
         /**
-         * ARN of this pipe.
+         * ARN of the Amazon SQS queue specified as the target for the dead-letter queue.
          */
         arn?: string;
     }
 
     export interface PipeSourceParametersManagedStreamingKafkaParameters {
         /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
+         * Maximum number of records to include in each batch. Maximum value of 10000.
          */
         batchSize: number;
         /**
-         * The name of the destination queue to consume. Maximum value of 200.
+         * Name of the destination queue to consume. Maximum value of 200.
          */
         consumerGroupId?: string;
         /**
-         * The credentials needed to access the resource. Detailed below.
+         * Credentials needed to access the resource. See `source_parameters.managed_streaming_kafka_parameters.credentials` Block for details.
          */
         credentials?: outputs.pipes.PipeSourceParametersManagedStreamingKafkaParametersCredentials;
         /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
+         * Maximum length of a time to wait for events. Maximum value of 300.
          */
         maximumBatchingWindowInSeconds: number;
         /**
-         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         * Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
          */
         startingPosition?: string;
         /**
-         * The name of the topic that the pipe will read from. Maximum length of 249.
+         * Name of the topic that the pipe will read from. Maximum length of 249.
          */
         topicName: string;
     }
 
     export interface PipeSourceParametersManagedStreamingKafkaParametersCredentials {
         /**
-         * The ARN of the Secrets Manager secret containing the credentials.
+         * ARN of the Secrets Manager secret containing the credentials.
          */
         clientCertificateTlsAuth?: string;
         /**
-         * The ARN of the Secrets Manager secret containing the credentials.
+         * ARN of the Secrets Manager secret containing the credentials.
          */
         saslScram512Auth?: string;
     }
 
     export interface PipeSourceParametersRabbitmqBrokerParameters {
         /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
+         * Maximum number of records to include in each batch. Maximum value of 10000.
          */
         batchSize: number;
         /**
-         * The credentials needed to access the resource. Detailed below.
+         * Credentials needed to access the resource. See `source_parameters.rabbitmq_broker_parameters.credentials` Block for details.
          */
         credentials: outputs.pipes.PipeSourceParametersRabbitmqBrokerParametersCredentials;
         /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
+         * Maximum length of a time to wait for events. Maximum value of 300.
          */
         maximumBatchingWindowInSeconds: number;
         /**
-         * The name of the destination queue to consume. Maximum length of 1000.
+         * Name of the destination queue to consume. Maximum length of 1000.
          */
         queueName: string;
         /**
-         * The name of the virtual host associated with the source broker. Maximum length of 200.
+         * Name of the virtual host associated with the source broker. Maximum length of 200.
          */
         virtualHost?: string;
     }
 
     export interface PipeSourceParametersRabbitmqBrokerParametersCredentials {
         /**
-         * The ARN of the Secrets Manager secret containing the credentials.
+         * ARN of the Secrets Manager secret containing the credentials.
          */
         basicAuth: string;
     }
 
     export interface PipeSourceParametersSelfManagedKafkaParameters {
         /**
-         * An array of server URLs. Maximum number of 2 items, each of maximum length 300.
+         * Array of server URLs. Maximum number of 2 items, each of maximum length 300.
          */
         additionalBootstrapServers?: string[];
         /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
+         * Maximum number of records to include in each batch. Maximum value of 10000.
          */
         batchSize: number;
         /**
-         * The name of the destination queue to consume. Maximum value of 200.
+         * Name of the destination queue to consume. Maximum value of 200.
          */
         consumerGroupId?: string;
         /**
-         * The credentials needed to access the resource. Detailed below.
+         * Credentials needed to access the resource. See `source_parameters.self_managed_kafka_parameters.credentials` Block for details.
          */
         credentials?: outputs.pipes.PipeSourceParametersSelfManagedKafkaParametersCredentials;
         /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
+         * Maximum length of a time to wait for events. Maximum value of 300.
          */
         maximumBatchingWindowInSeconds: number;
         /**
-         * The ARN of the Secrets Manager secret used for certification.
+         * ARN of the Secrets Manager secret used for certification.
          */
         serverRootCaCertificate?: string;
         /**
-         * The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
+         * Position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
          */
         startingPosition?: string;
         /**
-         * The name of the topic that the pipe will read from. Maximum length of 249.
+         * Name of the topic that the pipe will read from. Maximum length of 249.
          */
         topicName: string;
         /**
-         * This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+         * VPC subnets and security groups for the stream, and whether a public IP address is to be used. See `vpc` Block for details.
          */
         vpc?: outputs.pipes.PipeSourceParametersSelfManagedKafkaParametersVpc;
     }
 
     export interface PipeSourceParametersSelfManagedKafkaParametersCredentials {
         /**
-         * The ARN of the Secrets Manager secret containing the credentials.
+         * ARN of the Secrets Manager secret containing the credentials.
          */
         basicAuth?: string;
         /**
-         * The ARN of the Secrets Manager secret containing the credentials.
+         * ARN of the Secrets Manager secret containing the credentials.
          */
         clientCertificateTlsAuth?: string;
         /**
-         * The ARN of the Secrets Manager secret containing the credentials.
+         * ARN of the Secrets Manager secret containing the credentials.
          */
         saslScram256Auth?: string;
         /**
-         * The ARN of the Secrets Manager secret containing the credentials.
+         * ARN of the Secrets Manager secret containing the credentials.
          */
         saslScram512Auth?: string;
     }
 
     export interface PipeSourceParametersSelfManagedKafkaParametersVpc {
+        /**
+         * List of security groups associated with the stream. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+         */
         securityGroups?: string[];
+        /**
+         * List of the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+         */
         subnets?: string[];
     }
 
     export interface PipeSourceParametersSqsQueueParameters {
-        /**
-         * The maximum number of records to include in each batch. Maximum value of 10000.
-         */
         batchSize: number;
-        /**
-         * The maximum length of a time to wait for events. Maximum value of 300.
-         */
         maximumBatchingWindowInSeconds: number;
     }
 
     export interface PipeTargetParameters {
         /**
-         * The parameters for using an AWS Batch job as a target. Detailed below.
+         * Parameters for using an AWS Batch job as a target. See `batchJobParameters` Block for details.
          */
         batchJobParameters?: outputs.pipes.PipeTargetParametersBatchJobParameters;
         /**
-         * The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+         * Parameters for using a CloudWatch Logs log stream as a target. See `cloudwatchLogsParameters` Block for details.
          */
         cloudwatchLogsParameters?: outputs.pipes.PipeTargetParametersCloudwatchLogsParameters;
         /**
-         * The parameters for using an Amazon ECS task as a target. Detailed below.
+         * Parameters for using an Amazon ECS task as a target. See `ecsTaskParameters` Block for details.
          */
         ecsTaskParameters?: outputs.pipes.PipeTargetParametersEcsTaskParameters;
         /**
-         * The parameters for using an EventBridge event bus as a target. Detailed below.
+         * Parameters for using an EventBridge event bus as a target. See `eventbridgeEventBusParameters` Block for details.
          */
         eventbridgeEventBusParameters?: outputs.pipes.PipeTargetParametersEventbridgeEventBusParameters;
         /**
-         * These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+         * Custom parameters used when the target is an API Gateway REST API or EventBridge ApiDestination. See `target_parameters.http_parameters` Block for details.
          */
         httpParameters?: outputs.pipes.PipeTargetParametersHttpParameters;
         /**
@@ -98386,42 +98381,42 @@ export namespace pipes {
          */
         inputTemplate?: string;
         /**
-         * The parameters for using a Kinesis stream as a source. Detailed below.
+         * Parameters for using a Kinesis stream as a target. See `target_parameters.kinesis_stream_parameters` Block for details.
          */
         kinesisStreamParameters?: outputs.pipes.PipeTargetParametersKinesisStreamParameters;
         /**
-         * The parameters for using a Lambda function as a target. Detailed below.
+         * Parameters for using a Lambda function as a target. See `lambdaFunctionParameters` Block for details.
          */
         lambdaFunctionParameters?: outputs.pipes.PipeTargetParametersLambdaFunctionParameters;
         /**
-         * These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+         * Custom parameters used when the target is an Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. See `redshiftDataParameters` Block for details.
          */
         redshiftDataParameters?: outputs.pipes.PipeTargetParametersRedshiftDataParameters;
         /**
-         * The parameters for using a SageMaker AI pipeline as a target. Detailed below.
+         * Parameters for using a SageMaker AI pipeline as a target. See `sagemakerPipelineParameters` Block for details.
          */
         sagemakerPipelineParameters?: outputs.pipes.PipeTargetParametersSagemakerPipelineParameters;
         /**
-         * The parameters for using a Amazon SQS stream as a target. Detailed below.
+         * Parameters for using an Amazon SQS stream as a target. See `target_parameters.sqs_queue_parameters` Block for details.
          */
         sqsQueueParameters?: outputs.pipes.PipeTargetParametersSqsQueueParameters;
         /**
-         * The parameters for using a Step Functions state machine as a target. Detailed below.
+         * Parameters for using a Step Functions state machine as a target. See `stepFunctionStateMachineParameters` Block for details.
          */
         stepFunctionStateMachineParameters?: outputs.pipes.PipeTargetParametersStepFunctionStateMachineParameters;
     }
 
     export interface PipeTargetParametersBatchJobParameters {
         /**
-         * The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+         * Array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. See `arrayProperties` Block for details.
          */
         arrayProperties?: outputs.pipes.PipeTargetParametersBatchJobParametersArrayProperties;
         /**
-         * The overrides that are sent to a container. Detailed below.
+         * Overrides that are sent to a container. See `containerOverrides` Block for details.
          */
         containerOverrides?: outputs.pipes.PipeTargetParametersBatchJobParametersContainerOverrides;
         /**
-         * A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+         * List of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. See `dependsOn` Block for details.
          */
         dependsOns?: outputs.pipes.PipeTargetParametersBatchJobParametersDependsOn[];
         /**
@@ -98429,41 +98424,41 @@ export namespace pipes {
          */
         jobDefinition: string;
         /**
-         * The name of the job. It can be up to 128 letters long.
+         * Name of the job. It can be up to 128 letters long.
          */
         jobName: string;
         /**
-         * Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
+         * Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition.
          */
         parameters?: {[key: string]: string};
         /**
-         * The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+         * Retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. See `retryStrategy` Block for details.
          */
         retryStrategy?: outputs.pipes.PipeTargetParametersBatchJobParametersRetryStrategy;
     }
 
     export interface PipeTargetParametersBatchJobParametersArrayProperties {
         /**
-         * The size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
+         * Size of the array, if this is an array batch job. Minimum value of 2. Maximum value of 10,000.
          */
         size?: number;
     }
 
     export interface PipeTargetParametersBatchJobParametersContainerOverrides {
         /**
-         * List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
+         * List of commands to send to the container that overrides the default command from the Docker image or the task definition.
          */
         commands?: string[];
         /**
-         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+         * Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. Environment variables cannot start with " AWS Batch ". This naming convention is reserved for variables that AWS Batch sets. See `target_parameters.batch_job_parameters.container_overrides.environment` Block for details.
          */
         environments?: outputs.pipes.PipeTargetParametersBatchJobParametersContainerOverridesEnvironment[];
         /**
-         * The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
+         * Instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
          */
         instanceType?: string;
         /**
-         * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+         * Type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include GPU, MEMORY, and VCPU. See `target_parameters.batch_job_parameters.container_overrides.resource_requirement` Block for details.
          */
         resourceRequirements?: outputs.pipes.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement[];
     }
@@ -98473,157 +98468,154 @@ export namespace pipes {
          * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
         name?: string;
-        /**
-         * Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-         */
         value?: string;
     }
 
     export interface PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement {
-        /**
-         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-         */
         type: string;
-        /**
-         * Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-         */
         value: string;
     }
 
     export interface PipeTargetParametersBatchJobParametersDependsOn {
         /**
-         * The job ID of the AWS Batch job that's associated with this dependency.
+         * Job ID of the AWS Batch job that's associated with this dependency.
          */
         jobId?: string;
         /**
-         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         * Type of the job dependency. Valid Values: N_TO_N, SEQUENTIAL.
          */
         type?: string;
     }
 
     export interface PipeTargetParametersBatchJobParametersRetryStrategy {
         /**
-         * The number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
+         * Number of times to move a job to the RUNNABLE status. If the value of attempts is greater than one, the job is retried on failure the same number of attempts as the value. Maximum value of 10.
          */
         attempts?: number;
     }
 
     export interface PipeTargetParametersCloudwatchLogsParameters {
         /**
-         * The name of the log stream.
+         * Name of the log stream.
          */
         logStreamName?: string;
         /**
-         * The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
+         * Time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. This is the JSON path to the field in the event e.g. $.detail.timestamp
          */
         timestamp?: string;
     }
 
     export interface PipeTargetParametersEcsTaskParameters {
         /**
-         * List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
+         * List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. See `capacityProviderStrategy` Block for details.
          */
         capacityProviderStrategies?: outputs.pipes.PipeTargetParametersEcsTaskParametersCapacityProviderStrategy[];
         /**
-         * Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
+         * Whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
          */
         enableEcsManagedTags?: boolean;
         /**
-         * Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
+         * Whether to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
          */
         enableExecuteCommand?: boolean;
         /**
-         * Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
+         * Amazon ECS task group for the task. The maximum length is 255 characters.
          */
         group?: string;
         /**
-         * Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
+         * Launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
          */
         launchType?: string;
         /**
-         * Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
+         * Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. See `networkConfiguration` Block for details.
          */
         networkConfiguration?: outputs.pipes.PipeTargetParametersEcsTaskParametersNetworkConfiguration;
         /**
-         * The overrides that are associated with a task. Detailed below.
+         * Overrides that are associated with a task. See `overrides` Block for details.
          */
         overrides?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverrides;
         /**
-         * An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
+         * Array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See `placementConstraint` Block for details.
          */
         placementConstraints?: outputs.pipes.PipeTargetParametersEcsTaskParametersPlacementConstraint[];
         /**
-         * The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
+         * Placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. See `placementStrategy` Block for details.
          */
         placementStrategies?: outputs.pipes.PipeTargetParametersEcsTaskParametersPlacementStrategy[];
         /**
-         * Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
+         * Platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
          */
         platformVersion?: string;
         /**
-         * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
+         * Whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
          */
         propagateTags?: string;
         /**
-         * The reference ID to use for the task. Maximum length of 1,024.
+         * Reference ID to use for the task. Maximum length of 1,024.
          */
         referenceId?: string;
         /**
-         * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * Key-value map of tags that you apply to the task to help you categorize and organize them.
          */
         tags?: {[key: string]: string};
         /**
-         * The number of tasks to create based on TaskDefinition. The default is 1.
+         * Number of tasks to create based on TaskDefinition. The default is 1.
          */
         taskCount?: number;
         /**
-         * The ARN of the task definition to use if the event target is an Amazon ECS task.
+         * ARN of the task definition to use if the event target is an Amazon ECS task.
          */
         taskDefinitionArn: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersCapacityProviderStrategy {
         /**
-         * The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
+         * Base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. If no value is specified, the default value of 0 is used. Maximum value of 100,000.
          */
         base?: number;
         /**
-         * The short name of the capacity provider. Maximum value of 255.
+         * Short name of the capacity provider. Maximum value of 255.
          */
         capacityProvider: string;
         /**
-         * The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
+         * Weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied. Maximum value of 1,000.
          */
         weight?: number;
     }
 
     export interface PipeTargetParametersEcsTaskParametersNetworkConfiguration {
         /**
-         * Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+         * Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. See `awsVpcConfiguration` Block for details.
          */
         awsVpcConfiguration?: outputs.pipes.PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration;
     }
 
     export interface PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration {
         /**
-         * Specifies whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
+         * Whether the task's elastic network interface receives a public IP address. You can specify ENABLED only when LaunchType in EcsParameters is set to FARGATE. Valid Values: ENABLED, DISABLED.
          */
         assignPublicIp?: string;
+        /**
+         * Security groups associated with the task. These security groups must all be in the same VPC. You can specify as many as five security groups. If you do not specify a security group, the default security group for the VPC is used.
+         */
         securityGroups?: string[];
+        /**
+         * Subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.
+         */
         subnets?: string[];
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverrides {
         /**
-         * One or more container overrides that are sent to a task. Detailed below.
+         * One or more container overrides that are sent to a task. See `containerOverride` Block for details.
          */
         containerOverrides?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverride[];
         /**
-         * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+         * CPU override for the task.
          */
         cpu?: string;
         /**
-         * The ephemeral storage setting override for the task.  Detailed below.
+         * Ephemeral storage setting override for the task. See `ephemeralStorage` Block for details.
          */
         ephemeralStorage?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage;
         /**
@@ -98631,11 +98623,11 @@ export namespace pipes {
          */
         executionRoleArn?: string;
         /**
-         * List of Elastic Inference accelerator overrides for the task. Detailed below.
+         * List of Elastic Inference accelerator overrides for the task. See `inferenceAcceleratorOverride` Block for details.
          */
         inferenceAcceleratorOverrides?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride[];
         /**
-         * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+         * Memory override for the task.
          */
         memory?: string;
         /**
@@ -98650,31 +98642,31 @@ export namespace pipes {
          */
         commands?: string[];
         /**
-         * The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
+         * Number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
          */
         cpu?: number;
         /**
-         * A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
+         * List of files containing the environment variables to pass to a container, instead of the value from the container definition. See `environmentFile` Block for details.
          */
         environmentFiles?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile[];
         /**
-         * The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+         * Environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. See `target_parameters.ecs_task_parameters.overrides.container_override.environment` Block for details.
          */
         environments?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment[];
         /**
-         * The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
+         * Hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
          */
         memory?: number;
         /**
-         * The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
+         * Soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
          */
         memoryReservation?: number;
         /**
-         * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * Name of the container that receives the override. This parameter is required if any override is specified.
          */
         name?: string;
         /**
-         * The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+         * Type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See `target_parameters.ecs_task_parameters.overrides.container_override.resource_requirement` Block for details.
          */
         resourceRequirements?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement[];
     }
@@ -98684,81 +98676,72 @@ export namespace pipes {
          * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
          */
         name?: string;
-        /**
-         * Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-         */
         value?: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile {
         /**
-         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         * File type to use. The only supported value is s3.
          */
         type: string;
         /**
-         * Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
+         * ARN of the Amazon S3 object containing the environment variable file.
          */
         value: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement {
-        /**
-         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
-         */
         type: string;
-        /**
-         * Value of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 1024.
-         */
         value: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage {
         /**
-         * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
+         * Total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is 21 GiB and the maximum supported value is 200 GiB.
          */
         sizeInGib: number;
     }
 
     export interface PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride {
         /**
-         * The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
+         * Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
          */
         deviceName?: string;
         /**
-         * The Elastic Inference accelerator type to use.
+         * Elastic Inference accelerator type to use.
          */
         deviceType?: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersPlacementConstraint {
         /**
-         * A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
+         * Cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is distinctInstance. Maximum length of 2,000.
          */
         expression?: string;
         /**
-         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         * Type of constraint. Use distinctInstance to ensure that each task in a particular group is running on a different container instance. Use memberOf to restrict the selection to a group of valid candidates. Valid Values: distinctInstance, memberOf.
          */
         type?: string;
     }
 
     export interface PipeTargetParametersEcsTaskParametersPlacementStrategy {
         /**
-         * The field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
+         * Field to apply the placement strategy against. For the spread placement strategy, valid values are instanceId (or host, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as attribute:ecs.availability-zone. For the binpack placement strategy, valid values are cpu and memory. For the random placement strategy, this field is not used. Maximum length of 255.
          */
         field?: string;
         /**
-         * The type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
+         * Type of placement strategy. The random placement strategy randomly places tasks on available candidates. The spread placement strategy spreads placement across available candidates evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter. For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task). Valid Values: random, spread, binpack.
          */
         type?: string;
     }
 
     export interface PipeTargetParametersEventbridgeEventBusParameters {
         /**
-         * A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
+         * Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.
          */
         detailType?: string;
         /**
-         * The URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
+         * URL subdomain of the endpoint. For example, if the URL for Endpoint is https://abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is abcde.veo.
          */
         endpointId?: string;
         /**
@@ -98766,11 +98749,11 @@ export namespace pipes {
          */
         resources?: string[];
         /**
-         * Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+         * Source of the event. Maximum length of 256.
          */
         source?: string;
         /**
-         * The time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
+         * Time stamp of the event, per RFC3339. If no time stamp is provided, the time stamp of the PutEvents call is used. This is the JSON path to the field in the event e.g. $.detail.timestamp
          */
         time?: string;
     }
@@ -98783,29 +98766,29 @@ export namespace pipes {
 
     export interface PipeTargetParametersKinesisStreamParameters {
         /**
-         * Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
+         * Value used to determine which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
          */
         partitionKey: string;
     }
 
     export interface PipeTargetParametersLambdaFunctionParameters {
         /**
-         * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+         * Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
          */
         invocationType: string;
     }
 
     export interface PipeTargetParametersRedshiftDataParameters {
         /**
-         * The name of the database. Required when authenticating using temporary credentials.
+         * Name of the database. Required when authenticating using temporary credentials.
          */
         database: string;
         /**
-         * The database user name. Required when authenticating using temporary credentials.
+         * Database user name. Required when authenticating using temporary credentials.
          */
         dbUser?: string;
         /**
-         * The name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
+         * Name or ARN of the secret that enables access to the database. Required when authenticating using Secrets Manager.
          */
         secretManagerArn?: string;
         /**
@@ -98813,25 +98796,25 @@ export namespace pipes {
          */
         sqls: string[];
         /**
-         * The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+         * Name of the SQL statement. You can name the SQL statement when you create it to identify the query.
          */
         statementName?: string;
         /**
-         * Indicates whether to send an event back to EventBridge after the SQL statement runs.
+         * Whether to send an event back to EventBridge after the SQL statement runs.
          */
         withEvent?: boolean;
     }
 
     export interface PipeTargetParametersSagemakerPipelineParameters {
         /**
-         * List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
+         * List of Parameter names and values for SageMaker AI Model Building Pipeline execution. See `pipelineParameter` Block for details.
          */
         pipelineParameters?: outputs.pipes.PipeTargetParametersSagemakerPipelineParametersPipelineParameter[];
     }
 
     export interface PipeTargetParametersSagemakerPipelineParametersPipelineParameter {
         /**
-         * Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `namePrefix`.
+         * Name of parameter to start execution of a SageMaker AI Model Building Pipeline. Maximum length of 256.
          */
         name: string;
         /**
@@ -98842,18 +98825,18 @@ export namespace pipes {
 
     export interface PipeTargetParametersSqsQueueParameters {
         /**
-         * This parameter applies only to FIFO (first-in-first-out) queues. The token used for deduplication of sent messages.
+         * Token used for deduplication of sent messages. This parameter applies only to FIFO (first-in-first-out) queues.
          */
         messageDeduplicationId?: string;
         /**
-         * The FIFO message group ID to use as the target.
+         * FIFO message group ID to use as the target.
          */
         messageGroupId?: string;
     }
 
     export interface PipeTargetParametersStepFunctionStateMachineParameters {
         /**
-         * Specify whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
+         * Whether to invoke the function synchronously or asynchronously. Valid Values: REQUEST_RESPONSE, FIRE_AND_FORGET.
          */
         invocationType: string;
     }
@@ -98887,7 +98870,7 @@ export namespace polly {
          */
         name: string;
         /**
-         * Specifies which engines are supported by a given voice.
+         * Engines supported by a given voice.
          */
         supportedEngines: string[];
     }
@@ -98943,7 +98926,7 @@ export namespace qbusiness {
 export namespace qldb {
     export interface StreamKinesisConfiguration {
         /**
-         * Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+         * Whether to allow QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
          */
         aggregationEnabled?: boolean;
         /**
@@ -98968,19 +98951,19 @@ export namespace quicksight {
 
     export interface AnalysisParameters {
         /**
-         * A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+         * List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
          */
         dateTimeParameters?: outputs.quicksight.AnalysisParametersDateTimeParameter[];
         /**
-         * A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+         * List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
          */
         decimalParameters?: outputs.quicksight.AnalysisParametersDecimalParameter[];
         /**
-         * A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+         * List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
          */
         integerParameters?: outputs.quicksight.AnalysisParametersIntegerParameter[];
         /**
-         * A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+         * List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
          */
         stringParameters?: outputs.quicksight.AnalysisParametersStringParameter[];
     }
@@ -99038,7 +99021,7 @@ export namespace quicksight {
 
     export interface AnalysisSourceEntity {
         /**
-         * The source template. See source_template.
+         * Source template. See source_template.
          */
         sourceTemplate?: outputs.quicksight.AnalysisSourceEntitySourceTemplate;
     }
@@ -99067,138 +99050,138 @@ export namespace quicksight {
 
     export interface CustomPermissionsCapabilities {
         /**
-         * The ability to add or run anomaly detection. Valid values: `DENY`.
+         * Ability to add or run anomaly detection. Valid values: `DENY`.
          */
         addOrRunAnomalyDetectionForAnalyses?: string;
         /**
-         * The ability to create and update email reports. Valid values: `DENY`.
+         * Ability to create and update email reports. Valid values: `DENY`.
          */
         createAndUpdateDashboardEmailReports?: string;
         /**
-         * The ability to create and update data sources. Valid values: `DENY`.
+         * Ability to create and update data sources. Valid values: `DENY`.
          */
         createAndUpdateDataSources?: string;
         /**
-         * The ability to create and update datasets. Valid values: `DENY`.
+         * Ability to create and update datasets. Valid values: `DENY`.
          */
         createAndUpdateDatasets?: string;
         /**
-         * The ability to export to create and update themes. Valid values: `DENY`.
+         * Ability to create and update themes. Valid values: `DENY`.
          */
         createAndUpdateThemes?: string;
         /**
-         * The ability to create and update threshold alerts. Valid values: `DENY`.
+         * Ability to create and update threshold alerts. Valid values: `DENY`.
          */
         createAndUpdateThresholdAlerts?: string;
         /**
-         * The ability to create shared folders. Valid values: `DENY`.
+         * Ability to create shared folders. Valid values: `DENY`.
          */
         createSharedFolders?: string;
         /**
-         * The ability to create a SPICE dataset. Valid values: `DENY`.
+         * Ability to create a SPICE dataset. Valid values: `DENY`.
          */
         createSpiceDataset?: string;
         /**
-         * The ability to export to CSV files from the UI. Valid values: `DENY`.
+         * Ability to export to CSV files from the UI. Valid values: `DENY`.
          */
         exportToCsv?: string;
         /**
-         * The ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
+         * Ability to export to CSV files in scheduled email reports. Valid values: `DENY`.
          */
         exportToCsvInScheduledReports?: string;
         /**
-         * The ability to export to Excel files from the UI. Valid values: `DENY`.
+         * Ability to export to Excel files from the UI. Valid values: `DENY`.
          */
         exportToExcel?: string;
         /**
-         * The ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
+         * Ability to export to Excel files in scheduled email reports. Valid values: `DENY`.
          */
         exportToExcelInScheduledReports?: string;
         /**
-         * The ability to export to PDF files from the UI. Valid values: `DENY`.
+         * Ability to export to PDF files from the UI. Valid values: `DENY`.
          */
         exportToPdf?: string;
         /**
-         * The ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
+         * Ability to export to PDF files in scheduled email reports. Valid values: `DENY`.
          */
         exportToPdfInScheduledReports?: string;
         /**
-         * The ability to include content in scheduled email reports. Valid values: `DENY`.
+         * Ability to include content in scheduled email reports. Valid values: `DENY`.
          */
         includeContentInScheduledReportsEmail?: string;
         /**
-         * The ability to print reports. Valid values: `DENY`.
+         * Ability to print reports. Valid values: `DENY`.
          */
         printReports?: string;
         /**
-         * The ability to rename shared folders. Valid values: `DENY`.
+         * Ability to rename shared folders. Valid values: `DENY`.
          */
         renameSharedFolders?: string;
         /**
-         * The ability to share analyses. Valid values: `DENY`.
+         * Ability to share analyses. Valid values: `DENY`.
          */
         shareAnalyses?: string;
         /**
-         * The ability to share dashboards. Valid values: `DENY`.
+         * Ability to share dashboards. Valid values: `DENY`.
          */
         shareDashboards?: string;
         /**
-         * The ability to share data sources. Valid values: `DENY`.
+         * Ability to share data sources. Valid values: `DENY`.
          */
         shareDataSources?: string;
         /**
-         * The ability to share datasets. Valid values: `DENY`.
+         * Ability to share datasets. Valid values: `DENY`.
          */
         shareDatasets?: string;
         /**
-         * The ability to subscribe to email reports. Valid values: `DENY`.
+         * Ability to subscribe to email reports. Valid values: `DENY`.
          */
         subscribeDashboardEmailReports?: string;
         /**
-         * The ability to view account SPICE capacity. Valid values: `DENY`.
+         * Ability to view account SPICE capacity. Valid values: `DENY`.
          */
         viewAccountSpiceCapacity?: string;
     }
 
     export interface DashboardDashboardPublishOptions {
         /**
-         * Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
+         * Ad hoc (one-time) filtering option. See `adHocFilteringOption`.
          */
         adHocFilteringOption?: outputs.quicksight.DashboardDashboardPublishOptionsAdHocFilteringOption;
         /**
-         * The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
+         * Drill-down options of data points in a dashboard. See `dataPointDrillUpDownOption`.
          */
         dataPointDrillUpDownOption?: outputs.quicksight.DashboardDashboardPublishOptionsDataPointDrillUpDownOption;
         /**
-         * The data point menu label options of a dashboard. See data_point_menu_label_option.
+         * Data point menu label options of a dashboard. See `dataPointMenuLabelOption`.
          */
         dataPointMenuLabelOption?: outputs.quicksight.DashboardDashboardPublishOptionsDataPointMenuLabelOption;
         /**
-         * The data point tool tip options of a dashboard. See data_point_tooltip_option.
+         * Data point tool tip options of a dashboard. See `dataPointTooltipOption`.
          */
         dataPointTooltipOption?: outputs.quicksight.DashboardDashboardPublishOptionsDataPointTooltipOption;
         /**
-         * Export to .csv option. See export_to_csv_option.
+         * Export to .csv option. See `exportToCsvOption`.
          */
         exportToCsvOption?: outputs.quicksight.DashboardDashboardPublishOptionsExportToCsvOption;
         /**
-         * Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
+         * Whether hidden fields are exported with a dashboard. See `exportWithHiddenFieldsOption`.
          */
         exportWithHiddenFieldsOption?: outputs.quicksight.DashboardDashboardPublishOptionsExportWithHiddenFieldsOption;
         /**
-         * Sheet controls option. See sheet_controls_option.
+         * Sheet controls option. See `sheetControlsOption`.
          */
         sheetControlsOption?: outputs.quicksight.DashboardDashboardPublishOptionsSheetControlsOption;
         /**
-         * The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
+         * Sheet layout maximization options of a dashboard. See `sheetLayoutElementMaximizationOption`.
          */
         sheetLayoutElementMaximizationOption?: outputs.quicksight.DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOption;
         /**
-         * The axis sort options of a dashboard. See visual_axis_sort_option.
+         * Axis sort options of a dashboard. See `visualAxisSortOption`.
          */
         visualAxisSortOption?: outputs.quicksight.DashboardDashboardPublishOptionsVisualAxisSortOption;
         /**
-         * The menu options of a visual in a dashboard. See visual_menu_option.
+         * Menu options of a visual in a dashboard. See `visualMenuOption`.
          */
         visualMenuOption?: outputs.quicksight.DashboardDashboardPublishOptionsVisualMenuOption;
     }
@@ -99275,19 +99258,19 @@ export namespace quicksight {
 
     export interface DashboardParameters {
         /**
-         * A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
+         * List of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
          */
         dateTimeParameters?: outputs.quicksight.DashboardParametersDateTimeParameter[];
         /**
-         * A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
+         * List of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
          */
         decimalParameters?: outputs.quicksight.DashboardParametersDecimalParameter[];
         /**
-         * A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
+         * List of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
          */
         integerParameters?: outputs.quicksight.DashboardParametersIntegerParameter[];
         /**
-         * A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
+         * List of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
          */
         stringParameters?: outputs.quicksight.DashboardParametersStringParameter[];
     }
@@ -99337,7 +99320,7 @@ export namespace quicksight {
 
     export interface DashboardSourceEntity {
         /**
-         * The source template. See source_template.
+         * Source template. See `sourceTemplate`.
          */
         sourceTemplate?: outputs.quicksight.DashboardSourceEntitySourceTemplate;
     }
@@ -99348,7 +99331,7 @@ export namespace quicksight {
          */
         arn: string;
         /**
-         * List of dataset references. See data_set_references.
+         * List of dataset references. See `dataSetReferences`.
          */
         dataSetReferences: outputs.quicksight.DashboardSourceEntitySourceTemplateDataSetReference[];
     }
@@ -99366,7 +99349,7 @@ export namespace quicksight {
 
     export interface DataSetColumnGroup {
         /**
-         * Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
+         * Geospatial column group that denotes a hierarchy. See `geoSpatialColumnGroup` Block below.
          */
         geoSpatialColumnGroup?: outputs.quicksight.DataSetColumnGroupGeoSpatialColumnGroup;
     }
@@ -99381,36 +99364,36 @@ export namespace quicksight {
          */
         countryCode: string;
         /**
-         * A display name for the hierarchy.
+         * Display name for the hierarchy.
          */
         name: string;
     }
 
     export interface DataSetColumnLevelPermissionRule {
         /**
-         * An array of column names.
+         * Array of column names.
          */
         columnNames?: string[];
         /**
-         * An array of ARNs for Amazon QuickSight users or groups.
+         * Array of ARNs for Amazon QuickSight users or groups.
          */
         principals?: string[];
     }
 
     export interface DataSetDataSetUsageConfiguration {
         /**
-         * Controls whether a child dataset of a direct query can use this dataset as a source.
+         * Whether to prevent a child dataset of a direct query from using this dataset as a source.
          */
         disableUseAsDirectQuerySource: boolean;
         /**
-         * Controls whether a child dataset that's stored in QuickSight can use this dataset as a source.
+         * Whether to prevent a child dataset that's stored in QuickSight from using this dataset as a source.
          */
         disableUseAsImportedSource: boolean;
     }
 
     export interface DataSetFieldFolder {
         /**
-         * An array of column names to add to the folder. A column can only be in one folder.
+         * Array of column names to add to the folder. A column can only be in one folder.
          */
         columns?: string[];
         /**
@@ -99425,11 +99408,11 @@ export namespace quicksight {
 
     export interface DataSetLogicalTableMap {
         /**
-         * A display name for the logical table.
+         * Display name for the logical table.
          */
         alias: string;
         /**
-         * Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
+         * Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See `dataTransforms` Block below.
          */
         dataTransforms: outputs.quicksight.DataSetLogicalTableMapDataTransform[];
         /**
@@ -99437,38 +99420,38 @@ export namespace quicksight {
          */
         logicalTableMapId: string;
         /**
-         * Source of this logical table. See source.
+         * Source of this logical table. See `source` Block below.
          */
         source: outputs.quicksight.DataSetLogicalTableMapSource;
     }
 
     export interface DataSetLogicalTableMapDataTransform {
         /**
-         * A transform operation that casts a column to a different type. See cast_column_type_operation.
+         * Transform operation that casts a column to a different type. See `castColumnTypeOperation` Block below.
          */
         castColumnTypeOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformCastColumnTypeOperation;
         /**
-         * An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
+         * Operation that creates calculated columns. Columns created in one such operation form a lexical closure. See `createColumnsOperation` Block below.
          */
         createColumnsOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformCreateColumnsOperation;
         /**
-         * An operation that filters rows based on some condition. See filter_operation.
+         * Operation that filters rows based on some condition. See `filterOperation` Block below.
          */
         filterOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformFilterOperation;
         /**
-         * An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
+         * Operation that projects columns. Operations that come after a projection can only refer to projected columns. See `projectOperation` Block below.
          */
         projectOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformProjectOperation;
         /**
-         * An operation that renames a column. See rename_column_operation.
+         * Operation that renames a column. See `renameColumnOperation` Block below.
          */
         renameColumnOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformRenameColumnOperation;
         /**
-         * An operation that tags a column with additional information. See tag_column_operation.
+         * Operation that tags a column with additional information. See `tagColumnOperation` Block below.
          */
         tagColumnOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformTagColumnOperation;
         /**
-         * A transform operation that removes tags associated with a column. See untag_column_operation.
+         * Transform operation that removes tags associated with a column. See `untagColumnOperation` Block below.
          */
         untagColumnOperation: outputs.quicksight.DataSetLogicalTableMapDataTransformUntagColumnOperation;
     }
@@ -99490,29 +99473,26 @@ export namespace quicksight {
 
     export interface DataSetLogicalTableMapDataTransformCreateColumnsOperation {
         /**
-         * Calculated columns to create. See columns.
+         * Calculated columns to create. See `logical_table_map.data_transforms.create_columns_operation.columns` Block below.
          */
         columns: outputs.quicksight.DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn[];
     }
 
     export interface DataSetLogicalTableMapDataTransformCreateColumnsOperationColumn {
         /**
-         * A unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
+         * Unique ID to identify a calculated column. During a dataset update, if the column ID of a calculated column matches that of an existing calculated column, Amazon QuickSight preserves the existing calculated column.
          */
         columnId: string;
-        /**
-         * Column name.
-         */
         columnName: string;
         /**
-         * An expression that defines the calculated column.
+         * Expression that defines the calculated column.
          */
         expression: string;
     }
 
     export interface DataSetLogicalTableMapDataTransformFilterOperation {
         /**
-         * An expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
+         * Expression that must evaluate to a Boolean value. Rows for which the expression evaluates to true are kept in the dataset.
          */
         conditionExpression: string;
     }
@@ -99541,25 +99521,25 @@ export namespace quicksight {
          */
         columnName: string;
         /**
-         * The dataset column tag, currently only used for geospatial type tagging. See tags.
+         * Dataset column tag, currently only used for geospatial type tagging. See `tags` Block below.
          */
         tags: outputs.quicksight.DataSetLogicalTableMapDataTransformTagColumnOperationTag[];
     }
 
     export interface DataSetLogicalTableMapDataTransformTagColumnOperationTag {
         /**
-         * A description for a column. See column_description.
+         * Description for a column. See `columnDescription` Block below.
          */
         columnDescription: outputs.quicksight.DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription;
         /**
-         * A geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
+         * Geospatial role for a column. Valid values are `COUNTRY`, `STATE`, `COUNTY`, `CITY`, `POSTCODE`, `LONGITUDE`, and `LATITUDE`.
          */
         columnGeographicRole: string;
     }
 
     export interface DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescription {
         /**
-         * The text of a description for a column.
+         * Text of a description for a column.
          */
         text: string;
     }
@@ -99570,7 +99550,7 @@ export namespace quicksight {
          */
         columnName: string;
         /**
-         * The column tags to remove from this column.
+         * Column tags to remove from this column.
          */
         tagNames: string[];
     }
@@ -99581,7 +99561,7 @@ export namespace quicksight {
          */
         dataSetArn: string;
         /**
-         * Specifies the result of a join of two logical tables. See join_instruction.
+         * Result of a join of two logical tables. See `joinInstruction` Block below.
          */
         joinInstruction: outputs.quicksight.DataSetLogicalTableMapSourceJoinInstruction;
         /**
@@ -99592,7 +99572,7 @@ export namespace quicksight {
 
     export interface DataSetLogicalTableMapSourceJoinInstruction {
         /**
-         * Join key properties of the left operand. See left_join_key_properties.
+         * Join key properties of the left operand. See `leftJoinKeyProperties` Block below.
          */
         leftJoinKeyProperties: outputs.quicksight.DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties;
         /**
@@ -99604,7 +99584,7 @@ export namespace quicksight {
          */
         onClause: string;
         /**
-         * Join key properties of the right operand. See right_join_key_properties.
+         * Join key properties of the right operand. See `rightJoinKeyProperties` Block below.
          */
         rightJoinKeyProperties: outputs.quicksight.DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties;
         /**
@@ -99619,21 +99599,21 @@ export namespace quicksight {
 
     export interface DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyProperties {
         /**
-         * A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+         * Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
          */
         uniqueKey: boolean;
     }
 
     export interface DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyProperties {
         /**
-         * A value that indicates that a row in a table is uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
+         * Whether to treat a row in a table as uniquely identified by the columns in a join key. This is used by Amazon QuickSight to optimize query performance.
          */
         uniqueKey: boolean;
     }
 
     export interface DataSetOutputColumn {
         /**
-         * The description of the column.
+         * Description of the column.
          */
         description: string;
         /**
@@ -99643,7 +99623,7 @@ export namespace quicksight {
          */
         name: string;
         /**
-         * The data type of the column.
+         * Data type of the column.
          */
         type: string;
     }
@@ -99661,7 +99641,7 @@ export namespace quicksight {
 
     export interface DataSetPhysicalTableMap {
         /**
-         * A physical table type built from the results of the custom SQL query. See custom_sql.
+         * Physical table type built from the results of the custom SQL query. See `customSql` Block below.
          */
         customSql?: outputs.quicksight.DataSetPhysicalTableMapCustomSql;
         /**
@@ -99669,18 +99649,18 @@ export namespace quicksight {
          */
         physicalTableMapId: string;
         /**
-         * A physical table type for relational data sources. See relational_table.
+         * Physical table type for relational data sources. See `relationalTable` Block below.
          */
         relationalTable?: outputs.quicksight.DataSetPhysicalTableMapRelationalTable;
         /**
-         * A physical table type for as S3 data source. See s3_source.
+         * Physical table type for an S3 data source. See `s3Source` Block below.
          */
         s3Source: outputs.quicksight.DataSetPhysicalTableMapS3Source;
     }
 
     export interface DataSetPhysicalTableMapCustomSql {
         /**
-         * Column schema from the SQL query result set. See columns.
+         * Column schema from the SQL query result set. See `physical_table_map.custom_sql.columns` Block below.
          */
         columns?: outputs.quicksight.DataSetPhysicalTableMapCustomSqlColumn[];
         /**
@@ -99699,7 +99679,9 @@ export namespace quicksight {
 
     export interface DataSetPhysicalTableMapCustomSqlColumn {
         /**
-         * Name of this column in the underlying data source.
+         * Display name for the dataset.
+         *
+         * The following arguments are optional:
          */
         name: string;
         /**
@@ -99718,7 +99700,7 @@ export namespace quicksight {
          */
         dataSourceArn: string;
         /**
-         * Column schema of the table. See input_columns.
+         * Column schema of the table. See `inputColumns` Block below.
          */
         inputColumns: outputs.quicksight.DataSetPhysicalTableMapRelationalTableInputColumn[];
         /**
@@ -99748,11 +99730,11 @@ export namespace quicksight {
          */
         dataSourceArn: string;
         /**
-         * Column schema of the table. See input_columns.
+         * Column schema of the table. See `inputColumns` Block below.
          */
         inputColumns: outputs.quicksight.DataSetPhysicalTableMapS3SourceInputColumn[];
         /**
-         * Information about the format for the S3 source file or files. See upload_settings.
+         * Information about the format for the S3 source file or files. See `uploadSettings` Block below.
          */
         uploadSettings: outputs.quicksight.DataSetPhysicalTableMapS3SourceUploadSettings;
     }
@@ -99782,7 +99764,7 @@ export namespace quicksight {
          */
         format: string;
         /**
-         * A row number to start reading data from.
+         * Row number to start reading data from.
          */
         startFromRow: number;
         /**
@@ -99793,36 +99775,36 @@ export namespace quicksight {
 
     export interface DataSetRefreshProperties {
         /**
-         * The refresh configuration for the data set. See refresh_configuration.
+         * Refresh configuration for the data set. See `refreshConfiguration` Block below.
          */
         refreshConfiguration: outputs.quicksight.DataSetRefreshPropertiesRefreshConfiguration;
     }
 
     export interface DataSetRefreshPropertiesRefreshConfiguration {
         /**
-         * The incremental refresh for the data set. See incremental_refresh.
+         * Incremental refresh for the data set. See `incrementalRefresh` Block below.
          */
         incrementalRefresh: outputs.quicksight.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh;
     }
 
     export interface DataSetRefreshPropertiesRefreshConfigurationIncrementalRefresh {
         /**
-         * The lookback window setup for an incremental refresh configuration. See lookback_window.
+         * Lookback window setup for an incremental refresh configuration. See `lookbackWindow` Block below.
          */
         lookbackWindow: outputs.quicksight.DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow;
     }
 
     export interface DataSetRefreshPropertiesRefreshConfigurationIncrementalRefreshLookbackWindow {
         /**
-         * The name of the lookback window column.
+         * Name of the lookback window column.
          */
         columnName: string;
         /**
-         * The lookback window column size.
+         * Lookback window column size.
          */
         size: number;
         /**
-         * The size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
+         * Size unit that is used for the lookback window column. Valid values for this structure are `HOUR`, `DAY`, and `WEEK`.
          */
         sizeUnit: string;
     }
@@ -99852,11 +99834,11 @@ export namespace quicksight {
 
     export interface DataSetRowLevelPermissionTagConfiguration {
         /**
-         * The status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
+         * Status of row-level security tags. If enabled, the status is `ENABLED`. If disabled, the status is `DISABLED`.
          */
         status?: string;
         /**
-         * A set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See tag_rules.
+         * Set of rules associated with row-level security, such as the tag names and columns that they are assigned to. See `tagRules` Block below.
          */
         tagRules: outputs.quicksight.DataSetRowLevelPermissionTagConfigurationTagRule[];
     }
@@ -99867,7 +99849,7 @@ export namespace quicksight {
          */
         columnName: string;
         /**
-         * A string that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
+         * String that you want to use to filter by all the values in a column in the dataset and don’t want to list the values one by one.
          */
         matchAllValue?: string;
         /**
@@ -99875,23 +99857,22 @@ export namespace quicksight {
          */
         tagKey: string;
         /**
-         * A string that you want to use to delimit the values when you pass the values at run time.
+         * String that you want to use to delimit the values when you pass the values at run time.
          */
         tagMultiValueDelimiter?: string;
     }
 
     export interface DataSourceCredentials {
         /**
-         * The ARN of a data source that has the credential pair that you want to use.
-         * When the value is not null, the `credentialPair` from the data source in the ARN is used.
+         * ARN of a data source that has the credential pair to use. When the value is not null, the `credentialPair` from the data source in the ARN is used.
          */
         copySourceArn?: string;
         /**
-         * Credential pair. See Credential Pair below for more details.
+         * Credential pair. See `credentialPair` Block below for more details.
          */
         credentialPair?: outputs.quicksight.DataSourceCredentialsCredentialPair;
         /**
-         * The ARN of the secret associated with the data source in Amazon Secrets Manager.
+         * ARN of the secret associated with the data source in Amazon Secrets Manager.
          */
         secretArn?: string;
     }
@@ -99996,189 +99977,189 @@ export namespace quicksight {
 
     export interface DataSourceParametersAmazonElasticsearch {
         /**
-         * The OpenSearch domain.
+         * OpenSearch domain.
          */
         domain: string;
     }
 
     export interface DataSourceParametersAthena {
         /**
-         * Use the `roleArn` to override an account-wide role for a specific athena data source.
+         * Use the `roleArn` to override an account-wide role for a specific Athena data source.
          */
         roleArn?: string;
         /**
-         * The work-group to which to connect.
+         * Work-group to which to connect.
          */
         workGroup?: string;
     }
 
     export interface DataSourceParametersAurora {
         /**
-         * The database to which to connect.
+         * Database to which to connect.
          */
         database: string;
         /**
-         * The host to which to connect.
+         * Host to which to connect.
          */
         host: string;
         /**
-         * The port to which to connect.
+         * Port to which to connect.
          */
         port: number;
     }
 
     export interface DataSourceParametersAuroraPostgresql {
         /**
-         * The database to which to connect.
+         * Database to which to connect.
          */
         database: string;
         /**
-         * The host to which to connect.
+         * Host to which to connect.
          */
         host: string;
         /**
-         * The port to which to connect.
+         * Port to which to connect.
          */
         port: number;
     }
 
     export interface DataSourceParametersAwsIotAnalytics {
         /**
-         * The name of the data set to which to connect.
+         * Name of the data set to which to connect.
          */
         dataSetName: string;
     }
 
     export interface DataSourceParametersDatabricks {
         /**
-         * The host name of the Databricks data source.
+         * Host name of the Databricks data source.
          */
         host: string;
         /**
-         * The port for the Databricks data source.
+         * Port for the Databricks data source.
          */
         port: number;
         /**
-         * The HTTP path of the Databricks data source.
+         * HTTP path of the Databricks data source.
          */
         sqlEndpointPath: string;
     }
 
     export interface DataSourceParametersJira {
         /**
-         * The base URL of the Jira instance's site to which to connect.
+         * Base URL of the Jira instance's site to which to connect.
          */
         siteBaseUrl: string;
     }
 
     export interface DataSourceParametersMariaDb {
         /**
-         * The database to which to connect.
+         * Database to which to connect.
          */
         database: string;
         /**
-         * The host to which to connect.
+         * Host to which to connect.
          */
         host: string;
         /**
-         * The port to which to connect.
+         * Port to which to connect.
          */
         port: number;
     }
 
     export interface DataSourceParametersMysql {
         /**
-         * The database to which to connect.
+         * Database to which to connect.
          */
         database: string;
         /**
-         * The host to which to connect.
+         * Host to which to connect.
          */
         host: string;
         /**
-         * The port to which to connect.
+         * Port to which to connect.
          */
         port: number;
     }
 
     export interface DataSourceParametersOracle {
         /**
-         * The database to which to connect.
+         * Database to which to connect.
          */
         database: string;
         /**
-         * The host to which to connect.
+         * Host to which to connect.
          */
         host: string;
         /**
-         * The port to which to connect.
+         * Port to which to connect.
          */
         port: number;
     }
 
     export interface DataSourceParametersPostgresql {
         /**
-         * The database to which to connect.
+         * Database to which to connect.
          */
         database: string;
         /**
-         * The host to which to connect.
+         * Host to which to connect.
          */
         host: string;
         /**
-         * The port to which to connect.
+         * Port to which to connect.
          */
         port: number;
     }
 
     export interface DataSourceParametersPresto {
         /**
-         * The catalog to which to connect.
+         * Catalog to which to connect.
          */
         catalog: string;
         /**
-         * The host to which to connect.
+         * Host to which to connect.
          */
         host: string;
         /**
-         * The port to which to connect.
+         * Port to which to connect.
          */
         port: number;
     }
 
     export interface DataSourceParametersRds {
         /**
-         * The database to which to connect.
+         * Database to which to connect.
          */
         database: string;
         /**
-         * The instance ID to which to connect.
+         * Instance ID to which to connect.
          */
         instanceId: string;
     }
 
     export interface DataSourceParametersRedshift {
         /**
-         * The ID of the cluster to which to connect.
+         * ID of the cluster to which to connect.
          */
         clusterId?: string;
         /**
-         * The database to which to connect.
+         * Database to which to connect.
          */
         database: string;
         /**
-         * The host to which to connect.
+         * Host to which to connect.
          */
         host?: string;
         /**
-         * The port to which to connect.
+         * Port to which to connect.
          */
         port?: number;
     }
 
     export interface DataSourceParametersS3 {
         /**
-         * An object containing the S3 location of the S3 manifest file.
+         * S3 location of the S3 manifest file. See `manifestFileLocation` Block below for more details.
          */
         manifestFileLocation: outputs.quicksight.DataSourceParametersS3ManifestFileLocation;
         /**
@@ -100189,85 +100170,85 @@ export namespace quicksight {
 
     export interface DataSourceParametersS3ManifestFileLocation {
         /**
-         * The name of the bucket that contains the manifest file.
+         * Name of the bucket that contains the manifest file.
          */
         bucket: string;
         /**
-         * The key of the manifest file within the bucket.
+         * Key of the manifest file within the bucket.
          */
         key: string;
     }
 
     export interface DataSourceParametersServiceNow {
         /**
-         * The base URL of the Jira instance's site to which to connect.
+         * Base URL of the ServiceNow instance's site to which to connect.
          */
         siteBaseUrl: string;
     }
 
     export interface DataSourceParametersSnowflake {
         /**
-         * The database to which to connect.
+         * Database to which to connect.
          */
         database: string;
         /**
-         * The host to which to connect.
+         * Host to which to connect.
          */
         host: string;
         /**
-         * The warehouse to which to connect.
+         * Warehouse to which to connect.
          */
         warehouse: string;
     }
 
     export interface DataSourceParametersSpark {
         /**
-         * The host to which to connect.
+         * Host to which to connect.
          */
         host: string;
         /**
-         * The warehouse to which to connect.
+         * Port to which to connect.
          */
         port: number;
     }
 
     export interface DataSourceParametersSqlServer {
         /**
-         * The database to which to connect.
+         * Database to which to connect.
          */
         database: string;
         /**
-         * The host to which to connect.
+         * Host to which to connect.
          */
         host: string;
         /**
-         * The warehouse to which to connect.
+         * Port to which to connect.
          */
         port: number;
     }
 
     export interface DataSourceParametersTeradata {
         /**
-         * The database to which to connect.
+         * Database to which to connect.
          */
         database: string;
         /**
-         * The host to which to connect.
+         * Host to which to connect.
          */
         host: string;
         /**
-         * The warehouse to which to connect.
+         * Port to which to connect.
          */
         port: number;
     }
 
     export interface DataSourceParametersTwitter {
         /**
-         * The maximum number of rows to query.
+         * Maximum number of rows to query.
          */
         maxRows: number;
         /**
-         * The Twitter query to retrieve the data.
+         * Twitter query to retrieve the data.
          */
         query: string;
     }
@@ -100285,7 +100266,7 @@ export namespace quicksight {
 
     export interface DataSourceSslProperties {
         /**
-         * A Boolean option to control whether SSL should be disabled.
+         * Whether to disable SSL.
          */
         disableSsl: boolean;
     }
@@ -100513,7 +100494,7 @@ export namespace quicksight {
          */
         sheets: outputs.quicksight.GetThemeConfigurationSheet[];
         /**
-         * Determines the typography options. See typography.
+         * Typography options. See typography.
          */
         typographies: outputs.quicksight.GetThemeConfigurationTypography[];
         /**
@@ -100528,68 +100509,68 @@ export namespace quicksight {
          */
         colors: string[];
         /**
-         * The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+         * Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
          */
         emptyFillColor: string;
         /**
-         * The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+         * Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
          */
         minMaxGradients: string[];
     }
 
     export interface GetThemeConfigurationSheet {
         /**
-         * The layout options for tiles. See tile_layout.
+         * Layout options for tiles. See tile_layout.
          */
         tileLayouts: outputs.quicksight.GetThemeConfigurationSheetTileLayout[];
         /**
-         * The display options for tiles. See tile.
+         * Display options for tiles. See tile.
          */
         tiles: outputs.quicksight.GetThemeConfigurationSheetTile[];
     }
 
     export interface GetThemeConfigurationSheetTile {
         /**
-         * The border around a tile. See border.
+         * Border around a tile. See border.
          */
         borders: outputs.quicksight.GetThemeConfigurationSheetTileBorder[];
     }
 
     export interface GetThemeConfigurationSheetTileBorder {
         /**
-         * This Boolean value controls whether to display sheet margins.
+         * Whether to display sheet margins.
          */
         show: boolean;
     }
 
     export interface GetThemeConfigurationSheetTileLayout {
         /**
-         * The gutter settings that apply between tiles. See gutter.
+         * Gutter settings that apply between tiles. See gutter.
          */
         gutters: outputs.quicksight.GetThemeConfigurationSheetTileLayoutGutter[];
         /**
-         * The margin settings that apply around the outside edge of sheets. See margin.
+         * Margin settings that apply around the outside edge of sheets. See margin.
          */
         margins: outputs.quicksight.GetThemeConfigurationSheetTileLayoutMargin[];
     }
 
     export interface GetThemeConfigurationSheetTileLayoutGutter {
         /**
-         * This Boolean value controls whether to display sheet margins.
+         * Whether to display sheet margins.
          */
         show: boolean;
     }
 
     export interface GetThemeConfigurationSheetTileLayoutMargin {
         /**
-         * This Boolean value controls whether to display sheet margins.
+         * Whether to display sheet margins.
          */
         show: boolean;
     }
 
     export interface GetThemeConfigurationTypography {
         /**
-         * Determines the list of font families. Maximum number of 5 items. See font_families.
+         * List of font families. Maximum number of 5 items. See font_families.
          */
         fontFamilies: outputs.quicksight.GetThemeConfigurationTypographyFontFamily[];
     }
@@ -100714,11 +100695,11 @@ export namespace quicksight {
 
     export interface RefreshScheduleSchedule {
         /**
-         * The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
+         * Type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
          */
         refreshType: string;
         /**
-         * The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
+         * Configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See `scheduleFrequency` Block.
          */
         scheduleFrequency: outputs.quicksight.RefreshScheduleScheduleScheduleFrequency;
         /**
@@ -100729,30 +100710,30 @@ export namespace quicksight {
 
     export interface RefreshScheduleScheduleScheduleFrequency {
         /**
-         * The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
+         * Interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
          */
         interval: string;
         /**
-         * The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
+         * [Refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See `refreshOnDay` Block.
          */
         refreshOnDay?: outputs.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDay;
         /**
-         * The time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
+         * Time of day that you want the dataset to refresh. This value is expressed in `HH:MM` format. This field is not required for schedules that refresh hourly.
          */
         timeOfTheDay: string;
         /**
-         * The timezone that you want the refresh schedule to use.
+         * Timezone that you want the refresh schedule to use.
          */
         timezone: string;
     }
 
     export interface RefreshScheduleScheduleScheduleFrequencyRefreshOnDay {
         /**
-         * The day of the month that you want to schedule refresh on.
+         * Day of the month that you want to schedule refresh on.
          */
         dayOfMonth?: string;
         /**
-         * The day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
+         * Day of the week that you want to schedule a refresh on. Valid values are `SUNDAY`, `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY` and `SATURDAY`.
          */
         dayOfWeek?: string;
     }
@@ -100770,11 +100751,11 @@ export namespace quicksight {
 
     export interface TemplateSourceEntity {
         /**
-         * The source analysis, if it is based on an analysis.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_analysis.
+         * Source analysis, if it is based on an analysis. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceAnalysis` Block.
          */
         sourceAnalysis?: outputs.quicksight.TemplateSourceEntitySourceAnalysis;
         /**
-         * The source template, if it is based on an template.. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See source_template.
+         * Source template, if it is based on a template. Only one of `sourceAnalysis` or `sourceTemplate` should be configured. See `sourceTemplate` Block.
          */
         sourceTemplate?: outputs.quicksight.TemplateSourceEntitySourceTemplate;
     }
@@ -100785,7 +100766,7 @@ export namespace quicksight {
          */
         arn: string;
         /**
-         * A list of dataset references used as placeholders in the template. See data_set_references.
+         * List of dataset references used as placeholders in the template. See `dataSetReferences` Block.
          */
         dataSetReferences: outputs.quicksight.TemplateSourceEntitySourceAnalysisDataSetReference[];
     }
@@ -100818,7 +100799,7 @@ export namespace quicksight {
          */
         sheet?: outputs.quicksight.ThemeConfigurationSheet;
         /**
-         * Determines the typography options. See typography.
+         * Typography options. See typography.
          */
         typography?: outputs.quicksight.ThemeConfigurationTypography;
         /**
@@ -100833,68 +100814,68 @@ export namespace quicksight {
          */
         colors?: string[];
         /**
-         * The hexadecimal code of a color that applies to charts where a lack of data is highlighted.
+         * Hexadecimal code of a color that applies to charts where a lack of data is highlighted.
          */
         emptyFillColor?: string;
         /**
-         * The minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
+         * Minimum and maximum hexadecimal codes that describe a color gradient. List of exactly 2 items.
          */
         minMaxGradients?: string[];
     }
 
     export interface ThemeConfigurationSheet {
         /**
-         * The display options for tiles. See tile.
+         * Display options for tiles. See tile.
          */
         tile?: outputs.quicksight.ThemeConfigurationSheetTile;
         /**
-         * The layout options for tiles. See tile_layout.
+         * Layout options for tiles. See tile_layout.
          */
         tileLayout?: outputs.quicksight.ThemeConfigurationSheetTileLayout;
     }
 
     export interface ThemeConfigurationSheetTile {
         /**
-         * The border around a tile. See border.
+         * Border around a tile. See border.
          */
         border?: outputs.quicksight.ThemeConfigurationSheetTileBorder;
     }
 
     export interface ThemeConfigurationSheetTileBorder {
         /**
-         * The option to enable display of borders for visuals.
+         * Whether to enable display of borders for visuals.
          */
         show?: boolean;
     }
 
     export interface ThemeConfigurationSheetTileLayout {
         /**
-         * The gutter settings that apply between tiles. See gutter.
+         * Gutter settings that apply between tiles. See gutter.
          */
         gutter?: outputs.quicksight.ThemeConfigurationSheetTileLayoutGutter;
         /**
-         * The margin settings that apply around the outside edge of sheets. See margin.
+         * Margin settings that apply around the outside edge of sheets. See margin.
          */
         margin?: outputs.quicksight.ThemeConfigurationSheetTileLayoutMargin;
     }
 
     export interface ThemeConfigurationSheetTileLayoutGutter {
         /**
-         * This Boolean value controls whether to display a gutter space between sheet tiles.
+         * Whether to display a gutter space between sheet tiles.
          */
         show?: boolean;
     }
 
     export interface ThemeConfigurationSheetTileLayoutMargin {
         /**
-         * This Boolean value controls whether to display sheet margins.
+         * Whether to display sheet margins.
          */
         show?: boolean;
     }
 
     export interface ThemeConfigurationTypography {
         /**
-         * Determines the list of font families. Maximum number of 5 items. See font_families.
+         * List of font families. Maximum number of 5 items. See font_families.
          */
         fontFamilies?: outputs.quicksight.ThemeConfigurationTypographyFontFamily[];
     }
@@ -106208,7 +106189,7 @@ export namespace s3 {
          */
         errorDocument?: string;
         /**
-         * Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+         * Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
          */
         indexDocument?: string;
         /**
@@ -106260,7 +106241,7 @@ export namespace s3 {
          */
         errorDocument?: string;
         /**
-         * Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
+         * Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders. Required unless using `redirectAllRequestsTo`.
          */
         indexDocument?: string;
         /**
@@ -119689,7 +119670,7 @@ export namespace timestreaminfluxdb {
          */
         bucketName: string;
         /**
-         * Indicates whether log delivery to the S3 bucket is enabled.
+         * Whether log delivery to the S3 bucket is enabled.
          *
          * **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `dbInstanceType`, `failoverMode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `dbParameterGroupIdentifier` is added to a cluster or modified, the cluster will be updated in-place but if `dbParameterGroupIdentifier` is removed from a cluster, the cluster will be destroyed and re-created.
          */
@@ -119735,7 +119716,7 @@ export namespace timestreaminfluxdb {
          */
         bucketName: string;
         /**
-         * Indicates whether log delivery to the S3 bucket is enabled.
+         * Whether log delivery to the S3 bucket is enabled.
          *
          * **Note**: The following arguments do updates in-place: `dbParameterGroupIdentifier`, `logDeliveryConfiguration`, `maintenanceSchedule`, `port`, `deploymentType`, `dbInstanceType`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `dbParameterGroupIdentifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `dbParameterGroupIdentifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
          */
@@ -119795,11 +119776,11 @@ export namespace timestreamquery {
 
     export interface ScheduledQueryLastRunSummary {
         /**
-         * S3 location for error report.
+         * S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
          */
         errorReportLocations?: outputs.timestreamquery.ScheduledQueryLastRunSummaryErrorReportLocation[];
         /**
-         * Statistics for a single scheduled query run.
+         * Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
          */
         executionStats?: outputs.timestreamquery.ScheduledQueryLastRunSummaryExecutionStat[];
         /**
@@ -119811,7 +119792,7 @@ export namespace timestreamquery {
          */
         invocationTime: string;
         /**
-         * Various insights and metrics related to the run summary of the scheduled query.
+         * Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
          */
         queryInsightsResponses?: outputs.timestreamquery.ScheduledQueryLastRunSummaryQueryInsightsResponse[];
         /**
@@ -119826,7 +119807,7 @@ export namespace timestreamquery {
 
     export interface ScheduledQueryLastRunSummaryErrorReportLocation {
         /**
-         * S3 location where error reports are written.
+         * S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
          */
         s3ReportLocations?: outputs.timestreamquery.ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocation[];
     }
@@ -119879,7 +119860,7 @@ export namespace timestreamquery {
          */
         outputRows: number;
         /**
-         * Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+         * Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
          */
         querySpatialCoverages?: outputs.timestreamquery.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage[];
         /**
@@ -119887,14 +119868,14 @@ export namespace timestreamquery {
          */
         queryTableCount: number;
         /**
-         * Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+         * Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
          */
         queryTemporalRanges?: outputs.timestreamquery.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange[];
     }
 
     export interface ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverage {
         /**
-         * Insights into the most sub-optimal performing table on the temporal axis:
+         * Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
          */
         maxes?: outputs.timestreamquery.ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis[];
     }
@@ -119916,7 +119897,7 @@ export namespace timestreamquery {
 
     export interface ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRange {
         /**
-         * Insights into the most sub-optimal performing table on the temporal axis:
+         * Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
          */
         maxes?: outputs.timestreamquery.ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxis[];
     }
@@ -119948,11 +119929,11 @@ export namespace timestreamquery {
 
     export interface ScheduledQueryRecentlyFailedRun {
         /**
-         * S3 location for error report.
+         * S3 location for error report. See `recently_failed_runs.error_report_location` Block for details.
          */
         errorReportLocations?: outputs.timestreamquery.ScheduledQueryRecentlyFailedRunErrorReportLocation[];
         /**
-         * Statistics for a single scheduled query run.
+         * Statistics for a single scheduled query run. See `recently_failed_runs.execution_stats` Block for details.
          */
         executionStats?: outputs.timestreamquery.ScheduledQueryRecentlyFailedRunExecutionStat[];
         /**
@@ -119964,7 +119945,7 @@ export namespace timestreamquery {
          */
         invocationTime: string;
         /**
-         * Various insights and metrics related to the run summary of the scheduled query.
+         * Various insights and metrics related to the run summary of the scheduled query. See `recently_failed_runs.query_insights_response` Block for details.
          */
         queryInsightsResponses?: outputs.timestreamquery.ScheduledQueryRecentlyFailedRunQueryInsightsResponse[];
         /**
@@ -119979,7 +119960,7 @@ export namespace timestreamquery {
 
     export interface ScheduledQueryRecentlyFailedRunErrorReportLocation {
         /**
-         * S3 location where error reports are written.
+         * S3 location where error reports are written. See `recently_failed_runs.error_report_location.s3_report_location` Block for details.
          */
         s3ReportLocations?: outputs.timestreamquery.ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocation[];
     }
@@ -120032,7 +120013,7 @@ export namespace timestreamquery {
          */
         outputRows: number;
         /**
-         * Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
+         * Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. See `recently_failed_runs.query_insights_response.query_spatial_coverage` Block for details.
          */
         querySpatialCoverages?: outputs.timestreamquery.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage[];
         /**
@@ -120040,14 +120021,14 @@ export namespace timestreamquery {
          */
         queryTableCount: number;
         /**
-         * Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
+         * Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries. See `recently_failed_runs.query_insights_response.query_temporal_range` Block for details.
          */
         queryTemporalRanges?: outputs.timestreamquery.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange[];
     }
 
     export interface ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverage {
         /**
-         * Insights into the most sub-optimal performing table on the temporal axis:
+         * Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
          */
         maxes?: outputs.timestreamquery.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxis[];
     }
@@ -120069,7 +120050,7 @@ export namespace timestreamquery {
 
     export interface ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRange {
         /**
-         * Insights into the most sub-optimal performing table on the temporal axis:
+         * Insights into the most sub-optimal performing table on the temporal axis. See `recently_failed_runs.query_insights_response.query_temporal_range.max` Block for details.
          */
         maxes?: outputs.timestreamquery.ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxis[];
     }
@@ -120246,13 +120227,16 @@ export namespace timestreamwrite {
          * Name of S3 bucket.
          */
         bucketName: string;
+        /**
+         * Encryption option for S3 location.
+         */
         encryptionOption: string;
         /**
-         * AWS KMS key ID for S3 location with AWS maanged key.
+         * AWS KMS key ID for S3 location with AWS managed key.
          */
         kmsKeyId: string;
         /**
-         * Object key preview for S3 location.
+         * Object key prefix for S3 location.
          */
         objectKeyPrefix: string;
     }
@@ -120269,10 +120253,16 @@ export namespace timestreamwrite {
     }
 
     export interface GetTableSchema {
+        /**
+         * Object containing the attributes to describe a composite partition key for the table.
+         */
         compositePartitionKeys: outputs.timestreamwrite.GetTableSchemaCompositePartitionKey[];
     }
 
     export interface GetTableSchemaCompositePartitionKey {
+        /**
+         * Level of enforcement for the specification of a dimension key in ingested records.
+         */
         enforcementInRecord: string;
         /**
          * Name of the Timestream table.
@@ -120286,18 +120276,18 @@ export namespace timestreamwrite {
 
     export interface TableMagneticStoreWriteProperties {
         /**
-         * A flag to enable magnetic store writes.
+         * Whether to enable magnetic store writes.
          */
         enableMagneticStoreWrites?: boolean;
         /**
-         * The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+         * Location to write error reports for records rejected asynchronously during magnetic store writes. See `magneticStoreRejectedDataLocation` Block below for more details.
          */
         magneticStoreRejectedDataLocation?: outputs.timestreamwrite.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation;
     }
 
     export interface TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation {
         /**
-         * Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+         * Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3Configuration` Block below for more details.
          */
         s3Configuration?: outputs.timestreamwrite.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration;
     }
@@ -120323,33 +120313,33 @@ export namespace timestreamwrite {
 
     export interface TableRetentionProperties {
         /**
-         * The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
+         * Duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.
          */
         magneticStoreRetentionPeriodInDays: number;
         /**
-         * The duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
+         * Duration for which data must be stored in the memory store. Minimum value of 1. Maximum value of 8766.
          */
         memoryStoreRetentionPeriodInHours: number;
     }
 
     export interface TableSchema {
         /**
-         * A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+         * Non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See `compositePartitionKey` Block below for more details.
          */
         compositePartitionKey: outputs.timestreamwrite.TableSchemaCompositePartitionKey;
     }
 
     export interface TableSchemaCompositePartitionKey {
         /**
-         * The level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
+         * Level of enforcement for the specification of a dimension key in ingested records. Valid values: `REQUIRED`, `OPTIONAL`.
          */
         enforcementInRecord?: string;
         /**
-         * The name of the attribute used for a dimension key.
+         * Name of the attribute used for a dimension key.
          */
         name?: string;
         /**
-         * The type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
+         * Type of the partition key. Valid values: `DIMENSION`, `MEASURE`.
          */
         type: string;
     }
@@ -134280,11 +134270,11 @@ export namespace workspacesweb {
 export namespace xray {
     export interface GroupInsightsConfiguration {
         /**
-         * Specifies whether insights are enabled.
+         * Whether insights are enabled.
          */
         insightsEnabled: boolean;
         /**
-         * Specifies whether insight notifications are enabled.
+         * Whether insight notifications are enabled.
          */
         notificationsEnabled: boolean;
     }

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2.Inputs
     public sealed class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
+        /// Format of the records on the output stream. Valid values: `CSV`, `JSON`.
         /// </summary>
         [Input("recordFormatType", required: true)]
         public Input<string> RecordFormatType { get; set; } = null!;

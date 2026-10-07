@@ -25,31 +25,31 @@ namespace Pulumi.Aws.Kms
     public partial class Grant : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+        /// Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `Constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
         /// </summary>
         [Output("constraints")]
         public Output<ImmutableArray<Outputs.GrantConstraint>> Constraints { get; private set; } = null!;
 
         /// <summary>
-        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+        /// List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
         /// </summary>
         [Output("grantCreationTokens")]
         public Output<ImmutableArray<string>> GrantCreationTokens { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the grant.
+        /// Unique identifier for the grant.
         /// </summary>
         [Output("grantId")]
         public Output<string> GrantId { get; private set; } = null!;
 
         /// <summary>
-        /// The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
+        /// Grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
         /// </summary>
         [Output("grantToken")]
         public Output<string> GrantToken { get; private set; } = null!;
 
         /// <summary>
-        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        /// Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Output("granteePrincipal")]
         public Output<string> GranteePrincipal { get; private set; } = null!;
@@ -61,13 +61,13 @@ namespace Pulumi.Aws.Kms
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// A friendly name for identifying the grant.
+        /// Friendly name for identifying the grant.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        /// List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         /// </summary>
         [Output("operations")]
         public Output<ImmutableArray<string>> Operations { get; private set; } = null!;
@@ -79,14 +79,13 @@ namespace Pulumi.Aws.Kms
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         /// </summary>
         [Output("retireOnDelete")]
         public Output<bool?> RetireOnDelete { get; private set; } = null!;
 
         /// <summary>
-        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        /// Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Output("retiringPrincipal")]
         public Output<string?> RetiringPrincipal { get; private set; } = null!;
@@ -145,7 +144,7 @@ namespace Pulumi.Aws.Kms
         private InputList<Inputs.GrantConstraintArgs>? _constraints;
 
         /// <summary>
-        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+        /// Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `Constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
         /// </summary>
         public InputList<Inputs.GrantConstraintArgs> Constraints
         {
@@ -157,7 +156,7 @@ namespace Pulumi.Aws.Kms
         private InputList<string>? _grantCreationTokens;
 
         /// <summary>
-        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+        /// List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
         /// </summary>
         public InputList<string> GrantCreationTokens
         {
@@ -166,7 +165,7 @@ namespace Pulumi.Aws.Kms
         }
 
         /// <summary>
-        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        /// Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Input("granteePrincipal", required: true)]
         public Input<string> GranteePrincipal { get; set; } = null!;
@@ -178,7 +177,7 @@ namespace Pulumi.Aws.Kms
         public Input<string> KeyId { get; set; } = null!;
 
         /// <summary>
-        /// A friendly name for identifying the grant.
+        /// Friendly name for identifying the grant.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -187,7 +186,7 @@ namespace Pulumi.Aws.Kms
         private InputList<string>? _operations;
 
         /// <summary>
-        /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        /// List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         /// </summary>
         public InputList<string> Operations
         {
@@ -202,14 +201,13 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         /// </summary>
         [Input("retireOnDelete")]
         public Input<bool>? RetireOnDelete { get; set; }
 
         /// <summary>
-        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        /// Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Input("retiringPrincipal")]
         public Input<string>? RetiringPrincipal { get; set; }
@@ -226,7 +224,7 @@ namespace Pulumi.Aws.Kms
         private InputList<Inputs.GrantConstraintGetArgs>? _constraints;
 
         /// <summary>
-        /// A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
+        /// Structure that you can use to allow certain operations in the grant only when the desired encryption context is present. See `Constraints` Block for details. For more information about encryption context, see [Encryption Context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html).
         /// </summary>
         public InputList<Inputs.GrantConstraintGetArgs> Constraints
         {
@@ -238,7 +236,7 @@ namespace Pulumi.Aws.Kms
         private InputList<string>? _grantCreationTokens;
 
         /// <summary>
-        /// A list of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
+        /// List of grant tokens to be used when creating the grant. See [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token) for more information about grant tokens.
         /// </summary>
         public InputList<string> GrantCreationTokens
         {
@@ -247,7 +245,7 @@ namespace Pulumi.Aws.Kms
         }
 
         /// <summary>
-        /// The unique identifier for the grant.
+        /// Unique identifier for the grant.
         /// </summary>
         [Input("grantId")]
         public Input<string>? GrantId { get; set; }
@@ -256,7 +254,7 @@ namespace Pulumi.Aws.Kms
         private Input<string>? _grantToken;
 
         /// <summary>
-        /// The grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
+        /// Grant token for the created grant. For more information, see [Grant Tokens](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token).
         /// </summary>
         public Input<string>? GrantToken
         {
@@ -269,7 +267,7 @@ namespace Pulumi.Aws.Kms
         }
 
         /// <summary>
-        /// The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        /// Principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Input("granteePrincipal")]
         public Input<string>? GranteePrincipal { get; set; }
@@ -281,7 +279,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
-        /// A friendly name for identifying the grant.
+        /// Friendly name for identifying the grant.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -290,7 +288,7 @@ namespace Pulumi.Aws.Kms
         private InputList<string>? _operations;
 
         /// <summary>
-        /// A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        /// List of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         /// </summary>
         public InputList<string> Operations
         {
@@ -305,14 +303,13 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
-        /// See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
+        /// If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants. See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         /// </summary>
         [Input("retireOnDelete")]
         public Input<bool>? RetireOnDelete { get; set; }
 
         /// <summary>
-        /// The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
+        /// Principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, Terraform's state may not always be refreshed to reflect what is true in AWS.
         /// </summary>
         [Input("retiringPrincipal")]
         public Input<string>? RetiringPrincipal { get; set; }

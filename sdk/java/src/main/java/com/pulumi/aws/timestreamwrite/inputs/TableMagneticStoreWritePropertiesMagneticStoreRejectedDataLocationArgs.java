@@ -16,14 +16,14 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
     public static final TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs Empty = new TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs();
 
     /**
-     * Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+     * Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3Configuration` Block below for more details.
      * 
      */
     @Import(name="s3Configuration")
     private @Nullable Output<TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs> s3Configuration;
 
     /**
-     * @return Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+     * @return Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3Configuration` Block below for more details.
      * 
      */
     public Optional<Output<TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs>> s3Configuration() {
@@ -55,7 +55,7 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
         }
 
         /**
-         * @param s3Configuration Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+         * @param s3Configuration Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3Configuration` Block below for more details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLoc
         }
 
         /**
-         * @param s3Configuration Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+         * @param s3Configuration Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See `s3Configuration` Block below for more details.
          * 
          * @return builder
          * 
