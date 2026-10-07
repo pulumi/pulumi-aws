@@ -1,3 +1,0 @@
-name: rds
-runtime: nodejs
-description: Ensure getEngineVersionOutput handles nil values
