@@ -167,15 +167,14 @@ func TestCredentialsFailureReason(t *testing.T) {
 			diag: "validating provider credentials: retrieving caller identity from STS: operation error STS: " +
 				"GetCallerIdentity, https response error StatusCode: 403, api error InvalidClientTokenId: " +
 				"The security token included in the request is invalid.",
-			expected: "Invalid credentials configured.\n" + docsHint + "\n" + escHint,
+			expected: "The configured AWS credentials are invalid or have expired.\n" + docsHint + "\n" + escHint,
 		},
 		{
 			name: "expired credentials",
 			diag: "validating provider credentials: retrieving caller identity from STS: operation error STS: " +
 				"GetCallerIdentity, https response error StatusCode: 403, api error ExpiredToken: " +
 				"The security token included in the request is expired",
-			expected: "The configured AWS credentials have expired.\n" +
-				"Refresh the temporary credentials and try again.\n" + escHint,
+			expected: "The configured AWS credentials are invalid or have expired.\n" + docsHint + "\n" + escHint,
 		},
 		{
 			name: "unrecognized refresh failure",

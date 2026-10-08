@@ -29,9 +29,6 @@ var expiredSSOError string
 //go:embed errors/expired_login.txt
 var expiredLoginError string
 
-//go:embed errors/expired_credentials.txt
-var expiredCredentialsError string
-
 //go:embed errors/credential_process.txt
 var credentialProcessError string
 
@@ -80,10 +77,10 @@ func credentialsFailureReason(formattedDiag string, config *awsbase.Config) stri
 			data.Profiles = formatProfiles(sharedProfiles(config))
 		}
 		return renderCredentialsError(noCredentialsError, data)
-	case contains("The security token included in the request is invalid"):
+	// STS reports long-expired session tokens as invalid, so one message covers both.
+	case contains("The security token included in the request is invalid",
+		"The security token included in the request is expired"):
 		return invalidCredentialsError
-	case contains("The security token included in the request is expired"):
-		return expiredCredentialsError
 	case contains("failed to get shared config profile"):
 		data.Profiles = formatProfiles(sharedProfiles(config))
 		return renderCredentialsError(profileNotFoundError, data)

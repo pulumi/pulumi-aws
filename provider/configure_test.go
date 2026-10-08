@@ -249,7 +249,7 @@ func TestInvalidCredentialsErrorMessage(t *testing.T) {
 	require.Len(t, resp.Failures, 1)
 
 	reason := resp.Failures[0].Reason
-	require.Contains(t, reason, "Invalid credentials configured.")
+	require.Contains(t, reason, "The configured AWS credentials are invalid or have expired.")
 	assertMessage := "Please see https://www.pulumi.com/registry/packages/aws/installation-configuration/ " +
 		"for more information about providing credentials."
 	require.Equal(t, 1, strings.Count(reason, assertMessage))
