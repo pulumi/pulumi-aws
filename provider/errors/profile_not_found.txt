@@ -1,0 +1,5 @@
+The AWS profile "{{.Profile}}" was not found.
+{{- if .Profiles}}
+Configured profiles: {{.Profiles}}.
+{{- end}}
+Check the `aws:profile` configuration and the AWS_PROFILE environment variable.

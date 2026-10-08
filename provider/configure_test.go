@@ -152,7 +152,7 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 	unsetAWSEnv()
 	os.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "false")
 
-	replaySequence(t, `
+	replaySequence(t, strings.ReplaceAll(`
 	[{
 		"method": "/pulumirpc.ResourceProvider/CheckConfig",
 		"request": {
@@ -166,7 +166,7 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 			"inputs": "*",
 			"failures": [
 				{
-					"reason": "No valid credential sources found.\nPlease see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more information about providing credentials.\nNEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the correct and valid credentials are used.\nLearn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials-via-pulumi-esc"
+					"reason": "No valid credential sources found.\nTo sign in through your browser, run '''aws login''' (requires AWS CLI 2.32.0 or later) and try again.\nPlease see https://www.pulumi.com/registry/packages/aws/installation-configuration/ for more information about providing credentials.\nNEW: You can use Pulumi ESC to set up dynamic credentials with AWS OIDC to ensure the correct and valid credentials are used.\nLearn more: https://www.pulumi.com/registry/packages/aws/installation-configuration/#dynamically-generate-credentials-via-pulumi-esc"
 				}
 			]
 		},
@@ -175,7 +175,7 @@ func TestMissingCredentialsErrorMessage(t *testing.T) {
 			"mode": "client",
 			"name": "aws"
 		}
-	}]`)
+	}]`, "'''", "`"))
 }
 
 func TestMissingRegionErrorMessage(t *testing.T) {
@@ -329,7 +329,7 @@ func TestCheckConfigValidatesAssumeRoles(t *testing.T) {
 	require.Contains(t, resp.Failures[0].Reason, "Cannot assume IAM Role.")
 }
 
-func TestOtherFailureErrorMessage(t *testing.T) {
+func TestProfileNotFoundErrorMessage(t *testing.T) {
 	skipIfNotShort(t)
 	unsetAWSEnv()
 	os.Setenv("AWS_ACCESS_KEY_ID", "INVALID")
@@ -338,7 +338,7 @@ func TestOtherFailureErrorMessage(t *testing.T) {
 	os.Setenv("AWS_PROFILE", "non-existent-profile")
 	os.Setenv("AWS_SKIP_CREDENTIALS_VALIDATION", "false")
 
-	replaySequence(t, `
+	replaySequence(t, strings.ReplaceAll(`
 	[{
 		"method": "/pulumirpc.ResourceProvider/CheckConfig",
 		"request": {
@@ -352,7 +352,7 @@ func TestOtherFailureErrorMessage(t *testing.T) {
 			"inputs": "*",
 			"failures": [
 				{
-					"reason": "unable to validate AWS credentials.\nDetails: loading configuration: failed to get shared config profile, non-existent-profile\n"
+					"reason": "The AWS profile \"non-existent-profile\" was not found.\nCheck the '''aws:profile''' configuration and the AWS_PROFILE environment variable."
 				}
 			]
 		},
@@ -361,7 +361,7 @@ func TestOtherFailureErrorMessage(t *testing.T) {
 			"mode": "client",
 			"name": "aws"
 		}
-	}]`)
+	}]`, "'''", "`"))
 }
 
 func replaySequence(t *testing.T, sequence string) {
