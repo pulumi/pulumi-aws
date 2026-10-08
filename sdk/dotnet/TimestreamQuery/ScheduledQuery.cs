@@ -469,7 +469,7 @@ namespace Pulumi.Aws.TimestreamQuery
         public Output<string> PreviousInvocationTime { get; private set; } = null!;
 
         /// <summary>
-        /// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `ScheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+        /// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `ScheduleConfiguration` parameter, will be the value of `@scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         /// </summary>
         [Output("queryString")]
         public Output<string> QueryString { get; private set; } = null!;
@@ -610,7 +610,7 @@ namespace Pulumi.Aws.TimestreamQuery
         public Input<Inputs.ScheduledQueryNotificationConfigurationArgs> NotificationConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `ScheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+        /// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `ScheduleConfiguration` parameter, will be the value of `@scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         /// </summary>
         [Input("queryString", required: true)]
         public Input<string> QueryString { get; set; } = null!;
@@ -737,7 +737,7 @@ namespace Pulumi.Aws.TimestreamQuery
         public Input<string>? PreviousInvocationTime { get; set; }
 
         /// <summary>
-        /// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `ScheduleConfiguration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
+        /// Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `ScheduleConfiguration` parameter, will be the value of `@scheduled_runtime` parameter for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         /// </summary>
         [Input("queryString")]
         public Input<string>? QueryString { get; set; }

@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration {
     /**
-     * @return The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+     * @return Token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
      * 
      */
     private String groupClaim;
     /**
-     * @return The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+     * @return Policy store entity type that you want to map your users&#39; group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
      * 
      */
     private String groupEntityType;
 
     private IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration() {}
     /**
-     * @return The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+     * @return Token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
      * 
      */
     public String groupClaim() {
         return this.groupClaim;
     }
     /**
-     * @return The name of the schema entity type that&#39;s mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+     * @return Policy store entity type that you want to map your users&#39; group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
      * 
      */
     public String groupEntityType() {

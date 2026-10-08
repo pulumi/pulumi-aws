@@ -95,14 +95,14 @@ public final class CompositeAlarmState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * An expression that specifies which other alarms are to be evaluated to determine this composite alarm&#39;s state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+     * Expression that specifies which other alarms are to be evaluated to determine this composite alarm&#39;s state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
      * 
      */
     @Import(name="alarmRule")
     private @Nullable Output<String> alarmRule;
 
     /**
-     * @return An expression that specifies which other alarms are to be evaluated to determine this composite alarm&#39;s state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+     * @return Expression that specifies which other alarms are to be evaluated to determine this composite alarm&#39;s state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
      * 
      */
     public Optional<Output<String>> alarmRule() {
@@ -350,7 +350,7 @@ public final class CompositeAlarmState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param alarmRule An expression that specifies which other alarms are to be evaluated to determine this composite alarm&#39;s state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+         * @param alarmRule Expression that specifies which other alarms are to be evaluated to determine this composite alarm&#39;s state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class CompositeAlarmState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param alarmRule An expression that specifies which other alarms are to be evaluated to determine this composite alarm&#39;s state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+         * @param alarmRule Expression that specifies which other alarms are to be evaluated to determine this composite alarm&#39;s state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
          * 
          * @return builder
          * 

@@ -16,11 +16,14 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ### Apple Push Notification Service (APNS) using certificate-based authentication
     /// 
+    /// &gt; **NOTE:** For certificate-based APNS, both `PlatformCredential` (private key) and `PlatformPrincipal` (certificate) must be PEM-encoded strings. Terraform string values must be valid UTF-8, so do not pass a binary Apple `.p12` via `base64decode()` — that fails with `the result of decoding the provided string is not valid UTF-8`. Convert the `.p12` to PEM (for example with `Openssl`) and load the PEM files instead.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -28,8 +31,14 @@ namespace Pulumi.Aws.Sns
     ///     {
     ///         Name = "apns_application",
     ///         Platform = "APNS",
-    ///         PlatformCredential = "&lt;APNS PRIVATE KEY&gt;",
-    ///         PlatformPrincipal = "&lt;APNS CERTIFICATE&gt;",
+    ///         PlatformCredential = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "apns-private-key.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         PlatformPrincipal = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "apns-certificate.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

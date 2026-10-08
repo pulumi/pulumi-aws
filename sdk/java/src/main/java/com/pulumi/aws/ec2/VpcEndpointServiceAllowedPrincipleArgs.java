@@ -17,14 +17,14 @@ public final class VpcEndpointServiceAllowedPrincipleArgs extends com.pulumi.res
     public static final VpcEndpointServiceAllowedPrincipleArgs Empty = new VpcEndpointServiceAllowedPrincipleArgs();
 
     /**
-     * The ARN of the principal to allow permissions.
+     * ARN of the principal to allow permissions.
      * 
      */
     @Import(name="principalArn", required=true)
     private Output<String> principalArn;
 
     /**
-     * @return The ARN of the principal to allow permissions.
+     * @return ARN of the principal to allow permissions.
      * 
      */
     public Output<String> principalArn() {
@@ -47,14 +47,14 @@ public final class VpcEndpointServiceAllowedPrincipleArgs extends com.pulumi.res
     }
 
     /**
-     * The ID of the VPC endpoint service to allow permission.
+     * ID of the VPC endpoint service to allow permission.
      * 
      */
     @Import(name="vpcEndpointServiceId", required=true)
     private Output<String> vpcEndpointServiceId;
 
     /**
-     * @return The ID of the VPC endpoint service to allow permission.
+     * @return ID of the VPC endpoint service to allow permission.
      * 
      */
     public Output<String> vpcEndpointServiceId() {
@@ -88,7 +88,7 @@ public final class VpcEndpointServiceAllowedPrincipleArgs extends com.pulumi.res
         }
 
         /**
-         * @param principalArn The ARN of the principal to allow permissions.
+         * @param principalArn ARN of the principal to allow permissions.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class VpcEndpointServiceAllowedPrincipleArgs extends com.pulumi.res
         }
 
         /**
-         * @param principalArn The ARN of the principal to allow permissions.
+         * @param principalArn ARN of the principal to allow permissions.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class VpcEndpointServiceAllowedPrincipleArgs extends com.pulumi.res
         }
 
         /**
-         * @param vpcEndpointServiceId The ID of the VPC endpoint service to allow permission.
+         * @param vpcEndpointServiceId ID of the VPC endpoint service to allow permission.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class VpcEndpointServiceAllowedPrincipleArgs extends com.pulumi.res
         }
 
         /**
-         * @param vpcEndpointServiceId The ID of the VPC endpoint service to allow permission.
+         * @param vpcEndpointServiceId ID of the VPC endpoint service to allow permission.
          * 
          * @return builder
          * 

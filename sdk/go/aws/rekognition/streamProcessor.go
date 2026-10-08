@@ -199,8 +199,10 @@ import (
 //				return err
 //			}
 //			exampleStream, err := kinesis.NewStream(ctx, "example", &kinesis.StreamArgs{
-//				Name:       pulumi.String("pulumi-kinesis-example"),
-//				ShardCount: pulumi.Int(1),
+//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
+//					StreamMode: pulumi.String("ON_DEMAND"),
+//				},
+//				Name: pulumi.String("pulumi-kinesis-example"),
 //			})
 //			if err != nil {
 //				return err

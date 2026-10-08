@@ -156,7 +156,7 @@ export class InstanceLoggingConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * A block that specifies the configuration options for Verified Access instances. Detailed below.
+     * Block that specifies the configuration options for Verified Access instances. Detailed below.
      */
     declare public readonly accessLogs: pulumi.Output<outputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs>;
     /**
@@ -164,7 +164,7 @@ export class InstanceLoggingConfiguration extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID of the Verified Access instance.
+     * ID of the Verified Access instance.
      */
     declare public readonly verifiedaccessInstanceId: pulumi.Output<string>;
 
@@ -206,7 +206,7 @@ export class InstanceLoggingConfiguration extends pulumi.CustomResource {
  */
 export interface InstanceLoggingConfigurationState {
     /**
-     * A block that specifies the configuration options for Verified Access instances. Detailed below.
+     * Block that specifies the configuration options for Verified Access instances. Detailed below.
      */
     accessLogs?: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs | undefined>;
     /**
@@ -214,7 +214,7 @@ export interface InstanceLoggingConfigurationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Verified Access instance.
+     * ID of the Verified Access instance.
      */
     verifiedaccessInstanceId?: pulumi.Input<string | undefined>;
 }
@@ -224,7 +224,7 @@ export interface InstanceLoggingConfigurationState {
  */
 export interface InstanceLoggingConfigurationArgs {
     /**
-     * A block that specifies the configuration options for Verified Access instances. Detailed below.
+     * Block that specifies the configuration options for Verified Access instances. Detailed below.
      */
     accessLogs: pulumi.Input<inputs.verifiedaccess.InstanceLoggingConfigurationAccessLogs>;
     /**
@@ -232,7 +232,7 @@ export interface InstanceLoggingConfigurationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Verified Access instance.
+     * ID of the Verified Access instance.
      */
     verifiedaccessInstanceId: pulumi.Input<string>;
 }

@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement {
     /**
-     * @return The string to match against.
+     * @return String to match against.
      * 
      */
     private String key;
@@ -23,7 +23,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementLab
 
     private RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement() {}
     /**
-     * @return The string to match against.
+     * @return String to match against.
      * 
      */
     public String key() {

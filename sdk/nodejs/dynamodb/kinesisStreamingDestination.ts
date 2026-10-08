@@ -22,8 +22,10 @@ import * as utilities from "../utilities";
  *     hashKey: "id",
  * });
  * const exampleStream = new aws.kinesis.Stream("example", {
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
  *     name: "order_item_changes",
- *     shardCount: 1,
  * });
  * const exampleKinesisStreamingDestination = new aws.dynamodb.KinesisStreamingDestination("example", {
  *     streamArn: exampleStream.arn,

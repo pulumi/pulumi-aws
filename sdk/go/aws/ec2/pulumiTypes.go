@@ -2814,21 +2814,21 @@ func (o EipDomainNameTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type EncryptionControlResourceExclusions struct {
-	// `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+	// Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
 	EgressOnlyInternetGateway EncryptionControlResourceExclusionsEgressOnlyInternetGateway `pulumi:"egressOnlyInternetGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+	// Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
 	ElasticFileSystem EncryptionControlResourceExclusionsElasticFileSystem `pulumi:"elasticFileSystem"`
-	// `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+	// Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
 	InternetGateway EncryptionControlResourceExclusionsInternetGateway `pulumi:"internetGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+	// Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
 	Lambda EncryptionControlResourceExclusionsLambda `pulumi:"lambda"`
-	// `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+	// Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
 	NatGateway EncryptionControlResourceExclusionsNatGateway `pulumi:"natGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+	// Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
 	VirtualPrivateGateway EncryptionControlResourceExclusionsVirtualPrivateGateway `pulumi:"virtualPrivateGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+	// Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
 	VpcLattice EncryptionControlResourceExclusionsVpcLattice `pulumi:"vpcLattice"`
-	// `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+	// Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
 	VpcPeering EncryptionControlResourceExclusionsVpcPeering `pulumi:"vpcPeering"`
 }
 
@@ -2844,21 +2844,21 @@ type EncryptionControlResourceExclusionsInput interface {
 }
 
 type EncryptionControlResourceExclusionsArgs struct {
-	// `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+	// Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
 	EgressOnlyInternetGateway EncryptionControlResourceExclusionsEgressOnlyInternetGatewayInput `pulumi:"egressOnlyInternetGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+	// Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
 	ElasticFileSystem EncryptionControlResourceExclusionsElasticFileSystemInput `pulumi:"elasticFileSystem"`
-	// `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+	// Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
 	InternetGateway EncryptionControlResourceExclusionsInternetGatewayInput `pulumi:"internetGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+	// Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
 	Lambda EncryptionControlResourceExclusionsLambdaInput `pulumi:"lambda"`
-	// `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+	// Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
 	NatGateway EncryptionControlResourceExclusionsNatGatewayInput `pulumi:"natGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+	// Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
 	VirtualPrivateGateway EncryptionControlResourceExclusionsVirtualPrivateGatewayInput `pulumi:"virtualPrivateGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+	// Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
 	VpcLattice EncryptionControlResourceExclusionsVpcLatticeInput `pulumi:"vpcLattice"`
-	// `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+	// Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
 	VpcPeering EncryptionControlResourceExclusionsVpcPeeringInput `pulumi:"vpcPeering"`
 }
 
@@ -2939,54 +2939,54 @@ func (o EncryptionControlResourceExclusionsOutput) ToEncryptionControlResourceEx
 	}).(EncryptionControlResourceExclusionsPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+// Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
 func (o EncryptionControlResourceExclusionsOutput) EgressOnlyInternetGateway() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsEgressOnlyInternetGateway {
 		return v.EgressOnlyInternetGateway
 	}).(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+// Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
 func (o EncryptionControlResourceExclusionsOutput) ElasticFileSystem() EncryptionControlResourceExclusionsElasticFileSystemOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsElasticFileSystem {
 		return v.ElasticFileSystem
 	}).(EncryptionControlResourceExclusionsElasticFileSystemOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+// Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
 func (o EncryptionControlResourceExclusionsOutput) InternetGateway() EncryptionControlResourceExclusionsInternetGatewayOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsInternetGateway {
 		return v.InternetGateway
 	}).(EncryptionControlResourceExclusionsInternetGatewayOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+// Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
 func (o EncryptionControlResourceExclusionsOutput) Lambda() EncryptionControlResourceExclusionsLambdaOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsLambda { return v.Lambda }).(EncryptionControlResourceExclusionsLambdaOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+// Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
 func (o EncryptionControlResourceExclusionsOutput) NatGateway() EncryptionControlResourceExclusionsNatGatewayOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsNatGateway {
 		return v.NatGateway
 	}).(EncryptionControlResourceExclusionsNatGatewayOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+// Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
 func (o EncryptionControlResourceExclusionsOutput) VirtualPrivateGateway() EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsVirtualPrivateGateway {
 		return v.VirtualPrivateGateway
 	}).(EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+// Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
 func (o EncryptionControlResourceExclusionsOutput) VpcLattice() EncryptionControlResourceExclusionsVpcLatticeOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsVpcLattice {
 		return v.VpcLattice
 	}).(EncryptionControlResourceExclusionsVpcLatticeOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+// Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
 func (o EncryptionControlResourceExclusionsOutput) VpcPeering() EncryptionControlResourceExclusionsVpcPeeringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusions) EncryptionControlResourceExclusionsVpcPeering {
 		return v.VpcPeering
@@ -3017,7 +3017,7 @@ func (o EncryptionControlResourceExclusionsPtrOutput) Elem() EncryptionControlRe
 	}).(EncryptionControlResourceExclusionsOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+// Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
 func (o EncryptionControlResourceExclusionsPtrOutput) EgressOnlyInternetGateway() EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsEgressOnlyInternetGateway {
 		if v == nil {
@@ -3027,7 +3027,7 @@ func (o EncryptionControlResourceExclusionsPtrOutput) EgressOnlyInternetGateway(
 	}).(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+// Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
 func (o EncryptionControlResourceExclusionsPtrOutput) ElasticFileSystem() EncryptionControlResourceExclusionsElasticFileSystemPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsElasticFileSystem {
 		if v == nil {
@@ -3037,7 +3037,7 @@ func (o EncryptionControlResourceExclusionsPtrOutput) ElasticFileSystem() Encryp
 	}).(EncryptionControlResourceExclusionsElasticFileSystemPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+// Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
 func (o EncryptionControlResourceExclusionsPtrOutput) InternetGateway() EncryptionControlResourceExclusionsInternetGatewayPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsInternetGateway {
 		if v == nil {
@@ -3047,7 +3047,7 @@ func (o EncryptionControlResourceExclusionsPtrOutput) InternetGateway() Encrypti
 	}).(EncryptionControlResourceExclusionsInternetGatewayPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+// Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
 func (o EncryptionControlResourceExclusionsPtrOutput) Lambda() EncryptionControlResourceExclusionsLambdaPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsLambda {
 		if v == nil {
@@ -3057,7 +3057,7 @@ func (o EncryptionControlResourceExclusionsPtrOutput) Lambda() EncryptionControl
 	}).(EncryptionControlResourceExclusionsLambdaPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+// Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
 func (o EncryptionControlResourceExclusionsPtrOutput) NatGateway() EncryptionControlResourceExclusionsNatGatewayPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsNatGateway {
 		if v == nil {
@@ -3067,7 +3067,7 @@ func (o EncryptionControlResourceExclusionsPtrOutput) NatGateway() EncryptionCon
 	}).(EncryptionControlResourceExclusionsNatGatewayPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+// Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
 func (o EncryptionControlResourceExclusionsPtrOutput) VirtualPrivateGateway() EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsVirtualPrivateGateway {
 		if v == nil {
@@ -3077,7 +3077,7 @@ func (o EncryptionControlResourceExclusionsPtrOutput) VirtualPrivateGateway() En
 	}).(EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+// Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
 func (o EncryptionControlResourceExclusionsPtrOutput) VpcLattice() EncryptionControlResourceExclusionsVpcLatticePtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsVpcLattice {
 		if v == nil {
@@ -3087,7 +3087,7 @@ func (o EncryptionControlResourceExclusionsPtrOutput) VpcLattice() EncryptionCon
 	}).(EncryptionControlResourceExclusionsVpcLatticePtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+// Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
 func (o EncryptionControlResourceExclusionsPtrOutput) VpcPeering() EncryptionControlResourceExclusionsVpcPeeringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusions) *EncryptionControlResourceExclusionsVpcPeering {
 		if v == nil {
@@ -3098,9 +3098,9 @@ func (o EncryptionControlResourceExclusionsPtrOutput) VpcPeering() EncryptionCon
 }
 
 type EncryptionControlResourceExclusionsEgressOnlyInternetGateway struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -3116,9 +3116,9 @@ type EncryptionControlResourceExclusionsEgressOnlyInternetGatewayInput interface
 }
 
 type EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -3199,12 +3199,12 @@ func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) ToEn
 	}).(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsEgressOnlyInternetGateway) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsEgressOnlyInternetGateway) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -3233,7 +3233,7 @@ func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) E
 	}).(EncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsEgressOnlyInternetGateway) *string {
 		if v == nil {
@@ -3243,7 +3243,7 @@ func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsEgressOnlyInternetGateway) *string {
 		if v == nil {
@@ -3254,9 +3254,9 @@ func (o EncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) S
 }
 
 type EncryptionControlResourceExclusionsElasticFileSystem struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -3272,9 +3272,9 @@ type EncryptionControlResourceExclusionsElasticFileSystemInput interface {
 }
 
 type EncryptionControlResourceExclusionsElasticFileSystemArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -3355,12 +3355,12 @@ func (o EncryptionControlResourceExclusionsElasticFileSystemOutput) ToEncryption
 	}).(EncryptionControlResourceExclusionsElasticFileSystemPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsElasticFileSystemOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsElasticFileSystem) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsElasticFileSystemOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsElasticFileSystem) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -3389,7 +3389,7 @@ func (o EncryptionControlResourceExclusionsElasticFileSystemPtrOutput) Elem() En
 	}).(EncryptionControlResourceExclusionsElasticFileSystemOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsElasticFileSystemPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsElasticFileSystem) *string {
 		if v == nil {
@@ -3399,7 +3399,7 @@ func (o EncryptionControlResourceExclusionsElasticFileSystemPtrOutput) State() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsElasticFileSystemPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsElasticFileSystem) *string {
 		if v == nil {
@@ -3410,9 +3410,9 @@ func (o EncryptionControlResourceExclusionsElasticFileSystemPtrOutput) StateMess
 }
 
 type EncryptionControlResourceExclusionsInternetGateway struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -3428,9 +3428,9 @@ type EncryptionControlResourceExclusionsInternetGatewayInput interface {
 }
 
 type EncryptionControlResourceExclusionsInternetGatewayArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -3511,12 +3511,12 @@ func (o EncryptionControlResourceExclusionsInternetGatewayOutput) ToEncryptionCo
 	}).(EncryptionControlResourceExclusionsInternetGatewayPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsInternetGatewayOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsInternetGateway) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsInternetGatewayOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsInternetGateway) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -3545,7 +3545,7 @@ func (o EncryptionControlResourceExclusionsInternetGatewayPtrOutput) Elem() Encr
 	}).(EncryptionControlResourceExclusionsInternetGatewayOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsInternetGatewayPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsInternetGateway) *string {
 		if v == nil {
@@ -3555,7 +3555,7 @@ func (o EncryptionControlResourceExclusionsInternetGatewayPtrOutput) State() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsInternetGatewayPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsInternetGateway) *string {
 		if v == nil {
@@ -3566,9 +3566,9 @@ func (o EncryptionControlResourceExclusionsInternetGatewayPtrOutput) StateMessag
 }
 
 type EncryptionControlResourceExclusionsLambda struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -3584,9 +3584,9 @@ type EncryptionControlResourceExclusionsLambdaInput interface {
 }
 
 type EncryptionControlResourceExclusionsLambdaArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -3667,12 +3667,12 @@ func (o EncryptionControlResourceExclusionsLambdaOutput) ToEncryptionControlReso
 	}).(EncryptionControlResourceExclusionsLambdaPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsLambdaOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsLambda) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsLambdaOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsLambda) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -3701,7 +3701,7 @@ func (o EncryptionControlResourceExclusionsLambdaPtrOutput) Elem() EncryptionCon
 	}).(EncryptionControlResourceExclusionsLambdaOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsLambdaPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsLambda) *string {
 		if v == nil {
@@ -3711,7 +3711,7 @@ func (o EncryptionControlResourceExclusionsLambdaPtrOutput) State() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsLambdaPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsLambda) *string {
 		if v == nil {
@@ -3722,9 +3722,9 @@ func (o EncryptionControlResourceExclusionsLambdaPtrOutput) StateMessage() pulum
 }
 
 type EncryptionControlResourceExclusionsNatGateway struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -3740,9 +3740,9 @@ type EncryptionControlResourceExclusionsNatGatewayInput interface {
 }
 
 type EncryptionControlResourceExclusionsNatGatewayArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -3823,12 +3823,12 @@ func (o EncryptionControlResourceExclusionsNatGatewayOutput) ToEncryptionControl
 	}).(EncryptionControlResourceExclusionsNatGatewayPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsNatGatewayOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsNatGateway) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsNatGatewayOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsNatGateway) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -3857,7 +3857,7 @@ func (o EncryptionControlResourceExclusionsNatGatewayPtrOutput) Elem() Encryptio
 	}).(EncryptionControlResourceExclusionsNatGatewayOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsNatGatewayPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsNatGateway) *string {
 		if v == nil {
@@ -3867,7 +3867,7 @@ func (o EncryptionControlResourceExclusionsNatGatewayPtrOutput) State() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsNatGatewayPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsNatGateway) *string {
 		if v == nil {
@@ -3878,9 +3878,9 @@ func (o EncryptionControlResourceExclusionsNatGatewayPtrOutput) StateMessage() p
 }
 
 type EncryptionControlResourceExclusionsVirtualPrivateGateway struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -3896,9 +3896,9 @@ type EncryptionControlResourceExclusionsVirtualPrivateGatewayInput interface {
 }
 
 type EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -3979,12 +3979,12 @@ func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) ToEncryp
 	}).(EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsVirtualPrivateGateway) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsVirtualPrivateGateway) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -4013,7 +4013,7 @@ func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) Elem(
 	}).(EncryptionControlResourceExclusionsVirtualPrivateGatewayOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVirtualPrivateGateway) *string {
 		if v == nil {
@@ -4023,7 +4023,7 @@ func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) State
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVirtualPrivateGateway) *string {
 		if v == nil {
@@ -4034,9 +4034,9 @@ func (o EncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) State
 }
 
 type EncryptionControlResourceExclusionsVpcLattice struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -4052,9 +4052,9 @@ type EncryptionControlResourceExclusionsVpcLatticeInput interface {
 }
 
 type EncryptionControlResourceExclusionsVpcLatticeArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -4135,12 +4135,12 @@ func (o EncryptionControlResourceExclusionsVpcLatticeOutput) ToEncryptionControl
 	}).(EncryptionControlResourceExclusionsVpcLatticePtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsVpcLatticeOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsVpcLattice) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsVpcLatticeOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsVpcLattice) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -4169,7 +4169,7 @@ func (o EncryptionControlResourceExclusionsVpcLatticePtrOutput) Elem() Encryptio
 	}).(EncryptionControlResourceExclusionsVpcLatticeOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsVpcLatticePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVpcLattice) *string {
 		if v == nil {
@@ -4179,7 +4179,7 @@ func (o EncryptionControlResourceExclusionsVpcLatticePtrOutput) State() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsVpcLatticePtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVpcLattice) *string {
 		if v == nil {
@@ -4190,9 +4190,9 @@ func (o EncryptionControlResourceExclusionsVpcLatticePtrOutput) StateMessage() p
 }
 
 type EncryptionControlResourceExclusionsVpcPeering struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -4208,9 +4208,9 @@ type EncryptionControlResourceExclusionsVpcPeeringInput interface {
 }
 
 type EncryptionControlResourceExclusionsVpcPeeringArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -4291,12 +4291,12 @@ func (o EncryptionControlResourceExclusionsVpcPeeringOutput) ToEncryptionControl
 	}).(EncryptionControlResourceExclusionsVpcPeeringPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsVpcPeeringOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsVpcPeering) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsVpcPeeringOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionControlResourceExclusionsVpcPeering) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -4325,7 +4325,7 @@ func (o EncryptionControlResourceExclusionsVpcPeeringPtrOutput) Elem() Encryptio
 	}).(EncryptionControlResourceExclusionsVpcPeeringOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o EncryptionControlResourceExclusionsVpcPeeringPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVpcPeering) *string {
 		if v == nil {
@@ -4335,7 +4335,7 @@ func (o EncryptionControlResourceExclusionsVpcPeeringPtrOutput) State() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o EncryptionControlResourceExclusionsVpcPeeringPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionControlResourceExclusionsVpcPeering) *string {
 		if v == nil {
@@ -5085,7 +5085,7 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirements struct {
 	AcceleratorCount *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
-	// List of accelerator names. Default is any acclerator.
+	// List of accelerator names. Default is any accelerator.
 	AcceleratorNames []string `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
@@ -5095,7 +5095,7 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirements struct {
 	//
 	// If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
 	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
-	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal *string `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
 	BaselineEbsBandwidthMbps *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
@@ -5156,7 +5156,7 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs struct {
 	AcceleratorCount FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
-	// List of accelerator names. Default is any acclerator.
+	// List of accelerator names. Default is any accelerator.
 	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
@@ -5166,7 +5166,7 @@ type FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs struct {
 	//
 	// If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
 	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
-	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
 	BaselineEbsBandwidthMbps FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
@@ -5302,7 +5302,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) Accelerator
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of accelerator names. Default is any acclerator.
+// List of accelerator names. Default is any accelerator.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.AcceleratorNames }).(pulumi.StringArrayOutput)
 }
@@ -5326,7 +5326,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) AllowedInst
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *string { return v.BareMetal }).(pulumi.StringPtrOutput)
 }
@@ -5487,7 +5487,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) Accelera
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of accelerator names. Default is any acclerator.
+// List of accelerator names. Default is any accelerator.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -5529,7 +5529,7 @@ func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AllowedI
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *string {
 		if v == nil {
@@ -14500,7 +14500,7 @@ type LaunchTemplateInstanceRequirements struct {
 	AcceleratorCount *LaunchTemplateInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
-	// List of accelerator names. Default is any acclerator.
+	// List of accelerator names. Default is any accelerator.
 	AcceleratorNames []string `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
@@ -14510,7 +14510,7 @@ type LaunchTemplateInstanceRequirements struct {
 	//
 	// > **NOTE:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
 	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
-	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal *string `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
 	BaselineEbsBandwidthMbps *LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
@@ -14572,7 +14572,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	AcceleratorCount LaunchTemplateInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
-	// List of accelerator names. Default is any acclerator.
+	// List of accelerator names. Default is any accelerator.
 	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
@@ -14582,7 +14582,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	//
 	// > **NOTE:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
 	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
-	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
 	BaselineEbsBandwidthMbps LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
@@ -14717,7 +14717,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorManufacturers() pul
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorManufacturers }).(pulumi.StringArrayOutput)
 }
 
-// List of accelerator names. Default is any acclerator.
+// List of accelerator names. Default is any accelerator.
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorNames }).(pulumi.StringArrayOutput)
 }
@@ -14741,7 +14741,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) AllowedInstanceTypes() pulumi.
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o LaunchTemplateInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.BareMetal }).(pulumi.StringPtrOutput)
 }
@@ -14899,7 +14899,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of accelerator names. Default is any acclerator.
+// List of accelerator names. Default is any accelerator.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
 		if v == nil {
@@ -14941,7 +14941,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AllowedInstanceTypes() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o LaunchTemplateInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
 		if v == nil {
@@ -33676,6 +33676,181 @@ func (o NetworkInterfaceAttachmentTypeArrayOutput) Index(i pulumi.IntInput) Netw
 	}).(NetworkInterfaceAttachmentTypeOutput)
 }
 
+type NetworkInterfaceConnectionTrackingSpecification struct {
+	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Recommended: Less than 432000 seconds.
+	TcpEstablishedTimeout *int `pulumi:"tcpEstablishedTimeout"`
+	// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+	UdpStreamTimeout *int `pulumi:"udpStreamTimeout"`
+	// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+	UdpTimeout *int `pulumi:"udpTimeout"`
+}
+
+// NetworkInterfaceConnectionTrackingSpecificationInput is an input type that accepts NetworkInterfaceConnectionTrackingSpecificationArgs and NetworkInterfaceConnectionTrackingSpecificationOutput values.
+// You can construct a concrete instance of `NetworkInterfaceConnectionTrackingSpecificationInput` via:
+//
+//	NetworkInterfaceConnectionTrackingSpecificationArgs{...}
+type NetworkInterfaceConnectionTrackingSpecificationInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceConnectionTrackingSpecificationOutput() NetworkInterfaceConnectionTrackingSpecificationOutput
+	ToNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(context.Context) NetworkInterfaceConnectionTrackingSpecificationOutput
+}
+
+type NetworkInterfaceConnectionTrackingSpecificationArgs struct {
+	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Recommended: Less than 432000 seconds.
+	TcpEstablishedTimeout pulumi.IntPtrInput `pulumi:"tcpEstablishedTimeout"`
+	// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+	UdpStreamTimeout pulumi.IntPtrInput `pulumi:"udpStreamTimeout"`
+	// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+	UdpTimeout pulumi.IntPtrInput `pulumi:"udpTimeout"`
+}
+
+func (NetworkInterfaceConnectionTrackingSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (i NetworkInterfaceConnectionTrackingSpecificationArgs) ToNetworkInterfaceConnectionTrackingSpecificationOutput() NetworkInterfaceConnectionTrackingSpecificationOutput {
+	return i.ToNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceConnectionTrackingSpecificationArgs) ToNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceConnectionTrackingSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceConnectionTrackingSpecificationOutput)
+}
+
+func (i NetworkInterfaceConnectionTrackingSpecificationArgs) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutput() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return i.ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i NetworkInterfaceConnectionTrackingSpecificationArgs) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceConnectionTrackingSpecificationOutput).ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx)
+}
+
+// NetworkInterfaceConnectionTrackingSpecificationPtrInput is an input type that accepts NetworkInterfaceConnectionTrackingSpecificationArgs, NetworkInterfaceConnectionTrackingSpecificationPtr and NetworkInterfaceConnectionTrackingSpecificationPtrOutput values.
+// You can construct a concrete instance of `NetworkInterfaceConnectionTrackingSpecificationPtrInput` via:
+//
+//	        NetworkInterfaceConnectionTrackingSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NetworkInterfaceConnectionTrackingSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToNetworkInterfaceConnectionTrackingSpecificationPtrOutput() NetworkInterfaceConnectionTrackingSpecificationPtrOutput
+	ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(context.Context) NetworkInterfaceConnectionTrackingSpecificationPtrOutput
+}
+
+type networkInterfaceConnectionTrackingSpecificationPtrType NetworkInterfaceConnectionTrackingSpecificationArgs
+
+func NetworkInterfaceConnectionTrackingSpecificationPtr(v *NetworkInterfaceConnectionTrackingSpecificationArgs) NetworkInterfaceConnectionTrackingSpecificationPtrInput {
+	return (*networkInterfaceConnectionTrackingSpecificationPtrType)(v)
+}
+
+func (*networkInterfaceConnectionTrackingSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (i *networkInterfaceConnectionTrackingSpecificationPtrType) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutput() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return i.ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *networkInterfaceConnectionTrackingSpecificationPtrType) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceConnectionTrackingSpecificationPtrOutput)
+}
+
+type NetworkInterfaceConnectionTrackingSpecificationOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceConnectionTrackingSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) ToNetworkInterfaceConnectionTrackingSpecificationOutput() NetworkInterfaceConnectionTrackingSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) ToNetworkInterfaceConnectionTrackingSpecificationOutputWithContext(ctx context.Context) NetworkInterfaceConnectionTrackingSpecificationOutput {
+	return o
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutput() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o.ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceConnectionTrackingSpecification) *NetworkInterfaceConnectionTrackingSpecification {
+		return &v
+	}).(NetworkInterfaceConnectionTrackingSpecificationPtrOutput)
+}
+
+// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Recommended: Less than 432000 seconds.
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceConnectionTrackingSpecification) *int { return v.TcpEstablishedTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceConnectionTrackingSpecification) *int { return v.UdpStreamTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+func (o NetworkInterfaceConnectionTrackingSpecificationOutput) UdpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceConnectionTrackingSpecification) *int { return v.UdpTimeout }).(pulumi.IntPtrOutput)
+}
+
+type NetworkInterfaceConnectionTrackingSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (NetworkInterfaceConnectionTrackingSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutput() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) ToNetworkInterfaceConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
+	return o
+}
+
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) Elem() NetworkInterfaceConnectionTrackingSpecificationOutput {
+	return o.ApplyT(func(v *NetworkInterfaceConnectionTrackingSpecification) NetworkInterfaceConnectionTrackingSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceConnectionTrackingSpecification
+		return ret
+	}).(NetworkInterfaceConnectionTrackingSpecificationOutput)
+}
+
+// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Recommended: Less than 432000 seconds.
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceConnectionTrackingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TcpEstablishedTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceConnectionTrackingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UdpStreamTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+func (o NetworkInterfaceConnectionTrackingSpecificationPtrOutput) UdpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetworkInterfaceConnectionTrackingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UdpTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
 type NetworkInterfaceEnaSrdSpecification struct {
 	// Indicates whether ENA Express is enabled for the network interface.
 	EnaSrdEnabled *bool `pulumi:"enaSrdEnabled"`
@@ -34228,7 +34403,7 @@ func (o NetworkInterfacePermissionTimeoutsPtrOutput) Delete() pulumi.StringPtrOu
 }
 
 type PeeringConnectionOptionsAccepter struct {
-	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+	// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -34244,7 +34419,7 @@ type PeeringConnectionOptionsAccepterInput interface {
 }
 
 type PeeringConnectionOptionsAccepterArgs struct {
-	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+	// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -34325,7 +34500,7 @@ func (o PeeringConnectionOptionsAccepterOutput) ToPeeringConnectionOptionsAccept
 	}).(PeeringConnectionOptionsAccepterPtrOutput)
 }
 
-// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsAccepterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PeeringConnectionOptionsAccepter) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
 }
@@ -34354,7 +34529,7 @@ func (o PeeringConnectionOptionsAccepterPtrOutput) Elem() PeeringConnectionOptio
 	}).(PeeringConnectionOptionsAccepterOutput)
 }
 
-// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsAccepterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PeeringConnectionOptionsAccepter) *bool {
 		if v == nil {
@@ -34365,7 +34540,7 @@ func (o PeeringConnectionOptionsAccepterPtrOutput) AllowRemoteVpcDnsResolution()
 }
 
 type PeeringConnectionOptionsRequester struct {
-	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+	// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -34381,7 +34556,7 @@ type PeeringConnectionOptionsRequesterInput interface {
 }
 
 type PeeringConnectionOptionsRequesterArgs struct {
-	// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+	// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -34462,7 +34637,7 @@ func (o PeeringConnectionOptionsRequesterOutput) ToPeeringConnectionOptionsReque
 	}).(PeeringConnectionOptionsRequesterPtrOutput)
 }
 
-// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsRequesterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PeeringConnectionOptionsRequester) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
 }
@@ -34491,7 +34666,7 @@ func (o PeeringConnectionOptionsRequesterPtrOutput) Elem() PeeringConnectionOpti
 	}).(PeeringConnectionOptionsRequesterOutput)
 }
 
-// Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o PeeringConnectionOptionsRequesterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PeeringConnectionOptionsRequester) *bool {
 		if v == nil {
@@ -36926,7 +37101,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	AcceleratorCount *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
-	// List of accelerator names. Default is any acclerator.
+	// List of accelerator names. Default is any accelerator.
 	AcceleratorNames []string `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
@@ -36936,7 +37111,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
 	//
 	// > **NOTE:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
 	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
-	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal *string `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
 	BaselineEbsBandwidthMbps *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
@@ -36996,7 +37171,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	AcceleratorCount SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
-	// List of accelerator names. Default is any acclerator.
+	// List of accelerator names. Default is any accelerator.
 	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
@@ -37006,7 +37181,7 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct
 	//
 	// > **NOTE:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
 	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
-	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
 	BaselineEbsBandwidthMbps SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
@@ -37141,7 +37316,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of accelerator names. Default is any acclerator.
+// List of accelerator names. Default is any accelerator.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		return v.AcceleratorNames
@@ -37171,7 +37346,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *string { return v.BareMetal }).(pulumi.StringPtrOutput)
 }
@@ -37340,7 +37515,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of accelerator names. Default is any acclerator.
+// List of accelerator names. Default is any accelerator.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -37382,7 +37557,7 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *string {
 		if v == nil {
@@ -42614,21 +42789,21 @@ func (o VpcBlockPublicAccessOptionsTimeoutsPtrOutput) Update() pulumi.StringPtrO
 }
 
 type VpcEncryptionControlResourceExclusions struct {
-	// `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+	// Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
 	EgressOnlyInternetGateway VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway `pulumi:"egressOnlyInternetGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+	// Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
 	ElasticFileSystem VpcEncryptionControlResourceExclusionsElasticFileSystem `pulumi:"elasticFileSystem"`
-	// `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+	// Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
 	InternetGateway VpcEncryptionControlResourceExclusionsInternetGateway `pulumi:"internetGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+	// Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
 	Lambda VpcEncryptionControlResourceExclusionsLambda `pulumi:"lambda"`
-	// `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+	// Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
 	NatGateway VpcEncryptionControlResourceExclusionsNatGateway `pulumi:"natGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+	// Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
 	VirtualPrivateGateway VpcEncryptionControlResourceExclusionsVirtualPrivateGateway `pulumi:"virtualPrivateGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+	// Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
 	VpcLattice VpcEncryptionControlResourceExclusionsVpcLattice `pulumi:"vpcLattice"`
-	// `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+	// Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
 	VpcPeering VpcEncryptionControlResourceExclusionsVpcPeering `pulumi:"vpcPeering"`
 }
 
@@ -42644,21 +42819,21 @@ type VpcEncryptionControlResourceExclusionsInput interface {
 }
 
 type VpcEncryptionControlResourceExclusionsArgs struct {
-	// `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+	// Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
 	EgressOnlyInternetGateway VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayInput `pulumi:"egressOnlyInternetGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+	// Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
 	ElasticFileSystem VpcEncryptionControlResourceExclusionsElasticFileSystemInput `pulumi:"elasticFileSystem"`
-	// `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+	// Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
 	InternetGateway VpcEncryptionControlResourceExclusionsInternetGatewayInput `pulumi:"internetGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+	// Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
 	Lambda VpcEncryptionControlResourceExclusionsLambdaInput `pulumi:"lambda"`
-	// `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+	// Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
 	NatGateway VpcEncryptionControlResourceExclusionsNatGatewayInput `pulumi:"natGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+	// Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
 	VirtualPrivateGateway VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayInput `pulumi:"virtualPrivateGateway"`
-	// `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+	// Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
 	VpcLattice VpcEncryptionControlResourceExclusionsVpcLatticeInput `pulumi:"vpcLattice"`
-	// `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+	// Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
 	VpcPeering VpcEncryptionControlResourceExclusionsVpcPeeringInput `pulumi:"vpcPeering"`
 }
 
@@ -42739,56 +42914,56 @@ func (o VpcEncryptionControlResourceExclusionsOutput) ToVpcEncryptionControlReso
 	}).(VpcEncryptionControlResourceExclusionsPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+// Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
 func (o VpcEncryptionControlResourceExclusionsOutput) EgressOnlyInternetGateway() VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway {
 		return v.EgressOnlyInternetGateway
 	}).(VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+// Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
 func (o VpcEncryptionControlResourceExclusionsOutput) ElasticFileSystem() VpcEncryptionControlResourceExclusionsElasticFileSystemOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) VpcEncryptionControlResourceExclusionsElasticFileSystem {
 		return v.ElasticFileSystem
 	}).(VpcEncryptionControlResourceExclusionsElasticFileSystemOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+// Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
 func (o VpcEncryptionControlResourceExclusionsOutput) InternetGateway() VpcEncryptionControlResourceExclusionsInternetGatewayOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) VpcEncryptionControlResourceExclusionsInternetGateway {
 		return v.InternetGateway
 	}).(VpcEncryptionControlResourceExclusionsInternetGatewayOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+// Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
 func (o VpcEncryptionControlResourceExclusionsOutput) Lambda() VpcEncryptionControlResourceExclusionsLambdaOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) VpcEncryptionControlResourceExclusionsLambda {
 		return v.Lambda
 	}).(VpcEncryptionControlResourceExclusionsLambdaOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+// Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
 func (o VpcEncryptionControlResourceExclusionsOutput) NatGateway() VpcEncryptionControlResourceExclusionsNatGatewayOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) VpcEncryptionControlResourceExclusionsNatGateway {
 		return v.NatGateway
 	}).(VpcEncryptionControlResourceExclusionsNatGatewayOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+// Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
 func (o VpcEncryptionControlResourceExclusionsOutput) VirtualPrivateGateway() VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) VpcEncryptionControlResourceExclusionsVirtualPrivateGateway {
 		return v.VirtualPrivateGateway
 	}).(VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+// Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
 func (o VpcEncryptionControlResourceExclusionsOutput) VpcLattice() VpcEncryptionControlResourceExclusionsVpcLatticeOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) VpcEncryptionControlResourceExclusionsVpcLattice {
 		return v.VpcLattice
 	}).(VpcEncryptionControlResourceExclusionsVpcLatticeOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+// Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
 func (o VpcEncryptionControlResourceExclusionsOutput) VpcPeering() VpcEncryptionControlResourceExclusionsVpcPeeringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusions) VpcEncryptionControlResourceExclusionsVpcPeering {
 		return v.VpcPeering
@@ -42819,7 +42994,7 @@ func (o VpcEncryptionControlResourceExclusionsPtrOutput) Elem() VpcEncryptionCon
 	}).(VpcEncryptionControlResourceExclusionsOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+// Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
 func (o VpcEncryptionControlResourceExclusionsPtrOutput) EgressOnlyInternetGateway() VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway {
 		if v == nil {
@@ -42829,7 +43004,7 @@ func (o VpcEncryptionControlResourceExclusionsPtrOutput) EgressOnlyInternetGatew
 	}).(VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+// Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
 func (o VpcEncryptionControlResourceExclusionsPtrOutput) ElasticFileSystem() VpcEncryptionControlResourceExclusionsElasticFileSystemPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlResourceExclusionsElasticFileSystem {
 		if v == nil {
@@ -42839,7 +43014,7 @@ func (o VpcEncryptionControlResourceExclusionsPtrOutput) ElasticFileSystem() Vpc
 	}).(VpcEncryptionControlResourceExclusionsElasticFileSystemPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+// Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
 func (o VpcEncryptionControlResourceExclusionsPtrOutput) InternetGateway() VpcEncryptionControlResourceExclusionsInternetGatewayPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlResourceExclusionsInternetGateway {
 		if v == nil {
@@ -42849,7 +43024,7 @@ func (o VpcEncryptionControlResourceExclusionsPtrOutput) InternetGateway() VpcEn
 	}).(VpcEncryptionControlResourceExclusionsInternetGatewayPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+// Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
 func (o VpcEncryptionControlResourceExclusionsPtrOutput) Lambda() VpcEncryptionControlResourceExclusionsLambdaPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlResourceExclusionsLambda {
 		if v == nil {
@@ -42859,7 +43034,7 @@ func (o VpcEncryptionControlResourceExclusionsPtrOutput) Lambda() VpcEncryptionC
 	}).(VpcEncryptionControlResourceExclusionsLambdaPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+// Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
 func (o VpcEncryptionControlResourceExclusionsPtrOutput) NatGateway() VpcEncryptionControlResourceExclusionsNatGatewayPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlResourceExclusionsNatGateway {
 		if v == nil {
@@ -42869,7 +43044,7 @@ func (o VpcEncryptionControlResourceExclusionsPtrOutput) NatGateway() VpcEncrypt
 	}).(VpcEncryptionControlResourceExclusionsNatGatewayPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+// Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
 func (o VpcEncryptionControlResourceExclusionsPtrOutput) VirtualPrivateGateway() VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlResourceExclusionsVirtualPrivateGateway {
 		if v == nil {
@@ -42879,7 +43054,7 @@ func (o VpcEncryptionControlResourceExclusionsPtrOutput) VirtualPrivateGateway()
 	}).(VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+// Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
 func (o VpcEncryptionControlResourceExclusionsPtrOutput) VpcLattice() VpcEncryptionControlResourceExclusionsVpcLatticePtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlResourceExclusionsVpcLattice {
 		if v == nil {
@@ -42889,7 +43064,7 @@ func (o VpcEncryptionControlResourceExclusionsPtrOutput) VpcLattice() VpcEncrypt
 	}).(VpcEncryptionControlResourceExclusionsVpcLatticePtrOutput)
 }
 
-// `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+// Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
 func (o VpcEncryptionControlResourceExclusionsPtrOutput) VpcPeering() VpcEncryptionControlResourceExclusionsVpcPeeringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusions) *VpcEncryptionControlResourceExclusionsVpcPeering {
 		if v == nil {
@@ -42900,9 +43075,9 @@ func (o VpcEncryptionControlResourceExclusionsPtrOutput) VpcPeering() VpcEncrypt
 }
 
 type VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -42918,9 +43093,9 @@ type VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayInput interf
 }
 
 type VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -43001,12 +43176,12 @@ func (o VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) T
 	}).(VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -43035,7 +43210,7 @@ func (o VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput
 	}).(VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway) *string {
 		if v == nil {
@@ -43045,7 +43220,7 @@ func (o VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsEgressOnlyInternetGateway) *string {
 		if v == nil {
@@ -43056,9 +43231,9 @@ func (o VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayPtrOutput
 }
 
 type VpcEncryptionControlResourceExclusionsElasticFileSystem struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -43074,9 +43249,9 @@ type VpcEncryptionControlResourceExclusionsElasticFileSystemInput interface {
 }
 
 type VpcEncryptionControlResourceExclusionsElasticFileSystemArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -43157,12 +43332,12 @@ func (o VpcEncryptionControlResourceExclusionsElasticFileSystemOutput) ToVpcEncr
 	}).(VpcEncryptionControlResourceExclusionsElasticFileSystemPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsElasticFileSystemOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsElasticFileSystem) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsElasticFileSystemOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsElasticFileSystem) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -43191,7 +43366,7 @@ func (o VpcEncryptionControlResourceExclusionsElasticFileSystemPtrOutput) Elem()
 	}).(VpcEncryptionControlResourceExclusionsElasticFileSystemOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsElasticFileSystemPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsElasticFileSystem) *string {
 		if v == nil {
@@ -43201,7 +43376,7 @@ func (o VpcEncryptionControlResourceExclusionsElasticFileSystemPtrOutput) State(
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsElasticFileSystemPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsElasticFileSystem) *string {
 		if v == nil {
@@ -43212,9 +43387,9 @@ func (o VpcEncryptionControlResourceExclusionsElasticFileSystemPtrOutput) StateM
 }
 
 type VpcEncryptionControlResourceExclusionsInternetGateway struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -43230,9 +43405,9 @@ type VpcEncryptionControlResourceExclusionsInternetGatewayInput interface {
 }
 
 type VpcEncryptionControlResourceExclusionsInternetGatewayArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -43313,12 +43488,12 @@ func (o VpcEncryptionControlResourceExclusionsInternetGatewayOutput) ToVpcEncryp
 	}).(VpcEncryptionControlResourceExclusionsInternetGatewayPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsInternetGatewayOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsInternetGateway) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsInternetGatewayOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsInternetGateway) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -43347,7 +43522,7 @@ func (o VpcEncryptionControlResourceExclusionsInternetGatewayPtrOutput) Elem() V
 	}).(VpcEncryptionControlResourceExclusionsInternetGatewayOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsInternetGatewayPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsInternetGateway) *string {
 		if v == nil {
@@ -43357,7 +43532,7 @@ func (o VpcEncryptionControlResourceExclusionsInternetGatewayPtrOutput) State() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsInternetGatewayPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsInternetGateway) *string {
 		if v == nil {
@@ -43368,9 +43543,9 @@ func (o VpcEncryptionControlResourceExclusionsInternetGatewayPtrOutput) StateMes
 }
 
 type VpcEncryptionControlResourceExclusionsLambda struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -43386,9 +43561,9 @@ type VpcEncryptionControlResourceExclusionsLambdaInput interface {
 }
 
 type VpcEncryptionControlResourceExclusionsLambdaArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -43469,12 +43644,12 @@ func (o VpcEncryptionControlResourceExclusionsLambdaOutput) ToVpcEncryptionContr
 	}).(VpcEncryptionControlResourceExclusionsLambdaPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsLambdaOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsLambda) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsLambdaOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsLambda) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -43503,7 +43678,7 @@ func (o VpcEncryptionControlResourceExclusionsLambdaPtrOutput) Elem() VpcEncrypt
 	}).(VpcEncryptionControlResourceExclusionsLambdaOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsLambdaPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsLambda) *string {
 		if v == nil {
@@ -43513,7 +43688,7 @@ func (o VpcEncryptionControlResourceExclusionsLambdaPtrOutput) State() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsLambdaPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsLambda) *string {
 		if v == nil {
@@ -43524,9 +43699,9 @@ func (o VpcEncryptionControlResourceExclusionsLambdaPtrOutput) StateMessage() pu
 }
 
 type VpcEncryptionControlResourceExclusionsNatGateway struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -43542,9 +43717,9 @@ type VpcEncryptionControlResourceExclusionsNatGatewayInput interface {
 }
 
 type VpcEncryptionControlResourceExclusionsNatGatewayArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -43625,12 +43800,12 @@ func (o VpcEncryptionControlResourceExclusionsNatGatewayOutput) ToVpcEncryptionC
 	}).(VpcEncryptionControlResourceExclusionsNatGatewayPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsNatGatewayOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsNatGateway) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsNatGatewayOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsNatGateway) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -43659,7 +43834,7 @@ func (o VpcEncryptionControlResourceExclusionsNatGatewayPtrOutput) Elem() VpcEnc
 	}).(VpcEncryptionControlResourceExclusionsNatGatewayOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsNatGatewayPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsNatGateway) *string {
 		if v == nil {
@@ -43669,7 +43844,7 @@ func (o VpcEncryptionControlResourceExclusionsNatGatewayPtrOutput) State() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsNatGatewayPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsNatGateway) *string {
 		if v == nil {
@@ -43680,9 +43855,9 @@ func (o VpcEncryptionControlResourceExclusionsNatGatewayPtrOutput) StateMessage(
 }
 
 type VpcEncryptionControlResourceExclusionsVirtualPrivateGateway struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -43698,9 +43873,9 @@ type VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayInput interface 
 }
 
 type VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -43781,12 +43956,12 @@ func (o VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) ToVpc
 	}).(VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsVirtualPrivateGateway) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsVirtualPrivateGateway) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -43815,7 +43990,7 @@ func (o VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) El
 	}).(VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsVirtualPrivateGateway) *string {
 		if v == nil {
@@ -43825,7 +44000,7 @@ func (o VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) St
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsVirtualPrivateGateway) *string {
 		if v == nil {
@@ -43836,9 +44011,9 @@ func (o VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayPtrOutput) St
 }
 
 type VpcEncryptionControlResourceExclusionsVpcLattice struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -43854,9 +44029,9 @@ type VpcEncryptionControlResourceExclusionsVpcLatticeInput interface {
 }
 
 type VpcEncryptionControlResourceExclusionsVpcLatticeArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -43937,12 +44112,12 @@ func (o VpcEncryptionControlResourceExclusionsVpcLatticeOutput) ToVpcEncryptionC
 	}).(VpcEncryptionControlResourceExclusionsVpcLatticePtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsVpcLatticeOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsVpcLattice) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsVpcLatticeOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsVpcLattice) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -43971,7 +44146,7 @@ func (o VpcEncryptionControlResourceExclusionsVpcLatticePtrOutput) Elem() VpcEnc
 	}).(VpcEncryptionControlResourceExclusionsVpcLatticeOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsVpcLatticePtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsVpcLattice) *string {
 		if v == nil {
@@ -43981,7 +44156,7 @@ func (o VpcEncryptionControlResourceExclusionsVpcLatticePtrOutput) State() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsVpcLatticePtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsVpcLattice) *string {
 		if v == nil {
@@ -43992,9 +44167,9 @@ func (o VpcEncryptionControlResourceExclusionsVpcLatticePtrOutput) StateMessage(
 }
 
 type VpcEncryptionControlResourceExclusionsVpcPeering struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State string `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage string `pulumi:"stateMessage"`
 }
 
@@ -44010,9 +44185,9 @@ type VpcEncryptionControlResourceExclusionsVpcPeeringInput interface {
 }
 
 type VpcEncryptionControlResourceExclusionsVpcPeeringArgs struct {
-	// The current state of the VPC Encryption Control.
+	// Encryption enforcement state for peered VPCs.
 	State pulumi.StringInput `pulumi:"state"`
-	// A message providing additional information about the state of the VPC Encryption Control.
+	// Message providing additional information about the encryption enforcement state.
 	StateMessage pulumi.StringInput `pulumi:"stateMessage"`
 }
 
@@ -44093,12 +44268,12 @@ func (o VpcEncryptionControlResourceExclusionsVpcPeeringOutput) ToVpcEncryptionC
 	}).(VpcEncryptionControlResourceExclusionsVpcPeeringPtrOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsVpcPeeringOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsVpcPeering) string { return v.State }).(pulumi.StringOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsVpcPeeringOutput) StateMessage() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcEncryptionControlResourceExclusionsVpcPeering) string { return v.StateMessage }).(pulumi.StringOutput)
 }
@@ -44127,7 +44302,7 @@ func (o VpcEncryptionControlResourceExclusionsVpcPeeringPtrOutput) Elem() VpcEnc
 	}).(VpcEncryptionControlResourceExclusionsVpcPeeringOutput)
 }
 
-// The current state of the VPC Encryption Control.
+// Encryption enforcement state for peered VPCs.
 func (o VpcEncryptionControlResourceExclusionsVpcPeeringPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsVpcPeering) *string {
 		if v == nil {
@@ -44137,7 +44312,7 @@ func (o VpcEncryptionControlResourceExclusionsVpcPeeringPtrOutput) State() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// A message providing additional information about the state of the VPC Encryption Control.
+// Message providing additional information about the encryption enforcement state.
 func (o VpcEncryptionControlResourceExclusionsVpcPeeringPtrOutput) StateMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEncryptionControlResourceExclusionsVpcPeering) *string {
 		if v == nil {
@@ -44323,9 +44498,9 @@ func (o VpcEncryptionControlTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type VpcEndpointDnsEntry struct {
-	// The DNS name.
+	// DNS name.
 	DnsName *string `pulumi:"dnsName"`
-	// The ID of the private hosted zone.
+	// ID of the private hosted zone.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 }
 
@@ -44341,9 +44516,9 @@ type VpcEndpointDnsEntryInput interface {
 }
 
 type VpcEndpointDnsEntryArgs struct {
-	// The DNS name.
+	// DNS name.
 	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
-	// The ID of the private hosted zone.
+	// ID of the private hosted zone.
 	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
 }
 
@@ -44398,12 +44573,12 @@ func (o VpcEndpointDnsEntryOutput) ToVpcEndpointDnsEntryOutputWithContext(ctx co
 	return o
 }
 
-// The DNS name.
+// DNS name.
 func (o VpcEndpointDnsEntryOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEndpointDnsEntry) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the private hosted zone.
+// ID of the private hosted zone.
 func (o VpcEndpointDnsEntryOutput) HostedZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEndpointDnsEntry) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
@@ -44429,9 +44604,9 @@ func (o VpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) VpcEndpointDnsE
 }
 
 type VpcEndpointDnsOptions struct {
-	// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+	// DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
 	DnsRecordIpType *string `pulumi:"dnsRecordIpType"`
-	// Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
+	// Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
 	PrivateDnsOnlyForInboundResolverEndpoint *bool `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 	// Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `privateDnsEnabled` is `true` and when the `vpcEndpointType` is `ServiceNetwork` or `Resource`.
 	PrivateDnsPreference *string `pulumi:"privateDnsPreference"`
@@ -44451,9 +44626,9 @@ type VpcEndpointDnsOptionsInput interface {
 }
 
 type VpcEndpointDnsOptionsArgs struct {
-	// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+	// DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
 	DnsRecordIpType pulumi.StringPtrInput `pulumi:"dnsRecordIpType"`
-	// Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
+	// Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
 	PrivateDnsOnlyForInboundResolverEndpoint pulumi.BoolPtrInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
 	// Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `privateDnsEnabled` is `true` and when the `vpcEndpointType` is `ServiceNetwork` or `Resource`.
 	PrivateDnsPreference pulumi.StringPtrInput `pulumi:"privateDnsPreference"`
@@ -44538,12 +44713,12 @@ func (o VpcEndpointDnsOptionsOutput) ToVpcEndpointDnsOptionsPtrOutputWithContext
 	}).(VpcEndpointDnsOptionsPtrOutput)
 }
 
-// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+// DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
 func (o VpcEndpointDnsOptionsOutput) DnsRecordIpType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEndpointDnsOptions) *string { return v.DnsRecordIpType }).(pulumi.StringPtrOutput)
 }
 
-// Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
+// Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
 func (o VpcEndpointDnsOptionsOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcEndpointDnsOptions) *bool { return v.PrivateDnsOnlyForInboundResolverEndpoint }).(pulumi.BoolPtrOutput)
 }
@@ -44582,7 +44757,7 @@ func (o VpcEndpointDnsOptionsPtrOutput) Elem() VpcEndpointDnsOptionsOutput {
 	}).(VpcEndpointDnsOptionsOutput)
 }
 
-// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+// DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
 func (o VpcEndpointDnsOptionsPtrOutput) DnsRecordIpType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointDnsOptions) *string {
 		if v == nil {
@@ -44592,7 +44767,7 @@ func (o VpcEndpointDnsOptionsPtrOutput) DnsRecordIpType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
+// Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
 func (o VpcEndpointDnsOptionsPtrOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointDnsOptions) *bool {
 		if v == nil {
@@ -44725,7 +44900,7 @@ func (o VpcEndpointFilterArrayOutput) Index(i pulumi.IntInput) VpcEndpointFilter
 type VpcEndpointServicePrivateDnsNameConfiguration struct {
 	// Name of the record subdomain the service provider needs to create.
 	Name *string `pulumi:"name"`
-	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+	// State of the VPC endpoint service.
 	State *string `pulumi:"state"`
 	// Endpoint service verification type, for example `TXT`.
 	Type *string `pulumi:"type"`
@@ -44747,7 +44922,7 @@ type VpcEndpointServicePrivateDnsNameConfigurationInput interface {
 type VpcEndpointServicePrivateDnsNameConfigurationArgs struct {
 	// Name of the record subdomain the service provider needs to create.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+	// State of the VPC endpoint service.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Endpoint service verification type, for example `TXT`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -44811,7 +44986,7 @@ func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) Name() pulumi.Strin
 	return o.ApplyT(func(v VpcEndpointServicePrivateDnsNameConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+// State of the VPC endpoint service.
 func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEndpointServicePrivateDnsNameConfiguration) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -44847,11 +45022,11 @@ func (o VpcEndpointServicePrivateDnsNameConfigurationArrayOutput) Index(i pulumi
 }
 
 type VpcEndpointSubnetConfiguration struct {
-	// The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+	// IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
 	Ipv4 *string `pulumi:"ipv4"`
-	// The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+	// IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
 	Ipv6 *string `pulumi:"ipv6"`
-	// The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
+	// ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
 	SubnetId *string `pulumi:"subnetId"`
 }
 
@@ -44867,11 +45042,11 @@ type VpcEndpointSubnetConfigurationInput interface {
 }
 
 type VpcEndpointSubnetConfigurationArgs struct {
-	// The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+	// IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
 	Ipv4 pulumi.StringPtrInput `pulumi:"ipv4"`
-	// The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+	// IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
 	Ipv6 pulumi.StringPtrInput `pulumi:"ipv6"`
-	// The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
+	// ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
@@ -44926,17 +45101,17 @@ func (o VpcEndpointSubnetConfigurationOutput) ToVpcEndpointSubnetConfigurationOu
 	return o
 }
 
-// The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+// IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
 func (o VpcEndpointSubnetConfigurationOutput) Ipv4() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEndpointSubnetConfiguration) *string { return v.Ipv4 }).(pulumi.StringPtrOutput)
 }
 
-// The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+// IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
 func (o VpcEndpointSubnetConfigurationOutput) Ipv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEndpointSubnetConfiguration) *string { return v.Ipv6 }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
+// ID of the subnet. Must have a corresponding subnet in the `subnetIds` argument.
 func (o VpcEndpointSubnetConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcEndpointSubnetConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -45062,7 +45237,7 @@ func (o VpcFilterArrayOutput) Index(i pulumi.IntInput) VpcFilterOutput {
 }
 
 type VpcIpamOperatingRegion struct {
-	// The name of the Region you want to add to the IPAM.
+	// Name of the Region you want to add to the IPAM.
 	RegionName string `pulumi:"regionName"`
 }
 
@@ -45078,7 +45253,7 @@ type VpcIpamOperatingRegionInput interface {
 }
 
 type VpcIpamOperatingRegionArgs struct {
-	// The name of the Region you want to add to the IPAM.
+	// Name of the Region you want to add to the IPAM.
 	RegionName pulumi.StringInput `pulumi:"regionName"`
 }
 
@@ -45133,7 +45308,7 @@ func (o VpcIpamOperatingRegionOutput) ToVpcIpamOperatingRegionOutputWithContext(
 	return o
 }
 
-// The name of the Region you want to add to the IPAM.
+// Name of the Region you want to add to the IPAM.
 func (o VpcIpamOperatingRegionOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcIpamOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
 }
@@ -45159,9 +45334,9 @@ func (o VpcIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) VpcIpamOpera
 }
 
 type VpcIpamPoolCidrCidrAuthorizationContext struct {
-	// The plain-text authorization message for the prefix and account.
+	// Plain-text authorization message for the prefix and account.
 	Message *string `pulumi:"message"`
-	// The signed authorization message for the prefix and account.
+	// Signed authorization message for the prefix and account.
 	Signature *string `pulumi:"signature"`
 }
 
@@ -45177,9 +45352,9 @@ type VpcIpamPoolCidrCidrAuthorizationContextInput interface {
 }
 
 type VpcIpamPoolCidrCidrAuthorizationContextArgs struct {
-	// The plain-text authorization message for the prefix and account.
+	// Plain-text authorization message for the prefix and account.
 	Message pulumi.StringPtrInput `pulumi:"message"`
-	// The signed authorization message for the prefix and account.
+	// Signed authorization message for the prefix and account.
 	Signature pulumi.StringPtrInput `pulumi:"signature"`
 }
 
@@ -45260,12 +45435,12 @@ func (o VpcIpamPoolCidrCidrAuthorizationContextOutput) ToVpcIpamPoolCidrCidrAuth
 	}).(VpcIpamPoolCidrCidrAuthorizationContextPtrOutput)
 }
 
-// The plain-text authorization message for the prefix and account.
+// Plain-text authorization message for the prefix and account.
 func (o VpcIpamPoolCidrCidrAuthorizationContextOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcIpamPoolCidrCidrAuthorizationContext) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// The signed authorization message for the prefix and account.
+// Signed authorization message for the prefix and account.
 func (o VpcIpamPoolCidrCidrAuthorizationContextOutput) Signature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcIpamPoolCidrCidrAuthorizationContext) *string { return v.Signature }).(pulumi.StringPtrOutput)
 }
@@ -45294,7 +45469,7 @@ func (o VpcIpamPoolCidrCidrAuthorizationContextPtrOutput) Elem() VpcIpamPoolCidr
 	}).(VpcIpamPoolCidrCidrAuthorizationContextOutput)
 }
 
-// The plain-text authorization message for the prefix and account.
+// Plain-text authorization message for the prefix and account.
 func (o VpcIpamPoolCidrCidrAuthorizationContextPtrOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrCidrAuthorizationContext) *string {
 		if v == nil {
@@ -45304,7 +45479,7 @@ func (o VpcIpamPoolCidrCidrAuthorizationContextPtrOutput) Message() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The signed authorization message for the prefix and account.
+// Signed authorization message for the prefix and account.
 func (o VpcIpamPoolCidrCidrAuthorizationContextPtrOutput) Signature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrCidrAuthorizationContext) *string {
 		if v == nil {
@@ -45509,7 +45684,7 @@ func (o VpcIpamPoolSourceResourcePtrOutput) ResourceType() pulumi.StringPtrOutpu
 }
 
 type VpcIpamResourceDiscoveryOperatingRegion struct {
-	// The name of the Region you want to add to the IPAM.
+	// Name of the Region you want to add to the IPAM.
 	RegionName string `pulumi:"regionName"`
 }
 
@@ -45525,7 +45700,7 @@ type VpcIpamResourceDiscoveryOperatingRegionInput interface {
 }
 
 type VpcIpamResourceDiscoveryOperatingRegionArgs struct {
-	// The name of the Region you want to add to the IPAM.
+	// Name of the Region you want to add to the IPAM.
 	RegionName pulumi.StringInput `pulumi:"regionName"`
 }
 
@@ -45580,7 +45755,7 @@ func (o VpcIpamResourceDiscoveryOperatingRegionOutput) ToVpcIpamResourceDiscover
 	return o
 }
 
-// The name of the Region you want to add to the IPAM.
+// Name of the Region you want to add to the IPAM.
 func (o VpcIpamResourceDiscoveryOperatingRegionOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v VpcIpamResourceDiscoveryOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
 }
@@ -45703,8 +45878,7 @@ func (o VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput) Index(i 
 }
 
 type VpcPeeringConnectionAccepterType struct {
-	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC.
+	// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -45720,8 +45894,7 @@ type VpcPeeringConnectionAccepterTypeInput interface {
 }
 
 type VpcPeeringConnectionAccepterTypeArgs struct {
-	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC.
+	// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -45802,8 +45975,7 @@ func (o VpcPeeringConnectionAccepterTypeOutput) ToVpcPeeringConnectionAccepterTy
 	}).(VpcPeeringConnectionAccepterTypePtrOutput)
 }
 
-// Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC.
+// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o VpcPeeringConnectionAccepterTypeOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcPeeringConnectionAccepterType) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
 }
@@ -45832,8 +46004,7 @@ func (o VpcPeeringConnectionAccepterTypePtrOutput) Elem() VpcPeeringConnectionAc
 	}).(VpcPeeringConnectionAccepterTypeOutput)
 }
 
-// Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC.
+// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o VpcPeeringConnectionAccepterTypePtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcPeeringConnectionAccepterType) *bool {
 		if v == nil {
@@ -45844,8 +46015,7 @@ func (o VpcPeeringConnectionAccepterTypePtrOutput) AllowRemoteVpcDnsResolution()
 }
 
 type VpcPeeringConnectionAccepterAccepter struct {
-	// Indicates whether a local VPC can resolve public DNS hostnames to
-	// private IP addresses when queried from instances in a peer VPC.
+	// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -45861,8 +46031,7 @@ type VpcPeeringConnectionAccepterAccepterInput interface {
 }
 
 type VpcPeeringConnectionAccepterAccepterArgs struct {
-	// Indicates whether a local VPC can resolve public DNS hostnames to
-	// private IP addresses when queried from instances in a peer VPC.
+	// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -45943,8 +46112,7 @@ func (o VpcPeeringConnectionAccepterAccepterOutput) ToVpcPeeringConnectionAccept
 	}).(VpcPeeringConnectionAccepterAccepterPtrOutput)
 }
 
-// Indicates whether a local VPC can resolve public DNS hostnames to
-// private IP addresses when queried from instances in a peer VPC.
+// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 func (o VpcPeeringConnectionAccepterAccepterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcPeeringConnectionAccepterAccepter) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
 }
@@ -45973,8 +46141,7 @@ func (o VpcPeeringConnectionAccepterAccepterPtrOutput) Elem() VpcPeeringConnecti
 	}).(VpcPeeringConnectionAccepterAccepterOutput)
 }
 
-// Indicates whether a local VPC can resolve public DNS hostnames to
-// private IP addresses when queried from instances in a peer VPC.
+// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 func (o VpcPeeringConnectionAccepterAccepterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcPeeringConnectionAccepterAccepter) *bool {
 		if v == nil {
@@ -45985,8 +46152,7 @@ func (o VpcPeeringConnectionAccepterAccepterPtrOutput) AllowRemoteVpcDnsResoluti
 }
 
 type VpcPeeringConnectionAccepterRequester struct {
-	// Indicates whether a local VPC can resolve public DNS hostnames to
-	// private IP addresses when queried from instances in a peer VPC.
+	// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -46002,8 +46168,7 @@ type VpcPeeringConnectionAccepterRequesterInput interface {
 }
 
 type VpcPeeringConnectionAccepterRequesterArgs struct {
-	// Indicates whether a local VPC can resolve public DNS hostnames to
-	// private IP addresses when queried from instances in a peer VPC.
+	// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -46084,8 +46249,7 @@ func (o VpcPeeringConnectionAccepterRequesterOutput) ToVpcPeeringConnectionAccep
 	}).(VpcPeeringConnectionAccepterRequesterPtrOutput)
 }
 
-// Indicates whether a local VPC can resolve public DNS hostnames to
-// private IP addresses when queried from instances in a peer VPC.
+// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 func (o VpcPeeringConnectionAccepterRequesterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcPeeringConnectionAccepterRequester) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
 }
@@ -46114,8 +46278,7 @@ func (o VpcPeeringConnectionAccepterRequesterPtrOutput) Elem() VpcPeeringConnect
 	}).(VpcPeeringConnectionAccepterRequesterOutput)
 }
 
-// Indicates whether a local VPC can resolve public DNS hostnames to
-// private IP addresses when queried from instances in a peer VPC.
+// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
 func (o VpcPeeringConnectionAccepterRequesterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcPeeringConnectionAccepterRequester) *bool {
 		if v == nil {
@@ -46126,8 +46289,7 @@ func (o VpcPeeringConnectionAccepterRequesterPtrOutput) AllowRemoteVpcDnsResolut
 }
 
 type VpcPeeringConnectionRequester struct {
-	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC.
+	// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -46143,8 +46305,7 @@ type VpcPeeringConnectionRequesterInput interface {
 }
 
 type VpcPeeringConnectionRequesterArgs struct {
-	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC.
+	// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
 }
 
@@ -46225,8 +46386,7 @@ func (o VpcPeeringConnectionRequesterOutput) ToVpcPeeringConnectionRequesterPtrO
 	}).(VpcPeeringConnectionRequesterPtrOutput)
 }
 
-// Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC.
+// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o VpcPeeringConnectionRequesterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcPeeringConnectionRequester) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
 }
@@ -46255,8 +46415,7 @@ func (o VpcPeeringConnectionRequesterPtrOutput) Elem() VpcPeeringConnectionReque
 	}).(VpcPeeringConnectionRequesterOutput)
 }
 
-// Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC.
+// Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
 func (o VpcPeeringConnectionRequesterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcPeeringConnectionRequester) *bool {
 		if v == nil {
@@ -46267,11 +46426,11 @@ func (o VpcPeeringConnectionRequesterPtrOutput) AllowRemoteVpcDnsResolution() pu
 }
 
 type VpnConnectionRouteType struct {
-	// The CIDR block associated with the local subnet of the customer data center.
+	// CIDR block associated with the local subnet of the customer data center.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
-	// Indicates how the routes were provided.
+	// How the routes were provided.
 	Source *string `pulumi:"source"`
-	// The current state of the static route.
+	// Current state of the static route.
 	State *string `pulumi:"state"`
 }
 
@@ -46287,11 +46446,11 @@ type VpnConnectionRouteTypeInput interface {
 }
 
 type VpnConnectionRouteTypeArgs struct {
-	// The CIDR block associated with the local subnet of the customer data center.
+	// CIDR block associated with the local subnet of the customer data center.
 	DestinationCidrBlock pulumi.StringPtrInput `pulumi:"destinationCidrBlock"`
-	// Indicates how the routes were provided.
+	// How the routes were provided.
 	Source pulumi.StringPtrInput `pulumi:"source"`
-	// The current state of the static route.
+	// Current state of the static route.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -46346,17 +46505,17 @@ func (o VpnConnectionRouteTypeOutput) ToVpnConnectionRouteTypeOutputWithContext(
 	return o
 }
 
-// The CIDR block associated with the local subnet of the customer data center.
+// CIDR block associated with the local subnet of the customer data center.
 func (o VpnConnectionRouteTypeOutput) DestinationCidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionRouteType) *string { return v.DestinationCidrBlock }).(pulumi.StringPtrOutput)
 }
 
-// Indicates how the routes were provided.
+// How the routes were provided.
 func (o VpnConnectionRouteTypeOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionRouteType) *string { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// The current state of the static route.
+// Current state of the static route.
 func (o VpnConnectionRouteTypeOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionRouteType) *string { return v.State }).(pulumi.StringPtrOutput)
 }
@@ -46521,13 +46680,13 @@ func (o VpnConnectionTunnel1LogOptionsPtrOutput) CloudwatchLogOptions() VpnConne
 }
 
 type VpnConnectionTunnel1LogOptionsCloudwatchLogOptions struct {
-	// Enable or disable BGP logging feature. The default is `false`.
+	// Whether to enable the BGP logging feature. The default is `false`.
 	BgpLogEnabled *bool `pulumi:"bgpLogEnabled"`
 	// ARN of the CloudWatch log group to send BGP logs to.
 	BgpLogGroupArn *string `pulumi:"bgpLogGroupArn"`
 	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
 	BgpLogOutputFormat *string `pulumi:"bgpLogOutputFormat"`
-	// Enable or disable VPN tunnel logging feature. The default is `false`.
+	// Whether to enable the VPN tunnel logging feature. The default is `false`.
 	LogEnabled *bool `pulumi:"logEnabled"`
 	// ARN of the CloudWatch log group to send logs to.
 	LogGroupArn *string `pulumi:"logGroupArn"`
@@ -46547,13 +46706,13 @@ type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsInput interface {
 }
 
 type VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs struct {
-	// Enable or disable BGP logging feature. The default is `false`.
+	// Whether to enable the BGP logging feature. The default is `false`.
 	BgpLogEnabled pulumi.BoolPtrInput `pulumi:"bgpLogEnabled"`
 	// ARN of the CloudWatch log group to send BGP logs to.
 	BgpLogGroupArn pulumi.StringPtrInput `pulumi:"bgpLogGroupArn"`
 	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
 	BgpLogOutputFormat pulumi.StringPtrInput `pulumi:"bgpLogOutputFormat"`
-	// Enable or disable VPN tunnel logging feature. The default is `false`.
+	// Whether to enable the VPN tunnel logging feature. The default is `false`.
 	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
 	// ARN of the CloudWatch log group to send logs to.
 	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
@@ -46638,7 +46797,7 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectio
 	}).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput)
 }
 
-// Enable or disable BGP logging feature. The default is `false`.
+// Whether to enable the BGP logging feature. The default is `false`.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool { return v.BgpLogEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -46653,7 +46812,7 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) BgpLogOutputFo
 	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *string { return v.BgpLogOutputFormat }).(pulumi.StringPtrOutput)
 }
 
-// Enable or disable VPN tunnel logging feature. The default is `false`.
+// Whether to enable the VPN tunnel logging feature. The default is `false`.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput) LogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool { return v.LogEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -46692,7 +46851,7 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) Elem() VpnC
 	}).(VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsOutput)
 }
 
-// Enable or disable BGP logging feature. The default is `false`.
+// Whether to enable the BGP logging feature. The default is `false`.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool {
 		if v == nil {
@@ -46722,7 +46881,7 @@ func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable or disable VPN tunnel logging feature. The default is `false`.
+// Whether to enable the VPN tunnel logging feature. The default is `false`.
 func (o VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsPtrOutput) LogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionTunnel1LogOptionsCloudwatchLogOptions) *bool {
 		if v == nil {
@@ -46892,13 +47051,13 @@ func (o VpnConnectionTunnel2LogOptionsPtrOutput) CloudwatchLogOptions() VpnConne
 }
 
 type VpnConnectionTunnel2LogOptionsCloudwatchLogOptions struct {
-	// Enable or disable BGP logging feature. The default is `false`.
+	// Whether to enable the BGP logging feature. The default is `false`.
 	BgpLogEnabled *bool `pulumi:"bgpLogEnabled"`
 	// ARN of the CloudWatch log group to send BGP logs to.
 	BgpLogGroupArn *string `pulumi:"bgpLogGroupArn"`
 	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
 	BgpLogOutputFormat *string `pulumi:"bgpLogOutputFormat"`
-	// Enable or disable VPN tunnel logging feature. The default is `false`.
+	// Whether to enable the VPN tunnel logging feature. The default is `false`.
 	LogEnabled *bool `pulumi:"logEnabled"`
 	// ARN of the CloudWatch log group to send logs to.
 	LogGroupArn *string `pulumi:"logGroupArn"`
@@ -46918,13 +47077,13 @@ type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsInput interface {
 }
 
 type VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs struct {
-	// Enable or disable BGP logging feature. The default is `false`.
+	// Whether to enable the BGP logging feature. The default is `false`.
 	BgpLogEnabled pulumi.BoolPtrInput `pulumi:"bgpLogEnabled"`
 	// ARN of the CloudWatch log group to send BGP logs to.
 	BgpLogGroupArn pulumi.StringPtrInput `pulumi:"bgpLogGroupArn"`
 	// Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
 	BgpLogOutputFormat pulumi.StringPtrInput `pulumi:"bgpLogOutputFormat"`
-	// Enable or disable VPN tunnel logging feature. The default is `false`.
+	// Whether to enable the VPN tunnel logging feature. The default is `false`.
 	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
 	// ARN of the CloudWatch log group to send logs to.
 	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
@@ -47009,7 +47168,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) ToVpnConnectio
 	}).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput)
 }
 
-// Enable or disable BGP logging feature. The default is `false`.
+// Whether to enable the BGP logging feature. The default is `false`.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool { return v.BgpLogEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -47024,7 +47183,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) BgpLogOutputFo
 	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *string { return v.BgpLogOutputFormat }).(pulumi.StringPtrOutput)
 }
 
-// Enable or disable VPN tunnel logging feature. The default is `false`.
+// Whether to enable the VPN tunnel logging feature. The default is `false`.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput) LogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool { return v.LogEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -47063,7 +47222,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) Elem() VpnC
 	}).(VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsOutput)
 }
 
-// Enable or disable BGP logging feature. The default is `false`.
+// Whether to enable the BGP logging feature. The default is `false`.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool {
 		if v == nil {
@@ -47093,7 +47252,7 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) BgpLogOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Enable or disable VPN tunnel logging feature. The default is `false`.
+// Whether to enable the VPN tunnel logging feature. The default is `false`.
 func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionTunnel2LogOptionsCloudwatchLogOptions) *bool {
 		if v == nil {
@@ -47124,15 +47283,15 @@ func (o VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsPtrOutput) LogOutputFo
 }
 
 type VpnConnectionVgwTelemetry struct {
-	// The number of accepted routes.
+	// Number of accepted routes.
 	AcceptedRouteCount *int `pulumi:"acceptedRouteCount"`
 	// ARN of the VPN tunnel endpoint certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
-	// The date and time of the last change in status.
+	// Date and time of the last change in status.
 	LastStatusChange *string `pulumi:"lastStatusChange"`
-	// The Internet-routable IP address of the virtual private gateway's outside interface.
+	// Internet-routable IP address of the virtual private gateway's outside interface.
 	OutsideIpAddress *string `pulumi:"outsideIpAddress"`
-	// The status of the VPN tunnel.
+	// Status of the VPN tunnel.
 	Status *string `pulumi:"status"`
 	// If an error occurs, a description of the error.
 	StatusMessage *string `pulumi:"statusMessage"`
@@ -47150,15 +47309,15 @@ type VpnConnectionVgwTelemetryInput interface {
 }
 
 type VpnConnectionVgwTelemetryArgs struct {
-	// The number of accepted routes.
+	// Number of accepted routes.
 	AcceptedRouteCount pulumi.IntPtrInput `pulumi:"acceptedRouteCount"`
 	// ARN of the VPN tunnel endpoint certificate.
 	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
-	// The date and time of the last change in status.
+	// Date and time of the last change in status.
 	LastStatusChange pulumi.StringPtrInput `pulumi:"lastStatusChange"`
-	// The Internet-routable IP address of the virtual private gateway's outside interface.
+	// Internet-routable IP address of the virtual private gateway's outside interface.
 	OutsideIpAddress pulumi.StringPtrInput `pulumi:"outsideIpAddress"`
-	// The status of the VPN tunnel.
+	// Status of the VPN tunnel.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// If an error occurs, a description of the error.
 	StatusMessage pulumi.StringPtrInput `pulumi:"statusMessage"`
@@ -47215,7 +47374,7 @@ func (o VpnConnectionVgwTelemetryOutput) ToVpnConnectionVgwTelemetryOutputWithCo
 	return o
 }
 
-// The number of accepted routes.
+// Number of accepted routes.
 func (o VpnConnectionVgwTelemetryOutput) AcceptedRouteCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *int { return v.AcceptedRouteCount }).(pulumi.IntPtrOutput)
 }
@@ -47225,17 +47384,17 @@ func (o VpnConnectionVgwTelemetryOutput) CertificateArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// The date and time of the last change in status.
+// Date and time of the last change in status.
 func (o VpnConnectionVgwTelemetryOutput) LastStatusChange() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *string { return v.LastStatusChange }).(pulumi.StringPtrOutput)
 }
 
-// The Internet-routable IP address of the virtual private gateway's outside interface.
+// Internet-routable IP address of the virtual private gateway's outside interface.
 func (o VpnConnectionVgwTelemetryOutput) OutsideIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *string { return v.OutsideIpAddress }).(pulumi.StringPtrOutput)
 }
 
-// The status of the VPN tunnel.
+// Status of the VPN tunnel.
 func (o VpnConnectionVgwTelemetryOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVgwTelemetry) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -69715,118 +69874,6 @@ func (o GetRouteTableRouteArrayOutput) Index(i pulumi.IntInput) GetRouteTableRou
 	}).(GetRouteTableRouteOutput)
 }
 
-type GetRouteTablesFilter struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
-	Name string `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A Route Table will be selected if any one of the given values matches.
-	Values []string `pulumi:"values"`
-}
-
-// GetRouteTablesFilterInput is an input type that accepts GetRouteTablesFilterArgs and GetRouteTablesFilterOutput values.
-// You can construct a concrete instance of `GetRouteTablesFilterInput` via:
-//
-//	GetRouteTablesFilterArgs{...}
-type GetRouteTablesFilterInput interface {
-	pulumi.Input
-
-	ToGetRouteTablesFilterOutput() GetRouteTablesFilterOutput
-	ToGetRouteTablesFilterOutputWithContext(context.Context) GetRouteTablesFilterOutput
-}
-
-type GetRouteTablesFilterArgs struct {
-	// Name of the field to filter by, as defined by
-	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of values that are accepted for the given field.
-	// A Route Table will be selected if any one of the given values matches.
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (GetRouteTablesFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetRouteTablesFilter)(nil)).Elem()
-}
-
-func (i GetRouteTablesFilterArgs) ToGetRouteTablesFilterOutput() GetRouteTablesFilterOutput {
-	return i.ToGetRouteTablesFilterOutputWithContext(context.Background())
-}
-
-func (i GetRouteTablesFilterArgs) ToGetRouteTablesFilterOutputWithContext(ctx context.Context) GetRouteTablesFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTablesFilterOutput)
-}
-
-// GetRouteTablesFilterArrayInput is an input type that accepts GetRouteTablesFilterArray and GetRouteTablesFilterArrayOutput values.
-// You can construct a concrete instance of `GetRouteTablesFilterArrayInput` via:
-//
-//	GetRouteTablesFilterArray{ GetRouteTablesFilterArgs{...} }
-type GetRouteTablesFilterArrayInput interface {
-	pulumi.Input
-
-	ToGetRouteTablesFilterArrayOutput() GetRouteTablesFilterArrayOutput
-	ToGetRouteTablesFilterArrayOutputWithContext(context.Context) GetRouteTablesFilterArrayOutput
-}
-
-type GetRouteTablesFilterArray []GetRouteTablesFilterInput
-
-func (GetRouteTablesFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetRouteTablesFilter)(nil)).Elem()
-}
-
-func (i GetRouteTablesFilterArray) ToGetRouteTablesFilterArrayOutput() GetRouteTablesFilterArrayOutput {
-	return i.ToGetRouteTablesFilterArrayOutputWithContext(context.Background())
-}
-
-func (i GetRouteTablesFilterArray) ToGetRouteTablesFilterArrayOutputWithContext(ctx context.Context) GetRouteTablesFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRouteTablesFilterArrayOutput)
-}
-
-type GetRouteTablesFilterOutput struct{ *pulumi.OutputState }
-
-func (GetRouteTablesFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetRouteTablesFilter)(nil)).Elem()
-}
-
-func (o GetRouteTablesFilterOutput) ToGetRouteTablesFilterOutput() GetRouteTablesFilterOutput {
-	return o
-}
-
-func (o GetRouteTablesFilterOutput) ToGetRouteTablesFilterOutputWithContext(ctx context.Context) GetRouteTablesFilterOutput {
-	return o
-}
-
-// Name of the field to filter by, as defined by
-// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
-func (o GetRouteTablesFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetRouteTablesFilter) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Set of values that are accepted for the given field.
-// A Route Table will be selected if any one of the given values matches.
-func (o GetRouteTablesFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetRouteTablesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type GetRouteTablesFilterArrayOutput struct{ *pulumi.OutputState }
-
-func (GetRouteTablesFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetRouteTablesFilter)(nil)).Elem()
-}
-
-func (o GetRouteTablesFilterArrayOutput) ToGetRouteTablesFilterArrayOutput() GetRouteTablesFilterArrayOutput {
-	return o
-}
-
-func (o GetRouteTablesFilterArrayOutput) ToGetRouteTablesFilterArrayOutputWithContext(ctx context.Context) GetRouteTablesFilterArrayOutput {
-	return o
-}
-
-func (o GetRouteTablesFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTablesFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRouteTablesFilter {
-		return vs[0].([]GetRouteTablesFilter)[vs[1].(int)]
-	}).(GetRouteTablesFilterOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowedImagesSettingsImageCriterionInput)(nil)).Elem(), AllowedImagesSettingsImageCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowedImagesSettingsImageCriterionArrayInput)(nil)).Elem(), AllowedImagesSettingsImageCriterionArray{})
@@ -70268,6 +70315,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathFilterAtSourceSourcePortRangePtrInput)(nil)).Elem(), NetworkInsightsPathFilterAtSourceSourcePortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentTypeInput)(nil)).Elem(), NetworkInterfaceAttachmentTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceAttachmentTypeArrayInput)(nil)).Elem(), NetworkInterfaceAttachmentTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceConnectionTrackingSpecificationInput)(nil)).Elem(), NetworkInterfaceConnectionTrackingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceConnectionTrackingSpecificationPtrInput)(nil)).Elem(), NetworkInterfaceConnectionTrackingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceEnaSrdSpecificationInput)(nil)).Elem(), NetworkInterfaceEnaSrdSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceEnaSrdSpecificationPtrInput)(nil)).Elem(), NetworkInterfaceEnaSrdSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput)(nil)).Elem(), NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{})
@@ -70822,8 +70871,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableFilterArrayInput)(nil)).Elem(), GetRouteTableFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableRouteInput)(nil)).Elem(), GetRouteTableRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableRouteArrayInput)(nil)).Elem(), GetRouteTableRouteArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTablesFilterInput)(nil)).Elem(), GetRouteTablesFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTablesFilterArrayInput)(nil)).Elem(), GetRouteTablesFilterArray{})
 	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionOutput{})
 	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionArrayOutput{})
 	pulumi.RegisterOutputType(AllowedImagesSettingsImageCriterionCreationDateConditionOutput{})
@@ -71264,6 +71311,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsPathFilterAtSourceSourcePortRangePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttachmentTypeOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceAttachmentTypeArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceConnectionTrackingSpecificationOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceConnectionTrackingSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceEnaSrdSpecificationOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceEnaSrdSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput{})
@@ -71818,6 +71867,4 @@ func init() {
 	pulumi.RegisterOutputType(GetRouteTableFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableRouteOutput{})
 	pulumi.RegisterOutputType(GetRouteTableRouteArrayOutput{})
-	pulumi.RegisterOutputType(GetRouteTablesFilterOutput{})
-	pulumi.RegisterOutputType(GetRouteTablesFilterArrayOutput{})
 }

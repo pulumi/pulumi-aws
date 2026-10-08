@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a CodeArtifact Repostory Permissions Policy Resource.
+ * Provides a CodeArtifact Repository Permissions Policy Resource.
  *
  * ## Example Usage
  *

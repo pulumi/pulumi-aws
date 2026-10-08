@@ -1333,7 +1333,7 @@ class _InstanceState:
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[_builtins.str] latest_restorable_time: Latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
         :param pulumi.Input[_builtins.str] license_model: License model information for this DB instance. Valid values for this field are as follows: RDS for MariaDB: `general-public-license`; RDS for Microsoft SQL Server: `license-included`; RDS for MySQL: `general-public-license`; RDS for Oracle: `bring-your-own-license | license-included`; RDS for PostgreSQL: `postgresql-license`.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceListenerEndpointArgs']]] listener_endpoints: Listener connection endpoint for SQL Server Always On. See Endpoint below.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceListenerEndpointArgs']]] listener_endpoints: Listener connection endpoint for SQL Server Always On. See `listener_endpoint` Block below.
         :param pulumi.Input[_builtins.str] maintenance_window: Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS Maintenance Window docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) for more information.
         :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
         :param pulumi.Input[_builtins.str] master_user_secret_kms_key_id: Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
@@ -2082,7 +2082,7 @@ class _InstanceState:
     @pulumi.getter(name="listenerEndpoints")
     def listener_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceListenerEndpointArgs']]]]:
         """
-        Listener connection endpoint for SQL Server Always On. See Endpoint below.
+        Listener connection endpoint for SQL Server Always On. See `listener_endpoint` Block below.
         """
         return pulumi.get(self, "listener_endpoints")
 
@@ -2809,7 +2809,7 @@ class Instance(pulumi.CustomResource):
                 "db.r6i.large",
                 "db.m6i.large",
             ])
-        # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+        # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default parameter group as a source, and set license information.
         example_parameter_group = aws.rds.ParameterGroup("example",
             parameters=[
                 {
@@ -3189,7 +3189,7 @@ class Instance(pulumi.CustomResource):
                 "db.r6i.large",
                 "db.m6i.large",
             ])
-        # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+        # The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default parameter group as a source, and set license information.
         example_parameter_group = aws.rds.ParameterGroup("example",
             parameters=[
                 {
@@ -3675,7 +3675,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[_builtins.str] latest_restorable_time: Latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
         :param pulumi.Input[_builtins.str] license_model: License model information for this DB instance. Valid values for this field are as follows: RDS for MariaDB: `general-public-license`; RDS for Microsoft SQL Server: `license-included`; RDS for MySQL: `general-public-license`; RDS for Oracle: `bring-your-own-license | license-included`; RDS for PostgreSQL: `postgresql-license`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceListenerEndpointArgs', 'InstanceListenerEndpointArgsDict', 'outputs.InstanceListenerEndpoint']]]] listener_endpoints: Listener connection endpoint for SQL Server Always On. See Endpoint below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceListenerEndpointArgs', 'InstanceListenerEndpointArgsDict', 'outputs.InstanceListenerEndpoint']]]] listener_endpoints: Listener connection endpoint for SQL Server Always On. See `listener_endpoint` Block below.
         :param pulumi.Input[_builtins.str] maintenance_window: Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS Maintenance Window docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) for more information.
         :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to true to allow RDS to manage the master user password in Secrets Manager. Cannot be set if `password` or `password_wo` is provided.
         :param pulumi.Input[_builtins.str] master_user_secret_kms_key_id: Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN. If not specified, the default KMS key for your Amazon Web Services account is used.
@@ -4167,7 +4167,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="listenerEndpoints")
     def listener_endpoints(self) -> pulumi.Output[Sequence['outputs.InstanceListenerEndpoint']]:
         """
-        Listener connection endpoint for SQL Server Always On. See Endpoint below.
+        Listener connection endpoint for SQL Server Always On. See `listener_endpoint` Block below.
         """
         return pulumi.get(self, "listener_endpoints")
 

@@ -4002,6 +4002,13 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_odb_autonomous_database": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_odb_autonomous_database_secrets_manager_integration": {
+    "hasUsableRegion": true
+  },
   "aws_odb_cloud_autonomous_vm_cluster": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true

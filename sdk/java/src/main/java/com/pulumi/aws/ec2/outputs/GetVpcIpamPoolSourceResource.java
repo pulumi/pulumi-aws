@@ -11,50 +11,50 @@ import java.util.Objects;
 @CustomType
 public final class GetVpcIpamPoolSourceResource {
     /**
-     * @return (Required) ID of the resource.
+     * @return ID of the resource.
      * 
      */
     private String resourceId;
     /**
-     * @return (Required) Owner of the resource.
+     * @return Owner of the resource.
      * 
      */
     private String resourceOwner;
     /**
-     * @return (Required) Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+     * @return Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
      * 
      */
     private String resourceRegion;
     /**
-     * @return (Required) Type of the resource. (`vpc`)
+     * @return Type of the resource. (`vpc`)
      * 
      */
     private String resourceType;
 
     private GetVpcIpamPoolSourceResource() {}
     /**
-     * @return (Required) ID of the resource.
+     * @return ID of the resource.
      * 
      */
     public String resourceId() {
         return this.resourceId;
     }
     /**
-     * @return (Required) Owner of the resource.
+     * @return Owner of the resource.
      * 
      */
     public String resourceOwner() {
         return this.resourceOwner;
     }
     /**
-     * @return (Required) Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+     * @return Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
      * 
      */
     public String resourceRegion() {
         return this.resourceRegion;
     }
     /**
-     * @return (Required) Type of the resource. (`vpc`)
+     * @return Type of the resource. (`vpc`)
      * 
      */
     public String resourceType() {

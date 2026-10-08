@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * 
  * ### Apple Push Notification Service (APNS) using certificate-based authentication
  * 
+ * &gt; **NOTE:** For certificate-based APNS, both `platformCredential` (private key) and `platformPrincipal` (certificate) must be PEM-encoded strings. Terraform string values must be valid UTF-8, so do not pass a binary Apple `.p12` via `base64decode()` — that fails with `the result of decoding the provided string is not valid UTF-8`. Convert the `.p12` to PEM (for example with `openssl`) and load the PEM files instead.
+ * 
  * <pre>
  * {@code
  * package generated_program;
@@ -31,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sns.PlatformApplication;
  * import com.pulumi.aws.sns.PlatformApplicationArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -47,8 +51,12 @@ import javax.annotation.Nullable;
  *         var apnsApplication = new PlatformApplication("apnsApplication", PlatformApplicationArgs.builder()
  *             .name("apns_application")
  *             .platform("APNS")
- *             .platformCredential("<APNS PRIVATE KEY>")
- *             .platformPrincipal("<APNS CERTIFICATE>")
+ *             .platformCredential(StdFunctions.file(FileArgs.builder()
+ *                 .input("apns-private-key.pem")
+ *                 .build()).result())
+ *             .platformPrincipal(StdFunctions.file(FileArgs.builder()
+ *                 .input("apns-certificate.pem")
+ *                 .build()).result())
  *             .build());
  * 
  *     }

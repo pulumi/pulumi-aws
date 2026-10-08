@@ -71,7 +71,7 @@ import (
 type SpotInstanceRequest struct {
 	pulumi.CustomResourceState
 
-	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 	Ami pulumi.StringOutput `pulumi:"ami"`
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to associate a public IP address with an instance in a VPC.
@@ -252,7 +252,7 @@ func GetSpotInstanceRequest(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpotInstanceRequest resources.
 type spotInstanceRequestState struct {
-	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 	Ami *string `pulumi:"ami"`
 	Arn *string `pulumi:"arn"`
 	// Whether to associate a public IP address with an instance in a VPC.
@@ -404,7 +404,7 @@ type spotInstanceRequestState struct {
 }
 
 type SpotInstanceRequestState struct {
-	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 	Ami pulumi.StringPtrInput
 	Arn pulumi.StringPtrInput
 	// Whether to associate a public IP address with an instance in a VPC.
@@ -560,7 +560,7 @@ func (SpotInstanceRequestState) ElementType() reflect.Type {
 }
 
 type spotInstanceRequestArgs struct {
-	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 	Ami *string `pulumi:"ami"`
 	// Whether to associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
@@ -684,7 +684,7 @@ type spotInstanceRequestArgs struct {
 
 // The set of arguments for constructing a SpotInstanceRequest resource.
 type SpotInstanceRequestArgs struct {
-	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 	Ami pulumi.StringPtrInput
 	// Whether to associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress pulumi.BoolPtrInput
@@ -893,7 +893,7 @@ func (o SpotInstanceRequestOutput) ToSpotInstanceRequestOutputWithContext(ctx co
 	return o
 }
 
-// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 func (o SpotInstanceRequestOutput) Ami() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.Ami }).(pulumi.StringOutput)
 }

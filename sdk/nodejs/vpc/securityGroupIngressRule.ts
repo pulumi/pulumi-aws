@@ -88,31 +88,31 @@ export class SecurityGroupIngressRule extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The source IPv4 CIDR range.
+     * Source IPv4 CIDR range.
      */
     declare public readonly cidrIpv4: pulumi.Output<string | undefined>;
     /**
-     * The source IPv6 CIDR range.
+     * Source IPv6 CIDR range.
      */
     declare public readonly cidrIpv6: pulumi.Output<string | undefined>;
     /**
-     * The security group rule description.
+     * Security group rule description.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+     * Start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      */
     declare public readonly fromPort: pulumi.Output<number | undefined>;
     /**
-     * The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
+     * IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
      */
     declare public readonly ipProtocol: pulumi.Output<string>;
     /**
-     * The ID of the source prefix list.
+     * ID of the source prefix list.
      */
     declare public readonly prefixListId: pulumi.Output<string | undefined>;
     /**
-     * The source security group that is referenced in the rule.
+     * Source security group that is referenced in the rule.
      */
     declare public readonly referencedSecurityGroupId: pulumi.Output<string | undefined>;
     /**
@@ -120,23 +120,23 @@ export class SecurityGroupIngressRule extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID of the security group.
+     * ID of the security group.
      */
     declare public readonly securityGroupId: pulumi.Output<string>;
     /**
-     * The ID of the security group rule.
+     * ID of the security group rule.
      */
     declare public /*out*/ readonly securityGroupRuleId: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     * End of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      *
      * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */
@@ -206,31 +206,31 @@ export interface SecurityGroupIngressRuleState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The source IPv4 CIDR range.
+     * Source IPv4 CIDR range.
      */
     cidrIpv4?: pulumi.Input<string | undefined>;
     /**
-     * The source IPv6 CIDR range.
+     * Source IPv6 CIDR range.
      */
     cidrIpv6?: pulumi.Input<string | undefined>;
     /**
-     * The security group rule description.
+     * Security group rule description.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+     * Start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      */
     fromPort?: pulumi.Input<number | undefined>;
     /**
-     * The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
+     * IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
      */
     ipProtocol?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the source prefix list.
+     * ID of the source prefix list.
      */
     prefixListId?: pulumi.Input<string | undefined>;
     /**
-     * The source security group that is referenced in the rule.
+     * Source security group that is referenced in the rule.
      */
     referencedSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
@@ -238,23 +238,23 @@ export interface SecurityGroupIngressRuleState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the security group.
+     * ID of the security group.
      */
     securityGroupId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the security group rule.
+     * ID of the security group rule.
      */
     securityGroupRuleId?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     * End of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      *
      * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */
@@ -266,31 +266,31 @@ export interface SecurityGroupIngressRuleState {
  */
 export interface SecurityGroupIngressRuleArgs {
     /**
-     * The source IPv4 CIDR range.
+     * Source IPv4 CIDR range.
      */
     cidrIpv4?: pulumi.Input<string | undefined>;
     /**
-     * The source IPv6 CIDR range.
+     * Source IPv6 CIDR range.
      */
     cidrIpv6?: pulumi.Input<string | undefined>;
     /**
-     * The security group rule description.
+     * Security group rule description.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+     * Start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      */
     fromPort?: pulumi.Input<number | undefined>;
     /**
-     * The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
+     * IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
      */
     ipProtocol: pulumi.Input<string>;
     /**
-     * The ID of the source prefix list.
+     * ID of the source prefix list.
      */
     prefixListId?: pulumi.Input<string | undefined>;
     /**
-     * The source security group that is referenced in the rule.
+     * Source security group that is referenced in the rule.
      */
     referencedSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
@@ -298,15 +298,15 @@ export interface SecurityGroupIngressRuleArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the security group.
+     * ID of the security group.
      */
     securityGroupId: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     * End of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      *
      * > **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      */

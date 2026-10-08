@@ -16,14 +16,14 @@ public final class VpcIpamPoolCidrCidrAuthorizationContextArgs extends com.pulum
     public static final VpcIpamPoolCidrCidrAuthorizationContextArgs Empty = new VpcIpamPoolCidrCidrAuthorizationContextArgs();
 
     /**
-     * The plain-text authorization message for the prefix and account.
+     * Plain-text authorization message for the prefix and account.
      * 
      */
     @Import(name="message")
     private @Nullable Output<String> message;
 
     /**
-     * @return The plain-text authorization message for the prefix and account.
+     * @return Plain-text authorization message for the prefix and account.
      * 
      */
     public Optional<Output<String>> message() {
@@ -31,14 +31,14 @@ public final class VpcIpamPoolCidrCidrAuthorizationContextArgs extends com.pulum
     }
 
     /**
-     * The signed authorization message for the prefix and account.
+     * Signed authorization message for the prefix and account.
      * 
      */
     @Import(name="signature")
     private @Nullable Output<String> signature;
 
     /**
-     * @return The signed authorization message for the prefix and account.
+     * @return Signed authorization message for the prefix and account.
      * 
      */
     public Optional<Output<String>> signature() {
@@ -71,7 +71,7 @@ public final class VpcIpamPoolCidrCidrAuthorizationContextArgs extends com.pulum
         }
 
         /**
-         * @param message The plain-text authorization message for the prefix and account.
+         * @param message Plain-text authorization message for the prefix and account.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class VpcIpamPoolCidrCidrAuthorizationContextArgs extends com.pulum
         }
 
         /**
-         * @param message The plain-text authorization message for the prefix and account.
+         * @param message Plain-text authorization message for the prefix and account.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class VpcIpamPoolCidrCidrAuthorizationContextArgs extends com.pulum
         }
 
         /**
-         * @param signature The signed authorization message for the prefix and account.
+         * @param signature Signed authorization message for the prefix and account.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class VpcIpamPoolCidrCidrAuthorizationContextArgs extends com.pulum
         }
 
         /**
-         * @param signature The signed authorization message for the prefix and account.
+         * @param signature Signed authorization message for the prefix and account.
          * 
          * @return builder
          * 

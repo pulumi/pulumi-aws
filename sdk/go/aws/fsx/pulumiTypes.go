@@ -1092,7 +1092,7 @@ func (o FileCacheLustreConfigurationMetadataConfigurationArrayOutput) Index(i pu
 type LustreFileSystemDataReadCacheConfiguration struct {
 	// Size of the file system's SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
 	Size *int `pulumi:"size"`
-	// Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+	// Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
 	SizingMode string `pulumi:"sizingMode"`
 }
 
@@ -1110,7 +1110,7 @@ type LustreFileSystemDataReadCacheConfigurationInput interface {
 type LustreFileSystemDataReadCacheConfigurationArgs struct {
 	// Size of the file system's SSD read cache, in gibibytes (GiB). Required when the `sizingMode` is `USER_PROVISIONED`.
 	Size pulumi.IntPtrInput `pulumi:"size"`
-	// Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+	// Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
 	SizingMode pulumi.StringInput `pulumi:"sizingMode"`
 }
 
@@ -1196,7 +1196,7 @@ func (o LustreFileSystemDataReadCacheConfigurationOutput) Size() pulumi.IntPtrOu
 	return o.ApplyT(func(v LustreFileSystemDataReadCacheConfiguration) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
 
-// Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+// Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
 func (o LustreFileSystemDataReadCacheConfigurationOutput) SizingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LustreFileSystemDataReadCacheConfiguration) string { return v.SizingMode }).(pulumi.StringOutput)
 }
@@ -1235,7 +1235,7 @@ func (o LustreFileSystemDataReadCacheConfigurationPtrOutput) Size() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+// Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
 func (o LustreFileSystemDataReadCacheConfigurationPtrOutput) SizingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LustreFileSystemDataReadCacheConfiguration) *string {
 		if v == nil {
@@ -1878,9 +1878,9 @@ func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtrOu
 }
 
 type OntapFileSystemEndpoint struct {
-	// Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+	// Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
 	Interclusters []OntapFileSystemEndpointIntercluster `pulumi:"interclusters"`
-	// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+	// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
 	Managements []OntapFileSystemEndpointManagement `pulumi:"managements"`
 }
 
@@ -1896,9 +1896,9 @@ type OntapFileSystemEndpointInput interface {
 }
 
 type OntapFileSystemEndpointArgs struct {
-	// Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+	// Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
 	Interclusters OntapFileSystemEndpointInterclusterArrayInput `pulumi:"interclusters"`
-	// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+	// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
 	Managements OntapFileSystemEndpointManagementArrayInput `pulumi:"managements"`
 }
 
@@ -1953,12 +1953,12 @@ func (o OntapFileSystemEndpointOutput) ToOntapFileSystemEndpointOutputWithContex
 	return o
 }
 
-// Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+// Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
 func (o OntapFileSystemEndpointOutput) Interclusters() OntapFileSystemEndpointInterclusterArrayOutput {
 	return o.ApplyT(func(v OntapFileSystemEndpoint) []OntapFileSystemEndpointIntercluster { return v.Interclusters }).(OntapFileSystemEndpointInterclusterArrayOutput)
 }
 
-// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
 func (o OntapFileSystemEndpointOutput) Managements() OntapFileSystemEndpointManagementArrayOutput {
 	return o.ApplyT(func(v OntapFileSystemEndpoint) []OntapFileSystemEndpointManagement { return v.Managements }).(OntapFileSystemEndpointManagementArrayOutput)
 }
@@ -2598,13 +2598,13 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveD
 }
 
 type OntapStorageVirtualMachineEndpoint struct {
-	// Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+	// Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See `endpoints.iscsi` below.
 	Iscsis []OntapStorageVirtualMachineEndpointIscsi `pulumi:"iscsis"`
-	// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+	// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
 	Managements []OntapStorageVirtualMachineEndpointManagement `pulumi:"managements"`
-	// Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+	// Endpoint for accessing data on your storage virtual machine via NFS protocol. See `endpoints.nfs` below.
 	Nfs []OntapStorageVirtualMachineEndpointNf `pulumi:"nfs"`
-	// Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+	// Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See `endpoints.smb` below.
 	Smbs []OntapStorageVirtualMachineEndpointSmb `pulumi:"smbs"`
 }
 
@@ -2620,13 +2620,13 @@ type OntapStorageVirtualMachineEndpointInput interface {
 }
 
 type OntapStorageVirtualMachineEndpointArgs struct {
-	// Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+	// Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See `endpoints.iscsi` below.
 	Iscsis OntapStorageVirtualMachineEndpointIscsiArrayInput `pulumi:"iscsis"`
-	// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+	// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
 	Managements OntapStorageVirtualMachineEndpointManagementArrayInput `pulumi:"managements"`
-	// Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+	// Endpoint for accessing data on your storage virtual machine via NFS protocol. See `endpoints.nfs` below.
 	Nfs OntapStorageVirtualMachineEndpointNfArrayInput `pulumi:"nfs"`
-	// Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+	// Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See `endpoints.smb` below.
 	Smbs OntapStorageVirtualMachineEndpointSmbArrayInput `pulumi:"smbs"`
 }
 
@@ -2681,24 +2681,24 @@ func (o OntapStorageVirtualMachineEndpointOutput) ToOntapStorageVirtualMachineEn
 	return o
 }
 
-// Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+// Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See `endpoints.iscsi` below.
 func (o OntapStorageVirtualMachineEndpointOutput) Iscsis() OntapStorageVirtualMachineEndpointIscsiArrayOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointIscsi { return v.Iscsis }).(OntapStorageVirtualMachineEndpointIscsiArrayOutput)
 }
 
-// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
 func (o OntapStorageVirtualMachineEndpointOutput) Managements() OntapStorageVirtualMachineEndpointManagementArrayOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointManagement {
 		return v.Managements
 	}).(OntapStorageVirtualMachineEndpointManagementArrayOutput)
 }
 
-// Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+// Endpoint for accessing data on your storage virtual machine via NFS protocol. See `endpoints.nfs` below.
 func (o OntapStorageVirtualMachineEndpointOutput) Nfs() OntapStorageVirtualMachineEndpointNfArrayOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointNf { return v.Nfs }).(OntapStorageVirtualMachineEndpointNfArrayOutput)
 }
 
-// Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+// Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See `endpoints.smb` below.
 func (o OntapStorageVirtualMachineEndpointOutput) Smbs() OntapStorageVirtualMachineEndpointSmbArrayOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointSmb { return v.Smbs }).(OntapStorageVirtualMachineEndpointSmbArrayOutput)
 }
@@ -5209,7 +5209,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrOutput) ClientConfi
 type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration struct {
 	// Value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 	Clients string `pulumi:"clients"`
-	// Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	// Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 	Options []string `pulumi:"options"`
 }
 
@@ -5227,7 +5227,7 @@ type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationInput 
 type OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs struct {
 	// Value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 	Clients pulumi.StringInput `pulumi:"clients"`
-	// Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	// Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 	Options pulumi.StringArrayInput `pulumi:"options"`
 }
 
@@ -5287,7 +5287,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOut
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration) string { return v.Clients }).(pulumi.StringOutput)
 }
 
-// Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+// Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 func (o OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationOutput) Options() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration) []string {
 		return v.Options
@@ -5573,7 +5573,7 @@ func (o OpenZfsVolumeNfsExportsPtrOutput) ClientConfigurations() OpenZfsVolumeNf
 type OpenZfsVolumeNfsExportsClientConfiguration struct {
 	// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 	Clients string `pulumi:"clients"`
-	// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	// The options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 	Options []string `pulumi:"options"`
 }
 
@@ -5591,7 +5591,7 @@ type OpenZfsVolumeNfsExportsClientConfigurationInput interface {
 type OpenZfsVolumeNfsExportsClientConfigurationArgs struct {
 	// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
 	Clients pulumi.StringInput `pulumi:"clients"`
-	// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+	// The options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 	Options pulumi.StringArrayInput `pulumi:"options"`
 }
 
@@ -5651,7 +5651,7 @@ func (o OpenZfsVolumeNfsExportsClientConfigurationOutput) Clients() pulumi.Strin
 	return o.ApplyT(func(v OpenZfsVolumeNfsExportsClientConfiguration) string { return v.Clients }).(pulumi.StringOutput)
 }
 
-// The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+// The options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
 func (o OpenZfsVolumeNfsExportsClientConfigurationOutput) Options() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OpenZfsVolumeNfsExportsClientConfiguration) []string { return v.Options }).(pulumi.StringArrayOutput)
 }
@@ -7624,9 +7624,9 @@ func (o GetOntapFileSystemDiskIopsConfigurationArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetOntapFileSystemEndpoint struct {
-	// FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint below.
+	// FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
 	Interclusters []GetOntapFileSystemEndpointIntercluster `pulumi:"interclusters"`
-	// FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint below.
+	// FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
 	Managements []GetOntapFileSystemEndpointManagement `pulumi:"managements"`
 }
 
@@ -7642,9 +7642,9 @@ type GetOntapFileSystemEndpointInput interface {
 }
 
 type GetOntapFileSystemEndpointArgs struct {
-	// FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint below.
+	// FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
 	Interclusters GetOntapFileSystemEndpointInterclusterArrayInput `pulumi:"interclusters"`
-	// FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint below.
+	// FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
 	Managements GetOntapFileSystemEndpointManagementArrayInput `pulumi:"managements"`
 }
 
@@ -7699,12 +7699,12 @@ func (o GetOntapFileSystemEndpointOutput) ToGetOntapFileSystemEndpointOutputWith
 	return o
 }
 
-// FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint below.
+// FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
 func (o GetOntapFileSystemEndpointOutput) Interclusters() GetOntapFileSystemEndpointInterclusterArrayOutput {
 	return o.ApplyT(func(v GetOntapFileSystemEndpoint) []GetOntapFileSystemEndpointIntercluster { return v.Interclusters }).(GetOntapFileSystemEndpointInterclusterArrayOutput)
 }
 
-// FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint below.
+// FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
 func (o GetOntapFileSystemEndpointOutput) Managements() GetOntapFileSystemEndpointManagementArrayOutput {
 	return o.ApplyT(func(v GetOntapFileSystemEndpoint) []GetOntapFileSystemEndpointManagement { return v.Managements }).(GetOntapFileSystemEndpointManagementArrayOutput)
 }

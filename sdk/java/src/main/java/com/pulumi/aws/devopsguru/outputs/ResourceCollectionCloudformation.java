@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class ResourceCollectionCloudformation {
     /**
-     * @return Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
+     * @return Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
      * 
      */
     private List<String> stackNames;
 
     private ResourceCollectionCloudformation() {}
     /**
-     * @return Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
+     * @return Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
      * 
      */
     public List<String> stackNames() {

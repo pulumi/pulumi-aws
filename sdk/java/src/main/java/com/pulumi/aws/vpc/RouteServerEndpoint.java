@@ -68,42 +68,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpc/routeServerEndpoint:RouteServerEndpoint")
 public class RouteServerEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the route server endpoint.
+     * ARN of the route server endpoint.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the route server endpoint.
+     * @return ARN of the route server endpoint.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The IP address of the Elastic network interface for the endpoint.
+     * IP address of the Elastic network interface for the endpoint.
      * 
      */
     @Export(name="eniAddress", refs={String.class}, tree="[0]")
     private Output<String> eniAddress;
 
     /**
-     * @return The IP address of the Elastic network interface for the endpoint.
+     * @return IP address of the Elastic network interface for the endpoint.
      * 
      */
     public Output<String> eniAddress() {
         return this.eniAddress;
     }
     /**
-     * The ID of the Elastic network interface for the endpoint.
+     * ID of the Elastic network interface for the endpoint.
      * 
      */
     @Export(name="eniId", refs={String.class}, tree="[0]")
     private Output<String> eniId;
 
     /**
-     * @return The ID of the Elastic network interface for the endpoint.
+     * @return ID of the Elastic network interface for the endpoint.
      * 
      */
     public Output<String> eniId() {
@@ -124,35 +124,35 @@ public class RouteServerEndpoint extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The unique identifier of the route server endpoint.
+     * Unique identifier of the route server endpoint.
      * 
      */
     @Export(name="routeServerEndpointId", refs={String.class}, tree="[0]")
     private Output<String> routeServerEndpointId;
 
     /**
-     * @return The unique identifier of the route server endpoint.
+     * @return Unique identifier of the route server endpoint.
      * 
      */
     public Output<String> routeServerEndpointId() {
         return this.routeServerEndpointId;
     }
     /**
-     * The ID of the route server for which to create an endpoint.
+     * ID of the route server for which to create an endpoint.
      * 
      */
     @Export(name="routeServerId", refs={String.class}, tree="[0]")
     private Output<String> routeServerId;
 
     /**
-     * @return The ID of the route server for which to create an endpoint.
+     * @return ID of the route server for which to create an endpoint.
      * 
      */
     public Output<String> routeServerId() {
         return this.routeServerId;
     }
     /**
-     * The ID of the subnet in which to create the route server endpoint.
+     * ID of the subnet in which to create the route server endpoint.
      * 
      * The following arguments are optional:
      * 
@@ -161,7 +161,7 @@ public class RouteServerEndpoint extends com.pulumi.resources.CustomResource {
     private Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet in which to create the route server endpoint.
+     * @return ID of the subnet in which to create the route server endpoint.
      * 
      * The following arguments are optional:
      * 
@@ -170,28 +170,28 @@ public class RouteServerEndpoint extends com.pulumi.resources.CustomResource {
         return this.subnetId;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -204,14 +204,14 @@ public class RouteServerEndpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The ID of the VPC containing the endpoint.
+     * ID of the VPC containing the endpoint.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC containing the endpoint.
+     * @return ID of the VPC containing the endpoint.
      * 
      */
     public Output<String> vpcId() {

@@ -118,7 +118,7 @@ class GetVpcEndpointServiceResult:
     @pulumi.getter(name="baseEndpointDnsNames")
     def base_endpoint_dns_names(self) -> Sequence[_builtins.str]:
         """
-        The DNS names for the service.
+        DNS names for the service.
         """
         return pulumi.get(self, "base_endpoint_dns_names")
 
@@ -216,7 +216,7 @@ class GetVpcEndpointServiceResult:
     @pulumi.getter(name="supportedIpAddressTypes")
     def supported_ip_address_types(self) -> Sequence[_builtins.str]:
         """
-        The supported IP address types.
+        Supported IP address types.
         """
         return pulumi.get(self, "supported_ip_address_types")
 

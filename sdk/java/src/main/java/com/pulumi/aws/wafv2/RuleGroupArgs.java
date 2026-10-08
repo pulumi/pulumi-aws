@@ -23,14 +23,14 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
     public static final RuleGroupArgs Empty = new RuleGroupArgs();
 
     /**
-     * The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+     * Web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
      * 
      */
     @Import(name="capacity", required=true)
     private Output<Integer> capacity;
 
     /**
-     * @return The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+     * @return Web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
      * 
      */
     public Output<Integer> capacity() {
@@ -38,14 +38,14 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+     * Custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      * 
      */
     @Import(name="customResponseBodies")
     private @Nullable Output<List<RuleGroupCustomResponseBodyArgs>> customResponseBodies;
 
     /**
-     * @return Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+     * @return Custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
      * 
      */
     public Optional<Output<List<RuleGroupCustomResponseBodyArgs>>> customResponseBodies() {
@@ -53,14 +53,14 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A friendly description of the rule group.
+     * Friendly description of the rule group.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A friendly description of the rule group.
+     * @return Friendly description of the rule group.
      * 
      */
     public Optional<Output<String>> description() {
@@ -68,14 +68,14 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A friendly name of the rule group.
+     * Friendly name of the rule group.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A friendly name of the rule group.
+     * @return Friendly name of the rule group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -113,14 +113,14 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+     * Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<RuleGroupRuleArgs>> rules;
 
     /**
-     * @return The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+     * @return Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      * 
      */
     public Optional<Output<List<RuleGroupRuleArgs>>> rules() {
@@ -143,14 +143,14 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+     * Scope of the rule group, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
     @Import(name="scope", required=true)
     private Output<String> scope;
 
     /**
-     * @return Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+     * @return Scope of the rule group, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
     public Output<String> scope() {
@@ -158,14 +158,14 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -173,14 +173,14 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+     * Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
      * 
      */
     @Import(name="visibilityConfig", required=true)
     private Output<RuleGroupVisibilityConfigArgs> visibilityConfig;
 
     /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+     * @return Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
      * 
      */
     public Output<RuleGroupVisibilityConfigArgs> visibilityConfig() {
@@ -222,7 +222,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacity The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+         * @param capacity Web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param capacity The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
+         * @param capacity Web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+         * @param customResponseBodies Custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+         * @param customResponseBodies Custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+         * @param customResponseBodies Custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A friendly description of the rule group.
+         * @param description Friendly description of the rule group.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A friendly description of the rule group.
+         * @param description Friendly description of the rule group.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name of the rule group.
+         * @param name Friendly name of the rule group.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name of the rule group.
+         * @param name Friendly name of the rule group.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+         * @param rules Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+         * @param rules Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
+         * @param rules Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scope Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+         * @param scope Scope of the rule group, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scope Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+         * @param scope Scope of the rule group, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags An array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Array of key:value pairs to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+         * @param visibilityConfig Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
          * 
          * @return builder
          * 
@@ -463,7 +463,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+         * @param visibilityConfig Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
          * 
          * @return builder
          * 

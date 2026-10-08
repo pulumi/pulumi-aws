@@ -602,7 +602,7 @@ class Record(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Simple routing policy
+        ### Simple Routing Policy
 
         ```python
         import pulumi
@@ -616,7 +616,7 @@ class Record(pulumi.CustomResource):
             records=[lb["publicIp"]])
         ```
 
-        ### Weighted routing policy
+        ### Weighted Routing Policy
 
         Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
 
@@ -646,7 +646,7 @@ class Record(pulumi.CustomResource):
             records=["live.example.com"])
         ```
 
-        ### Geoproximity routing policy
+        ### Geoproximity Routing Policy
 
         ```python
         import pulumi
@@ -667,7 +667,7 @@ class Record(pulumi.CustomResource):
             records=["dev.example.com"])
         ```
 
-        ### Alias record
+        ### Alias Record
 
         See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
         to understand differences between alias and non-alias records.
@@ -699,7 +699,7 @@ class Record(pulumi.CustomResource):
             type=aws.route53.RecordType.A)
         ```
 
-        ### Alias record for AWS Global Accelerator
+        ### Alias Record for AWS Global Accelerator
 
         ```python
         import pulumi
@@ -743,15 +743,15 @@ class Record(pulumi.CustomResource):
             ])
         ```
 
-        ### Batched reads for zones with many records
+        ### Caching Read Results
 
-        > Batched reads is an experimental feature. The behavior may change without notice, and it is not subject to the backwards compatibility guarantee of the provider.
+        > Cached reads is an experimental feature. The behavior may change without notice, and it is not subject to the backwards compatibility guarantee of the provider. Please provide feedback on this tracking issue.
 
-        AWS Route 53 enforces a [5 requests-per-second rate limit](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-requests) on all AWS Route 53 APIs for an AWS account. Plans that manage many records in the same AWS account trigger throttling and cause slow plan and apply times because each record issues its own API calls during read/write operations.
+        AWS Route53 enforces API [rate limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-requests) at the account level. Configurations that manage many records in the same account may trigger throttling and cause slow `plan` and `apply` times because each record resource issues its own API call during read/write operations.
 
-        Setting the `TF_AWS_ROUTE53_RECORD_BATCH_READS` environment variable to `true` causes the provider to fetch all records for hosted zones referenced by `route53.Record` once and cache the results in memory for the duration of the plan or apply, regardless of how many records are managed. No per-resource configuration is required.
+        Setting the `TF_AWS_ROUTE53_RECORD_BATCH_READS` environment variable to `true` causes the provider to fetch all records for hosted zones referenced by `route53.Record` once and cache the results in memory for the duration of the `plan` or `apply`, regardless of how many records are managed. No per-resource configuration is required.
 
-        > **Warning:** When `TF_AWS_ROUTE53_RECORD_BATCH_READS` is set to a true value, the provider caches a zone's full record set the first time a record in that zone is read, then serves all subsequent reads from that cache. The caching layer ensures removal of cache entries for any records that are updated during pulumi up operations; however, any changes made to records outside of Terraform (e.g. via the AWS Console or CLI) after the cache is populated will not be detected for the duration of that plan or apply. To pick up out-of-band changes, run `terraform refresh` or a new `pulumi preview` to start with a fresh cache.
+        > **Warning:** When `TF_AWS_ROUTE53_RECORD_BATCH_READS` is set to a true value, the provider caches a zone's full record set the first time a record in that zone is read, then serves all subsequent reads from that cache. The caching layer ensures removal of cache entries for any records that are updated during an `apply` operation; however, any changes made to records outside of Terraform (e.g. via the AWS Console or CLI) after the cache is populated will not be detected.
 
         ## Import
 
@@ -820,7 +820,7 @@ class Record(pulumi.CustomResource):
 
         ## Example Usage
 
-        ### Simple routing policy
+        ### Simple Routing Policy
 
         ```python
         import pulumi
@@ -834,7 +834,7 @@ class Record(pulumi.CustomResource):
             records=[lb["publicIp"]])
         ```
 
-        ### Weighted routing policy
+        ### Weighted Routing Policy
 
         Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
 
@@ -864,7 +864,7 @@ class Record(pulumi.CustomResource):
             records=["live.example.com"])
         ```
 
-        ### Geoproximity routing policy
+        ### Geoproximity Routing Policy
 
         ```python
         import pulumi
@@ -885,7 +885,7 @@ class Record(pulumi.CustomResource):
             records=["dev.example.com"])
         ```
 
-        ### Alias record
+        ### Alias Record
 
         See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
         to understand differences between alias and non-alias records.
@@ -917,7 +917,7 @@ class Record(pulumi.CustomResource):
             type=aws.route53.RecordType.A)
         ```
 
-        ### Alias record for AWS Global Accelerator
+        ### Alias Record for AWS Global Accelerator
 
         ```python
         import pulumi
@@ -961,15 +961,15 @@ class Record(pulumi.CustomResource):
             ])
         ```
 
-        ### Batched reads for zones with many records
+        ### Caching Read Results
 
-        > Batched reads is an experimental feature. The behavior may change without notice, and it is not subject to the backwards compatibility guarantee of the provider.
+        > Cached reads is an experimental feature. The behavior may change without notice, and it is not subject to the backwards compatibility guarantee of the provider. Please provide feedback on this tracking issue.
 
-        AWS Route 53 enforces a [5 requests-per-second rate limit](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-requests) on all AWS Route 53 APIs for an AWS account. Plans that manage many records in the same AWS account trigger throttling and cause slow plan and apply times because each record issues its own API calls during read/write operations.
+        AWS Route53 enforces API [rate limits](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-requests) at the account level. Configurations that manage many records in the same account may trigger throttling and cause slow `plan` and `apply` times because each record resource issues its own API call during read/write operations.
 
-        Setting the `TF_AWS_ROUTE53_RECORD_BATCH_READS` environment variable to `true` causes the provider to fetch all records for hosted zones referenced by `route53.Record` once and cache the results in memory for the duration of the plan or apply, regardless of how many records are managed. No per-resource configuration is required.
+        Setting the `TF_AWS_ROUTE53_RECORD_BATCH_READS` environment variable to `true` causes the provider to fetch all records for hosted zones referenced by `route53.Record` once and cache the results in memory for the duration of the `plan` or `apply`, regardless of how many records are managed. No per-resource configuration is required.
 
-        > **Warning:** When `TF_AWS_ROUTE53_RECORD_BATCH_READS` is set to a true value, the provider caches a zone's full record set the first time a record in that zone is read, then serves all subsequent reads from that cache. The caching layer ensures removal of cache entries for any records that are updated during pulumi up operations; however, any changes made to records outside of Terraform (e.g. via the AWS Console or CLI) after the cache is populated will not be detected for the duration of that plan or apply. To pick up out-of-band changes, run `terraform refresh` or a new `pulumi preview` to start with a fresh cache.
+        > **Warning:** When `TF_AWS_ROUTE53_RECORD_BATCH_READS` is set to a true value, the provider caches a zone's full record set the first time a record in that zone is read, then serves all subsequent reads from that cache. The caching layer ensures removal of cache entries for any records that are updated during an `apply` operation; however, any changes made to records outside of Terraform (e.g. via the AWS Console or CLI) after the cache is populated will not be detected.
 
         ## Import
 

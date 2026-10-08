@@ -23,14 +23,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     public static final VpnConnectionArgs Empty = new VpnConnectionArgs();
 
     /**
-     * The ID of the customer gateway.
+     * ID of the customer gateway.
      * 
      */
     @Import(name="customerGatewayId", required=true)
     private Output<String> customerGatewayId;
 
     /**
-     * @return The ID of the customer gateway.
+     * @return ID of the customer gateway.
      * 
      */
     public Output<String> customerGatewayId() {
@@ -38,14 +38,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+     * Whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
      * 
      */
     @Import(name="enableAcceleration")
     private @Nullable Output<Boolean> enableAcceleration;
 
     /**
-     * @return Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+     * @return Whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
      * 
      */
     public Optional<Output<Boolean>> enableAcceleration() {
@@ -53,14 +53,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
     @Import(name="localIpv4NetworkCidr")
     private @Nullable Output<String> localIpv4NetworkCidr;
 
     /**
-     * @return The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * @return IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
     public Optional<Output<String>> localIpv4NetworkCidr() {
@@ -68,14 +68,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
     @Import(name="localIpv6NetworkCidr")
     private @Nullable Output<String> localIpv6NetworkCidr;
 
     /**
-     * @return The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * @return IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
     public Optional<Output<String>> localIpv6NetworkCidr() {
@@ -83,14 +83,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+     * Type of VPN endpoint, either a public Site-to-Site VPN or a private Site-to-Site VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`.
      * 
      */
     @Import(name="outsideIpAddressType")
     private @Nullable Output<String> outsideIpAddressType;
 
     /**
-     * @return Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+     * @return Type of VPN endpoint, either a public Site-to-Site VPN or a private Site-to-Site VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`.
      * 
      */
     public Optional<Output<String>> outsideIpAddressType() {
@@ -128,14 +128,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IPv4 CIDR on the AWS side of the VPN connection.
+     * IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
     @Import(name="remoteIpv4NetworkCidr")
     private @Nullable Output<String> remoteIpv4NetworkCidr;
 
     /**
-     * @return The IPv4 CIDR on the AWS side of the VPN connection.
+     * @return IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
     public Optional<Output<String>> remoteIpv4NetworkCidr() {
@@ -143,14 +143,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IPv6 CIDR on the AWS side of the VPN connection.
+     * IPv6 CIDR on the AWS side of the VPN connection.
      * 
      */
     @Import(name="remoteIpv6NetworkCidr")
     private @Nullable Output<String> remoteIpv6NetworkCidr;
 
     /**
-     * @return The IPv6 CIDR on the AWS side of the VPN connection.
+     * @return IPv6 CIDR on the AWS side of the VPN connection.
      * 
      */
     public Optional<Output<String>> remoteIpv6NetworkCidr() {
@@ -188,14 +188,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the EC2 Transit Gateway.
+     * ID of the EC2 Transit Gateway.
      * 
      */
     @Import(name="transitGatewayId")
     private @Nullable Output<String> transitGatewayId;
 
     /**
-     * @return The ID of the EC2 Transit Gateway.
+     * @return ID of the EC2 Transit Gateway.
      * 
      */
     public Optional<Output<String>> transitGatewayId() {
@@ -203,14 +203,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+     * Attachment ID of the Transit Gateway attachment to Direct Connect Gateway. Required when `outsideIpAddressType` is set to `PrivateIpv4`. The ID is obtained through a data source only.
      * 
      */
     @Import(name="transportTransitGatewayAttachmentId")
     private @Nullable Output<String> transportTransitGatewayAttachmentId;
 
     /**
-     * @return . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+     * @return Attachment ID of the Transit Gateway attachment to Direct Connect Gateway. Required when `outsideIpAddressType` is set to `PrivateIpv4`. The ID is obtained through a data source only.
      * 
      */
     public Optional<Output<String>> transportTransitGatewayAttachmentId() {
@@ -218,14 +218,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+     * Action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
     @Import(name="tunnel1DpdTimeoutAction")
     private @Nullable Output<String> tunnel1DpdTimeoutAction;
 
     /**
-     * @return The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+     * @return Action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
     public Optional<Output<String>> tunnel1DpdTimeoutAction() {
@@ -233,14 +233,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+     * Number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
     @Import(name="tunnel1DpdTimeoutSeconds")
     private @Nullable Output<Integer> tunnel1DpdTimeoutSeconds;
 
     /**
-     * @return The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+     * @return Number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
     public Optional<Output<Integer>> tunnel1DpdTimeoutSeconds() {
@@ -248,14 +248,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     * Whether to enable the tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
      * 
      */
     @Import(name="tunnel1EnableTunnelLifecycleControl")
     private @Nullable Output<Boolean> tunnel1EnableTunnelLifecycleControl;
 
     /**
-     * @return Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     * @return Whether to enable the tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
      * 
      */
     public Optional<Output<Boolean>> tunnel1EnableTunnelLifecycleControl() {
@@ -263,14 +263,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+     * IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
     @Import(name="tunnel1IkeVersions")
     private @Nullable Output<List<String>> tunnel1IkeVersions;
 
     /**
-     * @return The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+     * @return IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
     public Optional<Output<List<String>>> tunnel1IkeVersions() {
@@ -278,14 +278,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+     * CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
     @Import(name="tunnel1InsideCidr")
     private @Nullable Output<String> tunnel1InsideCidr;
 
     /**
-     * @return The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+     * @return CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
     public Optional<Output<String>> tunnel1InsideCidr() {
@@ -293,14 +293,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+     * Range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
     @Import(name="tunnel1InsideIpv6Cidr")
     private @Nullable Output<String> tunnel1InsideIpv6Cidr;
 
     /**
-     * @return The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+     * @return Range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
     public Optional<Output<String>> tunnel1InsideIpv6Cidr() {
@@ -308,14 +308,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     * Options for logging VPN tunnel activity. See `tunnel1LogOptions` below for more details.
      * 
      */
     @Import(name="tunnel1LogOptions")
     private @Nullable Output<VpnConnectionTunnel1LogOptionsArgs> tunnel1LogOptions;
 
     /**
-     * @return Options for logging VPN tunnel activity. See Log Options below for more details.
+     * @return Options for logging VPN tunnel activity. See `tunnel1LogOptions` below for more details.
      * 
      */
     public Optional<Output<VpnConnectionTunnel1LogOptionsArgs>> tunnel1LogOptions() {
@@ -368,14 +368,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+     * Lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
     @Import(name="tunnel1Phase1LifetimeSeconds")
     private @Nullable Output<Integer> tunnel1Phase1LifetimeSeconds;
 
     /**
-     * @return The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+     * @return Lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
     public Optional<Output<Integer>> tunnel1Phase1LifetimeSeconds() {
@@ -428,14 +428,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+     * Lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
     @Import(name="tunnel1Phase2LifetimeSeconds")
     private @Nullable Output<Integer> tunnel1Phase2LifetimeSeconds;
 
     /**
-     * @return The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+     * @return Lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
     public Optional<Output<Integer>> tunnel1Phase2LifetimeSeconds() {
@@ -443,14 +443,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+     * Preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
     @Import(name="tunnel1PresharedKey")
     private @Nullable Output<String> tunnel1PresharedKey;
 
     /**
-     * @return The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+     * @return Preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
     public Optional<Output<String>> tunnel1PresharedKey() {
@@ -458,14 +458,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+     * Percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
     @Import(name="tunnel1RekeyFuzzPercentage")
     private @Nullable Output<Integer> tunnel1RekeyFuzzPercentage;
 
     /**
-     * @return The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+     * @return Percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
     public Optional<Output<Integer>> tunnel1RekeyFuzzPercentage() {
@@ -473,14 +473,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
+     * Margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
      * 
      */
     @Import(name="tunnel1RekeyMarginTimeSeconds")
     private @Nullable Output<Integer> tunnel1RekeyMarginTimeSeconds;
 
     /**
-     * @return The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
+     * @return Margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
      * 
      */
     public Optional<Output<Integer>> tunnel1RekeyMarginTimeSeconds() {
@@ -488,14 +488,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+     * Number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
     @Import(name="tunnel1ReplayWindowSize")
     private @Nullable Output<Integer> tunnel1ReplayWindowSize;
 
     /**
-     * @return The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+     * @return Number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
     public Optional<Output<Integer>> tunnel1ReplayWindowSize() {
@@ -503,14 +503,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+     * Action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
     @Import(name="tunnel1StartupAction")
     private @Nullable Output<String> tunnel1StartupAction;
 
     /**
-     * @return The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+     * @return Action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
     public Optional<Output<String>> tunnel1StartupAction() {
@@ -518,14 +518,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+     * Action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
     @Import(name="tunnel2DpdTimeoutAction")
     private @Nullable Output<String> tunnel2DpdTimeoutAction;
 
     /**
-     * @return The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+     * @return Action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
     public Optional<Output<String>> tunnel2DpdTimeoutAction() {
@@ -533,14 +533,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+     * Number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
     @Import(name="tunnel2DpdTimeoutSeconds")
     private @Nullable Output<Integer> tunnel2DpdTimeoutSeconds;
 
     /**
-     * @return The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+     * @return Number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
     public Optional<Output<Integer>> tunnel2DpdTimeoutSeconds() {
@@ -548,14 +548,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     * Whether to enable the tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
      * 
      */
     @Import(name="tunnel2EnableTunnelLifecycleControl")
     private @Nullable Output<Boolean> tunnel2EnableTunnelLifecycleControl;
 
     /**
-     * @return Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     * @return Whether to enable the tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
      * 
      */
     public Optional<Output<Boolean>> tunnel2EnableTunnelLifecycleControl() {
@@ -563,14 +563,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+     * IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
     @Import(name="tunnel2IkeVersions")
     private @Nullable Output<List<String>> tunnel2IkeVersions;
 
     /**
-     * @return The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+     * @return IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
     public Optional<Output<List<String>>> tunnel2IkeVersions() {
@@ -578,14 +578,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+     * CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
     @Import(name="tunnel2InsideCidr")
     private @Nullable Output<String> tunnel2InsideCidr;
 
     /**
-     * @return The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+     * @return CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
     public Optional<Output<String>> tunnel2InsideCidr() {
@@ -593,14 +593,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+     * Range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
     @Import(name="tunnel2InsideIpv6Cidr")
     private @Nullable Output<String> tunnel2InsideIpv6Cidr;
 
     /**
-     * @return The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+     * @return Range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
     public Optional<Output<String>> tunnel2InsideIpv6Cidr() {
@@ -608,14 +608,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     * Options for logging VPN tunnel activity. See `tunnel2LogOptions` below for more details.
      * 
      */
     @Import(name="tunnel2LogOptions")
     private @Nullable Output<VpnConnectionTunnel2LogOptionsArgs> tunnel2LogOptions;
 
     /**
-     * @return Options for logging VPN tunnel activity. See Log Options below for more details.
+     * @return Options for logging VPN tunnel activity. See `tunnel2LogOptions` below for more details.
      * 
      */
     public Optional<Output<VpnConnectionTunnel2LogOptionsArgs>> tunnel2LogOptions() {
@@ -668,14 +668,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+     * Lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
     @Import(name="tunnel2Phase1LifetimeSeconds")
     private @Nullable Output<Integer> tunnel2Phase1LifetimeSeconds;
 
     /**
-     * @return The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+     * @return Lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
     public Optional<Output<Integer>> tunnel2Phase1LifetimeSeconds() {
@@ -728,14 +728,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+     * Lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
     @Import(name="tunnel2Phase2LifetimeSeconds")
     private @Nullable Output<Integer> tunnel2Phase2LifetimeSeconds;
 
     /**
-     * @return The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+     * @return Lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
     public Optional<Output<Integer>> tunnel2Phase2LifetimeSeconds() {
@@ -743,14 +743,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+     * Preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
     @Import(name="tunnel2PresharedKey")
     private @Nullable Output<String> tunnel2PresharedKey;
 
     /**
-     * @return The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+     * @return Preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
     public Optional<Output<String>> tunnel2PresharedKey() {
@@ -758,14 +758,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+     * Percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
     @Import(name="tunnel2RekeyFuzzPercentage")
     private @Nullable Output<Integer> tunnel2RekeyFuzzPercentage;
 
     /**
-     * @return The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+     * @return Percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
     public Optional<Output<Integer>> tunnel2RekeyFuzzPercentage() {
@@ -773,14 +773,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
+     * Margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
      * 
      */
     @Import(name="tunnel2RekeyMarginTimeSeconds")
     private @Nullable Output<Integer> tunnel2RekeyMarginTimeSeconds;
 
     /**
-     * @return The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
+     * @return Margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
      * 
      */
     public Optional<Output<Integer>> tunnel2RekeyMarginTimeSeconds() {
@@ -788,14 +788,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+     * Number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
     @Import(name="tunnel2ReplayWindowSize")
     private @Nullable Output<Integer> tunnel2ReplayWindowSize;
 
     /**
-     * @return The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+     * @return Number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
     public Optional<Output<Integer>> tunnel2ReplayWindowSize() {
@@ -803,14 +803,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+     * Action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
     @Import(name="tunnel2StartupAction")
     private @Nullable Output<String> tunnel2StartupAction;
 
     /**
-     * @return The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+     * @return Action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
     public Optional<Output<String>> tunnel2StartupAction() {
@@ -848,14 +848,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
+     * Type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
+     * @return Type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
      * 
      */
     public Output<String> type() {
@@ -878,14 +878,14 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Virtual Private Gateway.
+     * ID of the Virtual Private Gateway.
      * 
      */
     @Import(name="vpnGatewayId")
     private @Nullable Output<String> vpnGatewayId;
 
     /**
-     * @return The ID of the Virtual Private Gateway.
+     * @return ID of the Virtual Private Gateway.
      * 
      */
     public Optional<Output<String>> vpnGatewayId() {
@@ -974,7 +974,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerGatewayId The ID of the customer gateway.
+         * @param customerGatewayId ID of the customer gateway.
          * 
          * @return builder
          * 
@@ -985,7 +985,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerGatewayId The ID of the customer gateway.
+         * @param customerGatewayId ID of the customer gateway.
          * 
          * @return builder
          * 
@@ -995,7 +995,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableAcceleration Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+         * @param enableAcceleration Whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
          * 
          * @return builder
          * 
@@ -1006,7 +1006,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableAcceleration Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+         * @param enableAcceleration Whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
          * 
          * @return builder
          * 
@@ -1016,7 +1016,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localIpv4NetworkCidr The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+         * @param localIpv4NetworkCidr IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
          * 
          * @return builder
          * 
@@ -1027,7 +1027,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localIpv4NetworkCidr The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+         * @param localIpv4NetworkCidr IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
          * 
          * @return builder
          * 
@@ -1037,7 +1037,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localIpv6NetworkCidr The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+         * @param localIpv6NetworkCidr IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
          * 
          * @return builder
          * 
@@ -1048,7 +1048,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localIpv6NetworkCidr The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+         * @param localIpv6NetworkCidr IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
          * 
          * @return builder
          * 
@@ -1058,7 +1058,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outsideIpAddressType Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+         * @param outsideIpAddressType Type of VPN endpoint, either a public Site-to-Site VPN or a private Site-to-Site VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`.
          * 
          * @return builder
          * 
@@ -1069,7 +1069,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outsideIpAddressType Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+         * @param outsideIpAddressType Type of VPN endpoint, either a public Site-to-Site VPN or a private Site-to-Site VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`.
          * 
          * @return builder
          * 
@@ -1121,7 +1121,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param remoteIpv4NetworkCidr The IPv4 CIDR on the AWS side of the VPN connection.
+         * @param remoteIpv4NetworkCidr IPv4 CIDR on the AWS side of the VPN connection.
          * 
          * @return builder
          * 
@@ -1132,7 +1132,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param remoteIpv4NetworkCidr The IPv4 CIDR on the AWS side of the VPN connection.
+         * @param remoteIpv4NetworkCidr IPv4 CIDR on the AWS side of the VPN connection.
          * 
          * @return builder
          * 
@@ -1142,7 +1142,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param remoteIpv6NetworkCidr The IPv6 CIDR on the AWS side of the VPN connection.
+         * @param remoteIpv6NetworkCidr IPv6 CIDR on the AWS side of the VPN connection.
          * 
          * @return builder
          * 
@@ -1153,7 +1153,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param remoteIpv6NetworkCidr The IPv6 CIDR on the AWS side of the VPN connection.
+         * @param remoteIpv6NetworkCidr IPv6 CIDR on the AWS side of the VPN connection.
          * 
          * @return builder
          * 
@@ -1205,7 +1205,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transitGatewayId The ID of the EC2 Transit Gateway.
+         * @param transitGatewayId ID of the EC2 Transit Gateway.
          * 
          * @return builder
          * 
@@ -1216,7 +1216,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transitGatewayId The ID of the EC2 Transit Gateway.
+         * @param transitGatewayId ID of the EC2 Transit Gateway.
          * 
          * @return builder
          * 
@@ -1226,7 +1226,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transportTransitGatewayAttachmentId . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+         * @param transportTransitGatewayAttachmentId Attachment ID of the Transit Gateway attachment to Direct Connect Gateway. Required when `outsideIpAddressType` is set to `PrivateIpv4`. The ID is obtained through a data source only.
          * 
          * @return builder
          * 
@@ -1237,7 +1237,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transportTransitGatewayAttachmentId . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+         * @param transportTransitGatewayAttachmentId Attachment ID of the Transit Gateway attachment to Direct Connect Gateway. Required when `outsideIpAddressType` is set to `PrivateIpv4`. The ID is obtained through a data source only.
          * 
          * @return builder
          * 
@@ -1247,7 +1247,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1DpdTimeoutAction The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+         * @param tunnel1DpdTimeoutAction Action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
          * 
          * @return builder
          * 
@@ -1258,7 +1258,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1DpdTimeoutAction The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+         * @param tunnel1DpdTimeoutAction Action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
          * 
          * @return builder
          * 
@@ -1268,7 +1268,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1DpdTimeoutSeconds The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+         * @param tunnel1DpdTimeoutSeconds Number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
          * 
          * @return builder
          * 
@@ -1279,7 +1279,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1DpdTimeoutSeconds The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+         * @param tunnel1DpdTimeoutSeconds Number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
          * 
          * @return builder
          * 
@@ -1289,7 +1289,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1EnableTunnelLifecycleControl Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+         * @param tunnel1EnableTunnelLifecycleControl Whether to enable the tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
          * 
          * @return builder
          * 
@@ -1300,7 +1300,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1EnableTunnelLifecycleControl Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+         * @param tunnel1EnableTunnelLifecycleControl Whether to enable the tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
          * 
          * @return builder
          * 
@@ -1310,7 +1310,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1IkeVersions The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+         * @param tunnel1IkeVersions IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
          * 
          * @return builder
          * 
@@ -1321,7 +1321,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1IkeVersions The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+         * @param tunnel1IkeVersions IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
          * 
          * @return builder
          * 
@@ -1331,7 +1331,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1IkeVersions The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+         * @param tunnel1IkeVersions IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
          * 
          * @return builder
          * 
@@ -1341,7 +1341,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1InsideCidr The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+         * @param tunnel1InsideCidr CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
          * 
          * @return builder
          * 
@@ -1352,7 +1352,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1InsideCidr The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+         * @param tunnel1InsideCidr CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
          * 
          * @return builder
          * 
@@ -1362,7 +1362,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1InsideIpv6Cidr The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+         * @param tunnel1InsideIpv6Cidr Range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
          * 
          * @return builder
          * 
@@ -1373,7 +1373,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1InsideIpv6Cidr The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+         * @param tunnel1InsideIpv6Cidr Range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
          * 
          * @return builder
          * 
@@ -1383,7 +1383,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1LogOptions Options for logging VPN tunnel activity. See Log Options below for more details.
+         * @param tunnel1LogOptions Options for logging VPN tunnel activity. See `tunnel1LogOptions` below for more details.
          * 
          * @return builder
          * 
@@ -1394,7 +1394,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1LogOptions Options for logging VPN tunnel activity. See Log Options below for more details.
+         * @param tunnel1LogOptions Options for logging VPN tunnel activity. See `tunnel1LogOptions` below for more details.
          * 
          * @return builder
          * 
@@ -1497,7 +1497,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1Phase1LifetimeSeconds The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+         * @param tunnel1Phase1LifetimeSeconds Lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
          * 
          * @return builder
          * 
@@ -1508,7 +1508,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1Phase1LifetimeSeconds The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+         * @param tunnel1Phase1LifetimeSeconds Lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
          * 
          * @return builder
          * 
@@ -1611,7 +1611,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1Phase2LifetimeSeconds The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+         * @param tunnel1Phase2LifetimeSeconds Lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
          * 
          * @return builder
          * 
@@ -1622,7 +1622,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1Phase2LifetimeSeconds The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+         * @param tunnel1Phase2LifetimeSeconds Lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
          * 
          * @return builder
          * 
@@ -1632,7 +1632,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1PresharedKey The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+         * @param tunnel1PresharedKey Preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
          * 
          * @return builder
          * 
@@ -1643,7 +1643,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1PresharedKey The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+         * @param tunnel1PresharedKey Preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
          * 
          * @return builder
          * 
@@ -1653,7 +1653,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1RekeyFuzzPercentage The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+         * @param tunnel1RekeyFuzzPercentage Percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
          * 
          * @return builder
          * 
@@ -1664,7 +1664,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1RekeyFuzzPercentage The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+         * @param tunnel1RekeyFuzzPercentage Percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
          * 
          * @return builder
          * 
@@ -1674,7 +1674,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1RekeyMarginTimeSeconds The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
+         * @param tunnel1RekeyMarginTimeSeconds Margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
          * 
          * @return builder
          * 
@@ -1685,7 +1685,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1RekeyMarginTimeSeconds The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
+         * @param tunnel1RekeyMarginTimeSeconds Margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
          * 
          * @return builder
          * 
@@ -1695,7 +1695,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1ReplayWindowSize The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+         * @param tunnel1ReplayWindowSize Number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
          * 
          * @return builder
          * 
@@ -1706,7 +1706,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1ReplayWindowSize The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+         * @param tunnel1ReplayWindowSize Number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
          * 
          * @return builder
          * 
@@ -1716,7 +1716,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1StartupAction The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+         * @param tunnel1StartupAction Action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
          * 
          * @return builder
          * 
@@ -1727,7 +1727,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel1StartupAction The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+         * @param tunnel1StartupAction Action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
          * 
          * @return builder
          * 
@@ -1737,7 +1737,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2DpdTimeoutAction The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+         * @param tunnel2DpdTimeoutAction Action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
          * 
          * @return builder
          * 
@@ -1748,7 +1748,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2DpdTimeoutAction The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+         * @param tunnel2DpdTimeoutAction Action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
          * 
          * @return builder
          * 
@@ -1758,7 +1758,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2DpdTimeoutSeconds The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+         * @param tunnel2DpdTimeoutSeconds Number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
          * 
          * @return builder
          * 
@@ -1769,7 +1769,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2DpdTimeoutSeconds The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+         * @param tunnel2DpdTimeoutSeconds Number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
          * 
          * @return builder
          * 
@@ -1779,7 +1779,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2EnableTunnelLifecycleControl Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+         * @param tunnel2EnableTunnelLifecycleControl Whether to enable the tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
          * 
          * @return builder
          * 
@@ -1790,7 +1790,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2EnableTunnelLifecycleControl Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+         * @param tunnel2EnableTunnelLifecycleControl Whether to enable the tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
          * 
          * @return builder
          * 
@@ -1800,7 +1800,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2IkeVersions The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+         * @param tunnel2IkeVersions IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
          * 
          * @return builder
          * 
@@ -1811,7 +1811,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2IkeVersions The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+         * @param tunnel2IkeVersions IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
          * 
          * @return builder
          * 
@@ -1821,7 +1821,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2IkeVersions The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+         * @param tunnel2IkeVersions IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
          * 
          * @return builder
          * 
@@ -1831,7 +1831,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2InsideCidr The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+         * @param tunnel2InsideCidr CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
          * 
          * @return builder
          * 
@@ -1842,7 +1842,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2InsideCidr The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+         * @param tunnel2InsideCidr CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
          * 
          * @return builder
          * 
@@ -1852,7 +1852,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2InsideIpv6Cidr The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+         * @param tunnel2InsideIpv6Cidr Range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
          * 
          * @return builder
          * 
@@ -1863,7 +1863,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2InsideIpv6Cidr The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+         * @param tunnel2InsideIpv6Cidr Range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
          * 
          * @return builder
          * 
@@ -1873,7 +1873,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2LogOptions Options for logging VPN tunnel activity. See Log Options below for more details.
+         * @param tunnel2LogOptions Options for logging VPN tunnel activity. See `tunnel2LogOptions` below for more details.
          * 
          * @return builder
          * 
@@ -1884,7 +1884,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2LogOptions Options for logging VPN tunnel activity. See Log Options below for more details.
+         * @param tunnel2LogOptions Options for logging VPN tunnel activity. See `tunnel2LogOptions` below for more details.
          * 
          * @return builder
          * 
@@ -1987,7 +1987,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2Phase1LifetimeSeconds The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+         * @param tunnel2Phase1LifetimeSeconds Lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
          * 
          * @return builder
          * 
@@ -1998,7 +1998,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2Phase1LifetimeSeconds The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+         * @param tunnel2Phase1LifetimeSeconds Lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
          * 
          * @return builder
          * 
@@ -2101,7 +2101,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2Phase2LifetimeSeconds The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+         * @param tunnel2Phase2LifetimeSeconds Lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
          * 
          * @return builder
          * 
@@ -2112,7 +2112,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2Phase2LifetimeSeconds The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+         * @param tunnel2Phase2LifetimeSeconds Lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
          * 
          * @return builder
          * 
@@ -2122,7 +2122,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2PresharedKey The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+         * @param tunnel2PresharedKey Preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
          * 
          * @return builder
          * 
@@ -2133,7 +2133,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2PresharedKey The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+         * @param tunnel2PresharedKey Preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
          * 
          * @return builder
          * 
@@ -2143,7 +2143,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2RekeyFuzzPercentage The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+         * @param tunnel2RekeyFuzzPercentage Percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
          * 
          * @return builder
          * 
@@ -2154,7 +2154,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2RekeyFuzzPercentage The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+         * @param tunnel2RekeyFuzzPercentage Percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
          * 
          * @return builder
          * 
@@ -2164,7 +2164,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2RekeyMarginTimeSeconds The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
+         * @param tunnel2RekeyMarginTimeSeconds Margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
          * 
          * @return builder
          * 
@@ -2175,7 +2175,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2RekeyMarginTimeSeconds The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
+         * @param tunnel2RekeyMarginTimeSeconds Margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
          * 
          * @return builder
          * 
@@ -2185,7 +2185,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2ReplayWindowSize The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+         * @param tunnel2ReplayWindowSize Number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
          * 
          * @return builder
          * 
@@ -2196,7 +2196,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2ReplayWindowSize The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+         * @param tunnel2ReplayWindowSize Number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
          * 
          * @return builder
          * 
@@ -2206,7 +2206,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2StartupAction The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+         * @param tunnel2StartupAction Action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
          * 
          * @return builder
          * 
@@ -2217,7 +2217,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tunnel2StartupAction The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+         * @param tunnel2StartupAction Action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
          * 
          * @return builder
          * 
@@ -2269,7 +2269,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
+         * @param type Type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
          * 
          * @return builder
          * 
@@ -2280,7 +2280,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
+         * @param type Type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
          * 
          * @return builder
          * 
@@ -2311,7 +2311,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpnGatewayId The ID of the Virtual Private Gateway.
+         * @param vpnGatewayId ID of the Virtual Private Gateway.
          * 
          * @return builder
          * 
@@ -2322,7 +2322,7 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpnGatewayId The ID of the Virtual Private Gateway.
+         * @param vpnGatewayId ID of the Virtual Private Gateway.
          * 
          * @return builder
          * 

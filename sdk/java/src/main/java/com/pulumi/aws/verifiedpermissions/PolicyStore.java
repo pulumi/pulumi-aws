@@ -69,56 +69,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:verifiedpermissions/policyStore:PolicyStore")
 public class PolicyStore extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Policy Store.
+     * ARN of the Policy Store.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Policy Store.
+     * @return ARN of the Policy Store.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * Whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
      * 
      */
     @Export(name="deletionProtection", refs={String.class}, tree="[0]")
     private Output<String> deletionProtection;
 
     /**
-     * @return Specifies whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+     * @return Whether the policy store can be deleted. If enabled, the policy store can&#39;t be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
      * 
      */
     public Output<String> deletionProtection() {
         return this.deletionProtection;
     }
     /**
-     * A description of the Policy Store.
+     * Description of the Policy Store.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the Policy Store.
+     * @return Description of the Policy Store.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      * 
      */
     @Export(name="policyStoreId", refs={String.class}, tree="[0]")
     private Output<String> policyStoreId;
 
     /**
-     * @return The ID of the Policy Store.
+     * @return ID of the Policy Store.
      * 
      */
     public Output<String> policyStoreId() {
@@ -167,14 +167,18 @@ public class PolicyStore extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Validation settings for the policy store.
+     * Validation settings for the policy store. See Validation Settings below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="validationSettings", refs={PolicyStoreValidationSettings.class}, tree="[0]")
     private Output<PolicyStoreValidationSettings> validationSettings;
 
     /**
-     * @return Validation settings for the policy store.
+     * @return Validation settings for the policy store. See Validation Settings below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<PolicyStoreValidationSettings> validationSettings() {

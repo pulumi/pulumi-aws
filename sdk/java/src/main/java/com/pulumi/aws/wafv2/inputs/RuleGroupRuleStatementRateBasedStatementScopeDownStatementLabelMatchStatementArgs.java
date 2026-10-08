@@ -15,14 +15,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementLab
     public static final RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs Empty = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs();
 
     /**
-     * The string to match against.
+     * String to match against.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return The string to match against.
+     * @return String to match against.
      * 
      */
     public Output<String> key() {
@@ -70,7 +70,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementLab
         }
 
         /**
-         * @param key The string to match against.
+         * @param key String to match against.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementLab
         }
 
         /**
-         * @param key The string to match against.
+         * @param key String to match against.
          * 
          * @return builder
          * 

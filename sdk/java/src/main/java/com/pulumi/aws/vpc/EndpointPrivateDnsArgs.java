@@ -18,14 +18,14 @@ public final class EndpointPrivateDnsArgs extends com.pulumi.resources.ResourceA
     public static final EndpointPrivateDnsArgs Empty = new EndpointPrivateDnsArgs();
 
     /**
-     * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+     * Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
      * 
      */
     @Import(name="privateDnsEnabled", required=true)
     private Output<Boolean> privateDnsEnabled;
 
     /**
-     * @return Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+     * @return Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
      * 
      */
     public Output<Boolean> privateDnsEnabled() {
@@ -89,7 +89,7 @@ public final class EndpointPrivateDnsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param privateDnsEnabled Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+         * @param privateDnsEnabled Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class EndpointPrivateDnsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param privateDnsEnabled Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+         * @param privateDnsEnabled Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
          * 
          * @return builder
          * 

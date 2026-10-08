@@ -90,6 +90,8 @@ export class Cluster extends pulumi.CustomResource {
      * A list of EC2 Availability Zones that instances in the DB cluster can be created in.
      * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
      * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
+     * At most 3 AZs can be configured.
+     * **Note:** Do not set `availabilityZones` to the output of a data source such as `aws.getAvailabilityZones`, as this may be subject to change (for example, when a new AZ is added to a Region). Because changing `availabilityZones` forces replacement, any change to the set of values will plan to destroy and recreate the cluster. Always use an explicit, static list of AZs.
      */
     declare public readonly availabilityZones: pulumi.Output<string[]>;
     /**
@@ -372,6 +374,8 @@ export interface ClusterState {
      * A list of EC2 Availability Zones that instances in the DB cluster can be created in.
      * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
      * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
+     * At most 3 AZs can be configured.
+     * **Note:** Do not set `availabilityZones` to the output of a data source such as `aws.getAvailabilityZones`, as this may be subject to change (for example, when a new AZ is added to a Region). Because changing `availabilityZones` forces replacement, any change to the set of values will plan to destroy and recreate the cluster. Always use an explicit, static list of AZs.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -546,6 +550,8 @@ export interface ClusterArgs {
      * A list of EC2 Availability Zones that instances in the DB cluster can be created in.
      * DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
      * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
+     * At most 3 AZs can be configured.
+     * **Note:** Do not set `availabilityZones` to the output of a data source such as `aws.getAvailabilityZones`, as this may be subject to change (for example, when a new AZ is added to a Region). Because changing `availabilityZones` forces replacement, any change to the set of values will plan to destroy and recreate the cluster. Always use an explicit, static list of AZs.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

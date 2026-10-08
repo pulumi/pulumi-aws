@@ -16,8 +16,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kinesis.Stream("example", {
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
  *     name: "amazon-workspaces-web-example-stream",
- *     shardCount: 1,
  * });
  * const exampleUserAccessLoggingSettings = new aws.workspacesweb.UserAccessLoggingSettings("example", {kinesisStreamArn: example.arn});
  * ```
@@ -29,8 +31,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kinesis.Stream("example", {
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
  *     name: "example-stream",
- *     shardCount: 1,
  * });
  * const exampleUserAccessLoggingSettings = new aws.workspacesweb.UserAccessLoggingSettings("example", {
  *     kinesisStreamArn: example.arn,

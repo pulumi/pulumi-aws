@@ -9763,6 +9763,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "odb/autonomousDatabase",
+  "fqn": "pulumi_aws.odb",
+  "classes": {
+   "aws:odb/autonomousDatabase:AutonomousDatabase": "AutonomousDatabase"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "odb/autonomousDatabaseSecretsManagerIntegration",
+  "fqn": "pulumi_aws.odb",
+  "classes": {
+   "aws:odb/autonomousDatabaseSecretsManagerIntegration:AutonomousDatabaseSecretsManagerIntegration": "AutonomousDatabaseSecretsManagerIntegration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "odb/cloudAutonomousVmCluster",
   "fqn": "pulumi_aws.odb",
   "classes": {

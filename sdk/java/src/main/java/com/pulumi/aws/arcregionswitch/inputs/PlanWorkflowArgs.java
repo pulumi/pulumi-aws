@@ -19,14 +19,14 @@ public final class PlanWorkflowArgs extends com.pulumi.resources.ResourceArgs {
     public static final PlanWorkflowArgs Empty = new PlanWorkflowArgs();
 
     /**
-     * Steps in the workflow. See `step` Block for details.
+     * Steps in the workflow. See `workflow.step` Block for details.
      * 
      */
     @Import(name="steps")
     private @Nullable Output<List<PlanWorkflowStepArgs>> steps;
 
     /**
-     * @return Steps in the workflow. See `step` Block for details.
+     * @return Steps in the workflow. See `workflow.step` Block for details.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepArgs>>> steps() {
@@ -106,7 +106,7 @@ public final class PlanWorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param steps Steps in the workflow. See `step` Block for details.
+         * @param steps Steps in the workflow. See `workflow.step` Block for details.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class PlanWorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param steps Steps in the workflow. See `step` Block for details.
+         * @param steps Steps in the workflow. See `workflow.step` Block for details.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class PlanWorkflowArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param steps Steps in the workflow. See `step` Block for details.
+         * @param steps Steps in the workflow. See `workflow.step` Block for details.
          * 
          * @return builder
          * 

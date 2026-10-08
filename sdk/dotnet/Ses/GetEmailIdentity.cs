@@ -133,9 +133,6 @@ namespace Pulumi.Aws.Ses
         /// ARN of the email identity.
         /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Email identity.
-        /// </summary>
         public readonly string Email;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

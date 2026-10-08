@@ -280,8 +280,10 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kinesis.Stream("example",
-            name="example",
-            shard_count=2)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="example")
         media_pipelines_assume_role = aws.iam.get_policy_document(statements=[{
             "principals": [{
                 "type": "Service",
@@ -567,8 +569,10 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kinesis.Stream("example",
-            name="example",
-            shard_count=2)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="example")
         media_pipelines_assume_role = aws.iam.get_policy_document(statements=[{
             "principals": [{
                 "type": "Service",

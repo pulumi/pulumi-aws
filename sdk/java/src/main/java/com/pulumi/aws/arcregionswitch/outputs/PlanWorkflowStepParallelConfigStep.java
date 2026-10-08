@@ -50,7 +50,7 @@ public final class PlanWorkflowStepParallelConfigStep {
      */
     private @Nullable List<PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig> customActionLambdaConfigs;
     /**
-     * @return Description of the step.
+     * @return Description of the plan.
      * 
      */
     private @Nullable String description;
@@ -95,7 +95,7 @@ public final class PlanWorkflowStepParallelConfigStep {
      */
     private @Nullable List<PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig> lambdaEventSourceMappingConfigs;
     /**
-     * @return Name of the step.
+     * @return Name of the plan. Must be unique within the account.
      * 
      */
     private String name;
@@ -155,7 +155,7 @@ public final class PlanWorkflowStepParallelConfigStep {
         return this.customActionLambdaConfigs == null ? List.of() : this.customActionLambdaConfigs;
     }
     /**
-     * @return Description of the step.
+     * @return Description of the plan.
      * 
      */
     public Optional<String> description() {
@@ -218,7 +218,7 @@ public final class PlanWorkflowStepParallelConfigStep {
         return this.lambdaEventSourceMappingConfigs == null ? List.of() : this.lambdaEventSourceMappingConfigs;
     }
     /**
-     * @return Name of the step.
+     * @return Name of the plan. Must be unique within the account.
      * 
      */
     public String name() {

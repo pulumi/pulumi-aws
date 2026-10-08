@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern {
     /**
-     * @return An empty configuration block that is used for inspecting all headers.
+     * @return Empty configuration block that is used for inspecting all headers.
      * 
      */
     private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll all;
@@ -23,7 +23,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesM
 
     private RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern() {}
     /**
-     * @return An empty configuration block that is used for inspecting all headers.
+     * @return Empty configuration block that is used for inspecting all headers.
      * 
      */
     public Optional<RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll> all() {

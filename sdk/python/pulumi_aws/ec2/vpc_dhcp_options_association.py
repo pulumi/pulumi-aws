@@ -25,10 +25,10 @@ class VpcDhcpOptionsAssociationArgs:
         """
         The set of arguments for constructing a VpcDhcpOptionsAssociation resource.
 
-        :param pulumi.Input[_builtins.str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[_builtins.str] dhcp_options_id: ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to which we would like to associate a DHCP Options Set.
                
                > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
@@ -40,9 +40,7 @@ class VpcDhcpOptionsAssociationArgs:
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the DHCP Options Set to associate to the VPC.
-
-        > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
+        ID of the DHCP Options Set to associate to the VPC.
         """
         return pulumi.get(self, "dhcp_options_id")
 
@@ -54,7 +52,9 @@ class VpcDhcpOptionsAssociationArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the VPC to which we would like to associate a DHCP Options Set.
+        ID of the VPC to which we would like to associate a DHCP Options Set.
+
+        > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -84,11 +84,11 @@ class _VpcDhcpOptionsAssociationState:
         """
         Input properties used for looking up and filtering VpcDhcpOptionsAssociation resources.
 
-        :param pulumi.Input[_builtins.str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[_builtins.str] dhcp_options_id: ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to which we would like to associate a DHCP Options Set.
                
                > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
         if dhcp_options_id is not None:
             pulumi.set(__self__, "dhcp_options_id", dhcp_options_id)
@@ -101,9 +101,7 @@ class _VpcDhcpOptionsAssociationState:
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the DHCP Options Set to associate to the VPC.
-
-        > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
+        ID of the DHCP Options Set to associate to the VPC.
         """
         return pulumi.get(self, "dhcp_options_id")
 
@@ -127,7 +125,9 @@ class _VpcDhcpOptionsAssociationState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC to which we would like to associate a DHCP Options Set.
+        ID of the VPC to which we would like to associate a DHCP Options Set.
+
+        > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -171,11 +171,11 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[_builtins.str] dhcp_options_id: ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to which we would like to associate a DHCP Options Set.
                
                > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
         ...
     @overload
@@ -260,11 +260,11 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] dhcp_options_id: The ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[_builtins.str] dhcp_options_id: ID of the DHCP Options Set to associate to the VPC.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to which we would like to associate a DHCP Options Set.
                
                > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to which we would like to associate a DHCP Options Set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -279,9 +279,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
     @pulumi.getter(name="dhcpOptionsId")
     def dhcp_options_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the DHCP Options Set to associate to the VPC.
-
-        > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
+        ID of the DHCP Options Set to associate to the VPC.
         """
         return pulumi.get(self, "dhcp_options_id")
 
@@ -297,7 +295,9 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the VPC to which we would like to associate a DHCP Options Set.
+        ID of the VPC to which we would like to associate a DHCP Options Set.
+
+        > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
         """
         return pulumi.get(self, "vpc_id")
 

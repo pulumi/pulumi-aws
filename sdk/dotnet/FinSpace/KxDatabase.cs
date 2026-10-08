@@ -64,7 +64,7 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+        /// Timestamp at which the database is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Output("createdTimestamp")]
         public Output<string> CreatedTimestamp { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+        /// Timestamp at which the database is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         /// </summary>
         [Input("createdTimestamp")]
         public Input<string>? CreatedTimestamp { get; set; }

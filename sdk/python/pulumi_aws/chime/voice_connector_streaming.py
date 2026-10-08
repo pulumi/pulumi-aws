@@ -280,8 +280,10 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             name="ExampleResourceAccessRole",
             assume_role_policy=assume_role.json)
         example_stream = aws.kinesis.Stream("example",
-            name="ExampleStream",
-            shard_count=2)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="ExampleStream")
         example = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("example",
             elements=[
                 {
@@ -375,8 +377,10 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             name="ExampleResourceAccessRole",
             assume_role_policy=assume_role.json)
         example_stream = aws.kinesis.Stream("example",
-            name="ExampleStream",
-            shard_count=2)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="ExampleStream")
         example = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("example",
             elements=[
                 {

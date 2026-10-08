@@ -16,16 +16,32 @@ public final class TrustProviderSseSpecificationArgs extends com.pulumi.resource
 
     public static final TrustProviderSseSpecificationArgs Empty = new TrustProviderSseSpecificationArgs();
 
+    /**
+     * Whether a customer managed key is in use.
+     * 
+     */
     @Import(name="customerManagedKeyEnabled")
     private @Nullable Output<Boolean> customerManagedKeyEnabled;
 
+    /**
+     * @return Whether a customer managed key is in use.
+     * 
+     */
     public Optional<Output<Boolean>> customerManagedKeyEnabled() {
         return Optional.ofNullable(this.customerManagedKeyEnabled);
     }
 
+    /**
+     * ARN of the KMS key.
+     * 
+     */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
+    /**
+     * @return ARN of the KMS key.
+     * 
+     */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
@@ -55,20 +71,44 @@ public final class TrustProviderSseSpecificationArgs extends com.pulumi.resource
             $ = new TrustProviderSseSpecificationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param customerManagedKeyEnabled Whether a customer managed key is in use.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customerManagedKeyEnabled(@Nullable Output<Boolean> customerManagedKeyEnabled) {
             $.customerManagedKeyEnabled = customerManagedKeyEnabled;
             return this;
         }
 
+        /**
+         * @param customerManagedKeyEnabled Whether a customer managed key is in use.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customerManagedKeyEnabled(Boolean customerManagedKeyEnabled) {
             return customerManagedKeyEnabled(Output.of(customerManagedKeyEnabled));
         }
 
+        /**
+         * @param kmsKeyArn ARN of the KMS key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
         }
 
+        /**
+         * @param kmsKeyArn ARN of the KMS key.
+         * 
+         * @return builder
+         * 
+         */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

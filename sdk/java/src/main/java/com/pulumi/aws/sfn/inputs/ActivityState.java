@@ -48,14 +48,14 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+     * Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
      * 
      */
     @Import(name="encryptionConfiguration")
     private @Nullable Output<ActivityEncryptionConfigurationArgs> encryptionConfiguration;
 
     /**
-     * @return Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+     * @return Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
      * 
      */
     public Optional<Output<ActivityEncryptionConfigurationArgs>> encryptionConfiguration() {
@@ -195,7 +195,7 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfiguration Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+         * @param encryptionConfiguration Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ActivityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encryptionConfiguration Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+         * @param encryptionConfiguration Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
          * 
          * @return builder
          * 

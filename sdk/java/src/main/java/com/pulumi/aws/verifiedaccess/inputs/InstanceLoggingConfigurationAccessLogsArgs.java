@@ -20,14 +20,14 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
     public static final InstanceLoggingConfigurationAccessLogsArgs Empty = new InstanceLoggingConfigurationAccessLogsArgs();
 
     /**
-     * A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+     * Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
      * 
      */
     @Import(name="cloudwatchLogs")
     private @Nullable Output<InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs> cloudwatchLogs;
 
     /**
-     * @return A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+     * @return Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
      * 
      */
     public Optional<Output<InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs>> cloudwatchLogs() {
@@ -35,14 +35,14 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
     }
 
     /**
-     * Include trust data sent by trust providers into the logs.
+     * Whether to include trust data sent by trust providers in the logs.
      * 
      */
     @Import(name="includeTrustContext")
     private @Nullable Output<Boolean> includeTrustContext;
 
     /**
-     * @return Include trust data sent by trust providers into the logs.
+     * @return Whether to include trust data sent by trust providers in the logs.
      * 
      */
     public Optional<Output<Boolean>> includeTrustContext() {
@@ -50,14 +50,14 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
     }
 
     /**
-     * A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+     * Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
      * 
      */
     @Import(name="kinesisDataFirehose")
     private @Nullable Output<InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs> kinesisDataFirehose;
 
     /**
-     * @return A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+     * @return Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
      * 
      */
     public Optional<Output<InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs>> kinesisDataFirehose() {
@@ -65,14 +65,14 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
     }
 
     /**
-     * The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+     * Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
      * 
      */
     @Import(name="logVersion")
     private @Nullable Output<String> logVersion;
 
     /**
-     * @return The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+     * @return Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
      * 
      */
     public Optional<Output<String>> logVersion() {
@@ -80,14 +80,14 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
     }
 
     /**
-     * A block that specifies configures sending Verified Access logs to S3. Detailed below.
+     * Block that specifies configures sending Verified Access logs to S3. Detailed below.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<InstanceLoggingConfigurationAccessLogsS3Args> s3;
 
     /**
-     * @return A block that specifies configures sending Verified Access logs to S3. Detailed below.
+     * @return Block that specifies configures sending Verified Access logs to S3. Detailed below.
      * 
      */
     public Optional<Output<InstanceLoggingConfigurationAccessLogsS3Args>> s3() {
@@ -123,7 +123,7 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
         }
 
         /**
-         * @param cloudwatchLogs A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+         * @param cloudwatchLogs Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
         }
 
         /**
-         * @param cloudwatchLogs A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+         * @param cloudwatchLogs Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
         }
 
         /**
-         * @param includeTrustContext Include trust data sent by trust providers into the logs.
+         * @param includeTrustContext Whether to include trust data sent by trust providers in the logs.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
         }
 
         /**
-         * @param includeTrustContext Include trust data sent by trust providers into the logs.
+         * @param includeTrustContext Whether to include trust data sent by trust providers in the logs.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
         }
 
         /**
-         * @param kinesisDataFirehose A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+         * @param kinesisDataFirehose Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
         }
 
         /**
-         * @param kinesisDataFirehose A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+         * @param kinesisDataFirehose Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
         }
 
         /**
-         * @param logVersion The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+         * @param logVersion Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
         }
 
         /**
-         * @param logVersion The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+         * @param logVersion Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
         }
 
         /**
-         * @param s3 A block that specifies configures sending Verified Access logs to S3. Detailed below.
+         * @param s3 Block that specifies configures sending Verified Access logs to S3. Detailed below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class InstanceLoggingConfigurationAccessLogsArgs extends com.pulumi
         }
 
         /**
-         * @param s3 A block that specifies configures sending Verified Access logs to S3. Detailed below.
+         * @param s3 Block that specifies configures sending Verified Access logs to S3. Detailed below.
          * 
          * @return builder
          * 

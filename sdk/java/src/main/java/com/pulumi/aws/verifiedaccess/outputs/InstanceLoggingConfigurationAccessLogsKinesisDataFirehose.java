@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose {
     /**
-     * @return The name of the delivery stream.
+     * @return Name of the delivery stream.
      * 
      */
     private @Nullable String deliveryStream;
     /**
-     * @return Indicates whether logging is enabled.
+     * @return Whether logging is enabled.
      * 
      */
     private Boolean enabled;
 
     private InstanceLoggingConfigurationAccessLogsKinesisDataFirehose() {}
     /**
-     * @return The name of the delivery stream.
+     * @return Name of the delivery stream.
      * 
      */
     public Optional<String> deliveryStream() {
         return Optional.ofNullable(this.deliveryStream);
     }
     /**
-     * @return Indicates whether logging is enabled.
+     * @return Whether logging is enabled.
      * 
      */
     public Boolean enabled() {

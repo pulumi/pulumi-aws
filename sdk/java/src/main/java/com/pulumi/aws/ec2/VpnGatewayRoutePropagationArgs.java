@@ -32,14 +32,14 @@ public final class VpnGatewayRoutePropagationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The id of the `aws.ec2.RouteTable` to propagate routes into.
+     * ID of the `aws.ec2.RouteTable` to propagate routes into.
      * 
      */
     @Import(name="routeTableId", required=true)
     private Output<String> routeTableId;
 
     /**
-     * @return The id of the `aws.ec2.RouteTable` to propagate routes into.
+     * @return ID of the `aws.ec2.RouteTable` to propagate routes into.
      * 
      */
     public Output<String> routeTableId() {
@@ -47,14 +47,14 @@ public final class VpnGatewayRoutePropagationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
+     * ID of the `aws.ec2.VpnGateway` to propagate routes from.
      * 
      */
     @Import(name="vpnGatewayId", required=true)
     private Output<String> vpnGatewayId;
 
     /**
-     * @return The id of the `aws.ec2.VpnGateway` to propagate routes from.
+     * @return ID of the `aws.ec2.VpnGateway` to propagate routes from.
      * 
      */
     public Output<String> vpnGatewayId() {
@@ -109,7 +109,7 @@ public final class VpnGatewayRoutePropagationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param routeTableId The id of the `aws.ec2.RouteTable` to propagate routes into.
+         * @param routeTableId ID of the `aws.ec2.RouteTable` to propagate routes into.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class VpnGatewayRoutePropagationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param routeTableId The id of the `aws.ec2.RouteTable` to propagate routes into.
+         * @param routeTableId ID of the `aws.ec2.RouteTable` to propagate routes into.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class VpnGatewayRoutePropagationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param vpnGatewayId The id of the `aws.ec2.VpnGateway` to propagate routes from.
+         * @param vpnGatewayId ID of the `aws.ec2.VpnGateway` to propagate routes from.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class VpnGatewayRoutePropagationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param vpnGatewayId The id of the `aws.ec2.VpnGateway` to propagate routes from.
+         * @param vpnGatewayId ID of the `aws.ec2.VpnGateway` to propagate routes from.
          * 
          * @return builder
          * 

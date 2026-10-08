@@ -106,23 +106,24 @@ import (
 type Instance struct {
 	pulumi.CustomResourceState
 
-	// The custom subdomain for the CIDR endpoints.
+	// Custom subdomain for the CIDR endpoints.
 	CidrEndpointsCustomSubdomain pulumi.StringPtrOutput `pulumi:"cidrEndpointsCustomSubdomain"`
-	// The time that the Verified Access Instance was created.
+	// Time that the Verified Access Instance was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// A description for the AWS Verified Access Instance.
+	// Description for the AWS Verified Access Instance.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+	// Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
 	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
-	// The time that the Verified Access Instance was last updated.
-	LastUpdatedTime pulumi.StringOutput      `pulumi:"lastUpdatedTime"`
-	NameServers     pulumi.StringArrayOutput `pulumi:"nameServers"`
+	// Time that the Verified Access Instance was last updated.
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// List of DNS names servers that clients can use to connect to the Verified Access Instance.
+	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+	// One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
 	VerifiedAccessTrustProviders InstanceVerifiedAccessTrustProviderArrayOutput `pulumi:"verifiedAccessTrustProviders"`
 }
 
@@ -156,44 +157,46 @@ func GetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Instance resources.
 type instanceState struct {
-	// The custom subdomain for the CIDR endpoints.
+	// Custom subdomain for the CIDR endpoints.
 	CidrEndpointsCustomSubdomain *string `pulumi:"cidrEndpointsCustomSubdomain"`
-	// The time that the Verified Access Instance was created.
+	// Time that the Verified Access Instance was created.
 	CreationTime *string `pulumi:"creationTime"`
-	// A description for the AWS Verified Access Instance.
+	// Description for the AWS Verified Access Instance.
 	Description *string `pulumi:"description"`
-	// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+	// Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
-	// The time that the Verified Access Instance was last updated.
-	LastUpdatedTime *string  `pulumi:"lastUpdatedTime"`
-	NameServers     []string `pulumi:"nameServers"`
+	// Time that the Verified Access Instance was last updated.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
+	// List of DNS names servers that clients can use to connect to the Verified Access Instance.
+	NameServers []string `pulumi:"nameServers"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+	// One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
 	VerifiedAccessTrustProviders []InstanceVerifiedAccessTrustProvider `pulumi:"verifiedAccessTrustProviders"`
 }
 
 type InstanceState struct {
-	// The custom subdomain for the CIDR endpoints.
+	// Custom subdomain for the CIDR endpoints.
 	CidrEndpointsCustomSubdomain pulumi.StringPtrInput
-	// The time that the Verified Access Instance was created.
+	// Time that the Verified Access Instance was created.
 	CreationTime pulumi.StringPtrInput
-	// A description for the AWS Verified Access Instance.
+	// Description for the AWS Verified Access Instance.
 	Description pulumi.StringPtrInput
-	// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+	// Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
 	FipsEnabled pulumi.BoolPtrInput
-	// The time that the Verified Access Instance was last updated.
+	// Time that the Verified Access Instance was last updated.
 	LastUpdatedTime pulumi.StringPtrInput
-	NameServers     pulumi.StringArrayInput
+	// List of DNS names servers that clients can use to connect to the Verified Access Instance.
+	NameServers pulumi.StringArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
-	// One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+	// One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
 	VerifiedAccessTrustProviders InstanceVerifiedAccessTrustProviderArrayInput
 }
 
@@ -202,11 +205,11 @@ func (InstanceState) ElementType() reflect.Type {
 }
 
 type instanceArgs struct {
-	// The custom subdomain for the CIDR endpoints.
+	// Custom subdomain for the CIDR endpoints.
 	CidrEndpointsCustomSubdomain *string `pulumi:"cidrEndpointsCustomSubdomain"`
-	// A description for the AWS Verified Access Instance.
+	// Description for the AWS Verified Access Instance.
 	Description *string `pulumi:"description"`
-	// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+	// Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -216,11 +219,11 @@ type instanceArgs struct {
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
-	// The custom subdomain for the CIDR endpoints.
+	// Custom subdomain for the CIDR endpoints.
 	CidrEndpointsCustomSubdomain pulumi.StringPtrInput
-	// A description for the AWS Verified Access Instance.
+	// Description for the AWS Verified Access Instance.
 	Description pulumi.StringPtrInput
-	// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+	// Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
 	FipsEnabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -315,31 +318,32 @@ func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) Instanc
 	return o
 }
 
-// The custom subdomain for the CIDR endpoints.
+// Custom subdomain for the CIDR endpoints.
 func (o InstanceOutput) CidrEndpointsCustomSubdomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.CidrEndpointsCustomSubdomain }).(pulumi.StringPtrOutput)
 }
 
-// The time that the Verified Access Instance was created.
+// Time that the Verified Access Instance was created.
 func (o InstanceOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
-// A description for the AWS Verified Access Instance.
+// Description for the AWS Verified Access Instance.
 func (o InstanceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+// Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
 func (o InstanceOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.BoolPtrOutput { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The time that the Verified Access Instance was last updated.
+// Time that the Verified Access Instance was last updated.
 func (o InstanceOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
 }
 
+// List of DNS names servers that clients can use to connect to the Verified Access Instance.
 func (o InstanceOutput) NameServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.NameServers }).(pulumi.StringArrayOutput)
 }
@@ -358,7 +362,7 @@ func (o InstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+// One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
 func (o InstanceOutput) VerifiedAccessTrustProviders() InstanceVerifiedAccessTrustProviderArrayOutput {
 	return o.ApplyT(func(v *Instance) InstanceVerifiedAccessTrustProviderArrayOutput {
 		return v.VerifiedAccessTrustProviders

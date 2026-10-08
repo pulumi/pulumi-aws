@@ -129,19 +129,19 @@ namespace Pulumi.Aws.VerifiedPermissions
     public partial class IdentitySource : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        /// Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.IdentitySourceConfiguration> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the policy store in which you want to store this identity source.
+        /// ID of the policy store in which you want to store this identity source.
         /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        /// Namespace and data type of the principals generated for identities authenticated by the new identity source.
         /// </summary>
         [Output("principalEntityType")]
         public Output<string> PrincipalEntityType { get; private set; } = null!;
@@ -199,19 +199,19 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class IdentitySourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        /// Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.IdentitySourceConfigurationArgs> Configuration { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the policy store in which you want to store this identity source.
+        /// ID of the policy store in which you want to store this identity source.
         /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        /// Namespace and data type of the principals generated for identities authenticated by the new identity source.
         /// </summary>
         [Input("principalEntityType")]
         public Input<string>? PrincipalEntityType { get; set; }
@@ -231,19 +231,19 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class IdentitySourceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        /// Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         /// </summary>
         [Input("configuration")]
         public Input<Inputs.IdentitySourceConfigurationGetArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the policy store in which you want to store this identity source.
+        /// ID of the policy store in which you want to store this identity source.
         /// </summary>
         [Input("policyStoreId")]
         public Input<string>? PolicyStoreId { get; set; }
 
         /// <summary>
-        /// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        /// Namespace and data type of the principals generated for identities authenticated by the new identity source.
         /// </summary>
         [Input("principalEntityType")]
         public Input<string>? PrincipalEntityType { get; set; }

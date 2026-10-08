@@ -17,14 +17,14 @@ public final class GlossaryTermTermRelationsArgs extends com.pulumi.resources.Re
     public static final GlossaryTermTermRelationsArgs Empty = new GlossaryTermTermRelationsArgs();
 
     /**
-     * String array that calssifies the term relations.
+     * String array that classifies the term relations.
      * 
      */
     @Import(name="classifies")
     private @Nullable Output<List<String>> classifies;
 
     /**
-     * @return String array that calssifies the term relations.
+     * @return String array that classifies the term relations.
      * 
      */
     public Optional<Output<List<String>>> classifies() {
@@ -64,7 +64,7 @@ public final class GlossaryTermTermRelationsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param classifies String array that calssifies the term relations.
+         * @param classifies String array that classifies the term relations.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class GlossaryTermTermRelationsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param classifies String array that calssifies the term relations.
+         * @param classifies String array that classifies the term relations.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class GlossaryTermTermRelationsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param classifies String array that calssifies the term relations.
+         * @param classifies String array that classifies the term relations.
          * 
          * @return builder
          * 

@@ -77,7 +77,7 @@ export class KeyPolicy extends pulumi.CustomResource {
      */
     declare public readonly keyId: pulumi.Output<string>;
     /**
-     * Valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide.
+     * Valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export interface KeyPolicyState {
      */
     keyId?: pulumi.Input<string | undefined>;
     /**
-     * Valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide.
+     * Valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -159,7 +159,7 @@ export interface KeyPolicyArgs {
      */
     keyId: pulumi.Input<string>;
     /**
-     * Valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents with Terraform, see the AWS IAM Policy Document Guide.
+     * Valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used. For more information about building policy documents, see the AWS IAM Policy Document Guide.
      */
     policy: pulumi.Input<string>;
     /**

@@ -73,7 +73,7 @@ export class VpnConcentrator extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
@@ -82,12 +82,12 @@ export class VpnConcentrator extends pulumi.CustomResource {
     declare public /*out*/ readonly transitGatewayAttachmentId: pulumi.Output<string>;
     /**
      * ID of the transit gateway to attach the VPN concentrator to.
-     *
-     * The following arguments are optional:
      */
     declare public readonly transitGatewayId: pulumi.Output<string>;
     /**
      * Type of VPN concentrator. Valid value: `ipsec.1`.
+     *
+     * The following arguments are optional:
      */
     declare public readonly type: pulumi.Output<string>;
     /**
@@ -149,7 +149,7 @@ export interface VpnConcentratorState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -158,12 +158,12 @@ export interface VpnConcentratorState {
     transitGatewayAttachmentId?: pulumi.Input<string | undefined>;
     /**
      * ID of the transit gateway to attach the VPN concentrator to.
-     *
-     * The following arguments are optional:
      */
     transitGatewayId?: pulumi.Input<string | undefined>;
     /**
      * Type of VPN concentrator. Valid value: `ipsec.1`.
+     *
+     * The following arguments are optional:
      */
     type?: pulumi.Input<string | undefined>;
     /**
@@ -186,12 +186,12 @@ export interface VpnConcentratorArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ID of the transit gateway to attach the VPN concentrator to.
-     *
-     * The following arguments are optional:
      */
     transitGatewayId: pulumi.Input<string>;
     /**
      * Type of VPN concentrator. Valid value: `ipsec.1`.
+     *
+     * The following arguments are optional:
      */
     type: pulumi.Input<string>;
 }

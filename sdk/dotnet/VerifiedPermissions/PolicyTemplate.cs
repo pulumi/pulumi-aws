@@ -35,7 +35,7 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id:policy_template_id`. For example:
+    /// Using `pulumi import`, import Verified Permissions Policy Template using the `policy_store_id:policy_template_id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.VerifiedPermissions
     public partial class PolicyTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The date the Policy Store was created.
+        /// Date the policy template was created.
         /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
@@ -57,13 +57,13 @@ namespace Pulumi.Aws.VerifiedPermissions
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Policy Store.
+        /// ID of the Policy Store.
         /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Policy Store.
+        /// ID of the policy template.
         /// </summary>
         [Output("policyTemplateId")]
         public Output<string> PolicyTemplateId { get; private set; } = null!;
@@ -75,7 +75,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the content of the statement, written in Cedar policy language.
+        /// Content of the statement, written in Cedar policy language.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the Policy Store.
+        /// ID of the Policy Store.
         /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Defines the content of the statement, written in Cedar policy language.
+        /// Content of the statement, written in Cedar policy language.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class PolicyTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The date the Policy Store was created.
+        /// Date the policy template was created.
         /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
@@ -175,13 +175,13 @@ namespace Pulumi.Aws.VerifiedPermissions
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the Policy Store.
+        /// ID of the Policy Store.
         /// </summary>
         [Input("policyStoreId")]
         public Input<string>? PolicyStoreId { get; set; }
 
         /// <summary>
-        /// The ID of the Policy Store.
+        /// ID of the policy template.
         /// </summary>
         [Input("policyTemplateId")]
         public Input<string>? PolicyTemplateId { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Defines the content of the statement, written in Cedar policy language.
+        /// Content of the statement, written in Cedar policy language.
         /// 
         /// The following arguments are optional:
         /// </summary>

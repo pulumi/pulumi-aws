@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class VpcIpamResourceDiscoveryOperatingRegion
     {
         /// <summary>
-        /// The name of the Region you want to add to the IPAM.
+        /// Name of the Region you want to add to the IPAM.
         /// </summary>
         public readonly string RegionName;
 

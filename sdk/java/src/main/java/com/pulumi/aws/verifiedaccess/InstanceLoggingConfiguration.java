@@ -282,14 +282,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration")
 public class InstanceLoggingConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * A block that specifies the configuration options for Verified Access instances. Detailed below.
+     * Block that specifies the configuration options for Verified Access instances. Detailed below.
      * 
      */
     @Export(name="accessLogs", refs={InstanceLoggingConfigurationAccessLogs.class}, tree="[0]")
     private Output<InstanceLoggingConfigurationAccessLogs> accessLogs;
 
     /**
-     * @return A block that specifies the configuration options for Verified Access instances. Detailed below.
+     * @return Block that specifies the configuration options for Verified Access instances. Detailed below.
      * 
      */
     public Output<InstanceLoggingConfigurationAccessLogs> accessLogs() {
@@ -310,14 +310,14 @@ public class InstanceLoggingConfiguration extends com.pulumi.resources.CustomRes
         return this.region;
     }
     /**
-     * The ID of the Verified Access instance.
+     * ID of the Verified Access instance.
      * 
      */
     @Export(name="verifiedaccessInstanceId", refs={String.class}, tree="[0]")
     private Output<String> verifiedaccessInstanceId;
 
     /**
-     * @return The ID of the Verified Access instance.
+     * @return ID of the Verified Access instance.
      * 
      */
     public Output<String> verifiedaccessInstanceId() {

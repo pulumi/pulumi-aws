@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Comprehend
         /// <summary>
         /// Name for the Document Classifier.
         /// Has a maximum length of 63 characters.
-        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Comprehend
         /// If omitted, the provider will assign a random, unique version name.
         /// If explicitly set to `""`, no version name will be set.
         /// Has a maximum length of 63 characters.
-        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         /// Conflicts with `VersionNamePrefix`.
         /// </summary>
         [Output("versionName")]
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Comprehend
         /// <summary>
         /// Creates a unique version name beginning with the specified prefix.
         /// Has a maximum length of 37 characters.
-        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         /// Conflicts with `VersionName`.
         /// </summary>
         [Output("versionNamePrefix")]
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.Comprehend
         /// <summary>
         /// Name for the Document Classifier.
         /// Has a maximum length of 63 characters.
-        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Comprehend
         /// If omitted, the provider will assign a random, unique version name.
         /// If explicitly set to `""`, no version name will be set.
         /// Has a maximum length of 63 characters.
-        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         /// Conflicts with `VersionNamePrefix`.
         /// </summary>
         [Input("versionName")]
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.Comprehend
         /// <summary>
         /// Creates a unique version name beginning with the specified prefix.
         /// Has a maximum length of 37 characters.
-        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         /// Conflicts with `VersionName`.
         /// </summary>
         [Input("versionNamePrefix")]
@@ -379,7 +379,7 @@ namespace Pulumi.Aws.Comprehend
         /// <summary>
         /// Name for the Document Classifier.
         /// Has a maximum length of 63 characters.
-        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.Comprehend
         /// If omitted, the provider will assign a random, unique version name.
         /// If explicitly set to `""`, no version name will be set.
         /// Has a maximum length of 63 characters.
-        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         /// Conflicts with `VersionNamePrefix`.
         /// </summary>
         [Input("versionName")]
@@ -438,7 +438,7 @@ namespace Pulumi.Aws.Comprehend
         /// <summary>
         /// Creates a unique version name beginning with the specified prefix.
         /// Has a maximum length of 37 characters.
-        /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        /// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         /// Conflicts with `VersionName`.
         /// </summary>
         [Input("versionNamePrefix")]

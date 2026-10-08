@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader {
     /**
-     * @return The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+     * @return Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
      * 
      */
     private RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern matchPattern;
     /**
-     * @return The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+     * @return Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
      * 
      */
     private String matchScope;
@@ -29,14 +29,14 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader {
 
     private RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader() {}
     /**
-     * @return The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+     * @return Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
      * 
      */
     public RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern matchPattern() {
         return this.matchPattern;
     }
     /**
-     * @return The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+     * @return Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
      * 
      */
     public String matchScope() {

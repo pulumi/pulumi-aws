@@ -1183,6 +1183,996 @@ func (o MicrovmTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetImageVersionCodeArtifact struct {
+	// URI of the code artifact.
+	Uri string `pulumi:"uri"`
+}
+
+// GetImageVersionCodeArtifactInput is an input type that accepts GetImageVersionCodeArtifactArgs and GetImageVersionCodeArtifactOutput values.
+// You can construct a concrete instance of `GetImageVersionCodeArtifactInput` via:
+//
+//	GetImageVersionCodeArtifactArgs{...}
+type GetImageVersionCodeArtifactInput interface {
+	pulumi.Input
+
+	ToGetImageVersionCodeArtifactOutput() GetImageVersionCodeArtifactOutput
+	ToGetImageVersionCodeArtifactOutputWithContext(context.Context) GetImageVersionCodeArtifactOutput
+}
+
+type GetImageVersionCodeArtifactArgs struct {
+	// URI of the code artifact.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (GetImageVersionCodeArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionCodeArtifact)(nil)).Elem()
+}
+
+func (i GetImageVersionCodeArtifactArgs) ToGetImageVersionCodeArtifactOutput() GetImageVersionCodeArtifactOutput {
+	return i.ToGetImageVersionCodeArtifactOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionCodeArtifactArgs) ToGetImageVersionCodeArtifactOutputWithContext(ctx context.Context) GetImageVersionCodeArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionCodeArtifactOutput)
+}
+
+// GetImageVersionCodeArtifactArrayInput is an input type that accepts GetImageVersionCodeArtifactArray and GetImageVersionCodeArtifactArrayOutput values.
+// You can construct a concrete instance of `GetImageVersionCodeArtifactArrayInput` via:
+//
+//	GetImageVersionCodeArtifactArray{ GetImageVersionCodeArtifactArgs{...} }
+type GetImageVersionCodeArtifactArrayInput interface {
+	pulumi.Input
+
+	ToGetImageVersionCodeArtifactArrayOutput() GetImageVersionCodeArtifactArrayOutput
+	ToGetImageVersionCodeArtifactArrayOutputWithContext(context.Context) GetImageVersionCodeArtifactArrayOutput
+}
+
+type GetImageVersionCodeArtifactArray []GetImageVersionCodeArtifactInput
+
+func (GetImageVersionCodeArtifactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionCodeArtifact)(nil)).Elem()
+}
+
+func (i GetImageVersionCodeArtifactArray) ToGetImageVersionCodeArtifactArrayOutput() GetImageVersionCodeArtifactArrayOutput {
+	return i.ToGetImageVersionCodeArtifactArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionCodeArtifactArray) ToGetImageVersionCodeArtifactArrayOutputWithContext(ctx context.Context) GetImageVersionCodeArtifactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionCodeArtifactArrayOutput)
+}
+
+type GetImageVersionCodeArtifactOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionCodeArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionCodeArtifact)(nil)).Elem()
+}
+
+func (o GetImageVersionCodeArtifactOutput) ToGetImageVersionCodeArtifactOutput() GetImageVersionCodeArtifactOutput {
+	return o
+}
+
+func (o GetImageVersionCodeArtifactOutput) ToGetImageVersionCodeArtifactOutputWithContext(ctx context.Context) GetImageVersionCodeArtifactOutput {
+	return o
+}
+
+// URI of the code artifact.
+func (o GetImageVersionCodeArtifactOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageVersionCodeArtifact) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type GetImageVersionCodeArtifactArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionCodeArtifactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionCodeArtifact)(nil)).Elem()
+}
+
+func (o GetImageVersionCodeArtifactArrayOutput) ToGetImageVersionCodeArtifactArrayOutput() GetImageVersionCodeArtifactArrayOutput {
+	return o
+}
+
+func (o GetImageVersionCodeArtifactArrayOutput) ToGetImageVersionCodeArtifactArrayOutputWithContext(ctx context.Context) GetImageVersionCodeArtifactArrayOutput {
+	return o
+}
+
+func (o GetImageVersionCodeArtifactArrayOutput) Index(i pulumi.IntInput) GetImageVersionCodeArtifactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageVersionCodeArtifact {
+		return vs[0].([]GetImageVersionCodeArtifact)[vs[1].(int)]
+	}).(GetImageVersionCodeArtifactOutput)
+}
+
+type GetImageVersionCpuConfiguration struct {
+	// CPU architecture.
+	Architecture string `pulumi:"architecture"`
+}
+
+// GetImageVersionCpuConfigurationInput is an input type that accepts GetImageVersionCpuConfigurationArgs and GetImageVersionCpuConfigurationOutput values.
+// You can construct a concrete instance of `GetImageVersionCpuConfigurationInput` via:
+//
+//	GetImageVersionCpuConfigurationArgs{...}
+type GetImageVersionCpuConfigurationInput interface {
+	pulumi.Input
+
+	ToGetImageVersionCpuConfigurationOutput() GetImageVersionCpuConfigurationOutput
+	ToGetImageVersionCpuConfigurationOutputWithContext(context.Context) GetImageVersionCpuConfigurationOutput
+}
+
+type GetImageVersionCpuConfigurationArgs struct {
+	// CPU architecture.
+	Architecture pulumi.StringInput `pulumi:"architecture"`
+}
+
+func (GetImageVersionCpuConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionCpuConfiguration)(nil)).Elem()
+}
+
+func (i GetImageVersionCpuConfigurationArgs) ToGetImageVersionCpuConfigurationOutput() GetImageVersionCpuConfigurationOutput {
+	return i.ToGetImageVersionCpuConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionCpuConfigurationArgs) ToGetImageVersionCpuConfigurationOutputWithContext(ctx context.Context) GetImageVersionCpuConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionCpuConfigurationOutput)
+}
+
+// GetImageVersionCpuConfigurationArrayInput is an input type that accepts GetImageVersionCpuConfigurationArray and GetImageVersionCpuConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetImageVersionCpuConfigurationArrayInput` via:
+//
+//	GetImageVersionCpuConfigurationArray{ GetImageVersionCpuConfigurationArgs{...} }
+type GetImageVersionCpuConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetImageVersionCpuConfigurationArrayOutput() GetImageVersionCpuConfigurationArrayOutput
+	ToGetImageVersionCpuConfigurationArrayOutputWithContext(context.Context) GetImageVersionCpuConfigurationArrayOutput
+}
+
+type GetImageVersionCpuConfigurationArray []GetImageVersionCpuConfigurationInput
+
+func (GetImageVersionCpuConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionCpuConfiguration)(nil)).Elem()
+}
+
+func (i GetImageVersionCpuConfigurationArray) ToGetImageVersionCpuConfigurationArrayOutput() GetImageVersionCpuConfigurationArrayOutput {
+	return i.ToGetImageVersionCpuConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionCpuConfigurationArray) ToGetImageVersionCpuConfigurationArrayOutputWithContext(ctx context.Context) GetImageVersionCpuConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionCpuConfigurationArrayOutput)
+}
+
+type GetImageVersionCpuConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionCpuConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionCpuConfiguration)(nil)).Elem()
+}
+
+func (o GetImageVersionCpuConfigurationOutput) ToGetImageVersionCpuConfigurationOutput() GetImageVersionCpuConfigurationOutput {
+	return o
+}
+
+func (o GetImageVersionCpuConfigurationOutput) ToGetImageVersionCpuConfigurationOutputWithContext(ctx context.Context) GetImageVersionCpuConfigurationOutput {
+	return o
+}
+
+// CPU architecture.
+func (o GetImageVersionCpuConfigurationOutput) Architecture() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageVersionCpuConfiguration) string { return v.Architecture }).(pulumi.StringOutput)
+}
+
+type GetImageVersionCpuConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionCpuConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionCpuConfiguration)(nil)).Elem()
+}
+
+func (o GetImageVersionCpuConfigurationArrayOutput) ToGetImageVersionCpuConfigurationArrayOutput() GetImageVersionCpuConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImageVersionCpuConfigurationArrayOutput) ToGetImageVersionCpuConfigurationArrayOutputWithContext(ctx context.Context) GetImageVersionCpuConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImageVersionCpuConfigurationArrayOutput) Index(i pulumi.IntInput) GetImageVersionCpuConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageVersionCpuConfiguration {
+		return vs[0].([]GetImageVersionCpuConfiguration)[vs[1].(int)]
+	}).(GetImageVersionCpuConfigurationOutput)
+}
+
+type GetImageVersionHook struct {
+	// Lifecycle hooks for MicroVM events. See `microvmHooks` below.
+	MicrovmHooks []GetImageVersionHookMicrovmHook `pulumi:"microvmHooks"`
+	// Hooks for MicroVM image build events. See `microvmImageHooks` below.
+	MicrovmImageHooks []GetImageVersionHookMicrovmImageHook `pulumi:"microvmImageHooks"`
+	// Port number on which the hooks listener runs.
+	Port int `pulumi:"port"`
+}
+
+// GetImageVersionHookInput is an input type that accepts GetImageVersionHookArgs and GetImageVersionHookOutput values.
+// You can construct a concrete instance of `GetImageVersionHookInput` via:
+//
+//	GetImageVersionHookArgs{...}
+type GetImageVersionHookInput interface {
+	pulumi.Input
+
+	ToGetImageVersionHookOutput() GetImageVersionHookOutput
+	ToGetImageVersionHookOutputWithContext(context.Context) GetImageVersionHookOutput
+}
+
+type GetImageVersionHookArgs struct {
+	// Lifecycle hooks for MicroVM events. See `microvmHooks` below.
+	MicrovmHooks GetImageVersionHookMicrovmHookArrayInput `pulumi:"microvmHooks"`
+	// Hooks for MicroVM image build events. See `microvmImageHooks` below.
+	MicrovmImageHooks GetImageVersionHookMicrovmImageHookArrayInput `pulumi:"microvmImageHooks"`
+	// Port number on which the hooks listener runs.
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (GetImageVersionHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionHook)(nil)).Elem()
+}
+
+func (i GetImageVersionHookArgs) ToGetImageVersionHookOutput() GetImageVersionHookOutput {
+	return i.ToGetImageVersionHookOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionHookArgs) ToGetImageVersionHookOutputWithContext(ctx context.Context) GetImageVersionHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionHookOutput)
+}
+
+// GetImageVersionHookArrayInput is an input type that accepts GetImageVersionHookArray and GetImageVersionHookArrayOutput values.
+// You can construct a concrete instance of `GetImageVersionHookArrayInput` via:
+//
+//	GetImageVersionHookArray{ GetImageVersionHookArgs{...} }
+type GetImageVersionHookArrayInput interface {
+	pulumi.Input
+
+	ToGetImageVersionHookArrayOutput() GetImageVersionHookArrayOutput
+	ToGetImageVersionHookArrayOutputWithContext(context.Context) GetImageVersionHookArrayOutput
+}
+
+type GetImageVersionHookArray []GetImageVersionHookInput
+
+func (GetImageVersionHookArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionHook)(nil)).Elem()
+}
+
+func (i GetImageVersionHookArray) ToGetImageVersionHookArrayOutput() GetImageVersionHookArrayOutput {
+	return i.ToGetImageVersionHookArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionHookArray) ToGetImageVersionHookArrayOutputWithContext(ctx context.Context) GetImageVersionHookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionHookArrayOutput)
+}
+
+type GetImageVersionHookOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionHook)(nil)).Elem()
+}
+
+func (o GetImageVersionHookOutput) ToGetImageVersionHookOutput() GetImageVersionHookOutput {
+	return o
+}
+
+func (o GetImageVersionHookOutput) ToGetImageVersionHookOutputWithContext(ctx context.Context) GetImageVersionHookOutput {
+	return o
+}
+
+// Lifecycle hooks for MicroVM events. See `microvmHooks` below.
+func (o GetImageVersionHookOutput) MicrovmHooks() GetImageVersionHookMicrovmHookArrayOutput {
+	return o.ApplyT(func(v GetImageVersionHook) []GetImageVersionHookMicrovmHook { return v.MicrovmHooks }).(GetImageVersionHookMicrovmHookArrayOutput)
+}
+
+// Hooks for MicroVM image build events. See `microvmImageHooks` below.
+func (o GetImageVersionHookOutput) MicrovmImageHooks() GetImageVersionHookMicrovmImageHookArrayOutput {
+	return o.ApplyT(func(v GetImageVersionHook) []GetImageVersionHookMicrovmImageHook { return v.MicrovmImageHooks }).(GetImageVersionHookMicrovmImageHookArrayOutput)
+}
+
+// Port number on which the hooks listener runs.
+func (o GetImageVersionHookOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImageVersionHook) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type GetImageVersionHookArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionHookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionHook)(nil)).Elem()
+}
+
+func (o GetImageVersionHookArrayOutput) ToGetImageVersionHookArrayOutput() GetImageVersionHookArrayOutput {
+	return o
+}
+
+func (o GetImageVersionHookArrayOutput) ToGetImageVersionHookArrayOutputWithContext(ctx context.Context) GetImageVersionHookArrayOutput {
+	return o
+}
+
+func (o GetImageVersionHookArrayOutput) Index(i pulumi.IntInput) GetImageVersionHookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageVersionHook {
+		return vs[0].([]GetImageVersionHook)[vs[1].(int)]
+	}).(GetImageVersionHookOutput)
+}
+
+type GetImageVersionHookMicrovmHook struct {
+	// Whether the resume hook is `ENABLED` or `DISABLED`.
+	Resume string `pulumi:"resume"`
+	// Maximum time in seconds for the resume hook to complete.
+	ResumeTimeoutInSeconds int `pulumi:"resumeTimeoutInSeconds"`
+	// Whether the run hook is `ENABLED` or `DISABLED`.
+	Run string `pulumi:"run"`
+	// Maximum time in seconds for the run hook to complete.
+	RunTimeoutInSeconds int `pulumi:"runTimeoutInSeconds"`
+	// Whether the suspend hook is `ENABLED` or `DISABLED`.
+	Suspend string `pulumi:"suspend"`
+	// Maximum time in seconds for the suspend hook to complete.
+	SuspendTimeoutInSeconds int `pulumi:"suspendTimeoutInSeconds"`
+	// Whether the terminate hook is `ENABLED` or `DISABLED`.
+	Terminate string `pulumi:"terminate"`
+	// Maximum time in seconds for the terminate hook to complete.
+	TerminateTimeoutInSeconds int `pulumi:"terminateTimeoutInSeconds"`
+}
+
+// GetImageVersionHookMicrovmHookInput is an input type that accepts GetImageVersionHookMicrovmHookArgs and GetImageVersionHookMicrovmHookOutput values.
+// You can construct a concrete instance of `GetImageVersionHookMicrovmHookInput` via:
+//
+//	GetImageVersionHookMicrovmHookArgs{...}
+type GetImageVersionHookMicrovmHookInput interface {
+	pulumi.Input
+
+	ToGetImageVersionHookMicrovmHookOutput() GetImageVersionHookMicrovmHookOutput
+	ToGetImageVersionHookMicrovmHookOutputWithContext(context.Context) GetImageVersionHookMicrovmHookOutput
+}
+
+type GetImageVersionHookMicrovmHookArgs struct {
+	// Whether the resume hook is `ENABLED` or `DISABLED`.
+	Resume pulumi.StringInput `pulumi:"resume"`
+	// Maximum time in seconds for the resume hook to complete.
+	ResumeTimeoutInSeconds pulumi.IntInput `pulumi:"resumeTimeoutInSeconds"`
+	// Whether the run hook is `ENABLED` or `DISABLED`.
+	Run pulumi.StringInput `pulumi:"run"`
+	// Maximum time in seconds for the run hook to complete.
+	RunTimeoutInSeconds pulumi.IntInput `pulumi:"runTimeoutInSeconds"`
+	// Whether the suspend hook is `ENABLED` or `DISABLED`.
+	Suspend pulumi.StringInput `pulumi:"suspend"`
+	// Maximum time in seconds for the suspend hook to complete.
+	SuspendTimeoutInSeconds pulumi.IntInput `pulumi:"suspendTimeoutInSeconds"`
+	// Whether the terminate hook is `ENABLED` or `DISABLED`.
+	Terminate pulumi.StringInput `pulumi:"terminate"`
+	// Maximum time in seconds for the terminate hook to complete.
+	TerminateTimeoutInSeconds pulumi.IntInput `pulumi:"terminateTimeoutInSeconds"`
+}
+
+func (GetImageVersionHookMicrovmHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionHookMicrovmHook)(nil)).Elem()
+}
+
+func (i GetImageVersionHookMicrovmHookArgs) ToGetImageVersionHookMicrovmHookOutput() GetImageVersionHookMicrovmHookOutput {
+	return i.ToGetImageVersionHookMicrovmHookOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionHookMicrovmHookArgs) ToGetImageVersionHookMicrovmHookOutputWithContext(ctx context.Context) GetImageVersionHookMicrovmHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionHookMicrovmHookOutput)
+}
+
+// GetImageVersionHookMicrovmHookArrayInput is an input type that accepts GetImageVersionHookMicrovmHookArray and GetImageVersionHookMicrovmHookArrayOutput values.
+// You can construct a concrete instance of `GetImageVersionHookMicrovmHookArrayInput` via:
+//
+//	GetImageVersionHookMicrovmHookArray{ GetImageVersionHookMicrovmHookArgs{...} }
+type GetImageVersionHookMicrovmHookArrayInput interface {
+	pulumi.Input
+
+	ToGetImageVersionHookMicrovmHookArrayOutput() GetImageVersionHookMicrovmHookArrayOutput
+	ToGetImageVersionHookMicrovmHookArrayOutputWithContext(context.Context) GetImageVersionHookMicrovmHookArrayOutput
+}
+
+type GetImageVersionHookMicrovmHookArray []GetImageVersionHookMicrovmHookInput
+
+func (GetImageVersionHookMicrovmHookArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionHookMicrovmHook)(nil)).Elem()
+}
+
+func (i GetImageVersionHookMicrovmHookArray) ToGetImageVersionHookMicrovmHookArrayOutput() GetImageVersionHookMicrovmHookArrayOutput {
+	return i.ToGetImageVersionHookMicrovmHookArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionHookMicrovmHookArray) ToGetImageVersionHookMicrovmHookArrayOutputWithContext(ctx context.Context) GetImageVersionHookMicrovmHookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionHookMicrovmHookArrayOutput)
+}
+
+type GetImageVersionHookMicrovmHookOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionHookMicrovmHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionHookMicrovmHook)(nil)).Elem()
+}
+
+func (o GetImageVersionHookMicrovmHookOutput) ToGetImageVersionHookMicrovmHookOutput() GetImageVersionHookMicrovmHookOutput {
+	return o
+}
+
+func (o GetImageVersionHookMicrovmHookOutput) ToGetImageVersionHookMicrovmHookOutputWithContext(ctx context.Context) GetImageVersionHookMicrovmHookOutput {
+	return o
+}
+
+// Whether the resume hook is `ENABLED` or `DISABLED`.
+func (o GetImageVersionHookMicrovmHookOutput) Resume() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageVersionHookMicrovmHook) string { return v.Resume }).(pulumi.StringOutput)
+}
+
+// Maximum time in seconds for the resume hook to complete.
+func (o GetImageVersionHookMicrovmHookOutput) ResumeTimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImageVersionHookMicrovmHook) int { return v.ResumeTimeoutInSeconds }).(pulumi.IntOutput)
+}
+
+// Whether the run hook is `ENABLED` or `DISABLED`.
+func (o GetImageVersionHookMicrovmHookOutput) Run() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageVersionHookMicrovmHook) string { return v.Run }).(pulumi.StringOutput)
+}
+
+// Maximum time in seconds for the run hook to complete.
+func (o GetImageVersionHookMicrovmHookOutput) RunTimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImageVersionHookMicrovmHook) int { return v.RunTimeoutInSeconds }).(pulumi.IntOutput)
+}
+
+// Whether the suspend hook is `ENABLED` or `DISABLED`.
+func (o GetImageVersionHookMicrovmHookOutput) Suspend() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageVersionHookMicrovmHook) string { return v.Suspend }).(pulumi.StringOutput)
+}
+
+// Maximum time in seconds for the suspend hook to complete.
+func (o GetImageVersionHookMicrovmHookOutput) SuspendTimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImageVersionHookMicrovmHook) int { return v.SuspendTimeoutInSeconds }).(pulumi.IntOutput)
+}
+
+// Whether the terminate hook is `ENABLED` or `DISABLED`.
+func (o GetImageVersionHookMicrovmHookOutput) Terminate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageVersionHookMicrovmHook) string { return v.Terminate }).(pulumi.StringOutput)
+}
+
+// Maximum time in seconds for the terminate hook to complete.
+func (o GetImageVersionHookMicrovmHookOutput) TerminateTimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImageVersionHookMicrovmHook) int { return v.TerminateTimeoutInSeconds }).(pulumi.IntOutput)
+}
+
+type GetImageVersionHookMicrovmHookArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionHookMicrovmHookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionHookMicrovmHook)(nil)).Elem()
+}
+
+func (o GetImageVersionHookMicrovmHookArrayOutput) ToGetImageVersionHookMicrovmHookArrayOutput() GetImageVersionHookMicrovmHookArrayOutput {
+	return o
+}
+
+func (o GetImageVersionHookMicrovmHookArrayOutput) ToGetImageVersionHookMicrovmHookArrayOutputWithContext(ctx context.Context) GetImageVersionHookMicrovmHookArrayOutput {
+	return o
+}
+
+func (o GetImageVersionHookMicrovmHookArrayOutput) Index(i pulumi.IntInput) GetImageVersionHookMicrovmHookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageVersionHookMicrovmHook {
+		return vs[0].([]GetImageVersionHookMicrovmHook)[vs[1].(int)]
+	}).(GetImageVersionHookMicrovmHookOutput)
+}
+
+type GetImageVersionHookMicrovmImageHook struct {
+	// Whether the ready hook is `ENABLED` or `DISABLED`.
+	Ready string `pulumi:"ready"`
+	// Maximum time in seconds for the ready hook to complete.
+	ReadyTimeoutInSeconds int `pulumi:"readyTimeoutInSeconds"`
+	// Whether the validate hook is `ENABLED` or `DISABLED`.
+	Validate string `pulumi:"validate"`
+	// Maximum time in seconds for the validate hook to complete.
+	ValidateTimeoutInSeconds int `pulumi:"validateTimeoutInSeconds"`
+}
+
+// GetImageVersionHookMicrovmImageHookInput is an input type that accepts GetImageVersionHookMicrovmImageHookArgs and GetImageVersionHookMicrovmImageHookOutput values.
+// You can construct a concrete instance of `GetImageVersionHookMicrovmImageHookInput` via:
+//
+//	GetImageVersionHookMicrovmImageHookArgs{...}
+type GetImageVersionHookMicrovmImageHookInput interface {
+	pulumi.Input
+
+	ToGetImageVersionHookMicrovmImageHookOutput() GetImageVersionHookMicrovmImageHookOutput
+	ToGetImageVersionHookMicrovmImageHookOutputWithContext(context.Context) GetImageVersionHookMicrovmImageHookOutput
+}
+
+type GetImageVersionHookMicrovmImageHookArgs struct {
+	// Whether the ready hook is `ENABLED` or `DISABLED`.
+	Ready pulumi.StringInput `pulumi:"ready"`
+	// Maximum time in seconds for the ready hook to complete.
+	ReadyTimeoutInSeconds pulumi.IntInput `pulumi:"readyTimeoutInSeconds"`
+	// Whether the validate hook is `ENABLED` or `DISABLED`.
+	Validate pulumi.StringInput `pulumi:"validate"`
+	// Maximum time in seconds for the validate hook to complete.
+	ValidateTimeoutInSeconds pulumi.IntInput `pulumi:"validateTimeoutInSeconds"`
+}
+
+func (GetImageVersionHookMicrovmImageHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionHookMicrovmImageHook)(nil)).Elem()
+}
+
+func (i GetImageVersionHookMicrovmImageHookArgs) ToGetImageVersionHookMicrovmImageHookOutput() GetImageVersionHookMicrovmImageHookOutput {
+	return i.ToGetImageVersionHookMicrovmImageHookOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionHookMicrovmImageHookArgs) ToGetImageVersionHookMicrovmImageHookOutputWithContext(ctx context.Context) GetImageVersionHookMicrovmImageHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionHookMicrovmImageHookOutput)
+}
+
+// GetImageVersionHookMicrovmImageHookArrayInput is an input type that accepts GetImageVersionHookMicrovmImageHookArray and GetImageVersionHookMicrovmImageHookArrayOutput values.
+// You can construct a concrete instance of `GetImageVersionHookMicrovmImageHookArrayInput` via:
+//
+//	GetImageVersionHookMicrovmImageHookArray{ GetImageVersionHookMicrovmImageHookArgs{...} }
+type GetImageVersionHookMicrovmImageHookArrayInput interface {
+	pulumi.Input
+
+	ToGetImageVersionHookMicrovmImageHookArrayOutput() GetImageVersionHookMicrovmImageHookArrayOutput
+	ToGetImageVersionHookMicrovmImageHookArrayOutputWithContext(context.Context) GetImageVersionHookMicrovmImageHookArrayOutput
+}
+
+type GetImageVersionHookMicrovmImageHookArray []GetImageVersionHookMicrovmImageHookInput
+
+func (GetImageVersionHookMicrovmImageHookArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionHookMicrovmImageHook)(nil)).Elem()
+}
+
+func (i GetImageVersionHookMicrovmImageHookArray) ToGetImageVersionHookMicrovmImageHookArrayOutput() GetImageVersionHookMicrovmImageHookArrayOutput {
+	return i.ToGetImageVersionHookMicrovmImageHookArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionHookMicrovmImageHookArray) ToGetImageVersionHookMicrovmImageHookArrayOutputWithContext(ctx context.Context) GetImageVersionHookMicrovmImageHookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionHookMicrovmImageHookArrayOutput)
+}
+
+type GetImageVersionHookMicrovmImageHookOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionHookMicrovmImageHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionHookMicrovmImageHook)(nil)).Elem()
+}
+
+func (o GetImageVersionHookMicrovmImageHookOutput) ToGetImageVersionHookMicrovmImageHookOutput() GetImageVersionHookMicrovmImageHookOutput {
+	return o
+}
+
+func (o GetImageVersionHookMicrovmImageHookOutput) ToGetImageVersionHookMicrovmImageHookOutputWithContext(ctx context.Context) GetImageVersionHookMicrovmImageHookOutput {
+	return o
+}
+
+// Whether the ready hook is `ENABLED` or `DISABLED`.
+func (o GetImageVersionHookMicrovmImageHookOutput) Ready() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageVersionHookMicrovmImageHook) string { return v.Ready }).(pulumi.StringOutput)
+}
+
+// Maximum time in seconds for the ready hook to complete.
+func (o GetImageVersionHookMicrovmImageHookOutput) ReadyTimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImageVersionHookMicrovmImageHook) int { return v.ReadyTimeoutInSeconds }).(pulumi.IntOutput)
+}
+
+// Whether the validate hook is `ENABLED` or `DISABLED`.
+func (o GetImageVersionHookMicrovmImageHookOutput) Validate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageVersionHookMicrovmImageHook) string { return v.Validate }).(pulumi.StringOutput)
+}
+
+// Maximum time in seconds for the validate hook to complete.
+func (o GetImageVersionHookMicrovmImageHookOutput) ValidateTimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImageVersionHookMicrovmImageHook) int { return v.ValidateTimeoutInSeconds }).(pulumi.IntOutput)
+}
+
+type GetImageVersionHookMicrovmImageHookArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionHookMicrovmImageHookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionHookMicrovmImageHook)(nil)).Elem()
+}
+
+func (o GetImageVersionHookMicrovmImageHookArrayOutput) ToGetImageVersionHookMicrovmImageHookArrayOutput() GetImageVersionHookMicrovmImageHookArrayOutput {
+	return o
+}
+
+func (o GetImageVersionHookMicrovmImageHookArrayOutput) ToGetImageVersionHookMicrovmImageHookArrayOutputWithContext(ctx context.Context) GetImageVersionHookMicrovmImageHookArrayOutput {
+	return o
+}
+
+func (o GetImageVersionHookMicrovmImageHookArrayOutput) Index(i pulumi.IntInput) GetImageVersionHookMicrovmImageHookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageVersionHookMicrovmImageHook {
+		return vs[0].([]GetImageVersionHookMicrovmImageHook)[vs[1].(int)]
+	}).(GetImageVersionHookMicrovmImageHookOutput)
+}
+
+type GetImageVersionLogging struct {
+	// CloudWatch Logs configuration. See `cloudwatch` below.
+	Cloudwatches []GetImageVersionLoggingCloudwatch `pulumi:"cloudwatches"`
+	// Present when logging is disabled.
+	Disableds []GetImageVersionLoggingDisabled `pulumi:"disableds"`
+}
+
+// GetImageVersionLoggingInput is an input type that accepts GetImageVersionLoggingArgs and GetImageVersionLoggingOutput values.
+// You can construct a concrete instance of `GetImageVersionLoggingInput` via:
+//
+//	GetImageVersionLoggingArgs{...}
+type GetImageVersionLoggingInput interface {
+	pulumi.Input
+
+	ToGetImageVersionLoggingOutput() GetImageVersionLoggingOutput
+	ToGetImageVersionLoggingOutputWithContext(context.Context) GetImageVersionLoggingOutput
+}
+
+type GetImageVersionLoggingArgs struct {
+	// CloudWatch Logs configuration. See `cloudwatch` below.
+	Cloudwatches GetImageVersionLoggingCloudwatchArrayInput `pulumi:"cloudwatches"`
+	// Present when logging is disabled.
+	Disableds GetImageVersionLoggingDisabledArrayInput `pulumi:"disableds"`
+}
+
+func (GetImageVersionLoggingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionLogging)(nil)).Elem()
+}
+
+func (i GetImageVersionLoggingArgs) ToGetImageVersionLoggingOutput() GetImageVersionLoggingOutput {
+	return i.ToGetImageVersionLoggingOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionLoggingArgs) ToGetImageVersionLoggingOutputWithContext(ctx context.Context) GetImageVersionLoggingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionLoggingOutput)
+}
+
+// GetImageVersionLoggingArrayInput is an input type that accepts GetImageVersionLoggingArray and GetImageVersionLoggingArrayOutput values.
+// You can construct a concrete instance of `GetImageVersionLoggingArrayInput` via:
+//
+//	GetImageVersionLoggingArray{ GetImageVersionLoggingArgs{...} }
+type GetImageVersionLoggingArrayInput interface {
+	pulumi.Input
+
+	ToGetImageVersionLoggingArrayOutput() GetImageVersionLoggingArrayOutput
+	ToGetImageVersionLoggingArrayOutputWithContext(context.Context) GetImageVersionLoggingArrayOutput
+}
+
+type GetImageVersionLoggingArray []GetImageVersionLoggingInput
+
+func (GetImageVersionLoggingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionLogging)(nil)).Elem()
+}
+
+func (i GetImageVersionLoggingArray) ToGetImageVersionLoggingArrayOutput() GetImageVersionLoggingArrayOutput {
+	return i.ToGetImageVersionLoggingArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionLoggingArray) ToGetImageVersionLoggingArrayOutputWithContext(ctx context.Context) GetImageVersionLoggingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionLoggingArrayOutput)
+}
+
+type GetImageVersionLoggingOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionLoggingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionLogging)(nil)).Elem()
+}
+
+func (o GetImageVersionLoggingOutput) ToGetImageVersionLoggingOutput() GetImageVersionLoggingOutput {
+	return o
+}
+
+func (o GetImageVersionLoggingOutput) ToGetImageVersionLoggingOutputWithContext(ctx context.Context) GetImageVersionLoggingOutput {
+	return o
+}
+
+// CloudWatch Logs configuration. See `cloudwatch` below.
+func (o GetImageVersionLoggingOutput) Cloudwatches() GetImageVersionLoggingCloudwatchArrayOutput {
+	return o.ApplyT(func(v GetImageVersionLogging) []GetImageVersionLoggingCloudwatch { return v.Cloudwatches }).(GetImageVersionLoggingCloudwatchArrayOutput)
+}
+
+// Present when logging is disabled.
+func (o GetImageVersionLoggingOutput) Disableds() GetImageVersionLoggingDisabledArrayOutput {
+	return o.ApplyT(func(v GetImageVersionLogging) []GetImageVersionLoggingDisabled { return v.Disableds }).(GetImageVersionLoggingDisabledArrayOutput)
+}
+
+type GetImageVersionLoggingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionLoggingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionLogging)(nil)).Elem()
+}
+
+func (o GetImageVersionLoggingArrayOutput) ToGetImageVersionLoggingArrayOutput() GetImageVersionLoggingArrayOutput {
+	return o
+}
+
+func (o GetImageVersionLoggingArrayOutput) ToGetImageVersionLoggingArrayOutputWithContext(ctx context.Context) GetImageVersionLoggingArrayOutput {
+	return o
+}
+
+func (o GetImageVersionLoggingArrayOutput) Index(i pulumi.IntInput) GetImageVersionLoggingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageVersionLogging {
+		return vs[0].([]GetImageVersionLogging)[vs[1].(int)]
+	}).(GetImageVersionLoggingOutput)
+}
+
+type GetImageVersionLoggingCloudwatch struct {
+	// Name of the CloudWatch Logs log group.
+	LogGroup string `pulumi:"logGroup"`
+	// Name of the CloudWatch Logs log stream.
+	LogStream string `pulumi:"logStream"`
+}
+
+// GetImageVersionLoggingCloudwatchInput is an input type that accepts GetImageVersionLoggingCloudwatchArgs and GetImageVersionLoggingCloudwatchOutput values.
+// You can construct a concrete instance of `GetImageVersionLoggingCloudwatchInput` via:
+//
+//	GetImageVersionLoggingCloudwatchArgs{...}
+type GetImageVersionLoggingCloudwatchInput interface {
+	pulumi.Input
+
+	ToGetImageVersionLoggingCloudwatchOutput() GetImageVersionLoggingCloudwatchOutput
+	ToGetImageVersionLoggingCloudwatchOutputWithContext(context.Context) GetImageVersionLoggingCloudwatchOutput
+}
+
+type GetImageVersionLoggingCloudwatchArgs struct {
+	// Name of the CloudWatch Logs log group.
+	LogGroup pulumi.StringInput `pulumi:"logGroup"`
+	// Name of the CloudWatch Logs log stream.
+	LogStream pulumi.StringInput `pulumi:"logStream"`
+}
+
+func (GetImageVersionLoggingCloudwatchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionLoggingCloudwatch)(nil)).Elem()
+}
+
+func (i GetImageVersionLoggingCloudwatchArgs) ToGetImageVersionLoggingCloudwatchOutput() GetImageVersionLoggingCloudwatchOutput {
+	return i.ToGetImageVersionLoggingCloudwatchOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionLoggingCloudwatchArgs) ToGetImageVersionLoggingCloudwatchOutputWithContext(ctx context.Context) GetImageVersionLoggingCloudwatchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionLoggingCloudwatchOutput)
+}
+
+// GetImageVersionLoggingCloudwatchArrayInput is an input type that accepts GetImageVersionLoggingCloudwatchArray and GetImageVersionLoggingCloudwatchArrayOutput values.
+// You can construct a concrete instance of `GetImageVersionLoggingCloudwatchArrayInput` via:
+//
+//	GetImageVersionLoggingCloudwatchArray{ GetImageVersionLoggingCloudwatchArgs{...} }
+type GetImageVersionLoggingCloudwatchArrayInput interface {
+	pulumi.Input
+
+	ToGetImageVersionLoggingCloudwatchArrayOutput() GetImageVersionLoggingCloudwatchArrayOutput
+	ToGetImageVersionLoggingCloudwatchArrayOutputWithContext(context.Context) GetImageVersionLoggingCloudwatchArrayOutput
+}
+
+type GetImageVersionLoggingCloudwatchArray []GetImageVersionLoggingCloudwatchInput
+
+func (GetImageVersionLoggingCloudwatchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionLoggingCloudwatch)(nil)).Elem()
+}
+
+func (i GetImageVersionLoggingCloudwatchArray) ToGetImageVersionLoggingCloudwatchArrayOutput() GetImageVersionLoggingCloudwatchArrayOutput {
+	return i.ToGetImageVersionLoggingCloudwatchArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionLoggingCloudwatchArray) ToGetImageVersionLoggingCloudwatchArrayOutputWithContext(ctx context.Context) GetImageVersionLoggingCloudwatchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionLoggingCloudwatchArrayOutput)
+}
+
+type GetImageVersionLoggingCloudwatchOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionLoggingCloudwatchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionLoggingCloudwatch)(nil)).Elem()
+}
+
+func (o GetImageVersionLoggingCloudwatchOutput) ToGetImageVersionLoggingCloudwatchOutput() GetImageVersionLoggingCloudwatchOutput {
+	return o
+}
+
+func (o GetImageVersionLoggingCloudwatchOutput) ToGetImageVersionLoggingCloudwatchOutputWithContext(ctx context.Context) GetImageVersionLoggingCloudwatchOutput {
+	return o
+}
+
+// Name of the CloudWatch Logs log group.
+func (o GetImageVersionLoggingCloudwatchOutput) LogGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageVersionLoggingCloudwatch) string { return v.LogGroup }).(pulumi.StringOutput)
+}
+
+// Name of the CloudWatch Logs log stream.
+func (o GetImageVersionLoggingCloudwatchOutput) LogStream() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageVersionLoggingCloudwatch) string { return v.LogStream }).(pulumi.StringOutput)
+}
+
+type GetImageVersionLoggingCloudwatchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionLoggingCloudwatchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionLoggingCloudwatch)(nil)).Elem()
+}
+
+func (o GetImageVersionLoggingCloudwatchArrayOutput) ToGetImageVersionLoggingCloudwatchArrayOutput() GetImageVersionLoggingCloudwatchArrayOutput {
+	return o
+}
+
+func (o GetImageVersionLoggingCloudwatchArrayOutput) ToGetImageVersionLoggingCloudwatchArrayOutputWithContext(ctx context.Context) GetImageVersionLoggingCloudwatchArrayOutput {
+	return o
+}
+
+func (o GetImageVersionLoggingCloudwatchArrayOutput) Index(i pulumi.IntInput) GetImageVersionLoggingCloudwatchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageVersionLoggingCloudwatch {
+		return vs[0].([]GetImageVersionLoggingCloudwatch)[vs[1].(int)]
+	}).(GetImageVersionLoggingCloudwatchOutput)
+}
+
+type GetImageVersionLoggingDisabled struct {
+}
+
+// GetImageVersionLoggingDisabledInput is an input type that accepts GetImageVersionLoggingDisabledArgs and GetImageVersionLoggingDisabledOutput values.
+// You can construct a concrete instance of `GetImageVersionLoggingDisabledInput` via:
+//
+//	GetImageVersionLoggingDisabledArgs{...}
+type GetImageVersionLoggingDisabledInput interface {
+	pulumi.Input
+
+	ToGetImageVersionLoggingDisabledOutput() GetImageVersionLoggingDisabledOutput
+	ToGetImageVersionLoggingDisabledOutputWithContext(context.Context) GetImageVersionLoggingDisabledOutput
+}
+
+type GetImageVersionLoggingDisabledArgs struct {
+}
+
+func (GetImageVersionLoggingDisabledArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionLoggingDisabled)(nil)).Elem()
+}
+
+func (i GetImageVersionLoggingDisabledArgs) ToGetImageVersionLoggingDisabledOutput() GetImageVersionLoggingDisabledOutput {
+	return i.ToGetImageVersionLoggingDisabledOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionLoggingDisabledArgs) ToGetImageVersionLoggingDisabledOutputWithContext(ctx context.Context) GetImageVersionLoggingDisabledOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionLoggingDisabledOutput)
+}
+
+// GetImageVersionLoggingDisabledArrayInput is an input type that accepts GetImageVersionLoggingDisabledArray and GetImageVersionLoggingDisabledArrayOutput values.
+// You can construct a concrete instance of `GetImageVersionLoggingDisabledArrayInput` via:
+//
+//	GetImageVersionLoggingDisabledArray{ GetImageVersionLoggingDisabledArgs{...} }
+type GetImageVersionLoggingDisabledArrayInput interface {
+	pulumi.Input
+
+	ToGetImageVersionLoggingDisabledArrayOutput() GetImageVersionLoggingDisabledArrayOutput
+	ToGetImageVersionLoggingDisabledArrayOutputWithContext(context.Context) GetImageVersionLoggingDisabledArrayOutput
+}
+
+type GetImageVersionLoggingDisabledArray []GetImageVersionLoggingDisabledInput
+
+func (GetImageVersionLoggingDisabledArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionLoggingDisabled)(nil)).Elem()
+}
+
+func (i GetImageVersionLoggingDisabledArray) ToGetImageVersionLoggingDisabledArrayOutput() GetImageVersionLoggingDisabledArrayOutput {
+	return i.ToGetImageVersionLoggingDisabledArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionLoggingDisabledArray) ToGetImageVersionLoggingDisabledArrayOutputWithContext(ctx context.Context) GetImageVersionLoggingDisabledArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionLoggingDisabledArrayOutput)
+}
+
+type GetImageVersionLoggingDisabledOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionLoggingDisabledOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionLoggingDisabled)(nil)).Elem()
+}
+
+func (o GetImageVersionLoggingDisabledOutput) ToGetImageVersionLoggingDisabledOutput() GetImageVersionLoggingDisabledOutput {
+	return o
+}
+
+func (o GetImageVersionLoggingDisabledOutput) ToGetImageVersionLoggingDisabledOutputWithContext(ctx context.Context) GetImageVersionLoggingDisabledOutput {
+	return o
+}
+
+type GetImageVersionLoggingDisabledArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionLoggingDisabledArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionLoggingDisabled)(nil)).Elem()
+}
+
+func (o GetImageVersionLoggingDisabledArrayOutput) ToGetImageVersionLoggingDisabledArrayOutput() GetImageVersionLoggingDisabledArrayOutput {
+	return o
+}
+
+func (o GetImageVersionLoggingDisabledArrayOutput) ToGetImageVersionLoggingDisabledArrayOutputWithContext(ctx context.Context) GetImageVersionLoggingDisabledArrayOutput {
+	return o
+}
+
+func (o GetImageVersionLoggingDisabledArrayOutput) Index(i pulumi.IntInput) GetImageVersionLoggingDisabledOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageVersionLoggingDisabled {
+		return vs[0].([]GetImageVersionLoggingDisabled)[vs[1].(int)]
+	}).(GetImageVersionLoggingDisabledOutput)
+}
+
+type GetImageVersionResource struct {
+	// Minimum amount of memory in MiB allocated to the MicroVM.
+	MinimumMemoryInMib int `pulumi:"minimumMemoryInMib"`
+}
+
+// GetImageVersionResourceInput is an input type that accepts GetImageVersionResourceArgs and GetImageVersionResourceOutput values.
+// You can construct a concrete instance of `GetImageVersionResourceInput` via:
+//
+//	GetImageVersionResourceArgs{...}
+type GetImageVersionResourceInput interface {
+	pulumi.Input
+
+	ToGetImageVersionResourceOutput() GetImageVersionResourceOutput
+	ToGetImageVersionResourceOutputWithContext(context.Context) GetImageVersionResourceOutput
+}
+
+type GetImageVersionResourceArgs struct {
+	// Minimum amount of memory in MiB allocated to the MicroVM.
+	MinimumMemoryInMib pulumi.IntInput `pulumi:"minimumMemoryInMib"`
+}
+
+func (GetImageVersionResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionResource)(nil)).Elem()
+}
+
+func (i GetImageVersionResourceArgs) ToGetImageVersionResourceOutput() GetImageVersionResourceOutput {
+	return i.ToGetImageVersionResourceOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionResourceArgs) ToGetImageVersionResourceOutputWithContext(ctx context.Context) GetImageVersionResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionResourceOutput)
+}
+
+// GetImageVersionResourceArrayInput is an input type that accepts GetImageVersionResourceArray and GetImageVersionResourceArrayOutput values.
+// You can construct a concrete instance of `GetImageVersionResourceArrayInput` via:
+//
+//	GetImageVersionResourceArray{ GetImageVersionResourceArgs{...} }
+type GetImageVersionResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetImageVersionResourceArrayOutput() GetImageVersionResourceArrayOutput
+	ToGetImageVersionResourceArrayOutputWithContext(context.Context) GetImageVersionResourceArrayOutput
+}
+
+type GetImageVersionResourceArray []GetImageVersionResourceInput
+
+func (GetImageVersionResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionResource)(nil)).Elem()
+}
+
+func (i GetImageVersionResourceArray) ToGetImageVersionResourceArrayOutput() GetImageVersionResourceArrayOutput {
+	return i.ToGetImageVersionResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageVersionResourceArray) ToGetImageVersionResourceArrayOutputWithContext(ctx context.Context) GetImageVersionResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageVersionResourceArrayOutput)
+}
+
+type GetImageVersionResourceOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageVersionResource)(nil)).Elem()
+}
+
+func (o GetImageVersionResourceOutput) ToGetImageVersionResourceOutput() GetImageVersionResourceOutput {
+	return o
+}
+
+func (o GetImageVersionResourceOutput) ToGetImageVersionResourceOutputWithContext(ctx context.Context) GetImageVersionResourceOutput {
+	return o
+}
+
+// Minimum amount of memory in MiB allocated to the MicroVM.
+func (o GetImageVersionResourceOutput) MinimumMemoryInMib() pulumi.IntOutput {
+	return o.ApplyT(func(v GetImageVersionResource) int { return v.MinimumMemoryInMib }).(pulumi.IntOutput)
+}
+
+type GetImageVersionResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageVersionResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageVersionResource)(nil)).Elem()
+}
+
+func (o GetImageVersionResourceArrayOutput) ToGetImageVersionResourceArrayOutput() GetImageVersionResourceArrayOutput {
+	return o
+}
+
+func (o GetImageVersionResourceArrayOutput) ToGetImageVersionResourceArrayOutputWithContext(ctx context.Context) GetImageVersionResourceArrayOutput {
+	return o
+}
+
+func (o GetImageVersionResourceArrayOutput) Index(i pulumi.IntInput) GetImageVersionResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageVersionResource {
+		return vs[0].([]GetImageVersionResource)[vs[1].(int)]
+	}).(GetImageVersionResourceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageCodeArtifactInput)(nil)).Elem(), ImageCodeArtifactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageCodeArtifactPtrInput)(nil)).Elem(), ImageCodeArtifactArgs{})
@@ -1200,6 +2190,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmLoggingDisabledPtrInput)(nil)).Elem(), MicrovmLoggingDisabledArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmTimeoutsInput)(nil)).Elem(), MicrovmTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MicrovmTimeoutsPtrInput)(nil)).Elem(), MicrovmTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionCodeArtifactInput)(nil)).Elem(), GetImageVersionCodeArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionCodeArtifactArrayInput)(nil)).Elem(), GetImageVersionCodeArtifactArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionCpuConfigurationInput)(nil)).Elem(), GetImageVersionCpuConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionCpuConfigurationArrayInput)(nil)).Elem(), GetImageVersionCpuConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionHookInput)(nil)).Elem(), GetImageVersionHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionHookArrayInput)(nil)).Elem(), GetImageVersionHookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionHookMicrovmHookInput)(nil)).Elem(), GetImageVersionHookMicrovmHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionHookMicrovmHookArrayInput)(nil)).Elem(), GetImageVersionHookMicrovmHookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionHookMicrovmImageHookInput)(nil)).Elem(), GetImageVersionHookMicrovmImageHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionHookMicrovmImageHookArrayInput)(nil)).Elem(), GetImageVersionHookMicrovmImageHookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionLoggingInput)(nil)).Elem(), GetImageVersionLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionLoggingArrayInput)(nil)).Elem(), GetImageVersionLoggingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionLoggingCloudwatchInput)(nil)).Elem(), GetImageVersionLoggingCloudwatchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionLoggingCloudwatchArrayInput)(nil)).Elem(), GetImageVersionLoggingCloudwatchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionLoggingDisabledInput)(nil)).Elem(), GetImageVersionLoggingDisabledArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionLoggingDisabledArrayInput)(nil)).Elem(), GetImageVersionLoggingDisabledArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionResourceInput)(nil)).Elem(), GetImageVersionResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageVersionResourceArrayInput)(nil)).Elem(), GetImageVersionResourceArray{})
 	pulumi.RegisterOutputType(ImageCodeArtifactOutput{})
 	pulumi.RegisterOutputType(ImageCodeArtifactPtrOutput{})
 	pulumi.RegisterOutputType(ImageCpuConfigurationOutput{})
@@ -1216,4 +2224,22 @@ func init() {
 	pulumi.RegisterOutputType(MicrovmLoggingDisabledPtrOutput{})
 	pulumi.RegisterOutputType(MicrovmTimeoutsOutput{})
 	pulumi.RegisterOutputType(MicrovmTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(GetImageVersionCodeArtifactOutput{})
+	pulumi.RegisterOutputType(GetImageVersionCodeArtifactArrayOutput{})
+	pulumi.RegisterOutputType(GetImageVersionCpuConfigurationOutput{})
+	pulumi.RegisterOutputType(GetImageVersionCpuConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetImageVersionHookOutput{})
+	pulumi.RegisterOutputType(GetImageVersionHookArrayOutput{})
+	pulumi.RegisterOutputType(GetImageVersionHookMicrovmHookOutput{})
+	pulumi.RegisterOutputType(GetImageVersionHookMicrovmHookArrayOutput{})
+	pulumi.RegisterOutputType(GetImageVersionHookMicrovmImageHookOutput{})
+	pulumi.RegisterOutputType(GetImageVersionHookMicrovmImageHookArrayOutput{})
+	pulumi.RegisterOutputType(GetImageVersionLoggingOutput{})
+	pulumi.RegisterOutputType(GetImageVersionLoggingArrayOutput{})
+	pulumi.RegisterOutputType(GetImageVersionLoggingCloudwatchOutput{})
+	pulumi.RegisterOutputType(GetImageVersionLoggingCloudwatchArrayOutput{})
+	pulumi.RegisterOutputType(GetImageVersionLoggingDisabledOutput{})
+	pulumi.RegisterOutputType(GetImageVersionLoggingDisabledArrayOutput{})
+	pulumi.RegisterOutputType(GetImageVersionResourceOutput{})
+	pulumi.RegisterOutputType(GetImageVersionResourceArrayOutput{})
 }

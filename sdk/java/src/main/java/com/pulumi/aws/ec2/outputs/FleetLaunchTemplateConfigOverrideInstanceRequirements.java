@@ -35,7 +35,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
      */
     private @Nullable List<String> acceleratorManufacturers;
     /**
-     * @return List of accelerator names. Default is any acclerator.
+     * @return List of accelerator names. Default is any accelerator.
      * 
      */
     private @Nullable List<String> acceleratorNames;
@@ -57,7 +57,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
      */
     private @Nullable List<String> allowedInstanceTypes;
     /**
-     * @return Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+     * @return Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
     private @Nullable String bareMetal;
@@ -170,7 +170,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         return this.acceleratorManufacturers == null ? List.of() : this.acceleratorManufacturers;
     }
     /**
-     * @return List of accelerator names. Default is any acclerator.
+     * @return List of accelerator names. Default is any accelerator.
      * 
      */
     public List<String> acceleratorNames() {
@@ -200,7 +200,7 @@ public final class FleetLaunchTemplateConfigOverrideInstanceRequirements {
         return this.allowedInstanceTypes == null ? List.of() : this.allowedInstanceTypes;
     }
     /**
-     * @return Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+     * @return Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
      * 
      */
     public Optional<String> bareMetal() {

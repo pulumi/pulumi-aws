@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string DeploymentType;
         /// <summary>
-        /// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+        /// SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See `DiskIopsConfiguration` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapFileSystemDiskIopsConfigurationResult> DiskIopsConfigurations;
         /// <summary>

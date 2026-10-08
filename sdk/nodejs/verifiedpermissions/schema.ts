@@ -68,15 +68,15 @@ export class Schema extends pulumi.CustomResource {
     }
 
     /**
-     * The definition of the schema.
+     * Definition of the schema. See Definition below.
      */
     declare public readonly definition: pulumi.Output<outputs.verifiedpermissions.SchemaDefinition>;
     /**
-     * (Optional) Identifies the namespaces of the entities referenced by this schema.
+     * Namespaces of the entities referenced by this schema.
      */
     declare public /*out*/ readonly namespaces: pulumi.Output<string[]>;
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      */
     declare public readonly policyStoreId: pulumi.Output<string>;
     /**
@@ -124,15 +124,15 @@ export class Schema extends pulumi.CustomResource {
  */
 export interface SchemaState {
     /**
-     * The definition of the schema.
+     * Definition of the schema. See Definition below.
      */
     definition?: pulumi.Input<inputs.verifiedpermissions.SchemaDefinition | undefined>;
     /**
-     * (Optional) Identifies the namespaces of the entities referenced by this schema.
+     * Namespaces of the entities referenced by this schema.
      */
     namespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      */
     policyStoreId?: pulumi.Input<string | undefined>;
     /**
@@ -146,11 +146,11 @@ export interface SchemaState {
  */
 export interface SchemaArgs {
     /**
-     * The definition of the schema.
+     * Definition of the schema. See Definition below.
      */
     definition: pulumi.Input<inputs.verifiedpermissions.SchemaDefinition>;
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      */
     policyStoreId: pulumi.Input<string>;
     /**

@@ -483,7 +483,7 @@ namespace Pulumi.Aws.Ssm
         public Output<ImmutableArray<Outputs.AssociationTarget>> Targets { get; private set; } = null!;
 
         /// <summary>
-        /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
         /// 
         /// Output Location (`OutputLocation`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
@@ -657,7 +657,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
         /// 
         /// Output Location (`OutputLocation`) is an S3 bucket where you want to store the results of this association:
         /// </summary>
@@ -817,7 +817,7 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+        /// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
         /// 
         /// Output Location (`OutputLocation`) is an S3 bucket where you want to store the results of this association:
         /// </summary>

@@ -93,7 +93,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// The policy document that is associated with this resource.
+        /// Policy document that is associated with this resource.
         /// </summary>
         [Output("policyDocument")]
         public Output<string?> PolicyDocument { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block to use KMS keys for server-side encryption.
+        /// Configuration block to use KMS keys for server-side encryption. See below.
         /// </summary>
         [Output("sseConfiguration")]
         public Output<Outputs.GroupSseConfiguration> SseConfiguration { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of this verified acess group.
+        /// ARN of this verified access group.
         /// </summary>
         [Output("verifiedaccessGroupArn")]
         public Output<string> VerifiedaccessGroupArn { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Output<string> VerifiedaccessGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the verified access instance this group is associated with.
+        /// ID of the verified access instance this group is associated with.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The policy document that is associated with this resource.
+        /// Policy document that is associated with this resource.
         /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block to use KMS keys for server-side encryption.
+        /// Configuration block to use KMS keys for server-side encryption. See below.
         /// </summary>
         [Input("sseConfiguration")]
         public Input<Inputs.GroupSseConfigurationArgs>? SseConfiguration { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.VerifiedAccess
         }
 
         /// <summary>
-        /// The id of the verified access instance this group is associated with.
+        /// ID of the verified access instance this group is associated with.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? Owner { get; set; }
 
         /// <summary>
-        /// The policy document that is associated with this resource.
+        /// Policy document that is associated with this resource.
         /// </summary>
         [Input("policyDocument")]
         public Input<string>? PolicyDocument { get; set; }
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block to use KMS keys for server-side encryption.
+        /// Configuration block to use KMS keys for server-side encryption. See below.
         /// </summary>
         [Input("sseConfiguration")]
         public Input<Inputs.GroupSseConfigurationGetArgs>? SseConfiguration { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.VerifiedAccess
         }
 
         /// <summary>
-        /// ARN of this verified acess group.
+        /// ARN of this verified access group.
         /// </summary>
         [Input("verifiedaccessGroupArn")]
         public Input<string>? VerifiedaccessGroupArn { get; set; }
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.VerifiedAccess
         public Input<string>? VerifiedaccessGroupId { get; set; }
 
         /// <summary>
-        /// The id of the verified access instance this group is associated with.
+        /// ID of the verified access instance this group is associated with.
         /// 
         /// The following arguments are optional:
         /// </summary>

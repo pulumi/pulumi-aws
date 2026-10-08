@@ -18,14 +18,14 @@ public final class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
     public static final InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs Empty = new InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs();
 
     /**
-     * The name of the delivery stream.
+     * Name of the delivery stream.
      * 
      */
     @Import(name="deliveryStream")
     private @Nullable Output<String> deliveryStream;
 
     /**
-     * @return The name of the delivery stream.
+     * @return Name of the delivery stream.
      * 
      */
     public Optional<Output<String>> deliveryStream() {
@@ -33,14 +33,14 @@ public final class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
     }
 
     /**
-     * Indicates whether logging is enabled.
+     * Whether logging is enabled.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether logging is enabled.
+     * @return Whether logging is enabled.
      * 
      */
     public Output<Boolean> enabled() {
@@ -73,7 +73,7 @@ public final class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
         }
 
         /**
-         * @param deliveryStream The name of the delivery stream.
+         * @param deliveryStream Name of the delivery stream.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
         }
 
         /**
-         * @param deliveryStream The name of the delivery stream.
+         * @param deliveryStream Name of the delivery stream.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
         }
 
         /**
-         * @param enabled Indicates whether logging is enabled.
+         * @param enabled Whether logging is enabled.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs
         }
 
         /**
-         * @param enabled Indicates whether logging is enabled.
+         * @param enabled Whether logging is enabled.
          * 
          * @return builder
          * 

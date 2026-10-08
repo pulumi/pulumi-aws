@@ -56,28 +56,28 @@ import (
 type RouteServerEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the route server endpoint.
+	// ARN of the route server endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The IP address of the Elastic network interface for the endpoint.
+	// IP address of the Elastic network interface for the endpoint.
 	EniAddress pulumi.StringOutput `pulumi:"eniAddress"`
-	// The ID of the Elastic network interface for the endpoint.
+	// ID of the Elastic network interface for the endpoint.
 	EniId pulumi.StringOutput `pulumi:"eniId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The unique identifier of the route server endpoint.
+	// Unique identifier of the route server endpoint.
 	RouteServerEndpointId pulumi.StringOutput `pulumi:"routeServerEndpointId"`
-	// The ID of the route server for which to create an endpoint.
+	// ID of the route server for which to create an endpoint.
 	RouteServerId pulumi.StringOutput `pulumi:"routeServerId"`
-	// The ID of the subnet in which to create the route server endpoint.
+	// ID of the subnet in which to create the route server endpoint.
 	//
 	// The following arguments are optional:
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput               `pulumi:"tagsAll"`
 	Timeouts RouteServerEndpointTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The ID of the VPC containing the endpoint.
+	// ID of the VPC containing the endpoint.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -117,54 +117,54 @@ func GetRouteServerEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteServerEndpoint resources.
 type routeServerEndpointState struct {
-	// The ARN of the route server endpoint.
+	// ARN of the route server endpoint.
 	Arn *string `pulumi:"arn"`
-	// The IP address of the Elastic network interface for the endpoint.
+	// IP address of the Elastic network interface for the endpoint.
 	EniAddress *string `pulumi:"eniAddress"`
-	// The ID of the Elastic network interface for the endpoint.
+	// ID of the Elastic network interface for the endpoint.
 	EniId *string `pulumi:"eniId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The unique identifier of the route server endpoint.
+	// Unique identifier of the route server endpoint.
 	RouteServerEndpointId *string `pulumi:"routeServerEndpointId"`
-	// The ID of the route server for which to create an endpoint.
+	// ID of the route server for which to create an endpoint.
 	RouteServerId *string `pulumi:"routeServerId"`
-	// The ID of the subnet in which to create the route server endpoint.
+	// ID of the subnet in which to create the route server endpoint.
 	//
 	// The following arguments are optional:
 	SubnetId *string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string            `pulumi:"tagsAll"`
 	Timeouts *RouteServerEndpointTimeouts `pulumi:"timeouts"`
-	// The ID of the VPC containing the endpoint.
+	// ID of the VPC containing the endpoint.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type RouteServerEndpointState struct {
-	// The ARN of the route server endpoint.
+	// ARN of the route server endpoint.
 	Arn pulumi.StringPtrInput
-	// The IP address of the Elastic network interface for the endpoint.
+	// IP address of the Elastic network interface for the endpoint.
 	EniAddress pulumi.StringPtrInput
-	// The ID of the Elastic network interface for the endpoint.
+	// ID of the Elastic network interface for the endpoint.
 	EniId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The unique identifier of the route server endpoint.
+	// Unique identifier of the route server endpoint.
 	RouteServerEndpointId pulumi.StringPtrInput
-	// The ID of the route server for which to create an endpoint.
+	// ID of the route server for which to create an endpoint.
 	RouteServerId pulumi.StringPtrInput
-	// The ID of the subnet in which to create the route server endpoint.
+	// ID of the subnet in which to create the route server endpoint.
 	//
 	// The following arguments are optional:
 	SubnetId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts RouteServerEndpointTimeoutsPtrInput
-	// The ID of the VPC containing the endpoint.
+	// ID of the VPC containing the endpoint.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -175,13 +175,13 @@ func (RouteServerEndpointState) ElementType() reflect.Type {
 type routeServerEndpointArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the route server for which to create an endpoint.
+	// ID of the route server for which to create an endpoint.
 	RouteServerId string `pulumi:"routeServerId"`
-	// The ID of the subnet in which to create the route server endpoint.
+	// ID of the subnet in which to create the route server endpoint.
 	//
 	// The following arguments are optional:
 	SubnetId string `pulumi:"subnetId"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string            `pulumi:"tags"`
 	Timeouts *RouteServerEndpointTimeouts `pulumi:"timeouts"`
 }
@@ -190,13 +190,13 @@ type routeServerEndpointArgs struct {
 type RouteServerEndpointArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the route server for which to create an endpoint.
+	// ID of the route server for which to create an endpoint.
 	RouteServerId pulumi.StringInput
-	// The ID of the subnet in which to create the route server endpoint.
+	// ID of the subnet in which to create the route server endpoint.
 	//
 	// The following arguments are optional:
 	SubnetId pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts RouteServerEndpointTimeoutsPtrInput
 }
@@ -288,17 +288,17 @@ func (o RouteServerEndpointOutput) ToRouteServerEndpointOutputWithContext(ctx co
 	return o
 }
 
-// The ARN of the route server endpoint.
+// ARN of the route server endpoint.
 func (o RouteServerEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The IP address of the Elastic network interface for the endpoint.
+// IP address of the Elastic network interface for the endpoint.
 func (o RouteServerEndpointOutput) EniAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerEndpoint) pulumi.StringOutput { return v.EniAddress }).(pulumi.StringOutput)
 }
 
-// The ID of the Elastic network interface for the endpoint.
+// ID of the Elastic network interface for the endpoint.
 func (o RouteServerEndpointOutput) EniId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerEndpoint) pulumi.StringOutput { return v.EniId }).(pulumi.StringOutput)
 }
@@ -308,29 +308,29 @@ func (o RouteServerEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The unique identifier of the route server endpoint.
+// Unique identifier of the route server endpoint.
 func (o RouteServerEndpointOutput) RouteServerEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerEndpoint) pulumi.StringOutput { return v.RouteServerEndpointId }).(pulumi.StringOutput)
 }
 
-// The ID of the route server for which to create an endpoint.
+// ID of the route server for which to create an endpoint.
 func (o RouteServerEndpointOutput) RouteServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerEndpoint) pulumi.StringOutput { return v.RouteServerId }).(pulumi.StringOutput)
 }
 
-// The ID of the subnet in which to create the route server endpoint.
+// ID of the subnet in which to create the route server endpoint.
 //
 // The following arguments are optional:
 func (o RouteServerEndpointOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerEndpoint) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RouteServerEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteServerEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o RouteServerEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteServerEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -339,7 +339,7 @@ func (o RouteServerEndpointOutput) Timeouts() RouteServerEndpointTimeoutsPtrOutp
 	return o.ApplyT(func(v *RouteServerEndpoint) RouteServerEndpointTimeoutsPtrOutput { return v.Timeouts }).(RouteServerEndpointTimeoutsPtrOutput)
 }
 
-// The ID of the VPC containing the endpoint.
+// ID of the VPC containing the endpoint.
 func (o RouteServerEndpointOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

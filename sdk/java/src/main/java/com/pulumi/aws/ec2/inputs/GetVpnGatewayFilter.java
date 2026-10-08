@@ -15,16 +15,14 @@ public final class GetVpnGatewayFilter extends com.pulumi.resources.InvokeArgs {
     public static final GetVpnGatewayFilter Empty = new GetVpnGatewayFilter();
 
     /**
-     * Name of the field to filter by, as defined by
-     * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+     * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
      * 
      */
     public String name() {
@@ -32,16 +30,14 @@ public final class GetVpnGatewayFilter extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Set of values that are accepted for the given field.
-     * A VPN Gateway will be selected if any one of the given values matches.
+     * Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
      * 
      */
     @Import(name="values", required=true)
     private List<String> values;
 
     /**
-     * @return Set of values that are accepted for the given field.
-     * A VPN Gateway will be selected if any one of the given values matches.
+     * @return Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
      * 
      */
     public List<String> values() {
@@ -74,8 +70,7 @@ public final class GetVpnGatewayFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+         * @param name Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
          * 
          * @return builder
          * 
@@ -86,8 +81,7 @@ public final class GetVpnGatewayFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param values Set of values that are accepted for the given field.
-         * A VPN Gateway will be selected if any one of the given values matches.
+         * @param values Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
          * 
          * @return builder
          * 
@@ -98,8 +92,7 @@ public final class GetVpnGatewayFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param values Set of values that are accepted for the given field.
-         * A VPN Gateway will be selected if any one of the given values matches.
+         * @param values Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
          * 
          * @return builder
          * 

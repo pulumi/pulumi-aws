@@ -47,14 +47,14 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      * 
      */
     @Import(name="keyName")
     private @Nullable Output<String> keyName;
 
     /**
-     * @return Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+     * @return Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      * 
      */
     public Optional<Output<String>> keyName() {
@@ -242,7 +242,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyName Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+         * @param keyName Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyName Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+         * @param keyName Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
          * 
          * @return builder
          * 

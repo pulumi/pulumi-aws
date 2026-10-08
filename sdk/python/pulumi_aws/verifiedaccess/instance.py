@@ -29,9 +29,9 @@ class InstanceArgs:
         """
         The set of arguments for constructing a Instance resource.
 
-        :param pulumi.Input[_builtins.str] cidr_endpoints_custom_subdomain: The custom subdomain for the CIDR endpoints.
-        :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access Instance.
-        :param pulumi.Input[_builtins.bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        :param pulumi.Input[_builtins.str] cidr_endpoints_custom_subdomain: Custom subdomain for the CIDR endpoints.
+        :param pulumi.Input[_builtins.str] description: Description for the AWS Verified Access Instance.
+        :param pulumi.Input[_builtins.bool] fips_enabled: Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -50,7 +50,7 @@ class InstanceArgs:
     @pulumi.getter(name="cidrEndpointsCustomSubdomain")
     def cidr_endpoints_custom_subdomain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The custom subdomain for the CIDR endpoints.
+        Custom subdomain for the CIDR endpoints.
         """
         return pulumi.get(self, "cidr_endpoints_custom_subdomain")
 
@@ -62,7 +62,7 @@ class InstanceArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the AWS Verified Access Instance.
+        Description for the AWS Verified Access Instance.
         """
         return pulumi.get(self, "description")
 
@@ -74,7 +74,7 @@ class InstanceArgs:
     @pulumi.getter(name="fipsEnabled")
     def fips_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         """
         return pulumi.get(self, "fips_enabled")
 
@@ -123,14 +123,15 @@ class _InstanceState:
         """
         Input properties used for looking up and filtering Instance resources.
 
-        :param pulumi.Input[_builtins.str] cidr_endpoints_custom_subdomain: The custom subdomain for the CIDR endpoints.
-        :param pulumi.Input[_builtins.str] creation_time: The time that the Verified Access Instance was created.
-        :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access Instance.
-        :param pulumi.Input[_builtins.bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the Verified Access Instance was last updated.
+        :param pulumi.Input[_builtins.str] cidr_endpoints_custom_subdomain: Custom subdomain for the CIDR endpoints.
+        :param pulumi.Input[_builtins.str] creation_time: Time that the Verified Access Instance was created.
+        :param pulumi.Input[_builtins.str] description: Description for the AWS Verified Access Instance.
+        :param pulumi.Input[_builtins.bool] fips_enabled: Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        :param pulumi.Input[_builtins.str] last_updated_time: Time that the Verified Access Instance was last updated.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] name_servers: List of DNS names servers that clients can use to connect to the Verified Access Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]] verified_access_trust_providers: One or more blocks providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.
         """
         if cidr_endpoints_custom_subdomain is not None:
             pulumi.set(__self__, "cidr_endpoints_custom_subdomain", cidr_endpoints_custom_subdomain)
@@ -157,7 +158,7 @@ class _InstanceState:
     @pulumi.getter(name="cidrEndpointsCustomSubdomain")
     def cidr_endpoints_custom_subdomain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The custom subdomain for the CIDR endpoints.
+        Custom subdomain for the CIDR endpoints.
         """
         return pulumi.get(self, "cidr_endpoints_custom_subdomain")
 
@@ -169,7 +170,7 @@ class _InstanceState:
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time that the Verified Access Instance was created.
+        Time that the Verified Access Instance was created.
         """
         return pulumi.get(self, "creation_time")
 
@@ -181,7 +182,7 @@ class _InstanceState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the AWS Verified Access Instance.
+        Description for the AWS Verified Access Instance.
         """
         return pulumi.get(self, "description")
 
@@ -193,7 +194,7 @@ class _InstanceState:
     @pulumi.getter(name="fipsEnabled")
     def fips_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         """
         return pulumi.get(self, "fips_enabled")
 
@@ -205,7 +206,7 @@ class _InstanceState:
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time that the Verified Access Instance was last updated.
+        Time that the Verified Access Instance was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
@@ -216,6 +217,9 @@ class _InstanceState:
     @_builtins.property
     @pulumi.getter(name="nameServers")
     def name_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of DNS names servers that clients can use to connect to the Verified Access Instance.
+        """
         return pulumi.get(self, "name_servers")
 
     @name_servers.setter
@@ -259,7 +263,7 @@ class _InstanceState:
     @pulumi.getter(name="verifiedAccessTrustProviders")
     def verified_access_trust_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]]]:
         """
-        One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
+        One or more blocks providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.
         """
         return pulumi.get(self, "verified_access_trust_providers")
 
@@ -327,9 +331,9 @@ class Instance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cidr_endpoints_custom_subdomain: The custom subdomain for the CIDR endpoints.
-        :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access Instance.
-        :param pulumi.Input[_builtins.bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        :param pulumi.Input[_builtins.str] cidr_endpoints_custom_subdomain: Custom subdomain for the CIDR endpoints.
+        :param pulumi.Input[_builtins.str] description: Description for the AWS Verified Access Instance.
+        :param pulumi.Input[_builtins.bool] fips_enabled: Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -450,14 +454,15 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cidr_endpoints_custom_subdomain: The custom subdomain for the CIDR endpoints.
-        :param pulumi.Input[_builtins.str] creation_time: The time that the Verified Access Instance was created.
-        :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access Instance.
-        :param pulumi.Input[_builtins.bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
-        :param pulumi.Input[_builtins.str] last_updated_time: The time that the Verified Access Instance was last updated.
+        :param pulumi.Input[_builtins.str] cidr_endpoints_custom_subdomain: Custom subdomain for the CIDR endpoints.
+        :param pulumi.Input[_builtins.str] creation_time: Time that the Verified Access Instance was created.
+        :param pulumi.Input[_builtins.str] description: Description for the AWS Verified Access Instance.
+        :param pulumi.Input[_builtins.bool] fips_enabled: Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        :param pulumi.Input[_builtins.str] last_updated_time: Time that the Verified Access Instance was last updated.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] name_servers: List of DNS names servers that clients can use to connect to the Verified Access Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceVerifiedAccessTrustProviderArgs', 'InstanceVerifiedAccessTrustProviderArgsDict', 'outputs.InstanceVerifiedAccessTrustProvider']]]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceVerifiedAccessTrustProviderArgs', 'InstanceVerifiedAccessTrustProviderArgsDict', 'outputs.InstanceVerifiedAccessTrustProvider']]]] verified_access_trust_providers: One or more blocks providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -479,7 +484,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="cidrEndpointsCustomSubdomain")
     def cidr_endpoints_custom_subdomain(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The custom subdomain for the CIDR endpoints.
+        Custom subdomain for the CIDR endpoints.
         """
         return pulumi.get(self, "cidr_endpoints_custom_subdomain")
 
@@ -487,7 +492,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time that the Verified Access Instance was created.
+        Time that the Verified Access Instance was created.
         """
         return pulumi.get(self, "creation_time")
 
@@ -495,7 +500,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description for the AWS Verified Access Instance.
+        Description for the AWS Verified Access Instance.
         """
         return pulumi.get(self, "description")
 
@@ -503,7 +508,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="fipsEnabled")
     def fips_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+        Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         """
         return pulumi.get(self, "fips_enabled")
 
@@ -511,13 +516,16 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="lastUpdatedTime")
     def last_updated_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time that the Verified Access Instance was last updated.
+        Time that the Verified Access Instance was last updated.
         """
         return pulumi.get(self, "last_updated_time")
 
     @_builtins.property
     @pulumi.getter(name="nameServers")
     def name_servers(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        List of DNS names servers that clients can use to connect to the Verified Access Instance.
+        """
         return pulumi.get(self, "name_servers")
 
     @_builtins.property
@@ -545,7 +553,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="verifiedAccessTrustProviders")
     def verified_access_trust_providers(self) -> pulumi.Output[Sequence['outputs.InstanceVerifiedAccessTrustProvider']]:
         """
-        One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
+        One or more blocks providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.
         """
         return pulumi.get(self, "verified_access_trust_providers")
 

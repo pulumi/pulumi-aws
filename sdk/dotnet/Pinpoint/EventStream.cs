@@ -28,8 +28,11 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     ///     var testStream = new Aws.Kinesis.Stream("test_stream", new()
     ///     {
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "ON_DEMAND",
+    ///         },
     ///         Name = "pinpoint-kinesis-test",
-    ///         ShardCount = 1,
     ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()

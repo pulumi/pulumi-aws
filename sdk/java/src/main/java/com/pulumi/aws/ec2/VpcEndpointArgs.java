@@ -22,14 +22,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     public static final VpcEndpointArgs Empty = new VpcEndpointArgs();
 
     /**
-     * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+     * Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      * 
      */
     @Import(name="autoAccept")
     private @Nullable Output<Boolean> autoAccept;
 
     /**
-     * @return Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+     * @return Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      * 
      */
     public Optional<Output<Boolean>> autoAccept() {
@@ -37,14 +37,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The DNS options for the endpoint. See dnsOptions below.
+     * DNS options for the endpoint. See `dnsOptions` below.
      * 
      */
     @Import(name="dnsOptions")
     private @Nullable Output<VpcEndpointDnsOptionsArgs> dnsOptions;
 
     /**
-     * @return The DNS options for the endpoint. See dnsOptions below.
+     * @return DNS options for the endpoint. See `dnsOptions` below.
      * 
      */
     public Optional<Output<VpcEndpointDnsOptionsArgs>> dnsOptions() {
@@ -52,14 +52,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+     * IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      * 
      */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
     /**
-     * @return The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+     * @return IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
      * 
      */
     public Optional<Output<String>> ipAddressType() {
@@ -67,14 +67,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     * Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     * @return Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -82,16 +82,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-     * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
+     * Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
      * 
      */
     @Import(name="privateDnsEnabled")
     private @Nullable Output<Boolean> privateDnsEnabled;
 
     /**
-     * @return Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-     * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
+     * @return Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> privateDnsEnabled() {
@@ -114,14 +112,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     @Import(name="resourceConfigurationArn")
     private @Nullable Output<String> resourceConfigurationArn;
 
     /**
-     * @return The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * @return ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     public Optional<Output<String>> resourceConfigurationArn() {
@@ -144,16 +142,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-     * If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+     * ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-     * If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+     * @return ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -161,14 +157,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * Service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     @Import(name="serviceName")
     private @Nullable Output<String> serviceName;
 
     /**
-     * @return The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * @return Service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     public Optional<Output<String>> serviceName() {
@@ -176,14 +172,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     @Import(name="serviceNetworkArn")
     private @Nullable Output<String> serviceNetworkArn;
 
     /**
-     * @return The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+     * @return ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      * 
      */
     public Optional<Output<String>> serviceNetworkArn() {
@@ -191,14 +187,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+     * AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
      * 
      */
     @Import(name="serviceRegion")
     private @Nullable Output<String> serviceRegion;
 
     /**
-     * @return The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+     * @return AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
      * 
      */
     public Optional<Output<String>> serviceRegion() {
@@ -221,14 +217,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+     * ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      * 
      */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
     /**
-     * @return The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+     * @return ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
      * 
      */
     public Optional<Output<List<String>>> subnetIds() {
@@ -236,14 +232,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -251,14 +247,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+     * VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
      * 
      */
     @Import(name="vpcEndpointType")
     private @Nullable Output<String> vpcEndpointType;
 
     /**
-     * @return The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+     * @return VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
      * 
      */
     public Optional<Output<String>> vpcEndpointType() {
@@ -266,14 +262,14 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the VPC in which the endpoint will be used.
+     * ID of the VPC in which the endpoint will be used.
      * 
      */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC in which the endpoint will be used.
+     * @return ID of the VPC in which the endpoint will be used.
      * 
      */
     public Output<String> vpcId() {
@@ -321,7 +317,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoAccept Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+         * @param autoAccept Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
          * 
          * @return builder
          * 
@@ -332,7 +328,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoAccept Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+         * @param autoAccept Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
          * 
          * @return builder
          * 
@@ -342,7 +338,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsOptions The DNS options for the endpoint. See dnsOptions below.
+         * @param dnsOptions DNS options for the endpoint. See `dnsOptions` below.
          * 
          * @return builder
          * 
@@ -353,7 +349,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsOptions The DNS options for the endpoint. See dnsOptions below.
+         * @param dnsOptions DNS options for the endpoint. See `dnsOptions` below.
          * 
          * @return builder
          * 
@@ -363,7 +359,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+         * @param ipAddressType IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
          * 
          * @return builder
          * 
@@ -374,7 +370,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipAddressType The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+         * @param ipAddressType IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
          * 
          * @return builder
          * 
@@ -384,7 +380,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+         * @param policy Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
          * 
          * @return builder
          * 
@@ -395,7 +391,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+         * @param policy Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
          * 
          * @return builder
          * 
@@ -405,8 +401,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDnsEnabled Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-         * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
+         * @param privateDnsEnabled Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -417,8 +412,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateDnsEnabled Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-         * Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
+         * @param privateDnsEnabled Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpcEndpointType` is anything other than `Interface`, changing this value forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -449,7 +443,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceConfigurationArn The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+         * @param resourceConfigurationArn ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
          * 
          * @return builder
          * 
@@ -460,7 +454,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceConfigurationArn The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+         * @param resourceConfigurationArn ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
          * 
          * @return builder
          * 
@@ -501,8 +495,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-         * If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+         * @param securityGroupIds ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
          * 
          * @return builder
          * 
@@ -513,8 +506,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-         * If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+         * @param securityGroupIds ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
          * 
          * @return builder
          * 
@@ -524,8 +516,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param securityGroupIds The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-         * If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+         * @param securityGroupIds ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC&#39;s [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
          * 
          * @return builder
          * 
@@ -535,7 +526,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceName The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+         * @param serviceName Service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
          * 
          * @return builder
          * 
@@ -546,7 +537,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceName The service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+         * @param serviceName Service name. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`). Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
          * 
          * @return builder
          * 
@@ -556,7 +547,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceNetworkArn The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+         * @param serviceNetworkArn ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
          * 
          * @return builder
          * 
@@ -567,7 +558,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceNetworkArn The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
+         * @param serviceNetworkArn ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
          * 
          * @return builder
          * 
@@ -577,7 +568,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRegion The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+         * @param serviceRegion AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
          * 
          * @return builder
          * 
@@ -588,7 +579,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRegion The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+         * @param serviceRegion AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
          * 
          * @return builder
          * 
@@ -629,7 +620,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+         * @param subnetIds ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
          * 
          * @return builder
          * 
@@ -640,7 +631,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+         * @param subnetIds ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
          * 
          * @return builder
          * 
@@ -650,7 +641,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetIds The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+         * @param subnetIds ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
          * 
          * @return builder
          * 
@@ -660,7 +651,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -671,7 +662,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -681,7 +672,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcEndpointType The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+         * @param vpcEndpointType VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
          * 
          * @return builder
          * 
@@ -692,7 +683,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcEndpointType The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+         * @param vpcEndpointType VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
          * 
          * @return builder
          * 
@@ -702,7 +693,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The ID of the VPC in which the endpoint will be used.
+         * @param vpcId ID of the VPC in which the endpoint will be used.
          * 
          * @return builder
          * 
@@ -713,7 +704,7 @@ public final class VpcEndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The ID of the VPC in which the endpoint will be used.
+         * @param vpcId ID of the VPC in which the endpoint will be used.
          * 
          * @return builder
          * 

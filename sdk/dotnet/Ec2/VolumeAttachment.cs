@@ -77,23 +77,19 @@ namespace Pulumi.Aws.Ec2
     public partial class VolumeAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The device name to expose to the instance (for
-        /// example, `/dev/sdh` or `Xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
+        /// Device name to expose to the instance (for example, `/dev/sdh` or `Xvdh`). See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         /// </summary>
         [Output("deviceName")]
         public Output<string> DeviceName { get; private set; } = null!;
 
         /// <summary>
-        /// Set to `True` if you want to force the
-        /// volume to detach. Useful if previous attempts failed, but use this option only
-        /// as a last resort, as this can result in **data loss**. See
-        /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
+        /// Whether to force the volume to detach. Useful if previous attempts failed, but use this option only as a last resort, as this can result in **data loss**. See [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         /// </summary>
         [Output("forceDetach")]
         public Output<bool?> ForceDetach { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the Instance to attach to
+        /// ID of the Instance to attach to.
         /// </summary>
         [Output("instanceId")]
         public Output<string> InstanceId { get; private set; } = null!;
@@ -105,24 +101,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Set this to true if you do not wish
-        /// to detach the volume from the instance to which it is attached at destroy
-        /// time, and instead just remove the attachment from this provider state. This is
-        /// useful when destroying an instance which has volumes created by some other
-        /// means attached.
+        /// Whether to skip detaching the volume from the instance to which it is attached at destroy time, and instead just remove the attachment from this provider state. This is useful when destroying an instance which has volumes created by some other means attached.
         /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// Set this to true to ensure that the target instance is stopped
-        /// before trying to detach the volume. Stops the instance, if it is not already stopped.
+        /// Whether to ensure that the target instance is stopped before trying to detach the volume. Stops the instance, if it is not already stopped.
         /// </summary>
         [Output("stopInstanceBeforeDetaching")]
         public Output<bool?> StopInstanceBeforeDetaching { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the Volume to be attached
+        /// ID of the Volume to be attached.
         /// </summary>
         [Output("volumeId")]
         public Output<string> VolumeId { get; private set; } = null!;
@@ -174,23 +165,19 @@ namespace Pulumi.Aws.Ec2
     public sealed class VolumeAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The device name to expose to the instance (for
-        /// example, `/dev/sdh` or `Xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
+        /// Device name to expose to the instance (for example, `/dev/sdh` or `Xvdh`). See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
-        /// Set to `True` if you want to force the
-        /// volume to detach. Useful if previous attempts failed, but use this option only
-        /// as a last resort, as this can result in **data loss**. See
-        /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
+        /// Whether to force the volume to detach. Useful if previous attempts failed, but use this option only as a last resort, as this can result in **data loss**. See [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         /// </summary>
         [Input("forceDetach")]
         public Input<bool>? ForceDetach { get; set; }
 
         /// <summary>
-        /// ID of the Instance to attach to
+        /// ID of the Instance to attach to.
         /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
@@ -202,24 +189,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Set this to true if you do not wish
-        /// to detach the volume from the instance to which it is attached at destroy
-        /// time, and instead just remove the attachment from this provider state. This is
-        /// useful when destroying an instance which has volumes created by some other
-        /// means attached.
+        /// Whether to skip detaching the volume from the instance to which it is attached at destroy time, and instead just remove the attachment from this provider state. This is useful when destroying an instance which has volumes created by some other means attached.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
         /// <summary>
-        /// Set this to true to ensure that the target instance is stopped
-        /// before trying to detach the volume. Stops the instance, if it is not already stopped.
+        /// Whether to ensure that the target instance is stopped before trying to detach the volume. Stops the instance, if it is not already stopped.
         /// </summary>
         [Input("stopInstanceBeforeDetaching")]
         public Input<bool>? StopInstanceBeforeDetaching { get; set; }
 
         /// <summary>
-        /// ID of the Volume to be attached
+        /// ID of the Volume to be attached.
         /// </summary>
         [Input("volumeId", required: true)]
         public Input<string> VolumeId { get; set; } = null!;
@@ -233,23 +215,19 @@ namespace Pulumi.Aws.Ec2
     public sealed class VolumeAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The device name to expose to the instance (for
-        /// example, `/dev/sdh` or `Xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
+        /// Device name to expose to the instance (for example, `/dev/sdh` or `Xvdh`). See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
         /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// Set to `True` if you want to force the
-        /// volume to detach. Useful if previous attempts failed, but use this option only
-        /// as a last resort, as this can result in **data loss**. See
-        /// [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
+        /// Whether to force the volume to detach. Useful if previous attempts failed, but use this option only as a last resort, as this can result in **data loss**. See [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
         /// </summary>
         [Input("forceDetach")]
         public Input<bool>? ForceDetach { get; set; }
 
         /// <summary>
-        /// ID of the Instance to attach to
+        /// ID of the Instance to attach to.
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
@@ -261,24 +239,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Set this to true if you do not wish
-        /// to detach the volume from the instance to which it is attached at destroy
-        /// time, and instead just remove the attachment from this provider state. This is
-        /// useful when destroying an instance which has volumes created by some other
-        /// means attached.
+        /// Whether to skip detaching the volume from the instance to which it is attached at destroy time, and instead just remove the attachment from this provider state. This is useful when destroying an instance which has volumes created by some other means attached.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
         /// <summary>
-        /// Set this to true to ensure that the target instance is stopped
-        /// before trying to detach the volume. Stops the instance, if it is not already stopped.
+        /// Whether to ensure that the target instance is stopped before trying to detach the volume. Stops the instance, if it is not already stopped.
         /// </summary>
         [Input("stopInstanceBeforeDetaching")]
         public Input<bool>? StopInstanceBeforeDetaching { get; set; }
 
         /// <summary>
-        /// ID of the Volume to be attached
+        /// ID of the Volume to be attached.
         /// </summary>
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }

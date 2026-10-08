@@ -37,14 +37,14 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Boolean flag to indicate if the certificate should be active for device regisration.
+     * Boolean flag to indicate if the certificate should be active for device registration.
      * 
      */
     @Import(name="allowAutoRegistration")
     private @Nullable Output<Boolean> allowAutoRegistration;
 
     /**
-     * @return Boolean flag to indicate if the certificate should be active for device regisration.
+     * @return Boolean flag to indicate if the certificate should be active for device registration.
      * 
      */
     public Optional<Output<Boolean>> allowAutoRegistration() {
@@ -276,7 +276,7 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowAutoRegistration Boolean flag to indicate if the certificate should be active for device regisration.
+         * @param allowAutoRegistration Boolean flag to indicate if the certificate should be active for device registration.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class CaCertificateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowAutoRegistration Boolean flag to indicate if the certificate should be active for device regisration.
+         * @param allowAutoRegistration Boolean flag to indicate if the certificate should be active for device registration.
          * 
          * @return builder
          * 

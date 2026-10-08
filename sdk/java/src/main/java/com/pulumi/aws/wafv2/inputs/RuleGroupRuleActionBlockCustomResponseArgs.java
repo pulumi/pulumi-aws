@@ -35,14 +35,14 @@ public final class RuleGroupRuleActionBlockCustomResponseArgs extends com.pulumi
     }
 
     /**
-     * The HTTP status code to return to the client.
+     * HTTP status code to return to the client.
      * 
      */
     @Import(name="responseCode", required=true)
     private Output<Integer> responseCode;
 
     /**
-     * @return The HTTP status code to return to the client.
+     * @return HTTP status code to return to the client.
      * 
      */
     public Output<Integer> responseCode() {
@@ -50,14 +50,14 @@ public final class RuleGroupRuleActionBlockCustomResponseArgs extends com.pulumi
     }
 
     /**
-     * The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+     * `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
      * 
      */
     @Import(name="responseHeaders")
     private @Nullable Output<List<RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs>> responseHeaders;
 
     /**
-     * @return The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+     * @return `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
      * 
      */
     public Optional<Output<List<RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs>>> responseHeaders() {
@@ -112,7 +112,7 @@ public final class RuleGroupRuleActionBlockCustomResponseArgs extends com.pulumi
         }
 
         /**
-         * @param responseCode The HTTP status code to return to the client.
+         * @param responseCode HTTP status code to return to the client.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class RuleGroupRuleActionBlockCustomResponseArgs extends com.pulumi
         }
 
         /**
-         * @param responseCode The HTTP status code to return to the client.
+         * @param responseCode HTTP status code to return to the client.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class RuleGroupRuleActionBlockCustomResponseArgs extends com.pulumi
         }
 
         /**
-         * @param responseHeaders The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+         * @param responseHeaders `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class RuleGroupRuleActionBlockCustomResponseArgs extends com.pulumi
         }
 
         /**
-         * @param responseHeaders The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+         * @param responseHeaders `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class RuleGroupRuleActionBlockCustomResponseArgs extends com.pulumi
         }
 
         /**
-         * @param responseHeaders The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+         * @param responseHeaders `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
          * 
          * @return builder
          * 

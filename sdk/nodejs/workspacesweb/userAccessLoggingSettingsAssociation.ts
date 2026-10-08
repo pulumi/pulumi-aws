@@ -17,8 +17,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.workspacesweb.Portal("example", {displayName: "example"});
  * const exampleStream = new aws.kinesis.Stream("example", {
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
  *     name: "amazon-workspaces-web-example",
- *     shardCount: 1,
  * });
  * const exampleUserAccessLoggingSettings = new aws.workspacesweb.UserAccessLoggingSettings("example", {kinesisStreamArn: exampleStream.arn});
  * const exampleUserAccessLoggingSettingsAssociation = new aws.workspacesweb.UserAccessLoggingSettingsAssociation("example", {

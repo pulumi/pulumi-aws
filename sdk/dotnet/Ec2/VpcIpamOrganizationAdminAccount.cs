@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcIpamOrganizationAdminAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Organizations ARN for the delegate account.
+        /// Organizations ARN for the delegate account.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -55,19 +55,19 @@ namespace Pulumi.Aws.Ec2
         public Output<string> DelegatedAdminAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The Organizations email for the delegate account.
+        /// Organizations email for the delegate account.
         /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
-        /// The Organizations name for the delegate account.
+        /// Organizations name for the delegate account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS service principal.
+        /// AWS service principal.
         /// </summary>
         [Output("servicePrincipal")]
         public Output<string> ServicePrincipal { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamOrganizationAdminAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Organizations ARN for the delegate account.
+        /// Organizations ARN for the delegate account.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -139,19 +139,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? DelegatedAdminAccountId { get; set; }
 
         /// <summary>
-        /// The Organizations email for the delegate account.
+        /// Organizations email for the delegate account.
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// The Organizations name for the delegate account.
+        /// Organizations name for the delegate account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The AWS service principal.
+        /// AWS service principal.
         /// </summary>
         [Input("servicePrincipal")]
         public Input<string>? ServicePrincipal { get; set; }

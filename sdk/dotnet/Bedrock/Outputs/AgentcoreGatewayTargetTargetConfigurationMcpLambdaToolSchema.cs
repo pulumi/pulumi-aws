@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload> InlinePayloads;
         /// <summary>
-        /// S3-based tool definition. See `S3` Block below.
+        /// S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3? S3;
 

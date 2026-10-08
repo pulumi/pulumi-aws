@@ -20,8 +20,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kinesis.Stream("example", {
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
  *     name: "example",
- *     shardCount: 2,
  * });
  * const mediaPipelinesAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{

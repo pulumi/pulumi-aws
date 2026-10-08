@@ -63,25 +63,25 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A description for the IPAM Resource Discovery.
+        /// Description for the IPAM Resource Discovery.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The home region of the Resource Discovery
+        /// Home region of the Resource Discovery
         /// </summary>
         [Output("ipamResourceDiscoveryRegion")]
         public Output<string> IpamResourceDiscoveryRegion { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean to identify if the Resource Discovery is the accounts default resource discovery
+        /// Boolean to identify if the Resource Discovery is the accounts default resource discovery
         /// </summary>
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
 
         /// <summary>
-        /// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the RegionName parameter. **You must set your provider block region as an operating_region.**
+        /// Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the RegionName parameter. **You must set your provider block region as an operating_region.**
         /// </summary>
         [Output("operatingRegions")]
         public Output<ImmutableArray<Outputs.VpcIpamResourceDiscoveryOperatingRegion>> OperatingRegions { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.VpcIpamResourceDiscoveryOrganizationalUnitExclusion>> OrganizationalUnitExclusions { get; private set; } = null!;
 
         /// <summary>
-        /// The account ID for the account that manages the Resource Discovery
+        /// Account ID for the account that manages the Resource Discovery
         /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
@@ -105,13 +105,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamResourceDiscoveryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description for the IPAM Resource Discovery.
+        /// Description for the IPAM Resource Discovery.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs>? _operatingRegions;
 
         /// <summary>
-        /// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the RegionName parameter. **You must set your provider block region as an operating_region.**
+        /// Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the RegionName parameter. **You must set your provider block region as an operating_region.**
         /// </summary>
         public InputList<Inputs.VpcIpamResourceDiscoveryOperatingRegionArgs> OperatingRegions
         {
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -225,19 +225,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A description for the IPAM Resource Discovery.
+        /// Description for the IPAM Resource Discovery.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The home region of the Resource Discovery
+        /// Home region of the Resource Discovery
         /// </summary>
         [Input("ipamResourceDiscoveryRegion")]
         public Input<string>? IpamResourceDiscoveryRegion { get; set; }
 
         /// <summary>
-        /// A boolean to identify if the Resource Discovery is the accounts default resource discovery
+        /// Boolean to identify if the Resource Discovery is the accounts default resource discovery
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.VpcIpamResourceDiscoveryOperatingRegionGetArgs>? _operatingRegions;
 
         /// <summary>
-        /// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the RegionName parameter. **You must set your provider block region as an operating_region.**
+        /// Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the RegionName parameter. **You must set your provider block region as an operating_region.**
         /// </summary>
         public InputList<Inputs.VpcIpamResourceDiscoveryOperatingRegionGetArgs> OperatingRegions
         {
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The account ID for the account that manages the Resource Discovery
+        /// Account ID for the account that manages the Resource Discovery
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

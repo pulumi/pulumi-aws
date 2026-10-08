@@ -71,7 +71,7 @@ export interface GetOntapFileSystemResult {
      */
     readonly deploymentType: string;
     /**
-     * SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See Disk IOPS Below.
+     * SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system, specifying the number of provisioned IOPS and the provision mode. See `diskIopsConfiguration` below.
      */
     readonly diskIopsConfigurations: outputs.fsx.GetOntapFileSystemDiskIopsConfiguration[];
     /**

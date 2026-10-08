@@ -67,23 +67,23 @@ type VpcIpamResourceDiscovery struct {
 
 	// ARN of IPAM Resource Discovery
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description for the IPAM Resource Discovery.
+	// Description for the IPAM Resource Discovery.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The home region of the Resource Discovery
+	// Home region of the Resource Discovery
 	IpamResourceDiscoveryRegion pulumi.StringOutput `pulumi:"ipamResourceDiscoveryRegion"`
-	// A boolean to identify if the Resource Discovery is the accounts default resource discovery
+	// Boolean to identify if the Resource Discovery is the accounts default resource discovery
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
-	// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+	// Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 	OperatingRegions VpcIpamResourceDiscoveryOperatingRegionArrayOutput `pulumi:"operatingRegions"`
 	// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
 	OrganizationalUnitExclusions VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput `pulumi:"organizationalUnitExclusions"`
-	// The account ID for the account that manages the Resource Discovery
+	// Account ID for the account that manages the Resource Discovery
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -122,46 +122,46 @@ func GetVpcIpamResourceDiscovery(ctx *pulumi.Context,
 type vpcIpamResourceDiscoveryState struct {
 	// ARN of IPAM Resource Discovery
 	Arn *string `pulumi:"arn"`
-	// A description for the IPAM Resource Discovery.
+	// Description for the IPAM Resource Discovery.
 	Description *string `pulumi:"description"`
-	// The home region of the Resource Discovery
+	// Home region of the Resource Discovery
 	IpamResourceDiscoveryRegion *string `pulumi:"ipamResourceDiscoveryRegion"`
-	// A boolean to identify if the Resource Discovery is the accounts default resource discovery
+	// Boolean to identify if the Resource Discovery is the accounts default resource discovery
 	IsDefault *bool `pulumi:"isDefault"`
-	// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+	// Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 	OperatingRegions []VpcIpamResourceDiscoveryOperatingRegion `pulumi:"operatingRegions"`
 	// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
 	OrganizationalUnitExclusions []VpcIpamResourceDiscoveryOrganizationalUnitExclusion `pulumi:"organizationalUnitExclusions"`
-	// The account ID for the account that manages the Resource Discovery
+	// Account ID for the account that manages the Resource Discovery
 	OwnerId *string `pulumi:"ownerId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type VpcIpamResourceDiscoveryState struct {
 	// ARN of IPAM Resource Discovery
 	Arn pulumi.StringPtrInput
-	// A description for the IPAM Resource Discovery.
+	// Description for the IPAM Resource Discovery.
 	Description pulumi.StringPtrInput
-	// The home region of the Resource Discovery
+	// Home region of the Resource Discovery
 	IpamResourceDiscoveryRegion pulumi.StringPtrInput
-	// A boolean to identify if the Resource Discovery is the accounts default resource discovery
+	// Boolean to identify if the Resource Discovery is the accounts default resource discovery
 	IsDefault pulumi.BoolPtrInput
-	// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+	// Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 	OperatingRegions VpcIpamResourceDiscoveryOperatingRegionArrayInput
 	// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
 	OrganizationalUnitExclusions VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayInput
-	// The account ID for the account that manages the Resource Discovery
+	// Account ID for the account that manages the Resource Discovery
 	OwnerId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -170,29 +170,29 @@ func (VpcIpamResourceDiscoveryState) ElementType() reflect.Type {
 }
 
 type vpcIpamResourceDiscoveryArgs struct {
-	// A description for the IPAM Resource Discovery.
+	// Description for the IPAM Resource Discovery.
 	Description *string `pulumi:"description"`
-	// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+	// Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 	OperatingRegions []VpcIpamResourceDiscoveryOperatingRegion `pulumi:"operatingRegions"`
 	// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
 	OrganizationalUnitExclusions []VpcIpamResourceDiscoveryOrganizationalUnitExclusion `pulumi:"organizationalUnitExclusions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcIpamResourceDiscovery resource.
 type VpcIpamResourceDiscoveryArgs struct {
-	// A description for the IPAM Resource Discovery.
+	// Description for the IPAM Resource Discovery.
 	Description pulumi.StringPtrInput
-	// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+	// Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 	OperatingRegions VpcIpamResourceDiscoveryOperatingRegionArrayInput
 	// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
 	OrganizationalUnitExclusions VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -288,22 +288,22 @@ func (o VpcIpamResourceDiscoveryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscovery) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description for the IPAM Resource Discovery.
+// Description for the IPAM Resource Discovery.
 func (o VpcIpamResourceDiscoveryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscovery) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The home region of the Resource Discovery
+// Home region of the Resource Discovery
 func (o VpcIpamResourceDiscoveryOutput) IpamResourceDiscoveryRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscovery) pulumi.StringOutput { return v.IpamResourceDiscoveryRegion }).(pulumi.StringOutput)
 }
 
-// A boolean to identify if the Resource Discovery is the accounts default resource discovery
+// Boolean to identify if the Resource Discovery is the accounts default resource discovery
 func (o VpcIpamResourceDiscoveryOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscovery) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+// Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 func (o VpcIpamResourceDiscoveryOutput) OperatingRegions() VpcIpamResourceDiscoveryOperatingRegionArrayOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscovery) VpcIpamResourceDiscoveryOperatingRegionArrayOutput {
 		return v.OperatingRegions
@@ -317,7 +317,7 @@ func (o VpcIpamResourceDiscoveryOutput) OrganizationalUnitExclusions() VpcIpamRe
 	}).(VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput)
 }
 
-// The account ID for the account that manages the Resource Discovery
+// Account ID for the account that manages the Resource Discovery
 func (o VpcIpamResourceDiscoveryOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscovery) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
@@ -327,12 +327,12 @@ func (o VpcIpamResourceDiscoveryOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscovery) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcIpamResourceDiscoveryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscovery) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpcIpamResourceDiscoveryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscovery) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

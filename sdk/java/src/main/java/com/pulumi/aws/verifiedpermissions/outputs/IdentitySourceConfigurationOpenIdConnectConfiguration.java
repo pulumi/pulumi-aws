@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class IdentitySourceConfigurationOpenIdConnectConfiguration {
     /**
-     * @return A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+     * @return Descriptive string that you want to prefix to user entities from your OIDC identity provider.
      * 
      */
     private @Nullable String entityIdPrefix;
     /**
-     * @return The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+     * @return Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
      * 
      */
     private @Nullable IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration groupConfiguration;
     /**
-     * @return The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+     * @return Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
      * 
      */
     private String issuer;
     /**
-     * @return The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+     * @return Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
      * 
      */
     private IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection tokenSelection;
 
     private IdentitySourceConfigurationOpenIdConnectConfiguration() {}
     /**
-     * @return A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+     * @return Descriptive string that you want to prefix to user entities from your OIDC identity provider.
      * 
      */
     public Optional<String> entityIdPrefix() {
         return Optional.ofNullable(this.entityIdPrefix);
     }
     /**
-     * @return The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+     * @return Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
      * 
      */
     public Optional<IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration> groupConfiguration() {
         return Optional.ofNullable(this.groupConfiguration);
     }
     /**
-     * @return The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+     * @return Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
      * 
      */
     public String issuer() {
         return this.issuer;
     }
     /**
-     * @return The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+     * @return Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
      * 
      */
     public IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelection tokenSelection() {

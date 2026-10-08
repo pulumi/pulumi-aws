@@ -112,7 +112,7 @@ export class EntityRecognizer extends pulumi.CustomResource {
     /**
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      *
      * The following arguments are optional:
      */
@@ -135,14 +135,14 @@ export class EntityRecognizer extends pulumi.CustomResource {
      * If omitted, the provider will assign a random, unique version name.
      * If explicitly set to `""`, no version name will be set.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionNamePrefix`.
      */
     declare public readonly versionName: pulumi.Output<string>;
     /**
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionName`.
      */
     declare public readonly versionNamePrefix: pulumi.Output<string>;
@@ -241,7 +241,7 @@ export interface EntityRecognizerState {
     /**
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      *
      * The following arguments are optional:
      */
@@ -264,14 +264,14 @@ export interface EntityRecognizerState {
      * If omitted, the provider will assign a random, unique version name.
      * If explicitly set to `""`, no version name will be set.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionNamePrefix`.
      */
     versionName?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionName`.
      */
     versionNamePrefix?: pulumi.Input<string | undefined>;
@@ -311,7 +311,7 @@ export interface EntityRecognizerArgs {
     /**
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      *
      * The following arguments are optional:
      */
@@ -330,14 +330,14 @@ export interface EntityRecognizerArgs {
      * If omitted, the provider will assign a random, unique version name.
      * If explicitly set to `""`, no version name will be set.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionNamePrefix`.
      */
     versionName?: pulumi.Input<string | undefined>;
     /**
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionName`.
      */
     versionNamePrefix?: pulumi.Input<string | undefined>;

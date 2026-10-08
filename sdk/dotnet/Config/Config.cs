@@ -712,6 +712,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Cloudwatchomni { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Cloudwatchrum { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
@@ -996,6 +1000,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Eventbridgev2 { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Events { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
@@ -1168,6 +1176,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Lambdaweb { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Launchwizard { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
@@ -1309,6 +1321,10 @@ namespace Pulumi.Aws
             /// Use this to override the default service endpoint URL
             /// </summary>
                 public string? Networkmonitor { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
+                public string? Networksecuritymanager { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>

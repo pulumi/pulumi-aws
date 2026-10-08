@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         private InputList<Inputs.PlanWorkflowStepParallelConfigStepGetArgs>? _steps;
 
         /// <summary>
-        /// Steps to execute in parallel. See `Step` Block for details. The parallel step schema matches `Step` Block but does not support `ParallelConfig` to prevent infinite nesting.
+        /// Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `ParallelConfig` to prevent infinite nesting.
         /// </summary>
         public InputList<Inputs.PlanWorkflowStepParallelConfigStepGetArgs> Steps
         {

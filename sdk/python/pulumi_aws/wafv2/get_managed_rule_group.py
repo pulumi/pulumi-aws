@@ -66,7 +66,7 @@ class GetManagedRuleGroupResult:
     @pulumi.getter(name="availableLabels")
     def available_labels(self) -> Sequence['outputs.GetManagedRuleGroupAvailableLabelResult']:
         """
-        Labels that one or more rules in this rule group add to matching web requests. See Labels below for details.
+        Labels that one or more rules in this rule group add to matching web requests. See `available_labels` Block below for details.
         """
         return pulumi.get(self, "available_labels")
 
@@ -82,7 +82,7 @@ class GetManagedRuleGroupResult:
     @pulumi.getter(name="consumedLabels")
     def consumed_labels(self) -> Sequence['outputs.GetManagedRuleGroupConsumedLabelResult']:
         """
-        Labels that one or more rules in this rule group match against in label match statements. See Labels below for details.
+        Labels that one or more rules in this rule group match against in label match statements. See `consumed_labels` Block below for details.
         """
         return pulumi.get(self, "consumed_labels")
 

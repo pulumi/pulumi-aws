@@ -75,7 +75,7 @@ export class SecurityGroupVpcAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID of the security group.
+     * ID of the security group.
      */
     declare public readonly securityGroupId: pulumi.Output<string>;
     /**
@@ -84,7 +84,7 @@ export class SecurityGroupVpcAssociation extends pulumi.CustomResource {
     declare public /*out*/ readonly state: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.vpc.SecurityGroupVpcAssociationTimeouts | undefined>;
     /**
-     * The ID of the VPC to make the association with.
+     * ID of the VPC to make the association with.
      */
     declare public readonly vpcId: pulumi.Output<string>;
 
@@ -134,7 +134,7 @@ export interface SecurityGroupVpcAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the security group.
+     * ID of the security group.
      */
     securityGroupId?: pulumi.Input<string | undefined>;
     /**
@@ -143,7 +143,7 @@ export interface SecurityGroupVpcAssociationState {
     state?: pulumi.Input<string | undefined>;
     timeouts?: pulumi.Input<inputs.vpc.SecurityGroupVpcAssociationTimeouts | undefined>;
     /**
-     * The ID of the VPC to make the association with.
+     * ID of the VPC to make the association with.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }
@@ -157,12 +157,12 @@ export interface SecurityGroupVpcAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the security group.
+     * ID of the security group.
      */
     securityGroupId: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.vpc.SecurityGroupVpcAssociationTimeouts | undefined>;
     /**
-     * The ID of the VPC to make the association with.
+     * ID of the VPC to make the association with.
      */
     vpcId: pulumi.Input<string>;
 }

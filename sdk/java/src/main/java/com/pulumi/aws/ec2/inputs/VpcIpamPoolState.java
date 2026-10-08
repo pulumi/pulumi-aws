@@ -20,14 +20,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     public static final VpcIpamPoolState Empty = new VpcIpamPoolState();
 
     /**
-     * The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
+     * IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
      * 
      */
     @Import(name="addressFamily")
     private @Nullable Output<String> addressFamily;
 
     /**
-     * @return The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
+     * @return IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
      * 
      */
     public Optional<Output<String>> addressFamily() {
@@ -35,14 +35,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
+     * Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
      * 
      */
     @Import(name="allocationDefaultNetmaskLength")
     private @Nullable Output<Integer> allocationDefaultNetmaskLength;
 
     /**
-     * @return A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
+     * @return Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
      * 
      */
     public Optional<Output<Integer>> allocationDefaultNetmaskLength() {
@@ -50,14 +50,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum netmask length that will be required for CIDR allocations in this pool.
+     * Maximum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
     @Import(name="allocationMaxNetmaskLength")
     private @Nullable Output<Integer> allocationMaxNetmaskLength;
 
     /**
-     * @return The maximum netmask length that will be required for CIDR allocations in this pool.
+     * @return Maximum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
     public Optional<Output<Integer>> allocationMaxNetmaskLength() {
@@ -65,14 +65,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The minimum netmask length that will be required for CIDR allocations in this pool.
+     * Minimum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
     @Import(name="allocationMinNetmaskLength")
     private @Nullable Output<Integer> allocationMinNetmaskLength;
 
     /**
-     * @return The minimum netmask length that will be required for CIDR allocations in this pool.
+     * @return Minimum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
     public Optional<Output<Integer>> allocationMinNetmaskLength() {
@@ -110,16 +110,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-     * within the CIDR range in the pool.
+     * Whether to automatically import any VPCs you have in your scope that fall within the CIDR range in the pool.
      * 
      */
     @Import(name="autoImport")
     private @Nullable Output<Boolean> autoImport;
 
     /**
-     * @return If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-     * within the CIDR range in the pool.
+     * @return Whether to automatically import any VPCs you have in your scope that fall within the CIDR range in the pool.
      * 
      */
     public Optional<Output<Boolean>> autoImport() {
@@ -142,14 +140,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+     * Whether to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
      * 
      */
     @Import(name="cascade")
     private @Nullable Output<Boolean> cascade;
 
     /**
-     * @return Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+     * @return Whether to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
      * 
      */
     public Optional<Output<Boolean>> cascade() {
@@ -157,14 +155,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description for the IPAM pool.
+     * Description for the IPAM pool.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the IPAM pool.
+     * @return Description for the IPAM pool.
      * 
      */
     public Optional<Output<String>> description() {
@@ -172,58 +170,74 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the scope in which you would like to create the IPAM pool.
+     * ID of the scope in which you would like to create the IPAM pool.
      * 
      */
     @Import(name="ipamScopeId")
     private @Nullable Output<String> ipamScopeId;
 
     /**
-     * @return The ID of the scope in which you would like to create the IPAM pool.
+     * @return ID of the scope in which you would like to create the IPAM pool.
      * 
      */
     public Optional<Output<String>> ipamScopeId() {
         return Optional.ofNullable(this.ipamScopeId);
     }
 
+    /**
+     * Type of the scope the pool belongs to.
+     * 
+     */
     @Import(name="ipamScopeType")
     private @Nullable Output<String> ipamScopeType;
 
+    /**
+     * @return Type of the scope the pool belongs to.
+     * 
+     */
     public Optional<Output<String>> ipamScopeType() {
         return Optional.ofNullable(this.ipamScopeType);
     }
 
     /**
-     * The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. Possible values: Any AWS region, such as `us-east-1`.
+     * Locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. Possible values: Any AWS region, such as `us-east-1`.
      * 
      */
     @Import(name="locale")
     private @Nullable Output<String> locale;
 
     /**
-     * @return The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. Possible values: Any AWS region, such as `us-east-1`.
+     * @return Locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. Possible values: Any AWS region, such as `us-east-1`.
      * 
      */
     public Optional<Output<String>> locale() {
         return Optional.ofNullable(this.locale);
     }
 
+    /**
+     * Depth of pools in your IPAM pool.
+     * 
+     */
     @Import(name="poolDepth")
     private @Nullable Output<Integer> poolDepth;
 
+    /**
+     * @return Depth of pools in your IPAM pool.
+     * 
+     */
     public Optional<Output<Integer>> poolDepth() {
         return Optional.ofNullable(this.poolDepth);
     }
 
     /**
-     * The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+     * IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
      * 
      */
     @Import(name="publicIpSource")
     private @Nullable Output<String> publicIpSource;
 
     /**
-     * @return The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+     * @return IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
      * 
      */
     public Optional<Output<String>> publicIpSource() {
@@ -231,14 +245,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = &#34;ipv6&#34;` and `publicIpSource = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = &#34;amazon&#34;`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
+     * Whether IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = &#34;ipv6&#34;` and `publicIpSource = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = &#34;amazon&#34;`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      * 
      */
     @Import(name="publiclyAdvertisable")
     private @Nullable Output<Boolean> publiclyAdvertisable;
 
     /**
-     * @return Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = &#34;ipv6&#34;` and `publicIpSource = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = &#34;amazon&#34;`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
+     * @return Whether IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = &#34;ipv6&#34;` and `publicIpSource = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = &#34;amazon&#34;`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      * 
      */
     public Optional<Output<Boolean>> publiclyAdvertisable() {
@@ -261,14 +275,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
+     * ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      * 
      */
     @Import(name="sourceIpamPoolId")
     private @Nullable Output<String> sourceIpamPoolId;
 
     /**
-     * @return The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
+     * @return ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      * 
      */
     public Optional<Output<String>> sourceIpamPoolId() {
@@ -291,14 +305,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the IPAM
+     * State of the IPAM pool.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The ID of the IPAM
+     * @return State of the IPAM pool.
      * 
      */
     public Optional<Output<String>> state() {
@@ -306,14 +320,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -321,14 +335,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -381,7 +395,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addressFamily The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
+         * @param addressFamily IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
          * 
          * @return builder
          * 
@@ -392,7 +406,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addressFamily The IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
+         * @param addressFamily IP protocol assigned to this pool. You must choose either IPv4 or IPv6 protocol for a pool.
          * 
          * @return builder
          * 
@@ -402,7 +416,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocationDefaultNetmaskLength A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
+         * @param allocationDefaultNetmaskLength Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
          * 
          * @return builder
          * 
@@ -413,7 +427,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocationDefaultNetmaskLength A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
+         * @param allocationDefaultNetmaskLength Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16 (unless you provide a different netmask value when you create the new allocation).
          * 
          * @return builder
          * 
@@ -423,7 +437,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocationMaxNetmaskLength The maximum netmask length that will be required for CIDR allocations in this pool.
+         * @param allocationMaxNetmaskLength Maximum netmask length that will be required for CIDR allocations in this pool.
          * 
          * @return builder
          * 
@@ -434,7 +448,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocationMaxNetmaskLength The maximum netmask length that will be required for CIDR allocations in this pool.
+         * @param allocationMaxNetmaskLength Maximum netmask length that will be required for CIDR allocations in this pool.
          * 
          * @return builder
          * 
@@ -444,7 +458,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocationMinNetmaskLength The minimum netmask length that will be required for CIDR allocations in this pool.
+         * @param allocationMinNetmaskLength Minimum netmask length that will be required for CIDR allocations in this pool.
          * 
          * @return builder
          * 
@@ -455,7 +469,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocationMinNetmaskLength The minimum netmask length that will be required for CIDR allocations in this pool.
+         * @param allocationMinNetmaskLength Minimum netmask length that will be required for CIDR allocations in this pool.
          * 
          * @return builder
          * 
@@ -507,8 +521,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoImport If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-         * within the CIDR range in the pool.
+         * @param autoImport Whether to automatically import any VPCs you have in your scope that fall within the CIDR range in the pool.
          * 
          * @return builder
          * 
@@ -519,8 +532,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoImport If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
-         * within the CIDR range in the pool.
+         * @param autoImport Whether to automatically import any VPCs you have in your scope that fall within the CIDR range in the pool.
          * 
          * @return builder
          * 
@@ -551,7 +563,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cascade Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+         * @param cascade Whether to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
          * 
          * @return builder
          * 
@@ -562,7 +574,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cascade Enables you to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
+         * @param cascade Whether to quickly delete an IPAM pool and all resources within that pool, including provisioned CIDRs, allocations, and other pools.
          * 
          * @return builder
          * 
@@ -572,7 +584,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the IPAM pool.
+         * @param description Description for the IPAM pool.
          * 
          * @return builder
          * 
@@ -583,7 +595,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the IPAM pool.
+         * @param description Description for the IPAM pool.
          * 
          * @return builder
          * 
@@ -593,7 +605,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipamScopeId The ID of the scope in which you would like to create the IPAM pool.
+         * @param ipamScopeId ID of the scope in which you would like to create the IPAM pool.
          * 
          * @return builder
          * 
@@ -604,7 +616,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipamScopeId The ID of the scope in which you would like to create the IPAM pool.
+         * @param ipamScopeId ID of the scope in which you would like to create the IPAM pool.
          * 
          * @return builder
          * 
@@ -613,17 +625,29 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
             return ipamScopeId(Output.of(ipamScopeId));
         }
 
+        /**
+         * @param ipamScopeType Type of the scope the pool belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipamScopeType(@Nullable Output<String> ipamScopeType) {
             $.ipamScopeType = ipamScopeType;
             return this;
         }
 
+        /**
+         * @param ipamScopeType Type of the scope the pool belongs to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipamScopeType(String ipamScopeType) {
             return ipamScopeType(Output.of(ipamScopeType));
         }
 
         /**
-         * @param locale The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. Possible values: Any AWS region, such as `us-east-1`.
+         * @param locale Locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. Possible values: Any AWS region, such as `us-east-1`.
          * 
          * @return builder
          * 
@@ -634,7 +658,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param locale The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. Possible values: Any AWS region, such as `us-east-1`.
+         * @param locale Locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. Possible values: Any AWS region, such as `us-east-1`.
          * 
          * @return builder
          * 
@@ -643,17 +667,29 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
             return locale(Output.of(locale));
         }
 
+        /**
+         * @param poolDepth Depth of pools in your IPAM pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder poolDepth(@Nullable Output<Integer> poolDepth) {
             $.poolDepth = poolDepth;
             return this;
         }
 
+        /**
+         * @param poolDepth Depth of pools in your IPAM pool.
+         * 
+         * @return builder
+         * 
+         */
         public Builder poolDepth(Integer poolDepth) {
             return poolDepth(Output.of(poolDepth));
         }
 
         /**
-         * @param publicIpSource The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+         * @param publicIpSource IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
          * 
          * @return builder
          * 
@@ -664,7 +700,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publicIpSource The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
+         * @param publicIpSource IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Valid values are `byoip` or `amazon`. Default is `byoip`.
          * 
          * @return builder
          * 
@@ -674,7 +710,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAdvertisable Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = &#34;ipv6&#34;` and `publicIpSource = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = &#34;amazon&#34;`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
+         * @param publiclyAdvertisable Whether IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = &#34;ipv6&#34;` and `publicIpSource = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = &#34;amazon&#34;`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
          * 
          * @return builder
          * 
@@ -685,7 +721,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAdvertisable Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = &#34;ipv6&#34;` and `publicIpSource = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = &#34;amazon&#34;`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
+         * @param publiclyAdvertisable Whether IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = &#34;ipv6&#34;` and `publicIpSource = &#34;byoip&#34;`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = &#34;amazon&#34;`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
          * 
          * @return builder
          * 
@@ -716,7 +752,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceIpamPoolId The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
+         * @param sourceIpamPoolId ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
          * 
          * @return builder
          * 
@@ -727,7 +763,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceIpamPoolId The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
+         * @param sourceIpamPoolId ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
          * 
          * @return builder
          * 
@@ -758,7 +794,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The ID of the IPAM
+         * @param state State of the IPAM pool.
          * 
          * @return builder
          * 
@@ -769,7 +805,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The ID of the IPAM
+         * @param state State of the IPAM pool.
          * 
          * @return builder
          * 
@@ -779,7 +815,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -790,7 +826,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -800,7 +836,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -811,7 +847,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

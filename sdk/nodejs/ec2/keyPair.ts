@@ -83,7 +83,7 @@ export class KeyPair extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fingerprint: pulumi.Output<string>;
     /**
-     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
     declare public readonly keyName: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export interface KeyPairState {
      */
     fingerprint?: pulumi.Input<string | undefined>;
     /**
-     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
     keyName?: pulumi.Input<string | undefined>;
     /**
@@ -210,7 +210,7 @@ export interface KeyPairState {
  */
 export interface KeyPairArgs {
     /**
-     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+     * Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
      */
     keyName?: pulumi.Input<string | undefined>;
     /**

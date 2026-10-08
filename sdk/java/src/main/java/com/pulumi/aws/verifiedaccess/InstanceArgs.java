@@ -18,14 +18,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     public static final InstanceArgs Empty = new InstanceArgs();
 
     /**
-     * The custom subdomain for the CIDR endpoints.
+     * Custom subdomain for the CIDR endpoints.
      * 
      */
     @Import(name="cidrEndpointsCustomSubdomain")
     private @Nullable Output<String> cidrEndpointsCustomSubdomain;
 
     /**
-     * @return The custom subdomain for the CIDR endpoints.
+     * @return Custom subdomain for the CIDR endpoints.
      * 
      */
     public Optional<Output<String>> cidrEndpointsCustomSubdomain() {
@@ -33,14 +33,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description for the AWS Verified Access Instance.
+     * Description for the AWS Verified Access Instance.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the AWS Verified Access Instance.
+     * @return Description for the AWS Verified Access Instance.
      * 
      */
     public Optional<Output<String>> description() {
@@ -48,14 +48,14 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      * 
      */
     @Import(name="fipsEnabled")
     private @Nullable Output<Boolean> fipsEnabled;
 
     /**
-     * @return Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * @return Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      * 
      */
     public Optional<Output<Boolean>> fipsEnabled() {
@@ -121,7 +121,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cidrEndpointsCustomSubdomain The custom subdomain for the CIDR endpoints.
+         * @param cidrEndpointsCustomSubdomain Custom subdomain for the CIDR endpoints.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cidrEndpointsCustomSubdomain The custom subdomain for the CIDR endpoints.
+         * @param cidrEndpointsCustomSubdomain Custom subdomain for the CIDR endpoints.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the AWS Verified Access Instance.
+         * @param description Description for the AWS Verified Access Instance.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the AWS Verified Access Instance.
+         * @param description Description for the AWS Verified Access Instance.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fipsEnabled Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+         * @param fipsEnabled Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fipsEnabled Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+         * @param fipsEnabled Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
          * 
          * @return builder
          * 

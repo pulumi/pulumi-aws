@@ -139,8 +139,7 @@ namespace Pulumi.Aws.Vpc
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired security group rule.
+        /// Map of tags, each pair of which must exactly match a pair on the desired security group rule.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -178,8 +177,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired security group rule.
+        /// Map of tags, each pair of which must exactly match a pair on the desired security group rule.
         /// </summary>
         public InputMap<string> Tags
         {

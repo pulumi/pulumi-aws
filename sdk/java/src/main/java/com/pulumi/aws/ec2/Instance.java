@@ -387,14 +387,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
     /**
-     * AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+     * AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      * 
      */
     @Export(name="ami", refs={String.class}, tree="[0]")
     private Output<String> ami;
 
     /**
-     * @return AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+     * @return AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifies an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      * 
      */
     public Output<String> ami() {

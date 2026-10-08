@@ -16,14 +16,14 @@ public final class WebAclDefaultActionAllowCustomRequestHandlingArgs extends com
     public static final WebAclDefaultActionAllowCustomRequestHandlingArgs Empty = new WebAclDefaultActionAllowCustomRequestHandlingArgs();
 
     /**
-     * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
      * 
      */
     @Import(name="insertHeaders", required=true)
     private Output<List<WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+     * @return `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
      * 
      */
     public Output<List<WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
@@ -55,7 +55,7 @@ public final class WebAclDefaultActionAllowCustomRequestHandlingArgs extends com
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         * @param insertHeaders `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class WebAclDefaultActionAllowCustomRequestHandlingArgs extends com
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         * @param insertHeaders `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class WebAclDefaultActionAllowCustomRequestHandlingArgs extends com
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         * @param insertHeaders `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern {
     /**
-     * @return An empty configuration block that is used for inspecting all headers.
+     * @return Empty configuration block that is used for inspecting all headers.
      * 
      */
     private @Nullable RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll all;
@@ -22,7 +22,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody
 
     private RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern() {}
     /**
-     * @return An empty configuration block that is used for inspecting all headers.
+     * @return Empty configuration block that is used for inspecting all headers.
      * 
      */
     public Optional<RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll> all() {

@@ -62,6 +62,12 @@ class EndpointCidrOptions(dict):
                  port_ranges: Sequence['outputs.EndpointCidrOptionsPortRange'],
                  protocol: Optional[_builtins.str] = None,
                  subnet_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str cidr: CIDR block to send traffic to.
+        :param Sequence['EndpointCidrOptionsPortRangeArgs'] port_ranges: Port ranges. See below.
+        :param _builtins.str protocol: Protocol. Currently `tcp` is supported.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets.
+        """
         pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "port_ranges", port_ranges)
         if protocol is not None:
@@ -72,21 +78,33 @@ class EndpointCidrOptions(dict):
     @_builtins.property
     @pulumi.getter
     def cidr(self) -> _builtins.str:
+        """
+        CIDR block to send traffic to.
+        """
         return pulumi.get(self, "cidr")
 
     @_builtins.property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> Sequence['outputs.EndpointCidrOptionsPortRange']:
+        """
+        Port ranges. See below.
+        """
         return pulumi.get(self, "port_ranges")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional[_builtins.str]:
+        """
+        Protocol. Currently `tcp` is supported.
+        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        IDs of the subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
 
@@ -157,6 +175,13 @@ class EndpointLoadBalancerOptions(dict):
                  port_ranges: Optional[Sequence['outputs.EndpointLoadBalancerOptionsPortRange']] = None,
                  protocol: Optional[_builtins.str] = None,
                  subnet_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str load_balancer_arn: ARN of the load balancer.
+        :param _builtins.int port: IP port number.
+        :param Sequence['EndpointLoadBalancerOptionsPortRangeArgs'] port_ranges: Port ranges. See below.
+        :param _builtins.str protocol: IP protocol.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets.
+        """
         if load_balancer_arn is not None:
             pulumi.set(__self__, "load_balancer_arn", load_balancer_arn)
         if port is not None:
@@ -171,26 +196,41 @@ class EndpointLoadBalancerOptions(dict):
     @_builtins.property
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the load balancer.
+        """
         return pulumi.get(self, "load_balancer_arn")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
+        """
+        IP port number.
+        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> Optional[Sequence['outputs.EndpointLoadBalancerOptionsPortRange']]:
+        """
+        Port ranges. See below.
+        """
         return pulumi.get(self, "port_ranges")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional[_builtins.str]:
+        """
+        IP protocol.
+        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        IDs of the subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
 
@@ -258,6 +298,12 @@ class EndpointNetworkInterfaceOptions(dict):
                  port: Optional[_builtins.int] = None,
                  port_ranges: Optional[Sequence['outputs.EndpointNetworkInterfaceOptionsPortRange']] = None,
                  protocol: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str network_interface_id: ID of the network interface.
+        :param _builtins.int port: IP port number.
+        :param Sequence['EndpointNetworkInterfaceOptionsPortRangeArgs'] port_ranges: Port ranges. See below.
+        :param _builtins.str protocol: IP protocol.
+        """
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if port is not None:
@@ -270,21 +316,33 @@ class EndpointNetworkInterfaceOptions(dict):
     @_builtins.property
     @pulumi.getter(name="networkInterfaceId")
     def network_interface_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the network interface.
+        """
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
+        """
+        IP port number.
+        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> Optional[Sequence['outputs.EndpointNetworkInterfaceOptionsPortRange']]:
+        """
+        Port ranges. See below.
+        """
         return pulumi.get(self, "port_ranges")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional[_builtins.str]:
+        """
+        IP protocol.
+        """
         return pulumi.get(self, "protocol")
 
 
@@ -361,6 +419,15 @@ class EndpointRdsOptions(dict):
                  rds_db_proxy_arn: Optional[_builtins.str] = None,
                  rds_endpoint: Optional[_builtins.str] = None,
                  subnet_ids: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.int port: IP port number.
+        :param _builtins.str protocol: Protocol. Currently `tcp` is supported.
+        :param _builtins.str rds_db_cluster_arn: ARN of the RDS cluster.
+        :param _builtins.str rds_db_instance_arn: ARN of the RDS instance.
+        :param _builtins.str rds_db_proxy_arn: ARN of the RDS proxy.
+        :param _builtins.str rds_endpoint: RDS endpoint.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets.
+        """
         if port is not None:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
@@ -379,36 +446,57 @@ class EndpointRdsOptions(dict):
     @_builtins.property
     @pulumi.getter
     def port(self) -> Optional[_builtins.int]:
+        """
+        IP port number.
+        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter
     def protocol(self) -> Optional[_builtins.str]:
+        """
+        Protocol. Currently `tcp` is supported.
+        """
         return pulumi.get(self, "protocol")
 
     @_builtins.property
     @pulumi.getter(name="rdsDbClusterArn")
     def rds_db_cluster_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the RDS cluster.
+        """
         return pulumi.get(self, "rds_db_cluster_arn")
 
     @_builtins.property
     @pulumi.getter(name="rdsDbInstanceArn")
     def rds_db_instance_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the RDS instance.
+        """
         return pulumi.get(self, "rds_db_instance_arn")
 
     @_builtins.property
     @pulumi.getter(name="rdsDbProxyArn")
     def rds_db_proxy_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the RDS proxy.
+        """
         return pulumi.get(self, "rds_db_proxy_arn")
 
     @_builtins.property
     @pulumi.getter(name="rdsEndpoint")
     def rds_endpoint(self) -> Optional[_builtins.str]:
+        """
+        RDS endpoint.
+        """
         return pulumi.get(self, "rds_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        IDs of the subnets.
+        """
         return pulumi.get(self, "subnet_ids")
 
 
@@ -436,6 +524,10 @@ class EndpointSseSpecification(dict):
     def __init__(__self__, *,
                  customer_managed_key_enabled: Optional[_builtins.bool] = None,
                  kms_key_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool customer_managed_key_enabled: Whether to encrypt the policy using a customer managed key.
+        :param _builtins.str kms_key_arn: ARN of the KMS key.
+        """
         if customer_managed_key_enabled is not None:
             pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
         if kms_key_arn is not None:
@@ -444,11 +536,17 @@ class EndpointSseSpecification(dict):
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEnabled")
     def customer_managed_key_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether to encrypt the policy using a customer managed key.
+        """
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the KMS key.
+        """
         return pulumi.get(self, "kms_key_arn")
 
 
@@ -477,7 +575,7 @@ class GroupSseConfiguration(dict):
                  customer_managed_key_enabled: Optional[_builtins.bool] = None,
                  kms_key_arn: Optional[_builtins.str] = None):
         """
-        :param _builtins.bool customer_managed_key_enabled: Boolean flag to indicate that the CMK should be used.
+        :param _builtins.bool customer_managed_key_enabled: Whether the CMK should be used.
         :param _builtins.str kms_key_arn: ARN of the KMS key to use.
         """
         if customer_managed_key_enabled is not None:
@@ -489,7 +587,7 @@ class GroupSseConfiguration(dict):
     @pulumi.getter(name="customerManagedKeyEnabled")
     def customer_managed_key_enabled(self) -> Optional[_builtins.bool]:
         """
-        Boolean flag to indicate that the CMK should be used.
+        Whether the CMK should be used.
         """
         return pulumi.get(self, "customer_managed_key_enabled")
 
@@ -534,11 +632,11 @@ class InstanceLoggingConfigurationAccessLogs(dict):
                  log_version: Optional[_builtins.str] = None,
                  s3: Optional['outputs.InstanceLoggingConfigurationAccessLogsS3'] = None):
         """
-        :param 'InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs' cloudwatch_logs: A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
-        :param _builtins.bool include_trust_context: Include trust data sent by trust providers into the logs.
-        :param 'InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs' kinesis_data_firehose: A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
-        :param _builtins.str log_version: The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-        :param 'InstanceLoggingConfigurationAccessLogsS3Args' s3: A block that specifies configures sending Verified Access logs to S3. Detailed below.
+        :param 'InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs' cloudwatch_logs: Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+        :param _builtins.bool include_trust_context: Whether to include trust data sent by trust providers in the logs.
+        :param 'InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs' kinesis_data_firehose: Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+        :param _builtins.str log_version: Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+        :param 'InstanceLoggingConfigurationAccessLogsS3Args' s3: Block that specifies configures sending Verified Access logs to S3. Detailed below.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -555,7 +653,7 @@ class InstanceLoggingConfigurationAccessLogs(dict):
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional['outputs.InstanceLoggingConfigurationAccessLogsCloudwatchLogs']:
         """
-        A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+        Block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
@@ -563,7 +661,7 @@ class InstanceLoggingConfigurationAccessLogs(dict):
     @pulumi.getter(name="includeTrustContext")
     def include_trust_context(self) -> Optional[_builtins.bool]:
         """
-        Include trust data sent by trust providers into the logs.
+        Whether to include trust data sent by trust providers in the logs.
         """
         return pulumi.get(self, "include_trust_context")
 
@@ -571,7 +669,7 @@ class InstanceLoggingConfigurationAccessLogs(dict):
     @pulumi.getter(name="kinesisDataFirehose")
     def kinesis_data_firehose(self) -> Optional['outputs.InstanceLoggingConfigurationAccessLogsKinesisDataFirehose']:
         """
-        A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+        Block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
         """
         return pulumi.get(self, "kinesis_data_firehose")
 
@@ -579,7 +677,7 @@ class InstanceLoggingConfigurationAccessLogs(dict):
     @pulumi.getter(name="logVersion")
     def log_version(self) -> Optional[_builtins.str]:
         """
-        The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+        Logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
         """
         return pulumi.get(self, "log_version")
 
@@ -587,7 +685,7 @@ class InstanceLoggingConfigurationAccessLogs(dict):
     @pulumi.getter
     def s3(self) -> Optional['outputs.InstanceLoggingConfigurationAccessLogsS3']:
         """
-        A block that specifies configures sending Verified Access logs to S3. Detailed below.
+        Block that specifies configures sending Verified Access logs to S3. Detailed below.
         """
         return pulumi.get(self, "s3")
 
@@ -615,8 +713,8 @@ class InstanceLoggingConfigurationAccessLogsCloudwatchLogs(dict):
                  enabled: _builtins.bool,
                  log_group: Optional[_builtins.str] = None):
         """
-        :param _builtins.bool enabled: Indicates whether logging is enabled.
-        :param _builtins.str log_group: The name of the CloudWatch Logs Log Group.
+        :param _builtins.bool enabled: Whether logging is enabled.
+        :param _builtins.str log_group: Name of the CloudWatch Logs Log Group.
         """
         pulumi.set(__self__, "enabled", enabled)
         if log_group is not None:
@@ -626,7 +724,7 @@ class InstanceLoggingConfigurationAccessLogsCloudwatchLogs(dict):
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
         """
-        Indicates whether logging is enabled.
+        Whether logging is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -634,7 +732,7 @@ class InstanceLoggingConfigurationAccessLogsCloudwatchLogs(dict):
     @pulumi.getter(name="logGroup")
     def log_group(self) -> Optional[_builtins.str]:
         """
-        The name of the CloudWatch Logs Log Group.
+        Name of the CloudWatch Logs Log Group.
         """
         return pulumi.get(self, "log_group")
 
@@ -662,8 +760,8 @@ class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose(dict):
                  enabled: _builtins.bool,
                  delivery_stream: Optional[_builtins.str] = None):
         """
-        :param _builtins.bool enabled: Indicates whether logging is enabled.
-        :param _builtins.str delivery_stream: The name of the delivery stream.
+        :param _builtins.bool enabled: Whether logging is enabled.
+        :param _builtins.str delivery_stream: Name of the delivery stream.
         """
         pulumi.set(__self__, "enabled", enabled)
         if delivery_stream is not None:
@@ -673,7 +771,7 @@ class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose(dict):
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
         """
-        Indicates whether logging is enabled.
+        Whether logging is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -681,7 +779,7 @@ class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose(dict):
     @pulumi.getter(name="deliveryStream")
     def delivery_stream(self) -> Optional[_builtins.str]:
         """
-        The name of the delivery stream.
+        Name of the delivery stream.
         """
         return pulumi.get(self, "delivery_stream")
 
@@ -713,10 +811,10 @@ class InstanceLoggingConfigurationAccessLogsS3(dict):
                  bucket_owner: Optional[_builtins.str] = None,
                  prefix: Optional[_builtins.str] = None):
         """
-        :param _builtins.bool enabled: Indicates whether logging is enabled.
-        :param _builtins.str bucket_name: The name of S3 bucket.
-        :param _builtins.str bucket_owner: The ID of the AWS account that owns the Amazon S3 bucket.
-        :param _builtins.str prefix: The bucket prefix.
+        :param _builtins.bool enabled: Whether logging is enabled.
+        :param _builtins.str bucket_name: Name of S3 bucket.
+        :param _builtins.str bucket_owner: ID of the AWS account that owns the Amazon S3 bucket.
+        :param _builtins.str prefix: Bucket prefix.
         """
         pulumi.set(__self__, "enabled", enabled)
         if bucket_name is not None:
@@ -730,7 +828,7 @@ class InstanceLoggingConfigurationAccessLogsS3(dict):
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
         """
-        Indicates whether logging is enabled.
+        Whether logging is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -738,7 +836,7 @@ class InstanceLoggingConfigurationAccessLogsS3(dict):
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[_builtins.str]:
         """
-        The name of S3 bucket.
+        Name of S3 bucket.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -746,7 +844,7 @@ class InstanceLoggingConfigurationAccessLogsS3(dict):
     @pulumi.getter(name="bucketOwner")
     def bucket_owner(self) -> Optional[_builtins.str]:
         """
-        The ID of the AWS account that owns the Amazon S3 bucket.
+        ID of the AWS account that owns the Amazon S3 bucket.
         """
         return pulumi.get(self, "bucket_owner")
 
@@ -754,7 +852,7 @@ class InstanceLoggingConfigurationAccessLogsS3(dict):
     @pulumi.getter
     def prefix(self) -> Optional[_builtins.str]:
         """
-        The bucket prefix.
+        Bucket prefix.
         """
         return pulumi.get(self, "prefix")
 
@@ -791,11 +889,11 @@ class InstanceVerifiedAccessTrustProvider(dict):
                  user_trust_provider_type: Optional[_builtins.str] = None,
                  verified_access_trust_provider_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str description: A description for the AWS Verified Access Instance.
-        :param _builtins.str device_trust_provider_type: The type of device-based trust provider.
-        :param _builtins.str trust_provider_type: The type of trust provider (user- or device-based).
-        :param _builtins.str user_trust_provider_type: The type of user-based trust provider.
-        :param _builtins.str verified_access_trust_provider_id: The ID of the trust provider.
+        :param _builtins.str description: Description for the AWS Verified Access Instance.
+        :param _builtins.str device_trust_provider_type: Type of device-based trust provider.
+        :param _builtins.str trust_provider_type: Type of trust provider (user- or device-based).
+        :param _builtins.str user_trust_provider_type: Type of user-based trust provider.
+        :param _builtins.str verified_access_trust_provider_id: ID of the trust provider.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -812,7 +910,7 @@ class InstanceVerifiedAccessTrustProvider(dict):
     @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
-        A description for the AWS Verified Access Instance.
+        Description for the AWS Verified Access Instance.
         """
         return pulumi.get(self, "description")
 
@@ -820,7 +918,7 @@ class InstanceVerifiedAccessTrustProvider(dict):
     @pulumi.getter(name="deviceTrustProviderType")
     def device_trust_provider_type(self) -> Optional[_builtins.str]:
         """
-        The type of device-based trust provider.
+        Type of device-based trust provider.
         """
         return pulumi.get(self, "device_trust_provider_type")
 
@@ -828,7 +926,7 @@ class InstanceVerifiedAccessTrustProvider(dict):
     @pulumi.getter(name="trustProviderType")
     def trust_provider_type(self) -> Optional[_builtins.str]:
         """
-        The type of trust provider (user- or device-based).
+        Type of trust provider (user- or device-based).
         """
         return pulumi.get(self, "trust_provider_type")
 
@@ -836,7 +934,7 @@ class InstanceVerifiedAccessTrustProvider(dict):
     @pulumi.getter(name="userTrustProviderType")
     def user_trust_provider_type(self) -> Optional[_builtins.str]:
         """
-        The type of user-based trust provider.
+        Type of user-based trust provider.
         """
         return pulumi.get(self, "user_trust_provider_type")
 
@@ -844,7 +942,7 @@ class InstanceVerifiedAccessTrustProvider(dict):
     @pulumi.getter(name="verifiedAccessTrustProviderId")
     def verified_access_trust_provider_id(self) -> Optional[_builtins.str]:
         """
-        The ID of the trust provider.
+        ID of the trust provider.
         """
         return pulumi.get(self, "verified_access_trust_provider_id")
 
@@ -870,12 +968,18 @@ class TrustProviderDeviceOptions(dict):
 
     def __init__(__self__, *,
                  tenant_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str tenant_id: ID of the tenant application with the device-identity provider.
+        """
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the tenant application with the device-identity provider.
+        """
         return pulumi.get(self, "tenant_id")
 
 
@@ -917,6 +1021,16 @@ class TrustProviderNativeApplicationOidcOptions(dict):
                  scope: Optional[_builtins.str] = None,
                  token_endpoint: Optional[_builtins.str] = None,
                  user_info_endpoint: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str client_secret: OAuth 2.0 client secret.
+        :param _builtins.str authorization_endpoint: OIDC authorization endpoint.
+        :param _builtins.str client_id: OAuth 2.0 client identifier.
+        :param _builtins.str issuer: OIDC issuer identifier of the IdP.
+        :param _builtins.str public_signing_key_endpoint: OIDC public signing key endpoint.
+        :param _builtins.str scope: OpenID Connect (OIDC) scope specified.
+        :param _builtins.str token_endpoint: OIDC token endpoint.
+        :param _builtins.str user_info_endpoint: OIDC user info endpoint.
+        """
         pulumi.set(__self__, "client_secret", client_secret)
         if authorization_endpoint is not None:
             pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
@@ -936,41 +1050,65 @@ class TrustProviderNativeApplicationOidcOptions(dict):
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> _builtins.str:
+        """
+        OAuth 2.0 client secret.
+        """
         return pulumi.get(self, "client_secret")
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> Optional[_builtins.str]:
+        """
+        OIDC authorization endpoint.
+        """
         return pulumi.get(self, "authorization_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
+        """
+        OAuth 2.0 client identifier.
+        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> Optional[_builtins.str]:
+        """
+        OIDC issuer identifier of the IdP.
+        """
         return pulumi.get(self, "issuer")
 
     @_builtins.property
     @pulumi.getter(name="publicSigningKeyEndpoint")
     def public_signing_key_endpoint(self) -> Optional[_builtins.str]:
+        """
+        OIDC public signing key endpoint.
+        """
         return pulumi.get(self, "public_signing_key_endpoint")
 
     @_builtins.property
     @pulumi.getter
     def scope(self) -> Optional[_builtins.str]:
+        """
+        OpenID Connect (OIDC) scope specified.
+        """
         return pulumi.get(self, "scope")
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> Optional[_builtins.str]:
+        """
+        OIDC token endpoint.
+        """
         return pulumi.get(self, "token_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="userInfoEndpoint")
     def user_info_endpoint(self) -> Optional[_builtins.str]:
+        """
+        OIDC user info endpoint.
+        """
         return pulumi.get(self, "user_info_endpoint")
 
 
@@ -1009,6 +1147,15 @@ class TrustProviderOidcOptions(dict):
                  scope: Optional[_builtins.str] = None,
                  token_endpoint: Optional[_builtins.str] = None,
                  user_info_endpoint: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str client_secret: OAuth 2.0 client secret.
+        :param _builtins.str authorization_endpoint: OIDC authorization endpoint.
+        :param _builtins.str client_id: OAuth 2.0 client identifier.
+        :param _builtins.str issuer: OIDC issuer identifier of the IdP.
+        :param _builtins.str scope: OpenID Connect (OIDC) scope specified.
+        :param _builtins.str token_endpoint: OIDC token endpoint.
+        :param _builtins.str user_info_endpoint: OIDC user info endpoint.
+        """
         pulumi.set(__self__, "client_secret", client_secret)
         if authorization_endpoint is not None:
             pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
@@ -1026,36 +1173,57 @@ class TrustProviderOidcOptions(dict):
     @_builtins.property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> _builtins.str:
+        """
+        OAuth 2.0 client secret.
+        """
         return pulumi.get(self, "client_secret")
 
     @_builtins.property
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> Optional[_builtins.str]:
+        """
+        OIDC authorization endpoint.
+        """
         return pulumi.get(self, "authorization_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[_builtins.str]:
+        """
+        OAuth 2.0 client identifier.
+        """
         return pulumi.get(self, "client_id")
 
     @_builtins.property
     @pulumi.getter
     def issuer(self) -> Optional[_builtins.str]:
+        """
+        OIDC issuer identifier of the IdP.
+        """
         return pulumi.get(self, "issuer")
 
     @_builtins.property
     @pulumi.getter
     def scope(self) -> Optional[_builtins.str]:
+        """
+        OpenID Connect (OIDC) scope specified.
+        """
         return pulumi.get(self, "scope")
 
     @_builtins.property
     @pulumi.getter(name="tokenEndpoint")
     def token_endpoint(self) -> Optional[_builtins.str]:
+        """
+        OIDC token endpoint.
+        """
         return pulumi.get(self, "token_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="userInfoEndpoint")
     def user_info_endpoint(self) -> Optional[_builtins.str]:
+        """
+        OIDC user info endpoint.
+        """
         return pulumi.get(self, "user_info_endpoint")
 
 
@@ -1083,6 +1251,10 @@ class TrustProviderSseSpecification(dict):
     def __init__(__self__, *,
                  customer_managed_key_enabled: Optional[_builtins.bool] = None,
                  kms_key_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool customer_managed_key_enabled: Whether a customer managed key is in use.
+        :param _builtins.str kms_key_arn: ARN of the KMS key.
+        """
         if customer_managed_key_enabled is not None:
             pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
         if kms_key_arn is not None:
@@ -1091,11 +1263,17 @@ class TrustProviderSseSpecification(dict):
     @_builtins.property
     @pulumi.getter(name="customerManagedKeyEnabled")
     def customer_managed_key_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether a customer managed key is in use.
+        """
         return pulumi.get(self, "customer_managed_key_enabled")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the KMS key.
+        """
         return pulumi.get(self, "kms_key_arn")
 
 

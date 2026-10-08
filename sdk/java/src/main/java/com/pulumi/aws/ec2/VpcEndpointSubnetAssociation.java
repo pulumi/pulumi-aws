@@ -84,28 +84,28 @@ public class VpcEndpointSubnetAssociation extends com.pulumi.resources.CustomRes
         return this.region;
     }
     /**
-     * The ID of the subnet to be associated with the VPC endpoint.
+     * ID of the subnet to be associated with the VPC endpoint.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
     private Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet to be associated with the VPC endpoint.
+     * @return ID of the subnet to be associated with the VPC endpoint.
      * 
      */
     public Output<String> subnetId() {
         return this.subnetId;
     }
     /**
-     * The ID of the VPC endpoint with which the subnet will be associated.
+     * ID of the VPC endpoint with which the subnet will be associated.
      * 
      */
     @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output<String> vpcEndpointId;
 
     /**
-     * @return The ID of the VPC endpoint with which the subnet will be associated.
+     * @return ID of the VPC endpoint with which the subnet will be associated.
      * 
      */
     public Output<String> vpcEndpointId() {

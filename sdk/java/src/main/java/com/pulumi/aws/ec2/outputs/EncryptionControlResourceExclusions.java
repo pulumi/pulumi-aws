@@ -18,98 +18,98 @@ import java.util.Objects;
 @CustomType
 public final class EncryptionControlResourceExclusions {
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+     * @return Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
      * 
      */
     private EncryptionControlResourceExclusionsEgressOnlyInternetGateway egressOnlyInternetGateway;
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+     * @return Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
      * 
      */
     private EncryptionControlResourceExclusionsElasticFileSystem elasticFileSystem;
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+     * @return Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
      * 
      */
     private EncryptionControlResourceExclusionsInternetGateway internetGateway;
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+     * @return Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
      * 
      */
     private EncryptionControlResourceExclusionsLambda lambda;
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+     * @return Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
      * 
      */
     private EncryptionControlResourceExclusionsNatGateway natGateway;
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+     * @return Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
      * 
      */
     private EncryptionControlResourceExclusionsVirtualPrivateGateway virtualPrivateGateway;
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+     * @return Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
      * 
      */
     private EncryptionControlResourceExclusionsVpcLattice vpcLattice;
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+     * @return Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
      * 
      */
     private EncryptionControlResourceExclusionsVpcPeering vpcPeering;
 
     private EncryptionControlResourceExclusions() {}
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+     * @return Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
      * 
      */
     public EncryptionControlResourceExclusionsEgressOnlyInternetGateway egressOnlyInternetGateway() {
         return this.egressOnlyInternetGateway;
     }
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+     * @return Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
      * 
      */
     public EncryptionControlResourceExclusionsElasticFileSystem elasticFileSystem() {
         return this.elasticFileSystem;
     }
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+     * @return Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
      * 
      */
     public EncryptionControlResourceExclusionsInternetGateway internetGateway() {
         return this.internetGateway;
     }
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+     * @return Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
      * 
      */
     public EncryptionControlResourceExclusionsLambda lambda() {
         return this.lambda;
     }
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+     * @return Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
      * 
      */
     public EncryptionControlResourceExclusionsNatGateway natGateway() {
         return this.natGateway;
     }
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+     * @return Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
      * 
      */
     public EncryptionControlResourceExclusionsVirtualPrivateGateway virtualPrivateGateway() {
         return this.virtualPrivateGateway;
     }
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+     * @return Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
      * 
      */
     public EncryptionControlResourceExclusionsVpcLattice vpcLattice() {
         return this.vpcLattice;
     }
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+     * @return Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
      * 
      */
     public EncryptionControlResourceExclusionsVpcPeering vpcPeering() {

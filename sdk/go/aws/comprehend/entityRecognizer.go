@@ -107,7 +107,7 @@ type EntityRecognizer struct {
 	ModelKmsKeyId pulumi.StringPtrOutput `pulumi:"modelKmsKeyId"`
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -122,12 +122,12 @@ type EntityRecognizer struct {
 	// If omitted, the provider will assign a random, unique version name.
 	// If explicitly set to `""`, no version name will be set.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionNamePrefix`.
 	VersionName pulumi.StringOutput `pulumi:"versionName"`
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionName`.
 	VersionNamePrefix pulumi.StringOutput `pulumi:"versionNamePrefix"`
 	// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
@@ -190,7 +190,7 @@ type entityRecognizerState struct {
 	ModelKmsKeyId *string `pulumi:"modelKmsKeyId"`
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -205,12 +205,12 @@ type entityRecognizerState struct {
 	// If omitted, the provider will assign a random, unique version name.
 	// If explicitly set to `""`, no version name will be set.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionNamePrefix`.
 	VersionName *string `pulumi:"versionName"`
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionName`.
 	VersionNamePrefix *string `pulumi:"versionNamePrefix"`
 	// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
@@ -235,7 +235,7 @@ type EntityRecognizerState struct {
 	ModelKmsKeyId pulumi.StringPtrInput
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -250,12 +250,12 @@ type EntityRecognizerState struct {
 	// If omitted, the provider will assign a random, unique version name.
 	// If explicitly set to `""`, no version name will be set.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionNamePrefix`.
 	VersionName pulumi.StringPtrInput
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionName`.
 	VersionNamePrefix pulumi.StringPtrInput
 	// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
@@ -282,7 +282,7 @@ type entityRecognizerArgs struct {
 	ModelKmsKeyId *string `pulumi:"modelKmsKeyId"`
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -295,12 +295,12 @@ type entityRecognizerArgs struct {
 	// If omitted, the provider will assign a random, unique version name.
 	// If explicitly set to `""`, no version name will be set.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionNamePrefix`.
 	VersionName *string `pulumi:"versionName"`
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionName`.
 	VersionNamePrefix *string `pulumi:"versionNamePrefix"`
 	// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
@@ -324,7 +324,7 @@ type EntityRecognizerArgs struct {
 	ModelKmsKeyId pulumi.StringPtrInput
 	// Name for the Entity Recognizer.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -337,12 +337,12 @@ type EntityRecognizerArgs struct {
 	// If omitted, the provider will assign a random, unique version name.
 	// If explicitly set to `""`, no version name will be set.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionNamePrefix`.
 	VersionName pulumi.StringPtrInput
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionName`.
 	VersionNamePrefix pulumi.StringPtrInput
 	// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
@@ -468,7 +468,7 @@ func (o EntityRecognizerOutput) ModelKmsKeyId() pulumi.StringPtrOutput {
 
 // Name for the Entity Recognizer.
 // Has a maximum length of 63 characters.
-// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 //
 // The following arguments are optional:
 func (o EntityRecognizerOutput) Name() pulumi.StringOutput {
@@ -495,7 +495,7 @@ func (o EntityRecognizerOutput) TagsAll() pulumi.StringMapOutput {
 // If omitted, the provider will assign a random, unique version name.
 // If explicitly set to `""`, no version name will be set.
 // Has a maximum length of 63 characters.
-// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 // Conflicts with `versionNamePrefix`.
 func (o EntityRecognizerOutput) VersionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.VersionName }).(pulumi.StringOutput)
@@ -503,7 +503,7 @@ func (o EntityRecognizerOutput) VersionName() pulumi.StringOutput {
 
 // Creates a unique version name beginning with the specified prefix.
 // Has a maximum length of 37 characters.
-// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 // Conflicts with `versionName`.
 func (o EntityRecognizerOutput) VersionNamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *EntityRecognizer) pulumi.StringOutput { return v.VersionNamePrefix }).(pulumi.StringOutput)

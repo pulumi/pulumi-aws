@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPolicyStoreValidationSetting {
+    /**
+     * @return Mode for the validation settings.
+     * 
+     */
     private String mode;
 
     private GetPolicyStoreValidationSetting() {}
+    /**
+     * @return Mode for the validation settings.
+     * 
+     */
     public String mode() {
         return this.mode;
     }

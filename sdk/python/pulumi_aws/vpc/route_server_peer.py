@@ -30,13 +30,13 @@ class RouteServerPeerArgs:
         """
         The set of arguments for constructing a RouteServerPeer resource.
 
-        :param pulumi.Input['RouteServerPeerBgpOptionsArgs'] bgp_options: The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-        :param pulumi.Input[_builtins.str] peer_address: The IPv4 address of the peer device.
-        :param pulumi.Input[_builtins.str] route_server_endpoint_id: The ID of the route server endpoint for which to create a peer.
+        :param pulumi.Input['RouteServerPeerBgpOptionsArgs'] bgp_options: BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+        :param pulumi.Input[_builtins.str] peer_address: IPv4 address of the peer device.
+        :param pulumi.Input[_builtins.str] route_server_endpoint_id: ID of the route server endpoint for which to create a peer.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "bgp_options", bgp_options)
         pulumi.set(__self__, "peer_address", peer_address)
@@ -52,7 +52,7 @@ class RouteServerPeerArgs:
     @pulumi.getter(name="bgpOptions")
     def bgp_options(self) -> pulumi.Input['RouteServerPeerBgpOptionsArgs']:
         """
-        The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+        BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
         """
         return pulumi.get(self, "bgp_options")
 
@@ -64,7 +64,7 @@ class RouteServerPeerArgs:
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> pulumi.Input[_builtins.str]:
         """
-        The IPv4 address of the peer device.
+        IPv4 address of the peer device.
         """
         return pulumi.get(self, "peer_address")
 
@@ -76,7 +76,7 @@ class RouteServerPeerArgs:
     @pulumi.getter(name="routeServerEndpointId")
     def route_server_endpoint_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the route server endpoint for which to create a peer.
+        ID of the route server endpoint for which to create a peer.
 
         The following arguments are optional:
         """
@@ -102,7 +102,7 @@ class RouteServerPeerArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -140,21 +140,21 @@ class _RouteServerPeerState:
         """
         Input properties used for looking up and filtering RouteServerPeer resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the route server peer.
-        :param pulumi.Input['RouteServerPeerBgpOptionsArgs'] bgp_options: The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-        :param pulumi.Input[_builtins.str] endpoint_eni_address: The IP address of the Elastic network interface for the route server endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_eni_id: The ID of the Elastic network interface for the route server endpoint.
-        :param pulumi.Input[_builtins.str] peer_address: The IPv4 address of the peer device.
+        :param pulumi.Input[_builtins.str] arn: ARN of the route server peer.
+        :param pulumi.Input['RouteServerPeerBgpOptionsArgs'] bgp_options: BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+        :param pulumi.Input[_builtins.str] endpoint_eni_address: IP address of the Elastic network interface for the route server endpoint.
+        :param pulumi.Input[_builtins.str] endpoint_eni_id: ID of the Elastic network interface for the route server endpoint.
+        :param pulumi.Input[_builtins.str] peer_address: IPv4 address of the peer device.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_endpoint_id: The ID of the route server endpoint for which to create a peer.
+        :param pulumi.Input[_builtins.str] route_server_endpoint_id: ID of the route server endpoint for which to create a peer.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] route_server_id: The ID of the route server associated with this peer.
-        :param pulumi.Input[_builtins.str] route_server_peer_id: The unique identifier of the route server peer.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet containing the route server peer.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC containing the route server peer.
+        :param pulumi.Input[_builtins.str] route_server_id: ID of the route server associated with this peer.
+        :param pulumi.Input[_builtins.str] route_server_peer_id: Unique identifier of the route server peer.
+        :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet containing the route server peer.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC containing the route server peer.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -189,7 +189,7 @@ class _RouteServerPeerState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the route server peer.
+        ARN of the route server peer.
         """
         return pulumi.get(self, "arn")
 
@@ -201,7 +201,7 @@ class _RouteServerPeerState:
     @pulumi.getter(name="bgpOptions")
     def bgp_options(self) -> pulumi.Input[Optional['RouteServerPeerBgpOptionsArgs']]:
         """
-        The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+        BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
         """
         return pulumi.get(self, "bgp_options")
 
@@ -213,7 +213,7 @@ class _RouteServerPeerState:
     @pulumi.getter(name="endpointEniAddress")
     def endpoint_eni_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The IP address of the Elastic network interface for the route server endpoint.
+        IP address of the Elastic network interface for the route server endpoint.
         """
         return pulumi.get(self, "endpoint_eni_address")
 
@@ -225,7 +225,7 @@ class _RouteServerPeerState:
     @pulumi.getter(name="endpointEniId")
     def endpoint_eni_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Elastic network interface for the route server endpoint.
+        ID of the Elastic network interface for the route server endpoint.
         """
         return pulumi.get(self, "endpoint_eni_id")
 
@@ -237,7 +237,7 @@ class _RouteServerPeerState:
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The IPv4 address of the peer device.
+        IPv4 address of the peer device.
         """
         return pulumi.get(self, "peer_address")
 
@@ -261,7 +261,7 @@ class _RouteServerPeerState:
     @pulumi.getter(name="routeServerEndpointId")
     def route_server_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the route server endpoint for which to create a peer.
+        ID of the route server endpoint for which to create a peer.
 
         The following arguments are optional:
         """
@@ -275,7 +275,7 @@ class _RouteServerPeerState:
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the route server associated with this peer.
+        ID of the route server associated with this peer.
         """
         return pulumi.get(self, "route_server_id")
 
@@ -287,7 +287,7 @@ class _RouteServerPeerState:
     @pulumi.getter(name="routeServerPeerId")
     def route_server_peer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique identifier of the route server peer.
+        Unique identifier of the route server peer.
         """
         return pulumi.get(self, "route_server_peer_id")
 
@@ -299,7 +299,7 @@ class _RouteServerPeerState:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the subnet containing the route server peer.
+        ID of the subnet containing the route server peer.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -311,7 +311,7 @@ class _RouteServerPeerState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -323,7 +323,7 @@ class _RouteServerPeerState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -344,7 +344,7 @@ class _RouteServerPeerState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC containing the route server peer.
+        ID of the VPC containing the route server peer.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -436,13 +436,13 @@ class RouteServerPeer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict', 'outputs.RouteServerPeerBgpOptions']] bgp_options: The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-        :param pulumi.Input[_builtins.str] peer_address: The IPv4 address of the peer device.
+        :param pulumi.Input[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict', 'outputs.RouteServerPeerBgpOptions']] bgp_options: BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+        :param pulumi.Input[_builtins.str] peer_address: IPv4 address of the peer device.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_endpoint_id: The ID of the route server endpoint for which to create a peer.
+        :param pulumi.Input[_builtins.str] route_server_endpoint_id: ID of the route server endpoint for which to create a peer.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -599,21 +599,21 @@ class RouteServerPeer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the route server peer.
-        :param pulumi.Input[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict', 'outputs.RouteServerPeerBgpOptions']] bgp_options: The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-        :param pulumi.Input[_builtins.str] endpoint_eni_address: The IP address of the Elastic network interface for the route server endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_eni_id: The ID of the Elastic network interface for the route server endpoint.
-        :param pulumi.Input[_builtins.str] peer_address: The IPv4 address of the peer device.
+        :param pulumi.Input[_builtins.str] arn: ARN of the route server peer.
+        :param pulumi.Input[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict', 'outputs.RouteServerPeerBgpOptions']] bgp_options: BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+        :param pulumi.Input[_builtins.str] endpoint_eni_address: IP address of the Elastic network interface for the route server endpoint.
+        :param pulumi.Input[_builtins.str] endpoint_eni_id: ID of the Elastic network interface for the route server endpoint.
+        :param pulumi.Input[_builtins.str] peer_address: IPv4 address of the peer device.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_endpoint_id: The ID of the route server endpoint for which to create a peer.
+        :param pulumi.Input[_builtins.str] route_server_endpoint_id: ID of the route server endpoint for which to create a peer.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] route_server_id: The ID of the route server associated with this peer.
-        :param pulumi.Input[_builtins.str] route_server_peer_id: The unique identifier of the route server peer.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet containing the route server peer.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC containing the route server peer.
+        :param pulumi.Input[_builtins.str] route_server_id: ID of the route server associated with this peer.
+        :param pulumi.Input[_builtins.str] route_server_peer_id: Unique identifier of the route server peer.
+        :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet containing the route server peer.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC containing the route server peer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -639,7 +639,7 @@ class RouteServerPeer(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the route server peer.
+        ARN of the route server peer.
         """
         return pulumi.get(self, "arn")
 
@@ -647,7 +647,7 @@ class RouteServerPeer(pulumi.CustomResource):
     @pulumi.getter(name="bgpOptions")
     def bgp_options(self) -> pulumi.Output['outputs.RouteServerPeerBgpOptions']:
         """
-        The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+        BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
         """
         return pulumi.get(self, "bgp_options")
 
@@ -655,7 +655,7 @@ class RouteServerPeer(pulumi.CustomResource):
     @pulumi.getter(name="endpointEniAddress")
     def endpoint_eni_address(self) -> pulumi.Output[_builtins.str]:
         """
-        The IP address of the Elastic network interface for the route server endpoint.
+        IP address of the Elastic network interface for the route server endpoint.
         """
         return pulumi.get(self, "endpoint_eni_address")
 
@@ -663,7 +663,7 @@ class RouteServerPeer(pulumi.CustomResource):
     @pulumi.getter(name="endpointEniId")
     def endpoint_eni_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Elastic network interface for the route server endpoint.
+        ID of the Elastic network interface for the route server endpoint.
         """
         return pulumi.get(self, "endpoint_eni_id")
 
@@ -671,7 +671,7 @@ class RouteServerPeer(pulumi.CustomResource):
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> pulumi.Output[_builtins.str]:
         """
-        The IPv4 address of the peer device.
+        IPv4 address of the peer device.
         """
         return pulumi.get(self, "peer_address")
 
@@ -687,7 +687,7 @@ class RouteServerPeer(pulumi.CustomResource):
     @pulumi.getter(name="routeServerEndpointId")
     def route_server_endpoint_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the route server endpoint for which to create a peer.
+        ID of the route server endpoint for which to create a peer.
 
         The following arguments are optional:
         """
@@ -697,7 +697,7 @@ class RouteServerPeer(pulumi.CustomResource):
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the route server associated with this peer.
+        ID of the route server associated with this peer.
         """
         return pulumi.get(self, "route_server_id")
 
@@ -705,7 +705,7 @@ class RouteServerPeer(pulumi.CustomResource):
     @pulumi.getter(name="routeServerPeerId")
     def route_server_peer_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier of the route server peer.
+        Unique identifier of the route server peer.
         """
         return pulumi.get(self, "route_server_peer_id")
 
@@ -713,7 +713,7 @@ class RouteServerPeer(pulumi.CustomResource):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the subnet containing the route server peer.
+        ID of the subnet containing the route server peer.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -721,7 +721,7 @@ class RouteServerPeer(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -729,7 +729,7 @@ class RouteServerPeer(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -742,7 +742,7 @@ class RouteServerPeer(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the VPC containing the route server peer.
+        ID of the VPC containing the route server peer.
         """
         return pulumi.get(self, "vpc_id")
 

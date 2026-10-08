@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A friendly name of the rule group.
+        /// The name of the header to use.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs>? _textTransformations;
 
         /// <summary>
-        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+        /// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
         /// </summary>
         public InputList<Inputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs> TextTransformations
         {

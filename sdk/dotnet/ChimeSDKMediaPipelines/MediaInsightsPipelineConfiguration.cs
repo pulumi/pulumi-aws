@@ -27,8 +27,11 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// {
     ///     var example = new Aws.Kinesis.Stream("example", new()
     ///     {
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "ON_DEMAND",
+    ///         },
     ///         Name = "example",
-    ///         ShardCount = 2,
     ///     });
     /// 
     ///     var mediaPipelinesAssumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()

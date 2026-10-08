@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InstanceLoggingConfigurationAccessLogsCloudwatchLogs {
     /**
-     * @return Indicates whether logging is enabled.
+     * @return Whether logging is enabled.
      * 
      */
     private Boolean enabled;
     /**
-     * @return The name of the CloudWatch Logs Log Group.
+     * @return Name of the CloudWatch Logs Log Group.
      * 
      */
     private @Nullable String logGroup;
 
     private InstanceLoggingConfigurationAccessLogsCloudwatchLogs() {}
     /**
-     * @return Indicates whether logging is enabled.
+     * @return Whether logging is enabled.
      * 
      */
     public Boolean enabled() {
         return this.enabled;
     }
     /**
-     * @return The name of the CloudWatch Logs Log Group.
+     * @return Name of the CloudWatch Logs Log Group.
      * 
      */
     public Optional<String> logGroup() {

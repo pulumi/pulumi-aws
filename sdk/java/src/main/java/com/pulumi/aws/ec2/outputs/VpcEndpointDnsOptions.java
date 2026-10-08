@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VpcEndpointDnsOptions {
     /**
-     * @return The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+     * @return DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
      * 
      */
     private @Nullable String dnsRecordIpType;
     /**
-     * @return Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
+     * @return Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
      * 
      */
     private @Nullable Boolean privateDnsOnlyForInboundResolverEndpoint;
@@ -36,14 +36,14 @@ public final class VpcEndpointDnsOptions {
 
     private VpcEndpointDnsOptions() {}
     /**
-     * @return The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+     * @return DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
      * 
      */
     public Optional<String> dnsRecordIpType() {
         return Optional.ofNullable(this.dnsRecordIpType);
     }
     /**
-     * @return Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
+     * @return Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `privateDnsEnabled` is `true`.
      * 
      */
     public Optional<Boolean> privateDnsOnlyForInboundResolverEndpoint() {

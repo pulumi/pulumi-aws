@@ -13,19 +13,19 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+        /// Action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
         /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.RuleGroupRuleActionGetArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        /// Configuration for how AWS WAF handles CAPTCHA evaluations. See Captcha Configuration below for details.
         /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.RuleGroupRuleCaptchaConfigGetArgs>? CaptchaConfig { get; set; }
 
         /// <summary>
-        /// A friendly name of the rule.
+        /// Friendly name of the rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -49,13 +49,13 @@ namespace Pulumi.Aws.WafV2.Inputs
         }
 
         /// <summary>
-        /// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `GeoMatchStatement`. See Statement below for details.
+        /// AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `GeoMatchStatement`. See Statement below for details.
         /// </summary>
         [Input("statement", required: true)]
         public Input<Inputs.RuleGroupRuleStatementGetArgs> Statement { get; set; } = null!;
 
         /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        /// Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
         /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.RuleGroupRuleVisibilityConfigGetArgs> VisibilityConfig { get; set; } = null!;

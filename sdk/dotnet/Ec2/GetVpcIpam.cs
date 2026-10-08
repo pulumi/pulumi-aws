@@ -140,11 +140,11 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The default resource discovery association ID.
+        /// Default resource discovery association ID.
         /// </summary>
         public readonly string DefaultResourceDiscoveryAssociationId;
         /// <summary>
-        /// The default resource discovery ID.
+        /// Default resource discovery ID.
         /// </summary>
         public readonly string DefaultResourceDiscoveryId;
         /// <summary>

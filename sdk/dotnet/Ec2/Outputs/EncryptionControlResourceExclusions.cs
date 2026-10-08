@@ -14,35 +14,35 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class EncryptionControlResourceExclusions
     {
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+        /// Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
         /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsEgressOnlyInternetGateway EgressOnlyInternetGateway;
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Elastic File System (EFS).
+        /// Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
         /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsElasticFileSystem ElasticFileSystem;
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Internet Gateways.
+        /// Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
         /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsInternetGateway InternetGateway;
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Lambda Functions.
+        /// Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
         /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsLambda Lambda;
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for NAT Gateways.
+        /// Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
         /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsNatGateway NatGateway;
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Virtual Private Gateways.
+        /// Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
         /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsVirtualPrivateGateway VirtualPrivateGateway;
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for VPC Lattice.
+        /// Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
         /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsVpcLattice VpcLattice;
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for peered VPCs.
+        /// Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
         /// </summary>
         public readonly Outputs.EncryptionControlResourceExclusionsVpcPeering VpcPeering;
 

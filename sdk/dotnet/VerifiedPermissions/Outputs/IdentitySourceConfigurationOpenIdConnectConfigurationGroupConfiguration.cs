@@ -14,11 +14,11 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     public sealed class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfiguration
     {
         /// <summary>
-        /// The token claim that you want Verified Permissions to interpret as group membership. For example, `Groups`.
+        /// Token claim that you want Verified Permissions to interpret as group membership. For example, `Groups`.
         /// </summary>
         public readonly string GroupClaim;
         /// <summary>
-        /// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+        /// Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
         /// </summary>
         public readonly string GroupEntityType;
 

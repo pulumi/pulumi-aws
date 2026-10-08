@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class VpcIpamPoolCidrCidrAuthorizationContext
     {
         /// <summary>
-        /// The plain-text authorization message for the prefix and account.
+        /// Plain-text authorization message for the prefix and account.
         /// </summary>
         public readonly string? Message;
         /// <summary>
-        /// The signed authorization message for the prefix and account.
+        /// Signed authorization message for the prefix and account.
         /// </summary>
         public readonly string? Signature;
 

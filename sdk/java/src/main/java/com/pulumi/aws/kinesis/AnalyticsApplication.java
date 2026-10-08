@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.StreamStreamModeDetailsArgs;
  * import com.pulumi.aws.kinesis.AnalyticsApplication;
  * import com.pulumi.aws.kinesis.AnalyticsApplicationArgs;
  * import com.pulumi.aws.kinesis.inputs.AnalyticsApplicationInputsArgs;
@@ -69,8 +70,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testStream = new Stream("testStream", StreamArgs.builder()
- *             .name("kinesis-test")
- *             .shardCount(1)
+ *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
+ *                 .streamMode("ON_DEMAND")
+ *                 .build())
+ *             .name("pulumi-kinesis-test")
  *             .build());
  * 
  *         var testApplication = new AnalyticsApplication("testApplication", AnalyticsApplicationArgs.builder()
@@ -122,6 +125,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.LogStreamArgs;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.StreamStreamModeDetailsArgs;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
@@ -162,8 +166,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()
+ *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
+ *                 .streamMode("ON_DEMAND")
+ *                 .build())
  *             .name("example-kinesis-stream")
- *             .shardCount(1)
  *             .build());
  * 
  *         var exampleFirehoseDeliveryStream = new FirehoseDeliveryStream("exampleFirehoseDeliveryStream", FirehoseDeliveryStreamArgs.builder()

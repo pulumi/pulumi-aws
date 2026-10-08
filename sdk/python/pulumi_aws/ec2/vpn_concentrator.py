@@ -27,9 +27,9 @@ class VpnConcentratorArgs:
         The set of arguments for constructing a VpnConcentrator resource.
 
         :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the transit gateway to attach the VPN concentrator to.
+        :param pulumi.Input[_builtins.str] type: Type of VPN concentrator. Valid value: `ipsec.1`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] type: Type of VPN concentrator. Valid value: `ipsec.1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -45,8 +45,6 @@ class VpnConcentratorArgs:
     def transit_gateway_id(self) -> pulumi.Input[_builtins.str]:
         """
         ID of the transit gateway to attach the VPN concentrator to.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "transit_gateway_id")
 
@@ -59,6 +57,8 @@ class VpnConcentratorArgs:
     def type(self) -> pulumi.Input[_builtins.str]:
         """
         Type of VPN concentrator. Valid value: `ipsec.1`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -106,12 +106,12 @@ class _VpnConcentratorState:
 
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: ID of the transit gateway attachment created for the VPN concentrator.
         :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the transit gateway to attach the VPN concentrator to.
+        :param pulumi.Input[_builtins.str] type: Type of VPN concentrator. Valid value: `ipsec.1`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] type: Type of VPN concentrator. Valid value: `ipsec.1`.
         :param pulumi.Input[_builtins.str] vpn_concentrator_id: ID of the VPN Concentrator.
         """
         if region is not None:
@@ -157,7 +157,7 @@ class _VpnConcentratorState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -182,8 +182,6 @@ class _VpnConcentratorState:
     def transit_gateway_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the transit gateway to attach the VPN concentrator to.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "transit_gateway_id")
 
@@ -196,6 +194,8 @@ class _VpnConcentratorState:
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of VPN concentrator. Valid value: `ipsec.1`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 
@@ -263,9 +263,9 @@ class VpnConcentrator(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the transit gateway to attach the VPN concentrator to.
+        :param pulumi.Input[_builtins.str] type: Type of VPN concentrator. Valid value: `ipsec.1`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] type: Type of VPN concentrator. Valid value: `ipsec.1`.
         """
         ...
     @overload
@@ -369,12 +369,12 @@ class VpnConcentrator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] transit_gateway_attachment_id: ID of the transit gateway attachment created for the VPN concentrator.
         :param pulumi.Input[_builtins.str] transit_gateway_id: ID of the transit gateway to attach the VPN concentrator to.
+        :param pulumi.Input[_builtins.str] type: Type of VPN concentrator. Valid value: `ipsec.1`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] type: Type of VPN concentrator. Valid value: `ipsec.1`.
         :param pulumi.Input[_builtins.str] vpn_concentrator_id: ID of the VPN Concentrator.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -410,7 +410,7 @@ class VpnConcentrator(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -427,8 +427,6 @@ class VpnConcentrator(pulumi.CustomResource):
     def transit_gateway_id(self) -> pulumi.Output[_builtins.str]:
         """
         ID of the transit gateway to attach the VPN concentrator to.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "transit_gateway_id")
 
@@ -437,6 +435,8 @@ class VpnConcentrator(pulumi.CustomResource):
     def type(self) -> pulumi.Output[_builtins.str]:
         """
         Type of VPN concentrator. Valid value: `ipsec.1`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "type")
 

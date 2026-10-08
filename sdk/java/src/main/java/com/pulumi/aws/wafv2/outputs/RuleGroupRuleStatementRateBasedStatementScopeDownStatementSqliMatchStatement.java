@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement {
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
     private @Nullable RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch fieldToMatch;
@@ -32,16 +32,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
      */
     private @Nullable String sensitivityLevel;
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
      * 
      */
     private List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations;
 
     private RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement() {}
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
     public Optional<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch> fieldToMatch() {
@@ -62,9 +60,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSql
         return Optional.ofNullable(this.sensitivityLevel);
     }
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
      * 
      */
     public List<RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation> textTransformations() {

@@ -22,14 +22,14 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
     public static final VpcEncryptionControlResourceExclusionsArgs Empty = new VpcEncryptionControlResourceExclusionsArgs();
 
     /**
-     * `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+     * Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
      * 
      */
     @Import(name="egressOnlyInternetGateway", required=true)
     private Output<VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs> egressOnlyInternetGateway;
 
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+     * @return Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
      * 
      */
     public Output<VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs> egressOnlyInternetGateway() {
@@ -37,14 +37,14 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
     }
 
     /**
-     * `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+     * Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
      * 
      */
     @Import(name="elasticFileSystem", required=true)
     private Output<VpcEncryptionControlResourceExclusionsElasticFileSystemArgs> elasticFileSystem;
 
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+     * @return Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
      * 
      */
     public Output<VpcEncryptionControlResourceExclusionsElasticFileSystemArgs> elasticFileSystem() {
@@ -52,14 +52,14 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
     }
 
     /**
-     * `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+     * Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
      * 
      */
     @Import(name="internetGateway", required=true)
     private Output<VpcEncryptionControlResourceExclusionsInternetGatewayArgs> internetGateway;
 
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+     * @return Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
      * 
      */
     public Output<VpcEncryptionControlResourceExclusionsInternetGatewayArgs> internetGateway() {
@@ -67,14 +67,14 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
     }
 
     /**
-     * `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+     * Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
      * 
      */
     @Import(name="lambda", required=true)
     private Output<VpcEncryptionControlResourceExclusionsLambdaArgs> lambda;
 
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+     * @return Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
      * 
      */
     public Output<VpcEncryptionControlResourceExclusionsLambdaArgs> lambda() {
@@ -82,14 +82,14 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
     }
 
     /**
-     * `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+     * Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
      * 
      */
     @Import(name="natGateway", required=true)
     private Output<VpcEncryptionControlResourceExclusionsNatGatewayArgs> natGateway;
 
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+     * @return Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
      * 
      */
     public Output<VpcEncryptionControlResourceExclusionsNatGatewayArgs> natGateway() {
@@ -97,14 +97,14 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
     }
 
     /**
-     * `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+     * Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
      * 
      */
     @Import(name="virtualPrivateGateway", required=true)
     private Output<VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs> virtualPrivateGateway;
 
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+     * @return Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
      * 
      */
     public Output<VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs> virtualPrivateGateway() {
@@ -112,14 +112,14 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
     }
 
     /**
-     * `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+     * Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
      * 
      */
     @Import(name="vpcLattice", required=true)
     private Output<VpcEncryptionControlResourceExclusionsVpcLatticeArgs> vpcLattice;
 
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+     * @return Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
      * 
      */
     public Output<VpcEncryptionControlResourceExclusionsVpcLatticeArgs> vpcLattice() {
@@ -127,14 +127,14 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
     }
 
     /**
-     * `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+     * Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
      * 
      */
     @Import(name="vpcPeering", required=true)
     private Output<VpcEncryptionControlResourceExclusionsVpcPeeringArgs> vpcPeering;
 
     /**
-     * @return `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+     * @return Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
      * 
      */
     public Output<VpcEncryptionControlResourceExclusionsVpcPeeringArgs> vpcPeering() {
@@ -173,7 +173,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param egressOnlyInternetGateway `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+         * @param egressOnlyInternetGateway Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param egressOnlyInternetGateway `state` and `stateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+         * @param egressOnlyInternetGateway Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param elasticFileSystem `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+         * @param elasticFileSystem Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param elasticFileSystem `state` and `stateMessage` describing encryption enforcement state for Elastic File System (EFS).
+         * @param elasticFileSystem Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param internetGateway `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+         * @param internetGateway Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param internetGateway `state` and `stateMessage` describing encryption enforcement state for Internet Gateways.
+         * @param internetGateway Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param lambda `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+         * @param lambda Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param lambda `state` and `stateMessage` describing encryption enforcement state for Lambda Functions.
+         * @param lambda Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param natGateway `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+         * @param natGateway Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param natGateway `state` and `stateMessage` describing encryption enforcement state for NAT Gateways.
+         * @param natGateway Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param virtualPrivateGateway `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+         * @param virtualPrivateGateway Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param virtualPrivateGateway `state` and `stateMessage` describing encryption enforcement state for Virtual Private Gateways.
+         * @param virtualPrivateGateway Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
          * 
          * @return builder
          * 
@@ -299,7 +299,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param vpcLattice `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+         * @param vpcLattice Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param vpcLattice `state` and `stateMessage` describing encryption enforcement state for VPC Lattice.
+         * @param vpcLattice Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param vpcPeering `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+         * @param vpcPeering Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
          * 
          * @return builder
          * 
@@ -331,7 +331,7 @@ public final class VpcEncryptionControlResourceExclusionsArgs extends com.pulumi
         }
 
         /**
-         * @param vpcPeering `state` and `stateMessage` describing encryption enforcement state for peered VPCs.
+         * @param vpcPeering Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
          * 
          * @return builder
          * 

@@ -26,9 +26,9 @@ class VpcIpamPreviewNextCidrArgs:
         """
         The set of arguments for constructing a VpcIpamPreviewNextCidr resource.
 
-        :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
+        :param pulumi.Input[_builtins.str] ipam_pool_id: ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
-        :param pulumi.Input[_builtins.int] netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
+        :param pulumi.Input[_builtins.int] netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
@@ -43,7 +43,7 @@ class VpcIpamPreviewNextCidrArgs:
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the pool to which you want to assign a CIDR.
+        ID of the pool to which you want to assign a CIDR.
         """
         return pulumi.get(self, "ipam_pool_id")
 
@@ -67,7 +67,7 @@ class VpcIpamPreviewNextCidrArgs:
     @pulumi.getter(name="netmaskLength")
     def netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The netmask length of the CIDR you would like to preview from the IPAM pool.
+        Netmask length of the CIDR you would like to preview from the IPAM pool.
         """
         return pulumi.get(self, "netmask_length")
 
@@ -99,10 +99,10 @@ class _VpcIpamPreviewNextCidrState:
         """
         Input properties used for looking up and filtering VpcIpamPreviewNextCidr resources.
 
-        :param pulumi.Input[_builtins.str] cidr: The previewed CIDR from the pool.
+        :param pulumi.Input[_builtins.str] cidr: Previewed CIDR from the pool.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
-        :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-        :param pulumi.Input[_builtins.int] netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
+        :param pulumi.Input[_builtins.str] ipam_pool_id: ID of the pool to which you want to assign a CIDR.
+        :param pulumi.Input[_builtins.int] netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cidr is not None:
@@ -120,7 +120,7 @@ class _VpcIpamPreviewNextCidrState:
     @pulumi.getter
     def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The previewed CIDR from the pool.
+        Previewed CIDR from the pool.
         """
         return pulumi.get(self, "cidr")
 
@@ -144,7 +144,7 @@ class _VpcIpamPreviewNextCidrState:
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the pool to which you want to assign a CIDR.
+        ID of the pool to which you want to assign a CIDR.
         """
         return pulumi.get(self, "ipam_pool_id")
 
@@ -156,7 +156,7 @@ class _VpcIpamPreviewNextCidrState:
     @pulumi.getter(name="netmaskLength")
     def netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The netmask length of the CIDR you would like to preview from the IPAM pool.
+        Netmask length of the CIDR you would like to preview from the IPAM pool.
         """
         return pulumi.get(self, "netmask_length")
 
@@ -221,8 +221,8 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
-        :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-        :param pulumi.Input[_builtins.int] netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
+        :param pulumi.Input[_builtins.str] ipam_pool_id: ID of the pool to which you want to assign a CIDR.
+        :param pulumi.Input[_builtins.int] netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -318,10 +318,10 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cidr: The previewed CIDR from the pool.
+        :param pulumi.Input[_builtins.str] cidr: Previewed CIDR from the pool.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
-        :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-        :param pulumi.Input[_builtins.int] netmask_length: The netmask length of the CIDR you would like to preview from the IPAM pool.
+        :param pulumi.Input[_builtins.str] ipam_pool_id: ID of the pool to which you want to assign a CIDR.
+        :param pulumi.Input[_builtins.int] netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -339,7 +339,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
     @pulumi.getter
     def cidr(self) -> pulumi.Output[_builtins.str]:
         """
-        The previewed CIDR from the pool.
+        Previewed CIDR from the pool.
         """
         return pulumi.get(self, "cidr")
 
@@ -355,7 +355,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the pool to which you want to assign a CIDR.
+        ID of the pool to which you want to assign a CIDR.
         """
         return pulumi.get(self, "ipam_pool_id")
 
@@ -363,7 +363,7 @@ class VpcIpamPreviewNextCidr(pulumi.CustomResource):
     @pulumi.getter(name="netmaskLength")
     def netmask_length(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The netmask length of the CIDR you would like to preview from the IPAM pool.
+        Netmask length of the CIDR you would like to preview from the IPAM pool.
         """
         return pulumi.get(self, "netmask_length")
 

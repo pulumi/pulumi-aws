@@ -21,14 +21,14 @@ public final class RuleGroupRuleStatementRegexMatchStatementArgs extends com.pul
     public static final RuleGroupRuleStatementRegexMatchStatementArgs Empty = new RuleGroupRuleStatementRegexMatchStatementArgs();
 
     /**
-     * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
     @Import(name="fieldToMatch")
     private @Nullable Output<RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs> fieldToMatch;
 
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs>> fieldToMatch() {
@@ -51,14 +51,14 @@ public final class RuleGroupRuleStatementRegexMatchStatementArgs extends com.pul
     }
 
     /**
-     * The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+     * String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
      * 
      */
     @Import(name="regexString", required=true)
     private Output<String> regexString;
 
     /**
-     * @return The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+     * @return String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
      * 
      */
     public Output<String> regexString() {
@@ -66,18 +66,14 @@ public final class RuleGroupRuleStatementRegexMatchStatementArgs extends com.pul
     }
 
     /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
+     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
      * 
      */
     @Import(name="textTransformations", required=true)
     private Output<List<RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs>> textTransformations;
 
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
      * 
      */
     public Output<List<RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs>> textTransformations() {
@@ -112,7 +108,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementArgs extends com.pul
         }
 
         /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          * 
          * @return builder
          * 
@@ -123,7 +119,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementArgs extends com.pul
         }
 
         /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          * 
          * @return builder
          * 
@@ -164,7 +160,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementArgs extends com.pul
         }
 
         /**
-         * @param regexString The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+         * @param regexString String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
          * 
          * @return builder
          * 
@@ -175,7 +171,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementArgs extends com.pul
         }
 
         /**
-         * @param regexString The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+         * @param regexString String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can&#39;t be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
          * 
          * @return builder
          * 
@@ -185,9 +181,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementArgs extends com.pul
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          * 
          * @return builder
          * 
@@ -198,9 +192,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementArgs extends com.pul
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          * 
          * @return builder
          * 
@@ -210,9 +202,7 @@ public final class RuleGroupRuleStatementRegexMatchStatementArgs extends com.pul
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          * 
          * @return builder
          * 

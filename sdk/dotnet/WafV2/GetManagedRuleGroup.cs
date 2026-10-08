@@ -172,7 +172,7 @@ namespace Pulumi.Aws.WafV2
     public sealed class GetManagedRuleGroupResult
     {
         /// <summary>
-        /// Labels that one or more rules in this rule group add to matching web requests. See Labels below for details.
+        /// Labels that one or more rules in this rule group add to matching web requests. See `AvailableLabels` Block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupAvailableLabelResult> AvailableLabels;
         /// <summary>
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         public readonly int Capacity;
         /// <summary>
-        /// Labels that one or more rules in this rule group match against in label match statements. See Labels below for details.
+        /// Labels that one or more rules in this rule group match against in label match statements. See `ConsumedLabels` Block below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetManagedRuleGroupConsumedLabelResult> ConsumedLabels;
         /// <summary>

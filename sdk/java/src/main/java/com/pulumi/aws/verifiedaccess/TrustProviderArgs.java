@@ -22,14 +22,14 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
     public static final TrustProviderArgs Empty = new TrustProviderArgs();
 
     /**
-     * A description for the AWS Verified Access trust provider.
+     * Description for the AWS Verified Access trust provider.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the AWS Verified Access trust provider.
+     * @return Description for the AWS Verified Access trust provider.
      * 
      */
     public Optional<Output<String>> description() {
@@ -37,14 +37,14 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block of options for device identity based trust providers.
+     * Block of options for device identity based trust providers. See below.
      * 
      */
     @Import(name="deviceOptions")
     private @Nullable Output<TrustProviderDeviceOptionsArgs> deviceOptions;
 
     /**
-     * @return A block of options for device identity based trust providers.
+     * @return Block of options for device identity based trust providers. See below.
      * 
      */
     public Optional<Output<TrustProviderDeviceOptionsArgs>> deviceOptions() {
@@ -52,14 +52,14 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of device-based trust provider.
+     * Type of device-based trust provider.
      * 
      */
     @Import(name="deviceTrustProviderType")
     private @Nullable Output<String> deviceTrustProviderType;
 
     /**
-     * @return The type of device-based trust provider.
+     * @return Type of device-based trust provider.
      * 
      */
     public Optional<Output<String>> deviceTrustProviderType() {
@@ -67,14 +67,14 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     * OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
      * 
      */
     @Import(name="nativeApplicationOidcOptions")
     private @Nullable Output<TrustProviderNativeApplicationOidcOptionsArgs> nativeApplicationOidcOptions;
 
     /**
-     * @return The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     * @return OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
      * 
      */
     public Optional<Output<TrustProviderNativeApplicationOidcOptionsArgs>> nativeApplicationOidcOptions() {
@@ -82,14 +82,14 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The OpenID Connect details for an oidc-type, user-identity based trust provider.
+     * OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
      * 
      */
     @Import(name="oidcOptions")
     private @Nullable Output<TrustProviderOidcOptionsArgs> oidcOptions;
 
     /**
-     * @return The OpenID Connect details for an oidc-type, user-identity based trust provider.
+     * @return OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
      * 
      */
     public Optional<Output<TrustProviderOidcOptionsArgs>> oidcOptions() {
@@ -97,14 +97,14 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier to be used when working with policy rules.
+     * Identifier to be used when working with policy rules.
      * 
      */
     @Import(name="policyReferenceName", required=true)
     private Output<String> policyReferenceName;
 
     /**
-     * @return The identifier to be used when working with policy rules.
+     * @return Identifier to be used when working with policy rules.
      * 
      */
     public Output<String> policyReferenceName() {
@@ -126,9 +126,17 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Block of options in use for server side encryption. See below.
+     * 
+     */
     @Import(name="sseSpecification")
     private @Nullable Output<TrustProviderSseSpecificationArgs> sseSpecification;
 
+    /**
+     * @return Block of options in use for server side encryption. See below.
+     * 
+     */
     public Optional<Output<TrustProviderSseSpecificationArgs>> sseSpecification() {
         return Optional.ofNullable(this.sseSpecification);
     }
@@ -149,7 +157,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of trust provider can be either user or device-based.
+     * Type of trust provider can be either user or device-based.
      * 
      * The following arguments are optional:
      * 
@@ -158,7 +166,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> trustProviderType;
 
     /**
-     * @return The type of trust provider can be either user or device-based.
+     * @return Type of trust provider can be either user or device-based.
      * 
      * The following arguments are optional:
      * 
@@ -168,14 +176,14 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of user-based trust provider.
+     * Type of user-based trust provider.
      * 
      */
     @Import(name="userTrustProviderType")
     private @Nullable Output<String> userTrustProviderType;
 
     /**
-     * @return The type of user-based trust provider.
+     * @return Type of user-based trust provider.
      * 
      */
     public Optional<Output<String>> userTrustProviderType() {
@@ -217,7 +225,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the AWS Verified Access trust provider.
+         * @param description Description for the AWS Verified Access trust provider.
          * 
          * @return builder
          * 
@@ -228,7 +236,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the AWS Verified Access trust provider.
+         * @param description Description for the AWS Verified Access trust provider.
          * 
          * @return builder
          * 
@@ -238,7 +246,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceOptions A block of options for device identity based trust providers.
+         * @param deviceOptions Block of options for device identity based trust providers. See below.
          * 
          * @return builder
          * 
@@ -249,7 +257,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceOptions A block of options for device identity based trust providers.
+         * @param deviceOptions Block of options for device identity based trust providers. See below.
          * 
          * @return builder
          * 
@@ -259,7 +267,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceTrustProviderType The type of device-based trust provider.
+         * @param deviceTrustProviderType Type of device-based trust provider.
          * 
          * @return builder
          * 
@@ -270,7 +278,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceTrustProviderType The type of device-based trust provider.
+         * @param deviceTrustProviderType Type of device-based trust provider.
          * 
          * @return builder
          * 
@@ -280,7 +288,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nativeApplicationOidcOptions The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+         * @param nativeApplicationOidcOptions OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
          * 
          * @return builder
          * 
@@ -291,7 +299,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nativeApplicationOidcOptions The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+         * @param nativeApplicationOidcOptions OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
          * 
          * @return builder
          * 
@@ -301,7 +309,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oidcOptions The OpenID Connect details for an oidc-type, user-identity based trust provider.
+         * @param oidcOptions OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
          * 
          * @return builder
          * 
@@ -312,7 +320,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oidcOptions The OpenID Connect details for an oidc-type, user-identity based trust provider.
+         * @param oidcOptions OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
          * 
          * @return builder
          * 
@@ -322,7 +330,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyReferenceName The identifier to be used when working with policy rules.
+         * @param policyReferenceName Identifier to be used when working with policy rules.
          * 
          * @return builder
          * 
@@ -333,7 +341,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyReferenceName The identifier to be used when working with policy rules.
+         * @param policyReferenceName Identifier to be used when working with policy rules.
          * 
          * @return builder
          * 
@@ -363,11 +371,23 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
             return region(Output.of(region));
         }
 
+        /**
+         * @param sseSpecification Block of options in use for server side encryption. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sseSpecification(@Nullable Output<TrustProviderSseSpecificationArgs> sseSpecification) {
             $.sseSpecification = sseSpecification;
             return this;
         }
 
+        /**
+         * @param sseSpecification Block of options in use for server side encryption. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sseSpecification(TrustProviderSseSpecificationArgs sseSpecification) {
             return sseSpecification(Output.of(sseSpecification));
         }
@@ -394,7 +414,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustProviderType The type of trust provider can be either user or device-based.
+         * @param trustProviderType Type of trust provider can be either user or device-based.
          * 
          * The following arguments are optional:
          * 
@@ -407,7 +427,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trustProviderType The type of trust provider can be either user or device-based.
+         * @param trustProviderType Type of trust provider can be either user or device-based.
          * 
          * The following arguments are optional:
          * 
@@ -419,7 +439,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTrustProviderType The type of user-based trust provider.
+         * @param userTrustProviderType Type of user-based trust provider.
          * 
          * @return builder
          * 
@@ -430,7 +450,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTrustProviderType The type of user-based trust provider.
+         * @param userTrustProviderType Type of user-based trust provider.
          * 
          * @return builder
          * 

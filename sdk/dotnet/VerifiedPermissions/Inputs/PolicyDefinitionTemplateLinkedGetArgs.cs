@@ -13,19 +13,19 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
     public sealed class PolicyDefinitionTemplateLinkedGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the template.
+        /// ID of the template.
         /// </summary>
         [Input("policyTemplateId", required: true)]
         public Input<string> PolicyTemplateId { get; set; } = null!;
 
         /// <summary>
-        /// The principal of the template linked policy.
+        /// Principal of the template linked policy. See Principal below.
         /// </summary>
         [Input("principal")]
         public Input<Inputs.PolicyDefinitionTemplateLinkedPrincipalGetArgs>? Principal { get; set; }
 
         /// <summary>
-        /// The resource of the template linked policy.
+        /// Resource of the template linked policy. See Resource below.
         /// </summary>
         [Input("resource")]
         public Input<Inputs.PolicyDefinitionTemplateLinkedResourceGetArgs>? Resource { get; set; }

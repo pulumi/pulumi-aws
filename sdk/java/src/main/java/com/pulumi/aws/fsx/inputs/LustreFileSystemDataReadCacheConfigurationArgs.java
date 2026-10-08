@@ -33,14 +33,14 @@ public final class LustreFileSystemDataReadCacheConfigurationArgs extends com.pu
     }
 
     /**
-     * Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+     * Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
      * 
      */
     @Import(name="sizingMode", required=true)
     private Output<String> sizingMode;
 
     /**
-     * @return Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+     * @return Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
      * 
      */
     public Output<String> sizingMode() {
@@ -94,7 +94,7 @@ public final class LustreFileSystemDataReadCacheConfigurationArgs extends com.pu
         }
 
         /**
-         * @param sizingMode Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+         * @param sizingMode Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class LustreFileSystemDataReadCacheConfigurationArgs extends com.pu
         }
 
         /**
-         * @param sizingMode Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+         * @param sizingMode Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
          * 
          * @return builder
          * 

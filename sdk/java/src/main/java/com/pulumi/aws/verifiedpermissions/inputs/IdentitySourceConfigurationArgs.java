@@ -17,14 +17,14 @@ public final class IdentitySourceConfigurationArgs extends com.pulumi.resources.
     public static final IdentitySourceConfigurationArgs Empty = new IdentitySourceConfigurationArgs();
 
     /**
-     * Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+     * Configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
      * 
      */
     @Import(name="cognitoUserPoolConfiguration")
     private @Nullable Output<IdentitySourceConfigurationCognitoUserPoolConfigurationArgs> cognitoUserPoolConfiguration;
 
     /**
-     * @return Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+     * @return Configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
      * 
      */
     public Optional<Output<IdentitySourceConfigurationCognitoUserPoolConfigurationArgs>> cognitoUserPoolConfiguration() {
@@ -32,14 +32,14 @@ public final class IdentitySourceConfigurationArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+     * Configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
      * 
      */
     @Import(name="openIdConnectConfiguration")
     private @Nullable Output<IdentitySourceConfigurationOpenIdConnectConfigurationArgs> openIdConnectConfiguration;
 
     /**
-     * @return Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+     * @return Configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
      * 
      */
     public Optional<Output<IdentitySourceConfigurationOpenIdConnectConfigurationArgs>> openIdConnectConfiguration() {
@@ -72,7 +72,7 @@ public final class IdentitySourceConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param cognitoUserPoolConfiguration Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+         * @param cognitoUserPoolConfiguration Configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class IdentitySourceConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param cognitoUserPoolConfiguration Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+         * @param cognitoUserPoolConfiguration Configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class IdentitySourceConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param openIdConnectConfiguration Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+         * @param openIdConnectConfiguration Configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class IdentitySourceConfigurationArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param openIdConnectConfiguration Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+         * @param openIdConnectConfiguration Configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
          * 
          * @return builder
          * 

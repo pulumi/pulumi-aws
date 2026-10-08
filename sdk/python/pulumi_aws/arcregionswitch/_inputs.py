@@ -619,7 +619,7 @@ class PlanWorkflowArgsDict(TypedDict):
     """
     steps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepArgsDict']]]]]
     """
-    Steps in the workflow. See `step` Block for details.
+    Steps in the workflow. See `workflow.step` Block for details.
     """
     workflow_description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -639,7 +639,7 @@ class PlanWorkflowArgs:
                  workflow_target_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] workflow_target_action: Action to perform. Valid values: `activate`, `deactivate`.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepArgs']]] steps: Steps in the workflow. See `step` Block for details.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepArgs']]] steps: Steps in the workflow. See `workflow.step` Block for details.
         :param pulumi.Input[_builtins.str] workflow_description: Description of the workflow.
         :param pulumi.Input[_builtins.str] workflow_target_region: Target region for the workflow.
         """
@@ -667,7 +667,7 @@ class PlanWorkflowArgs:
     @pulumi.getter
     def steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepArgs']]]]:
         """
-        Steps in the workflow. See `step` Block for details.
+        Steps in the workflow. See `workflow.step` Block for details.
         """
         return pulumi.get(self, "steps")
 
@@ -707,7 +707,7 @@ class PlanWorkflowStepArgsDict(TypedDict):
     """
     name: pulumi.Input[_builtins.str]
     """
-    Name of the step.
+    Name of the plan. Must be unique within the account.
     """
     arc_routing_control_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigArgsDict']]]]]
     """
@@ -727,7 +727,7 @@ class PlanWorkflowStepArgsDict(TypedDict):
     """
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Description of the step.
+    Description of the plan.
     """
     document_db_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepDocumentDbConfigArgsDict']]]]]
     """
@@ -807,12 +807,12 @@ class PlanWorkflowStepArgs:
                  route53_health_check_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRoute53HealthCheckConfigArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] execution_block_type: Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
-        :param pulumi.Input[_builtins.str] name: Name of the step.
+        :param pulumi.Input[_builtins.str] name: Name of the plan. Must be unique within the account.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigArgs']]] arc_routing_control_configs: Configuration for ARC routing control. See `arc_routing_control_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepAuroraProvisionedScalingConfigArgs']]] aurora_provisioned_scaling_configs: Configuration for Aurora provisioned scaling. See `aurora_provisioned_scaling_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepAuroraServerlessScalingConfigArgs']]] aurora_serverless_scaling_configs: Configuration for Aurora Serverless scaling. See `aurora_serverless_scaling_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigArgs']]] custom_action_lambda_configs: Configuration for Lambda function execution. See `custom_action_lambda_config` Block for details.
-        :param pulumi.Input[_builtins.str] description: Description of the step.
+        :param pulumi.Input[_builtins.str] description: Description of the plan.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepDocumentDbConfigArgs']]] document_db_configs: Configuration for DocumentDB global cluster operations. See `document_db_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs']]] ec2_asg_capacity_increase_configs: Configuration for EC2 Auto Scaling group capacity increase. See `ec2_asg_capacity_increase_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEcsCapacityIncreaseConfigArgs']]] ecs_capacity_increase_configs: Configuration for ECS service capacity increase. See `ecs_capacity_increase_config` Block for details.
@@ -882,7 +882,7 @@ class PlanWorkflowStepArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the step.
+        Name of the plan. Must be unique within the account.
         """
         return pulumi.get(self, "name")
 
@@ -942,7 +942,7 @@ class PlanWorkflowStepArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Description of the step.
+        Description of the plan.
         """
         return pulumi.get(self, "description")
 
@@ -3329,7 +3329,7 @@ class PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArgs:
 class PlanWorkflowStepParallelConfigArgsDict(TypedDict):
     steps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArgsDict']]]]]
     """
-    Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallel_config` to prevent infinite nesting.
+    Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallel_config` to prevent infinite nesting.
     """
 
 @pulumi.input_type
@@ -3337,7 +3337,7 @@ class PlanWorkflowStepParallelConfigArgs:
     def __init__(__self__, *,
                  steps: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArgs']]] steps: Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallel_config` to prevent infinite nesting.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArgs']]] steps: Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallel_config` to prevent infinite nesting.
         """
         if steps is not None:
             pulumi.set(__self__, "steps", steps)
@@ -3346,7 +3346,7 @@ class PlanWorkflowStepParallelConfigArgs:
     @pulumi.getter
     def steps(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArgs']]]]:
         """
-        Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallel_config` to prevent infinite nesting.
+        Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallel_config` to prevent infinite nesting.
         """
         return pulumi.get(self, "steps")
 
@@ -3362,7 +3362,7 @@ class PlanWorkflowStepParallelConfigStepArgsDict(TypedDict):
     """
     name: pulumi.Input[_builtins.str]
     """
-    Name of the step.
+    Name of the plan. Must be unique within the account.
     """
     arc_routing_control_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgsDict']]]]]
     """
@@ -3382,7 +3382,7 @@ class PlanWorkflowStepParallelConfigStepArgsDict(TypedDict):
     """
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Description of the step.
+    Description of the plan.
     """
     document_db_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepDocumentDbConfigArgsDict']]]]]
     """
@@ -3457,12 +3457,12 @@ class PlanWorkflowStepParallelConfigStepArgs:
                  route53_health_check_configs: pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] execution_block_type: Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
-        :param pulumi.Input[_builtins.str] name: Name of the step.
+        :param pulumi.Input[_builtins.str] name: Name of the plan. Must be unique within the account.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs']]] arc_routing_control_configs: Configuration for ARC routing control. See `arc_routing_control_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepAuroraProvisionedScalingConfigArgs']]] aurora_provisioned_scaling_configs: Configuration for Aurora provisioned scaling. See `aurora_provisioned_scaling_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArgs']]] aurora_serverless_scaling_configs: Configuration for Aurora Serverless scaling. See `aurora_serverless_scaling_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgs']]] custom_action_lambda_configs: Configuration for Lambda function execution. See `custom_action_lambda_config` Block for details.
-        :param pulumi.Input[_builtins.str] description: Description of the step.
+        :param pulumi.Input[_builtins.str] description: Description of the plan.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs']]] document_db_configs: Configuration for DocumentDB global cluster operations. See `document_db_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs']]] ec2_asg_capacity_increase_configs: Configuration for EC2 Auto Scaling group capacity increase. See `ec2_asg_capacity_increase_config` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs']]] ecs_capacity_increase_configs: Configuration for ECS service capacity increase. See `ecs_capacity_increase_config` Block for details.
@@ -3529,7 +3529,7 @@ class PlanWorkflowStepParallelConfigStepArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the step.
+        Name of the plan. Must be unique within the account.
         """
         return pulumi.get(self, "name")
 
@@ -3589,7 +3589,7 @@ class PlanWorkflowStepParallelConfigStepArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Description of the step.
+        Description of the plan.
         """
         return pulumi.get(self, "description")
 

@@ -18,11 +18,11 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleAction? Action;
         /// <summary>
-        /// Specifies how AWS WAF should handle CAPTCHA evaluations. See `CaptchaConfig` below for details.
+        /// Configuration for how AWS WAF handles CAPTCHA evaluations. See `CaptchaConfig` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleCaptchaConfig? CaptchaConfig;
         /// <summary>
-        /// Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `ChallengeConfig` below for details.
+        /// Configuration for how AWS WAF handles Challenge evaluations at the rule level. See `ChallengeConfig` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleChallengeConfig? ChallengeConfig;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleRuleLabel> RuleLabels;
         /// <summary>
-        /// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `GeoMatchStatement`. See `Statement` below for details.
+        /// AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `GeoMatchStatement`. See `Statement` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatement Statement;
         /// <summary>
-        /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `VisibilityConfig` below for details.
+        /// Amazon CloudWatch metrics and web request sample collection configuration. See `VisibilityConfig` below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleVisibilityConfig VisibilityConfig;
 

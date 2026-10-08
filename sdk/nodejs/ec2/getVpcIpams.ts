@@ -67,8 +67,6 @@ export function getVpcIpams(args?: GetVpcIpamsArgs, opts?: pulumi.InvokeOptions)
 export interface GetVpcIpamsArgs {
     /**
      * Custom filter block as described below.
-     *
-     * The arguments of this data source act as filters for querying the available IPAMs.
      */
     filters?: inputs.ec2.GetVpcIpamsFilter[];
     /**
@@ -153,8 +151,6 @@ export function getVpcIpamsOutput(args?: GetVpcIpamsOutputArgs, opts?: pulumi.In
 export interface GetVpcIpamsOutputArgs {
     /**
      * Custom filter block as described below.
-     *
-     * The arguments of this data source act as filters for querying the available IPAMs.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamsFilterArgs>[] | undefined>;
     /**

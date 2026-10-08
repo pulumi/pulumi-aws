@@ -30,13 +30,13 @@ class GroupArgs:
         """
         The set of arguments for constructing a Group resource.
 
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The id of the verified access instance this group is associated with.
+        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: ID of the verified access instance this group is associated with.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the verified access group.
-        :param pulumi.Input[_builtins.str] policy_document: The policy document that is associated with this resource.
+        :param pulumi.Input[_builtins.str] policy_document: Policy document that is associated with this resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['GroupSseConfigurationArgs'] sse_configuration: Configuration block to use KMS keys for server-side encryption.
+        :param pulumi.Input['GroupSseConfigurationArgs'] sse_configuration: Configuration block to use KMS keys for server-side encryption. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
@@ -55,7 +55,7 @@ class GroupArgs:
     @pulumi.getter(name="verifiedaccessInstanceId")
     def verifiedaccess_instance_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The id of the verified access instance this group is associated with.
+        ID of the verified access instance this group is associated with.
 
         The following arguments are optional:
         """
@@ -81,7 +81,7 @@ class GroupArgs:
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The policy document that is associated with this resource.
+        Policy document that is associated with this resource.
         """
         return pulumi.get(self, "policy_document")
 
@@ -105,7 +105,7 @@ class GroupArgs:
     @pulumi.getter(name="sseConfiguration")
     def sse_configuration(self) -> pulumi.Input[Optional['GroupSseConfigurationArgs']]:
         """
-        Configuration block to use KMS keys for server-side encryption.
+        Configuration block to use KMS keys for server-side encryption. See below.
         """
         return pulumi.get(self, "sse_configuration")
 
@@ -150,13 +150,13 @@ class _GroupState:
         :param pulumi.Input[_builtins.str] description: Description of the verified access group.
         :param pulumi.Input[_builtins.str] last_updated_time: Timestamp when the access group was last updated.
         :param pulumi.Input[_builtins.str] owner: AWS account number owning this resource.
-        :param pulumi.Input[_builtins.str] policy_document: The policy document that is associated with this resource.
+        :param pulumi.Input[_builtins.str] policy_document: Policy document that is associated with this resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['GroupSseConfigurationArgs'] sse_configuration: Configuration block to use KMS keys for server-side encryption.
+        :param pulumi.Input['GroupSseConfigurationArgs'] sse_configuration: Configuration block to use KMS keys for server-side encryption. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] verifiedaccess_group_arn: ARN of this verified acess group.
+        :param pulumi.Input[_builtins.str] verifiedaccess_group_arn: ARN of this verified access group.
         :param pulumi.Input[_builtins.str] verifiedaccess_group_id: ID of this verified access group.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The id of the verified access instance this group is associated with.
+        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: ID of the verified access instance this group is associated with.
                
                The following arguments are optional:
         """
@@ -251,7 +251,7 @@ class _GroupState:
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The policy document that is associated with this resource.
+        Policy document that is associated with this resource.
         """
         return pulumi.get(self, "policy_document")
 
@@ -275,7 +275,7 @@ class _GroupState:
     @pulumi.getter(name="sseConfiguration")
     def sse_configuration(self) -> pulumi.Input[Optional['GroupSseConfigurationArgs']]:
         """
-        Configuration block to use KMS keys for server-side encryption.
+        Configuration block to use KMS keys for server-side encryption. See below.
         """
         return pulumi.get(self, "sse_configuration")
 
@@ -308,7 +308,7 @@ class _GroupState:
     @pulumi.getter(name="verifiedaccessGroupArn")
     def verifiedaccess_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of this verified acess group.
+        ARN of this verified access group.
         """
         return pulumi.get(self, "verifiedaccess_group_arn")
 
@@ -332,7 +332,7 @@ class _GroupState:
     @pulumi.getter(name="verifiedaccessInstanceId")
     def verifiedaccess_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The id of the verified access instance this group is associated with.
+        ID of the verified access instance this group is associated with.
 
         The following arguments are optional:
         """
@@ -388,11 +388,11 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the verified access group.
-        :param pulumi.Input[_builtins.str] policy_document: The policy document that is associated with this resource.
+        :param pulumi.Input[_builtins.str] policy_document: Policy document that is associated with this resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict', 'outputs.GroupSseConfiguration']] sse_configuration: Configuration block to use KMS keys for server-side encryption.
+        :param pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict', 'outputs.GroupSseConfiguration']] sse_configuration: Configuration block to use KMS keys for server-side encryption. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The id of the verified access instance this group is associated with.
+        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: ID of the verified access instance this group is associated with.
                
                The following arguments are optional:
         """
@@ -511,13 +511,13 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the verified access group.
         :param pulumi.Input[_builtins.str] last_updated_time: Timestamp when the access group was last updated.
         :param pulumi.Input[_builtins.str] owner: AWS account number owning this resource.
-        :param pulumi.Input[_builtins.str] policy_document: The policy document that is associated with this resource.
+        :param pulumi.Input[_builtins.str] policy_document: Policy document that is associated with this resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict', 'outputs.GroupSseConfiguration']] sse_configuration: Configuration block to use KMS keys for server-side encryption.
+        :param pulumi.Input[Union['GroupSseConfigurationArgs', 'GroupSseConfigurationArgsDict', 'outputs.GroupSseConfiguration']] sse_configuration: Configuration block to use KMS keys for server-side encryption. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] verifiedaccess_group_arn: ARN of this verified acess group.
+        :param pulumi.Input[_builtins.str] verifiedaccess_group_arn: ARN of this verified access group.
         :param pulumi.Input[_builtins.str] verifiedaccess_group_id: ID of this verified access group.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The id of the verified access instance this group is associated with.
+        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: ID of the verified access instance this group is associated with.
                
                The following arguments are optional:
         """
@@ -584,7 +584,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The policy document that is associated with this resource.
+        Policy document that is associated with this resource.
         """
         return pulumi.get(self, "policy_document")
 
@@ -600,7 +600,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="sseConfiguration")
     def sse_configuration(self) -> pulumi.Output['outputs.GroupSseConfiguration']:
         """
-        Configuration block to use KMS keys for server-side encryption.
+        Configuration block to use KMS keys for server-side encryption. See below.
         """
         return pulumi.get(self, "sse_configuration")
 
@@ -621,7 +621,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="verifiedaccessGroupArn")
     def verifiedaccess_group_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of this verified acess group.
+        ARN of this verified access group.
         """
         return pulumi.get(self, "verifiedaccess_group_arn")
 
@@ -637,7 +637,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="verifiedaccessInstanceId")
     def verifiedaccess_instance_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The id of the verified access instance this group is associated with.
+        ID of the verified access instance this group is associated with.
 
         The following arguments are optional:
         """

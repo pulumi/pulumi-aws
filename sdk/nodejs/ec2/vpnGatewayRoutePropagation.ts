@@ -56,11 +56,11 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The id of the `aws.ec2.RouteTable` to propagate routes into.
+     * ID of the `aws.ec2.RouteTable` to propagate routes into.
      */
     declare public readonly routeTableId: pulumi.Output<string>;
     /**
-     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
+     * ID of the `aws.ec2.VpnGateway` to propagate routes from.
      */
     declare public readonly vpnGatewayId: pulumi.Output<string>;
 
@@ -106,11 +106,11 @@ export interface VpnGatewayRoutePropagationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The id of the `aws.ec2.RouteTable` to propagate routes into.
+     * ID of the `aws.ec2.RouteTable` to propagate routes into.
      */
     routeTableId?: pulumi.Input<string | undefined>;
     /**
-     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
+     * ID of the `aws.ec2.VpnGateway` to propagate routes from.
      */
     vpnGatewayId?: pulumi.Input<string | undefined>;
 }
@@ -124,11 +124,11 @@ export interface VpnGatewayRoutePropagationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The id of the `aws.ec2.RouteTable` to propagate routes into.
+     * ID of the `aws.ec2.RouteTable` to propagate routes into.
      */
     routeTableId: pulumi.Input<string>;
     /**
-     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
+     * ID of the `aws.ec2.VpnGateway` to propagate routes from.
      */
     vpnGatewayId: pulumi.Input<string>;
 }

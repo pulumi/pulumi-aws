@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// ### Encryption
     /// 
-    /// &gt; *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+    /// &gt; *NOTE:* See the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Sfn
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+        /// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
         /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.ActivityEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Sfn
     public sealed class ActivityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+        /// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.ActivityEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Sfn
         public Input<string>? CreationDate { get; set; }
 
         /// <summary>
-        /// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+        /// Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.ActivityEncryptionConfigurationGetArgs>? EncryptionConfiguration { get; set; }

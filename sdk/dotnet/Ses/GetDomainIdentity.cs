@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Ses
     public sealed class GetDomainIdentityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the domain
+        /// Name of the domain.
         /// </summary>
         [Input("domain", required: true)]
         public string Domain { get; set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Ses
     public sealed class GetDomainIdentityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the domain
+        /// Name of the domain.
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
@@ -133,9 +133,6 @@ namespace Pulumi.Aws.Ses
         /// ARN of the domain identity.
         /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Name of the domain
-        /// </summary>
         public readonly string Domain;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

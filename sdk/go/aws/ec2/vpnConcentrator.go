@@ -68,15 +68,15 @@ type VpnConcentrator struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ID of the transit gateway attachment created for the VPN concentrator.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// ID of the transit gateway to attach the VPN concentrator to.
-	//
-	// The following arguments are optional:
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 	// Type of VPN concentrator. Valid value: `ipsec.1`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringOutput `pulumi:"type"`
 	// ID of the VPN Concentrator.
 	VpnConcentratorId pulumi.StringOutput `pulumi:"vpnConcentratorId"`
@@ -122,15 +122,15 @@ type vpnConcentratorState struct {
 	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ID of the transit gateway attachment created for the VPN concentrator.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// ID of the transit gateway to attach the VPN concentrator to.
-	//
-	// The following arguments are optional:
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 	// Type of VPN concentrator. Valid value: `ipsec.1`.
+	//
+	// The following arguments are optional:
 	Type *string `pulumi:"type"`
 	// ID of the VPN Concentrator.
 	VpnConcentratorId *string `pulumi:"vpnConcentratorId"`
@@ -141,15 +141,15 @@ type VpnConcentratorState struct {
 	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// ID of the transit gateway attachment created for the VPN concentrator.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// ID of the transit gateway to attach the VPN concentrator to.
-	//
-	// The following arguments are optional:
 	TransitGatewayId pulumi.StringPtrInput
 	// Type of VPN concentrator. Valid value: `ipsec.1`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringPtrInput
 	// ID of the VPN Concentrator.
 	VpnConcentratorId pulumi.StringPtrInput
@@ -165,10 +165,10 @@ type vpnConcentratorArgs struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the transit gateway to attach the VPN concentrator to.
-	//
-	// The following arguments are optional:
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 	// Type of VPN concentrator. Valid value: `ipsec.1`.
+	//
+	// The following arguments are optional:
 	Type string `pulumi:"type"`
 }
 
@@ -179,10 +179,10 @@ type VpnConcentratorArgs struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// ID of the transit gateway to attach the VPN concentrator to.
-	//
-	// The following arguments are optional:
 	TransitGatewayId pulumi.StringInput
 	// Type of VPN concentrator. Valid value: `ipsec.1`.
+	//
+	// The following arguments are optional:
 	Type pulumi.StringInput
 }
 
@@ -283,7 +283,7 @@ func (o VpnConcentratorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpnConcentrator) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o VpnConcentratorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpnConcentrator) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -294,13 +294,13 @@ func (o VpnConcentratorOutput) TransitGatewayAttachmentId() pulumi.StringOutput 
 }
 
 // ID of the transit gateway to attach the VPN concentrator to.
-//
-// The following arguments are optional:
 func (o VpnConcentratorOutput) TransitGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConcentrator) pulumi.StringOutput { return v.TransitGatewayId }).(pulumi.StringOutput)
 }
 
 // Type of VPN concentrator. Valid value: `ipsec.1`.
+//
+// The following arguments are optional:
 func (o VpnConcentratorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConcentrator) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -45,7 +45,7 @@ public final class GetDevEnvironmentResult {
      */
     private Integer inactivityTimeoutMinutes;
     /**
-     * @return The Amazon EC2 instace type to use for the Dev Environment.
+     * @return The Amazon EC2 instance type to use for the Dev Environment.
      * 
      */
     private String instanceType;
@@ -119,7 +119,7 @@ public final class GetDevEnvironmentResult {
         return this.inactivityTimeoutMinutes;
     }
     /**
-     * @return The Amazon EC2 instace type to use for the Dev Environment.
+     * @return The Amazon EC2 instance type to use for the Dev Environment.
      * 
      */
     public String instanceType() {

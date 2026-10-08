@@ -14,11 +14,11 @@ namespace Pulumi.Aws.VerifiedPermissions.Outputs
     public sealed class PolicyDefinitionTemplateLinkedResource
     {
         /// <summary>
-        /// The entity ID of the resource.
+        /// Entity ID of the resource.
         /// </summary>
         public readonly string EntityId;
         /// <summary>
-        /// The entity type of the resource.
+        /// Entity type of the resource.
         /// </summary>
         public readonly string EntityType;
 

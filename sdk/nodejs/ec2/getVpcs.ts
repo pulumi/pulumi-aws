@@ -78,8 +78,7 @@ export interface GetVpcsArgs {
      */
     region?: string;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired vpcs.
+     * Map of tags, each pair of which must exactly match a pair on the desired vpcs.
      */
     tags?: {[key: string]: string};
 }
@@ -171,8 +170,7 @@ export interface GetVpcsOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired vpcs.
+     * Map of tags, each pair of which must exactly match a pair on the desired vpcs.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

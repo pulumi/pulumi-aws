@@ -33,14 +33,14 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     }
 
     /**
-     * The source IPv4 CIDR range.
+     * Source IPv4 CIDR range.
      * 
      */
     @Import(name="cidrIpv4")
     private @Nullable Output<String> cidrIpv4;
 
     /**
-     * @return The source IPv4 CIDR range.
+     * @return Source IPv4 CIDR range.
      * 
      */
     public Optional<Output<String>> cidrIpv4() {
@@ -48,14 +48,14 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     }
 
     /**
-     * The source IPv6 CIDR range.
+     * Source IPv6 CIDR range.
      * 
      */
     @Import(name="cidrIpv6")
     private @Nullable Output<String> cidrIpv6;
 
     /**
-     * @return The source IPv6 CIDR range.
+     * @return Source IPv6 CIDR range.
      * 
      */
     public Optional<Output<String>> cidrIpv6() {
@@ -63,14 +63,14 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     }
 
     /**
-     * The security group rule description.
+     * Security group rule description.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The security group rule description.
+     * @return Security group rule description.
      * 
      */
     public Optional<Output<String>> description() {
@@ -78,14 +78,14 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     }
 
     /**
-     * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+     * Start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      * 
      */
     @Import(name="fromPort")
     private @Nullable Output<Integer> fromPort;
 
     /**
-     * @return The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+     * @return Start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      * 
      */
     public Optional<Output<Integer>> fromPort() {
@@ -93,14 +93,14 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     }
 
     /**
-     * The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
+     * IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
      * 
      */
     @Import(name="ipProtocol")
     private @Nullable Output<String> ipProtocol;
 
     /**
-     * @return The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
+     * @return IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
      * 
      */
     public Optional<Output<String>> ipProtocol() {
@@ -108,14 +108,14 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the source prefix list.
+     * ID of the source prefix list.
      * 
      */
     @Import(name="prefixListId")
     private @Nullable Output<String> prefixListId;
 
     /**
-     * @return The ID of the source prefix list.
+     * @return ID of the source prefix list.
      * 
      */
     public Optional<Output<String>> prefixListId() {
@@ -123,14 +123,14 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     }
 
     /**
-     * The source security group that is referenced in the rule.
+     * Source security group that is referenced in the rule.
      * 
      */
     @Import(name="referencedSecurityGroupId")
     private @Nullable Output<String> referencedSecurityGroupId;
 
     /**
-     * @return The source security group that is referenced in the rule.
+     * @return Source security group that is referenced in the rule.
      * 
      */
     public Optional<Output<String>> referencedSecurityGroupId() {
@@ -153,14 +153,14 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the security group.
+     * ID of the security group.
      * 
      */
     @Import(name="securityGroupId")
     private @Nullable Output<String> securityGroupId;
 
     /**
-     * @return The ID of the security group.
+     * @return ID of the security group.
      * 
      */
     public Optional<Output<String>> securityGroupId() {
@@ -168,14 +168,14 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the security group rule.
+     * ID of the security group rule.
      * 
      */
     @Import(name="securityGroupRuleId")
     private @Nullable Output<String> securityGroupRuleId;
 
     /**
-     * @return The ID of the security group rule.
+     * @return ID of the security group rule.
      * 
      */
     public Optional<Output<String>> securityGroupRuleId() {
@@ -183,14 +183,14 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -198,14 +198,14 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -213,7 +213,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     }
 
     /**
-     * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     * End of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      * 
      * &gt; **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      * 
@@ -222,7 +222,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     private @Nullable Output<Integer> toPort;
 
     /**
-     * @return The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     * @return End of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      * 
      * &gt; **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      * 
@@ -290,7 +290,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cidrIpv4 The source IPv4 CIDR range.
+         * @param cidrIpv4 Source IPv4 CIDR range.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cidrIpv4 The source IPv4 CIDR range.
+         * @param cidrIpv4 Source IPv4 CIDR range.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cidrIpv6 The source IPv6 CIDR range.
+         * @param cidrIpv6 Source IPv6 CIDR range.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cidrIpv6 The source IPv6 CIDR range.
+         * @param cidrIpv6 Source IPv6 CIDR range.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description The security group rule description.
+         * @param description Security group rule description.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description The security group rule description.
+         * @param description Security group rule description.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fromPort The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+         * @param fromPort Start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fromPort The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+         * @param fromPort Start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipProtocol The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
+         * @param ipProtocol IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipProtocol The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
+         * @param ipProtocol IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param prefixListId The ID of the source prefix list.
+         * @param prefixListId ID of the source prefix list.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param prefixListId The ID of the source prefix list.
+         * @param prefixListId ID of the source prefix list.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param referencedSecurityGroupId The source security group that is referenced in the rule.
+         * @param referencedSecurityGroupId Source security group that is referenced in the rule.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param referencedSecurityGroupId The source security group that is referenced in the rule.
+         * @param referencedSecurityGroupId Source security group that is referenced in the rule.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param securityGroupId The ID of the security group.
+         * @param securityGroupId ID of the security group.
          * 
          * @return builder
          * 
@@ -469,7 +469,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param securityGroupId The ID of the security group.
+         * @param securityGroupId ID of the security group.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param securityGroupRuleId The ID of the security group rule.
+         * @param securityGroupRuleId ID of the security group rule.
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param securityGroupRuleId The ID of the security group rule.
+         * @param securityGroupRuleId ID of the security group rule.
          * 
          * @return builder
          * 
@@ -500,7 +500,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -511,7 +511,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -521,7 +521,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -542,7 +542,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param toPort The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+         * @param toPort End of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
          * 
          * &gt; **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
          * 
@@ -555,7 +555,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param toPort The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+         * @param toPort End of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
          * 
          * &gt; **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
          * 

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
     public sealed class PolicyDefinitionTemplateLinkedPrincipalGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The entity ID of the principal.
+        /// Entity ID of the principal.
         /// </summary>
         [Input("entityId", required: true)]
         public Input<string> EntityId { get; set; } = null!;
 
         /// <summary>
-        /// The entity type of the principal.
+        /// Entity type of the principal.
         /// </summary>
         [Input("entityType", required: true)]
         public Input<string> EntityType { get; set; } = null!;

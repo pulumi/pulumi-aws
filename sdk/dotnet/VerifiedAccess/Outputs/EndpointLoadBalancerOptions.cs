@@ -13,10 +13,25 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     [OutputType]
     public sealed class EndpointLoadBalancerOptions
     {
+        /// <summary>
+        /// ARN of the load balancer.
+        /// </summary>
         public readonly string? LoadBalancerArn;
+        /// <summary>
+        /// IP port number.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// Port ranges. See below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EndpointLoadBalancerOptionsPortRange> PortRanges;
+        /// <summary>
+        /// IP protocol.
+        /// </summary>
         public readonly string? Protocol;
+        /// <summary>
+        /// IDs of the subnets.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]

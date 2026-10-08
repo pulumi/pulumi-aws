@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_image_version import *
 from .image import *
 from .microvm import *
 from ._inputs import *

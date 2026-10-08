@@ -18,14 +18,14 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
     public static final InstanceLoggingConfigurationAccessLogsS3Args Empty = new InstanceLoggingConfigurationAccessLogsS3Args();
 
     /**
-     * The name of S3 bucket.
+     * Name of S3 bucket.
      * 
      */
     @Import(name="bucketName")
     private @Nullable Output<String> bucketName;
 
     /**
-     * @return The name of S3 bucket.
+     * @return Name of S3 bucket.
      * 
      */
     public Optional<Output<String>> bucketName() {
@@ -33,14 +33,14 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
     }
 
     /**
-     * The ID of the AWS account that owns the Amazon S3 bucket.
+     * ID of the AWS account that owns the Amazon S3 bucket.
      * 
      */
     @Import(name="bucketOwner")
     private @Nullable Output<String> bucketOwner;
 
     /**
-     * @return The ID of the AWS account that owns the Amazon S3 bucket.
+     * @return ID of the AWS account that owns the Amazon S3 bucket.
      * 
      */
     public Optional<Output<String>> bucketOwner() {
@@ -48,14 +48,14 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
     }
 
     /**
-     * Indicates whether logging is enabled.
+     * Whether logging is enabled.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether logging is enabled.
+     * @return Whether logging is enabled.
      * 
      */
     public Output<Boolean> enabled() {
@@ -63,14 +63,14 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
     }
 
     /**
-     * The bucket prefix.
+     * Bucket prefix.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return The bucket prefix.
+     * @return Bucket prefix.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -105,7 +105,7 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
         }
 
         /**
-         * @param bucketName The name of S3 bucket.
+         * @param bucketName Name of S3 bucket.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
         }
 
         /**
-         * @param bucketName The name of S3 bucket.
+         * @param bucketName Name of S3 bucket.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
         }
 
         /**
-         * @param bucketOwner The ID of the AWS account that owns the Amazon S3 bucket.
+         * @param bucketOwner ID of the AWS account that owns the Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
         }
 
         /**
-         * @param bucketOwner The ID of the AWS account that owns the Amazon S3 bucket.
+         * @param bucketOwner ID of the AWS account that owns the Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
         }
 
         /**
-         * @param enabled Indicates whether logging is enabled.
+         * @param enabled Whether logging is enabled.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
         }
 
         /**
-         * @param enabled Indicates whether logging is enabled.
+         * @param enabled Whether logging is enabled.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
         }
 
         /**
-         * @param prefix The bucket prefix.
+         * @param prefix Bucket prefix.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class InstanceLoggingConfigurationAccessLogsS3Args extends com.pulu
         }
 
         /**
-         * @param prefix The bucket prefix.
+         * @param prefix Bucket prefix.
          * 
          * @return builder
          * 

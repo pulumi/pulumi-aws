@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcIpamsIpamOperatingRegion {
+    /**
+     * @return Name of the Region.
+     * 
+     */
     private String regionName;
 
     private GetVpcIpamsIpamOperatingRegion() {}
+    /**
+     * @return Name of the Region.
+     * 
+     */
     public String regionName() {
         return this.regionName;
     }

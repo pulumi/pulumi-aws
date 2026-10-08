@@ -18,14 +18,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     public static final SchemaArgs Empty = new SchemaArgs();
 
     /**
-     * The definition of the schema.
+     * Definition of the schema. See Definition below.
      * 
      */
     @Import(name="definition", required=true)
     private Output<SchemaDefinitionArgs> definition;
 
     /**
-     * @return The definition of the schema.
+     * @return Definition of the schema. See Definition below.
      * 
      */
     public Output<SchemaDefinitionArgs> definition() {
@@ -33,14 +33,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      * 
      */
     @Import(name="policyStoreId", required=true)
     private Output<String> policyStoreId;
 
     /**
-     * @return The ID of the Policy Store.
+     * @return ID of the Policy Store.
      * 
      */
     public Output<String> policyStoreId() {
@@ -89,7 +89,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The definition of the schema.
+         * @param definition Definition of the schema. See Definition below.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param definition The definition of the schema.
+         * @param definition Definition of the schema. See Definition below.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyStoreId The ID of the Policy Store.
+         * @param policyStoreId ID of the Policy Store.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyStoreId The ID of the Policy Store.
+         * @param policyStoreId ID of the Policy Store.
          * 
          * @return builder
          * 

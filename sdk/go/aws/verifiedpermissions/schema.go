@@ -67,11 +67,11 @@ import (
 type Schema struct {
 	pulumi.CustomResourceState
 
-	// The definition of the schema.
+	// Definition of the schema. See Definition below.
 	Definition SchemaDefinitionOutput `pulumi:"definition"`
-	// (Optional) Identifies the namespaces of the entities referenced by this schema.
+	// Namespaces of the entities referenced by this schema.
 	Namespaces pulumi.StringArrayOutput `pulumi:"namespaces"`
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -113,22 +113,22 @@ func GetSchema(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schema resources.
 type schemaState struct {
-	// The definition of the schema.
+	// Definition of the schema. See Definition below.
 	Definition *SchemaDefinition `pulumi:"definition"`
-	// (Optional) Identifies the namespaces of the entities referenced by this schema.
+	// Namespaces of the entities referenced by this schema.
 	Namespaces []string `pulumi:"namespaces"`
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId *string `pulumi:"policyStoreId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type SchemaState struct {
-	// The definition of the schema.
+	// Definition of the schema. See Definition below.
 	Definition SchemaDefinitionPtrInput
-	// (Optional) Identifies the namespaces of the entities referenced by this schema.
+	// Namespaces of the entities referenced by this schema.
 	Namespaces pulumi.StringArrayInput
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -139,9 +139,9 @@ func (SchemaState) ElementType() reflect.Type {
 }
 
 type schemaArgs struct {
-	// The definition of the schema.
+	// Definition of the schema. See Definition below.
 	Definition SchemaDefinition `pulumi:"definition"`
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId string `pulumi:"policyStoreId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -149,9 +149,9 @@ type schemaArgs struct {
 
 // The set of arguments for constructing a Schema resource.
 type SchemaArgs struct {
-	// The definition of the schema.
+	// Definition of the schema. See Definition below.
 	Definition SchemaDefinitionInput
-	// The ID of the Policy Store.
+	// ID of the Policy Store.
 	PolicyStoreId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -244,17 +244,17 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 	return o
 }
 
-// The definition of the schema.
+// Definition of the schema. See Definition below.
 func (o SchemaOutput) Definition() SchemaDefinitionOutput {
 	return o.ApplyT(func(v *Schema) SchemaDefinitionOutput { return v.Definition }).(SchemaDefinitionOutput)
 }
 
-// (Optional) Identifies the namespaces of the entities referenced by this schema.
+// Namespaces of the entities referenced by this schema.
 func (o SchemaOutput) Namespaces() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringArrayOutput { return v.Namespaces }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the Policy Store.
+// ID of the Policy Store.
 func (o SchemaOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
 }

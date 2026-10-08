@@ -73,8 +73,7 @@ export interface GetVpcEndpointArgs {
      */
     state?: string;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the specific VPC Endpoint to retrieve.
+     * Map of tags, each pair of which must exactly match a pair on the specific VPC Endpoint to retrieve.
      */
     tags?: {[key: string]: string};
     /**
@@ -83,9 +82,6 @@ export interface GetVpcEndpointArgs {
     vpcEndpointType?: string;
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
-     *
-     * The arguments of this data source act as filters for querying the available VPC endpoints.
-     * The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
      */
     vpcId?: string;
 }
@@ -112,6 +108,9 @@ export interface GetVpcEndpointResult {
     readonly dnsOptions: outputs.ec2.GetVpcEndpointDnsOption[];
     readonly filters?: outputs.ec2.GetVpcEndpointFilter[];
     readonly id: string;
+    /**
+     * IP address type for the VPC Endpoint.
+     */
     readonly ipAddressType: string;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
@@ -223,8 +222,7 @@ export interface GetVpcEndpointOutputArgs {
      */
     state?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the specific VPC Endpoint to retrieve.
+     * Map of tags, each pair of which must exactly match a pair on the specific VPC Endpoint to retrieve.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -233,9 +231,6 @@ export interface GetVpcEndpointOutputArgs {
     vpcEndpointType?: pulumi.Input<string | undefined>;
     /**
      * ID of the VPC in which the specific VPC Endpoint is used.
-     *
-     * The arguments of this data source act as filters for querying the available VPC endpoints.
-     * The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }

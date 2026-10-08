@@ -72,7 +72,7 @@ def get_db_servers(cloud_exadata_infrastructure_id: Optional[_builtins.str] = No
                    region: Optional[_builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDbServersResult:
     """
-    Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
+    Data source for managing db servers linked to exadata infrastructure of Oracle Database@AWS.
 
     You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
 
@@ -107,7 +107,7 @@ def get_db_servers_output(cloud_exadata_infrastructure_id: pulumi.Input[Optional
                           region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbServersResult]:
     """
-    Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
+    Data source for managing db servers linked to exadata infrastructure of Oracle Database@AWS.
 
     You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
 

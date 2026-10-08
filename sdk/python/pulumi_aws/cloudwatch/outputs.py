@@ -5145,7 +5145,7 @@ class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult(
                  name: _builtins.str,
                  regex: _builtins.str):
         """
-        :param _builtins.str name: Name of the custom data idenfitier
+        :param _builtins.str name: Name of the custom data identifier
         :param _builtins.str regex: Regular expression to match sensitive data
         """
         pulumi.set(__self__, "name", name)
@@ -5155,7 +5155,7 @@ class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult(
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the custom data idenfitier
+        Name of the custom data identifier
         """
         return pulumi.get(self, "name")
 

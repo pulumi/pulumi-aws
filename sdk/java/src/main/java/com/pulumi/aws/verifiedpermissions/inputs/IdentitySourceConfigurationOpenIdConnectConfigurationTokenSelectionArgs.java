@@ -17,14 +17,14 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
     public static final IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs Empty = new IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs();
 
     /**
-     * The OIDC configuration for processing access tokens. See Access Token Only below.
+     * OIDC configuration for processing access tokens. See Access Token Only below.
      * 
      */
     @Import(name="accessTokenOnly")
     private @Nullable Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs> accessTokenOnly;
 
     /**
-     * @return The OIDC configuration for processing access tokens. See Access Token Only below.
+     * @return OIDC configuration for processing access tokens. See Access Token Only below.
      * 
      */
     public Optional<Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs>> accessTokenOnly() {
@@ -32,14 +32,14 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
     }
 
     /**
-     * The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+     * OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
      * 
      */
     @Import(name="identityTokenOnly")
     private @Nullable Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs> identityTokenOnly;
 
     /**
-     * @return The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+     * @return OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
      * 
      */
     public Optional<Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs>> identityTokenOnly() {
@@ -72,7 +72,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param accessTokenOnly The OIDC configuration for processing access tokens. See Access Token Only below.
+         * @param accessTokenOnly OIDC configuration for processing access tokens. See Access Token Only below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param accessTokenOnly The OIDC configuration for processing access tokens. See Access Token Only below.
+         * @param accessTokenOnly OIDC configuration for processing access tokens. See Access Token Only below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param identityTokenOnly The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+         * @param identityTokenOnly OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param identityTokenOnly The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+         * @param identityTokenOnly OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
          * 
          * @return builder
          * 

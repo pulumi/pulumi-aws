@@ -183,7 +183,7 @@ import * as utilities from "../utilities";
  *         "db.m6i.large",
  *     ],
  * }));
- * // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+ * // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default parameter group as a source, and set license information.
  * const exampleParameterGroup = new aws.rds.ParameterGroup("example", {
  *     parameters: [
  *         {
@@ -546,7 +546,7 @@ export class Instance extends pulumi.CustomResource {
      */
     declare public readonly licenseModel: pulumi.Output<string>;
     /**
-     * Listener connection endpoint for SQL Server Always On. See Endpoint below.
+     * Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
      */
     declare public /*out*/ readonly listenerEndpoints: pulumi.Output<outputs.rds.InstanceListenerEndpoint[]>;
     /**
@@ -1094,7 +1094,7 @@ export interface InstanceState {
      */
     licenseModel?: pulumi.Input<string | undefined>;
     /**
-     * Listener connection endpoint for SQL Server Always On. See Endpoint below.
+     * Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
      */
     listenerEndpoints?: pulumi.Input<pulumi.Input<inputs.rds.InstanceListenerEndpoint>[] | undefined>;
     /**

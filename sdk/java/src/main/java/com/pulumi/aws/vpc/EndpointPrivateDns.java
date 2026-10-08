@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpc/endpointPrivateDns:EndpointPrivateDns")
 public class EndpointPrivateDns extends com.pulumi.resources.CustomResource {
     /**
-     * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+     * Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
      * 
      */
     @Export(name="privateDnsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> privateDnsEnabled;
 
     /**
-     * @return Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+     * @return Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
      * 
      */
     public Output<Boolean> privateDnsEnabled() {

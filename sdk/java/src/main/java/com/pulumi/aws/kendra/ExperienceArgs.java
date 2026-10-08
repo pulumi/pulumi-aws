@@ -18,14 +18,14 @@ public final class ExperienceArgs extends com.pulumi.resources.ResourceArgs {
     public static final ExperienceArgs Empty = new ExperienceArgs();
 
     /**
-     * Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<ExperienceConfigurationArgs> configuration;
 
     /**
-     * @return Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+     * @return Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
     public Optional<Output<ExperienceConfigurationArgs>> configuration() {
@@ -145,7 +145,7 @@ public final class ExperienceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+         * @param configuration Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ExperienceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+         * @param configuration Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
          * 
          * @return builder
          * 

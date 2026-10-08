@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class GetVpcIpamOperatingRegionResult
     {
+        /// <summary>
+        /// Name of the Region.
+        /// </summary>
         public readonly string RegionName;
 
         [OutputConstructor]

@@ -244,6 +244,10 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
      */
     declare public readonly networkConfiguration: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeNetworkConfiguration>;
     /**
+     * Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+     */
+    declare public readonly platformVersion: pulumi.Output<string>;
+    /**
      * Protocol configuration for the agent runtime. See `protocolConfiguration` below.
      */
     declare public readonly protocolConfiguration: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeProtocolConfiguration | undefined>;
@@ -299,6 +303,7 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
             resourceInputs["filesystemConfigurations"] = state?.filesystemConfigurations;
             resourceInputs["lifecycleConfigurations"] = state?.lifecycleConfigurations;
             resourceInputs["networkConfiguration"] = state?.networkConfiguration;
+            resourceInputs["platformVersion"] = state?.platformVersion;
             resourceInputs["protocolConfiguration"] = state?.protocolConfiguration;
             resourceInputs["region"] = state?.region;
             resourceInputs["requestHeaderConfiguration"] = state?.requestHeaderConfiguration;
@@ -329,6 +334,7 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
             resourceInputs["filesystemConfigurations"] = args?.filesystemConfigurations;
             resourceInputs["lifecycleConfigurations"] = args?.lifecycleConfigurations;
             resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["platformVersion"] = args?.platformVersion;
             resourceInputs["protocolConfiguration"] = args?.protocolConfiguration;
             resourceInputs["region"] = args?.region;
             resourceInputs["requestHeaderConfiguration"] = args?.requestHeaderConfiguration;
@@ -394,6 +400,10 @@ export interface AgentcoreAgentRuntimeState {
      * Network configuration for the agent runtime. See `networkConfiguration` below.
      */
     networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeNetworkConfiguration | undefined>;
+    /**
+     * Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+     */
+    platformVersion?: pulumi.Input<string | undefined>;
     /**
      * Protocol configuration for the agent runtime. See `protocolConfiguration` below.
      */
@@ -463,6 +473,10 @@ export interface AgentcoreAgentRuntimeArgs {
      * Network configuration for the agent runtime. See `networkConfiguration` below.
      */
     networkConfiguration: pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeNetworkConfiguration>;
+    /**
+     * Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+     */
+    platformVersion?: pulumi.Input<string | undefined>;
     /**
      * Protocol configuration for the agent runtime. See `protocolConfiguration` below.
      */

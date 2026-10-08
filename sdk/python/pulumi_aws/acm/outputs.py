@@ -122,7 +122,7 @@ class CertificateOptions(dict):
                  certificate_transparency_logging_preference: Optional[_builtins.str] = None,
                  export: Optional[_builtins.str] = None):
         """
-        :param _builtins.str certificate_transparency_logging_preference: Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+        :param _builtins.str certificate_transparency_logging_preference: Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details. This argument applies to Amazon-issued and private CA certificates. It **conflicts with** `private_key` / `private_key_wo`, so it cannot be set on imported certificates. Imported certificates are not managed by ACM issuance, so ACM does not control their certificate transparency logging.
         :param _builtins.str export: Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
         """
         if certificate_transparency_logging_preference is not None:
@@ -134,7 +134,7 @@ class CertificateOptions(dict):
     @pulumi.getter(name="certificateTransparencyLoggingPreference")
     def certificate_transparency_logging_preference(self) -> Optional[_builtins.str]:
         """
-        Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+        Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details. This argument applies to Amazon-issued and private CA certificates. It **conflicts with** `private_key` / `private_key_wo`, so it cannot be set on imported certificates. Imported certificates are not managed by ACM issuance, so ACM does not control their certificate transparency logging.
         """
         return pulumi.get(self, "certificate_transparency_logging_preference")
 

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArgs>? _insertHeaders;
 
         /// <summary>
-        /// The `InsertHeader` blocks used to define HTTP headers added to the request. See `InsertHeader` below for details.
+        /// `InsertHeader` blocks used to define HTTP headers added to the request. See `InsertHeader` below for details.
         /// </summary>
         public InputList<Inputs.WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArgs> InsertHeaders
         {

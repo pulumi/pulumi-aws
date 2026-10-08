@@ -72,15 +72,11 @@ type LookupVpcEndpointArgs struct {
 	ServiceRegion *string `pulumi:"serviceRegion"`
 	// State of the specific VPC Endpoint to retrieve.
 	State *string `pulumi:"state"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the specific VPC Endpoint to retrieve.
+	// Map of tags, each pair of which must exactly match a pair on the specific VPC Endpoint to retrieve.
 	Tags map[string]string `pulumi:"tags"`
 	// VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
 	VpcEndpointType *string `pulumi:"vpcEndpointType"`
 	// ID of the VPC in which the specific VPC Endpoint is used.
-	//
-	// The arguments of this data source act as filters for querying the available VPC endpoints.
-	// The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -93,10 +89,11 @@ type LookupVpcEndpointResult struct {
 	// DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS entry blocks are documented below.
 	DnsEntries []GetVpcEndpointDnsEntry `pulumi:"dnsEntries"`
 	// DNS options for the VPC Endpoint. DNS options blocks are documented below.
-	DnsOptions    []GetVpcEndpointDnsOption `pulumi:"dnsOptions"`
-	Filters       []GetVpcEndpointFilter    `pulumi:"filters"`
-	Id            string                    `pulumi:"id"`
-	IpAddressType string                    `pulumi:"ipAddressType"`
+	DnsOptions []GetVpcEndpointDnsOption `pulumi:"dnsOptions"`
+	Filters    []GetVpcEndpointFilter    `pulumi:"filters"`
+	Id         string                    `pulumi:"id"`
+	// IP address type for the VPC Endpoint.
+	IpAddressType string `pulumi:"ipAddressType"`
 	// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// ID of the AWS account that owns the VPC endpoint.
@@ -143,15 +140,11 @@ type LookupVpcEndpointOutputArgs struct {
 	ServiceRegion pulumi.StringPtrInput `pulumi:"serviceRegion"`
 	// State of the specific VPC Endpoint to retrieve.
 	State pulumi.StringPtrInput `pulumi:"state"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the specific VPC Endpoint to retrieve.
+	// Map of tags, each pair of which must exactly match a pair on the specific VPC Endpoint to retrieve.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// VPC Endpoint type. Valid values are `Interface`, `Gateway`, `GatewayLoadBalancer`, `Resource`, and `ServiceNetwork`.
 	VpcEndpointType pulumi.StringPtrInput `pulumi:"vpcEndpointType"`
 	// ID of the VPC in which the specific VPC Endpoint is used.
-	//
-	// The arguments of this data source act as filters for querying the available VPC endpoints.
-	// The given filters must match exactly one VPC endpoint whose data will be exported as attributes.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
@@ -202,6 +195,7 @@ func (o LookupVpcEndpointResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// IP address type for the VPC Endpoint.
 func (o LookupVpcEndpointResultOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.IpAddressType }).(pulumi.StringOutput)
 }

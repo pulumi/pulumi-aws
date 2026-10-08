@@ -74,7 +74,7 @@ export class RepositoryAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly connectionArn: pulumi.Output<string>;
     /**
-     * An object describing the KMS key to asssociate. Block is documented below.
+     * An object describing the KMS key to associate. Block is documented below.
      */
     declare public readonly kmsKeyDetails: pulumi.Output<outputs.codegurureviewer.RepositoryAssociationKmsKeyDetails | undefined>;
     /**
@@ -180,7 +180,7 @@ export interface RepositoryAssociationState {
      */
     connectionArn?: pulumi.Input<string | undefined>;
     /**
-     * An object describing the KMS key to asssociate. Block is documented below.
+     * An object describing the KMS key to associate. Block is documented below.
      */
     kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface RepositoryAssociationState {
  */
 export interface RepositoryAssociationArgs {
     /**
-     * An object describing the KMS key to asssociate. Block is documented below.
+     * An object describing the KMS key to associate. Block is documented below.
      */
     kmsKeyDetails?: pulumi.Input<inputs.codegurureviewer.RepositoryAssociationKmsKeyDetails | undefined>;
     /**

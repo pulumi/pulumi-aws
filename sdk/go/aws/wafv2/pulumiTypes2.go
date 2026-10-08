@@ -4074,7 +4074,7 @@ func (o WebAclRuleVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.Boo
 type WebAclVisibilityConfig struct {
 	// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
 	CloudwatchMetricsEnabled bool `pulumi:"cloudwatchMetricsEnabled"`
-	// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+	// Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 	MetricName string `pulumi:"metricName"`
 	// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 	SampledRequestsEnabled bool `pulumi:"sampledRequestsEnabled"`
@@ -4094,7 +4094,7 @@ type WebAclVisibilityConfigInput interface {
 type WebAclVisibilityConfigArgs struct {
 	// Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
 	CloudwatchMetricsEnabled pulumi.BoolInput `pulumi:"cloudwatchMetricsEnabled"`
-	// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+	// Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
 	SampledRequestsEnabled pulumi.BoolInput `pulumi:"sampledRequestsEnabled"`
@@ -4182,7 +4182,7 @@ func (o WebAclVisibilityConfigOutput) CloudwatchMetricsEnabled() pulumi.BoolOutp
 	return o.ApplyT(func(v WebAclVisibilityConfig) bool { return v.CloudwatchMetricsEnabled }).(pulumi.BoolOutput)
 }
 
-// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+// Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 func (o WebAclVisibilityConfigOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclVisibilityConfig) string { return v.MetricName }).(pulumi.StringOutput)
 }
@@ -4226,7 +4226,7 @@ func (o WebAclVisibilityConfigPtrOutput) CloudwatchMetricsEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+// Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
 func (o WebAclVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclVisibilityConfig) *string {
 		if v == nil {

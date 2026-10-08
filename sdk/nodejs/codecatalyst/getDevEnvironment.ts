@@ -100,7 +100,7 @@ export interface GetDevEnvironmentResult {
      */
     readonly inactivityTimeoutMinutes: number;
     /**
-     * The Amazon EC2 instace type to use for the Dev Environment.
+     * The Amazon EC2 instance type to use for the Dev Environment.
      */
     readonly instanceType: string;
     /**

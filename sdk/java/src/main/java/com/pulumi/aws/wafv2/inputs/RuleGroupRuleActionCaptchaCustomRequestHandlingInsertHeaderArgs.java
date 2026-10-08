@@ -15,14 +15,14 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderAr
     public static final RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs Empty = new RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs();
 
     /**
-     * A friendly name of the rule group.
+     * Friendly name of the rule group.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A friendly name of the rule group.
+     * @return Friendly name of the rule group.
      * 
      */
     public Output<String> name() {
@@ -30,14 +30,14 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderAr
     }
 
     /**
-     * The value of the custom header.
+     * Value of the custom header.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value of the custom header.
+     * @return Value of the custom header.
      * 
      */
     public Output<String> value() {
@@ -70,7 +70,7 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderAr
         }
 
         /**
-         * @param name A friendly name of the rule group.
+         * @param name Friendly name of the rule group.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderAr
         }
 
         /**
-         * @param name A friendly name of the rule group.
+         * @param name Friendly name of the rule group.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderAr
         }
 
         /**
-         * @param value The value of the custom header.
+         * @param value Value of the custom header.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderAr
         }
 
         /**
-         * @param value The value of the custom header.
+         * @param value Value of the custom header.
          * 
          * @return builder
          * 

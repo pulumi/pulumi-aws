@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id:policy_template_id`. For example:
+ * Using `pulumi import`, import Verified Permissions Policy Template using the `policy_store_id:policy_template_id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:verifiedpermissions/policyTemplate:PolicyTemplate")
 public class PolicyTemplate extends com.pulumi.resources.CustomResource {
     /**
-     * The date the Policy Store was created.
+     * Date the policy template was created.
      * 
      */
     @Export(name="createdDate", refs={String.class}, tree="[0]")
     private Output<String> createdDate;
 
     /**
-     * @return The date the Policy Store was created.
+     * @return Date the policy template was created.
      * 
      */
     public Output<String> createdDate() {
@@ -93,28 +93,28 @@ public class PolicyTemplate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      * 
      */
     @Export(name="policyStoreId", refs={String.class}, tree="[0]")
     private Output<String> policyStoreId;
 
     /**
-     * @return The ID of the Policy Store.
+     * @return ID of the Policy Store.
      * 
      */
     public Output<String> policyStoreId() {
         return this.policyStoreId;
     }
     /**
-     * The ID of the Policy Store.
+     * ID of the policy template.
      * 
      */
     @Export(name="policyTemplateId", refs={String.class}, tree="[0]")
     private Output<String> policyTemplateId;
 
     /**
-     * @return The ID of the Policy Store.
+     * @return ID of the policy template.
      * 
      */
     public Output<String> policyTemplateId() {
@@ -135,7 +135,7 @@ public class PolicyTemplate extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Defines the content of the statement, written in Cedar policy language.
+     * Content of the statement, written in Cedar policy language.
      * 
      * The following arguments are optional:
      * 
@@ -144,7 +144,7 @@ public class PolicyTemplate extends com.pulumi.resources.CustomResource {
     private Output<String> statement;
 
     /**
-     * @return Defines the content of the statement, written in Cedar policy language.
+     * @return Content of the statement, written in Cedar policy language.
      * 
      * The following arguments are optional:
      * 

@@ -13,49 +13,49 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class VpcEncryptionControlResourceExclusionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Egress-Only Internet Gateways.
+        /// Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
         /// </summary>
         [Input("egressOnlyInternetGateway", required: true)]
         public Input<Inputs.VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayGetArgs> EgressOnlyInternetGateway { get; set; } = null!;
 
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Elastic File System (EFS).
+        /// Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
         /// </summary>
         [Input("elasticFileSystem", required: true)]
         public Input<Inputs.VpcEncryptionControlResourceExclusionsElasticFileSystemGetArgs> ElasticFileSystem { get; set; } = null!;
 
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Internet Gateways.
+        /// Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
         /// </summary>
         [Input("internetGateway", required: true)]
         public Input<Inputs.VpcEncryptionControlResourceExclusionsInternetGatewayGetArgs> InternetGateway { get; set; } = null!;
 
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Lambda Functions.
+        /// Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
         /// </summary>
         [Input("lambda", required: true)]
         public Input<Inputs.VpcEncryptionControlResourceExclusionsLambdaGetArgs> Lambda { get; set; } = null!;
 
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for NAT Gateways.
+        /// Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
         /// </summary>
         [Input("natGateway", required: true)]
         public Input<Inputs.VpcEncryptionControlResourceExclusionsNatGatewayGetArgs> NatGateway { get; set; } = null!;
 
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for Virtual Private Gateways.
+        /// Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
         /// </summary>
         [Input("virtualPrivateGateway", required: true)]
         public Input<Inputs.VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayGetArgs> VirtualPrivateGateway { get; set; } = null!;
 
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for VPC Lattice.
+        /// Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
         /// </summary>
         [Input("vpcLattice", required: true)]
         public Input<Inputs.VpcEncryptionControlResourceExclusionsVpcLatticeGetArgs> VpcLattice { get; set; } = null!;
 
         /// <summary>
-        /// `State` and `StateMessage` describing encryption enforcement state for peered VPCs.
+        /// Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
         /// </summary>
         [Input("vpcPeering", required: true)]
         public Input<Inputs.VpcEncryptionControlResourceExclusionsVpcPeeringGetArgs> VpcPeering { get; set; } = null!;

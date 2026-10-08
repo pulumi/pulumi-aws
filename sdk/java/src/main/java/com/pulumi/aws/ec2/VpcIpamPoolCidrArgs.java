@@ -19,14 +19,14 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
     public static final VpcIpamPoolCidrArgs Empty = new VpcIpamPoolCidrArgs();
 
     /**
-     * The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
+     * CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
      * 
      */
     @Import(name="cidr")
     private @Nullable Output<String> cidr;
 
     /**
-     * @return The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
+     * @return CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
      * 
      */
     public Optional<Output<String>> cidr() {
@@ -34,14 +34,14 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+     * Signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
      * 
      */
     @Import(name="cidrAuthorizationContext")
     private @Nullable Output<VpcIpamPoolCidrCidrAuthorizationContextArgs> cidrAuthorizationContext;
 
     /**
-     * @return A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+     * @return Signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
      * 
      */
     public Optional<Output<VpcIpamPoolCidrCidrAuthorizationContextArgs>> cidrAuthorizationContext() {
@@ -49,14 +49,14 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID of the pool to which you want to assign a CIDR.
+     * ID of the pool to which you want to assign a CIDR.
      * 
      */
     @Import(name="ipamPoolId", required=true)
     private Output<String> ipamPoolId;
 
     /**
-     * @return The ID of the pool to which you want to assign a CIDR.
+     * @return ID of the pool to which you want to assign a CIDR.
      * 
      */
     public Output<String> ipamPoolId() {
@@ -122,7 +122,7 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cidr The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
+         * @param cidr CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cidr The CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
+         * @param cidr CIDR you want to assign to the pool. Conflicts with `netmaskLength`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cidrAuthorizationContext A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+         * @param cidrAuthorizationContext Signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param cidrAuthorizationContext A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
+         * @param cidrAuthorizationContext Signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP. This is not stored in the state file. See cidrAuthorizationContext for more information.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
+         * @param ipamPoolId ID of the pool to which you want to assign a CIDR.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class VpcIpamPoolCidrArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
+         * @param ipamPoolId ID of the pool to which you want to assign a CIDR.
          * 
          * @return builder
          * 

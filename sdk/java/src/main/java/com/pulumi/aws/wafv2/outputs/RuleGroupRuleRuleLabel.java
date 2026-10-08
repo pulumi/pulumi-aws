@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleRuleLabel {
     /**
-     * @return The label string.
+     * @return Label string.
      * 
      */
     private String name;
 
     private RuleGroupRuleRuleLabel() {}
     /**
-     * @return The label string.
+     * @return Label string.
      * 
      */
     public String name() {

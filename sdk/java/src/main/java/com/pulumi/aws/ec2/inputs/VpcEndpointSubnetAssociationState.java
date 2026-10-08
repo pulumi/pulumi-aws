@@ -31,14 +31,14 @@ public final class VpcEndpointSubnetAssociationState extends com.pulumi.resource
     }
 
     /**
-     * The ID of the subnet to be associated with the VPC endpoint.
+     * ID of the subnet to be associated with the VPC endpoint.
      * 
      */
     @Import(name="subnetId")
     private @Nullable Output<String> subnetId;
 
     /**
-     * @return The ID of the subnet to be associated with the VPC endpoint.
+     * @return ID of the subnet to be associated with the VPC endpoint.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -46,14 +46,14 @@ public final class VpcEndpointSubnetAssociationState extends com.pulumi.resource
     }
 
     /**
-     * The ID of the VPC endpoint with which the subnet will be associated.
+     * ID of the VPC endpoint with which the subnet will be associated.
      * 
      */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
     /**
-     * @return The ID of the VPC endpoint with which the subnet will be associated.
+     * @return ID of the VPC endpoint with which the subnet will be associated.
      * 
      */
     public Optional<Output<String>> vpcEndpointId() {
@@ -108,7 +108,7 @@ public final class VpcEndpointSubnetAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param subnetId The ID of the subnet to be associated with the VPC endpoint.
+         * @param subnetId ID of the subnet to be associated with the VPC endpoint.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class VpcEndpointSubnetAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param subnetId The ID of the subnet to be associated with the VPC endpoint.
+         * @param subnetId ID of the subnet to be associated with the VPC endpoint.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class VpcEndpointSubnetAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param vpcEndpointId The ID of the VPC endpoint with which the subnet will be associated.
+         * @param vpcEndpointId ID of the VPC endpoint with which the subnet will be associated.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class VpcEndpointSubnetAssociationState extends com.pulumi.resource
         }
 
         /**
-         * @param vpcEndpointId The ID of the VPC endpoint with which the subnet will be associated.
+         * @param vpcEndpointId ID of the VPC endpoint with which the subnet will be associated.
          * 
          * @return builder
          * 

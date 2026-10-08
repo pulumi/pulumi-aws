@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.StreamStreamModeDetailsArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
@@ -60,8 +61,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Stream("example", StreamArgs.builder()
+ *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
+ *                 .streamMode("ON_DEMAND")
+ *                 .build())
  *             .name("example")
- *             .shardCount(2)
  *             .build());
  * 
  *         final var mediaPipelinesAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()

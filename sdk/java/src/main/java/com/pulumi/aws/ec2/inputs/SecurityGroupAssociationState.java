@@ -47,14 +47,14 @@ public final class SecurityGroupAssociationState extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the security group to be associated with the VPC endpoint.
+     * ID of the security group to be associated with the VPC endpoint.
      * 
      */
     @Import(name="securityGroupId")
     private @Nullable Output<String> securityGroupId;
 
     /**
-     * @return The ID of the security group to be associated with the VPC endpoint.
+     * @return ID of the security group to be associated with the VPC endpoint.
      * 
      */
     public Optional<Output<String>> securityGroupId() {
@@ -62,14 +62,14 @@ public final class SecurityGroupAssociationState extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the VPC endpoint with which the security group will be associated.
+     * ID of the VPC endpoint with which the security group will be associated.
      * 
      */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
     /**
-     * @return The ID of the VPC endpoint with which the security group will be associated.
+     * @return ID of the VPC endpoint with which the security group will be associated.
      * 
      */
     public Optional<Output<String>> vpcEndpointId() {
@@ -146,7 +146,7 @@ public final class SecurityGroupAssociationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param securityGroupId The ID of the security group to be associated with the VPC endpoint.
+         * @param securityGroupId ID of the security group to be associated with the VPC endpoint.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class SecurityGroupAssociationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param securityGroupId The ID of the security group to be associated with the VPC endpoint.
+         * @param securityGroupId ID of the security group to be associated with the VPC endpoint.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class SecurityGroupAssociationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vpcEndpointId The ID of the VPC endpoint with which the security group will be associated.
+         * @param vpcEndpointId ID of the VPC endpoint with which the security group will be associated.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class SecurityGroupAssociationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vpcEndpointId The ID of the VPC endpoint with which the security group will be associated.
+         * @param vpcEndpointId ID of the VPC endpoint with which the security group will be associated.
          * 
          * @return builder
          * 

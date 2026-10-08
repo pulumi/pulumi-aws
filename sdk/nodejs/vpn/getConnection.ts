@@ -104,11 +104,11 @@ export interface GetConnectionResult {
     readonly preSharedKeyArn: string;
     readonly region: string;
     /**
-     * List of static routes associated with the VPN connection.
+     * List of static routes associated with the VPN connection. See below.
      */
     readonly routes: outputs.vpn.GetConnectionRoute[];
     /**
-     * Current state of the VPN connection.
+     * Current state of the static route.
      */
     readonly state: string;
     /**
@@ -124,7 +124,7 @@ export interface GetConnectionResult {
      */
     readonly type: string;
     /**
-     * List of objects containing information about the VPN tunnel.
+     * List of objects containing information about the VPN tunnel. See below.
      */
     readonly vgwTelemetries: outputs.vpn.GetConnectionVgwTelemetry[];
     /**

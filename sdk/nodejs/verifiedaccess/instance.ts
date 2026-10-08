@@ -81,25 +81,28 @@ export class Instance extends pulumi.CustomResource {
     }
 
     /**
-     * The custom subdomain for the CIDR endpoints.
+     * Custom subdomain for the CIDR endpoints.
      */
     declare public readonly cidrEndpointsCustomSubdomain: pulumi.Output<string | undefined>;
     /**
-     * The time that the Verified Access Instance was created.
+     * Time that the Verified Access Instance was created.
      */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
-     * A description for the AWS Verified Access Instance.
+     * Description for the AWS Verified Access Instance.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      */
     declare public readonly fipsEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * The time that the Verified Access Instance was last updated.
+     * Time that the Verified Access Instance was last updated.
      */
     declare public /*out*/ readonly lastUpdatedTime: pulumi.Output<string>;
+    /**
+     * List of DNS names servers that clients can use to connect to the Verified Access Instance.
+     */
     declare public /*out*/ readonly nameServers: pulumi.Output<string[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -111,7 +114,7 @@ export class Instance extends pulumi.CustomResource {
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+     * One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
      */
     declare public /*out*/ readonly verifiedAccessTrustProviders: pulumi.Output<outputs.verifiedaccess.InstanceVerifiedAccessTrustProvider[]>;
 
@@ -161,25 +164,28 @@ export class Instance extends pulumi.CustomResource {
  */
 export interface InstanceState {
     /**
-     * The custom subdomain for the CIDR endpoints.
+     * Custom subdomain for the CIDR endpoints.
      */
     cidrEndpointsCustomSubdomain?: pulumi.Input<string | undefined>;
     /**
-     * The time that the Verified Access Instance was created.
+     * Time that the Verified Access Instance was created.
      */
     creationTime?: pulumi.Input<string | undefined>;
     /**
-     * A description for the AWS Verified Access Instance.
+     * Description for the AWS Verified Access Instance.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      */
     fipsEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The time that the Verified Access Instance was last updated.
+     * Time that the Verified Access Instance was last updated.
      */
     lastUpdatedTime?: pulumi.Input<string | undefined>;
+    /**
+     * List of DNS names servers that clients can use to connect to the Verified Access Instance.
+     */
     nameServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -191,7 +197,7 @@ export interface InstanceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * One or more blocks of providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.One or more blocks
+     * One or more blocks providing information about the AWS Verified Access Trust Providers. See verifiedAccessTrustProviders below for details.
      */
     verifiedAccessTrustProviders?: pulumi.Input<pulumi.Input<inputs.verifiedaccess.InstanceVerifiedAccessTrustProvider>[] | undefined>;
 }
@@ -201,15 +207,15 @@ export interface InstanceState {
  */
 export interface InstanceArgs {
     /**
-     * The custom subdomain for the CIDR endpoints.
+     * Custom subdomain for the CIDR endpoints.
      */
     cidrEndpointsCustomSubdomain?: pulumi.Input<string | undefined>;
     /**
-     * A description for the AWS Verified Access Instance.
+     * Description for the AWS Verified Access Instance.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
+     * Whether to enable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
      */
     fipsEnabled?: pulumi.Input<boolean | undefined>;
     /**

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetImageVersionArgs, GetImageVersionResult, GetImageVersionOutputArgs } from "./getImageVersion";
+export const getImageVersion: typeof import("./getImageVersion").getImageVersion = null as any;
+export const getImageVersionOutput: typeof import("./getImageVersion").getImageVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getImageVersion","getImageVersionOutput"], () => require("./getImageVersion"));
+
 export { ImageArgs, ImageState } from "./image";
 export type Image = import("./image").Image;
 export const Image: typeof import("./image").Image = null as any;

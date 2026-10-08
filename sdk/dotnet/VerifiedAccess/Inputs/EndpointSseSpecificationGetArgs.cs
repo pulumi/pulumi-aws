@@ -12,9 +12,15 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
 
     public sealed class EndpointSseSpecificationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to encrypt the policy using a customer managed key.
+        /// </summary>
         [Input("customerManagedKeyEnabled")]
         public Input<bool>? CustomerManagedKeyEnabled { get; set; }
 
+        /// <summary>
+        /// ARN of the KMS key.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

@@ -266,9 +266,6 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string Id;
         public readonly bool? MostRecent;
-        /// <summary>
-        /// Name of the snapshot.
-        /// </summary>
         public readonly string? Name;
         public readonly string Region;
         /// <summary>

@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcPeeringConnectionIpv6CidrBlockSet {
+    /**
+     * @return IPv6 CIDR block associated to the VPC of the specific VPC Peering Connection.
+     * 
+     */
     private String ipv6CidrBlock;
 
     private GetVpcPeeringConnectionIpv6CidrBlockSet() {}
+    /**
+     * @return IPv6 CIDR block associated to the VPC of the specific VPC Peering Connection.
+     * 
+     */
     public String ipv6CidrBlock() {
         return this.ipv6CidrBlock;
     }

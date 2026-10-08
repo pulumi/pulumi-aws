@@ -99,98 +99,98 @@ public class SecurityGroupEgressRule extends com.pulumi.resources.CustomResource
         return this.arn;
     }
     /**
-     * The destination IPv4 CIDR range.
+     * Destination IPv4 CIDR range.
      * 
      */
     @Export(name="cidrIpv4", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cidrIpv4;
 
     /**
-     * @return The destination IPv4 CIDR range.
+     * @return Destination IPv4 CIDR range.
      * 
      */
     public Output<Optional<String>> cidrIpv4() {
         return Codegen.optional(this.cidrIpv4);
     }
     /**
-     * The destination IPv6 CIDR range.
+     * Destination IPv6 CIDR range.
      * 
      */
     @Export(name="cidrIpv6", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cidrIpv6;
 
     /**
-     * @return The destination IPv6 CIDR range.
+     * @return Destination IPv6 CIDR range.
      * 
      */
     public Output<Optional<String>> cidrIpv6() {
         return Codegen.optional(this.cidrIpv6);
     }
     /**
-     * The security group rule description.
+     * Security group rule description.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The security group rule description.
+     * @return Security group rule description.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+     * Start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      * 
      */
     @Export(name="fromPort", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> fromPort;
 
     /**
-     * @return The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
+     * @return Start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
      * 
      */
     public Output<Optional<Integer>> fromPort() {
         return Codegen.optional(this.fromPort);
     }
     /**
-     * The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
+     * IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
      * 
      */
     @Export(name="ipProtocol", refs={String.class}, tree="[0]")
     private Output<String> ipProtocol;
 
     /**
-     * @return The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
+     * @return IP protocol name or number. Use `-1` to specify all protocols. Note that if `ipProtocol` is set to `-1`, it translates to all protocols, all port ranges, and `fromPort` and `toPort` values should not be defined.
      * 
      */
     public Output<String> ipProtocol() {
         return this.ipProtocol;
     }
     /**
-     * The ID of the destination prefix list.
+     * ID of the destination prefix list.
      * 
      */
     @Export(name="prefixListId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> prefixListId;
 
     /**
-     * @return The ID of the destination prefix list.
+     * @return ID of the destination prefix list.
      * 
      */
     public Output<Optional<String>> prefixListId() {
         return Codegen.optional(this.prefixListId);
     }
     /**
-     * The destination security group that is referenced in the rule.
+     * Destination security group that is referenced in the rule.
      * 
      */
     @Export(name="referencedSecurityGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> referencedSecurityGroupId;
 
     /**
-     * @return The destination security group that is referenced in the rule.
+     * @return Destination security group that is referenced in the rule.
      * 
      */
     public Output<Optional<String>> referencedSecurityGroupId() {
@@ -211,63 +211,63 @@ public class SecurityGroupEgressRule extends com.pulumi.resources.CustomResource
         return this.region;
     }
     /**
-     * The ID of the security group.
+     * ID of the security group.
      * 
      */
     @Export(name="securityGroupId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupId;
 
     /**
-     * @return The ID of the security group.
+     * @return ID of the security group.
      * 
      */
     public Output<String> securityGroupId() {
         return this.securityGroupId;
     }
     /**
-     * The ID of the security group rule.
+     * ID of the security group rule.
      * 
      */
     @Export(name="securityGroupRuleId", refs={String.class}, tree="[0]")
     private Output<String> securityGroupRuleId;
 
     /**
-     * @return The ID of the security group rule.
+     * @return ID of the security group rule.
      * 
      */
     public Output<String> securityGroupRuleId() {
         return this.securityGroupRuleId;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     * End of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      * 
      * &gt; **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      * 
@@ -276,7 +276,7 @@ public class SecurityGroupEgressRule extends com.pulumi.resources.CustomResource
     private Output</* @Nullable */ Integer> toPort;
 
     /**
-     * @return The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
+     * @return End of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
      * 
      * &gt; **Note** Although `cidrIpv4`, `cidrIpv6`, `prefixListId`, and `referencedSecurityGroupId` are all marked as optional, you *must* provide one of them in order to configure the destination of the traffic. The `fromPort` and `toPort` arguments are required unless `ipProtocol` is set to `-1` or `icmpv6`.
      * 

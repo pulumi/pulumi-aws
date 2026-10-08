@@ -84,6 +84,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.StreamStreamModeDetailsArgs;
  * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration;
  * import com.pulumi.aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs;
  * import com.pulumi.aws.chimesdkmediapipelines.inputs.MediaInsightsPipelineConfigurationElementArgs;
@@ -127,8 +128,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()
+ *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
+ *                 .streamMode("ON_DEMAND")
+ *                 .build())
  *             .name("ExampleStream")
- *             .shardCount(2)
  *             .build());
  * 
  *         var example = new MediaInsightsPipelineConfiguration("example", MediaInsightsPipelineConfigurationArgs.builder()

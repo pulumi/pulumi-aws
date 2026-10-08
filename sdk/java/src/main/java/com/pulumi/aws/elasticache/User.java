@@ -87,8 +87,8 @@ import javax.annotation.Nullable;
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
  *                 .type("iam")
  *                 .build())
- *             .userId("testUserId")
- *             .userName("testUserName")
+ *             .userId("testuserid")
+ *             .userName("testuserid")
  *             .accessString("on ~* +}{@literal @}{@code all")
  *             .engine("redis")
  *             .build());
@@ -351,7 +351,7 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.userId;
     }
     /**
-     * The username of the user.
+     * The username of the user. For IAM authentication, this value must match `userId`.
      * 
      * The following arguments are optional:
      * 
@@ -360,7 +360,7 @@ public class User extends com.pulumi.resources.CustomResource {
     private Output<String> userName;
 
     /**
-     * @return The username of the user.
+     * @return The username of the user. For IAM authentication, this value must match `userId`.
      * 
      * The following arguments are optional:
      * 

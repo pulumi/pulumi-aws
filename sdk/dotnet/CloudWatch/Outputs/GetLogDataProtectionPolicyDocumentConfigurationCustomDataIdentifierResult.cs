@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierResult
     {
         /// <summary>
-        /// Name of the custom data idenfitier
+        /// Name of the custom data identifier
         /// </summary>
         public readonly string Name;
         /// <summary>

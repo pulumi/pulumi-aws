@@ -37,8 +37,10 @@ import (
 //				return err
 //			}
 //			testStream, err := kinesis.NewStream(ctx, "test_stream", &kinesis.StreamArgs{
-//				Name:       pulumi.String("pinpoint-kinesis-test"),
-//				ShardCount: pulumi.Int(1),
+//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
+//					StreamMode: pulumi.String("ON_DEMAND"),
+//				},
+//				Name: pulumi.String("pinpoint-kinesis-test"),
 //			})
 //			if err != nil {
 //				return err

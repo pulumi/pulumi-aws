@@ -444,6 +444,8 @@ __all__ = [
     'NetworkInsightsPathFilterAtSourceSourcePortRangeArgsDict',
     'NetworkInterfaceAttachmentArgs',
     'NetworkInterfaceAttachmentArgsDict',
+    'NetworkInterfaceConnectionTrackingSpecificationArgs',
+    'NetworkInterfaceConnectionTrackingSpecificationArgsDict',
     'NetworkInterfaceEnaSrdSpecificationArgs',
     'NetworkInterfaceEnaSrdSpecificationArgsDict',
     'NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs',
@@ -2856,35 +2858,35 @@ class EipDomainNameTimeoutsArgs:
 class EncryptionControlResourceExclusionsArgsDict(TypedDict):
     egress_only_internet_gateway: pulumi.Input['EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for Egress-Only Internet Gateways.
+    Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
     """
     elastic_file_system: pulumi.Input['EncryptionControlResourceExclusionsElasticFileSystemArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for Elastic File System (EFS).
+    Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
     """
     internet_gateway: pulumi.Input['EncryptionControlResourceExclusionsInternetGatewayArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for Internet Gateways.
+    Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
     """
     lambda_: pulumi.Input['EncryptionControlResourceExclusionsLambdaArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for Lambda Functions.
+    Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
     """
     nat_gateway: pulumi.Input['EncryptionControlResourceExclusionsNatGatewayArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for NAT Gateways.
+    Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
     """
     virtual_private_gateway: pulumi.Input['EncryptionControlResourceExclusionsVirtualPrivateGatewayArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for Virtual Private Gateways.
+    Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
     """
     vpc_lattice: pulumi.Input['EncryptionControlResourceExclusionsVpcLatticeArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for VPC Lattice.
+    Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
     """
     vpc_peering: pulumi.Input['EncryptionControlResourceExclusionsVpcPeeringArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for peered VPCs.
+    Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
     """
 
 @pulumi.input_type
@@ -2899,14 +2901,14 @@ class EncryptionControlResourceExclusionsArgs:
                  vpc_lattice: pulumi.Input['EncryptionControlResourceExclusionsVpcLatticeArgs'],
                  vpc_peering: pulumi.Input['EncryptionControlResourceExclusionsVpcPeeringArgs']):
         """
-        :param pulumi.Input['EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs'] egress_only_internet_gateway: `state` and `state_message` describing encryption enforcement state for Egress-Only Internet Gateways.
-        :param pulumi.Input['EncryptionControlResourceExclusionsElasticFileSystemArgs'] elastic_file_system: `state` and `state_message` describing encryption enforcement state for Elastic File System (EFS).
-        :param pulumi.Input['EncryptionControlResourceExclusionsInternetGatewayArgs'] internet_gateway: `state` and `state_message` describing encryption enforcement state for Internet Gateways.
-        :param pulumi.Input['EncryptionControlResourceExclusionsLambdaArgs'] lambda_: `state` and `state_message` describing encryption enforcement state for Lambda Functions.
-        :param pulumi.Input['EncryptionControlResourceExclusionsNatGatewayArgs'] nat_gateway: `state` and `state_message` describing encryption enforcement state for NAT Gateways.
-        :param pulumi.Input['EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs'] virtual_private_gateway: `state` and `state_message` describing encryption enforcement state for Virtual Private Gateways.
-        :param pulumi.Input['EncryptionControlResourceExclusionsVpcLatticeArgs'] vpc_lattice: `state` and `state_message` describing encryption enforcement state for VPC Lattice.
-        :param pulumi.Input['EncryptionControlResourceExclusionsVpcPeeringArgs'] vpc_peering: `state` and `state_message` describing encryption enforcement state for peered VPCs.
+        :param pulumi.Input['EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs'] egress_only_internet_gateway: Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
+        :param pulumi.Input['EncryptionControlResourceExclusionsElasticFileSystemArgs'] elastic_file_system: Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
+        :param pulumi.Input['EncryptionControlResourceExclusionsInternetGatewayArgs'] internet_gateway: Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
+        :param pulumi.Input['EncryptionControlResourceExclusionsLambdaArgs'] lambda_: Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
+        :param pulumi.Input['EncryptionControlResourceExclusionsNatGatewayArgs'] nat_gateway: Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
+        :param pulumi.Input['EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs'] virtual_private_gateway: Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
+        :param pulumi.Input['EncryptionControlResourceExclusionsVpcLatticeArgs'] vpc_lattice: Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
+        :param pulumi.Input['EncryptionControlResourceExclusionsVpcPeeringArgs'] vpc_peering: Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
         """
         pulumi.set(__self__, "egress_only_internet_gateway", egress_only_internet_gateway)
         pulumi.set(__self__, "elastic_file_system", elastic_file_system)
@@ -2921,7 +2923,7 @@ class EncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="egressOnlyInternetGateway")
     def egress_only_internet_gateway(self) -> pulumi.Input['EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for Egress-Only Internet Gateways.
+        Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
         """
         return pulumi.get(self, "egress_only_internet_gateway")
 
@@ -2933,7 +2935,7 @@ class EncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="elasticFileSystem")
     def elastic_file_system(self) -> pulumi.Input['EncryptionControlResourceExclusionsElasticFileSystemArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for Elastic File System (EFS).
+        Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
         """
         return pulumi.get(self, "elastic_file_system")
 
@@ -2945,7 +2947,7 @@ class EncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="internetGateway")
     def internet_gateway(self) -> pulumi.Input['EncryptionControlResourceExclusionsInternetGatewayArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for Internet Gateways.
+        Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
         """
         return pulumi.get(self, "internet_gateway")
 
@@ -2957,7 +2959,7 @@ class EncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="lambda")
     def lambda_(self) -> pulumi.Input['EncryptionControlResourceExclusionsLambdaArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for Lambda Functions.
+        Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
         """
         return pulumi.get(self, "lambda_")
 
@@ -2969,7 +2971,7 @@ class EncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="natGateway")
     def nat_gateway(self) -> pulumi.Input['EncryptionControlResourceExclusionsNatGatewayArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for NAT Gateways.
+        Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
         """
         return pulumi.get(self, "nat_gateway")
 
@@ -2981,7 +2983,7 @@ class EncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="virtualPrivateGateway")
     def virtual_private_gateway(self) -> pulumi.Input['EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for Virtual Private Gateways.
+        Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
         """
         return pulumi.get(self, "virtual_private_gateway")
 
@@ -2993,7 +2995,7 @@ class EncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="vpcLattice")
     def vpc_lattice(self) -> pulumi.Input['EncryptionControlResourceExclusionsVpcLatticeArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for VPC Lattice.
+        Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
         """
         return pulumi.get(self, "vpc_lattice")
 
@@ -3005,7 +3007,7 @@ class EncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="vpcPeering")
     def vpc_peering(self) -> pulumi.Input['EncryptionControlResourceExclusionsVpcPeeringArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for peered VPCs.
+        Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
         """
         return pulumi.get(self, "vpc_peering")
 
@@ -3017,11 +3019,11 @@ class EncryptionControlResourceExclusionsArgs:
 class EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -3030,8 +3032,8 @@ class EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -3040,7 +3042,7 @@ class EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -3052,7 +3054,7 @@ class EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -3064,11 +3066,11 @@ class EncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs:
 class EncryptionControlResourceExclusionsElasticFileSystemArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -3077,8 +3079,8 @@ class EncryptionControlResourceExclusionsElasticFileSystemArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -3087,7 +3089,7 @@ class EncryptionControlResourceExclusionsElasticFileSystemArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -3099,7 +3101,7 @@ class EncryptionControlResourceExclusionsElasticFileSystemArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -3111,11 +3113,11 @@ class EncryptionControlResourceExclusionsElasticFileSystemArgs:
 class EncryptionControlResourceExclusionsInternetGatewayArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -3124,8 +3126,8 @@ class EncryptionControlResourceExclusionsInternetGatewayArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -3134,7 +3136,7 @@ class EncryptionControlResourceExclusionsInternetGatewayArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -3146,7 +3148,7 @@ class EncryptionControlResourceExclusionsInternetGatewayArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -3158,11 +3160,11 @@ class EncryptionControlResourceExclusionsInternetGatewayArgs:
 class EncryptionControlResourceExclusionsLambdaArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -3171,8 +3173,8 @@ class EncryptionControlResourceExclusionsLambdaArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -3181,7 +3183,7 @@ class EncryptionControlResourceExclusionsLambdaArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -3193,7 +3195,7 @@ class EncryptionControlResourceExclusionsLambdaArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -3205,11 +3207,11 @@ class EncryptionControlResourceExclusionsLambdaArgs:
 class EncryptionControlResourceExclusionsNatGatewayArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -3218,8 +3220,8 @@ class EncryptionControlResourceExclusionsNatGatewayArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -3228,7 +3230,7 @@ class EncryptionControlResourceExclusionsNatGatewayArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -3240,7 +3242,7 @@ class EncryptionControlResourceExclusionsNatGatewayArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -3252,11 +3254,11 @@ class EncryptionControlResourceExclusionsNatGatewayArgs:
 class EncryptionControlResourceExclusionsVirtualPrivateGatewayArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -3265,8 +3267,8 @@ class EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -3275,7 +3277,7 @@ class EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -3287,7 +3289,7 @@ class EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -3299,11 +3301,11 @@ class EncryptionControlResourceExclusionsVirtualPrivateGatewayArgs:
 class EncryptionControlResourceExclusionsVpcLatticeArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -3312,8 +3314,8 @@ class EncryptionControlResourceExclusionsVpcLatticeArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -3322,7 +3324,7 @@ class EncryptionControlResourceExclusionsVpcLatticeArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -3334,7 +3336,7 @@ class EncryptionControlResourceExclusionsVpcLatticeArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -3346,11 +3348,11 @@ class EncryptionControlResourceExclusionsVpcLatticeArgs:
 class EncryptionControlResourceExclusionsVpcPeeringArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -3359,8 +3361,8 @@ class EncryptionControlResourceExclusionsVpcPeeringArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -3369,7 +3371,7 @@ class EncryptionControlResourceExclusionsVpcPeeringArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -3381,7 +3383,7 @@ class EncryptionControlResourceExclusionsVpcPeeringArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -3833,7 +3835,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(TypedDict):
     """
     accelerator_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    List of accelerator names. Default is any acclerator.
+    List of accelerator names. Default is any accelerator.
     """
     accelerator_total_memory_mib: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgsDict']]]
     """
@@ -3851,7 +3853,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(TypedDict):
     """
     bare_metal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+    Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
     """
     baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict']]]
     """
@@ -3953,13 +3955,13 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_names: List of accelerator names. Default is any acclerator.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_names: List of accelerator names. Default is any accelerator.
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_types: The accelerator types that must be on the instance type. Default is any accelerator type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
                
                If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
-        :param pulumi.Input[_builtins.str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        :param pulumi.Input[_builtins.str] bare_metal: Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param pulumi.Input[_builtins.str] burstable_performance: Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cpu_manufacturers: The CPU manufacturers to include. Default is any manufacturer.
@@ -4082,7 +4084,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="acceleratorNames")
     def accelerator_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of accelerator names. Default is any acclerator.
+        List of accelerator names. Default is any accelerator.
         """
         return pulumi.get(self, "accelerator_names")
 
@@ -4132,7 +4134,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="bareMetal")
     def bare_metal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         """
         return pulumi.get(self, "bare_metal")
 
@@ -8293,7 +8295,7 @@ class LaunchTemplateInstanceRequirementsArgsDict(TypedDict):
     """
     accelerator_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    List of accelerator names. Default is any acclerator.
+    List of accelerator names. Default is any accelerator.
 
     ```
     Valid names:
@@ -8329,7 +8331,7 @@ class LaunchTemplateInstanceRequirementsArgsDict(TypedDict):
     """
     bare_metal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+    Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
     """
     baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict']]]
     """
@@ -8459,7 +8461,7 @@ class LaunchTemplateInstanceRequirementsArgs:
                * nvidia
                * xilinx
                ```
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_names: List of accelerator names. Default is any acclerator.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_names: List of accelerator names. Default is any accelerator.
                
                ```
                Valid names:
@@ -8483,7 +8485,7 @@ class LaunchTemplateInstanceRequirementsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
-        :param pulumi.Input[_builtins.str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        :param pulumi.Input[_builtins.str] bare_metal: Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param pulumi.Input[_builtins.str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
@@ -8634,7 +8636,7 @@ class LaunchTemplateInstanceRequirementsArgs:
     @pulumi.getter(name="acceleratorNames")
     def accelerator_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of accelerator names. Default is any acclerator.
+        List of accelerator names. Default is any accelerator.
 
         ```
         Valid names:
@@ -8702,7 +8704,7 @@ class LaunchTemplateInstanceRequirementsArgs:
     @pulumi.getter(name="bareMetal")
     def bare_metal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         """
         return pulumi.get(self, "bare_metal")
 
@@ -18917,6 +18919,75 @@ class NetworkInterfaceAttachmentArgs:
         pulumi.set(self, "network_card_index", value)
 
 
+class NetworkInterfaceConnectionTrackingSpecificationArgsDict(TypedDict):
+    tcp_established_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Recommended: Less than 432000 seconds.
+    """
+    udp_stream_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+    """
+    udp_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+    """
+
+@pulumi.input_type
+class NetworkInterfaceConnectionTrackingSpecificationArgs:
+    def __init__(__self__, *,
+                 tcp_established_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 udp_stream_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 udp_timeout: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] tcp_established_timeout: Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Recommended: Less than 432000 seconds.
+        :param pulumi.Input[_builtins.int] udp_stream_timeout: Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+        :param pulumi.Input[_builtins.int] udp_timeout: Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+        """
+        if tcp_established_timeout is not None:
+            pulumi.set(__self__, "tcp_established_timeout", tcp_established_timeout)
+        if udp_stream_timeout is not None:
+            pulumi.set(__self__, "udp_stream_timeout", udp_stream_timeout)
+        if udp_timeout is not None:
+            pulumi.set(__self__, "udp_timeout", udp_timeout)
+
+    @_builtins.property
+    @pulumi.getter(name="tcpEstablishedTimeout")
+    def tcp_established_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Recommended: Less than 432000 seconds.
+        """
+        return pulumi.get(self, "tcp_established_timeout")
+
+    @tcp_established_timeout.setter
+    def tcp_established_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "tcp_established_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="udpStreamTimeout")
+    def udp_stream_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+        """
+        return pulumi.get(self, "udp_stream_timeout")
+
+    @udp_stream_timeout.setter
+    def udp_stream_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "udp_stream_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="udpTimeout")
+    def udp_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+        """
+        return pulumi.get(self, "udp_timeout")
+
+    @udp_timeout.setter
+    def udp_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "udp_timeout", value)
+
+
 class NetworkInterfaceEnaSrdSpecificationArgsDict(TypedDict):
     ena_srd_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -19047,7 +19118,7 @@ class NetworkInterfacePermissionTimeoutsArgs:
 class PeeringConnectionOptionsAccepterArgsDict(TypedDict):
     allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+    Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
     """
 
 @pulumi.input_type
@@ -19055,7 +19126,7 @@ class PeeringConnectionOptionsAccepterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        :param pulumi.Input[_builtins.bool] allow_remote_vpc_dns_resolution: Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
@@ -19064,7 +19135,7 @@ class PeeringConnectionOptionsAccepterArgs:
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
@@ -19076,7 +19147,7 @@ class PeeringConnectionOptionsAccepterArgs:
 class PeeringConnectionOptionsRequesterArgsDict(TypedDict):
     allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+    Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
     """
 
 @pulumi.input_type
@@ -19084,7 +19155,7 @@ class PeeringConnectionOptionsRequesterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        :param pulumi.Input[_builtins.bool] allow_remote_vpc_dns_resolution: Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
@@ -19093,7 +19164,7 @@ class PeeringConnectionOptionsRequesterArgs:
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
+        Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
@@ -20927,7 +20998,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(T
     """
     accelerator_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    List of accelerator names. Default is any acclerator.
+    List of accelerator names. Default is any accelerator.
 
     ```
     Valid names:
@@ -20963,7 +21034,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(T
     """
     bare_metal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+    Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
     """
     baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict']]]
     """
@@ -21094,7 +21165,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
                * nvidia
                * xilinx
                ```
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_names: List of accelerator names. Default is any acclerator.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_names: List of accelerator names. Default is any accelerator.
                
                ```
                Valid names:
@@ -21118,7 +21189,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
-        :param pulumi.Input[_builtins.str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        :param pulumi.Input[_builtins.str] bare_metal: Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param pulumi.Input[_builtins.str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
@@ -21246,7 +21317,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="acceleratorNames")
     def accelerator_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of accelerator names. Default is any acclerator.
+        List of accelerator names. Default is any accelerator.
 
         ```
         Valid names:
@@ -21314,7 +21385,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="bareMetal")
     def bare_metal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         """
         return pulumi.get(self, "bare_metal")
 
@@ -23722,35 +23793,35 @@ class VpcBlockPublicAccessOptionsTimeoutsArgs:
 class VpcEncryptionControlResourceExclusionsArgsDict(TypedDict):
     egress_only_internet_gateway: pulumi.Input['VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for Egress-Only Internet Gateways.
+    Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
     """
     elastic_file_system: pulumi.Input['VpcEncryptionControlResourceExclusionsElasticFileSystemArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for Elastic File System (EFS).
+    Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
     """
     internet_gateway: pulumi.Input['VpcEncryptionControlResourceExclusionsInternetGatewayArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for Internet Gateways.
+    Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
     """
     lambda_: pulumi.Input['VpcEncryptionControlResourceExclusionsLambdaArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for Lambda Functions.
+    Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
     """
     nat_gateway: pulumi.Input['VpcEncryptionControlResourceExclusionsNatGatewayArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for NAT Gateways.
+    Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
     """
     virtual_private_gateway: pulumi.Input['VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for Virtual Private Gateways.
+    Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
     """
     vpc_lattice: pulumi.Input['VpcEncryptionControlResourceExclusionsVpcLatticeArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for VPC Lattice.
+    Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
     """
     vpc_peering: pulumi.Input['VpcEncryptionControlResourceExclusionsVpcPeeringArgsDict']
     """
-    `state` and `state_message` describing encryption enforcement state for peered VPCs.
+    Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
     """
 
 @pulumi.input_type
@@ -23765,14 +23836,14 @@ class VpcEncryptionControlResourceExclusionsArgs:
                  vpc_lattice: pulumi.Input['VpcEncryptionControlResourceExclusionsVpcLatticeArgs'],
                  vpc_peering: pulumi.Input['VpcEncryptionControlResourceExclusionsVpcPeeringArgs']):
         """
-        :param pulumi.Input['VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs'] egress_only_internet_gateway: `state` and `state_message` describing encryption enforcement state for Egress-Only Internet Gateways.
-        :param pulumi.Input['VpcEncryptionControlResourceExclusionsElasticFileSystemArgs'] elastic_file_system: `state` and `state_message` describing encryption enforcement state for Elastic File System (EFS).
-        :param pulumi.Input['VpcEncryptionControlResourceExclusionsInternetGatewayArgs'] internet_gateway: `state` and `state_message` describing encryption enforcement state for Internet Gateways.
-        :param pulumi.Input['VpcEncryptionControlResourceExclusionsLambdaArgs'] lambda_: `state` and `state_message` describing encryption enforcement state for Lambda Functions.
-        :param pulumi.Input['VpcEncryptionControlResourceExclusionsNatGatewayArgs'] nat_gateway: `state` and `state_message` describing encryption enforcement state for NAT Gateways.
-        :param pulumi.Input['VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs'] virtual_private_gateway: `state` and `state_message` describing encryption enforcement state for Virtual Private Gateways.
-        :param pulumi.Input['VpcEncryptionControlResourceExclusionsVpcLatticeArgs'] vpc_lattice: `state` and `state_message` describing encryption enforcement state for VPC Lattice.
-        :param pulumi.Input['VpcEncryptionControlResourceExclusionsVpcPeeringArgs'] vpc_peering: `state` and `state_message` describing encryption enforcement state for peered VPCs.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs'] egress_only_internet_gateway: Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsElasticFileSystemArgs'] elastic_file_system: Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsInternetGatewayArgs'] internet_gateway: Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsLambdaArgs'] lambda_: Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsNatGatewayArgs'] nat_gateway: Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs'] virtual_private_gateway: Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsVpcLatticeArgs'] vpc_lattice: Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
+        :param pulumi.Input['VpcEncryptionControlResourceExclusionsVpcPeeringArgs'] vpc_peering: Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
         """
         pulumi.set(__self__, "egress_only_internet_gateway", egress_only_internet_gateway)
         pulumi.set(__self__, "elastic_file_system", elastic_file_system)
@@ -23787,7 +23858,7 @@ class VpcEncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="egressOnlyInternetGateway")
     def egress_only_internet_gateway(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for Egress-Only Internet Gateways.
+        Encryption enforcement state for Egress-Only Internet Gateways. See `resource_exclusions.egress_only_internet_gateway` below.
         """
         return pulumi.get(self, "egress_only_internet_gateway")
 
@@ -23799,7 +23870,7 @@ class VpcEncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="elasticFileSystem")
     def elastic_file_system(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsElasticFileSystemArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for Elastic File System (EFS).
+        Encryption enforcement state for Elastic File System (EFS). See `resource_exclusions.elastic_file_system` below.
         """
         return pulumi.get(self, "elastic_file_system")
 
@@ -23811,7 +23882,7 @@ class VpcEncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="internetGateway")
     def internet_gateway(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsInternetGatewayArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for Internet Gateways.
+        Encryption enforcement state for Internet Gateways. See `resource_exclusions.internet_gateway` below.
         """
         return pulumi.get(self, "internet_gateway")
 
@@ -23823,7 +23894,7 @@ class VpcEncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="lambda")
     def lambda_(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsLambdaArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for Lambda Functions.
+        Encryption enforcement state for Lambda Functions. See `resource_exclusions.lambda` below.
         """
         return pulumi.get(self, "lambda_")
 
@@ -23835,7 +23906,7 @@ class VpcEncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="natGateway")
     def nat_gateway(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsNatGatewayArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for NAT Gateways.
+        Encryption enforcement state for NAT Gateways. See `resource_exclusions.nat_gateway` below.
         """
         return pulumi.get(self, "nat_gateway")
 
@@ -23847,7 +23918,7 @@ class VpcEncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="virtualPrivateGateway")
     def virtual_private_gateway(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for Virtual Private Gateways.
+        Encryption enforcement state for Virtual Private Gateways. See `resource_exclusions.virtual_private_gateway` below.
         """
         return pulumi.get(self, "virtual_private_gateway")
 
@@ -23859,7 +23930,7 @@ class VpcEncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="vpcLattice")
     def vpc_lattice(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsVpcLatticeArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for VPC Lattice.
+        Encryption enforcement state for VPC Lattice. See `resource_exclusions.vpc_lattice` below.
         """
         return pulumi.get(self, "vpc_lattice")
 
@@ -23871,7 +23942,7 @@ class VpcEncryptionControlResourceExclusionsArgs:
     @pulumi.getter(name="vpcPeering")
     def vpc_peering(self) -> pulumi.Input['VpcEncryptionControlResourceExclusionsVpcPeeringArgs']:
         """
-        `state` and `state_message` describing encryption enforcement state for peered VPCs.
+        Encryption enforcement state for peered VPCs. See `resource_exclusions.vpc_peering` below.
         """
         return pulumi.get(self, "vpc_peering")
 
@@ -23883,11 +23954,11 @@ class VpcEncryptionControlResourceExclusionsArgs:
 class VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -23896,8 +23967,8 @@ class VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -23906,7 +23977,7 @@ class VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -23918,7 +23989,7 @@ class VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -23930,11 +24001,11 @@ class VpcEncryptionControlResourceExclusionsEgressOnlyInternetGatewayArgs:
 class VpcEncryptionControlResourceExclusionsElasticFileSystemArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -23943,8 +24014,8 @@ class VpcEncryptionControlResourceExclusionsElasticFileSystemArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -23953,7 +24024,7 @@ class VpcEncryptionControlResourceExclusionsElasticFileSystemArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -23965,7 +24036,7 @@ class VpcEncryptionControlResourceExclusionsElasticFileSystemArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -23977,11 +24048,11 @@ class VpcEncryptionControlResourceExclusionsElasticFileSystemArgs:
 class VpcEncryptionControlResourceExclusionsInternetGatewayArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -23990,8 +24061,8 @@ class VpcEncryptionControlResourceExclusionsInternetGatewayArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -24000,7 +24071,7 @@ class VpcEncryptionControlResourceExclusionsInternetGatewayArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -24012,7 +24083,7 @@ class VpcEncryptionControlResourceExclusionsInternetGatewayArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -24024,11 +24095,11 @@ class VpcEncryptionControlResourceExclusionsInternetGatewayArgs:
 class VpcEncryptionControlResourceExclusionsLambdaArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -24037,8 +24108,8 @@ class VpcEncryptionControlResourceExclusionsLambdaArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -24047,7 +24118,7 @@ class VpcEncryptionControlResourceExclusionsLambdaArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -24059,7 +24130,7 @@ class VpcEncryptionControlResourceExclusionsLambdaArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -24071,11 +24142,11 @@ class VpcEncryptionControlResourceExclusionsLambdaArgs:
 class VpcEncryptionControlResourceExclusionsNatGatewayArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -24084,8 +24155,8 @@ class VpcEncryptionControlResourceExclusionsNatGatewayArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -24094,7 +24165,7 @@ class VpcEncryptionControlResourceExclusionsNatGatewayArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -24106,7 +24177,7 @@ class VpcEncryptionControlResourceExclusionsNatGatewayArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -24118,11 +24189,11 @@ class VpcEncryptionControlResourceExclusionsNatGatewayArgs:
 class VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -24131,8 +24202,8 @@ class VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -24141,7 +24212,7 @@ class VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -24153,7 +24224,7 @@ class VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -24165,11 +24236,11 @@ class VpcEncryptionControlResourceExclusionsVirtualPrivateGatewayArgs:
 class VpcEncryptionControlResourceExclusionsVpcLatticeArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -24178,8 +24249,8 @@ class VpcEncryptionControlResourceExclusionsVpcLatticeArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -24188,7 +24259,7 @@ class VpcEncryptionControlResourceExclusionsVpcLatticeArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -24200,7 +24271,7 @@ class VpcEncryptionControlResourceExclusionsVpcLatticeArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -24212,11 +24283,11 @@ class VpcEncryptionControlResourceExclusionsVpcLatticeArgs:
 class VpcEncryptionControlResourceExclusionsVpcPeeringArgsDict(TypedDict):
     state: pulumi.Input[_builtins.str]
     """
-    The current state of the VPC Encryption Control.
+    Encryption enforcement state for peered VPCs.
     """
     state_message: pulumi.Input[_builtins.str]
     """
-    A message providing additional information about the state of the VPC Encryption Control.
+    Message providing additional information about the encryption enforcement state.
     """
 
 @pulumi.input_type
@@ -24225,8 +24296,8 @@ class VpcEncryptionControlResourceExclusionsVpcPeeringArgs:
                  state: pulumi.Input[_builtins.str],
                  state_message: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] state: The current state of the VPC Encryption Control.
-        :param pulumi.Input[_builtins.str] state_message: A message providing additional information about the state of the VPC Encryption Control.
+        :param pulumi.Input[_builtins.str] state: Encryption enforcement state for peered VPCs.
+        :param pulumi.Input[_builtins.str] state_message: Message providing additional information about the encryption enforcement state.
         """
         pulumi.set(__self__, "state", state)
         pulumi.set(__self__, "state_message", state_message)
@@ -24235,7 +24306,7 @@ class VpcEncryptionControlResourceExclusionsVpcPeeringArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[_builtins.str]:
         """
-        The current state of the VPC Encryption Control.
+        Encryption enforcement state for peered VPCs.
         """
         return pulumi.get(self, "state")
 
@@ -24247,7 +24318,7 @@ class VpcEncryptionControlResourceExclusionsVpcPeeringArgs:
     @pulumi.getter(name="stateMessage")
     def state_message(self) -> pulumi.Input[_builtins.str]:
         """
-        A message providing additional information about the state of the VPC Encryption Control.
+        Message providing additional information about the encryption enforcement state.
         """
         return pulumi.get(self, "state_message")
 
@@ -24328,11 +24399,11 @@ class VpcEncryptionControlTimeoutsArgs:
 class VpcEndpointDnsEntryArgsDict(TypedDict):
     dns_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The DNS name.
+    DNS name.
     """
     hosted_zone_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ID of the private hosted zone.
+    ID of the private hosted zone.
     """
 
 @pulumi.input_type
@@ -24341,8 +24412,8 @@ class VpcEndpointDnsEntryArgs:
                  dns_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] dns_name: The DNS name.
-        :param pulumi.Input[_builtins.str] hosted_zone_id: The ID of the private hosted zone.
+        :param pulumi.Input[_builtins.str] dns_name: DNS name.
+        :param pulumi.Input[_builtins.str] hosted_zone_id: ID of the private hosted zone.
         """
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
@@ -24353,7 +24424,7 @@ class VpcEndpointDnsEntryArgs:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The DNS name.
+        DNS name.
         """
         return pulumi.get(self, "dns_name")
 
@@ -24365,7 +24436,7 @@ class VpcEndpointDnsEntryArgs:
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the private hosted zone.
+        ID of the private hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -24377,11 +24448,11 @@ class VpcEndpointDnsEntryArgs:
 class VpcEndpointDnsOptionsArgsDict(TypedDict):
     dns_record_ip_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+    DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
     """
     private_dns_only_for_inbound_resolver_endpoint: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `private_dns_enabled` is `true`.
+    Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `private_dns_enabled` is `true`.
     """
     private_dns_preference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -24400,8 +24471,8 @@ class VpcEndpointDnsOptionsArgs:
                  private_dns_preference: pulumi.Input[Optional[_builtins.str]] = None,
                  private_dns_specified_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[_builtins.str] dns_record_ip_type: The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
-        :param pulumi.Input[_builtins.bool] private_dns_only_for_inbound_resolver_endpoint: Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `private_dns_enabled` is `true`.
+        :param pulumi.Input[_builtins.str] dns_record_ip_type: DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+        :param pulumi.Input[_builtins.bool] private_dns_only_for_inbound_resolver_endpoint: Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `private_dns_enabled` is `true`.
         :param pulumi.Input[_builtins.str] private_dns_preference: Preference for which private domains have a private hosted zone created for and associated with the specified VPC. Valid values are `ALL_DOMAINS`, `VERIFIED_DOMAINS_ONLY`, `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS`, and `SPECIFIED_DOMAINS_ONLY`. Only supported when `private_dns_enabled` is `true` and when the `vpc_endpoint_type` is `ServiceNetwork` or `Resource`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] private_dns_specified_domains: List of private domains to create private hosted zones for and associate with the specified VPC. Must be specified when `private_dns_enabled` is `true` and `private_dns_preference` is set to either `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY`. In all other cases, this argument must not be specified.
         """
@@ -24418,7 +24489,7 @@ class VpcEndpointDnsOptionsArgs:
     @pulumi.getter(name="dnsRecordIpType")
     def dns_record_ip_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+        DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
         """
         return pulumi.get(self, "dns_record_ip_type")
 
@@ -24430,7 +24501,7 @@ class VpcEndpointDnsOptionsArgs:
     @pulumi.getter(name="privateDnsOnlyForInboundResolverEndpoint")
     def private_dns_only_for_inbound_resolver_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Boolean indicating whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `private_dns_enabled` is `true`.
+        Whether to enable private DNS only for inbound endpoints. This option is available only for interface endpoints of services that support both gateway and interface endpoints. A gateway endpoint for the same service must be created before an interface endpoint is created. Traffic originating from the VPC is routed to the gateway endpoint, while traffic originating from on-premises is routed to the interface endpoint. Defaults to `false`. This argument can be specified only if `private_dns_enabled` is `true`.
         """
         return pulumi.get(self, "private_dns_only_for_inbound_resolver_endpoint")
 
@@ -24470,7 +24541,7 @@ class VpcEndpointServicePrivateDnsNameConfigurationArgsDict(TypedDict):
     """
     state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+    State of the VPC endpoint service.
     """
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -24490,7 +24561,7 @@ class VpcEndpointServicePrivateDnsNameConfigurationArgs:
                  value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the record subdomain the service provider needs to create.
-        :param pulumi.Input[_builtins.str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+        :param pulumi.Input[_builtins.str] state: State of the VPC endpoint service.
         :param pulumi.Input[_builtins.str] type: Endpoint service verification type, for example `TXT`.
         :param pulumi.Input[_builtins.str] value: Value the service provider adds to the private DNS name domain record before verification.
         """
@@ -24519,7 +24590,7 @@ class VpcEndpointServicePrivateDnsNameConfigurationArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+        State of the VPC endpoint service.
         """
         return pulumi.get(self, "state")
 
@@ -24555,15 +24626,15 @@ class VpcEndpointServicePrivateDnsNameConfigurationArgs:
 class VpcEndpointSubnetConfigurationArgsDict(TypedDict):
     ipv4: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+    IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
     """
     ipv6: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+    IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
     """
     subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+    ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
     """
 
 @pulumi.input_type
@@ -24573,9 +24644,9 @@ class VpcEndpointSubnetConfigurationArgs:
                  ipv6: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] ipv4: The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
-        :param pulumi.Input[_builtins.str] ipv6: The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+        :param pulumi.Input[_builtins.str] ipv4: IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+        :param pulumi.Input[_builtins.str] ipv6: IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+        :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
         """
         if ipv4 is not None:
             pulumi.set(__self__, "ipv4", ipv4)
@@ -24588,7 +24659,7 @@ class VpcEndpointSubnetConfigurationArgs:
     @pulumi.getter
     def ipv4(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
+        IPv4 address to assign to the endpoint network interface in the subnet. You must provide an IPv4 address if the VPC endpoint supports IPv4.
         """
         return pulumi.get(self, "ipv4")
 
@@ -24600,7 +24671,7 @@ class VpcEndpointSubnetConfigurationArgs:
     @pulumi.getter
     def ipv6(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
+        IPv6 address to assign to the endpoint network interface in the subnet. You must provide an IPv6 address if the VPC endpoint supports IPv6.
         """
         return pulumi.get(self, "ipv6")
 
@@ -24612,7 +24683,7 @@ class VpcEndpointSubnetConfigurationArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
+        ID of the subnet. Must have a corresponding subnet in the `subnet_ids` argument.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -24624,7 +24695,7 @@ class VpcEndpointSubnetConfigurationArgs:
 class VpcIpamOperatingRegionArgsDict(TypedDict):
     region_name: pulumi.Input[_builtins.str]
     """
-    The name of the Region you want to add to the IPAM.
+    Name of the Region you want to add to the IPAM.
     """
 
 @pulumi.input_type
@@ -24632,7 +24703,7 @@ class VpcIpamOperatingRegionArgs:
     def __init__(__self__, *,
                  region_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] region_name: The name of the Region you want to add to the IPAM.
+        :param pulumi.Input[_builtins.str] region_name: Name of the Region you want to add to the IPAM.
         """
         pulumi.set(__self__, "region_name", region_name)
 
@@ -24640,7 +24711,7 @@ class VpcIpamOperatingRegionArgs:
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Region you want to add to the IPAM.
+        Name of the Region you want to add to the IPAM.
         """
         return pulumi.get(self, "region_name")
 
@@ -24652,11 +24723,11 @@ class VpcIpamOperatingRegionArgs:
 class VpcIpamPoolCidrCidrAuthorizationContextArgsDict(TypedDict):
     message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The plain-text authorization message for the prefix and account.
+    Plain-text authorization message for the prefix and account.
     """
     signature: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The signed authorization message for the prefix and account.
+    Signed authorization message for the prefix and account.
     """
 
 @pulumi.input_type
@@ -24665,8 +24736,8 @@ class VpcIpamPoolCidrCidrAuthorizationContextArgs:
                  message: pulumi.Input[Optional[_builtins.str]] = None,
                  signature: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] message: The plain-text authorization message for the prefix and account.
-        :param pulumi.Input[_builtins.str] signature: The signed authorization message for the prefix and account.
+        :param pulumi.Input[_builtins.str] message: Plain-text authorization message for the prefix and account.
+        :param pulumi.Input[_builtins.str] signature: Signed authorization message for the prefix and account.
         """
         if message is not None:
             pulumi.set(__self__, "message", message)
@@ -24677,7 +24748,7 @@ class VpcIpamPoolCidrCidrAuthorizationContextArgs:
     @pulumi.getter
     def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The plain-text authorization message for the prefix and account.
+        Plain-text authorization message for the prefix and account.
         """
         return pulumi.get(self, "message")
 
@@ -24689,7 +24760,7 @@ class VpcIpamPoolCidrCidrAuthorizationContextArgs:
     @pulumi.getter
     def signature(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The signed authorization message for the prefix and account.
+        Signed authorization message for the prefix and account.
         """
         return pulumi.get(self, "signature")
 
@@ -24786,7 +24857,7 @@ class VpcIpamPoolSourceResourceArgs:
 class VpcIpamResourceDiscoveryOperatingRegionArgsDict(TypedDict):
     region_name: pulumi.Input[_builtins.str]
     """
-    The name of the Region you want to add to the IPAM.
+    Name of the Region you want to add to the IPAM.
     """
 
 @pulumi.input_type
@@ -24794,7 +24865,7 @@ class VpcIpamResourceDiscoveryOperatingRegionArgs:
     def __init__(__self__, *,
                  region_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] region_name: The name of the Region you want to add to the IPAM.
+        :param pulumi.Input[_builtins.str] region_name: Name of the Region you want to add to the IPAM.
         """
         pulumi.set(__self__, "region_name", region_name)
 
@@ -24802,7 +24873,7 @@ class VpcIpamResourceDiscoveryOperatingRegionArgs:
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Region you want to add to the IPAM.
+        Name of the Region you want to add to the IPAM.
         """
         return pulumi.get(self, "region_name")
 
@@ -24842,8 +24913,7 @@ class VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs:
 class VpcPeeringConnectionAccepterArgsDict(TypedDict):
     allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Allow a local VPC to resolve public DNS hostnames to
-    private IP addresses when queried from instances in the peer VPC.
+    Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
     """
 
 @pulumi.input_type
@@ -24851,8 +24921,7 @@ class VpcPeeringConnectionAccepterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
-               private IP addresses when queried from instances in the peer VPC.
+        :param pulumi.Input[_builtins.bool] allow_remote_vpc_dns_resolution: Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
@@ -24861,8 +24930,7 @@ class VpcPeeringConnectionAccepterArgs:
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Allow a local VPC to resolve public DNS hostnames to
-        private IP addresses when queried from instances in the peer VPC.
+        Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
@@ -24874,8 +24942,7 @@ class VpcPeeringConnectionAccepterArgs:
 class VpcPeeringConnectionAccepterAccepterArgsDict(TypedDict):
     allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Indicates whether a local VPC can resolve public DNS hostnames to
-    private IP addresses when queried from instances in a peer VPC.
+    Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
     """
 
 @pulumi.input_type
@@ -24883,8 +24950,7 @@ class VpcPeeringConnectionAccepterAccepterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] allow_remote_vpc_dns_resolution: Indicates whether a local VPC can resolve public DNS hostnames to
-               private IP addresses when queried from instances in a peer VPC.
+        :param pulumi.Input[_builtins.bool] allow_remote_vpc_dns_resolution: Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
         """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
@@ -24893,8 +24959,7 @@ class VpcPeeringConnectionAccepterAccepterArgs:
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether a local VPC can resolve public DNS hostnames to
-        private IP addresses when queried from instances in a peer VPC.
+        Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
         """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
@@ -24906,8 +24971,7 @@ class VpcPeeringConnectionAccepterAccepterArgs:
 class VpcPeeringConnectionAccepterRequesterArgsDict(TypedDict):
     allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Indicates whether a local VPC can resolve public DNS hostnames to
-    private IP addresses when queried from instances in a peer VPC.
+    Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
     """
 
 @pulumi.input_type
@@ -24915,8 +24979,7 @@ class VpcPeeringConnectionAccepterRequesterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] allow_remote_vpc_dns_resolution: Indicates whether a local VPC can resolve public DNS hostnames to
-               private IP addresses when queried from instances in a peer VPC.
+        :param pulumi.Input[_builtins.bool] allow_remote_vpc_dns_resolution: Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
         """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
@@ -24925,8 +24988,7 @@ class VpcPeeringConnectionAccepterRequesterArgs:
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether a local VPC can resolve public DNS hostnames to
-        private IP addresses when queried from instances in a peer VPC.
+        Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
         """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
@@ -24938,8 +25000,7 @@ class VpcPeeringConnectionAccepterRequesterArgs:
 class VpcPeeringConnectionRequesterArgsDict(TypedDict):
     allow_remote_vpc_dns_resolution: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Allow a local VPC to resolve public DNS hostnames to
-    private IP addresses when queried from instances in the peer VPC.
+    Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
     """
 
 @pulumi.input_type
@@ -24947,8 +25008,7 @@ class VpcPeeringConnectionRequesterArgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
-               private IP addresses when queried from instances in the peer VPC.
+        :param pulumi.Input[_builtins.bool] allow_remote_vpc_dns_resolution: Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         if allow_remote_vpc_dns_resolution is not None:
             pulumi.set(__self__, "allow_remote_vpc_dns_resolution", allow_remote_vpc_dns_resolution)
@@ -24957,8 +25017,7 @@ class VpcPeeringConnectionRequesterArgs:
     @pulumi.getter(name="allowRemoteVpcDnsResolution")
     def allow_remote_vpc_dns_resolution(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Allow a local VPC to resolve public DNS hostnames to
-        private IP addresses when queried from instances in the peer VPC.
+        Whether to allow a local VPC to resolve public DNS hostnames to private IP addresses when queried from instances in the peer VPC.
         """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
@@ -24970,15 +25029,15 @@ class VpcPeeringConnectionRequesterArgs:
 class VpnConnectionRouteArgsDict(TypedDict):
     destination_cidr_block: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The CIDR block associated with the local subnet of the customer data center.
+    CIDR block associated with the local subnet of the customer data center.
     """
     source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicates how the routes were provided.
+    How the routes were provided.
     """
     state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The current state of the static route.
+    Current state of the static route.
     """
 
 @pulumi.input_type
@@ -24988,9 +25047,9 @@ class VpnConnectionRouteArgs:
                  source: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] destination_cidr_block: The CIDR block associated with the local subnet of the customer data center.
-        :param pulumi.Input[_builtins.str] source: Indicates how the routes were provided.
-        :param pulumi.Input[_builtins.str] state: The current state of the static route.
+        :param pulumi.Input[_builtins.str] destination_cidr_block: CIDR block associated with the local subnet of the customer data center.
+        :param pulumi.Input[_builtins.str] source: How the routes were provided.
+        :param pulumi.Input[_builtins.str] state: Current state of the static route.
         """
         if destination_cidr_block is not None:
             pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
@@ -25003,7 +25062,7 @@ class VpnConnectionRouteArgs:
     @pulumi.getter(name="destinationCidrBlock")
     def destination_cidr_block(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The CIDR block associated with the local subnet of the customer data center.
+        CIDR block associated with the local subnet of the customer data center.
         """
         return pulumi.get(self, "destination_cidr_block")
 
@@ -25015,7 +25074,7 @@ class VpnConnectionRouteArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates how the routes were provided.
+        How the routes were provided.
         """
         return pulumi.get(self, "source")
 
@@ -25027,7 +25086,7 @@ class VpnConnectionRouteArgs:
     @pulumi.getter
     def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The current state of the static route.
+        Current state of the static route.
         """
         return pulumi.get(self, "state")
 
@@ -25068,7 +25127,7 @@ class VpnConnectionTunnel1LogOptionsArgs:
 class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgsDict(TypedDict):
     bgp_log_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Enable or disable BGP logging feature. The default is `false`.
+    Whether to enable the BGP logging feature. The default is `false`.
     """
     bgp_log_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -25080,7 +25139,7 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgsDict(TypedDict):
     """
     log_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Enable or disable VPN tunnel logging feature. The default is `false`.
+    Whether to enable the VPN tunnel logging feature. The default is `false`.
     """
     log_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -25101,10 +25160,10 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs:
                  log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  log_output_format: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.bool] bgp_log_enabled: Enable or disable BGP logging feature. The default is `false`.
+        :param pulumi.Input[_builtins.bool] bgp_log_enabled: Whether to enable the BGP logging feature. The default is `false`.
         :param pulumi.Input[_builtins.str] bgp_log_group_arn: ARN of the CloudWatch log group to send BGP logs to.
         :param pulumi.Input[_builtins.str] bgp_log_output_format: Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
-        :param pulumi.Input[_builtins.bool] log_enabled: Enable or disable VPN tunnel logging feature. The default is `false`.
+        :param pulumi.Input[_builtins.bool] log_enabled: Whether to enable the VPN tunnel logging feature. The default is `false`.
         :param pulumi.Input[_builtins.str] log_group_arn: ARN of the CloudWatch log group to send logs to.
         :param pulumi.Input[_builtins.str] log_output_format: Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
         """
@@ -25125,7 +25184,7 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs:
     @pulumi.getter(name="bgpLogEnabled")
     def bgp_log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable or disable BGP logging feature. The default is `false`.
+        Whether to enable the BGP logging feature. The default is `false`.
         """
         return pulumi.get(self, "bgp_log_enabled")
 
@@ -25161,7 +25220,7 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs:
     @pulumi.getter(name="logEnabled")
     def log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable or disable VPN tunnel logging feature. The default is `false`.
+        Whether to enable the VPN tunnel logging feature. The default is `false`.
         """
         return pulumi.get(self, "log_enabled")
 
@@ -25226,7 +25285,7 @@ class VpnConnectionTunnel2LogOptionsArgs:
 class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgsDict(TypedDict):
     bgp_log_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Enable or disable BGP logging feature. The default is `false`.
+    Whether to enable the BGP logging feature. The default is `false`.
     """
     bgp_log_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -25238,7 +25297,7 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgsDict(TypedDict):
     """
     log_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Enable or disable VPN tunnel logging feature. The default is `false`.
+    Whether to enable the VPN tunnel logging feature. The default is `false`.
     """
     log_group_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -25259,10 +25318,10 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs:
                  log_group_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  log_output_format: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.bool] bgp_log_enabled: Enable or disable BGP logging feature. The default is `false`.
+        :param pulumi.Input[_builtins.bool] bgp_log_enabled: Whether to enable the BGP logging feature. The default is `false`.
         :param pulumi.Input[_builtins.str] bgp_log_group_arn: ARN of the CloudWatch log group to send BGP logs to.
         :param pulumi.Input[_builtins.str] bgp_log_output_format: Set BGP log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
-        :param pulumi.Input[_builtins.bool] log_enabled: Enable or disable VPN tunnel logging feature. The default is `false`.
+        :param pulumi.Input[_builtins.bool] log_enabled: Whether to enable the VPN tunnel logging feature. The default is `false`.
         :param pulumi.Input[_builtins.str] log_group_arn: ARN of the CloudWatch log group to send logs to.
         :param pulumi.Input[_builtins.str] log_output_format: Set log format. Default format is json. Possible values are: `json` and `text`. The default is `json`.
         """
@@ -25283,7 +25342,7 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs:
     @pulumi.getter(name="bgpLogEnabled")
     def bgp_log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable or disable BGP logging feature. The default is `false`.
+        Whether to enable the BGP logging feature. The default is `false`.
         """
         return pulumi.get(self, "bgp_log_enabled")
 
@@ -25319,7 +25378,7 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs:
     @pulumi.getter(name="logEnabled")
     def log_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable or disable VPN tunnel logging feature. The default is `false`.
+        Whether to enable the VPN tunnel logging feature. The default is `false`.
         """
         return pulumi.get(self, "log_enabled")
 
@@ -25355,7 +25414,7 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs:
 class VpnConnectionVgwTelemetryArgsDict(TypedDict):
     accepted_route_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The number of accepted routes.
+    Number of accepted routes.
     """
     certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -25363,15 +25422,15 @@ class VpnConnectionVgwTelemetryArgsDict(TypedDict):
     """
     last_status_change: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The date and time of the last change in status.
+    Date and time of the last change in status.
     """
     outside_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Internet-routable IP address of the virtual private gateway's outside interface.
+    Internet-routable IP address of the virtual private gateway's outside interface.
     """
     status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The status of the VPN tunnel.
+    Status of the VPN tunnel.
     """
     status_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -25388,11 +25447,11 @@ class VpnConnectionVgwTelemetryArgs:
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  status_message: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.int] accepted_route_count: The number of accepted routes.
+        :param pulumi.Input[_builtins.int] accepted_route_count: Number of accepted routes.
         :param pulumi.Input[_builtins.str] certificate_arn: ARN of the VPN tunnel endpoint certificate.
-        :param pulumi.Input[_builtins.str] last_status_change: The date and time of the last change in status.
-        :param pulumi.Input[_builtins.str] outside_ip_address: The Internet-routable IP address of the virtual private gateway's outside interface.
-        :param pulumi.Input[_builtins.str] status: The status of the VPN tunnel.
+        :param pulumi.Input[_builtins.str] last_status_change: Date and time of the last change in status.
+        :param pulumi.Input[_builtins.str] outside_ip_address: Internet-routable IP address of the virtual private gateway's outside interface.
+        :param pulumi.Input[_builtins.str] status: Status of the VPN tunnel.
         :param pulumi.Input[_builtins.str] status_message: If an error occurs, a description of the error.
         """
         if accepted_route_count is not None:
@@ -25412,7 +25471,7 @@ class VpnConnectionVgwTelemetryArgs:
     @pulumi.getter(name="acceptedRouteCount")
     def accepted_route_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of accepted routes.
+        Number of accepted routes.
         """
         return pulumi.get(self, "accepted_route_count")
 
@@ -25436,7 +25495,7 @@ class VpnConnectionVgwTelemetryArgs:
     @pulumi.getter(name="lastStatusChange")
     def last_status_change(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The date and time of the last change in status.
+        Date and time of the last change in status.
         """
         return pulumi.get(self, "last_status_change")
 
@@ -25448,7 +25507,7 @@ class VpnConnectionVgwTelemetryArgs:
     @pulumi.getter(name="outsideIpAddress")
     def outside_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Internet-routable IP address of the virtual private gateway's outside interface.
+        Internet-routable IP address of the virtual private gateway's outside interface.
         """
         return pulumi.get(self, "outside_ip_address")
 
@@ -25460,7 +25519,7 @@ class VpnConnectionVgwTelemetryArgs:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of the VPN tunnel.
+        Status of the VPN tunnel.
         """
         return pulumi.get(self, "status")
 
@@ -27692,8 +27751,6 @@ class GetVpcDhcpOptionsFilterArgsDict(TypedDict):
     values: Sequence[_builtins.str]
     """
     Set of values for filtering.
-
-    For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
     """
 
 @pulumi.input_type
@@ -27704,8 +27761,6 @@ class GetVpcDhcpOptionsFilterArgs:
         """
         :param _builtins.str name: Name of the field to filter.
         :param Sequence[_builtins.str] values: Set of values for filtering.
-               
-               For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -27727,8 +27782,6 @@ class GetVpcDhcpOptionsFilterArgs:
     def values(self) -> Sequence[_builtins.str]:
         """
         Set of values for filtering.
-
-        For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
         """
         return pulumi.get(self, "values")
 
@@ -27740,13 +27793,11 @@ class GetVpcDhcpOptionsFilterArgs:
 class GetVpcEndpointFilterArgsDict(TypedDict):
     name: _builtins.str
     """
-    Name of the field to filter by, as defined by
-    [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+    Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
     """
     values: Sequence[_builtins.str]
     """
-    Set of values that are accepted for the given field.
-    A VPC Endpoint will be selected if any one of the given values matches.
+    Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
     """
 
 @pulumi.input_type
@@ -27755,10 +27806,8 @@ class GetVpcEndpointFilterArgs:
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               A VPC Endpoint will be selected if any one of the given values matches.
+        :param _builtins.str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -27767,8 +27816,7 @@ class GetVpcEndpointFilterArgs:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
         """
         return pulumi.get(self, "name")
 
@@ -27780,8 +27828,7 @@ class GetVpcEndpointFilterArgs:
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        Set of values that are accepted for the given field.
-        A VPC Endpoint will be selected if any one of the given values matches.
+        Set of values that are accepted for the given field. A VPC Endpoint will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 
@@ -27887,8 +27934,7 @@ class GetVpcFilterArgs:
 class GetVpcIpamPoolCidrsFilterArgsDict(TypedDict):
     name: _builtins.str
     """
-    Name of the field to filter by, as defined by
-    [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+    Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
     """
     values: Sequence[_builtins.str]
     """
@@ -27901,8 +27947,7 @@ class GetVpcIpamPoolCidrsFilterArgs:
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+        :param _builtins.str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
         :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
         """
         pulumi.set(__self__, "name", name)
@@ -27912,8 +27957,7 @@ class GetVpcIpamPoolCidrsFilterArgs:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
         """
         return pulumi.get(self, "name")
 
@@ -27937,11 +27981,11 @@ class GetVpcIpamPoolCidrsFilterArgs:
 class GetVpcIpamPoolFilterArgsDict(TypedDict):
     name: _builtins.str
     """
-    The name of the filter. Filter names are case-sensitive.
+    Name of the filter. Filter names are case-sensitive.
     """
     values: Sequence[_builtins.str]
     """
-    The filter values. Filter values are case-sensitive.
+    Filter values. Filter values are case-sensitive.
     """
 
 @pulumi.input_type
@@ -27950,8 +27994,8 @@ class GetVpcIpamPoolFilterArgs:
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: The name of the filter. Filter names are case-sensitive.
-        :param Sequence[_builtins.str] values: The filter values. Filter values are case-sensitive.
+        :param _builtins.str name: Name of the filter. Filter names are case-sensitive.
+        :param Sequence[_builtins.str] values: Filter values. Filter values are case-sensitive.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -27960,7 +28004,7 @@ class GetVpcIpamPoolFilterArgs:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the filter. Filter names are case-sensitive.
+        Name of the filter. Filter names are case-sensitive.
         """
         return pulumi.get(self, "name")
 
@@ -27972,7 +28016,7 @@ class GetVpcIpamPoolFilterArgs:
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        The filter values. Filter values are case-sensitive.
+        Filter values. Filter values are case-sensitive.
         """
         return pulumi.get(self, "values")
 
@@ -27984,11 +28028,11 @@ class GetVpcIpamPoolFilterArgs:
 class GetVpcIpamPoolsFilterArgsDict(TypedDict):
     name: _builtins.str
     """
-    The name of the filter. Filter names are case-sensitive.
+    Name of the filter. Filter names are case-sensitive.
     """
     values: Sequence[_builtins.str]
     """
-    The filter values. Filter values are case-sensitive.
+    Filter values. Filter values are case-sensitive.
     """
 
 @pulumi.input_type
@@ -27997,8 +28041,8 @@ class GetVpcIpamPoolsFilterArgs:
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: The name of the filter. Filter names are case-sensitive.
-        :param Sequence[_builtins.str] values: The filter values. Filter values are case-sensitive.
+        :param _builtins.str name: Name of the filter. Filter names are case-sensitive.
+        :param Sequence[_builtins.str] values: Filter values. Filter values are case-sensitive.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -28007,7 +28051,7 @@ class GetVpcIpamPoolsFilterArgs:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the filter. Filter names are case-sensitive.
+        Name of the filter. Filter names are case-sensitive.
         """
         return pulumi.get(self, "name")
 
@@ -28019,7 +28063,7 @@ class GetVpcIpamPoolsFilterArgs:
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        The filter values. Filter values are case-sensitive.
+        Filter values. Filter values are case-sensitive.
         """
         return pulumi.get(self, "values")
 
@@ -28031,13 +28075,11 @@ class GetVpcIpamPoolsFilterArgs:
 class GetVpcIpamsFilterArgsDict(TypedDict):
     name: _builtins.str
     """
-    Name of the field to filter by, as defined by
-    [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+    Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
     """
     values: Sequence[_builtins.str]
     """
-    Set of values that are accepted for the given field.
-    An IPAM resource will be selected if any one of the given values matches.
+    Set of values that are accepted for the given field. An IPAM resource will be selected if any one of the given values matches.
     """
 
 @pulumi.input_type
@@ -28046,10 +28088,8 @@ class GetVpcIpamsFilterArgs:
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               An IPAM resource will be selected if any one of the given values matches.
+        :param _builtins.str name: Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field. An IPAM resource will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -28058,8 +28098,7 @@ class GetVpcIpamsFilterArgs:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html).
         """
         return pulumi.get(self, "name")
 
@@ -28071,8 +28110,7 @@ class GetVpcIpamsFilterArgs:
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        Set of values that are accepted for the given field.
-        An IPAM resource will be selected if any one of the given values matches.
+        Set of values that are accepted for the given field. An IPAM resource will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 
@@ -28084,13 +28122,11 @@ class GetVpcIpamsFilterArgs:
 class GetVpcPeeringConnectionFilterArgsDict(TypedDict):
     name: _builtins.str
     """
-    Name of the field to filter by, as defined by
-    [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+    Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
     """
     values: Sequence[_builtins.str]
     """
-    Set of values that are accepted for the given field.
-    A VPC Peering Connection will be selected if any one of the given values matches.
+    Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
     """
 
 @pulumi.input_type
@@ -28099,10 +28135,8 @@ class GetVpcPeeringConnectionFilterArgs:
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               A VPC Peering Connection will be selected if any one of the given values matches.
+        :param _builtins.str name: Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -28111,8 +28145,7 @@ class GetVpcPeeringConnectionFilterArgs:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
         """
         return pulumi.get(self, "name")
 
@@ -28124,8 +28157,7 @@ class GetVpcPeeringConnectionFilterArgs:
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        Set of values that are accepted for the given field.
-        A VPC Peering Connection will be selected if any one of the given values matches.
+        Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 
@@ -28137,13 +28169,11 @@ class GetVpcPeeringConnectionFilterArgs:
 class GetVpcPeeringConnectionsFilterArgsDict(TypedDict):
     name: _builtins.str
     """
-    Name of the field to filter by, as defined by
-    [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+    Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
     """
     values: Sequence[_builtins.str]
     """
-    Set of values that are accepted for the given field.
-    A VPC Peering Connection will be selected if any one of the given values matches.
+    Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
     """
 
 @pulumi.input_type
@@ -28152,10 +28182,8 @@ class GetVpcPeeringConnectionsFilterArgs:
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               A VPC Peering Connection will be selected if any one of the given values matches.
+        :param _builtins.str name: Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -28164,8 +28192,7 @@ class GetVpcPeeringConnectionsFilterArgs:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
         """
         return pulumi.get(self, "name")
 
@@ -28177,8 +28204,7 @@ class GetVpcPeeringConnectionsFilterArgs:
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        Set of values that are accepted for the given field.
-        A VPC Peering Connection will be selected if any one of the given values matches.
+        Set of values that are accepted for the given field. A VPC Peering Connection will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 
@@ -28190,13 +28216,11 @@ class GetVpcPeeringConnectionsFilterArgs:
 class GetVpcsFilterArgsDict(TypedDict):
     name: _builtins.str
     """
-    Name of the field to filter by, as defined by
-    [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+    Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
     """
     values: Sequence[_builtins.str]
     """
-    Set of values that are accepted for the given field.
-    A VPC will be selected if any one of the given values matches.
+    Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
     """
 
 @pulumi.input_type
@@ -28205,10 +28229,8 @@ class GetVpcsFilterArgs:
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               A VPC will be selected if any one of the given values matches.
+        :param _builtins.str name: Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -28217,8 +28239,7 @@ class GetVpcsFilterArgs:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
         """
         return pulumi.get(self, "name")
 
@@ -28230,8 +28251,7 @@ class GetVpcsFilterArgs:
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        Set of values that are accepted for the given field.
-        A VPC will be selected if any one of the given values matches.
+        Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 
@@ -28290,13 +28310,11 @@ class GetVpnConnectionFilterArgs:
 class GetVpnGatewayFilterArgsDict(TypedDict):
     name: _builtins.str
     """
-    Name of the field to filter by, as defined by
-    [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+    Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
     """
     values: Sequence[_builtins.str]
     """
-    Set of values that are accepted for the given field.
-    A VPN Gateway will be selected if any one of the given values matches.
+    Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
     """
 
 @pulumi.input_type
@@ -28305,10 +28323,8 @@ class GetVpnGatewayFilterArgs:
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
-        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field.
-               A VPN Gateway will be selected if any one of the given values matches.
+        :param _builtins.str name: Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -28317,8 +28333,7 @@ class GetVpnGatewayFilterArgs:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+        Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
         """
         return pulumi.get(self, "name")
 
@@ -28330,8 +28345,7 @@ class GetVpnGatewayFilterArgs:
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
         """
-        Set of values that are accepted for the given field.
-        A VPN Gateway will be selected if any one of the given values matches.
+        Set of values that are accepted for the given field. A VPN Gateway will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 

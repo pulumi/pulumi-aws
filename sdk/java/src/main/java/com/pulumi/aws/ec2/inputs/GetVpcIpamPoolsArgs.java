@@ -20,16 +20,12 @@ public final class GetVpcIpamPoolsArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Custom filter block as described below.
      * 
-     * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
-     * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetVpcIpamPoolsFilterArgs>> filters;
 
     /**
      * @return Custom filter block as described below.
-     * 
-     * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
      * 
      */
     public Optional<Output<List<GetVpcIpamPoolsFilterArgs>>> filters() {
@@ -79,8 +75,6 @@ public final class GetVpcIpamPoolsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
-         * 
          * @return builder
          * 
          */
@@ -92,8 +86,6 @@ public final class GetVpcIpamPoolsArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters Custom filter block as described below.
          * 
-         * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
-         * 
          * @return builder
          * 
          */
@@ -103,8 +95,6 @@ public final class GetVpcIpamPoolsArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param filters Custom filter block as described below.
-         * 
-         * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
          * 
          * @return builder
          * 

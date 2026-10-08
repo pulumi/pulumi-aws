@@ -16,14 +16,14 @@ public final class ResourceCollectionCloudformationArgs extends com.pulumi.resou
     public static final ResourceCollectionCloudformationArgs Empty = new ResourceCollectionCloudformationArgs();
 
     /**
-     * Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
+     * Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
      * 
      */
     @Import(name="stackNames", required=true)
     private Output<List<String>> stackNames;
 
     /**
-     * @return Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
+     * @return Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
      * 
      */
     public Output<List<String>> stackNames() {
@@ -55,7 +55,7 @@ public final class ResourceCollectionCloudformationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param stackNames Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
+         * @param stackNames Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ResourceCollectionCloudformationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param stackNames Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
+         * @param stackNames Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class ResourceCollectionCloudformationArgs extends com.pulumi.resou
         }
 
         /**
-         * @param stackNames Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
+         * @param stackNames Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all account resources) this array should be a single item containing a wildcard (`&#34;*&#34;`).
          * 
          * @return builder
          * 

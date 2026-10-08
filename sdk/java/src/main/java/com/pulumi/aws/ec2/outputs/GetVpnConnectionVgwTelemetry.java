@@ -11,25 +11,65 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpnConnectionVgwTelemetry {
+    /**
+     * @return Number of accepted routes.
+     * 
+     */
     private Integer acceptedRouteCount;
+    /**
+     * @return Date and time of the last change in status.
+     * 
+     */
     private String lastStatusChange;
+    /**
+     * @return IP address of the virtual private gateway tunnel endpoint.
+     * 
+     */
     private String outsideIpAddress;
+    /**
+     * @return Status of the VPN tunnel.
+     * 
+     */
     private String status;
+    /**
+     * @return Information about the status change.
+     * 
+     */
     private String statusMessage;
 
     private GetVpnConnectionVgwTelemetry() {}
+    /**
+     * @return Number of accepted routes.
+     * 
+     */
     public Integer acceptedRouteCount() {
         return this.acceptedRouteCount;
     }
+    /**
+     * @return Date and time of the last change in status.
+     * 
+     */
     public String lastStatusChange() {
         return this.lastStatusChange;
     }
+    /**
+     * @return IP address of the virtual private gateway tunnel endpoint.
+     * 
+     */
     public String outsideIpAddress() {
         return this.outsideIpAddress;
     }
+    /**
+     * @return Status of the VPN tunnel.
+     * 
+     */
     public String status() {
         return this.status;
     }
+    /**
+     * @return Information about the status change.
+     * 
+     */
     public String statusMessage() {
         return this.statusMessage;
     }

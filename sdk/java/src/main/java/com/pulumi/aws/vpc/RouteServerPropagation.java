@@ -80,21 +80,21 @@ public class RouteServerPropagation extends com.pulumi.resources.CustomResource 
         return this.region;
     }
     /**
-     * The unique identifier for the route server to be associated.
+     * Unique identifier for the route server to be associated.
      * 
      */
     @Export(name="routeServerId", refs={String.class}, tree="[0]")
     private Output<String> routeServerId;
 
     /**
-     * @return The unique identifier for the route server to be associated.
+     * @return Unique identifier for the route server to be associated.
      * 
      */
     public Output<String> routeServerId() {
         return this.routeServerId;
     }
     /**
-     * The ID of the route table to which route server will propagate routes.
+     * ID of the route table to which route server will propagate routes.
      * 
      * The following arguments are optional:
      * 
@@ -103,7 +103,7 @@ public class RouteServerPropagation extends com.pulumi.resources.CustomResource 
     private Output<String> routeTableId;
 
     /**
-     * @return The ID of the route table to which route server will propagate routes.
+     * @return ID of the route table to which route server will propagate routes.
      * 
      * The following arguments are optional:
      * 

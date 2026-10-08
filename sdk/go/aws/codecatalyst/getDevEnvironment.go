@@ -84,7 +84,7 @@ type LookupDevEnvironmentResult struct {
 	Ides []GetDevEnvironmentIde `pulumi:"ides"`
 	// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
 	InactivityTimeoutMinutes int `pulumi:"inactivityTimeoutMinutes"`
-	// The Amazon EC2 instace type to use for the Dev Environment.
+	// The Amazon EC2 instance type to use for the Dev Environment.
 	InstanceType string `pulumi:"instanceType"`
 	// The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
@@ -174,7 +174,7 @@ func (o LookupDevEnvironmentResultOutput) InactivityTimeoutMinutes() pulumi.IntO
 	return o.ApplyT(func(v LookupDevEnvironmentResult) int { return v.InactivityTimeoutMinutes }).(pulumi.IntOutput)
 }
 
-// The Amazon EC2 instace type to use for the Dev Environment.
+// The Amazon EC2 instance type to use for the Dev Environment.
 func (o LookupDevEnvironmentResultOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDevEnvironmentResult) string { return v.InstanceType }).(pulumi.StringOutput)
 }

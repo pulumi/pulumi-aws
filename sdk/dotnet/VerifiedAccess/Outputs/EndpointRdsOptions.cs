@@ -13,12 +13,33 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     [OutputType]
     public sealed class EndpointRdsOptions
     {
+        /// <summary>
+        /// IP port number.
+        /// </summary>
         public readonly int? Port;
+        /// <summary>
+        /// Protocol. Currently `Tcp` is supported.
+        /// </summary>
         public readonly string? Protocol;
+        /// <summary>
+        /// ARN of the RDS cluster.
+        /// </summary>
         public readonly string? RdsDbClusterArn;
+        /// <summary>
+        /// ARN of the RDS instance.
+        /// </summary>
         public readonly string? RdsDbInstanceArn;
+        /// <summary>
+        /// ARN of the RDS proxy.
+        /// </summary>
         public readonly string? RdsDbProxyArn;
+        /// <summary>
+        /// RDS endpoint.
+        /// </summary>
         public readonly string? RdsEndpoint;
+        /// <summary>
+        /// IDs of the subnets.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 
         [OutputConstructor]

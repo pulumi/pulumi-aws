@@ -41,25 +41,23 @@ class VpcEndpointArgs:
         """
         The set of arguments for constructing a VpcEndpoint resource.
 
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC in which the endpoint will be used.
-        :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
-        :param pulumi.Input['VpcEndpointDnsOptionsArgs'] dns_options: The DNS options for the endpoint. See dns_options below.
-        :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
-        :param pulumi.Input[_builtins.str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-        :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-               Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC in which the endpoint will be used.
+        :param pulumi.Input[_builtins.bool] auto_accept: Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        :param pulumi.Input['VpcEndpointDnsOptionsArgs'] dns_options: DNS options for the endpoint. See `dns_options` below.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        :param pulumi.Input[_builtins.str] policy: Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_configuration_arn: The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        :param pulumi.Input[_builtins.str] resource_configuration_arn: ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-               If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
-        :param pulumi.Input[_builtins.str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
-        :param pulumi.Input[_builtins.str] service_network_arn: The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
-        :param pulumi.Input[_builtins.str] service_region: The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+        :param pulumi.Input[_builtins.str] service_name: Service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        :param pulumi.Input[_builtins.str] service_network_arn: ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        :param pulumi.Input[_builtins.str] service_region: AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointSubnetConfigurationArgs']]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_type: The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vpc_endpoint_type: VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if auto_accept is not None:
@@ -99,7 +97,7 @@ class VpcEndpointArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the VPC in which the endpoint will be used.
+        ID of the VPC in which the endpoint will be used.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -111,7 +109,7 @@ class VpcEndpointArgs:
     @pulumi.getter(name="autoAccept")
     def auto_accept(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         """
         return pulumi.get(self, "auto_accept")
 
@@ -123,7 +121,7 @@ class VpcEndpointArgs:
     @pulumi.getter(name="dnsOptions")
     def dns_options(self) -> pulumi.Input[Optional['VpcEndpointDnsOptionsArgs']]:
         """
-        The DNS options for the endpoint. See dns_options below.
+        DNS options for the endpoint. See `dns_options` below.
         """
         return pulumi.get(self, "dns_options")
 
@@ -135,7 +133,7 @@ class VpcEndpointArgs:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -147,7 +145,7 @@ class VpcEndpointArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         """
         return pulumi.get(self, "policy")
 
@@ -159,8 +157,7 @@ class VpcEndpointArgs:
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-        Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
+        Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
         """
         return pulumi.get(self, "private_dns_enabled")
 
@@ -184,7 +181,7 @@ class VpcEndpointArgs:
     @pulumi.getter(name="resourceConfigurationArn")
     def resource_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         """
         return pulumi.get(self, "resource_configuration_arn")
 
@@ -208,8 +205,7 @@ class VpcEndpointArgs:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-        If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+        ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -221,7 +217,7 @@ class VpcEndpointArgs:
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        Service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         """
         return pulumi.get(self, "service_name")
 
@@ -233,7 +229,7 @@ class VpcEndpointArgs:
     @pulumi.getter(name="serviceNetworkArn")
     def service_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         """
         return pulumi.get(self, "service_network_arn")
 
@@ -245,7 +241,7 @@ class VpcEndpointArgs:
     @pulumi.getter(name="serviceRegion")
     def service_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
         """
         return pulumi.get(self, "service_region")
 
@@ -269,7 +265,7 @@ class VpcEndpointArgs:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+        ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -281,7 +277,7 @@ class VpcEndpointArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -293,7 +289,7 @@ class VpcEndpointArgs:
     @pulumi.getter(name="vpcEndpointType")
     def vpc_endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+        VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
         """
         return pulumi.get(self, "vpc_endpoint_type")
 
@@ -335,33 +331,31 @@ class _VpcEndpointState:
         Input properties used for looking up and filtering VpcEndpoint resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the VPC endpoint.
-        :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
-        :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]] dns_entries: The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
-        :param pulumi.Input['VpcEndpointDnsOptionsArgs'] dns_options: The DNS options for the endpoint. See dns_options below.
-        :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        :param pulumi.Input[_builtins.bool] auto_accept: Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]] dns_entries: DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. See `dns_entry` below.
+        :param pulumi.Input['VpcEndpointDnsOptionsArgs'] dns_options: DNS options for the endpoint. See `dns_options` below.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
-        :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the VPC endpoint.
-        :param pulumi.Input[_builtins.str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-        :param pulumi.Input[_builtins.str] prefix_list_id: The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
-        :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-               Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] owner_id: ID of the AWS account that owns the VPC endpoint.
+        :param pulumi.Input[_builtins.str] policy: Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        :param pulumi.Input[_builtins.str] prefix_list_id: Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] requester_managed: Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
-        :param pulumi.Input[_builtins.str] resource_configuration_arn: The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        :param pulumi.Input[_builtins.str] resource_configuration_arn: ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-               If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
-        :param pulumi.Input[_builtins.str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
-        :param pulumi.Input[_builtins.str] service_network_arn: The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
-        :param pulumi.Input[_builtins.str] service_region: The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
-        :param pulumi.Input[_builtins.str] state: The state of the VPC endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+        :param pulumi.Input[_builtins.str] service_name: Service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        :param pulumi.Input[_builtins.str] service_network_arn: ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        :param pulumi.Input[_builtins.str] service_region: AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        :param pulumi.Input[_builtins.str] state: State of the VPC endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointSubnetConfigurationArgs']]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_type: The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC in which the endpoint will be used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_endpoint_type: VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC in which the endpoint will be used.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -432,7 +426,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="autoAccept")
     def auto_accept(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         """
         return pulumi.get(self, "auto_accept")
 
@@ -444,7 +438,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         """
         return pulumi.get(self, "cidr_blocks")
 
@@ -456,7 +450,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]]]:
         """
-        The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. See `dns_entry` below.
         """
         return pulumi.get(self, "dns_entries")
 
@@ -468,7 +462,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="dnsOptions")
     def dns_options(self) -> pulumi.Input[Optional['VpcEndpointDnsOptionsArgs']]:
         """
-        The DNS options for the endpoint. See dns_options below.
+        DNS options for the endpoint. See `dns_options` below.
         """
         return pulumi.get(self, "dns_options")
 
@@ -480,7 +474,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -504,7 +498,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the AWS account that owns the VPC endpoint.
+        ID of the AWS account that owns the VPC endpoint.
         """
         return pulumi.get(self, "owner_id")
 
@@ -516,7 +510,7 @@ class _VpcEndpointState:
     @pulumi.getter
     def policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         """
         return pulumi.get(self, "policy")
 
@@ -528,7 +522,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
         """
         return pulumi.get(self, "prefix_list_id")
 
@@ -540,8 +534,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-        Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
+        Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
         """
         return pulumi.get(self, "private_dns_enabled")
 
@@ -577,7 +570,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="resourceConfigurationArn")
     def resource_configuration_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         """
         return pulumi.get(self, "resource_configuration_arn")
 
@@ -601,8 +594,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-        If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+        ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -614,7 +606,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        Service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         """
         return pulumi.get(self, "service_name")
 
@@ -626,7 +618,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="serviceNetworkArn")
     def service_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         """
         return pulumi.get(self, "service_network_arn")
 
@@ -638,7 +630,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="serviceRegion")
     def service_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
         """
         return pulumi.get(self, "service_region")
 
@@ -650,7 +642,7 @@ class _VpcEndpointState:
     @pulumi.getter
     def state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The state of the VPC endpoint.
+        State of the VPC endpoint.
         """
         return pulumi.get(self, "state")
 
@@ -674,7 +666,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+        ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -686,7 +678,7 @@ class _VpcEndpointState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -698,7 +690,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -710,7 +702,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="vpcEndpointType")
     def vpc_endpoint_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+        VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
         """
         return pulumi.get(self, "vpc_endpoint_type")
 
@@ -722,7 +714,7 @@ class _VpcEndpointState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC in which the endpoint will be used.
+        ID of the VPC in which the endpoint will be used.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -941,25 +933,23 @@ class VpcEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
-        :param pulumi.Input[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict', 'outputs.VpcEndpointDnsOptions']] dns_options: The DNS options for the endpoint. See dns_options below.
-        :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
-        :param pulumi.Input[_builtins.str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-        :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-               Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] auto_accept: Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        :param pulumi.Input[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict', 'outputs.VpcEndpointDnsOptions']] dns_options: DNS options for the endpoint. See `dns_options` below.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        :param pulumi.Input[_builtins.str] policy: Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_configuration_arn: The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        :param pulumi.Input[_builtins.str] resource_configuration_arn: ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-               If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
-        :param pulumi.Input[_builtins.str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
-        :param pulumi.Input[_builtins.str] service_network_arn: The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
-        :param pulumi.Input[_builtins.str] service_region: The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+        :param pulumi.Input[_builtins.str] service_name: Service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        :param pulumi.Input[_builtins.str] service_network_arn: ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        :param pulumi.Input[_builtins.str] service_region: AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict', 'outputs.VpcEndpointSubnetConfiguration']]]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_type: The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC in which the endpoint will be used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] vpc_endpoint_type: VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC in which the endpoint will be used.
         """
         ...
     @overload
@@ -1264,33 +1254,31 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the VPC endpoint.
-        :param pulumi.Input[_builtins.bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointDnsEntryArgs', 'VpcEndpointDnsEntryArgsDict', 'outputs.VpcEndpointDnsEntry']]]] dns_entries: The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
-        :param pulumi.Input[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict', 'outputs.VpcEndpointDnsOptions']] dns_options: The DNS options for the endpoint. See dns_options below.
-        :param pulumi.Input[_builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        :param pulumi.Input[_builtins.bool] auto_accept: Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cidr_blocks: List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointDnsEntryArgs', 'VpcEndpointDnsEntryArgsDict', 'outputs.VpcEndpointDnsEntry']]]] dns_entries: DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. See `dns_entry` below.
+        :param pulumi.Input[Union['VpcEndpointDnsOptionsArgs', 'VpcEndpointDnsOptionsArgsDict', 'outputs.VpcEndpointDnsOptions']] dns_options: DNS options for the endpoint. See `dns_options` below.
+        :param pulumi.Input[_builtins.str] ip_address_type: IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
-        :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the VPC endpoint.
-        :param pulumi.Input[_builtins.str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
-        :param pulumi.Input[_builtins.str] prefix_list_id: The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
-        :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-               Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] owner_id: ID of the AWS account that owns the VPC endpoint.
+        :param pulumi.Input[_builtins.str] policy: Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        :param pulumi.Input[_builtins.str] prefix_list_id: Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        :param pulumi.Input[_builtins.bool] private_dns_enabled: Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] requester_managed: Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
-        :param pulumi.Input[_builtins.str] resource_configuration_arn: The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        :param pulumi.Input[_builtins.str] resource_configuration_arn: ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-               If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
-        :param pulumi.Input[_builtins.str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
-        :param pulumi.Input[_builtins.str] service_network_arn: The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
-        :param pulumi.Input[_builtins.str] service_region: The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
-        :param pulumi.Input[_builtins.str] state: The state of the VPC endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+        :param pulumi.Input[_builtins.str] service_name: Service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        :param pulumi.Input[_builtins.str] service_network_arn: ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        :param pulumi.Input[_builtins.str] service_region: AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        :param pulumi.Input[_builtins.str] state: State of the VPC endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointSubnetConfigurationArgs', 'VpcEndpointSubnetConfigurationArgsDict', 'outputs.VpcEndpointSubnetConfiguration']]]] subnet_configurations: Subnet configuration for the endpoint, used to select specific IPv4 and/or IPv6 addresses to the endpoint. See subnet_configuration below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_type: The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC in which the endpoint will be used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_endpoint_type: VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC in which the endpoint will be used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1336,7 +1324,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="autoAccept")
     def auto_accept(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        Whether to accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         """
         return pulumi.get(self, "auto_accept")
 
@@ -1344,7 +1332,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="cidrBlocks")
     def cidr_blocks(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        List of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         """
         return pulumi.get(self, "cidr_blocks")
 
@@ -1352,7 +1340,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="dnsEntries")
     def dns_entries(self) -> pulumi.Output[Sequence['outputs.VpcEndpointDnsEntry']]:
         """
-        The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. See `dns_entry` below.
         """
         return pulumi.get(self, "dns_entries")
 
@@ -1360,7 +1348,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="dnsOptions")
     def dns_options(self) -> pulumi.Output['outputs.VpcEndpointDnsOptions']:
         """
-        The DNS options for the endpoint. See dns_options below.
+        DNS options for the endpoint. See `dns_options` below.
         """
         return pulumi.get(self, "dns_options")
 
@@ -1368,7 +1356,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -1384,7 +1372,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the AWS account that owns the VPC endpoint.
+        ID of the AWS account that owns the VPC endpoint.
         """
         return pulumi.get(self, "owner_id")
 
@@ -1392,7 +1380,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
         """
-        A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        Policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         """
         return pulumi.get(self, "policy")
 
@@ -1400,7 +1388,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="prefixListId")
     def prefix_list_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+        Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
         """
         return pulumi.get(self, "prefix_list_id")
 
@@ -1408,8 +1396,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="privateDnsEnabled")
     def private_dns_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
-        Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint.
-        Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
+        Whether to associate a private hosted zone with the specified VPC. Available for AWS services and AWS Marketplace partner services only. Applicable for endpoints of type `Interface`. Most users will want this enabled to allow services within the VPC to automatically use the endpoint. Defaults to `false`. If `vpc_endpoint_type` is anything other than `Interface`, changing this value forces a new resource to be created.
         """
         return pulumi.get(self, "private_dns_enabled")
 
@@ -1433,7 +1420,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="resourceConfigurationArn")
     def resource_configuration_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         """
         return pulumi.get(self, "resource_configuration_arn")
 
@@ -1449,8 +1436,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`.
-        If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
+        ID of one or more security groups to associate with the network interface. Applicable for endpoints of type `Interface`. If no security groups are specified, the VPC's [default security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#DefaultSecurityGroup) is associated with the endpoint.
         """
         return pulumi.get(self, "security_group_ids")
 
@@ -1458,7 +1444,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        Service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`). Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         """
         return pulumi.get(self, "service_name")
 
@@ -1466,7 +1452,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="serviceNetworkArn")
     def service_network_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
+        ARN of a Service Network to connect this VPC Endpoint to. Exactly one of `resource_configuration_arn`, `service_name` or `service_network_arn` is required.
         """
         return pulumi.get(self, "service_network_arn")
 
@@ -1474,7 +1460,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="serviceRegion")
     def service_region(self) -> pulumi.Output[_builtins.str]:
         """
-        The AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
+        AWS region of the VPC Endpoint Service. If specified, the VPC endpoint will connect to the service in the provided region. Applicable for endpoints of type `Interface`.
         """
         return pulumi.get(self, "service_region")
 
@@ -1482,7 +1468,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
         """
-        The state of the VPC endpoint.
+        State of the VPC endpoint.
         """
         return pulumi.get(self, "state")
 
@@ -1498,7 +1484,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
+        ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`. Interface type endpoints cannot function without being assigned to a subnet.
         """
         return pulumi.get(self, "subnet_ids")
 
@@ -1506,7 +1492,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1514,7 +1500,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1522,7 +1508,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="vpcEndpointType")
     def vpc_endpoint_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
+        VPC endpoint type, `Gateway`, `GatewayLoadBalancer`,`Interface`, `Resource` or `ServiceNetwork`. Defaults to `Gateway`.
         """
         return pulumi.get(self, "vpc_endpoint_type")
 
@@ -1530,7 +1516,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the VPC in which the endpoint will be used.
+        ID of the VPC in which the endpoint will be used.
         """
         return pulumi.get(self, "vpc_id")
 

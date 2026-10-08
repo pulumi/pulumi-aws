@@ -82,11 +82,10 @@ type LookupOpenZfsSnapshotResult struct {
 	CreationTime string                     `pulumi:"creationTime"`
 	Filters      []GetOpenZfsSnapshotFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	MostRecent *bool  `pulumi:"mostRecent"`
-	// Name of the snapshot.
-	Name   *string `pulumi:"name"`
-	Region string  `pulumi:"region"`
+	Id         string  `pulumi:"id"`
+	MostRecent *bool   `pulumi:"mostRecent"`
+	Name       *string `pulumi:"name"`
+	Region     string  `pulumi:"region"`
 	// ID of the snapshot.
 	SnapshotId  string   `pulumi:"snapshotId"`
 	SnapshotIds []string `pulumi:"snapshotIds"`
@@ -159,7 +158,6 @@ func (o LookupOpenZfsSnapshotResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the snapshot.
 func (o LookupOpenZfsSnapshotResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

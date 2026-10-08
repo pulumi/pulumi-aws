@@ -48,14 +48,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     }
 
     /**
-     * The ID of the IPAM to associate.
+     * ID of the IPAM to associate.
      * 
      */
     @Import(name="ipamId")
     private @Nullable Output<String> ipamId;
 
     /**
-     * @return The ID of the IPAM to associate.
+     * @return ID of the IPAM to associate.
      * 
      */
     public Optional<Output<String>> ipamId() {
@@ -63,14 +63,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     }
 
     /**
-     * The home region of the IPAM.
+     * Home region of the IPAM.
      * 
      */
     @Import(name="ipamRegion")
     private @Nullable Output<String> ipamRegion;
 
     /**
-     * @return The home region of the IPAM.
+     * @return Home region of the IPAM.
      * 
      */
     public Optional<Output<String>> ipamRegion() {
@@ -78,14 +78,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     }
 
     /**
-     * The ID of the Resource Discovery to associate.
+     * ID of the Resource Discovery to associate.
      * 
      */
     @Import(name="ipamResourceDiscoveryId")
     private @Nullable Output<String> ipamResourceDiscoveryId;
 
     /**
-     * @return The ID of the Resource Discovery to associate.
+     * @return ID of the Resource Discovery to associate.
      * 
      */
     public Optional<Output<String>> ipamResourceDiscoveryId() {
@@ -93,14 +93,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     }
 
     /**
-     * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
+     * Boolean to identify if the Resource Discovery is the accounts default resource discovery.
      * 
      */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
     /**
-     * @return A boolean to identify if the Resource Discovery is the accounts default resource discovery.
+     * @return Boolean to identify if the Resource Discovery is the accounts default resource discovery.
      * 
      */
     public Optional<Output<Boolean>> isDefault() {
@@ -108,14 +108,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     }
 
     /**
-     * The account ID for the account that manages the Resource Discovery
+     * Account ID for the account that manages the Resource Discovery
      * 
      */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
     /**
-     * @return The account ID for the account that manages the Resource Discovery
+     * @return Account ID for the account that manages the Resource Discovery
      * 
      */
     public Optional<Output<String>> ownerId() {
@@ -138,14 +138,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     }
 
     /**
-     * The lifecycle state of the association when you associate or disassociate a resource discovery.
+     * Lifecycle state of the association when you associate or disassociate a resource discovery.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The lifecycle state of the association when you associate or disassociate a resource discovery.
+     * @return Lifecycle state of the association when you associate or disassociate a resource discovery.
      * 
      */
     public Optional<Output<String>> state() {
@@ -153,14 +153,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     }
 
     /**
-     * A map of tags to add to the IPAM resource discovery association resource.
+     * Map of tags to add to the IPAM resource discovery association resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to add to the IPAM resource discovery association resource.
+     * @return Map of tags to add to the IPAM resource discovery association resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -168,14 +168,14 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -259,7 +259,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamId The ID of the IPAM to associate.
+         * @param ipamId ID of the IPAM to associate.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamId The ID of the IPAM to associate.
+         * @param ipamId ID of the IPAM to associate.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamRegion The home region of the IPAM.
+         * @param ipamRegion Home region of the IPAM.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamRegion The home region of the IPAM.
+         * @param ipamRegion Home region of the IPAM.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamResourceDiscoveryId The ID of the Resource Discovery to associate.
+         * @param ipamResourceDiscoveryId ID of the Resource Discovery to associate.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ipamResourceDiscoveryId The ID of the Resource Discovery to associate.
+         * @param ipamResourceDiscoveryId ID of the Resource Discovery to associate.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param isDefault A boolean to identify if the Resource Discovery is the accounts default resource discovery.
+         * @param isDefault Boolean to identify if the Resource Discovery is the accounts default resource discovery.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param isDefault A boolean to identify if the Resource Discovery is the accounts default resource discovery.
+         * @param isDefault Boolean to identify if the Resource Discovery is the accounts default resource discovery.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ownerId The account ID for the account that manages the Resource Discovery
+         * @param ownerId Account ID for the account that manages the Resource Discovery
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param ownerId The account ID for the account that manages the Resource Discovery
+         * @param ownerId Account ID for the account that manages the Resource Discovery
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param state The lifecycle state of the association when you associate or disassociate a resource discovery.
+         * @param state Lifecycle state of the association when you associate or disassociate a resource discovery.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param state The lifecycle state of the association when you associate or disassociate a resource discovery.
+         * @param state Lifecycle state of the association when you associate or disassociate a resource discovery.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param tags A map of tags to add to the IPAM resource discovery association resource.
+         * @param tags Map of tags to add to the IPAM resource discovery association resource.
          * 
          * @return builder
          * 
@@ -417,7 +417,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param tags A map of tags to add to the IPAM resource discovery association resource.
+         * @param tags Map of tags to add to the IPAM resource discovery association resource.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class VpcIpamResourceDiscoveryAssociationState extends com.pulumi.r
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

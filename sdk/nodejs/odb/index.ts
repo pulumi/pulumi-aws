@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AutonomousDatabaseArgs, AutonomousDatabaseState } from "./autonomousDatabase";
+export type AutonomousDatabase = import("./autonomousDatabase").AutonomousDatabase;
+export const AutonomousDatabase: typeof import("./autonomousDatabase").AutonomousDatabase = null as any;
+utilities.lazyLoad(exports, ["AutonomousDatabase"], () => require("./autonomousDatabase"));
+
+export { AutonomousDatabaseSecretsManagerIntegrationArgs, AutonomousDatabaseSecretsManagerIntegrationState } from "./autonomousDatabaseSecretsManagerIntegration";
+export type AutonomousDatabaseSecretsManagerIntegration = import("./autonomousDatabaseSecretsManagerIntegration").AutonomousDatabaseSecretsManagerIntegration;
+export const AutonomousDatabaseSecretsManagerIntegration: typeof import("./autonomousDatabaseSecretsManagerIntegration").AutonomousDatabaseSecretsManagerIntegration = null as any;
+utilities.lazyLoad(exports, ["AutonomousDatabaseSecretsManagerIntegration"], () => require("./autonomousDatabaseSecretsManagerIntegration"));
+
 export { CloudAutonomousVmClusterArgs, CloudAutonomousVmClusterState } from "./cloudAutonomousVmCluster";
 export type CloudAutonomousVmCluster = import("./cloudAutonomousVmCluster").CloudAutonomousVmCluster;
 export const CloudAutonomousVmCluster: typeof import("./cloudAutonomousVmCluster").CloudAutonomousVmCluster = null as any;
@@ -19,6 +29,11 @@ export { CloudVmClusterArgs, CloudVmClusterState } from "./cloudVmCluster";
 export type CloudVmCluster = import("./cloudVmCluster").CloudVmCluster;
 export const CloudVmCluster: typeof import("./cloudVmCluster").CloudVmCluster = null as any;
 utilities.lazyLoad(exports, ["CloudVmCluster"], () => require("./cloudVmCluster"));
+
+export { GetAutonomousDatabaseArgs, GetAutonomousDatabaseResult, GetAutonomousDatabaseOutputArgs } from "./getAutonomousDatabase";
+export const getAutonomousDatabase: typeof import("./getAutonomousDatabase").getAutonomousDatabase = null as any;
+export const getAutonomousDatabaseOutput: typeof import("./getAutonomousDatabase").getAutonomousDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getAutonomousDatabase","getAutonomousDatabaseOutput"], () => require("./getAutonomousDatabase"));
 
 export { GetCloudAutonomousVmClusterArgs, GetCloudAutonomousVmClusterResult, GetCloudAutonomousVmClusterOutputArgs } from "./getCloudAutonomousVmCluster";
 export const getCloudAutonomousVmCluster: typeof import("./getCloudAutonomousVmCluster").getCloudAutonomousVmCluster = null as any;
@@ -125,6 +140,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:odb/autonomousDatabase:AutonomousDatabase":
+                return new AutonomousDatabase(name, <any>undefined, { urn })
+            case "aws:odb/autonomousDatabaseSecretsManagerIntegration:AutonomousDatabaseSecretsManagerIntegration":
+                return new AutonomousDatabaseSecretsManagerIntegration(name, <any>undefined, { urn })
             case "aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster":
                 return new CloudAutonomousVmCluster(name, <any>undefined, { urn })
             case "aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure":
@@ -142,6 +161,8 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "odb/autonomousDatabase", _module)
+pulumi.runtime.registerResourceModule("aws", "odb/autonomousDatabaseSecretsManagerIntegration", _module)
 pulumi.runtime.registerResourceModule("aws", "odb/cloudAutonomousVmCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "odb/cloudExadataInfrastructure", _module)
 pulumi.runtime.registerResourceModule("aws", "odb/cloudVmCluster", _module)

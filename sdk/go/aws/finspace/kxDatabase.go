@@ -71,7 +71,7 @@ type KxDatabase struct {
 
 	// ARN identifier of the KX database.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+	// Timestamp at which the database is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
 	// Description of the KX database.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -126,7 +126,7 @@ func GetKxDatabase(ctx *pulumi.Context,
 type kxDatabaseState struct {
 	// ARN identifier of the KX database.
 	Arn *string `pulumi:"arn"`
-	// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+	// Timestamp at which the database is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 	CreatedTimestamp *string `pulumi:"createdTimestamp"`
 	// Description of the KX database.
 	Description *string `pulumi:"description"`
@@ -149,7 +149,7 @@ type kxDatabaseState struct {
 type KxDatabaseState struct {
 	// ARN identifier of the KX database.
 	Arn pulumi.StringPtrInput
-	// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+	// Timestamp at which the database is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 	CreatedTimestamp pulumi.StringPtrInput
 	// Description of the KX database.
 	Description pulumi.StringPtrInput
@@ -296,7 +296,7 @@ func (o KxDatabaseOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDatabase) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
+// Timestamp at which the database is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 func (o KxDatabaseOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDatabase) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
 }

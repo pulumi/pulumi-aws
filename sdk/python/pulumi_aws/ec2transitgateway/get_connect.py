@@ -105,7 +105,7 @@ class GetConnectResult:
     @pulumi.getter(name="transportAttachmentId")
     def transport_attachment_id(self) -> _builtins.str:
         """
-        The underlaying VPC attachment
+        The underlying VPC attachment
         """
         return pulumi.get(self, "transport_attachment_id")
 

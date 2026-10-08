@@ -120,7 +120,7 @@ export interface GetVpcEndpointServiceResult {
      */
     readonly availabilityZones: string[];
     /**
-     * The DNS names for the service.
+     * DNS names for the service.
      */
     readonly baseEndpointDnsNames: string[];
     readonly filters?: outputs.ec2.GetVpcEndpointServiceFilter[];
@@ -163,7 +163,7 @@ export interface GetVpcEndpointServiceResult {
     readonly serviceRegions?: string[];
     readonly serviceType: string;
     /**
-     * The supported IP address types.
+     * Supported IP address types.
      */
     readonly supportedIpAddressTypes: string[];
     /**

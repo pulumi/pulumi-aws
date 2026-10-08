@@ -863,7 +863,7 @@ func (o PlanTriggerConditionArrayOutput) Index(i pulumi.IntInput) PlanTriggerCon
 }
 
 type PlanWorkflow struct {
-	// Steps in the workflow. See `step` Block for details.
+	// Steps in the workflow. See `workflow.step` Block for details.
 	Steps []PlanWorkflowStep `pulumi:"steps"`
 	// Description of the workflow.
 	WorkflowDescription *string `pulumi:"workflowDescription"`
@@ -885,7 +885,7 @@ type PlanWorkflowInput interface {
 }
 
 type PlanWorkflowArgs struct {
-	// Steps in the workflow. See `step` Block for details.
+	// Steps in the workflow. See `workflow.step` Block for details.
 	Steps PlanWorkflowStepArrayInput `pulumi:"steps"`
 	// Description of the workflow.
 	WorkflowDescription pulumi.StringPtrInput `pulumi:"workflowDescription"`
@@ -946,7 +946,7 @@ func (o PlanWorkflowOutput) ToPlanWorkflowOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Steps in the workflow. See `step` Block for details.
+// Steps in the workflow. See `workflow.step` Block for details.
 func (o PlanWorkflowOutput) Steps() PlanWorkflowStepArrayOutput {
 	return o.ApplyT(func(v PlanWorkflow) []PlanWorkflowStep { return v.Steps }).(PlanWorkflowStepArrayOutput)
 }
@@ -995,7 +995,7 @@ type PlanWorkflowStep struct {
 	AuroraServerlessScalingConfigs []PlanWorkflowStepAuroraServerlessScalingConfig `pulumi:"auroraServerlessScalingConfigs"`
 	// Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
 	CustomActionLambdaConfigs []PlanWorkflowStepCustomActionLambdaConfig `pulumi:"customActionLambdaConfigs"`
-	// Description of the step.
+	// Description of the plan.
 	Description *string `pulumi:"description"`
 	// Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
 	DocumentDbConfigs []PlanWorkflowStepDocumentDbConfig `pulumi:"documentDbConfigs"`
@@ -1013,7 +1013,7 @@ type PlanWorkflowStep struct {
 	GlobalAuroraConfigs []PlanWorkflowStepGlobalAuroraConfig `pulumi:"globalAuroraConfigs"`
 	// Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
 	LambdaEventSourceMappingConfigs []PlanWorkflowStepLambdaEventSourceMappingConfig `pulumi:"lambdaEventSourceMappingConfigs"`
-	// Name of the step.
+	// Name of the plan. Must be unique within the account.
 	Name string `pulumi:"name"`
 	// Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
 	NeptuneGlobalDatabaseConfigs []PlanWorkflowStepNeptuneGlobalDatabaseConfig `pulumi:"neptuneGlobalDatabaseConfigs"`
@@ -1049,7 +1049,7 @@ type PlanWorkflowStepArgs struct {
 	AuroraServerlessScalingConfigs PlanWorkflowStepAuroraServerlessScalingConfigArrayInput `pulumi:"auroraServerlessScalingConfigs"`
 	// Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
 	CustomActionLambdaConfigs PlanWorkflowStepCustomActionLambdaConfigArrayInput `pulumi:"customActionLambdaConfigs"`
-	// Description of the step.
+	// Description of the plan.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
 	DocumentDbConfigs PlanWorkflowStepDocumentDbConfigArrayInput `pulumi:"documentDbConfigs"`
@@ -1067,7 +1067,7 @@ type PlanWorkflowStepArgs struct {
 	GlobalAuroraConfigs PlanWorkflowStepGlobalAuroraConfigArrayInput `pulumi:"globalAuroraConfigs"`
 	// Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
 	LambdaEventSourceMappingConfigs PlanWorkflowStepLambdaEventSourceMappingConfigArrayInput `pulumi:"lambdaEventSourceMappingConfigs"`
-	// Name of the step.
+	// Name of the plan. Must be unique within the account.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
 	NeptuneGlobalDatabaseConfigs PlanWorkflowStepNeptuneGlobalDatabaseConfigArrayInput `pulumi:"neptuneGlobalDatabaseConfigs"`
@@ -1160,7 +1160,7 @@ func (o PlanWorkflowStepOutput) CustomActionLambdaConfigs() PlanWorkflowStepCust
 	}).(PlanWorkflowStepCustomActionLambdaConfigArrayOutput)
 }
 
-// Description of the step.
+// Description of the plan.
 func (o PlanWorkflowStepOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -1213,7 +1213,7 @@ func (o PlanWorkflowStepOutput) LambdaEventSourceMappingConfigs() PlanWorkflowSt
 	}).(PlanWorkflowStepLambdaEventSourceMappingConfigArrayOutput)
 }
 
-// Name of the step.
+// Name of the plan. Must be unique within the account.
 func (o PlanWorkflowStepOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4950,7 +4950,7 @@ func (o PlanWorkflowStepNeptuneGlobalDatabaseConfigUngracefulArrayOutput) Index(
 }
 
 type PlanWorkflowStepParallelConfig struct {
-	// Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
+	// Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallelConfig` to prevent infinite nesting.
 	Steps []PlanWorkflowStepParallelConfigStep `pulumi:"steps"`
 }
 
@@ -4966,7 +4966,7 @@ type PlanWorkflowStepParallelConfigInput interface {
 }
 
 type PlanWorkflowStepParallelConfigArgs struct {
-	// Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
+	// Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallelConfig` to prevent infinite nesting.
 	Steps PlanWorkflowStepParallelConfigStepArrayInput `pulumi:"steps"`
 }
 
@@ -5021,7 +5021,7 @@ func (o PlanWorkflowStepParallelConfigOutput) ToPlanWorkflowStepParallelConfigOu
 	return o
 }
 
-// Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
+// Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallelConfig` to prevent infinite nesting.
 func (o PlanWorkflowStepParallelConfigOutput) Steps() PlanWorkflowStepParallelConfigStepArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfig) []PlanWorkflowStepParallelConfigStep { return v.Steps }).(PlanWorkflowStepParallelConfigStepArrayOutput)
 }
@@ -5055,7 +5055,7 @@ type PlanWorkflowStepParallelConfigStep struct {
 	AuroraServerlessScalingConfigs []PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfig `pulumi:"auroraServerlessScalingConfigs"`
 	// Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
 	CustomActionLambdaConfigs []PlanWorkflowStepParallelConfigStepCustomActionLambdaConfig `pulumi:"customActionLambdaConfigs"`
-	// Description of the step.
+	// Description of the plan.
 	Description *string `pulumi:"description"`
 	// Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
 	DocumentDbConfigs []PlanWorkflowStepParallelConfigStepDocumentDbConfig `pulumi:"documentDbConfigs"`
@@ -5073,7 +5073,7 @@ type PlanWorkflowStepParallelConfigStep struct {
 	GlobalAuroraConfigs []PlanWorkflowStepParallelConfigStepGlobalAuroraConfig `pulumi:"globalAuroraConfigs"`
 	// Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
 	LambdaEventSourceMappingConfigs []PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfig `pulumi:"lambdaEventSourceMappingConfigs"`
-	// Name of the step.
+	// Name of the plan. Must be unique within the account.
 	Name string `pulumi:"name"`
 	// Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
 	NeptuneGlobalDatabaseConfigs []PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfig `pulumi:"neptuneGlobalDatabaseConfigs"`
@@ -5107,7 +5107,7 @@ type PlanWorkflowStepParallelConfigStepArgs struct {
 	AuroraServerlessScalingConfigs PlanWorkflowStepParallelConfigStepAuroraServerlessScalingConfigArrayInput `pulumi:"auroraServerlessScalingConfigs"`
 	// Configuration for Lambda function execution. See `customActionLambdaConfig` Block for details.
 	CustomActionLambdaConfigs PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArrayInput `pulumi:"customActionLambdaConfigs"`
-	// Description of the step.
+	// Description of the plan.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Configuration for DocumentDB global cluster operations. See `documentDbConfig` Block for details.
 	DocumentDbConfigs PlanWorkflowStepParallelConfigStepDocumentDbConfigArrayInput `pulumi:"documentDbConfigs"`
@@ -5125,7 +5125,7 @@ type PlanWorkflowStepParallelConfigStepArgs struct {
 	GlobalAuroraConfigs PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArrayInput `pulumi:"globalAuroraConfigs"`
 	// Configuration for Lambda event source mapping operations. See `lambdaEventSourceMappingConfig` Block for details.
 	LambdaEventSourceMappingConfigs PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayInput `pulumi:"lambdaEventSourceMappingConfigs"`
-	// Name of the step.
+	// Name of the plan. Must be unique within the account.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Configuration for Neptune global database operations. See `neptuneGlobalDatabaseConfig` Block for details.
 	NeptuneGlobalDatabaseConfigs PlanWorkflowStepParallelConfigStepNeptuneGlobalDatabaseConfigArrayInput `pulumi:"neptuneGlobalDatabaseConfigs"`
@@ -5218,7 +5218,7 @@ func (o PlanWorkflowStepParallelConfigStepOutput) CustomActionLambdaConfigs() Pl
 	}).(PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArrayOutput)
 }
 
-// Description of the step.
+// Description of the plan.
 func (o PlanWorkflowStepParallelConfigStepOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -5277,7 +5277,7 @@ func (o PlanWorkflowStepParallelConfigStepOutput) LambdaEventSourceMappingConfig
 	}).(PlanWorkflowStepParallelConfigStepLambdaEventSourceMappingConfigArrayOutput)
 }
 
-// Name of the step.
+// Name of the plan. Must be unique within the account.
 func (o PlanWorkflowStepParallelConfigStepOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) string { return v.Name }).(pulumi.StringOutput)
 }

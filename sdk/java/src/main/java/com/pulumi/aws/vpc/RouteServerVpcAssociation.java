@@ -80,14 +80,14 @@ public class RouteServerVpcAssociation extends com.pulumi.resources.CustomResour
         return this.region;
     }
     /**
-     * The unique identifier for the route server to be associated.
+     * Unique identifier for the route server to be associated.
      * 
      */
     @Export(name="routeServerId", refs={String.class}, tree="[0]")
     private Output<String> routeServerId;
 
     /**
-     * @return The unique identifier for the route server to be associated.
+     * @return Unique identifier for the route server to be associated.
      * 
      */
     public Output<String> routeServerId() {
@@ -100,7 +100,7 @@ public class RouteServerVpcAssociation extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.timeouts);
     }
     /**
-     * The ID of the VPC to associate with the route server.
+     * ID of the VPC to associate with the route server.
      * 
      * The following arguments are optional:
      * 
@@ -109,7 +109,7 @@ public class RouteServerVpcAssociation extends com.pulumi.resources.CustomResour
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC to associate with the route server.
+     * @return ID of the VPC to associate with the route server.
      * 
      * The following arguments are optional:
      * 

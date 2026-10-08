@@ -159,42 +159,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:verifiedpermissions/identitySource:IdentitySource")
 public class IdentitySource extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+     * Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      * 
      */
     @Export(name="configuration", refs={IdentitySourceConfiguration.class}, tree="[0]")
     private Output<IdentitySourceConfiguration> configuration;
 
     /**
-     * @return Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+     * @return Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      * 
      */
     public Output<IdentitySourceConfiguration> configuration() {
         return this.configuration;
     }
     /**
-     * Specifies the ID of the policy store in which you want to store this identity source.
+     * ID of the policy store in which you want to store this identity source.
      * 
      */
     @Export(name="policyStoreId", refs={String.class}, tree="[0]")
     private Output<String> policyStoreId;
 
     /**
-     * @return Specifies the ID of the policy store in which you want to store this identity source.
+     * @return ID of the policy store in which you want to store this identity source.
      * 
      */
     public Output<String> policyStoreId() {
         return this.policyStoreId;
     }
     /**
-     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+     * Namespace and data type of the principals generated for identities authenticated by the new identity source.
      * 
      */
     @Export(name="principalEntityType", refs={String.class}, tree="[0]")
     private Output<String> principalEntityType;
 
     /**
-     * @return Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+     * @return Namespace and data type of the principals generated for identities authenticated by the new identity source.
      * 
      */
     public Output<String> principalEntityType() {

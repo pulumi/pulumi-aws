@@ -1109,9 +1109,9 @@ class RuleGroupCustomResponseBody(dict):
                  content_type: _builtins.str,
                  key: _builtins.str):
         """
-        :param _builtins.str content: The payload of the custom response.
-        :param _builtins.str content_type: The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
-        :param _builtins.str key: A unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+        :param _builtins.str content: Payload of the custom response.
+        :param _builtins.str content_type: Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+        :param _builtins.str key: Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "content_type", content_type)
@@ -1121,7 +1121,7 @@ class RuleGroupCustomResponseBody(dict):
     @pulumi.getter
     def content(self) -> _builtins.str:
         """
-        The payload of the custom response.
+        Payload of the custom response.
         """
         return pulumi.get(self, "content")
 
@@ -1129,7 +1129,7 @@ class RuleGroupCustomResponseBody(dict):
     @pulumi.getter(name="contentType")
     def content_type(self) -> _builtins.str:
         """
-        The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+        Type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
         """
         return pulumi.get(self, "content_type")
 
@@ -1137,7 +1137,7 @@ class RuleGroupCustomResponseBody(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        A unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
+        Unique key identifying the custom response body. This is referenced by the `custom_response_body_key` argument in the Custom Response block.
         """
         return pulumi.get(self, "key")
 
@@ -1174,12 +1174,12 @@ class RuleGroupRule(dict):
                  captcha_config: Optional['outputs.RuleGroupRuleCaptchaConfig'] = None,
                  rule_labels: Optional[Sequence['outputs.RuleGroupRuleRuleLabel']] = None):
         """
-        :param 'RuleGroupRuleActionArgs' action: The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
-        :param _builtins.str name: A friendly name of the rule.
+        :param 'RuleGroupRuleActionArgs' action: Action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+        :param _builtins.str name: Friendly name of the rule.
         :param _builtins.int priority: If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
-        :param 'RuleGroupRuleStatementArgs' statement: The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
-        :param 'RuleGroupRuleVisibilityConfigArgs' visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-        :param 'RuleGroupRuleCaptchaConfigArgs' captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        :param 'RuleGroupRuleStatementArgs' statement: AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+        :param 'RuleGroupRuleVisibilityConfigArgs' visibility_config: Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
+        :param 'RuleGroupRuleCaptchaConfigArgs' captcha_config: Configuration for how AWS WAF handles CAPTCHA evaluations. See Captcha Configuration below for details.
         :param Sequence['RuleGroupRuleRuleLabelArgs'] rule_labels: Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
         """
         pulumi.set(__self__, "action", action)
@@ -1196,7 +1196,7 @@ class RuleGroupRule(dict):
     @pulumi.getter
     def action(self) -> 'outputs.RuleGroupRuleAction':
         """
-        The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+        Action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
         """
         return pulumi.get(self, "action")
 
@@ -1204,7 +1204,7 @@ class RuleGroupRule(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A friendly name of the rule.
+        Friendly name of the rule.
         """
         return pulumi.get(self, "name")
 
@@ -1220,7 +1220,7 @@ class RuleGroupRule(dict):
     @pulumi.getter
     def statement(self) -> 'outputs.RuleGroupRuleStatement':
         """
-        The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+        AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
         """
         return pulumi.get(self, "statement")
 
@@ -1228,7 +1228,7 @@ class RuleGroupRule(dict):
     @pulumi.getter(name="visibilityConfig")
     def visibility_config(self) -> 'outputs.RuleGroupRuleVisibilityConfig':
         """
-        Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        Amazon CloudWatch metrics and web request sample collection configuration. See Visibility Configuration below for details.
         """
         return pulumi.get(self, "visibility_config")
 
@@ -1236,7 +1236,7 @@ class RuleGroupRule(dict):
     @pulumi.getter(name="captchaConfig")
     def captcha_config(self) -> Optional['outputs.RuleGroupRuleCaptchaConfig']:
         """
-        Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        Configuration for how AWS WAF handles CAPTCHA evaluations. See Captcha Configuration below for details.
         """
         return pulumi.get(self, "captcha_config")
 
@@ -1338,7 +1338,7 @@ class RuleGroupRuleActionAllow(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.RuleGroupRuleActionAllowCustomRequestHandling'] = None):
         """
-        :param 'RuleGroupRuleActionAllowCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
+        :param 'RuleGroupRuleActionAllowCustomRequestHandlingArgs' custom_request_handling: Custom handling for the web request. See Custom Request Handling below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -1347,7 +1347,7 @@ class RuleGroupRuleActionAllow(dict):
     @pulumi.getter(name="customRequestHandling")
     def custom_request_handling(self) -> Optional['outputs.RuleGroupRuleActionAllowCustomRequestHandling']:
         """
-        Defines custom handling for the web request. See Custom Request Handling below for details.
+        Custom handling for the web request. See Custom Request Handling below for details.
         """
         return pulumi.get(self, "custom_request_handling")
 
@@ -1374,7 +1374,7 @@ class RuleGroupRuleActionAllowCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        :param Sequence['RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -1382,7 +1382,7 @@ class RuleGroupRuleActionAllowCustomRequestHandling(dict):
     @pulumi.getter(name="insertHeaders")
     def insert_headers(self) -> Sequence['outputs.RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader']:
         """
-        The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
         return pulumi.get(self, "insert_headers")
 
@@ -1393,8 +1393,8 @@ class RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader(dict):
                  name: _builtins.str,
                  value: _builtins.str):
         """
-        :param _builtins.str name: A friendly name of the rule group.
-        :param _builtins.str value: The value of the custom header.
+        :param _builtins.str name: Friendly name of the rule group.
+        :param _builtins.str value: Value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1403,7 +1403,7 @@ class RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A friendly name of the rule group.
+        Friendly name of the rule group.
         """
         return pulumi.get(self, "name")
 
@@ -1411,7 +1411,7 @@ class RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        The value of the custom header.
+        Value of the custom header.
         """
         return pulumi.get(self, "value")
 
@@ -1438,7 +1438,7 @@ class RuleGroupRuleActionBlock(dict):
     def __init__(__self__, *,
                  custom_response: Optional['outputs.RuleGroupRuleActionBlockCustomResponse'] = None):
         """
-        :param 'RuleGroupRuleActionBlockCustomResponseArgs' custom_response: Defines a custom response for the web request. See Custom Response below for details.
+        :param 'RuleGroupRuleActionBlockCustomResponseArgs' custom_response: Custom response for the web request. See Custom Response below for details.
         """
         if custom_response is not None:
             pulumi.set(__self__, "custom_response", custom_response)
@@ -1447,7 +1447,7 @@ class RuleGroupRuleActionBlock(dict):
     @pulumi.getter(name="customResponse")
     def custom_response(self) -> Optional['outputs.RuleGroupRuleActionBlockCustomResponse']:
         """
-        Defines a custom response for the web request. See Custom Response below for details.
+        Custom response for the web request. See Custom Response below for details.
         """
         return pulumi.get(self, "custom_response")
 
@@ -1480,9 +1480,9 @@ class RuleGroupRuleActionBlockCustomResponse(dict):
                  custom_response_body_key: Optional[_builtins.str] = None,
                  response_headers: Optional[Sequence['outputs.RuleGroupRuleActionBlockCustomResponseResponseHeader']] = None):
         """
-        :param _builtins.int response_code: The HTTP status code to return to the client.
+        :param _builtins.int response_code: HTTP status code to return to the client.
         :param _builtins.str custom_response_body_key: References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
-        :param Sequence['RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+        :param Sequence['RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs'] response_headers: `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
         """
         pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
@@ -1494,7 +1494,7 @@ class RuleGroupRuleActionBlockCustomResponse(dict):
     @pulumi.getter(name="responseCode")
     def response_code(self) -> _builtins.int:
         """
-        The HTTP status code to return to the client.
+        HTTP status code to return to the client.
         """
         return pulumi.get(self, "response_code")
 
@@ -1510,7 +1510,7 @@ class RuleGroupRuleActionBlockCustomResponse(dict):
     @pulumi.getter(name="responseHeaders")
     def response_headers(self) -> Optional[Sequence['outputs.RuleGroupRuleActionBlockCustomResponseResponseHeader']]:
         """
-        The `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+        `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
         """
         return pulumi.get(self, "response_headers")
 
@@ -1521,8 +1521,8 @@ class RuleGroupRuleActionBlockCustomResponseResponseHeader(dict):
                  name: _builtins.str,
                  value: _builtins.str):
         """
-        :param _builtins.str name: A friendly name of the rule group.
-        :param _builtins.str value: The value of the custom header.
+        :param _builtins.str name: Friendly name of the rule group.
+        :param _builtins.str value: Value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1531,7 +1531,7 @@ class RuleGroupRuleActionBlockCustomResponseResponseHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A friendly name of the rule group.
+        Friendly name of the rule group.
         """
         return pulumi.get(self, "name")
 
@@ -1539,7 +1539,7 @@ class RuleGroupRuleActionBlockCustomResponseResponseHeader(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        The value of the custom header.
+        Value of the custom header.
         """
         return pulumi.get(self, "value")
 
@@ -1566,7 +1566,7 @@ class RuleGroupRuleActionCaptcha(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.RuleGroupRuleActionCaptchaCustomRequestHandling'] = None):
         """
-        :param 'RuleGroupRuleActionCaptchaCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
+        :param 'RuleGroupRuleActionCaptchaCustomRequestHandlingArgs' custom_request_handling: Custom handling for the web request. See Custom Request Handling below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -1575,7 +1575,7 @@ class RuleGroupRuleActionCaptcha(dict):
     @pulumi.getter(name="customRequestHandling")
     def custom_request_handling(self) -> Optional['outputs.RuleGroupRuleActionCaptchaCustomRequestHandling']:
         """
-        Defines custom handling for the web request. See Custom Request Handling below for details.
+        Custom handling for the web request. See Custom Request Handling below for details.
         """
         return pulumi.get(self, "custom_request_handling")
 
@@ -1602,7 +1602,7 @@ class RuleGroupRuleActionCaptchaCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        :param Sequence['RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs'] insert_headers: `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -1610,7 +1610,7 @@ class RuleGroupRuleActionCaptchaCustomRequestHandling(dict):
     @pulumi.getter(name="insertHeaders")
     def insert_headers(self) -> Sequence['outputs.RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader']:
         """
-        The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
         return pulumi.get(self, "insert_headers")
 
@@ -1621,8 +1621,8 @@ class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
                  name: _builtins.str,
                  value: _builtins.str):
         """
-        :param _builtins.str name: A friendly name of the rule group.
-        :param _builtins.str value: The value of the custom header.
+        :param _builtins.str name: Friendly name of the rule group.
+        :param _builtins.str value: Value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1631,7 +1631,7 @@ class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A friendly name of the rule group.
+        Friendly name of the rule group.
         """
         return pulumi.get(self, "name")
 
@@ -1639,7 +1639,7 @@ class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        The value of the custom header.
+        Value of the custom header.
         """
         return pulumi.get(self, "value")
 
@@ -1666,7 +1666,7 @@ class RuleGroupRuleActionChallenge(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.RuleGroupRuleActionChallengeCustomRequestHandling'] = None):
         """
-        :param 'RuleGroupRuleActionChallengeCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
+        :param 'RuleGroupRuleActionChallengeCustomRequestHandlingArgs' custom_request_handling: Custom handling for the web request. See Custom Request Handling below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -1675,7 +1675,7 @@ class RuleGroupRuleActionChallenge(dict):
     @pulumi.getter(name="customRequestHandling")
     def custom_request_handling(self) -> Optional['outputs.RuleGroupRuleActionChallengeCustomRequestHandling']:
         """
-        Defines custom handling for the web request. See Custom Request Handling below for details.
+        Custom handling for the web request. See Custom Request Handling below for details.
         """
         return pulumi.get(self, "custom_request_handling")
 
@@ -1702,7 +1702,7 @@ class RuleGroupRuleActionChallengeCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        :param Sequence['RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs'] insert_headers: `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -1710,7 +1710,7 @@ class RuleGroupRuleActionChallengeCustomRequestHandling(dict):
     @pulumi.getter(name="insertHeaders")
     def insert_headers(self) -> Sequence['outputs.RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader']:
         """
-        The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
         return pulumi.get(self, "insert_headers")
 
@@ -1721,8 +1721,8 @@ class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
                  name: _builtins.str,
                  value: _builtins.str):
         """
-        :param _builtins.str name: A friendly name of the rule group.
-        :param _builtins.str value: The value of the custom header.
+        :param _builtins.str name: Friendly name of the rule group.
+        :param _builtins.str value: Value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1731,7 +1731,7 @@ class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A friendly name of the rule group.
+        Friendly name of the rule group.
         """
         return pulumi.get(self, "name")
 
@@ -1739,7 +1739,7 @@ class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        The value of the custom header.
+        Value of the custom header.
         """
         return pulumi.get(self, "value")
 
@@ -1766,7 +1766,7 @@ class RuleGroupRuleActionCount(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.RuleGroupRuleActionCountCustomRequestHandling'] = None):
         """
-        :param 'RuleGroupRuleActionCountCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
+        :param 'RuleGroupRuleActionCountCustomRequestHandlingArgs' custom_request_handling: Custom handling for the web request. See Custom Request Handling below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -1775,7 +1775,7 @@ class RuleGroupRuleActionCount(dict):
     @pulumi.getter(name="customRequestHandling")
     def custom_request_handling(self) -> Optional['outputs.RuleGroupRuleActionCountCustomRequestHandling']:
         """
-        Defines custom handling for the web request. See Custom Request Handling below for details.
+        Custom handling for the web request. See Custom Request Handling below for details.
         """
         return pulumi.get(self, "custom_request_handling")
 
@@ -1802,7 +1802,7 @@ class RuleGroupRuleActionCountCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.RuleGroupRuleActionCountCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        :param Sequence['RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs'] insert_headers: `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -1810,7 +1810,7 @@ class RuleGroupRuleActionCountCustomRequestHandling(dict):
     @pulumi.getter(name="insertHeaders")
     def insert_headers(self) -> Sequence['outputs.RuleGroupRuleActionCountCustomRequestHandlingInsertHeader']:
         """
-        The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
         return pulumi.get(self, "insert_headers")
 
@@ -1821,8 +1821,8 @@ class RuleGroupRuleActionCountCustomRequestHandlingInsertHeader(dict):
                  name: _builtins.str,
                  value: _builtins.str):
         """
-        :param _builtins.str name: A friendly name of the rule group.
-        :param _builtins.str value: The value of the custom header.
+        :param _builtins.str name: Friendly name of the rule group.
+        :param _builtins.str value: Value of the custom header.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1831,7 +1831,7 @@ class RuleGroupRuleActionCountCustomRequestHandlingInsertHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A friendly name of the rule group.
+        Friendly name of the rule group.
         """
         return pulumi.get(self, "name")
 
@@ -1839,7 +1839,7 @@ class RuleGroupRuleActionCountCustomRequestHandlingInsertHeader(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        The value of the custom header.
+        Value of the custom header.
         """
         return pulumi.get(self, "value")
 
@@ -1866,7 +1866,7 @@ class RuleGroupRuleCaptchaConfig(dict):
     def __init__(__self__, *,
                  immunity_time_property: Optional['outputs.RuleGroupRuleCaptchaConfigImmunityTimeProperty'] = None):
         """
-        :param 'RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See Immunity Time Property below for details.
+        :param 'RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Custom immunity time. See Immunity Time Property below for details.
         """
         if immunity_time_property is not None:
             pulumi.set(__self__, "immunity_time_property", immunity_time_property)
@@ -1875,7 +1875,7 @@ class RuleGroupRuleCaptchaConfig(dict):
     @pulumi.getter(name="immunityTimeProperty")
     def immunity_time_property(self) -> Optional['outputs.RuleGroupRuleCaptchaConfigImmunityTimeProperty']:
         """
-        Defines custom immunity time. See Immunity Time Property below for details.
+        Custom immunity time. See Immunity Time Property below for details.
         """
         return pulumi.get(self, "immunity_time_property")
 
@@ -1902,7 +1902,7 @@ class RuleGroupRuleCaptchaConfigImmunityTimeProperty(dict):
     def __init__(__self__, *,
                  immunity_time: Optional[_builtins.int] = None):
         """
-        :param _builtins.int immunity_time: The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        :param _builtins.int immunity_time: Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
         """
         if immunity_time is not None:
             pulumi.set(__self__, "immunity_time", immunity_time)
@@ -1911,7 +1911,7 @@ class RuleGroupRuleCaptchaConfigImmunityTimeProperty(dict):
     @pulumi.getter(name="immunityTime")
     def immunity_time(self) -> Optional[_builtins.int]:
         """
-        The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
         """
         return pulumi.get(self, "immunity_time")
 
@@ -1921,7 +1921,7 @@ class RuleGroupRuleRuleLabel(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The label string.
+        :param _builtins.str name: Label string.
         """
         pulumi.set(__self__, "name", name)
 
@@ -1929,7 +1929,7 @@ class RuleGroupRuleRuleLabel(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The label string.
+        Label string.
         """
         return pulumi.get(self, "name")
 
@@ -1995,20 +1995,20 @@ class RuleGroupRuleStatement(dict):
                  sqli_match_statement: Optional['outputs.RuleGroupRuleStatementSqliMatchStatement'] = None,
                  xss_match_statement: Optional['outputs.RuleGroupRuleStatementXssMatchStatement'] = None):
         """
-        :param 'RuleGroupRuleStatementAndStatementArgs' and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        :param 'RuleGroupRuleStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
         :param 'RuleGroupRuleStatementAsnMatchStatementArgs' asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
-        :param 'RuleGroupRuleStatementByteMatchStatementArgs' byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
-        :param 'RuleGroupRuleStatementGeoMatchStatementArgs' geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
-        :param 'RuleGroupRuleStatementIpSetReferenceStatementArgs' ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
-        :param 'RuleGroupRuleStatementLabelMatchStatementArgs' label_match_statement: A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
-        :param 'RuleGroupRuleStatementNotStatementArgs' not_statement: A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
-        :param 'RuleGroupRuleStatementOrStatementArgs' or_statement: A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementArgs' rate_based_statement: A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
-        :param 'RuleGroupRuleStatementRegexMatchStatementArgs' regex_match_statement: A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementArgs' size_constraint_statement: A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
-        :param 'RuleGroupRuleStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
-        :param 'RuleGroupRuleStatementXssMatchStatementArgs' xss_match_statement: A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+        :param 'RuleGroupRuleStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+        :param 'RuleGroupRuleStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+        :param 'RuleGroupRuleStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        :param 'RuleGroupRuleStatementLabelMatchStatementArgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        :param 'RuleGroupRuleStatementNotStatementArgs' not_statement: Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+        :param 'RuleGroupRuleStatementOrStatementArgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementArgs' rate_based_statement: Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+        :param 'RuleGroupRuleStatementRegexMatchStatementArgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementArgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+        :param 'RuleGroupRuleStatementSqliMatchStatementArgs' sqli_match_statement: SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+        :param 'RuleGroupRuleStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -2043,7 +2043,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="andStatement")
     def and_statement(self) -> Optional['outputs.RuleGroupRuleStatementAndStatement']:
         """
-        A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
         """
         return pulumi.get(self, "and_statement")
 
@@ -2059,7 +2059,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="byteMatchStatement")
     def byte_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementByteMatchStatement']:
         """
-        A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+        Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
         """
         return pulumi.get(self, "byte_match_statement")
 
@@ -2067,7 +2067,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="geoMatchStatement")
     def geo_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementGeoMatchStatement']:
         """
-        A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+        Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
         """
         return pulumi.get(self, "geo_match_statement")
 
@@ -2075,7 +2075,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="ipSetReferenceStatement")
     def ip_set_reference_statement(self) -> Optional['outputs.RuleGroupRuleStatementIpSetReferenceStatement']:
         """
-        A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
         """
         return pulumi.get(self, "ip_set_reference_statement")
 
@@ -2083,7 +2083,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="labelMatchStatement")
     def label_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementLabelMatchStatement']:
         """
-        A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
         """
         return pulumi.get(self, "label_match_statement")
 
@@ -2091,7 +2091,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="notStatement")
     def not_statement(self) -> Optional['outputs.RuleGroupRuleStatementNotStatement']:
         """
-        A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+        Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
         """
         return pulumi.get(self, "not_statement")
 
@@ -2099,7 +2099,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="orStatement")
     def or_statement(self) -> Optional['outputs.RuleGroupRuleStatementOrStatement']:
         """
-        A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+        Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
         """
         return pulumi.get(self, "or_statement")
 
@@ -2107,7 +2107,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="rateBasedStatement")
     def rate_based_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatement']:
         """
-        A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+        Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
         """
         return pulumi.get(self, "rate_based_statement")
 
@@ -2115,7 +2115,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="regexMatchStatement")
     def regex_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRegexMatchStatement']:
         """
-        A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
         """
         return pulumi.get(self, "regex_match_statement")
 
@@ -2123,7 +2123,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatement']:
         """
-        A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
         """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
@@ -2131,7 +2131,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="sizeConstraintStatement")
     def size_constraint_statement(self) -> Optional['outputs.RuleGroupRuleStatementSizeConstraintStatement']:
         """
-        A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+        Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
         """
         return pulumi.get(self, "size_constraint_statement")
 
@@ -2139,7 +2139,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="sqliMatchStatement")
     def sqli_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementSqliMatchStatement']:
         """
-        An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+        SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
         """
         return pulumi.get(self, "sqli_match_statement")
 
@@ -2147,7 +2147,7 @@ class RuleGroupRuleStatement(dict):
     @pulumi.getter(name="xssMatchStatement")
     def xss_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementXssMatchStatement']:
         """
-        A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+        Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
         """
         return pulumi.get(self, "xss_match_statement")
 
@@ -2157,7 +2157,7 @@ class RuleGroupRuleStatementAndStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupRuleStatement']):
         """
-        :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+        :param Sequence['RuleGroupRuleStatementArgs'] statements: Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -2165,7 +2165,7 @@ class RuleGroupRuleStatementAndStatement(dict):
     @pulumi.getter
     def statements(self) -> Sequence['outputs.RuleGroupRuleStatement']:
         """
-        The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+        Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
         """
         return pulumi.get(self, "statements")
 
@@ -2301,12 +2301,10 @@ class RuleGroupRuleStatementByteMatchStatement(dict):
                  field_to_match: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatch'] = None,
                  pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation']] = None):
         """
-        :param _builtins.str positional_constraint: The area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
-        :param _builtins.str search_string: A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
-        :param Sequence['RuleGroupRuleStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param _builtins.str positional_constraint: Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+        :param _builtins.str search_string: String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
+        :param Sequence['RuleGroupRuleStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         :param Sequence['RuleGroupRuleStatementByteMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "positional_constraint", positional_constraint)
@@ -2321,7 +2319,7 @@ class RuleGroupRuleStatementByteMatchStatement(dict):
     @pulumi.getter(name="positionalConstraint")
     def positional_constraint(self) -> _builtins.str:
         """
-        The area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+        Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         """
         return pulumi.get(self, "positional_constraint")
 
@@ -2329,7 +2327,7 @@ class RuleGroupRuleStatementByteMatchStatement(dict):
     @pulumi.getter(name="searchString")
     def search_string(self) -> _builtins.str:
         """
-        A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
+        String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
         """
         return pulumi.get(self, "search_string")
 
@@ -2337,9 +2335,7 @@ class RuleGroupRuleStatementByteMatchStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementByteMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -2347,7 +2343,7 @@ class RuleGroupRuleStatementByteMatchStatement(dict):
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatch']:
         """
-        The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
 
@@ -2634,8 +2630,8 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies(dict):
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param Sequence['RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
-        :param _builtins.str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        :param Sequence['RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param _builtins.str match_scope: Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param _builtins.str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         pulumi.set(__self__, "match_patterns", match_patterns)
@@ -2646,7 +2642,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies(dict):
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern']:
         """
-        The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         """
         return pulumi.get(self, "match_patterns")
 
@@ -2654,7 +2650,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         """
         return pulumi.get(self, "match_scope")
 
@@ -2693,7 +2689,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(di
                  excluded_cookies: Optional[Sequence[_builtins.str]] = None,
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -2706,7 +2702,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(di
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -2755,8 +2751,8 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader(dict):
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
-        :param _builtins.str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
+        :param _builtins.str match_scope: Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param _builtins.str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
@@ -2767,7 +2763,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader(dict):
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern':
         """
-        The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -2775,7 +2771,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -2814,9 +2810,9 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dic
                  excluded_headers: Optional[Sequence[_builtins.str]] = None,
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        :param Sequence[_builtins.str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        :param Sequence[_builtins.str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
+        :param Sequence[_builtins.str] excluded_headers: Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        :param Sequence[_builtins.str] included_headers: Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -2829,7 +2825,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dic
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -2837,7 +2833,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dic
     @pulumi.getter(name="excludedHeaders")
     def excluded_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         """
         return pulumi.get(self, "excluded_headers")
 
@@ -2845,7 +2841,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dic
     @pulumi.getter(name="includedHeaders")
     def included_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         return pulumi.get(self, "included_headers")
 
@@ -2913,7 +2909,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -2921,7 +2917,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -2948,7 +2944,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -2956,7 +2952,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJa4Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -2992,8 +2988,8 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[_builtins.str] = None,
                  oversize_handling: Optional[_builtins.str] = None):
         """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        :param _builtins.str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param _builtins.str match_scope: Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param _builtins.str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param _builtins.str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
@@ -3008,7 +3004,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern':
         """
-        The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -3016,7 +3012,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -3060,7 +3056,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(d
                  all: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -3071,7 +3067,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(d
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -3104,7 +3100,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -3112,7 +3108,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -3122,7 +3118,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(di
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -3130,7 +3126,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(di
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -3183,8 +3179,8 @@ class RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation(dict):
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
-        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -3193,7 +3189,7 @@ class RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation(dict):
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
         """
         return pulumi.get(self, "priority")
 
@@ -3201,7 +3197,7 @@ class RuleGroupRuleStatementByteMatchStatementPreParseTextTransformation(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -3212,8 +3208,8 @@ class RuleGroupRuleStatementByteMatchStatementTextTransformation(dict):
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -3222,7 +3218,7 @@ class RuleGroupRuleStatementByteMatchStatementTextTransformation(dict):
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -3230,7 +3226,7 @@ class RuleGroupRuleStatementByteMatchStatementTextTransformation(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -3260,8 +3256,8 @@ class RuleGroupRuleStatementGeoMatchStatement(dict):
                  country_codes: Sequence[_builtins.str],
                  forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig'] = None):
         """
-        :param Sequence[_builtins.str] country_codes: An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
-        :param 'RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+        :param Sequence[_builtins.str] country_codes: Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+        :param 'RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
         """
         pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -3271,7 +3267,7 @@ class RuleGroupRuleStatementGeoMatchStatement(dict):
     @pulumi.getter(name="countryCodes")
     def country_codes(self) -> Sequence[_builtins.str]:
         """
-        An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+        Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
         """
         return pulumi.get(self, "country_codes")
 
@@ -3279,7 +3275,7 @@ class RuleGroupRuleStatementGeoMatchStatement(dict):
     @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional['outputs.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig']:
         """
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
         """
         return pulumi.get(self, "forwarded_ip_config")
 
@@ -3356,7 +3352,7 @@ class RuleGroupRuleStatementIpSetReferenceStatement(dict):
                  ip_set_forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig'] = None):
         """
         :param _builtins.str arn: ARN of the IP Set that this statement references.
-        :param 'RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+        :param 'RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
         """
         pulumi.set(__self__, "arn", arn)
         if ip_set_forwarded_ip_config is not None:
@@ -3374,7 +3370,7 @@ class RuleGroupRuleStatementIpSetReferenceStatement(dict):
     @pulumi.getter(name="ipSetForwardedIpConfig")
     def ip_set_forwarded_ip_config(self) -> Optional['outputs.RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig']:
         """
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
         """
         return pulumi.get(self, "ip_set_forwarded_ip_config")
 
@@ -3444,7 +3440,7 @@ class RuleGroupRuleStatementLabelMatchStatement(dict):
                  key: _builtins.str,
                  scope: _builtins.str):
         """
-        :param _builtins.str key: The string to match against.
+        :param _builtins.str key: String to match against.
         :param _builtins.str scope: Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
         """
         pulumi.set(__self__, "key", key)
@@ -3454,7 +3450,7 @@ class RuleGroupRuleStatementLabelMatchStatement(dict):
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        The string to match against.
+        String to match against.
         """
         return pulumi.get(self, "key")
 
@@ -3472,7 +3468,7 @@ class RuleGroupRuleStatementNotStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupRuleStatement']):
         """
-        :param Sequence['RuleGroupRuleStatementArgs'] statements: The statement to negate. You can use any statement that can be nested. See Statement above for details.
+        :param Sequence['RuleGroupRuleStatementArgs'] statements: Statement to negate. You can use any statement that can be nested. See Statement above for details.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -3480,7 +3476,7 @@ class RuleGroupRuleStatementNotStatement(dict):
     @pulumi.getter
     def statements(self) -> Sequence['outputs.RuleGroupRuleStatement']:
         """
-        The statement to negate. You can use any statement that can be nested. See Statement above for details.
+        Statement to negate. You can use any statement that can be nested. See Statement above for details.
         """
         return pulumi.get(self, "statements")
 
@@ -3490,7 +3486,7 @@ class RuleGroupRuleStatementOrStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupRuleStatement']):
         """
-        :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+        :param Sequence['RuleGroupRuleStatementArgs'] statements: Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -3498,7 +3494,7 @@ class RuleGroupRuleStatementOrStatement(dict):
     @pulumi.getter
     def statements(self) -> Sequence['outputs.RuleGroupRuleStatement']:
         """
-        The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+        Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
         """
         return pulumi.get(self, "statements")
 
@@ -3541,11 +3537,11 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
         :param _builtins.int limit: Limit on requests per 5-minute (or `evaluation_window_sec`) period for a single originating IP address (or for other aggregate key, depending on `aggregate_key_type` and `custom_key`).
         :param _builtins.str aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyArgs'] custom_keys: Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
-        :param _builtins.int evaluation_window_sec: The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+        :param _builtins.int evaluation_window_sec: Amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
                
                **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
-        :param 'RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs' scope_down_statement: An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
+        :param 'RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs' scope_down_statement: Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
         pulumi.set(__self__, "limit", limit)
         if aggregate_key_type is not None:
@@ -3587,7 +3583,7 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
     @pulumi.getter(name="evaluationWindowSec")
     def evaluation_window_sec(self) -> Optional[_builtins.int]:
         """
-        The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+        Amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
 
         **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
         """
@@ -3597,7 +3593,7 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
     @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfig']:
         """
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
         """
         return pulumi.get(self, "forwarded_ip_config")
 
@@ -3605,7 +3601,7 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
     @pulumi.getter(name="scopeDownStatement")
     def scope_down_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatement']:
         """
-        An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
+        Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
         return pulumi.get(self, "scope_down_statement")
 
@@ -3657,17 +3653,17 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
                  query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs' cookie: (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs' forwarded_ip: (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs' header: (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs' http_method: (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs' ip: (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs' ja3_fingerprint: (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs' ja4_fingerprint: (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs' label_namespace: (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs' query_argument: (Optional) Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs' query_string: (Optional) Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs' uri_path: (Optional) Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs' cookie: Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs' forwarded_ip: Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs' header: Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs' http_method: Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs' ip: Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyJa3FingerprintArgs' ja3_fingerprint: Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ja3_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyJa4FingerprintArgs' ja4_fingerprint: Use the JA4 fingerprint in the request as an aggregate key. See `RateLimit ja4_fingerprint` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs' label_namespace: Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs' query_argument: Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs' query_string: Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs' uri_path: Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         """
         if asn is not None:
             pulumi.set(__self__, "asn", asn)
@@ -3703,7 +3699,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter
     def cookie(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookie']:
         """
-        (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+        Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
         """
         return pulumi.get(self, "cookie")
 
@@ -3711,7 +3707,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter(name="forwardedIp")
     def forwarded_ip(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp']:
         """
-        (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
+        Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
         """
         return pulumi.get(self, "forwarded_ip")
 
@@ -3719,7 +3715,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter
     def header(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeader']:
         """
-        (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+        Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
         """
         return pulumi.get(self, "header")
 
@@ -3727,7 +3723,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter(name="httpMethod")
     def http_method(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod']:
         """
-        (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
+        Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
         """
         return pulumi.get(self, "http_method")
 
@@ -3735,7 +3731,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter
     def ip(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyIp']:
         """
-        (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+        Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
         """
         return pulumi.get(self, "ip")
 
@@ -3743,7 +3739,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter(name="ja3Fingerprint")
     def ja3_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint']:
         """
-        (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ja3_fingerprint` below for details.
         """
         return pulumi.get(self, "ja3_fingerprint")
 
@@ -3751,7 +3747,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter(name="ja4Fingerprint")
     def ja4_fingerprint(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint']:
         """
-        (Optional) Use the JA3 fingerprint in the request as an aggregate key. See `RateLimit ip` below for details.
+        Use the JA4 fingerprint in the request as an aggregate key. See `RateLimit ja4_fingerprint` below for details.
         """
         return pulumi.get(self, "ja4_fingerprint")
 
@@ -3759,7 +3755,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter(name="labelNamespace")
     def label_namespace(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace']:
         """
-        (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
+        Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
         """
         return pulumi.get(self, "label_namespace")
 
@@ -3767,7 +3763,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter(name="queryArgument")
     def query_argument(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument']:
         """
-        (Optional) Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
+        Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
         """
         return pulumi.get(self, "query_argument")
 
@@ -3775,7 +3771,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter(name="queryString")
     def query_string(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString']:
         """
-        (Optional) Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
+        Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
         """
         return pulumi.get(self, "query_string")
 
@@ -3783,7 +3779,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @pulumi.getter(name="uriPath")
     def uri_path(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath']:
         """
-        (Optional) Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
+        Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         """
         return pulumi.get(self, "uri_path")
 
@@ -3817,8 +3813,8 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookie(dict):
                  name: _builtins.str,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation']):
         """
-        :param _builtins.str name: A friendly name of the rule group.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+        :param _builtins.str name: The name of the cookie to use.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -3827,7 +3823,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookie(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A friendly name of the rule group.
+        The name of the cookie to use.
         """
         return pulumi.get(self, "name")
 
@@ -3835,7 +3831,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookie(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -3846,8 +3842,8 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -3856,7 +3852,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -3864,7 +3860,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -3898,8 +3894,8 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeader(dict):
                  name: _builtins.str,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation']):
         """
-        :param _builtins.str name: A friendly name of the rule group.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+        :param _builtins.str name: The name of the header to use.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -3908,7 +3904,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A friendly name of the rule group.
+        The name of the header to use.
         """
         return pulumi.get(self, "name")
 
@@ -3916,7 +3912,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeader(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -3927,8 +3923,8 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -3937,7 +3933,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -3945,7 +3941,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -3984,7 +3980,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -3992,7 +3988,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -4019,7 +4015,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -4027,7 +4023,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyJa4Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -4073,7 +4069,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
                  name: _builtins.str,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation']):
         """
-        :param _builtins.str name: A friendly name of the rule group.
+        :param _builtins.str name: The name of the query argument to use.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
         """
         pulumi.set(__self__, "name", name)
@@ -4083,7 +4079,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A friendly name of the rule group.
+        The name of the query argument to use.
         """
         return pulumi.get(self, "name")
 
@@ -4102,8 +4098,8 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransfor
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -4112,7 +4108,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransfor
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -4120,7 +4116,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransfor
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -4166,8 +4162,8 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransforma
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -4176,7 +4172,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransforma
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -4184,7 +4180,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransforma
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -4230,8 +4226,8 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -4240,7 +4236,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -4248,7 +4244,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -4359,19 +4355,19 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
                  sqli_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement'] = None,
                  xss_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement'] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs' and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs' asn_match_statement: Rule statement that inspects web traffic based on the Autonomous System Number (ASN) associated with the request's IP address. See ASN Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs' label_match_statement: A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs' not_statement: A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs' or_statement: A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs' regex_match_statement: A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs' size_constraint_statement: A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs' not_statement: Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -4404,7 +4400,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="andStatement")
     def and_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement']:
         """
-        A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        Logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
         """
         return pulumi.get(self, "and_statement")
 
@@ -4420,7 +4416,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="byteMatchStatement")
     def byte_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement']:
         """
-        A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+        Rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
         """
         return pulumi.get(self, "byte_match_statement")
 
@@ -4428,7 +4424,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="geoMatchStatement")
     def geo_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement']:
         """
-        A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+        Rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
         """
         return pulumi.get(self, "geo_match_statement")
 
@@ -4436,7 +4432,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="ipSetReferenceStatement")
     def ip_set_reference_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement']:
         """
-        A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        Rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
         """
         return pulumi.get(self, "ip_set_reference_statement")
 
@@ -4444,7 +4440,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="labelMatchStatement")
     def label_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement']:
         """
-        A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
         """
         return pulumi.get(self, "label_match_statement")
 
@@ -4452,7 +4448,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="notStatement")
     def not_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement']:
         """
-        A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+        Logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
         """
         return pulumi.get(self, "not_statement")
 
@@ -4460,7 +4456,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="orStatement")
     def or_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement']:
         """
-        A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+        Logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
         """
         return pulumi.get(self, "or_statement")
 
@@ -4468,7 +4464,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="regexMatchStatement")
     def regex_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement']:
         """
-        A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        Rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
         """
         return pulumi.get(self, "regex_match_statement")
 
@@ -4476,7 +4472,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="regexPatternSetReferenceStatement")
     def regex_pattern_set_reference_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement']:
         """
-        A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        Rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
         """
         return pulumi.get(self, "regex_pattern_set_reference_statement")
 
@@ -4484,7 +4480,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="sizeConstraintStatement")
     def size_constraint_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement']:
         """
-        A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+        Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
         """
         return pulumi.get(self, "size_constraint_statement")
 
@@ -4492,7 +4488,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="sqliMatchStatement")
     def sqli_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement']:
         """
-        An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+        SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
         """
         return pulumi.get(self, "sqli_match_statement")
 
@@ -4500,7 +4496,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @pulumi.getter(name="xssMatchStatement")
     def xss_match_statement(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement']:
         """
-        A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+        Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
         """
         return pulumi.get(self, "xss_match_statement")
 
@@ -4510,7 +4506,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement(dic
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupRuleStatement']):
         """
-        :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+        :param Sequence['RuleGroupRuleStatementArgs'] statements: Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -4518,7 +4514,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement(dic
     @pulumi.getter
     def statements(self) -> Sequence['outputs.RuleGroupRuleStatement']:
         """
-        The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+        Statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
         """
         return pulumi.get(self, "statements")
 
@@ -4654,12 +4650,10 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch'] = None,
                  pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformation']] = None):
         """
-        :param _builtins.str positional_constraint: The area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
-        :param _builtins.str search_string: A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param _builtins.str positional_constraint: Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+        :param _builtins.str search_string: String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "positional_constraint", positional_constraint)
@@ -4674,7 +4668,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="positionalConstraint")
     def positional_constraint(self) -> _builtins.str:
         """
-        The area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+        Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         """
         return pulumi.get(self, "positional_constraint")
 
@@ -4682,7 +4676,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="searchString")
     def search_string(self) -> _builtins.str:
         """
-        A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
+        String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
         """
         return pulumi.get(self, "search_string")
 
@@ -4690,9 +4684,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -4700,7 +4692,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch']:
         """
-        The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
 
@@ -4987,8 +4979,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
-        :param _builtins.str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param _builtins.str match_scope: Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param _builtins.str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         pulumi.set(__self__, "match_patterns", match_patterns)
@@ -4999,7 +4991,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern']:
         """
-        The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         """
         return pulumi.get(self, "match_patterns")
 
@@ -5007,7 +4999,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         """
         return pulumi.get(self, "match_scope")
 
@@ -5046,7 +5038,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  excluded_cookies: Optional[Sequence[_builtins.str]] = None,
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -5059,7 +5051,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -5108,8 +5100,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
-        :param _builtins.str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
+        :param _builtins.str match_scope: Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param _builtins.str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
@@ -5120,7 +5112,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern':
         """
-        The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -5128,7 +5120,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -5167,9 +5159,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  excluded_headers: Optional[Sequence[_builtins.str]] = None,
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        :param Sequence[_builtins.str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        :param Sequence[_builtins.str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
+        :param Sequence[_builtins.str] excluded_headers: Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        :param Sequence[_builtins.str] included_headers: Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -5182,7 +5174,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -5190,7 +5182,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="excludedHeaders")
     def excluded_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         """
         return pulumi.get(self, "excluded_headers")
 
@@ -5198,7 +5190,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="includedHeaders")
     def included_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         return pulumi.get(self, "included_headers")
 
@@ -5266,7 +5258,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -5274,7 +5266,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -5301,7 +5293,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -5309,7 +5301,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -5345,8 +5337,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  invalid_fallback_behavior: Optional[_builtins.str] = None,
                  oversize_handling: Optional[_builtins.str] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        :param _builtins.str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param _builtins.str match_scope: Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param _builtins.str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param _builtins.str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
@@ -5361,7 +5353,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern':
         """
-        The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -5369,7 +5361,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -5413,7 +5405,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -5424,7 +5416,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -5457,7 +5449,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -5465,7 +5457,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -5475,7 +5467,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -5483,7 +5475,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -5536,8 +5528,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
-        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -5546,7 +5538,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
         """
         return pulumi.get(self, "priority")
 
@@ -5554,7 +5546,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -5565,8 +5557,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -5575,7 +5567,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -5583,7 +5575,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -5613,8 +5605,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatemen
                  country_codes: Sequence[_builtins.str],
                  forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig'] = None):
         """
-        :param Sequence[_builtins.str] country_codes: An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+        :param Sequence[_builtins.str] country_codes: Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
         """
         pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -5624,7 +5616,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatemen
     @pulumi.getter(name="countryCodes")
     def country_codes(self) -> Sequence[_builtins.str]:
         """
-        An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+        Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
         """
         return pulumi.get(self, "country_codes")
 
@@ -5632,7 +5624,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatemen
     @pulumi.getter(name="forwardedIpConfig")
     def forwarded_ip_config(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig']:
         """
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
         """
         return pulumi.get(self, "forwarded_ip_config")
 
@@ -5709,7 +5701,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceSt
                  ip_set_forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig'] = None):
         """
         :param _builtins.str arn: ARN of the IP Set that this statement references.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
         """
         pulumi.set(__self__, "arn", arn)
         if ip_set_forwarded_ip_config is not None:
@@ -5727,7 +5719,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceSt
     @pulumi.getter(name="ipSetForwardedIpConfig")
     def ip_set_forwarded_ip_config(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig']:
         """
-        The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+        Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
         """
         return pulumi.get(self, "ip_set_forwarded_ip_config")
 
@@ -5797,7 +5789,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatem
                  key: _builtins.str,
                  scope: _builtins.str):
         """
-        :param _builtins.str key: The string to match against.
+        :param _builtins.str key: String to match against.
         :param _builtins.str scope: Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
         """
         pulumi.set(__self__, "key", key)
@@ -5807,7 +5799,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatem
     @pulumi.getter
     def key(self) -> _builtins.str:
         """
-        The string to match against.
+        String to match against.
         """
         return pulumi.get(self, "key")
 
@@ -5825,7 +5817,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement(dic
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupRuleStatement']):
         """
-        :param Sequence['RuleGroupRuleStatementArgs'] statements: The statement to negate. You can use any statement that can be nested. See Statement above for details.
+        :param Sequence['RuleGroupRuleStatementArgs'] statements: Statement to negate. You can use any statement that can be nested. See Statement above for details.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -5833,7 +5825,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement(dic
     @pulumi.getter
     def statements(self) -> Sequence['outputs.RuleGroupRuleStatement']:
         """
-        The statement to negate. You can use any statement that can be nested. See Statement above for details.
+        Statement to negate. You can use any statement that can be nested. See Statement above for details.
         """
         return pulumi.get(self, "statements")
 
@@ -5843,7 +5835,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement(dict
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupRuleStatement']):
         """
-        :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+        :param Sequence['RuleGroupRuleStatementArgs'] statements: Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -5851,7 +5843,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement(dict
     @pulumi.getter
     def statements(self) -> Sequence['outputs.RuleGroupRuleStatement']:
         """
-        The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+        Statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
         """
         return pulumi.get(self, "statements")
 
@@ -5887,11 +5879,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch'] = None,
                  pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformation']] = None):
         """
-        :param _builtins.str regex_string: The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param _builtins.str regex_string: String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "regex_string", regex_string)
@@ -5905,7 +5895,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="regexString")
     def regex_string(self) -> _builtins.str:
         """
-        The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+        String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
         """
         return pulumi.get(self, "regex_string")
 
@@ -5913,9 +5903,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -5923,7 +5911,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch']:
         """
-        The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
 
@@ -6210,8 +6198,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
-        :param _builtins.str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param _builtins.str match_scope: Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param _builtins.str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         pulumi.set(__self__, "match_patterns", match_patterns)
@@ -6222,7 +6210,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern']:
         """
-        The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         """
         return pulumi.get(self, "match_patterns")
 
@@ -6230,7 +6218,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         """
         return pulumi.get(self, "match_scope")
 
@@ -6269,7 +6257,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  excluded_cookies: Optional[Sequence[_builtins.str]] = None,
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -6282,7 +6270,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -6331,8 +6319,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
-        :param _builtins.str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
+        :param _builtins.str match_scope: Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param _builtins.str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
@@ -6343,7 +6331,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern':
         """
-        The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -6351,7 +6339,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -6390,9 +6378,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  excluded_headers: Optional[Sequence[_builtins.str]] = None,
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        :param Sequence[_builtins.str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        :param Sequence[_builtins.str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
+        :param Sequence[_builtins.str] excluded_headers: Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        :param Sequence[_builtins.str] included_headers: Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -6405,7 +6393,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -6413,7 +6401,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="excludedHeaders")
     def excluded_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         """
         return pulumi.get(self, "excluded_headers")
 
@@ -6421,7 +6409,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="includedHeaders")
     def included_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         return pulumi.get(self, "included_headers")
 
@@ -6489,7 +6477,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -6497,7 +6485,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -6524,7 +6512,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -6532,7 +6520,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -6568,8 +6556,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  invalid_fallback_behavior: Optional[_builtins.str] = None,
                  oversize_handling: Optional[_builtins.str] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        :param _builtins.str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param _builtins.str match_scope: Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param _builtins.str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param _builtins.str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
@@ -6584,7 +6572,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern':
         """
-        The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -6592,7 +6580,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -6636,7 +6624,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -6647,7 +6635,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -6680,7 +6668,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -6688,7 +6676,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -6698,7 +6686,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -6706,7 +6694,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -6759,8 +6747,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
-        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -6769,7 +6757,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
         """
         return pulumi.get(self, "priority")
 
@@ -6777,7 +6765,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -6788,8 +6776,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -6798,7 +6786,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -6806,7 +6794,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -6841,10 +6829,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformation']] = None):
         """
         :param _builtins.str arn: ARN of the Regex Pattern Set that this statement references.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "arn", arn)
@@ -6866,9 +6852,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -6876,7 +6860,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch']:
         """
-        The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
 
@@ -7163,8 +7147,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
-        :param _builtins.str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param _builtins.str match_scope: Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param _builtins.str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         pulumi.set(__self__, "match_patterns", match_patterns)
@@ -7175,7 +7159,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern']:
         """
-        The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         """
         return pulumi.get(self, "match_patterns")
 
@@ -7183,7 +7167,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         """
         return pulumi.get(self, "match_scope")
 
@@ -7222,7 +7206,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  excluded_cookies: Optional[Sequence[_builtins.str]] = None,
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -7235,7 +7219,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -7284,8 +7268,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
-        :param _builtins.str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
+        :param _builtins.str match_scope: Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param _builtins.str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
@@ -7296,7 +7280,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern':
         """
-        The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -7304,7 +7288,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -7343,9 +7327,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  excluded_headers: Optional[Sequence[_builtins.str]] = None,
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        :param Sequence[_builtins.str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        :param Sequence[_builtins.str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
+        :param Sequence[_builtins.str] excluded_headers: Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        :param Sequence[_builtins.str] included_headers: Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -7358,7 +7342,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -7366,7 +7350,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="excludedHeaders")
     def excluded_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         """
         return pulumi.get(self, "excluded_headers")
 
@@ -7374,7 +7358,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="includedHeaders")
     def included_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         return pulumi.get(self, "included_headers")
 
@@ -7442,7 +7426,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -7450,7 +7434,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -7477,7 +7461,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -7485,7 +7469,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -7521,8 +7505,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  invalid_fallback_behavior: Optional[_builtins.str] = None,
                  oversize_handling: Optional[_builtins.str] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        :param _builtins.str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param _builtins.str match_scope: Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param _builtins.str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param _builtins.str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
@@ -7537,7 +7521,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern':
         """
-        The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -7545,7 +7529,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -7589,7 +7573,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -7600,7 +7584,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -7633,7 +7617,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -7641,7 +7625,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -7651,7 +7635,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -7659,7 +7643,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -7712,8 +7696,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
-        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -7722,7 +7706,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
         """
         return pulumi.get(self, "priority")
 
@@ -7730,7 +7714,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -7741,8 +7725,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -7751,7 +7735,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -7759,7 +7743,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -7796,12 +7780,10 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch'] = None,
                  pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformation']] = None):
         """
-        :param _builtins.str comparison_operator: The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
-        :param _builtins.int size: The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param _builtins.str comparison_operator: Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+        :param _builtins.int size: Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
@@ -7816,7 +7798,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> _builtins.str:
         """
-        The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+        Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         """
         return pulumi.get(self, "comparison_operator")
 
@@ -7824,7 +7806,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter
     def size(self) -> _builtins.int:
         """
-        The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+        Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
         """
         return pulumi.get(self, "size")
 
@@ -7832,9 +7814,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -7842,7 +7822,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch']:
         """
-        The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
 
@@ -8129,8 +8109,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
-        :param _builtins.str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param _builtins.str match_scope: Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param _builtins.str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         pulumi.set(__self__, "match_patterns", match_patterns)
@@ -8141,7 +8121,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern']:
         """
-        The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         """
         return pulumi.get(self, "match_patterns")
 
@@ -8149,7 +8129,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         """
         return pulumi.get(self, "match_scope")
 
@@ -8188,7 +8168,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  excluded_cookies: Optional[Sequence[_builtins.str]] = None,
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -8201,7 +8181,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -8250,8 +8230,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
-        :param _builtins.str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
+        :param _builtins.str match_scope: Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param _builtins.str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
@@ -8262,7 +8242,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern':
         """
-        The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -8270,7 +8250,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -8309,9 +8289,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  excluded_headers: Optional[Sequence[_builtins.str]] = None,
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        :param Sequence[_builtins.str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        :param Sequence[_builtins.str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
+        :param Sequence[_builtins.str] excluded_headers: Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        :param Sequence[_builtins.str] included_headers: Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -8324,7 +8304,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -8332,7 +8312,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="excludedHeaders")
     def excluded_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         """
         return pulumi.get(self, "excluded_headers")
 
@@ -8340,7 +8320,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="includedHeaders")
     def included_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         return pulumi.get(self, "included_headers")
 
@@ -8408,7 +8388,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -8416,7 +8396,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -8443,7 +8423,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -8451,7 +8431,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -8487,8 +8467,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  invalid_fallback_behavior: Optional[_builtins.str] = None,
                  oversize_handling: Optional[_builtins.str] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        :param _builtins.str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param _builtins.str match_scope: Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param _builtins.str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param _builtins.str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
@@ -8503,7 +8483,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern':
         """
-        The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -8511,7 +8491,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -8555,7 +8535,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -8566,7 +8546,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -8599,7 +8579,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -8607,7 +8587,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -8617,7 +8597,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -8625,7 +8605,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -8678,8 +8658,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
-        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -8688,7 +8668,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
         """
         return pulumi.get(self, "priority")
 
@@ -8696,7 +8676,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -8707,8 +8687,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -8717,7 +8697,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -8725,7 +8705,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -8761,10 +8741,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformation']] = None,
                  sensitivity_level: Optional[_builtins.str] = None):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         :param _builtins.str sensitivity_level: Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
         """
@@ -8780,9 +8758,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -8790,7 +8766,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch']:
         """
-        The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
 
@@ -9085,8 +9061,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
-        :param _builtins.str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param _builtins.str match_scope: Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param _builtins.str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         pulumi.set(__self__, "match_patterns", match_patterns)
@@ -9097,7 +9073,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern']:
         """
-        The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         """
         return pulumi.get(self, "match_patterns")
 
@@ -9105,7 +9081,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         """
         return pulumi.get(self, "match_scope")
 
@@ -9144,7 +9120,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  excluded_cookies: Optional[Sequence[_builtins.str]] = None,
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -9157,7 +9133,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -9206,8 +9182,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
-        :param _builtins.str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
+        :param _builtins.str match_scope: Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param _builtins.str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
@@ -9218,7 +9194,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern':
         """
-        The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -9226,7 +9202,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -9265,9 +9241,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  excluded_headers: Optional[Sequence[_builtins.str]] = None,
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        :param Sequence[_builtins.str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        :param Sequence[_builtins.str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
+        :param Sequence[_builtins.str] excluded_headers: Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        :param Sequence[_builtins.str] included_headers: Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -9280,7 +9256,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -9288,7 +9264,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="excludedHeaders")
     def excluded_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         """
         return pulumi.get(self, "excluded_headers")
 
@@ -9296,7 +9272,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="includedHeaders")
     def included_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         return pulumi.get(self, "included_headers")
 
@@ -9364,7 +9340,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -9372,7 +9348,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -9399,7 +9375,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -9407,7 +9383,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -9443,8 +9419,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  invalid_fallback_behavior: Optional[_builtins.str] = None,
                  oversize_handling: Optional[_builtins.str] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        :param _builtins.str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param _builtins.str match_scope: Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param _builtins.str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param _builtins.str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
@@ -9459,7 +9435,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern':
         """
-        The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -9467,7 +9443,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -9511,7 +9487,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -9522,7 +9498,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -9555,7 +9531,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -9563,7 +9539,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -9573,7 +9549,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -9581,7 +9557,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -9634,8 +9610,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
-        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -9644,7 +9620,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
         """
         return pulumi.get(self, "priority")
 
@@ -9652,7 +9628,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -9663,8 +9639,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -9673,7 +9649,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -9681,7 +9657,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -9714,10 +9690,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch'] = None,
                  pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformation']] = None):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -9730,9 +9704,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -9740,7 +9712,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch']:
         """
-        The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
 
@@ -10027,8 +9999,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
-        :param _builtins.str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param _builtins.str match_scope: Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param _builtins.str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         pulumi.set(__self__, "match_patterns", match_patterns)
@@ -10039,7 +10011,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern']:
         """
-        The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         """
         return pulumi.get(self, "match_patterns")
 
@@ -10047,7 +10019,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         """
         return pulumi.get(self, "match_scope")
 
@@ -10086,7 +10058,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  excluded_cookies: Optional[Sequence[_builtins.str]] = None,
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -10099,7 +10071,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -10148,8 +10120,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
-        :param _builtins.str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
+        :param _builtins.str match_scope: Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param _builtins.str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
@@ -10160,7 +10132,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern':
         """
-        The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -10168,7 +10140,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -10207,9 +10179,9 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  excluded_headers: Optional[Sequence[_builtins.str]] = None,
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        :param Sequence[_builtins.str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        :param Sequence[_builtins.str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
+        :param Sequence[_builtins.str] excluded_headers: Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        :param Sequence[_builtins.str] included_headers: Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -10222,7 +10194,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -10230,7 +10202,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="excludedHeaders")
     def excluded_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         """
         return pulumi.get(self, "excluded_headers")
 
@@ -10238,7 +10210,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="includedHeaders")
     def included_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         return pulumi.get(self, "included_headers")
 
@@ -10306,7 +10278,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -10314,7 +10286,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -10341,7 +10313,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -10349,7 +10321,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -10385,8 +10357,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  invalid_fallback_behavior: Optional[_builtins.str] = None,
                  oversize_handling: Optional[_builtins.str] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        :param _builtins.str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param _builtins.str match_scope: Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param _builtins.str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param _builtins.str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
@@ -10401,7 +10373,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern':
         """
-        The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -10409,7 +10381,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -10453,7 +10425,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -10464,7 +10436,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -10497,7 +10469,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -10505,7 +10477,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -10515,7 +10487,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -10523,7 +10495,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -10576,8 +10548,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
-        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -10586,7 +10558,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
         """
         return pulumi.get(self, "priority")
 
@@ -10594,7 +10566,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -10605,8 +10577,8 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -10615,7 +10587,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -10623,7 +10595,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -10659,11 +10631,9 @@ class RuleGroupRuleStatementRegexMatchStatement(dict):
                  field_to_match: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatch'] = None,
                  pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation']] = None):
         """
-        :param _builtins.str regex_string: The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
-        :param Sequence['RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param _builtins.str regex_string: String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+        :param Sequence['RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         :param Sequence['RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "regex_string", regex_string)
@@ -10677,7 +10647,7 @@ class RuleGroupRuleStatementRegexMatchStatement(dict):
     @pulumi.getter(name="regexString")
     def regex_string(self) -> _builtins.str:
         """
-        The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
+        String representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
         """
         return pulumi.get(self, "regex_string")
 
@@ -10685,9 +10655,7 @@ class RuleGroupRuleStatementRegexMatchStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -10695,7 +10663,7 @@ class RuleGroupRuleStatementRegexMatchStatement(dict):
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatch']:
         """
-        The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
 
@@ -10982,8 +10950,8 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param Sequence['RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
-        :param _builtins.str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        :param Sequence['RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param _builtins.str match_scope: Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param _builtins.str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         pulumi.set(__self__, "match_patterns", match_patterns)
@@ -10994,7 +10962,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern']:
         """
-        The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         """
         return pulumi.get(self, "match_patterns")
 
@@ -11002,7 +10970,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         """
         return pulumi.get(self, "match_scope")
 
@@ -11041,7 +11009,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(d
                  excluded_cookies: Optional[Sequence[_builtins.str]] = None,
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -11054,7 +11022,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(d
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -11103,8 +11071,8 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
-        :param _builtins.str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
+        :param _builtins.str match_scope: Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param _builtins.str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
@@ -11115,7 +11083,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern':
         """
-        The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -11123,7 +11091,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -11162,9 +11130,9 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(di
                  excluded_headers: Optional[Sequence[_builtins.str]] = None,
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        :param Sequence[_builtins.str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        :param Sequence[_builtins.str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
+        :param Sequence[_builtins.str] excluded_headers: Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        :param Sequence[_builtins.str] included_headers: Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -11177,7 +11145,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(di
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -11185,7 +11153,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(di
     @pulumi.getter(name="excludedHeaders")
     def excluded_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         """
         return pulumi.get(self, "excluded_headers")
 
@@ -11193,7 +11161,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(di
     @pulumi.getter(name="includedHeaders")
     def included_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         return pulumi.get(self, "included_headers")
 
@@ -11261,7 +11229,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -11269,7 +11237,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -11296,7 +11264,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -11304,7 +11272,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa4Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -11340,8 +11308,8 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[_builtins.str] = None,
                  oversize_handling: Optional[_builtins.str] = None):
         """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        :param _builtins.str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param _builtins.str match_scope: Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param _builtins.str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param _builtins.str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
@@ -11356,7 +11324,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern':
         """
-        The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -11364,7 +11332,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -11408,7 +11376,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(
                  all: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -11419,7 +11387,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -11452,7 +11420,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -11460,7 +11428,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -11470,7 +11438,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(d
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -11478,7 +11446,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(d
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -11531,8 +11499,8 @@ class RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation(dict):
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
-        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -11541,7 +11509,7 @@ class RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation(dict):
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
         """
         return pulumi.get(self, "priority")
 
@@ -11549,7 +11517,7 @@ class RuleGroupRuleStatementRegexMatchStatementPreParseTextTransformation(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -11560,8 +11528,8 @@ class RuleGroupRuleStatementRegexMatchStatementTextTransformation(dict):
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -11570,7 +11538,7 @@ class RuleGroupRuleStatementRegexMatchStatementTextTransformation(dict):
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -11578,7 +11546,7 @@ class RuleGroupRuleStatementRegexMatchStatementTextTransformation(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -11613,10 +11581,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatement(dict):
                  pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformation']] = None):
         """
         :param _builtins.str arn: ARN of the Regex Pattern Set that this statement references.
-        :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "arn", arn)
@@ -11638,9 +11604,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -11648,7 +11612,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatement(dict):
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch']:
         """
-        The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
 
@@ -11935,8 +11899,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
-        :param _builtins.str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param _builtins.str match_scope: Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param _builtins.str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         pulumi.set(__self__, "match_patterns", match_patterns)
@@ -11947,7 +11911,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern']:
         """
-        The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         """
         return pulumi.get(self, "match_patterns")
 
@@ -11955,7 +11919,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         """
         return pulumi.get(self, "match_scope")
 
@@ -11994,7 +11958,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
                  excluded_cookies: Optional[Sequence[_builtins.str]] = None,
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -12007,7 +11971,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -12056,8 +12020,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
-        :param _builtins.str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
+        :param _builtins.str match_scope: Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param _builtins.str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
@@ -12068,7 +12032,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern':
         """
-        The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -12076,7 +12040,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -12115,9 +12079,9 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderM
                  excluded_headers: Optional[Sequence[_builtins.str]] = None,
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        :param Sequence[_builtins.str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        :param Sequence[_builtins.str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
+        :param Sequence[_builtins.str] excluded_headers: Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        :param Sequence[_builtins.str] included_headers: Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -12130,7 +12094,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderM
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -12138,7 +12102,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderM
     @pulumi.getter(name="excludedHeaders")
     def excluded_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         """
         return pulumi.get(self, "excluded_headers")
 
@@ -12146,7 +12110,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderM
     @pulumi.getter(name="includedHeaders")
     def included_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         return pulumi.get(self, "included_headers")
 
@@ -12214,7 +12178,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fing
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -12222,7 +12186,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fing
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -12249,7 +12213,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fing
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -12257,7 +12221,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa4Fing
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -12293,8 +12257,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
                  invalid_fallback_behavior: Optional[_builtins.str] = None,
                  oversize_handling: Optional[_builtins.str] = None):
         """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        :param _builtins.str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param _builtins.str match_scope: Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param _builtins.str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param _builtins.str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
@@ -12309,7 +12273,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern':
         """
-        The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -12317,7 +12281,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -12361,7 +12325,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
                  all: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -12372,7 +12336,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -12405,7 +12369,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleH
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -12413,7 +12377,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleH
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -12423,7 +12387,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQ
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -12431,7 +12395,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQ
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -12484,8 +12448,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransfo
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
-        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -12494,7 +12458,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransfo
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
         """
         return pulumi.get(self, "priority")
 
@@ -12502,7 +12466,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementPreParseTextTransfo
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -12513,8 +12477,8 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation(
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -12523,7 +12487,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation(
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -12531,7 +12495,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation(
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -12568,12 +12532,10 @@ class RuleGroupRuleStatementSizeConstraintStatement(dict):
                  field_to_match: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch'] = None,
                  pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation']] = None):
         """
-        :param _builtins.str comparison_operator: The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
-        :param _builtins.int size: The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
-        :param Sequence['RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param _builtins.str comparison_operator: Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+        :param _builtins.int size: Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+        :param Sequence['RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         :param Sequence['RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
@@ -12588,7 +12550,7 @@ class RuleGroupRuleStatementSizeConstraintStatement(dict):
     @pulumi.getter(name="comparisonOperator")
     def comparison_operator(self) -> _builtins.str:
         """
-        The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+        Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         """
         return pulumi.get(self, "comparison_operator")
 
@@ -12596,7 +12558,7 @@ class RuleGroupRuleStatementSizeConstraintStatement(dict):
     @pulumi.getter
     def size(self) -> _builtins.int:
         """
-        The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+        Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
         """
         return pulumi.get(self, "size")
 
@@ -12604,9 +12566,7 @@ class RuleGroupRuleStatementSizeConstraintStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -12614,7 +12574,7 @@ class RuleGroupRuleStatementSizeConstraintStatement(dict):
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatch']:
         """
-        The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
 
@@ -12901,8 +12861,8 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param Sequence['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
-        :param _builtins.str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        :param Sequence['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param _builtins.str match_scope: Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param _builtins.str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         pulumi.set(__self__, "match_patterns", match_patterns)
@@ -12913,7 +12873,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern']:
         """
-        The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         """
         return pulumi.get(self, "match_patterns")
 
@@ -12921,7 +12881,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         """
         return pulumi.get(self, "match_scope")
 
@@ -12960,7 +12920,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatte
                  excluded_cookies: Optional[Sequence[_builtins.str]] = None,
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -12973,7 +12933,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatte
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -13022,8 +12982,8 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
-        :param _builtins.str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
+        :param _builtins.str match_scope: Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param _builtins.str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
@@ -13034,7 +12994,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern':
         """
-        The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -13042,7 +13002,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -13081,9 +13041,9 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatter
                  excluded_headers: Optional[Sequence[_builtins.str]] = None,
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        :param Sequence[_builtins.str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        :param Sequence[_builtins.str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
+        :param Sequence[_builtins.str] excluded_headers: Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        :param Sequence[_builtins.str] included_headers: Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -13096,7 +13056,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatter
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -13104,7 +13064,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatter
     @pulumi.getter(name="excludedHeaders")
     def excluded_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         """
         return pulumi.get(self, "excluded_headers")
 
@@ -13112,7 +13072,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatter
     @pulumi.getter(name="includedHeaders")
     def included_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         return pulumi.get(self, "included_headers")
 
@@ -13180,7 +13140,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(di
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -13188,7 +13148,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(di
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -13215,7 +13175,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint(di
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -13223,7 +13183,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa4Fingerprint(di
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -13259,8 +13219,8 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[_builtins.str] = None,
                  oversize_handling: Optional[_builtins.str] = None):
         """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        :param _builtins.str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param _builtins.str match_scope: Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param _builtins.str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param _builtins.str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
@@ -13275,7 +13235,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern':
         """
-        The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -13283,7 +13243,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -13327,7 +13287,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatt
                  all: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -13338,7 +13298,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatt
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -13371,7 +13331,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader(dict
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -13379,7 +13339,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader(dict
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -13389,7 +13349,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgume
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -13397,7 +13357,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgume
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -13450,8 +13410,8 @@ class RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation(di
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
-        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -13460,7 +13420,7 @@ class RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation(di
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
         """
         return pulumi.get(self, "priority")
 
@@ -13468,7 +13428,7 @@ class RuleGroupRuleStatementSizeConstraintStatementPreParseTextTransformation(di
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -13479,8 +13439,8 @@ class RuleGroupRuleStatementSizeConstraintStatementTextTransformation(dict):
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -13489,7 +13449,7 @@ class RuleGroupRuleStatementSizeConstraintStatementTextTransformation(dict):
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -13497,7 +13457,7 @@ class RuleGroupRuleStatementSizeConstraintStatementTextTransformation(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -13533,10 +13493,8 @@ class RuleGroupRuleStatementSqliMatchStatement(dict):
                  pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation']] = None,
                  sensitivity_level: Optional[_builtins.str] = None):
         """
-        :param Sequence['RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         :param Sequence['RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         :param _builtins.str sensitivity_level: Sensitivity that you want AWS WAF to use to inspect for SQL injection attacks. Valid values include: `LOW`, `HIGH`.
         """
@@ -13552,9 +13510,7 @@ class RuleGroupRuleStatementSqliMatchStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -13562,7 +13518,7 @@ class RuleGroupRuleStatementSqliMatchStatement(dict):
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatch']:
         """
-        The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
 
@@ -13857,8 +13813,8 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param Sequence['RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
-        :param _builtins.str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        :param Sequence['RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param _builtins.str match_scope: Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param _builtins.str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         pulumi.set(__self__, "match_patterns", match_patterns)
@@ -13869,7 +13825,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern']:
         """
-        The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         """
         return pulumi.get(self, "match_patterns")
 
@@ -13877,7 +13833,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         """
         return pulumi.get(self, "match_scope")
 
@@ -13916,7 +13872,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(di
                  excluded_cookies: Optional[Sequence[_builtins.str]] = None,
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -13929,7 +13885,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(di
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -13978,8 +13934,8 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
-        :param _builtins.str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
+        :param _builtins.str match_scope: Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param _builtins.str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
@@ -13990,7 +13946,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern':
         """
-        The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -13998,7 +13954,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -14037,9 +13993,9 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dic
                  excluded_headers: Optional[Sequence[_builtins.str]] = None,
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        :param Sequence[_builtins.str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        :param Sequence[_builtins.str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
+        :param Sequence[_builtins.str] excluded_headers: Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        :param Sequence[_builtins.str] included_headers: Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -14052,7 +14008,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dic
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -14060,7 +14016,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dic
     @pulumi.getter(name="excludedHeaders")
     def excluded_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         """
         return pulumi.get(self, "excluded_headers")
 
@@ -14068,7 +14024,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dic
     @pulumi.getter(name="includedHeaders")
     def included_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         return pulumi.get(self, "included_headers")
 
@@ -14136,7 +14092,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -14144,7 +14100,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -14171,7 +14127,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -14179,7 +14135,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa4Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -14215,8 +14171,8 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[_builtins.str] = None,
                  oversize_handling: Optional[_builtins.str] = None):
         """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        :param _builtins.str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param _builtins.str match_scope: Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param _builtins.str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param _builtins.str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
@@ -14231,7 +14187,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern':
         """
-        The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -14239,7 +14195,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -14283,7 +14239,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(d
                  all: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -14294,7 +14250,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(d
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -14327,7 +14283,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -14335,7 +14291,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -14345,7 +14301,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(di
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -14353,7 +14309,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(di
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -14406,8 +14362,8 @@ class RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation(dict):
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
-        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -14416,7 +14372,7 @@ class RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation(dict):
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
         """
         return pulumi.get(self, "priority")
 
@@ -14424,7 +14380,7 @@ class RuleGroupRuleStatementSqliMatchStatementPreParseTextTransformation(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -14435,8 +14391,8 @@ class RuleGroupRuleStatementSqliMatchStatementTextTransformation(dict):
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -14445,7 +14401,7 @@ class RuleGroupRuleStatementSqliMatchStatementTextTransformation(dict):
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -14453,7 +14409,7 @@ class RuleGroupRuleStatementSqliMatchStatementTextTransformation(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -14486,10 +14442,8 @@ class RuleGroupRuleStatementXssMatchStatement(dict):
                  field_to_match: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatch'] = None,
                  pre_parse_text_transformations: Optional[Sequence['outputs.RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation']] = None):
         """
-        :param Sequence['RuleGroupRuleStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-               At least one required.
-               See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param Sequence['RuleGroupRuleStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         :param Sequence['RuleGroupRuleStatementXssMatchStatementPreParseTextTransformationArgs'] pre_parse_text_transformations: Text transformations to apply to the raw query string before AWS WAF parses the string into individual query arguments, and before any `text_transformation` is applied. Supported only when `field_to_match` specifies `single_query_argument` or `all_query_arguments`. Maximum of 10. See Pre-Parse Text Transformation below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -14502,9 +14456,7 @@ class RuleGroupRuleStatementXssMatchStatement(dict):
     @pulumi.getter(name="textTransformations")
     def text_transformations(self) -> Sequence['outputs.RuleGroupRuleStatementXssMatchStatementTextTransformation']:
         """
-        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-        At least one required.
-        See Text Transformation below for details.
+        Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
         """
         return pulumi.get(self, "text_transformations")
 
@@ -14512,7 +14464,7 @@ class RuleGroupRuleStatementXssMatchStatement(dict):
     @pulumi.getter(name="fieldToMatch")
     def field_to_match(self) -> Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatch']:
         """
-        The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         return pulumi.get(self, "field_to_match")
 
@@ -14799,8 +14751,8 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies(dict):
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param Sequence['RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
-        :param _builtins.str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        :param Sequence['RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param _builtins.str match_scope: Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param _builtins.str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
         pulumi.set(__self__, "match_patterns", match_patterns)
@@ -14811,7 +14763,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies(dict):
     @pulumi.getter(name="matchPatterns")
     def match_patterns(self) -> Sequence['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern']:
         """
-        The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         """
         return pulumi.get(self, "match_patterns")
 
@@ -14819,7 +14771,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+        Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         """
         return pulumi.get(self, "match_scope")
 
@@ -14858,7 +14810,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dic
                  excluded_cookies: Optional[Sequence[_builtins.str]] = None,
                  included_cookies: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -14871,7 +14823,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dic
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -14920,8 +14872,8 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader(dict):
                  match_scope: _builtins.str,
                  oversize_handling: _builtins.str):
         """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
-        :param _builtins.str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
+        :param _builtins.str match_scope: Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param _builtins.str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
         pulumi.set(__self__, "match_pattern", match_pattern)
@@ -14932,7 +14884,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader(dict):
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern':
         """
-        The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -14940,7 +14892,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -14979,9 +14931,9 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict
                  excluded_headers: Optional[Sequence[_builtins.str]] = None,
                  included_headers: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
-        :param Sequence[_builtins.str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
-        :param Sequence[_builtins.str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
+        :param Sequence[_builtins.str] excluded_headers: Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        :param Sequence[_builtins.str] included_headers: Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -14994,7 +14946,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -15002,7 +14954,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict
     @pulumi.getter(name="excludedHeaders")
     def excluded_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         """
         return pulumi.get(self, "excluded_headers")
 
@@ -15010,7 +14962,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict
     @pulumi.getter(name="includedHeaders")
     def included_headers(self) -> Optional[Sequence[_builtins.str]]:
         """
-        An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+        Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
         return pulumi.get(self, "included_headers")
 
@@ -15078,7 +15030,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -15086,7 +15038,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA3 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -15113,7 +15065,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint(dict):
     def __init__(__self__, *,
                  fallback_behavior: _builtins.str):
         """
-        :param _builtins.str fallback_behavior: The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        :param _builtins.str fallback_behavior: Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         pulumi.set(__self__, "fallback_behavior", fallback_behavior)
 
@@ -15121,7 +15073,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJa4Fingerprint(dict):
     @pulumi.getter(name="fallbackBehavior")
     def fallback_behavior(self) -> _builtins.str:
         """
-        The match status to assign to the web request if the request doesn't have a JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
+        Match status to assign to the web request if there is insufficient TLS Client Hello information to compute the JA4 fingerprint. Valid values include: `MATCH` or `NO_MATCH`.
         """
         return pulumi.get(self, "fallback_behavior")
 
@@ -15157,8 +15109,8 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[_builtins.str] = None,
                  oversize_handling: Optional[_builtins.str] = None):
         """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
-        :param _builtins.str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param _builtins.str match_scope: Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param _builtins.str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param _builtins.str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
         """
@@ -15173,7 +15125,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
     @pulumi.getter(name="matchPattern")
     def match_pattern(self) -> 'outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern':
         """
-        The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         """
         return pulumi.get(self, "match_pattern")
 
@@ -15181,7 +15133,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
     @pulumi.getter(name="matchScope")
     def match_scope(self) -> _builtins.str:
         """
-        The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+        Parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         """
         return pulumi.get(self, "match_scope")
 
@@ -15225,7 +15177,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(di
                  all: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[_builtins.str]] = None):
         """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: Empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -15236,7 +15188,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(di
     @pulumi.getter
     def all(self) -> Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll']:
         """
-        An empty configuration block that is used for inspecting all headers.
+        Empty configuration block that is used for inspecting all headers.
         """
         return pulumi.get(self, "all")
 
@@ -15269,7 +15221,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -15277,7 +15229,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -15287,7 +15239,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dic
     def __init__(__self__, *,
                  name: _builtins.str):
         """
-        :param _builtins.str name: The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        :param _builtins.str name: Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         pulumi.set(__self__, "name", name)
 
@@ -15295,7 +15247,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dic
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
+        Name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
         """
         return pulumi.get(self, "name")
 
@@ -15348,8 +15300,8 @@ class RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation(dict):
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
-        :param _builtins.str type: The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        :param _builtins.str type: Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -15358,7 +15310,7 @@ class RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation(dict):
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
+        Relative processing order for the pre-parse text transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before parsing the query string.
         """
         return pulumi.get(self, "priority")
 
@@ -15366,7 +15318,7 @@ class RuleGroupRuleStatementXssMatchStatementPreParseTextTransformation(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
+        Pre-parse text transformation to apply to the raw query string. Valid values are `NONE`, `URL_DECODE`, `URL_DECODE_UNI`, `COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA`, and `REPLACE_SEMICOLONS_WITH_AMPERSANDS`. See the Pre-Parse Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_PreParseTextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -15377,8 +15329,8 @@ class RuleGroupRuleStatementXssMatchStatementTextTransformation(dict):
                  priority: _builtins.int,
                  type: _builtins.str):
         """
-        :param _builtins.int priority: The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
-        :param _builtins.str type: The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        :param _builtins.int priority: Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        :param _builtins.str type: Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "type", type)
@@ -15387,7 +15339,7 @@ class RuleGroupRuleStatementXssMatchStatementTextTransformation(dict):
     @pulumi.getter
     def priority(self) -> _builtins.int:
         """
-        The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+        Relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
         """
         return pulumi.get(self, "priority")
 
@@ -15395,7 +15347,7 @@ class RuleGroupRuleStatementXssMatchStatementTextTransformation(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        Transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         """
         return pulumi.get(self, "type")
 
@@ -15428,9 +15380,9 @@ class RuleGroupRuleVisibilityConfig(dict):
                  metric_name: _builtins.str,
                  sampled_requests_enabled: _builtins.bool):
         """
-        :param _builtins.bool cloudwatch_metrics_enabled: A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
-        :param _builtins.str metric_name: A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
-        :param _builtins.bool sampled_requests_enabled: A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+        :param _builtins.bool cloudwatch_metrics_enabled: Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+        :param _builtins.str metric_name: Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+        :param _builtins.bool sampled_requests_enabled: Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         """
         pulumi.set(__self__, "cloudwatch_metrics_enabled", cloudwatch_metrics_enabled)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -15440,7 +15392,7 @@ class RuleGroupRuleVisibilityConfig(dict):
     @pulumi.getter(name="cloudwatchMetricsEnabled")
     def cloudwatch_metrics_enabled(self) -> _builtins.bool:
         """
-        A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+        Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
         """
         return pulumi.get(self, "cloudwatch_metrics_enabled")
 
@@ -15448,7 +15400,7 @@ class RuleGroupRuleVisibilityConfig(dict):
     @pulumi.getter(name="metricName")
     def metric_name(self) -> _builtins.str:
         """
-        A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+        Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
         """
         return pulumi.get(self, "metric_name")
 
@@ -15456,7 +15408,7 @@ class RuleGroupRuleVisibilityConfig(dict):
     @pulumi.getter(name="sampledRequestsEnabled")
     def sampled_requests_enabled(self) -> _builtins.bool:
         """
-        A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+        Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         """
         return pulumi.get(self, "sampled_requests_enabled")
 
@@ -15489,9 +15441,9 @@ class RuleGroupVisibilityConfig(dict):
                  metric_name: _builtins.str,
                  sampled_requests_enabled: _builtins.bool):
         """
-        :param _builtins.bool cloudwatch_metrics_enabled: A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
-        :param _builtins.str metric_name: A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
-        :param _builtins.bool sampled_requests_enabled: A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+        :param _builtins.bool cloudwatch_metrics_enabled: Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+        :param _builtins.str metric_name: Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+        :param _builtins.bool sampled_requests_enabled: Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         """
         pulumi.set(__self__, "cloudwatch_metrics_enabled", cloudwatch_metrics_enabled)
         pulumi.set(__self__, "metric_name", metric_name)
@@ -15501,7 +15453,7 @@ class RuleGroupVisibilityConfig(dict):
     @pulumi.getter(name="cloudwatchMetricsEnabled")
     def cloudwatch_metrics_enabled(self) -> _builtins.bool:
         """
-        A boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
+        Boolean indicating whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
         """
         return pulumi.get(self, "cloudwatch_metrics_enabled")
 
@@ -15509,7 +15461,7 @@ class RuleGroupVisibilityConfig(dict):
     @pulumi.getter(name="metricName")
     def metric_name(self) -> _builtins.str:
         """
-        A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+        Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
         """
         return pulumi.get(self, "metric_name")
 
@@ -15517,7 +15469,7 @@ class RuleGroupVisibilityConfig(dict):
     @pulumi.getter(name="sampledRequestsEnabled")
     def sampled_requests_enabled(self) -> _builtins.bool:
         """
-        A boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
+        Boolean indicating whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         """
         return pulumi.get(self, "sampled_requests_enabled")
 
@@ -15594,7 +15546,7 @@ class WebAclAssociationConfigRequestBody(dict):
         :param 'WebAclAssociationConfigRequestBodyAppRunnerServiceArgs' app_runner_service: Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
         :param 'WebAclAssociationConfigRequestBodyCloudfrontArgs' cloudfront: Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
         :param 'WebAclAssociationConfigRequestBodyCognitoUserPoolArgs' cognito_user_pool: Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
-        :param 'WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs' verified_access_instance: Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
+        :param 'WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs' verified_access_instance: Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
         """
         if api_gateway is not None:
             pulumi.set(__self__, "api_gateway", api_gateway)
@@ -15643,7 +15595,7 @@ class WebAclAssociationConfigRequestBody(dict):
     @pulumi.getter(name="verifiedAccessInstance")
     def verified_access_instance(self) -> Optional['outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance']:
         """
-        Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
+        Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
         """
         return pulumi.get(self, "verified_access_instance")
 
@@ -15670,7 +15622,7 @@ class WebAclAssociationConfigRequestBodyApiGateway(dict):
     def __init__(__self__, *,
                  default_size_inspection_limit: _builtins.str):
         """
-        :param _builtins.str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        :param _builtins.str default_size_inspection_limit: Maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
         pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
 
@@ -15678,7 +15630,7 @@ class WebAclAssociationConfigRequestBodyApiGateway(dict):
     @pulumi.getter(name="defaultSizeInspectionLimit")
     def default_size_inspection_limit(self) -> _builtins.str:
         """
-        Specifies the maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        Maximum size of the web request body component that an associated Amazon API Gateway REST APIs should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
         return pulumi.get(self, "default_size_inspection_limit")
 
@@ -15705,7 +15657,7 @@ class WebAclAssociationConfigRequestBodyAppRunnerService(dict):
     def __init__(__self__, *,
                  default_size_inspection_limit: _builtins.str):
         """
-        :param _builtins.str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        :param _builtins.str default_size_inspection_limit: Maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
         pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
 
@@ -15713,7 +15665,7 @@ class WebAclAssociationConfigRequestBodyAppRunnerService(dict):
     @pulumi.getter(name="defaultSizeInspectionLimit")
     def default_size_inspection_limit(self) -> _builtins.str:
         """
-        Specifies the maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        Maximum size of the web request body component that an associated Amazon App Runner services should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
         return pulumi.get(self, "default_size_inspection_limit")
 
@@ -15740,7 +15692,7 @@ class WebAclAssociationConfigRequestBodyCloudfront(dict):
     def __init__(__self__, *,
                  default_size_inspection_limit: _builtins.str):
         """
-        :param _builtins.str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        :param _builtins.str default_size_inspection_limit: Maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
         pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
 
@@ -15748,7 +15700,7 @@ class WebAclAssociationConfigRequestBodyCloudfront(dict):
     @pulumi.getter(name="defaultSizeInspectionLimit")
     def default_size_inspection_limit(self) -> _builtins.str:
         """
-        Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        Maximum size of the web request body component that an associated Amazon CloudFront distribution should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
         return pulumi.get(self, "default_size_inspection_limit")
 
@@ -15775,7 +15727,7 @@ class WebAclAssociationConfigRequestBodyCognitoUserPool(dict):
     def __init__(__self__, *,
                  default_size_inspection_limit: _builtins.str):
         """
-        :param _builtins.str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        :param _builtins.str default_size_inspection_limit: Maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
         pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
 
@@ -15783,7 +15735,7 @@ class WebAclAssociationConfigRequestBodyCognitoUserPool(dict):
     @pulumi.getter(name="defaultSizeInspectionLimit")
     def default_size_inspection_limit(self) -> _builtins.str:
         """
-        Specifies the maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        Maximum size of the web request body component that an associated Amazon Cognito user pools should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
         return pulumi.get(self, "default_size_inspection_limit")
 
@@ -15810,7 +15762,7 @@ class WebAclAssociationConfigRequestBodyVerifiedAccessInstance(dict):
     def __init__(__self__, *,
                  default_size_inspection_limit: _builtins.str):
         """
-        :param _builtins.str default_size_inspection_limit: Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        :param _builtins.str default_size_inspection_limit: Maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
         pulumi.set(__self__, "default_size_inspection_limit", default_size_inspection_limit)
 
@@ -15818,7 +15770,7 @@ class WebAclAssociationConfigRequestBodyVerifiedAccessInstance(dict):
     @pulumi.getter(name="defaultSizeInspectionLimit")
     def default_size_inspection_limit(self) -> _builtins.str:
         """
-        Specifies the maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
+        Maximum size of the web request body component that an associated AWS Verified Access instances should send to AWS WAF for inspection. This applies to statements in the web ACL that inspect the body or JSON body. Valid values are `KB_16`, `KB_32`, `KB_48` and `KB_64`.
         """
         return pulumi.get(self, "default_size_inspection_limit")
 
@@ -15845,7 +15797,7 @@ class WebAclCaptchaConfig(dict):
     def __init__(__self__, *,
                  immunity_time_property: Optional['outputs.WebAclCaptchaConfigImmunityTimeProperty'] = None):
         """
-        :param 'WebAclCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
+        :param 'WebAclCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Custom immunity time. See `immunity_time_property` below for details.
         """
         if immunity_time_property is not None:
             pulumi.set(__self__, "immunity_time_property", immunity_time_property)
@@ -15854,7 +15806,7 @@ class WebAclCaptchaConfig(dict):
     @pulumi.getter(name="immunityTimeProperty")
     def immunity_time_property(self) -> Optional['outputs.WebAclCaptchaConfigImmunityTimeProperty']:
         """
-        Defines custom immunity time. See `immunity_time_property` below for details.
+        Custom immunity time. See `immunity_time_property` below for details.
         """
         return pulumi.get(self, "immunity_time_property")
 
@@ -15881,7 +15833,7 @@ class WebAclCaptchaConfigImmunityTimeProperty(dict):
     def __init__(__self__, *,
                  immunity_time: Optional[_builtins.int] = None):
         """
-        :param _builtins.int immunity_time: The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        :param _builtins.int immunity_time: Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
         """
         if immunity_time is not None:
             pulumi.set(__self__, "immunity_time", immunity_time)
@@ -15890,7 +15842,7 @@ class WebAclCaptchaConfigImmunityTimeProperty(dict):
     @pulumi.getter(name="immunityTime")
     def immunity_time(self) -> Optional[_builtins.int]:
         """
-        The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
         """
         return pulumi.get(self, "immunity_time")
 
@@ -15917,7 +15869,7 @@ class WebAclChallengeConfig(dict):
     def __init__(__self__, *,
                  immunity_time_property: Optional['outputs.WebAclChallengeConfigImmunityTimeProperty'] = None):
         """
-        :param 'WebAclChallengeConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
+        :param 'WebAclChallengeConfigImmunityTimePropertyArgs' immunity_time_property: Custom immunity time. See `immunity_time_property` below for details.
         """
         if immunity_time_property is not None:
             pulumi.set(__self__, "immunity_time_property", immunity_time_property)
@@ -15926,7 +15878,7 @@ class WebAclChallengeConfig(dict):
     @pulumi.getter(name="immunityTimeProperty")
     def immunity_time_property(self) -> Optional['outputs.WebAclChallengeConfigImmunityTimeProperty']:
         """
-        Defines custom immunity time. See `immunity_time_property` below for details.
+        Custom immunity time. See `immunity_time_property` below for details.
         """
         return pulumi.get(self, "immunity_time_property")
 
@@ -15953,7 +15905,7 @@ class WebAclChallengeConfigImmunityTimeProperty(dict):
     def __init__(__self__, *,
                  immunity_time: Optional[_builtins.int] = None):
         """
-        :param _builtins.int immunity_time: The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        :param _builtins.int immunity_time: Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
         """
         if immunity_time is not None:
             pulumi.set(__self__, "immunity_time", immunity_time)
@@ -15962,7 +15914,7 @@ class WebAclChallengeConfigImmunityTimeProperty(dict):
     @pulumi.getter(name="immunityTime")
     def immunity_time(self) -> Optional[_builtins.int]:
         """
-        The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+        Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
         """
         return pulumi.get(self, "immunity_time")
 
@@ -16046,7 +15998,7 @@ class WebAclDataProtectionConfig(dict):
     def __init__(__self__, *,
                  data_protections: Optional[Sequence['outputs.WebAclDataProtectionConfigDataProtection']] = None):
         """
-        :param Sequence['WebAclDataProtectionConfigDataProtectionArgs'] data_protections: A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+        :param Sequence['WebAclDataProtectionConfigDataProtectionArgs'] data_protections: Block for data protection configurations for specific web request field types. See `data_protection` block for details.
         """
         if data_protections is not None:
             pulumi.set(__self__, "data_protections", data_protections)
@@ -16055,7 +16007,7 @@ class WebAclDataProtectionConfig(dict):
     @pulumi.getter(name="dataProtections")
     def data_protections(self) -> Optional[Sequence['outputs.WebAclDataProtectionConfigDataProtection']]:
         """
-        A block for data protection configurations for specific web request field types. See `data_protection` block for details.
+        Block for data protection configurations for specific web request field types. See `data_protection` block for details.
         """
         return pulumi.get(self, "data_protections")
 
@@ -16087,8 +16039,8 @@ class WebAclDataProtectionConfigDataProtection(dict):
                  exclude_rate_based_details: Optional[_builtins.bool] = None,
                  exclude_rule_match_details: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str action: Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
-        :param 'WebAclDataProtectionConfigDataProtectionFieldArgs' field: Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+        :param _builtins.str action: Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
+        :param 'WebAclDataProtectionConfigDataProtectionFieldArgs' field: Field type and optional keys to apply the protection behavior to. See `field` block below for details.
         :param _builtins.bool exclude_rate_based_details: Boolean to specify whether to also exclude any rate-based rule details from the data protection you have enabled for a given field.
         :param _builtins.bool exclude_rule_match_details: Boolean to specify whether to also exclude any rule match details from the data protection you have enabled for a given field. AWS WAF logs these details for non-terminating matching rules and for the terminating matching rule.
         """
@@ -16103,7 +16055,7 @@ class WebAclDataProtectionConfigDataProtection(dict):
     @pulumi.getter
     def action(self) -> _builtins.str:
         """
-        Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+        Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
         """
         return pulumi.get(self, "action")
 
@@ -16111,7 +16063,7 @@ class WebAclDataProtectionConfigDataProtection(dict):
     @pulumi.getter
     def field(self) -> 'outputs.WebAclDataProtectionConfigDataProtectionField':
         """
-        Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+        Field type and optional keys to apply the protection behavior to. See `field` block below for details.
         """
         return pulumi.get(self, "field")
 
@@ -16157,7 +16109,7 @@ class WebAclDataProtectionConfigDataProtectionField(dict):
                  field_type: _builtins.str,
                  field_keys: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str field_type: Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+        :param _builtins.str field_type: Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
         :param Sequence[_builtins.str] field_keys: Array of strings to specify the keys to protect for the specified field type. If you don't specify any key, then all keys for the field type are protected.
         """
         pulumi.set(__self__, "field_type", field_type)
@@ -16168,7 +16120,7 @@ class WebAclDataProtectionConfigDataProtectionField(dict):
     @pulumi.getter(name="fieldType")
     def field_type(self) -> _builtins.str:
         """
-        Specifies the web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
+        Web request component type to protect. Valid Values are `SINGLE_HEADER`, `SINGLE_COOKIE`, `SINGLE_QUERY_ARGUMENT`, `QUERY_STRING`, `BODY`.
         """
         return pulumi.get(self, "field_type")
 
@@ -16187,8 +16139,8 @@ class WebAclDefaultAction(dict):
                  allow: Optional['outputs.WebAclDefaultActionAllow'] = None,
                  block: Optional['outputs.WebAclDefaultActionBlock'] = None):
         """
-        :param 'WebAclDefaultActionAllowArgs' allow: Specifies that AWS WAF should allow requests by default. See `allow` below for details.
-        :param 'WebAclDefaultActionBlockArgs' block: Specifies that AWS WAF should block requests by default. See `block` below for details.
+        :param 'WebAclDefaultActionAllowArgs' allow: Allows requests by default. See `allow` below for details.
+        :param 'WebAclDefaultActionBlockArgs' block: Blocks requests by default. See `block` below for details.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -16199,7 +16151,7 @@ class WebAclDefaultAction(dict):
     @pulumi.getter
     def allow(self) -> Optional['outputs.WebAclDefaultActionAllow']:
         """
-        Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+        Allows requests by default. See `allow` below for details.
         """
         return pulumi.get(self, "allow")
 
@@ -16207,7 +16159,7 @@ class WebAclDefaultAction(dict):
     @pulumi.getter
     def block(self) -> Optional['outputs.WebAclDefaultActionBlock']:
         """
-        Specifies that AWS WAF should block requests by default. See `block` below for details.
+        Blocks requests by default. See `block` below for details.
         """
         return pulumi.get(self, "block")
 
@@ -16234,7 +16186,7 @@ class WebAclDefaultActionAllow(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclDefaultActionAllowCustomRequestHandling'] = None):
         """
-        :param 'WebAclDefaultActionAllowCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclDefaultActionAllowCustomRequestHandlingArgs' custom_request_handling: Custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -16243,7 +16195,7 @@ class WebAclDefaultActionAllow(dict):
     @pulumi.getter(name="customRequestHandling")
     def custom_request_handling(self) -> Optional['outputs.WebAclDefaultActionAllowCustomRequestHandling']:
         """
-        Defines custom handling for the web request. See `custom_request_handling` below for details.
+        Custom handling for the web request. See `custom_request_handling` below for details.
         """
         return pulumi.get(self, "custom_request_handling")
 
@@ -16270,7 +16222,7 @@ class WebAclDefaultActionAllowCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclDefaultActionAllowCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -16278,7 +16230,7 @@ class WebAclDefaultActionAllowCustomRequestHandling(dict):
     @pulumi.getter(name="insertHeaders")
     def insert_headers(self) -> Sequence['outputs.WebAclDefaultActionAllowCustomRequestHandlingInsertHeader']:
         """
-        The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         return pulumi.get(self, "insert_headers")
 
@@ -16334,7 +16286,7 @@ class WebAclDefaultActionBlock(dict):
     def __init__(__self__, *,
                  custom_response: Optional['outputs.WebAclDefaultActionBlockCustomResponse'] = None):
         """
-        :param 'WebAclDefaultActionBlockCustomResponseArgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
+        :param 'WebAclDefaultActionBlockCustomResponseArgs' custom_response: Custom response for the web request. See `custom_response` below for details.
         """
         if custom_response is not None:
             pulumi.set(__self__, "custom_response", custom_response)
@@ -16343,7 +16295,7 @@ class WebAclDefaultActionBlock(dict):
     @pulumi.getter(name="customResponse")
     def custom_response(self) -> Optional['outputs.WebAclDefaultActionBlockCustomResponse']:
         """
-        Defines a custom response for the web request. See `custom_response` below for details.
+        Custom response for the web request. See `custom_response` below for details.
         """
         return pulumi.get(self, "custom_response")
 
@@ -16376,9 +16328,9 @@ class WebAclDefaultActionBlockCustomResponse(dict):
                  custom_response_body_key: Optional[_builtins.str] = None,
                  response_headers: Optional[Sequence['outputs.WebAclDefaultActionBlockCustomResponseResponseHeader']] = None):
         """
-        :param _builtins.int response_code: The HTTP status code to return to the client.
+        :param _builtins.int response_code: HTTP status code to return to the client.
         :param _builtins.str custom_response_body_key: References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
-        :param Sequence['WebAclDefaultActionBlockCustomResponseResponseHeaderArgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
+        :param Sequence['WebAclDefaultActionBlockCustomResponseResponseHeaderArgs'] response_headers: `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         """
         pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
@@ -16390,7 +16342,7 @@ class WebAclDefaultActionBlockCustomResponse(dict):
     @pulumi.getter(name="responseCode")
     def response_code(self) -> _builtins.int:
         """
-        The HTTP status code to return to the client.
+        HTTP status code to return to the client.
         """
         return pulumi.get(self, "response_code")
 
@@ -16406,7 +16358,7 @@ class WebAclDefaultActionBlockCustomResponse(dict):
     @pulumi.getter(name="responseHeaders")
     def response_headers(self) -> Optional[Sequence['outputs.WebAclDefaultActionBlockCustomResponseResponseHeader']]:
         """
-        The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
+        `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         """
         return pulumi.get(self, "response_headers")
 
@@ -16781,11 +16733,11 @@ class WebAclRule(dict):
         """
         :param _builtins.str name: Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_<account-id>_<web-acl-guid>_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
         :param _builtins.int priority: If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
-        :param 'WebAclRuleStatementArgs' statement: The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
-        :param 'WebAclRuleVisibilityConfigArgs' visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        :param 'WebAclRuleStatementArgs' statement: AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
+        :param 'WebAclRuleVisibilityConfigArgs' visibility_config: Amazon CloudWatch metrics and web request sample collection configuration. See `visibility_config` below for details.
         :param 'WebAclRuleActionArgs' action: Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
-        :param 'WebAclRuleCaptchaConfigArgs' captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
-        :param 'WebAclRuleChallengeConfigArgs' challenge_config: Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+        :param 'WebAclRuleCaptchaConfigArgs' captcha_config: Configuration for how AWS WAF handles CAPTCHA evaluations. See `captcha_config` below for details.
+        :param 'WebAclRuleChallengeConfigArgs' challenge_config: Configuration for how AWS WAF handles Challenge evaluations at the rule level. See `challenge_config` below for details.
         :param 'WebAclRuleOverrideActionArgs' override_action: Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
         :param Sequence['WebAclRuleRuleLabelArgs'] rule_labels: Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
         """
@@ -16824,7 +16776,7 @@ class WebAclRule(dict):
     @pulumi.getter
     def statement(self) -> 'outputs.WebAclRuleStatement':
         """
-        The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
+        AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
         """
         return pulumi.get(self, "statement")
 
@@ -16832,7 +16784,7 @@ class WebAclRule(dict):
     @pulumi.getter(name="visibilityConfig")
     def visibility_config(self) -> 'outputs.WebAclRuleVisibilityConfig':
         """
-        Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        Amazon CloudWatch metrics and web request sample collection configuration. See `visibility_config` below for details.
         """
         return pulumi.get(self, "visibility_config")
 
@@ -16848,7 +16800,7 @@ class WebAclRule(dict):
     @pulumi.getter(name="captchaConfig")
     def captcha_config(self) -> Optional['outputs.WebAclRuleCaptchaConfig']:
         """
-        Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        Configuration for how AWS WAF handles CAPTCHA evaluations. See `captcha_config` below for details.
         """
         return pulumi.get(self, "captcha_config")
 
@@ -16856,7 +16808,7 @@ class WebAclRule(dict):
     @pulumi.getter(name="challengeConfig")
     def challenge_config(self) -> Optional['outputs.WebAclRuleChallengeConfig']:
         """
-        Specifies how AWS WAF should handle Challenge evaluations on the rule level. See `challenge_config` below for details.
+        Configuration for how AWS WAF handles Challenge evaluations at the rule level. See `challenge_config` below for details.
         """
         return pulumi.get(self, "challenge_config")
 
@@ -42346,7 +42298,7 @@ class WebAclVisibilityConfig(dict):
                  sampled_requests_enabled: _builtins.bool):
         """
         :param _builtins.bool cloudwatch_metrics_enabled: Whether the associated resource sends metrics to CloudWatch. For the list of available metrics, see [AWS WAF Metrics](https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics).
-        :param _builtins.str metric_name: A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+        :param _builtins.str metric_name: Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
         :param _builtins.bool sampled_requests_enabled: Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         """
         pulumi.set(__self__, "cloudwatch_metrics_enabled", cloudwatch_metrics_enabled)
@@ -42365,7 +42317,7 @@ class WebAclVisibilityConfig(dict):
     @pulumi.getter(name="metricName")
     def metric_name(self) -> _builtins.str:
         """
-        A friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
+        Friendly name of the CloudWatch metric. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`.
         """
         return pulumi.get(self, "metric_name")
 

@@ -63,8 +63,7 @@ type GetVpcsArgs struct {
 	Filters []GetVpcsFilter `pulumi:"filters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired vpcs.
+	// Map of tags, each pair of which must exactly match a pair on the desired vpcs.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -90,8 +89,7 @@ type GetVpcsOutputArgs struct {
 	Filters GetVpcsFilterArrayInput `pulumi:"filters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired vpcs.
+	// Map of tags, each pair of which must exactly match a pair on the desired vpcs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

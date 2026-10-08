@@ -20,14 +20,14 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
     public static final OntapStorageVirtualMachineEndpointArgs Empty = new OntapStorageVirtualMachineEndpointArgs();
 
     /**
-     * Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+     * Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See `endpoints.iscsi` below.
      * 
      */
     @Import(name="iscsis")
     private @Nullable Output<List<OntapStorageVirtualMachineEndpointIscsiArgs>> iscsis;
 
     /**
-     * @return Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+     * @return Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See `endpoints.iscsi` below.
      * 
      */
     public Optional<Output<List<OntapStorageVirtualMachineEndpointIscsiArgs>>> iscsis() {
@@ -35,14 +35,14 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
     }
 
     /**
-     * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+     * Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
      * 
      */
     @Import(name="managements")
     private @Nullable Output<List<OntapStorageVirtualMachineEndpointManagementArgs>> managements;
 
     /**
-     * @return Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+     * @return Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
      * 
      */
     public Optional<Output<List<OntapStorageVirtualMachineEndpointManagementArgs>>> managements() {
@@ -50,14 +50,14 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
     }
 
     /**
-     * Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+     * Endpoint for accessing data on your storage virtual machine via NFS protocol. See `endpoints.nfs` below.
      * 
      */
     @Import(name="nfs")
     private @Nullable Output<List<OntapStorageVirtualMachineEndpointNfArgs>> nfs;
 
     /**
-     * @return Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+     * @return Endpoint for accessing data on your storage virtual machine via NFS protocol. See `endpoints.nfs` below.
      * 
      */
     public Optional<Output<List<OntapStorageVirtualMachineEndpointNfArgs>>> nfs() {
@@ -65,14 +65,14 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
     }
 
     /**
-     * Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+     * Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See `endpoints.smb` below.
      * 
      */
     @Import(name="smbs")
     private @Nullable Output<List<OntapStorageVirtualMachineEndpointSmbArgs>> smbs;
 
     /**
-     * @return Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+     * @return Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See `endpoints.smb` below.
      * 
      */
     public Optional<Output<List<OntapStorageVirtualMachineEndpointSmbArgs>>> smbs() {
@@ -107,7 +107,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param iscsis Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+         * @param iscsis Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See `endpoints.iscsi` below.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param iscsis Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+         * @param iscsis Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See `endpoints.iscsi` below.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param iscsis Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+         * @param iscsis Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See `endpoints.iscsi` below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param managements Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         * @param managements Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param managements Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         * @param managements Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param managements Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         * @param managements Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param nfs Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+         * @param nfs Endpoint for accessing data on your storage virtual machine via NFS protocol. See `endpoints.nfs` below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param nfs Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+         * @param nfs Endpoint for accessing data on your storage virtual machine via NFS protocol. See `endpoints.nfs` below.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param nfs Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+         * @param nfs Endpoint for accessing data on your storage virtual machine via NFS protocol. See `endpoints.nfs` below.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param smbs Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+         * @param smbs Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See `endpoints.smb` below.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param smbs Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+         * @param smbs Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See `endpoints.smb` below.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class OntapStorageVirtualMachineEndpointArgs extends com.pulumi.res
         }
 
         /**
-         * @param smbs Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+         * @param smbs Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See `endpoints.smb` below.
          * 
          * @return builder
          * 

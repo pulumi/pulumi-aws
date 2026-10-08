@@ -358,7 +358,7 @@ export class Association extends pulumi.CustomResource {
      */
     declare public readonly targets: pulumi.Output<outputs.ssm.AssociationTarget[]>;
     /**
-     * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
      *
      * Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
      */
@@ -506,7 +506,7 @@ export interface AssociationState {
      */
     targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[] | undefined>;
     /**
-     * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
      *
      * Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
      */
@@ -582,7 +582,7 @@ export interface AssociationArgs {
      */
     targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[] | undefined>;
     /**
-     * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
      *
      * Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
      */

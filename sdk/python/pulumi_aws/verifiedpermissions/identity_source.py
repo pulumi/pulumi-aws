@@ -28,9 +28,9 @@ class IdentitySourceArgs:
         """
         The set of arguments for constructing a IdentitySource resource.
 
-        :param pulumi.Input['IdentitySourceConfigurationArgs'] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-        :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
-        :param pulumi.Input[_builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        :param pulumi.Input['IdentitySourceConfigurationArgs'] configuration: Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        :param pulumi.Input[_builtins.str] policy_store_id: ID of the policy store in which you want to store this identity source.
+        :param pulumi.Input[_builtins.str] principal_entity_type: Namespace and data type of the principals generated for identities authenticated by the new identity source.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "configuration", configuration)
@@ -44,7 +44,7 @@ class IdentitySourceArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input['IdentitySourceConfigurationArgs']:
         """
-        Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         """
         return pulumi.get(self, "configuration")
 
@@ -56,7 +56,7 @@ class IdentitySourceArgs:
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the ID of the policy store in which you want to store this identity source.
+        ID of the policy store in which you want to store this identity source.
         """
         return pulumi.get(self, "policy_store_id")
 
@@ -68,7 +68,7 @@ class IdentitySourceArgs:
     @pulumi.getter(name="principalEntityType")
     def principal_entity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        Namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
         return pulumi.get(self, "principal_entity_type")
 
@@ -99,9 +99,9 @@ class _IdentitySourceState:
         """
         Input properties used for looking up and filtering IdentitySource resources.
 
-        :param pulumi.Input['IdentitySourceConfigurationArgs'] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-        :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
-        :param pulumi.Input[_builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        :param pulumi.Input['IdentitySourceConfigurationArgs'] configuration: Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        :param pulumi.Input[_builtins.str] policy_store_id: ID of the policy store in which you want to store this identity source.
+        :param pulumi.Input[_builtins.str] principal_entity_type: Namespace and data type of the principals generated for identities authenticated by the new identity source.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if configuration is not None:
@@ -117,7 +117,7 @@ class _IdentitySourceState:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Optional['IdentitySourceConfigurationArgs']]:
         """
-        Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         """
         return pulumi.get(self, "configuration")
 
@@ -129,7 +129,7 @@ class _IdentitySourceState:
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the ID of the policy store in which you want to store this identity source.
+        ID of the policy store in which you want to store this identity source.
         """
         return pulumi.get(self, "policy_store_id")
 
@@ -141,7 +141,7 @@ class _IdentitySourceState:
     @pulumi.getter(name="principalEntityType")
     def principal_entity_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        Namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
         return pulumi.get(self, "principal_entity_type")
 
@@ -243,9 +243,9 @@ class IdentitySource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict', 'outputs.IdentitySourceConfiguration']] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-        :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
-        :param pulumi.Input[_builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        :param pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict', 'outputs.IdentitySourceConfiguration']] configuration: Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        :param pulumi.Input[_builtins.str] policy_store_id: ID of the policy store in which you want to store this identity source.
+        :param pulumi.Input[_builtins.str] principal_entity_type: Namespace and data type of the principals generated for identities authenticated by the new identity source.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -379,9 +379,9 @@ class IdentitySource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict', 'outputs.IdentitySourceConfiguration']] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-        :param pulumi.Input[_builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
-        :param pulumi.Input[_builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        :param pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict', 'outputs.IdentitySourceConfiguration']] configuration: Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        :param pulumi.Input[_builtins.str] policy_store_id: ID of the policy store in which you want to store this identity source.
+        :param pulumi.Input[_builtins.str] principal_entity_type: Namespace and data type of the principals generated for identities authenticated by the new identity source.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -398,7 +398,7 @@ class IdentitySource(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.IdentitySourceConfiguration']:
         """
-        Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+        Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         """
         return pulumi.get(self, "configuration")
 
@@ -406,7 +406,7 @@ class IdentitySource(pulumi.CustomResource):
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the ID of the policy store in which you want to store this identity source.
+        ID of the policy store in which you want to store this identity source.
         """
         return pulumi.get(self, "policy_store_id")
 
@@ -414,7 +414,7 @@ class IdentitySource(pulumi.CustomResource):
     @pulumi.getter(name="principalEntityType")
     def principal_entity_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        Namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
         return pulumi.get(self, "principal_entity_type")
 

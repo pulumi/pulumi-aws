@@ -19,14 +19,14 @@ public final class WebAclDataProtectionConfigDataProtectionArgs extends com.pulu
     public static final WebAclDataProtectionConfigDataProtectionArgs Empty = new WebAclDataProtectionConfigDataProtectionArgs();
 
     /**
-     * Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+     * Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
      * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
-     * @return Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+     * @return Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
      * 
      */
     public Output<String> action() {
@@ -64,14 +64,14 @@ public final class WebAclDataProtectionConfigDataProtectionArgs extends com.pulu
     }
 
     /**
-     * Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+     * Field type and optional keys to apply the protection behavior to. See `field` block below for details.
      * 
      */
     @Import(name="field", required=true)
     private Output<WebAclDataProtectionConfigDataProtectionFieldArgs> field;
 
     /**
-     * @return Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+     * @return Field type and optional keys to apply the protection behavior to. See `field` block below for details.
      * 
      */
     public Output<WebAclDataProtectionConfigDataProtectionFieldArgs> field() {
@@ -106,7 +106,7 @@ public final class WebAclDataProtectionConfigDataProtectionArgs extends com.pulu
         }
 
         /**
-         * @param action Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+         * @param action Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class WebAclDataProtectionConfigDataProtectionArgs extends com.pulu
         }
 
         /**
-         * @param action Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+         * @param action Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class WebAclDataProtectionConfigDataProtectionArgs extends com.pulu
         }
 
         /**
-         * @param field Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+         * @param field Field type and optional keys to apply the protection behavior to. See `field` block below for details.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class WebAclDataProtectionConfigDataProtectionArgs extends com.pulu
         }
 
         /**
-         * @param field Specifies the field type and optional keys to apply the protection behavior to. See `field` block below for details.
+         * @param field Field type and optional keys to apply the protection behavior to. See `field` block below for details.
          * 
          * @return builder
          * 

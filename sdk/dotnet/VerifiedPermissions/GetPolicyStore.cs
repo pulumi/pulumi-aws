@@ -94,7 +94,7 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class GetPolicyStoreArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Policy Store.
+        /// ID of the Policy Store.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class GetPolicyStoreInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Policy Store.
+        /// ID of the Policy Store.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -136,21 +136,24 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class GetPolicyStoreResult
     {
         /// <summary>
-        /// The ARN of the Policy Store.
+        /// ARN of the Policy Store.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The date the Policy Store was created.
+        /// Date the Policy Store was created.
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
         /// Whether the policy store can be deleted.
         /// </summary>
         public readonly string DeletionProtection;
+        /// <summary>
+        /// Description of the Policy Store.
+        /// </summary>
         public readonly string Description;
         public readonly string Id;
         /// <summary>
-        /// The date the Policy Store was last updated.
+        /// Date the Policy Store was last updated.
         /// </summary>
         public readonly string LastUpdatedDate;
         public readonly string Region;
@@ -159,7 +162,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// Validation settings for the policy store.
+        /// Validation settings for the policy store. See Validation Settings below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPolicyStoreValidationSettingResult> ValidationSettings;
 

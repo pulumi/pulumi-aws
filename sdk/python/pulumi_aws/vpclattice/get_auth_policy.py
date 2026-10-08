@@ -54,9 +54,6 @@ class GetAuthPolicyResult:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[_builtins.str]:
-        """
-        Auth policy. The policy string in JSON must not contain newlines or blank lines.
-        """
         return pulumi.get(self, "policy")
 
     @_builtins.property
@@ -72,9 +69,6 @@ class GetAuthPolicyResult:
     @_builtins.property
     @pulumi.getter
     def state(self) -> Optional[_builtins.str]:
-        """
-        State of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
-        """
         return pulumi.get(self, "state")
 
 

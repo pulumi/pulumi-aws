@@ -18,14 +18,14 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMa
     public static final RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs Empty = new RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs();
 
     /**
-     * An empty configuration block that is used for inspecting all headers.
+     * Empty configuration block that is used for inspecting all headers.
      * 
      */
     @Import(name="all")
     private @Nullable Output<RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs> all;
 
     /**
-     * @return An empty configuration block that is used for inspecting all headers.
+     * @return Empty configuration block that is used for inspecting all headers.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs>> all() {
@@ -65,7 +65,7 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMa
         }
 
         /**
-         * @param all An empty configuration block that is used for inspecting all headers.
+         * @param all Empty configuration block that is used for inspecting all headers.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMa
         }
 
         /**
-         * @param all An empty configuration block that is used for inspecting all headers.
+         * @param all Empty configuration block that is used for inspecting all headers.
          * 
          * @return builder
          * 

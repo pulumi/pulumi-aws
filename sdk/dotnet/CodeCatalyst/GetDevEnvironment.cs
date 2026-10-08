@@ -251,7 +251,7 @@ namespace Pulumi.Aws.CodeCatalyst
         /// </summary>
         public readonly int InactivityTimeoutMinutes;
         /// <summary>
-        /// The Amazon EC2 instace type to use for the Dev Environment.
+        /// The Amazon EC2 instance type to use for the Dev Environment.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

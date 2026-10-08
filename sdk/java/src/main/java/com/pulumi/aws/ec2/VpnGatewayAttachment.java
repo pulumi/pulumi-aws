@@ -93,28 +93,28 @@ public class VpnGatewayAttachment extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC.
+     * @return ID of the VPC.
      * 
      */
     public Output<String> vpcId() {
         return this.vpcId;
     }
     /**
-     * The ID of the Virtual Private Gateway.
+     * ID of the Virtual Private Gateway.
      * 
      */
     @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
     private Output<String> vpnGatewayId;
 
     /**
-     * @return The ID of the Virtual Private Gateway.
+     * @return ID of the Virtual Private Gateway.
      * 
      */
     public Output<String> vpnGatewayId() {

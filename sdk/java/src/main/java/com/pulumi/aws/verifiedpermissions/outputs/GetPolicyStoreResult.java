@@ -14,12 +14,12 @@ import java.util.Objects;
 @CustomType
 public final class GetPolicyStoreResult {
     /**
-     * @return The ARN of the Policy Store.
+     * @return ARN of the Policy Store.
      * 
      */
     private String arn;
     /**
-     * @return The date the Policy Store was created.
+     * @return Date the Policy Store was created.
      * 
      */
     private String createdDate;
@@ -28,10 +28,14 @@ public final class GetPolicyStoreResult {
      * 
      */
     private String deletionProtection;
+    /**
+     * @return Description of the Policy Store.
+     * 
+     */
     private String description;
     private String id;
     /**
-     * @return The date the Policy Store was last updated.
+     * @return Date the Policy Store was last updated.
      * 
      */
     private String lastUpdatedDate;
@@ -42,21 +46,21 @@ public final class GetPolicyStoreResult {
      */
     private Map<String,String> tags;
     /**
-     * @return Validation settings for the policy store.
+     * @return Validation settings for the policy store. See Validation Settings below.
      * 
      */
     private List<GetPolicyStoreValidationSetting> validationSettings;
 
     private GetPolicyStoreResult() {}
     /**
-     * @return The ARN of the Policy Store.
+     * @return ARN of the Policy Store.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return The date the Policy Store was created.
+     * @return Date the Policy Store was created.
      * 
      */
     public String createdDate() {
@@ -69,6 +73,10 @@ public final class GetPolicyStoreResult {
     public String deletionProtection() {
         return this.deletionProtection;
     }
+    /**
+     * @return Description of the Policy Store.
+     * 
+     */
     public String description() {
         return this.description;
     }
@@ -76,7 +84,7 @@ public final class GetPolicyStoreResult {
         return this.id;
     }
     /**
-     * @return The date the Policy Store was last updated.
+     * @return Date the Policy Store was last updated.
      * 
      */
     public String lastUpdatedDate() {
@@ -93,7 +101,7 @@ public final class GetPolicyStoreResult {
         return this.tags;
     }
     /**
-     * @return Validation settings for the policy store.
+     * @return Validation settings for the policy store. See Validation Settings below.
      * 
      */
     public List<GetPolicyStoreValidationSetting> validationSettings() {

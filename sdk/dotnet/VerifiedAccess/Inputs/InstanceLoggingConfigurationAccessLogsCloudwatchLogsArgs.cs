@@ -13,13 +13,13 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
     public sealed class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether logging is enabled.
+        /// Whether logging is enabled.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// The name of the CloudWatch Logs Log Group.
+        /// Name of the CloudWatch Logs Log Group.
         /// </summary>
         [Input("logGroup")]
         public Input<string>? LogGroup { get; set; }

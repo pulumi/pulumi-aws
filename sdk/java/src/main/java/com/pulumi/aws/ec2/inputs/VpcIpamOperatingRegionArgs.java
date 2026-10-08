@@ -15,14 +15,14 @@ public final class VpcIpamOperatingRegionArgs extends com.pulumi.resources.Resou
     public static final VpcIpamOperatingRegionArgs Empty = new VpcIpamOperatingRegionArgs();
 
     /**
-     * The name of the Region you want to add to the IPAM.
+     * Name of the Region you want to add to the IPAM.
      * 
      */
     @Import(name="regionName", required=true)
     private Output<String> regionName;
 
     /**
-     * @return The name of the Region you want to add to the IPAM.
+     * @return Name of the Region you want to add to the IPAM.
      * 
      */
     public Output<String> regionName() {
@@ -54,7 +54,7 @@ public final class VpcIpamOperatingRegionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param regionName The name of the Region you want to add to the IPAM.
+         * @param regionName Name of the Region you want to add to the IPAM.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class VpcIpamOperatingRegionArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param regionName The name of the Region you want to add to the IPAM.
+         * @param regionName Name of the Region you want to add to the IPAM.
          * 
          * @return builder
          * 

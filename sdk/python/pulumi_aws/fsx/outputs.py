@@ -582,7 +582,7 @@ class LustreFileSystemDataReadCacheConfiguration(dict):
                  sizing_mode: _builtins.str,
                  size: Optional[_builtins.int] = None):
         """
-        :param _builtins.str sizing_mode: Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+        :param _builtins.str sizing_mode: Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
         :param _builtins.int size: Size of the file system's SSD read cache, in gibibytes (GiB). Required when the `sizing_mode` is `USER_PROVISIONED`.
         """
         pulumi.set(__self__, "sizing_mode", sizing_mode)
@@ -593,7 +593,7 @@ class LustreFileSystemDataReadCacheConfiguration(dict):
     @pulumi.getter(name="sizingMode")
     def sizing_mode(self) -> _builtins.str:
         """
-        Sizing mode for the cache. Valud values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
+        Sizing mode for the cache. Valid values are `NO_CACHE`, `USER_PROVISIONED`, and `PROPORTIONAL_TO_THROUGHPUT_CAPACITY`.
         """
         return pulumi.get(self, "sizing_mode")
 
@@ -759,8 +759,8 @@ class OntapFileSystemEndpoint(dict):
                  interclusters: Optional[Sequence['outputs.OntapFileSystemEndpointIntercluster']] = None,
                  managements: Optional[Sequence['outputs.OntapFileSystemEndpointManagement']] = None):
         """
-        :param Sequence['OntapFileSystemEndpointInterclusterArgs'] interclusters: Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
-        :param Sequence['OntapFileSystemEndpointManagementArgs'] managements: Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        :param Sequence['OntapFileSystemEndpointInterclusterArgs'] interclusters: Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
+        :param Sequence['OntapFileSystemEndpointManagementArgs'] managements: Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
         """
         if interclusters is not None:
             pulumi.set(__self__, "interclusters", interclusters)
@@ -771,7 +771,7 @@ class OntapFileSystemEndpoint(dict):
     @pulumi.getter
     def interclusters(self) -> Optional[Sequence['outputs.OntapFileSystemEndpointIntercluster']]:
         """
-        Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+        Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
         """
         return pulumi.get(self, "interclusters")
 
@@ -779,7 +779,7 @@ class OntapFileSystemEndpoint(dict):
     @pulumi.getter
     def managements(self) -> Optional[Sequence['outputs.OntapFileSystemEndpointManagement']]:
         """
-        Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
         """
         return pulumi.get(self, "managements")
 
@@ -1040,10 +1040,10 @@ class OntapStorageVirtualMachineEndpoint(dict):
                  nfs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointNf']] = None,
                  smbs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointSmb']] = None):
         """
-        :param Sequence['OntapStorageVirtualMachineEndpointIscsiArgs'] iscsis: Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
-        :param Sequence['OntapStorageVirtualMachineEndpointManagementArgs'] managements: Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-        :param Sequence['OntapStorageVirtualMachineEndpointNfArgs'] nfs: Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
-        :param Sequence['OntapStorageVirtualMachineEndpointSmbArgs'] smbs: Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointIscsiArgs'] iscsis: Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See `endpoints.iscsi` below.
+        :param Sequence['OntapStorageVirtualMachineEndpointManagementArgs'] managements: Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
+        :param Sequence['OntapStorageVirtualMachineEndpointNfArgs'] nfs: Endpoint for accessing data on your storage virtual machine via NFS protocol. See `endpoints.nfs` below.
+        :param Sequence['OntapStorageVirtualMachineEndpointSmbArgs'] smbs: Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See `endpoints.smb` below.
         """
         if iscsis is not None:
             pulumi.set(__self__, "iscsis", iscsis)
@@ -1058,7 +1058,7 @@ class OntapStorageVirtualMachineEndpoint(dict):
     @pulumi.getter
     def iscsis(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointIscsi']]:
         """
-        Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        Endpoint for accessing data on your storage virtual machine via iSCSI protocol. See `endpoints.iscsi` below.
         """
         return pulumi.get(self, "iscsis")
 
@@ -1066,7 +1066,7 @@ class OntapStorageVirtualMachineEndpoint(dict):
     @pulumi.getter
     def managements(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointManagement']]:
         """
-        Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
         """
         return pulumi.get(self, "managements")
 
@@ -1074,7 +1074,7 @@ class OntapStorageVirtualMachineEndpoint(dict):
     @pulumi.getter
     def nfs(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointNf']]:
         """
-        Endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+        Endpoint for accessing data on your storage virtual machine via NFS protocol. See `endpoints.nfs` below.
         """
         return pulumi.get(self, "nfs")
 
@@ -1082,7 +1082,7 @@ class OntapStorageVirtualMachineEndpoint(dict):
     @pulumi.getter
     def smbs(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointSmb']]:
         """
-        Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        Endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See `endpoints.smb` below.
         """
         return pulumi.get(self, "smbs")
 
@@ -1917,7 +1917,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict
                  options: Sequence[_builtins.str]):
         """
         :param _builtins.str clients: Value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
-        :param Sequence[_builtins.str] options: Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        :param Sequence[_builtins.str] options: Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         """
         pulumi.set(__self__, "clients", clients)
         pulumi.set(__self__, "options", options)
@@ -1934,7 +1934,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict
     @pulumi.getter
     def options(self) -> Sequence[_builtins.str]:
         """
-        Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         """
         return pulumi.get(self, "options")
 
@@ -2038,7 +2038,7 @@ class OpenZfsVolumeNfsExportsClientConfiguration(dict):
                  options: Sequence[_builtins.str]):
         """
         :param _builtins.str clients: A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24. By default, Amazon FSx uses the wildcard character when specifying the client.
-        :param Sequence[_builtins.str] options: The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        :param Sequence[_builtins.str] options: The options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         """
         pulumi.set(__self__, "clients", clients)
         pulumi.set(__self__, "options", options)
@@ -2055,7 +2055,7 @@ class OpenZfsVolumeNfsExportsClientConfiguration(dict):
     @pulumi.getter
     def options(self) -> Sequence[_builtins.str]:
         """
-        The options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+        The options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
         """
         return pulumi.get(self, "options")
 
@@ -2707,8 +2707,8 @@ class GetOntapFileSystemEndpointResult(dict):
                  interclusters: Sequence['outputs.GetOntapFileSystemEndpointInterclusterResult'],
                  managements: Sequence['outputs.GetOntapFileSystemEndpointManagementResult']):
         """
-        :param Sequence['GetOntapFileSystemEndpointInterclusterArgs'] interclusters: FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint below.
-        :param Sequence['GetOntapFileSystemEndpointManagementArgs'] managements: FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint below.
+        :param Sequence['GetOntapFileSystemEndpointInterclusterArgs'] interclusters: FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
+        :param Sequence['GetOntapFileSystemEndpointManagementArgs'] managements: FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
         """
         pulumi.set(__self__, "interclusters", interclusters)
         pulumi.set(__self__, "managements", managements)
@@ -2717,7 +2717,7 @@ class GetOntapFileSystemEndpointResult(dict):
     @pulumi.getter
     def interclusters(self) -> Sequence['outputs.GetOntapFileSystemEndpointInterclusterResult']:
         """
-        FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint below.
+        FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
         """
         return pulumi.get(self, "interclusters")
 
@@ -2725,7 +2725,7 @@ class GetOntapFileSystemEndpointResult(dict):
     @pulumi.getter
     def managements(self) -> Sequence['outputs.GetOntapFileSystemEndpointManagementResult']:
         """
-        FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint below.
+        FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
         """
         return pulumi.get(self, "managements")
 

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetVpcIpamPoolsFilterResult
     {
         /// <summary>
-        /// The name of the filter. Filter names are case-sensitive.
+        /// Name of the filter. Filter names are case-sensitive.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The filter values. Filter values are case-sensitive.
+        /// Filter values. Filter values are case-sensitive.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

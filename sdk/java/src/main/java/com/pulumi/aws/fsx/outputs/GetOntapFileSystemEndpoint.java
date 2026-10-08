@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class GetOntapFileSystemEndpoint {
     /**
-     * @return FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint below.
+     * @return FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
      * 
      */
     private List<GetOntapFileSystemEndpointIntercluster> interclusters;
     /**
-     * @return FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint below.
+     * @return FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
      * 
      */
     private List<GetOntapFileSystemEndpointManagement> managements;
 
     private GetOntapFileSystemEndpoint() {}
     /**
-     * @return FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint below.
+     * @return FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
      * 
      */
     public List<GetOntapFileSystemEndpointIntercluster> interclusters() {
         return this.interclusters;
     }
     /**
-     * @return FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint below.
+     * @return FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
      * 
      */
     public List<GetOntapFileSystemEndpointManagement> managements() {

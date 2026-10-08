@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Vpc
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the security group.
+        /// ID of the security group.
         /// </summary>
         [Output("securityGroupId")]
         public Output<string> SecurityGroupId { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Vpc
         public Output<Outputs.SecurityGroupVpcAssociationTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC to make the association with.
+        /// ID of the VPC to make the association with.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Vpc
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the security group.
+        /// ID of the security group.
         /// </summary>
         [Input("securityGroupId", required: true)]
         public Input<string> SecurityGroupId { get; set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Vpc
         public Input<Inputs.SecurityGroupVpcAssociationTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The ID of the VPC to make the association with.
+        /// ID of the VPC to make the association with.
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Vpc
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the security group.
+        /// ID of the security group.
         /// </summary>
         [Input("securityGroupId")]
         public Input<string>? SecurityGroupId { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Vpc
         public Input<Inputs.SecurityGroupVpcAssociationTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The ID of the VPC to make the association with.
+        /// ID of the VPC to make the association with.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

@@ -2722,7 +2722,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct 
 	AcceleratorCount *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
-	// List of accelerator names. Default is any acclerator.
+	// List of accelerator names. Default is any accelerator.
 	AcceleratorNames []string `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
@@ -2732,7 +2732,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct 
 	//
 	// > **NOTE:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
 	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
-	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal *string `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
 	BaselineEbsBandwidthMbps *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
@@ -2794,7 +2794,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs str
 	AcceleratorCount GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
 	// List of accelerator manufacturer names. Default is any manufacturer.
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
-	// List of accelerator names. Default is any acclerator.
+	// List of accelerator names. Default is any accelerator.
 	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
 	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
 	AcceleratorTotalMemoryMib GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
@@ -2804,7 +2804,7 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs str
 	//
 	// > **NOTE:** If you specify `allowedInstanceTypes`, you can't specify `excludedInstanceTypes`.
 	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
-	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
 	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
 	BaselineEbsBandwidthMbps GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
@@ -2941,7 +2941,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of accelerator names. Default is any acclerator.
+// List of accelerator names. Default is any accelerator.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		return v.AcceleratorNames
@@ -2971,7 +2971,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
 		return v.BareMetal
@@ -3149,7 +3149,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// List of accelerator names. Default is any acclerator.
+// List of accelerator names. Default is any accelerator.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
 		if v == nil {
@@ -3191,7 +3191,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+// Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
 		if v == nil {

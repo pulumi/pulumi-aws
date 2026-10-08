@@ -73,43 +73,27 @@ export class VpcEncryptionControl extends pulumi.CustomResource {
     }
 
     /**
-     * Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Egress-Only Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     declare public readonly egressOnlyInternetGatewayExclusion: pulumi.Output<string>;
     /**
-     * Whether to exclude Elastic File System (EFS) from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Elastic File System (EFS) from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     declare public readonly elasticFileSystemExclusion: pulumi.Output<string>;
     /**
-     * Whether to exclude Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     declare public readonly internetGatewayExclusion: pulumi.Output<string>;
     /**
-     * Whether to exclude Lambda Functions from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Lambda Functions from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     declare public readonly lambdaExclusion: pulumi.Output<string>;
     /**
-     * Mode to enable for VPC Encryption Control.
-     * Valid values are `monitor` or `enforce`.
+     * Mode to enable for VPC Encryption Control. Valid values are `monitor` or `enforce`.
      */
     declare public readonly mode: pulumi.Output<string>;
     /**
-     * Whether to exclude NAT Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude NAT Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     declare public readonly natGatewayExclusion: pulumi.Output<string>;
     /**
@@ -117,53 +101,42 @@ export class VpcEncryptionControl extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * State of exclusions from encryption enforcement.
-     * Will be `nil` if `mode` is `monitor`.
-     * See `resourceExclusions` below
+     * State of exclusions from encryption enforcement. Will be `nil` if `mode` is `monitor`. See `resourceExclusions` below.
      */
     declare public /*out*/ readonly resourceExclusions: pulumi.Output<outputs.ec2.VpcEncryptionControlResourceExclusions>;
     /**
-     * The current state of the VPC Encryption Control.
+     * Encryption enforcement state for peered VPCs.
      */
     declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
-     * A message providing additional information about the state of the VPC Encryption Control.
+     * Message providing additional information about the encryption enforcement state.
      */
     declare public /*out*/ readonly stateMessage: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.ec2.VpcEncryptionControlTimeouts | undefined>;
     /**
-     * Whether to exclude Virtual Private Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Virtual Private Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     declare public readonly virtualPrivateGatewayExclusion: pulumi.Output<string>;
     /**
-     * The ID of the VPC the VPC Encryption Control is linked to.
+     * ID of the VPC the VPC Encryption Control is linked to.
      *
      * The following arguments are optional:
      */
     declare public readonly vpcId: pulumi.Output<string>;
     /**
-     * Whether to exclude VPC Lattice from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude VPC Lattice from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     declare public readonly vpcLatticeExclusion: pulumi.Output<string>;
     /**
-     * Whether to exclude peered VPCs from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude peered VPCs from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     declare public readonly vpcPeeringExclusion: pulumi.Output<string>;
 
@@ -235,43 +208,27 @@ export class VpcEncryptionControl extends pulumi.CustomResource {
  */
 export interface VpcEncryptionControlState {
     /**
-     * Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Egress-Only Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     egressOnlyInternetGatewayExclusion?: pulumi.Input<string | undefined>;
     /**
-     * Whether to exclude Elastic File System (EFS) from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Elastic File System (EFS) from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     elasticFileSystemExclusion?: pulumi.Input<string | undefined>;
     /**
-     * Whether to exclude Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     internetGatewayExclusion?: pulumi.Input<string | undefined>;
     /**
-     * Whether to exclude Lambda Functions from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Lambda Functions from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     lambdaExclusion?: pulumi.Input<string | undefined>;
     /**
-     * Mode to enable for VPC Encryption Control.
-     * Valid values are `monitor` or `enforce`.
+     * Mode to enable for VPC Encryption Control. Valid values are `monitor` or `enforce`.
      */
     mode?: pulumi.Input<string | undefined>;
     /**
-     * Whether to exclude NAT Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude NAT Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     natGatewayExclusion?: pulumi.Input<string | undefined>;
     /**
@@ -279,53 +236,42 @@ export interface VpcEncryptionControlState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * State of exclusions from encryption enforcement.
-     * Will be `nil` if `mode` is `monitor`.
-     * See `resourceExclusions` below
+     * State of exclusions from encryption enforcement. Will be `nil` if `mode` is `monitor`. See `resourceExclusions` below.
      */
     resourceExclusions?: pulumi.Input<inputs.ec2.VpcEncryptionControlResourceExclusions | undefined>;
     /**
-     * The current state of the VPC Encryption Control.
+     * Encryption enforcement state for peered VPCs.
      */
     state?: pulumi.Input<string | undefined>;
     /**
-     * A message providing additional information about the state of the VPC Encryption Control.
+     * Message providing additional information about the encryption enforcement state.
      */
     stateMessage?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.ec2.VpcEncryptionControlTimeouts | undefined>;
     /**
-     * Whether to exclude Virtual Private Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Virtual Private Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     virtualPrivateGatewayExclusion?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC the VPC Encryption Control is linked to.
+     * ID of the VPC the VPC Encryption Control is linked to.
      *
      * The following arguments are optional:
      */
     vpcId?: pulumi.Input<string | undefined>;
     /**
-     * Whether to exclude VPC Lattice from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude VPC Lattice from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     vpcLatticeExclusion?: pulumi.Input<string | undefined>;
     /**
-     * Whether to exclude peered VPCs from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude peered VPCs from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     vpcPeeringExclusion?: pulumi.Input<string | undefined>;
 }
@@ -335,43 +281,27 @@ export interface VpcEncryptionControlState {
  */
 export interface VpcEncryptionControlArgs {
     /**
-     * Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Egress-Only Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     egressOnlyInternetGatewayExclusion?: pulumi.Input<string | undefined>;
     /**
-     * Whether to exclude Elastic File System (EFS) from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Elastic File System (EFS) from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     elasticFileSystemExclusion?: pulumi.Input<string | undefined>;
     /**
-     * Whether to exclude Internet Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Internet Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     internetGatewayExclusion?: pulumi.Input<string | undefined>;
     /**
-     * Whether to exclude Lambda Functions from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Lambda Functions from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     lambdaExclusion?: pulumi.Input<string | undefined>;
     /**
-     * Mode to enable for VPC Encryption Control.
-     * Valid values are `monitor` or `enforce`.
+     * Mode to enable for VPC Encryption Control. Valid values are `monitor` or `enforce`.
      */
     mode: pulumi.Input<string>;
     /**
-     * Whether to exclude NAT Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude NAT Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     natGatewayExclusion?: pulumi.Input<string | undefined>;
     /**
@@ -379,35 +309,26 @@ export interface VpcEncryptionControlArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.ec2.VpcEncryptionControlTimeouts | undefined>;
     /**
-     * Whether to exclude Virtual Private Gateways from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude Virtual Private Gateways from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     virtualPrivateGatewayExclusion?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC the VPC Encryption Control is linked to.
+     * ID of the VPC the VPC Encryption Control is linked to.
      *
      * The following arguments are optional:
      */
     vpcId: pulumi.Input<string>;
     /**
-     * Whether to exclude VPC Lattice from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude VPC Lattice from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     vpcLatticeExclusion?: pulumi.Input<string | undefined>;
     /**
-     * Whether to exclude peered VPCs from encryption enforcement.
-     * Valid values are `disable` or `enable`.
-     * Default is `disable`.
-     * Only valid when `mode` is `enforce`.
+     * Whether to exclude peered VPCs from encryption enforcement. Valid values are `disable` or `enable`. Default is `disable`. Only valid when `mode` is `enforce`.
      */
     vpcPeeringExclusion?: pulumi.Input<string | undefined>;
 }

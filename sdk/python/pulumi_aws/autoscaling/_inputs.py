@@ -1275,7 +1275,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgsDic
     """
     accelerator_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    List of accelerator names. Default is any acclerator.
+    List of accelerator names. Default is any accelerator.
 
     ```
     Valid names:
@@ -1311,7 +1311,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgsDic
     """
     bare_metal: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+    Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
     """
     baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict']]]
     """
@@ -1447,7 +1447,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
                * nvidia
                * xilinx
                ```
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_names: List of accelerator names. Default is any acclerator.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_names: List of accelerator names. Default is any accelerator.
                
                ```
                Valid names:
@@ -1471,7 +1471,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_instance_types: List of instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards, represented by an asterisk (\\*), to allow an instance type, size, or generation. The following are examples: `m5.8xlarge`, `c5*.*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are allowing the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are allowing all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is all instance types.
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
-        :param pulumi.Input[_builtins.str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        :param pulumi.Input[_builtins.str] bare_metal: Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param pulumi.Input[_builtins.str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
@@ -1602,7 +1602,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="acceleratorNames")
     def accelerator_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        List of accelerator names. Default is any acclerator.
+        List of accelerator names. Default is any accelerator.
 
         ```
         Valid names:
@@ -1670,7 +1670,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs:
     @pulumi.getter(name="bareMetal")
     def bare_metal(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        Indicate whether bare metal instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         """
         return pulumi.get(self, "bare_metal")
 

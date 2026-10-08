@@ -207,8 +207,10 @@ class EventStream(pulumi.CustomResource):
 
         app = aws.pinpoint.App("app")
         test_stream = aws.kinesis.Stream("test_stream",
-            name="pinpoint-kinesis-test",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="pinpoint-kinesis-test")
         assume_role = aws.iam.get_policy_document(statements=[{
             "principals": [{
                 "type": "Service",
@@ -271,8 +273,10 @@ class EventStream(pulumi.CustomResource):
 
         app = aws.pinpoint.App("app")
         test_stream = aws.kinesis.Stream("test_stream",
-            name="pinpoint-kinesis-test",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="pinpoint-kinesis-test")
         assume_role = aws.iam.get_policy_document(statements=[{
             "principals": [{
                 "type": "Service",

@@ -64,15 +64,15 @@ export class RouteServerEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the route server endpoint.
+     * ARN of the route server endpoint.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The IP address of the Elastic network interface for the endpoint.
+     * IP address of the Elastic network interface for the endpoint.
      */
     declare public /*out*/ readonly eniAddress: pulumi.Output<string>;
     /**
-     * The ID of the Elastic network interface for the endpoint.
+     * ID of the Elastic network interface for the endpoint.
      */
     declare public /*out*/ readonly eniId: pulumi.Output<string>;
     /**
@@ -80,30 +80,30 @@ export class RouteServerEndpoint extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The unique identifier of the route server endpoint.
+     * Unique identifier of the route server endpoint.
      */
     declare public /*out*/ readonly routeServerEndpointId: pulumi.Output<string>;
     /**
-     * The ID of the route server for which to create an endpoint.
+     * ID of the route server for which to create an endpoint.
      */
     declare public readonly routeServerId: pulumi.Output<string>;
     /**
-     * The ID of the subnet in which to create the route server endpoint.
+     * ID of the subnet in which to create the route server endpoint.
      *
      * The following arguments are optional:
      */
     declare public readonly subnetId: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.vpc.RouteServerEndpointTimeouts | undefined>;
     /**
-     * The ID of the VPC containing the endpoint.
+     * ID of the VPC containing the endpoint.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
@@ -161,15 +161,15 @@ export class RouteServerEndpoint extends pulumi.CustomResource {
  */
 export interface RouteServerEndpointState {
     /**
-     * The ARN of the route server endpoint.
+     * ARN of the route server endpoint.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The IP address of the Elastic network interface for the endpoint.
+     * IP address of the Elastic network interface for the endpoint.
      */
     eniAddress?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Elastic network interface for the endpoint.
+     * ID of the Elastic network interface for the endpoint.
      */
     eniId?: pulumi.Input<string | undefined>;
     /**
@@ -177,30 +177,30 @@ export interface RouteServerEndpointState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The unique identifier of the route server endpoint.
+     * Unique identifier of the route server endpoint.
      */
     routeServerEndpointId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the route server for which to create an endpoint.
+     * ID of the route server for which to create an endpoint.
      */
     routeServerId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the subnet in which to create the route server endpoint.
+     * ID of the subnet in which to create the route server endpoint.
      *
      * The following arguments are optional:
      */
     subnetId?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerEndpointTimeouts | undefined>;
     /**
-     * The ID of the VPC containing the endpoint.
+     * ID of the VPC containing the endpoint.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }
@@ -214,17 +214,17 @@ export interface RouteServerEndpointArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the route server for which to create an endpoint.
+     * ID of the route server for which to create an endpoint.
      */
     routeServerId: pulumi.Input<string>;
     /**
-     * The ID of the subnet in which to create the route server endpoint.
+     * ID of the subnet in which to create the route server endpoint.
      *
      * The following arguments are optional:
      */
     subnetId: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerEndpointTimeouts | undefined>;

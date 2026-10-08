@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  * $ pulumi import aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine example svm-12345678abcdef123
  * ```
  *
- * Certain resource arguments, like `svmAdminPassword` and the `selfManagedActiveDirectory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignoreChanges` to hide the difference. For example:
+ * Certain resource arguments, like `svmAdminPassword` and the `selfManagedActiveDirectory` configuration block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use `ignoreChanges` to hide the difference. For example:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

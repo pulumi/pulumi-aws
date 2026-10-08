@@ -195,7 +195,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The username of the user.
+     * The username of the user. For IAM authentication, this value must match `userId`.
      * 
      * The following arguments are optional:
      * 
@@ -204,7 +204,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> userName;
 
     /**
-     * @return The username of the user.
+     * @return The username of the user. For IAM authentication, this value must match `userId`.
      * 
      * The following arguments are optional:
      * 
@@ -502,7 +502,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName The username of the user.
+         * @param userName The username of the user. For IAM authentication, this value must match `userId`.
          * 
          * The following arguments are optional:
          * 
@@ -515,7 +515,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userName The username of the user.
+         * @param userName The username of the user. For IAM authentication, this value must match `userId`.
          * 
          * The following arguments are optional:
          * 

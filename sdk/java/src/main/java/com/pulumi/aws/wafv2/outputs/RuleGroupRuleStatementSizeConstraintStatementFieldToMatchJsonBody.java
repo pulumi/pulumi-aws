@@ -19,12 +19,12 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJson
      */
     private @Nullable String invalidFallbackBehavior;
     /**
-     * @return The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+     * @return Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
      * 
      */
     private RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern matchPattern;
     /**
-     * @return The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+     * @return Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
      * 
      */
     private String matchScope;
@@ -43,14 +43,14 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJson
         return Optional.ofNullable(this.invalidFallbackBehavior);
     }
     /**
-     * @return The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+     * @return Patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `includedPaths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
      * 
      */
     public RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern matchPattern() {
         return this.matchPattern;
     }
     /**
-     * @return The parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
+     * @return Parts of the JSON to match against using the `matchPattern`. Valid values are `ALL`, `KEY` and `VALUE`.
      * 
      */
     public String matchScope() {

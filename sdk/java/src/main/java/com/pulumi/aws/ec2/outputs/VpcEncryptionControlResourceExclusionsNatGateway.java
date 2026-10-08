@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class VpcEncryptionControlResourceExclusionsNatGateway {
     /**
-     * @return The current state of the VPC Encryption Control.
+     * @return Encryption enforcement state for peered VPCs.
      * 
      */
     private String state;
     /**
-     * @return A message providing additional information about the state of the VPC Encryption Control.
+     * @return Message providing additional information about the encryption enforcement state.
      * 
      */
     private String stateMessage;
 
     private VpcEncryptionControlResourceExclusionsNatGateway() {}
     /**
-     * @return The current state of the VPC Encryption Control.
+     * @return Encryption enforcement state for peered VPCs.
      * 
      */
     public String state() {
         return this.state;
     }
     /**
-     * @return A message providing additional information about the state of the VPC Encryption Control.
+     * @return Message providing additional information about the encryption enforcement state.
      * 
      */
     public String stateMessage() {

@@ -171,14 +171,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.availabilityZoneChangeProtection);
     }
     /**
-     * Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+     * Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
      * 
      */
     @Export(name="availabilityZoneMappings", refs={List.class,FirewallAvailabilityZoneMapping.class}, tree="[0,1]")
     private Output<List<FirewallAvailabilityZoneMapping>> availabilityZoneMappings;
 
     /**
-     * @return Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+     * @return Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
      * 
      */
     public Output<List<FirewallAvailabilityZoneMapping>> availabilityZoneMappings() {

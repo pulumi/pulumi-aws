@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Kendra.Outputs
     public sealed class ExperienceConfiguration
     {
         /// <summary>
-        /// Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+        /// Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         /// </summary>
         public readonly Outputs.ExperienceConfigurationContentSourceConfiguration? ContentSourceConfiguration;
         /// <summary>

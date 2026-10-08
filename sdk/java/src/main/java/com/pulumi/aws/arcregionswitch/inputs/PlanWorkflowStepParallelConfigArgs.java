@@ -17,14 +17,14 @@ public final class PlanWorkflowStepParallelConfigArgs extends com.pulumi.resourc
     public static final PlanWorkflowStepParallelConfigArgs Empty = new PlanWorkflowStepParallelConfigArgs();
 
     /**
-     * Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
+     * Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallelConfig` to prevent infinite nesting.
      * 
      */
     @Import(name="steps")
     private @Nullable Output<List<PlanWorkflowStepParallelConfigStepArgs>> steps;
 
     /**
-     * @return Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
+     * @return Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallelConfig` to prevent infinite nesting.
      * 
      */
     public Optional<Output<List<PlanWorkflowStepParallelConfigStepArgs>>> steps() {
@@ -56,7 +56,7 @@ public final class PlanWorkflowStepParallelConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param steps Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
+         * @param steps Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallelConfig` to prevent infinite nesting.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class PlanWorkflowStepParallelConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param steps Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
+         * @param steps Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallelConfig` to prevent infinite nesting.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class PlanWorkflowStepParallelConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param steps Steps to execute in parallel. See `step` Block for details. The parallel step schema matches `step` Block but does not support `parallelConfig` to prevent infinite nesting.
+         * @param steps Steps to execute in parallel. See `workflow.step.parallel_config.step` Block for details. The parallel step schema matches `workflow.step` Block but does not support `parallelConfig` to prevent infinite nesting.
          * 
          * @return builder
          * 

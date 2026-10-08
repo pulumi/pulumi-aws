@@ -18,14 +18,14 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCook
     public static final RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs Empty = new RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs();
 
     /**
-     * An empty configuration block that is used for inspecting all headers.
+     * Empty configuration block that is used for inspecting all headers.
      * 
      */
     @Import(name="all")
     private @Nullable Output<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs> all;
 
     /**
-     * @return An empty configuration block that is used for inspecting all headers.
+     * @return Empty configuration block that is used for inspecting all headers.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs>> all() {
@@ -73,7 +73,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCook
         }
 
         /**
-         * @param all An empty configuration block that is used for inspecting all headers.
+         * @param all Empty configuration block that is used for inspecting all headers.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCook
         }
 
         /**
-         * @param all An empty configuration block that is used for inspecting all headers.
+         * @param all Empty configuration block that is used for inspecting all headers.
          * 
          * @return builder
          * 

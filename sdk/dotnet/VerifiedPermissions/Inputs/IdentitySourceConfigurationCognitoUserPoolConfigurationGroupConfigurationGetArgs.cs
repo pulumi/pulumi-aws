@@ -13,7 +13,7 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
     public sealed class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+        /// Policy store entity type that you want to map your users' group claim to. For example, `MyCorp::UserGroup`. A group entity type is an entity that can have a user entity type as a member.
         /// </summary>
         [Input("groupEntityType", required: true)]
         public Input<string> GroupEntityType { get; set; } = null!;

@@ -17,51 +17,107 @@ public final class EndpointRdsOptionsArgs extends com.pulumi.resources.ResourceA
 
     public static final EndpointRdsOptionsArgs Empty = new EndpointRdsOptionsArgs();
 
+    /**
+     * IP port number.
+     * 
+     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
+    /**
+     * @return IP port number.
+     * 
+     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
+    /**
+     * Protocol. Currently `tcp` is supported.
+     * 
+     */
     @Import(name="protocol")
     private @Nullable Output<String> protocol;
 
+    /**
+     * @return Protocol. Currently `tcp` is supported.
+     * 
+     */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
     }
 
+    /**
+     * ARN of the RDS cluster.
+     * 
+     */
     @Import(name="rdsDbClusterArn")
     private @Nullable Output<String> rdsDbClusterArn;
 
+    /**
+     * @return ARN of the RDS cluster.
+     * 
+     */
     public Optional<Output<String>> rdsDbClusterArn() {
         return Optional.ofNullable(this.rdsDbClusterArn);
     }
 
+    /**
+     * ARN of the RDS instance.
+     * 
+     */
     @Import(name="rdsDbInstanceArn")
     private @Nullable Output<String> rdsDbInstanceArn;
 
+    /**
+     * @return ARN of the RDS instance.
+     * 
+     */
     public Optional<Output<String>> rdsDbInstanceArn() {
         return Optional.ofNullable(this.rdsDbInstanceArn);
     }
 
+    /**
+     * ARN of the RDS proxy.
+     * 
+     */
     @Import(name="rdsDbProxyArn")
     private @Nullable Output<String> rdsDbProxyArn;
 
+    /**
+     * @return ARN of the RDS proxy.
+     * 
+     */
     public Optional<Output<String>> rdsDbProxyArn() {
         return Optional.ofNullable(this.rdsDbProxyArn);
     }
 
+    /**
+     * RDS endpoint.
+     * 
+     */
     @Import(name="rdsEndpoint")
     private @Nullable Output<String> rdsEndpoint;
 
+    /**
+     * @return RDS endpoint.
+     * 
+     */
     public Optional<Output<String>> rdsEndpoint() {
         return Optional.ofNullable(this.rdsEndpoint);
     }
 
+    /**
+     * IDs of the subnets.
+     * 
+     */
     @Import(name="subnetIds")
     private @Nullable Output<List<String>> subnetIds;
 
+    /**
+     * @return IDs of the subnets.
+     * 
+     */
     public Optional<Output<List<String>>> subnetIds() {
         return Optional.ofNullable(this.subnetIds);
     }
@@ -96,69 +152,159 @@ public final class EndpointRdsOptionsArgs extends com.pulumi.resources.ResourceA
             $ = new EndpointRdsOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param port IP port number.
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
+        /**
+         * @param port IP port number.
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
+        /**
+         * @param protocol Protocol. Currently `tcp` is supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(@Nullable Output<String> protocol) {
             $.protocol = protocol;
             return this;
         }
 
+        /**
+         * @param protocol Protocol. Currently `tcp` is supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
         }
 
+        /**
+         * @param rdsDbClusterArn ARN of the RDS cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rdsDbClusterArn(@Nullable Output<String> rdsDbClusterArn) {
             $.rdsDbClusterArn = rdsDbClusterArn;
             return this;
         }
 
+        /**
+         * @param rdsDbClusterArn ARN of the RDS cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rdsDbClusterArn(String rdsDbClusterArn) {
             return rdsDbClusterArn(Output.of(rdsDbClusterArn));
         }
 
+        /**
+         * @param rdsDbInstanceArn ARN of the RDS instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rdsDbInstanceArn(@Nullable Output<String> rdsDbInstanceArn) {
             $.rdsDbInstanceArn = rdsDbInstanceArn;
             return this;
         }
 
+        /**
+         * @param rdsDbInstanceArn ARN of the RDS instance.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rdsDbInstanceArn(String rdsDbInstanceArn) {
             return rdsDbInstanceArn(Output.of(rdsDbInstanceArn));
         }
 
+        /**
+         * @param rdsDbProxyArn ARN of the RDS proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rdsDbProxyArn(@Nullable Output<String> rdsDbProxyArn) {
             $.rdsDbProxyArn = rdsDbProxyArn;
             return this;
         }
 
+        /**
+         * @param rdsDbProxyArn ARN of the RDS proxy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rdsDbProxyArn(String rdsDbProxyArn) {
             return rdsDbProxyArn(Output.of(rdsDbProxyArn));
         }
 
+        /**
+         * @param rdsEndpoint RDS endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rdsEndpoint(@Nullable Output<String> rdsEndpoint) {
             $.rdsEndpoint = rdsEndpoint;
             return this;
         }
 
+        /**
+         * @param rdsEndpoint RDS endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder rdsEndpoint(String rdsEndpoint) {
             return rdsEndpoint(Output.of(rdsEndpoint));
         }
 
+        /**
+         * @param subnetIds IDs of the subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(@Nullable Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
+        /**
+         * @param subnetIds IDs of the subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
+        /**
+         * @param subnetIds IDs of the subnets.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }

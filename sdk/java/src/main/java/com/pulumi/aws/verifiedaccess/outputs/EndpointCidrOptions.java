@@ -14,21 +14,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointCidrOptions {
+    /**
+     * @return CIDR block to send traffic to.
+     * 
+     */
     private String cidr;
+    /**
+     * @return Port ranges. See below.
+     * 
+     */
     private List<EndpointCidrOptionsPortRange> portRanges;
+    /**
+     * @return Protocol. Currently `tcp` is supported.
+     * 
+     */
     private @Nullable String protocol;
+    /**
+     * @return IDs of the subnets.
+     * 
+     */
     private @Nullable List<String> subnetIds;
 
     private EndpointCidrOptions() {}
+    /**
+     * @return CIDR block to send traffic to.
+     * 
+     */
     public String cidr() {
         return this.cidr;
     }
+    /**
+     * @return Port ranges. See below.
+     * 
+     */
     public List<EndpointCidrOptionsPortRange> portRanges() {
         return this.portRanges;
     }
+    /**
+     * @return Protocol. Currently `tcp` is supported.
+     * 
+     */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }
+    /**
+     * @return IDs of the subnets.
+     * 
+     */
     public List<String> subnetIds() {
         return this.subnetIds == null ? List.of() : this.subnetIds;
     }

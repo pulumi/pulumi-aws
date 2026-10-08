@@ -109,14 +109,14 @@ public final class ConnectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The underlaying VPC attachment
+     * The underlying VPC attachment
      * 
      */
     @Import(name="transportAttachmentId", required=true)
     private Output<String> transportAttachmentId;
 
     /**
-     * @return The underlaying VPC attachment
+     * @return The underlying VPC attachment
      * 
      */
     public Output<String> transportAttachmentId() {
@@ -280,7 +280,7 @@ public final class ConnectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transportAttachmentId The underlaying VPC attachment
+         * @param transportAttachmentId The underlying VPC attachment
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class ConnectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transportAttachmentId The underlaying VPC attachment
+         * @param transportAttachmentId The underlying VPC attachment
          * 
          * @return builder
          * 

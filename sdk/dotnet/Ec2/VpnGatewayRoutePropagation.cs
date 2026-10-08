@@ -45,13 +45,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the `aws.ec2.RouteTable` to propagate routes into.
+        /// ID of the `aws.ec2.RouteTable` to propagate routes into.
         /// </summary>
         [Output("routeTableId")]
         public Output<string> RouteTableId { get; private set; } = null!;
 
         /// <summary>
-        /// The id of the `aws.ec2.VpnGateway` to propagate routes from.
+        /// ID of the `aws.ec2.VpnGateway` to propagate routes from.
         /// </summary>
         [Output("vpnGatewayId")]
         public Output<string> VpnGatewayId { get; private set; } = null!;
@@ -109,13 +109,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The id of the `aws.ec2.RouteTable` to propagate routes into.
+        /// ID of the `aws.ec2.RouteTable` to propagate routes into.
         /// </summary>
         [Input("routeTableId", required: true)]
         public Input<string> RouteTableId { get; set; } = null!;
 
         /// <summary>
-        /// The id of the `aws.ec2.VpnGateway` to propagate routes from.
+        /// ID of the `aws.ec2.VpnGateway` to propagate routes from.
         /// </summary>
         [Input("vpnGatewayId", required: true)]
         public Input<string> VpnGatewayId { get; set; } = null!;
@@ -135,13 +135,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The id of the `aws.ec2.RouteTable` to propagate routes into.
+        /// ID of the `aws.ec2.RouteTable` to propagate routes into.
         /// </summary>
         [Input("routeTableId")]
         public Input<string>? RouteTableId { get; set; }
 
         /// <summary>
-        /// The id of the `aws.ec2.VpnGateway` to propagate routes from.
+        /// ID of the `aws.ec2.VpnGateway` to propagate routes from.
         /// </summary>
         [Input("vpnGatewayId")]
         public Input<string>? VpnGatewayId { get; set; }

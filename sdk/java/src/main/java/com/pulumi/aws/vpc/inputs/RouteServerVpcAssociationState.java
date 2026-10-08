@@ -32,14 +32,14 @@ public final class RouteServerVpcAssociationState extends com.pulumi.resources.R
     }
 
     /**
-     * The unique identifier for the route server to be associated.
+     * Unique identifier for the route server to be associated.
      * 
      */
     @Import(name="routeServerId")
     private @Nullable Output<String> routeServerId;
 
     /**
-     * @return The unique identifier for the route server to be associated.
+     * @return Unique identifier for the route server to be associated.
      * 
      */
     public Optional<Output<String>> routeServerId() {
@@ -54,7 +54,7 @@ public final class RouteServerVpcAssociationState extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the VPC to associate with the route server.
+     * ID of the VPC to associate with the route server.
      * 
      * The following arguments are optional:
      * 
@@ -63,7 +63,7 @@ public final class RouteServerVpcAssociationState extends com.pulumi.resources.R
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC to associate with the route server.
+     * @return ID of the VPC to associate with the route server.
      * 
      * The following arguments are optional:
      * 
@@ -121,7 +121,7 @@ public final class RouteServerVpcAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param routeServerId The unique identifier for the route server to be associated.
+         * @param routeServerId Unique identifier for the route server to be associated.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class RouteServerVpcAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param routeServerId The unique identifier for the route server to be associated.
+         * @param routeServerId Unique identifier for the route server to be associated.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class RouteServerVpcAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param vpcId The ID of the VPC to associate with the route server.
+         * @param vpcId ID of the VPC to associate with the route server.
          * 
          * The following arguments are optional:
          * 
@@ -164,7 +164,7 @@ public final class RouteServerVpcAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param vpcId The ID of the VPC to associate with the route server.
+         * @param vpcId ID of the VPC to associate with the route server.
          * 
          * The following arguments are optional:
          * 

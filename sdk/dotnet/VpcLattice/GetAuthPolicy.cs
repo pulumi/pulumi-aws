@@ -163,15 +163,9 @@ namespace Pulumi.Aws.VpcLattice
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Auth policy. The policy string in JSON must not contain newlines or blank lines.
-        /// </summary>
         public readonly string? Policy;
         public readonly string Region;
         public readonly string ResourceIdentifier;
-        /// <summary>
-        /// State of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
-        /// </summary>
         public readonly string? State;
 
         [OutputConstructor]

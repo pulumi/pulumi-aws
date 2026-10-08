@@ -96,76 +96,84 @@ public class VpcIpamScope extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A description for the scope you&#39;re creating.
+     * Description for the scope you&#39;re creating.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description for the scope you&#39;re creating.
+     * @return Description for the scope you&#39;re creating.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The ARN of the IPAM for which you&#39;re creating this scope.
+     * ARN of the IPAM for which you&#39;re creating this scope.
      * 
      */
     @Export(name="ipamArn", refs={String.class}, tree="[0]")
     private Output<String> ipamArn;
 
     /**
-     * @return The ARN of the IPAM for which you&#39;re creating this scope.
+     * @return ARN of the IPAM for which you&#39;re creating this scope.
      * 
      */
     public Output<String> ipamArn() {
         return this.ipamArn;
     }
     /**
-     * The ID of the IPAM for which you&#39;re creating this scope.
+     * ID of the IPAM for which you&#39;re creating this scope.
      * 
      */
     @Export(name="ipamId", refs={String.class}, tree="[0]")
     private Output<String> ipamId;
 
     /**
-     * @return The ID of the IPAM for which you&#39;re creating this scope.
+     * @return ID of the IPAM for which you&#39;re creating this scope.
      * 
      */
     public Output<String> ipamId() {
         return this.ipamId;
     }
+    /**
+     * Type of the scope.
+     * 
+     */
     @Export(name="ipamScopeType", refs={String.class}, tree="[0]")
     private Output<String> ipamScopeType;
 
+    /**
+     * @return Type of the scope.
+     * 
+     */
     public Output<String> ipamScopeType() {
         return this.ipamScopeType;
     }
     /**
-     * Defines if the scope is the default scope or not.
+     * Whether the scope is the default scope.
      * 
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
     /**
-     * @return Defines if the scope is the default scope or not.
+     * @return Whether the scope is the default scope.
      * 
      */
     public Output<Boolean> isDefault() {
         return this.isDefault;
     }
     /**
-     * The number of pools in the scope.
+     * Number of pools in the scope.
      * 
      */
     @Export(name="poolCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> poolCount;
 
     /**
-     * @return The number of pools in the scope.
+     * @return Number of pools in the scope.
      * 
      */
     public Output<Integer> poolCount() {

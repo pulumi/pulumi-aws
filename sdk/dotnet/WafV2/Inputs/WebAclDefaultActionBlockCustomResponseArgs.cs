@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string>? CustomResponseBodyKey { get; set; }
 
         /// <summary>
-        /// The HTTP status code to return to the client.
+        /// HTTP status code to return to the client.
         /// </summary>
         [Input("responseCode", required: true)]
         public Input<int> ResponseCode { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclDefaultActionBlockCustomResponseResponseHeaderArgs>? _responseHeaders;
 
         /// <summary>
-        /// The `ResponseHeader` blocks used to define the HTTP response headers added to the response. See `ResponseHeader` below for details.
+        /// `ResponseHeader` blocks used to define the HTTP response headers added to the response. See `ResponseHeader` below for details.
         /// </summary>
         public InputList<Inputs.WebAclDefaultActionBlockCustomResponseResponseHeaderArgs> ResponseHeaders
         {

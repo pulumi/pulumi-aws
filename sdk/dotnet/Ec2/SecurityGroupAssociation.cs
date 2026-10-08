@@ -63,13 +63,13 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> ReplaceDefaultAssociation { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the security group to be associated with the VPC endpoint.
+        /// ID of the security group to be associated with the VPC endpoint.
         /// </summary>
         [Output("securityGroupId")]
         public Output<string> SecurityGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC endpoint with which the security group will be associated.
+        /// ID of the VPC endpoint with which the security group will be associated.
         /// </summary>
         [Output("vpcEndpointId")]
         public Output<string> VpcEndpointId { get; private set; } = null!;
@@ -133,13 +133,13 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? ReplaceDefaultAssociation { get; set; }
 
         /// <summary>
-        /// The ID of the security group to be associated with the VPC endpoint.
+        /// ID of the security group to be associated with the VPC endpoint.
         /// </summary>
         [Input("securityGroupId", required: true)]
         public Input<string> SecurityGroupId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC endpoint with which the security group will be associated.
+        /// ID of the VPC endpoint with which the security group will be associated.
         /// </summary>
         [Input("vpcEndpointId", required: true)]
         public Input<string> VpcEndpointId { get; set; } = null!;
@@ -165,13 +165,13 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? ReplaceDefaultAssociation { get; set; }
 
         /// <summary>
-        /// The ID of the security group to be associated with the VPC endpoint.
+        /// ID of the security group to be associated with the VPC endpoint.
         /// </summary>
         [Input("securityGroupId")]
         public Input<string>? SecurityGroupId { get; set; }
 
         /// <summary>
-        /// The ID of the VPC endpoint with which the security group will be associated.
+        /// ID of the VPC endpoint with which the security group will be associated.
         /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }

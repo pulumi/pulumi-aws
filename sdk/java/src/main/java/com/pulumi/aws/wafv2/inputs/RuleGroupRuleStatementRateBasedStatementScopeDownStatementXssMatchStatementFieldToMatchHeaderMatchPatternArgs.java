@@ -18,14 +18,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
     public static final RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs Empty = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs();
 
     /**
-     * An empty configuration block that is used for inspecting all headers.
+     * Empty configuration block that is used for inspecting all headers.
      * 
      */
     @Import(name="all")
     private @Nullable Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs> all;
 
     /**
-     * @return An empty configuration block that is used for inspecting all headers.
+     * @return Empty configuration block that is used for inspecting all headers.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs>> all() {
@@ -33,14 +33,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
     }
 
     /**
-     * An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+     * Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
      * 
      */
     @Import(name="excludedHeaders")
     private @Nullable Output<List<String>> excludedHeaders;
 
     /**
-     * @return An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+     * @return Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
      * 
      */
     public Optional<Output<List<String>>> excludedHeaders() {
@@ -48,14 +48,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
     }
 
     /**
-     * An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+     * Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
      * 
      */
     @Import(name="includedHeaders")
     private @Nullable Output<List<String>> includedHeaders;
 
     /**
-     * @return An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+     * @return Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
      * 
      */
     public Optional<Output<List<String>>> includedHeaders() {
@@ -89,7 +89,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
         }
 
         /**
-         * @param all An empty configuration block that is used for inspecting all headers.
+         * @param all Empty configuration block that is used for inspecting all headers.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
         }
 
         /**
-         * @param all An empty configuration block that is used for inspecting all headers.
+         * @param all Empty configuration block that is used for inspecting all headers.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
         }
 
         /**
-         * @param excludedHeaders An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * @param excludedHeaders Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
         }
 
         /**
-         * @param excludedHeaders An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * @param excludedHeaders Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
         }
 
         /**
-         * @param excludedHeaders An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
+         * @param excludedHeaders Array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
         }
 
         /**
-         * @param includedHeaders An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * @param includedHeaders Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
         }
 
         /**
-         * @param includedHeaders An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * @param includedHeaders Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXss
         }
 
         /**
-         * @param includedHeaders An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
+         * @param includedHeaders Array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
          * 
          * @return builder
          * 

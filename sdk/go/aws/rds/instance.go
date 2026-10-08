@@ -245,7 +245,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+//			// The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default parameter group as a source, and set license information.
 //			exampleParameterGroup, err := rds.NewParameterGroup(ctx, "example", &rds.ParameterGroupArgs{
 //				Parameters: rds.ParameterGroupParameterArray{
 //					&rds.ParameterGroupParameterArgs{
@@ -592,7 +592,7 @@ type Instance struct {
 	LatestRestorableTime pulumi.StringOutput `pulumi:"latestRestorableTime"`
 	// License model information for this DB instance. Valid values for this field are as follows: RDS for MariaDB: `general-public-license`; RDS for Microsoft SQL Server: `license-included`; RDS for MySQL: `general-public-license`; RDS for Oracle: `bring-your-own-license | license-included`; RDS for PostgreSQL: `postgresql-license`.
 	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
-	// Listener connection endpoint for SQL Server Always On. See Endpoint below.
+	// Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
 	ListenerEndpoints InstanceListenerEndpointArrayOutput `pulumi:"listenerEndpoints"`
 	// Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS Maintenance Window docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) for more information.
 	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
@@ -811,7 +811,7 @@ type instanceState struct {
 	LatestRestorableTime *string `pulumi:"latestRestorableTime"`
 	// License model information for this DB instance. Valid values for this field are as follows: RDS for MariaDB: `general-public-license`; RDS for Microsoft SQL Server: `license-included`; RDS for MySQL: `general-public-license`; RDS for Oracle: `bring-your-own-license | license-included`; RDS for PostgreSQL: `postgresql-license`.
 	LicenseModel *string `pulumi:"licenseModel"`
-	// Listener connection endpoint for SQL Server Always On. See Endpoint below.
+	// Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
 	ListenerEndpoints []InstanceListenerEndpoint `pulumi:"listenerEndpoints"`
 	// Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS Maintenance Window docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) for more information.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
@@ -987,7 +987,7 @@ type InstanceState struct {
 	LatestRestorableTime pulumi.StringPtrInput
 	// License model information for this DB instance. Valid values for this field are as follows: RDS for MariaDB: `general-public-license`; RDS for Microsoft SQL Server: `license-included`; RDS for MySQL: `general-public-license`; RDS for Oracle: `bring-your-own-license | license-included`; RDS for PostgreSQL: `postgresql-license`.
 	LicenseModel pulumi.StringPtrInput
-	// Listener connection endpoint for SQL Server Always On. See Endpoint below.
+	// Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
 	ListenerEndpoints InstanceListenerEndpointArrayInput
 	// Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS Maintenance Window docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) for more information.
 	MaintenanceWindow pulumi.StringPtrInput
@@ -1686,7 +1686,7 @@ func (o InstanceOutput) LicenseModel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.LicenseModel }).(pulumi.StringOutput)
 }
 
-// Listener connection endpoint for SQL Server Always On. See Endpoint below.
+// Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
 func (o InstanceOutput) ListenerEndpoints() InstanceListenerEndpointArrayOutput {
 	return o.ApplyT(func(v *Instance) InstanceListenerEndpointArrayOutput { return v.ListenerEndpoints }).(InstanceListenerEndpointArrayOutput)
 }

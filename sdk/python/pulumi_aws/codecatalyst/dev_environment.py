@@ -34,7 +34,7 @@ class DevEnvironmentArgs:
         The set of arguments for constructing a DevEnvironment resource.
 
         :param pulumi.Input['DevEnvironmentIdesArgs'] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
-        :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+        :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
                
                The following arguments are optional:
         :param pulumi.Input['DevEnvironmentPersistentStorageArgs'] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
@@ -74,7 +74,7 @@ class DevEnvironmentArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+        The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
 
         The following arguments are optional:
         """
@@ -183,7 +183,7 @@ class _DevEnvironmentState:
 
         :param pulumi.Input['DevEnvironmentIdesArgs'] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
         :param pulumi.Input[_builtins.int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+        :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
                
                The following arguments are optional:
         :param pulumi.Input['DevEnvironmentPersistentStorageArgs'] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
@@ -248,7 +248,7 @@ class _DevEnvironmentState:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+        The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
 
         The following arguments are optional:
         """
@@ -368,7 +368,7 @@ class DevEnvironment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict', 'outputs.DevEnvironmentIdes']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
         :param pulumi.Input[_builtins.int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+        :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
                
                The following arguments are optional:
         :param pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict', 'outputs.DevEnvironmentPersistentStorage']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
@@ -492,7 +492,7 @@ class DevEnvironment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DevEnvironmentIdesArgs', 'DevEnvironmentIdesArgsDict', 'outputs.DevEnvironmentIdes']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
         :param pulumi.Input[_builtins.int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+        :param pulumi.Input[_builtins.str] instance_type: The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
                
                The following arguments are optional:
         :param pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict', 'outputs.DevEnvironmentPersistentStorage']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
@@ -541,7 +541,7 @@ class DevEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+        The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
 
         The following arguments are optional:
         """

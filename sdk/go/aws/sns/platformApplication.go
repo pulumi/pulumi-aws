@@ -18,23 +18,38 @@ import (
 //
 // ### Apple Push Notification Service (APNS) using certificate-based authentication
 //
+// > **NOTE:** For certificate-based APNS, both `platformCredential` (private key) and `platformPrincipal` (certificate) must be PEM-encoded strings. Terraform string values must be valid UTF-8, so do not pass a binary Apple `.p12` via `base64decode()` — that fails with `the result of decoding the provided string is not valid UTF-8`. Convert the `.p12` to PEM (for example with `openssl`) and load the PEM files instead.
+//
 // ```go
 // package main
 //
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sns.NewPlatformApplication(ctx, "apns_application", &sns.PlatformApplicationArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "apns-private-key.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "apns-certificate.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sns.NewPlatformApplication(ctx, "apns_application", &sns.PlatformApplicationArgs{
 //				Name:               pulumi.String("apns_application"),
 //				Platform:           pulumi.String("APNS"),
-//				PlatformCredential: pulumi.String("<APNS PRIVATE KEY>"),
-//				PlatformPrincipal:  pulumi.String("<APNS CERTIFICATE>"),
+//				PlatformCredential: pulumi.String(invokeFile.Result),
+//				PlatformPrincipal:  pulumi.String(invokeFile1.Result),
 //			})
 //			if err != nil {
 //				return err

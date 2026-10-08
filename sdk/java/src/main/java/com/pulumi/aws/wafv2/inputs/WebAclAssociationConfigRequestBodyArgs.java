@@ -80,14 +80,14 @@ public final class WebAclAssociationConfigRequestBodyArgs extends com.pulumi.res
     }
 
     /**
-     * Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+     * Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
      * 
      */
     @Import(name="verifiedAccessInstance")
     private @Nullable Output<WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs> verifiedAccessInstance;
 
     /**
-     * @return Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+     * @return Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
      * 
      */
     public Optional<Output<WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs>> verifiedAccessInstance() {
@@ -207,7 +207,7 @@ public final class WebAclAssociationConfigRequestBodyArgs extends com.pulumi.res
         }
 
         /**
-         * @param verifiedAccessInstance Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+         * @param verifiedAccessInstance Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class WebAclAssociationConfigRequestBodyArgs extends com.pulumi.res
         }
 
         /**
-         * @param verifiedAccessInstance Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
+         * @param verifiedAccessInstance Customizes the request body that your protected AWS Verified Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verifiedAccessInstance` below for details.
          * 
          * @return builder
          * 

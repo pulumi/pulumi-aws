@@ -17,14 +17,14 @@ public final class PolicyDefinitionArgs extends com.pulumi.resources.ResourceArg
     public static final PolicyDefinitionArgs Empty = new PolicyDefinitionArgs();
 
     /**
-     * The static policy statement. See Static below.
+     * Static policy statement. See Static below.
      * 
      */
     @Import(name="static")
     private @Nullable Output<PolicyDefinitionStaticArgs> static_;
 
     /**
-     * @return The static policy statement. See Static below.
+     * @return Static policy statement. See Static below.
      * 
      */
     public Optional<Output<PolicyDefinitionStaticArgs>> static_() {
@@ -32,14 +32,14 @@ public final class PolicyDefinitionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The template linked policy. See Template Linked below.
+     * Template linked policy. See Template Linked below.
      * 
      */
     @Import(name="templateLinked")
     private @Nullable Output<PolicyDefinitionTemplateLinkedArgs> templateLinked;
 
     /**
-     * @return The template linked policy. See Template Linked below.
+     * @return Template linked policy. See Template Linked below.
      * 
      */
     public Optional<Output<PolicyDefinitionTemplateLinkedArgs>> templateLinked() {
@@ -72,7 +72,7 @@ public final class PolicyDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param static_ The static policy statement. See Static below.
+         * @param static_ Static policy statement. See Static below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class PolicyDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param static_ The static policy statement. See Static below.
+         * @param static_ Static policy statement. See Static below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class PolicyDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param templateLinked The template linked policy. See Template Linked below.
+         * @param templateLinked Template linked policy. See Template Linked below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class PolicyDefinitionArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param templateLinked The template linked policy. See Template Linked below.
+         * @param templateLinked Template linked policy. See Template Linked below.
          * 
          * @return builder
          * 

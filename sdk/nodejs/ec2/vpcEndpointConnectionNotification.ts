@@ -81,16 +81,14 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
 
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-     *
-     * > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      */
     declare public readonly connectionEvents: pulumi.Output<string[]>;
     /**
-     * The ARN of the SNS topic for the notifications.
+     * ARN of the SNS topic for the notifications.
      */
     declare public readonly connectionNotificationArn: pulumi.Output<string>;
     /**
-     * The type of notification.
+     * Type of notification.
      */
     declare public /*out*/ readonly notificationType: pulumi.Output<string>;
     /**
@@ -98,15 +96,17 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The state of the notification.
+     * State of the notification.
      */
     declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
-     * The ID of the VPC Endpoint to receive notifications for.
+     * ID of the VPC Endpoint to receive notifications for.
      */
     declare public readonly vpcEndpointId: pulumi.Output<string | undefined>;
     /**
-     * The ID of the VPC Endpoint Service to receive notifications for.
+     * ID of the VPC Endpoint Service to receive notifications for.
+     *
+     * > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      */
     declare public readonly vpcEndpointServiceId: pulumi.Output<string | undefined>;
 
@@ -157,16 +157,14 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
 export interface VpcEndpointConnectionNotificationState {
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-     *
-     * > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      */
     connectionEvents?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The ARN of the SNS topic for the notifications.
+     * ARN of the SNS topic for the notifications.
      */
     connectionNotificationArn?: pulumi.Input<string | undefined>;
     /**
-     * The type of notification.
+     * Type of notification.
      */
     notificationType?: pulumi.Input<string | undefined>;
     /**
@@ -174,15 +172,17 @@ export interface VpcEndpointConnectionNotificationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The state of the notification.
+     * State of the notification.
      */
     state?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC Endpoint to receive notifications for.
+     * ID of the VPC Endpoint to receive notifications for.
      */
     vpcEndpointId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC Endpoint Service to receive notifications for.
+     * ID of the VPC Endpoint Service to receive notifications for.
+     *
+     * > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      */
     vpcEndpointServiceId?: pulumi.Input<string | undefined>;
 }
@@ -193,12 +193,10 @@ export interface VpcEndpointConnectionNotificationState {
 export interface VpcEndpointConnectionNotificationArgs {
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
-     *
-     * > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      */
     connectionEvents: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ARN of the SNS topic for the notifications.
+     * ARN of the SNS topic for the notifications.
      */
     connectionNotificationArn: pulumi.Input<string>;
     /**
@@ -206,11 +204,13 @@ export interface VpcEndpointConnectionNotificationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC Endpoint to receive notifications for.
+     * ID of the VPC Endpoint to receive notifications for.
      */
     vpcEndpointId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC Endpoint Service to receive notifications for.
+     * ID of the VPC Endpoint Service to receive notifications for.
+     *
+     * > **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      */
     vpcEndpointServiceId?: pulumi.Input<string | undefined>;
 }

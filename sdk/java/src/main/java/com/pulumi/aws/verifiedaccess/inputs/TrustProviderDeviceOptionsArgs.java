@@ -15,9 +15,17 @@ public final class TrustProviderDeviceOptionsArgs extends com.pulumi.resources.R
 
     public static final TrustProviderDeviceOptionsArgs Empty = new TrustProviderDeviceOptionsArgs();
 
+    /**
+     * ID of the tenant application with the device-identity provider.
+     * 
+     */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
+    /**
+     * @return ID of the tenant application with the device-identity provider.
+     * 
+     */
     public Optional<Output<String>> tenantId() {
         return Optional.ofNullable(this.tenantId);
     }
@@ -46,11 +54,23 @@ public final class TrustProviderDeviceOptionsArgs extends com.pulumi.resources.R
             $ = new TrustProviderDeviceOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param tenantId ID of the tenant application with the device-identity provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantId(@Nullable Output<String> tenantId) {
             $.tenantId = tenantId;
             return this;
         }
 
+        /**
+         * @param tenantId ID of the tenant application with the device-identity provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tenantId(String tenantId) {
             return tenantId(Output.of(tenantId));
         }

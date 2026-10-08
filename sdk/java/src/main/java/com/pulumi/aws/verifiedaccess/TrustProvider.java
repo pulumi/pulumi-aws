@@ -69,84 +69,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:verifiedaccess/trustProvider:TrustProvider")
 public class TrustProvider extends com.pulumi.resources.CustomResource {
     /**
-     * A description for the AWS Verified Access trust provider.
+     * Description for the AWS Verified Access trust provider.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description for the AWS Verified Access trust provider.
+     * @return Description for the AWS Verified Access trust provider.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * A block of options for device identity based trust providers.
+     * Block of options for device identity based trust providers. See below.
      * 
      */
     @Export(name="deviceOptions", refs={TrustProviderDeviceOptions.class}, tree="[0]")
     private Output</* @Nullable */ TrustProviderDeviceOptions> deviceOptions;
 
     /**
-     * @return A block of options for device identity based trust providers.
+     * @return Block of options for device identity based trust providers. See below.
      * 
      */
     public Output<Optional<TrustProviderDeviceOptions>> deviceOptions() {
         return Codegen.optional(this.deviceOptions);
     }
     /**
-     * The type of device-based trust provider.
+     * Type of device-based trust provider.
      * 
      */
     @Export(name="deviceTrustProviderType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> deviceTrustProviderType;
 
     /**
-     * @return The type of device-based trust provider.
+     * @return Type of device-based trust provider.
      * 
      */
     public Output<Optional<String>> deviceTrustProviderType() {
         return Codegen.optional(this.deviceTrustProviderType);
     }
     /**
-     * The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     * OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
      * 
      */
     @Export(name="nativeApplicationOidcOptions", refs={TrustProviderNativeApplicationOidcOptions.class}, tree="[0]")
     private Output</* @Nullable */ TrustProviderNativeApplicationOidcOptions> nativeApplicationOidcOptions;
 
     /**
-     * @return The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+     * @return OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
      * 
      */
     public Output<Optional<TrustProviderNativeApplicationOidcOptions>> nativeApplicationOidcOptions() {
         return Codegen.optional(this.nativeApplicationOidcOptions);
     }
     /**
-     * The OpenID Connect details for an oidc-type, user-identity based trust provider.
+     * OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
      * 
      */
     @Export(name="oidcOptions", refs={TrustProviderOidcOptions.class}, tree="[0]")
     private Output</* @Nullable */ TrustProviderOidcOptions> oidcOptions;
 
     /**
-     * @return The OpenID Connect details for an oidc-type, user-identity based trust provider.
+     * @return OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
      * 
      */
     public Output<Optional<TrustProviderOidcOptions>> oidcOptions() {
         return Codegen.optional(this.oidcOptions);
     }
     /**
-     * The identifier to be used when working with policy rules.
+     * Identifier to be used when working with policy rules.
      * 
      */
     @Export(name="policyReferenceName", refs={String.class}, tree="[0]")
     private Output<String> policyReferenceName;
 
     /**
-     * @return The identifier to be used when working with policy rules.
+     * @return Identifier to be used when working with policy rules.
      * 
      */
     public Output<String> policyReferenceName() {
@@ -166,9 +166,17 @@ public class TrustProvider extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * Block of options in use for server side encryption. See below.
+     * 
+     */
     @Export(name="sseSpecification", refs={TrustProviderSseSpecification.class}, tree="[0]")
     private Output<TrustProviderSseSpecification> sseSpecification;
 
+    /**
+     * @return Block of options in use for server side encryption. See below.
+     * 
+     */
     public Output<TrustProviderSseSpecification> sseSpecification() {
         return this.sseSpecification;
     }
@@ -193,7 +201,7 @@ public class TrustProvider extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The type of trust provider can be either user or device-based.
+     * Type of trust provider can be either user or device-based.
      * 
      * The following arguments are optional:
      * 
@@ -202,7 +210,7 @@ public class TrustProvider extends com.pulumi.resources.CustomResource {
     private Output<String> trustProviderType;
 
     /**
-     * @return The type of trust provider can be either user or device-based.
+     * @return Type of trust provider can be either user or device-based.
      * 
      * The following arguments are optional:
      * 
@@ -211,14 +219,14 @@ public class TrustProvider extends com.pulumi.resources.CustomResource {
         return this.trustProviderType;
     }
     /**
-     * The type of user-based trust provider.
+     * Type of user-based trust provider.
      * 
      */
     @Export(name="userTrustProviderType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> userTrustProviderType;
 
     /**
-     * @return The type of user-based trust provider.
+     * @return Type of user-based trust provider.
      * 
      */
     public Output<Optional<String>> userTrustProviderType() {

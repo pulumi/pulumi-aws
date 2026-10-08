@@ -12,8 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetVpcIpamPoolCidrsFilter {
     /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
      * 
      */
     private String name;
@@ -25,8 +24,7 @@ public final class GetVpcIpamPoolCidrsFilter {
 
     private GetVpcIpamPoolCidrsFilter() {}
     /**
-     * @return Name of the field to filter by, as defined by
-     * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
+     * @return Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
      * 
      */
     public String name() {

@@ -29,11 +29,11 @@ class VpcIpamPoolCidrAllocationArgs:
         """
         The set of arguments for constructing a VpcIpamPoolCidrAllocation resource.
 
-        :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-        :param pulumi.Input[_builtins.str] cidr: The CIDR you want to assign to the pool.
-        :param pulumi.Input[_builtins.str] description: The description for the allocation.
+        :param pulumi.Input[_builtins.str] ipam_pool_id: ID of the pool to which you want to assign a CIDR.
+        :param pulumi.Input[_builtins.str] cidr: CIDR you want to assign to the pool.
+        :param pulumi.Input[_builtins.str] description: Description for the allocation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
-        :param pulumi.Input[_builtins.int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+        :param pulumi.Input[_builtins.int] netmask_length: Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -55,7 +55,7 @@ class VpcIpamPoolCidrAllocationArgs:
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the pool to which you want to assign a CIDR.
+        ID of the pool to which you want to assign a CIDR.
         """
         return pulumi.get(self, "ipam_pool_id")
 
@@ -67,7 +67,7 @@ class VpcIpamPoolCidrAllocationArgs:
     @pulumi.getter
     def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The CIDR you want to assign to the pool.
+        CIDR you want to assign to the pool.
         """
         return pulumi.get(self, "cidr")
 
@@ -79,7 +79,7 @@ class VpcIpamPoolCidrAllocationArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description for the allocation.
+        Description for the allocation.
         """
         return pulumi.get(self, "description")
 
@@ -103,7 +103,7 @@ class VpcIpamPoolCidrAllocationArgs:
     @pulumi.getter(name="netmaskLength")
     def netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+        Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         """
         return pulumi.get(self, "netmask_length")
 
@@ -154,15 +154,16 @@ class _VpcIpamPoolCidrAllocationState:
         """
         Input properties used for looking up and filtering VpcIpamPoolCidrAllocation resources.
 
-        :param pulumi.Input[_builtins.str] cidr: The CIDR you want to assign to the pool.
-        :param pulumi.Input[_builtins.str] description: The description for the allocation.
+        :param pulumi.Input[_builtins.str] cidr: CIDR you want to assign to the pool.
+        :param pulumi.Input[_builtins.str] description: Description for the allocation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
-        :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-        :param pulumi.Input[_builtins.int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+        :param pulumi.Input[_builtins.str] ipam_pool_allocation_id: ID of the allocation.
+        :param pulumi.Input[_builtins.str] ipam_pool_id: ID of the pool to which you want to assign a CIDR.
+        :param pulumi.Input[_builtins.int] netmask_length: Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the resource.
-        :param pulumi.Input[_builtins.str] resource_owner: The owner of the resource.
-        :param pulumi.Input[_builtins.str] resource_type: The type of the resource.
+        :param pulumi.Input[_builtins.str] resource_id: ID of the resource.
+        :param pulumi.Input[_builtins.str] resource_owner: Owner of the resource.
+        :param pulumi.Input[_builtins.str] resource_type: Type of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -195,7 +196,7 @@ class _VpcIpamPoolCidrAllocationState:
     @pulumi.getter
     def cidr(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The CIDR you want to assign to the pool.
+        CIDR you want to assign to the pool.
         """
         return pulumi.get(self, "cidr")
 
@@ -207,7 +208,7 @@ class _VpcIpamPoolCidrAllocationState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description for the allocation.
+        Description for the allocation.
         """
         return pulumi.get(self, "description")
 
@@ -230,6 +231,9 @@ class _VpcIpamPoolCidrAllocationState:
     @_builtins.property
     @pulumi.getter(name="ipamPoolAllocationId")
     def ipam_pool_allocation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ID of the allocation.
+        """
         return pulumi.get(self, "ipam_pool_allocation_id")
 
     @ipam_pool_allocation_id.setter
@@ -240,7 +244,7 @@ class _VpcIpamPoolCidrAllocationState:
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the pool to which you want to assign a CIDR.
+        ID of the pool to which you want to assign a CIDR.
         """
         return pulumi.get(self, "ipam_pool_id")
 
@@ -252,7 +256,7 @@ class _VpcIpamPoolCidrAllocationState:
     @pulumi.getter(name="netmaskLength")
     def netmask_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+        Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         """
         return pulumi.get(self, "netmask_length")
 
@@ -276,7 +280,7 @@ class _VpcIpamPoolCidrAllocationState:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the resource.
+        ID of the resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -288,7 +292,7 @@ class _VpcIpamPoolCidrAllocationState:
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The owner of the resource.
+        Owner of the resource.
         """
         return pulumi.get(self, "resource_owner")
 
@@ -300,7 +304,7 @@ class _VpcIpamPoolCidrAllocationState:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of the resource.
+        Type of the resource.
         """
         return pulumi.get(self, "resource_type")
 
@@ -410,11 +414,11 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cidr: The CIDR you want to assign to the pool.
-        :param pulumi.Input[_builtins.str] description: The description for the allocation.
+        :param pulumi.Input[_builtins.str] cidr: CIDR you want to assign to the pool.
+        :param pulumi.Input[_builtins.str] description: Description for the allocation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
-        :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-        :param pulumi.Input[_builtins.int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+        :param pulumi.Input[_builtins.str] ipam_pool_id: ID of the pool to which you want to assign a CIDR.
+        :param pulumi.Input[_builtins.int] netmask_length: Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -559,15 +563,16 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cidr: The CIDR you want to assign to the pool.
-        :param pulumi.Input[_builtins.str] description: The description for the allocation.
+        :param pulumi.Input[_builtins.str] cidr: CIDR you want to assign to the pool.
+        :param pulumi.Input[_builtins.str] description: Description for the allocation.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
-        :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
-        :param pulumi.Input[_builtins.int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+        :param pulumi.Input[_builtins.str] ipam_pool_allocation_id: ID of the allocation.
+        :param pulumi.Input[_builtins.str] ipam_pool_id: ID of the pool to which you want to assign a CIDR.
+        :param pulumi.Input[_builtins.int] netmask_length: Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_id: The ID of the resource.
-        :param pulumi.Input[_builtins.str] resource_owner: The owner of the resource.
-        :param pulumi.Input[_builtins.str] resource_type: The type of the resource.
+        :param pulumi.Input[_builtins.str] resource_id: ID of the resource.
+        :param pulumi.Input[_builtins.str] resource_owner: Owner of the resource.
+        :param pulumi.Input[_builtins.str] resource_type: Type of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -593,7 +598,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     @pulumi.getter
     def cidr(self) -> pulumi.Output[_builtins.str]:
         """
-        The CIDR you want to assign to the pool.
+        CIDR you want to assign to the pool.
         """
         return pulumi.get(self, "cidr")
 
@@ -601,7 +606,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The description for the allocation.
+        Description for the allocation.
         """
         return pulumi.get(self, "description")
 
@@ -616,13 +621,16 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="ipamPoolAllocationId")
     def ipam_pool_allocation_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        ID of the allocation.
+        """
         return pulumi.get(self, "ipam_pool_allocation_id")
 
     @_builtins.property
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the pool to which you want to assign a CIDR.
+        ID of the pool to which you want to assign a CIDR.
         """
         return pulumi.get(self, "ipam_pool_id")
 
@@ -630,7 +638,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     @pulumi.getter(name="netmaskLength")
     def netmask_length(self) -> pulumi.Output[_builtins.int]:
         """
-        The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+        Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         """
         return pulumi.get(self, "netmask_length")
 
@@ -646,7 +654,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the resource.
+        ID of the resource.
         """
         return pulumi.get(self, "resource_id")
 
@@ -654,7 +662,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> pulumi.Output[_builtins.str]:
         """
-        The owner of the resource.
+        Owner of the resource.
         """
         return pulumi.get(self, "resource_owner")
 
@@ -662,7 +670,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.
+        Type of the resource.
         """
         return pulumi.get(self, "resource_type")
 

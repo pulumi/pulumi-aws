@@ -21,7 +21,7 @@ public final class GetVpcIpamPoolCidrsResult {
      */
     private String id;
     /**
-     * @return The CIDRs provisioned into the IPAM pool, described below.
+     * @return CIDRs provisioned into the IPAM pool, described below.
      * 
      */
     private List<GetVpcIpamPoolCidrsIpamPoolCidr> ipamPoolCidrs;
@@ -40,7 +40,7 @@ public final class GetVpcIpamPoolCidrsResult {
         return this.id;
     }
     /**
-     * @return The CIDRs provisioned into the IPAM pool, described below.
+     * @return CIDRs provisioned into the IPAM pool, described below.
      * 
      */
     public List<GetVpcIpamPoolCidrsIpamPoolCidr> ipamPoolCidrs() {

@@ -16,14 +16,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
     public static final RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs Empty = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs();
 
     /**
-     * The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+     * Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
      * 
      */
     @Import(name="matchPattern", required=true)
     private Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs> matchPattern;
 
     /**
-     * @return The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+     * @return Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
      * 
      */
     public Output<RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs> matchPattern() {
@@ -31,14 +31,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
     }
 
     /**
-     * The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+     * Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
      * 
      */
     @Import(name="matchScope", required=true)
     private Output<String> matchScope;
 
     /**
-     * @return The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+     * @return Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
      * 
      */
     public Output<String> matchScope() {
@@ -87,7 +87,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         }
 
         /**
-         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * @param matchPattern Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         }
 
         /**
-         * @param matchPattern The filter to use to identify the subset of headers to inspect in a web request. The `matchPattern` block supports only one of the following arguments:
+         * @param matchPattern Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         }
 
         /**
-         * @param matchScope The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * @param matchScope Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByt
         }
 
         /**
-         * @param matchScope The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+         * @param matchScope Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
          * 
          * @return builder
          * 

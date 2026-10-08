@@ -422,7 +422,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
-        /// The DNS names for the service.
+        /// DNS names for the service.
         /// </summary>
         public readonly ImmutableArray<string> BaseEndpointDnsNames;
         public readonly ImmutableArray<Outputs.GetVpcEndpointServiceFilterResult> Filters;
@@ -463,7 +463,7 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<string> ServiceRegions;
         public readonly string ServiceType;
         /// <summary>
-        /// The supported IP address types.
+        /// Supported IP address types.
         /// </summary>
         public readonly ImmutableArray<string> SupportedIpAddressTypes;
         /// <summary>

@@ -16,14 +16,14 @@ public final class RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs extends co
     public static final RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs Empty = new RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs();
 
     /**
-     * The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+     * Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
      * 
      */
     @Import(name="immunityTime")
     private @Nullable Output<Integer> immunityTime;
 
     /**
-     * @return The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+     * @return Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
      * 
      */
     public Optional<Output<Integer>> immunityTime() {
@@ -55,7 +55,7 @@ public final class RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs extends co
         }
 
         /**
-         * @param immunityTime The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         * @param immunityTime Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs extends co
         }
 
         /**
-         * @param immunityTime The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
+         * @param immunityTime Amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by AWS WAF. The default setting is 300.
          * 
          * @return builder
          * 

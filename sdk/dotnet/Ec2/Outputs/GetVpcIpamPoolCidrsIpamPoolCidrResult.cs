@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetVpcIpamPoolCidrsIpamPoolCidrResult
     {
         /// <summary>
-        /// A network CIDR.
+        /// Network CIDR.
         /// </summary>
         public readonly string Cidr;
         /// <summary>
-        /// The provisioning state of that CIDR.
+        /// Provisioning state of that CIDR.
         /// </summary>
         public readonly string State;
 

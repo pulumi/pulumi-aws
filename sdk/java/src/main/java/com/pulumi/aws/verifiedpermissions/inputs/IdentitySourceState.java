@@ -17,14 +17,14 @@ public final class IdentitySourceState extends com.pulumi.resources.ResourceArgs
     public static final IdentitySourceState Empty = new IdentitySourceState();
 
     /**
-     * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+     * Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<IdentitySourceConfigurationArgs> configuration;
 
     /**
-     * @return Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+     * @return Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      * 
      */
     public Optional<Output<IdentitySourceConfigurationArgs>> configuration() {
@@ -32,14 +32,14 @@ public final class IdentitySourceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the ID of the policy store in which you want to store this identity source.
+     * ID of the policy store in which you want to store this identity source.
      * 
      */
     @Import(name="policyStoreId")
     private @Nullable Output<String> policyStoreId;
 
     /**
-     * @return Specifies the ID of the policy store in which you want to store this identity source.
+     * @return ID of the policy store in which you want to store this identity source.
      * 
      */
     public Optional<Output<String>> policyStoreId() {
@@ -47,14 +47,14 @@ public final class IdentitySourceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+     * Namespace and data type of the principals generated for identities authenticated by the new identity source.
      * 
      */
     @Import(name="principalEntityType")
     private @Nullable Output<String> principalEntityType;
 
     /**
-     * @return Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+     * @return Namespace and data type of the principals generated for identities authenticated by the new identity source.
      * 
      */
     public Optional<Output<String>> principalEntityType() {
@@ -104,7 +104,7 @@ public final class IdentitySourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param configuration Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+         * @param configuration Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class IdentitySourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param configuration Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+         * @param configuration Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class IdentitySourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param policyStoreId Specifies the ID of the policy store in which you want to store this identity source.
+         * @param policyStoreId ID of the policy store in which you want to store this identity source.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class IdentitySourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param policyStoreId Specifies the ID of the policy store in which you want to store this identity source.
+         * @param policyStoreId ID of the policy store in which you want to store this identity source.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class IdentitySourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param principalEntityType Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+         * @param principalEntityType Namespace and data type of the principals generated for identities authenticated by the new identity source.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class IdentitySourceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param principalEntityType Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+         * @param principalEntityType Namespace and data type of the principals generated for identities authenticated by the new identity source.
          * 
          * @return builder
          * 

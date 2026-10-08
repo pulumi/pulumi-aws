@@ -236,112 +236,112 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The ARN of the core network.
+     * ARN of the core network.
      * 
      */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
     /**
-     * @return The ARN of the core network.
+     * @return ARN of the core network.
      * 
      */
     public Output<String> coreNetworkArn() {
         return this.coreNetworkArn;
     }
     /**
-     * The ARN of the core network attachment.
+     * ARN of the core network attachment.
      * 
      */
     @Export(name="coreNetworkAttachmentArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkAttachmentArn;
 
     /**
-     * @return The ARN of the core network attachment.
+     * @return ARN of the core network attachment.
      * 
      */
     public Output<String> coreNetworkAttachmentArn() {
         return this.coreNetworkAttachmentArn;
     }
     /**
-     * The configuration information for the VPN connection&#39;s customer gateway (in the native XML format).
+     * Configuration information for the VPN connection&#39;s customer gateway (in the native XML format).
      * 
      */
     @Export(name="customerGatewayConfiguration", refs={String.class}, tree="[0]")
     private Output<String> customerGatewayConfiguration;
 
     /**
-     * @return The configuration information for the VPN connection&#39;s customer gateway (in the native XML format).
+     * @return Configuration information for the VPN connection&#39;s customer gateway (in the native XML format).
      * 
      */
     public Output<String> customerGatewayConfiguration() {
         return this.customerGatewayConfiguration;
     }
     /**
-     * The ID of the customer gateway.
+     * ID of the customer gateway.
      * 
      */
     @Export(name="customerGatewayId", refs={String.class}, tree="[0]")
     private Output<String> customerGatewayId;
 
     /**
-     * @return The ID of the customer gateway.
+     * @return ID of the customer gateway.
      * 
      */
     public Output<String> customerGatewayId() {
         return this.customerGatewayId;
     }
     /**
-     * Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+     * Whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
      * 
      */
     @Export(name="enableAcceleration", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableAcceleration;
 
     /**
-     * @return Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
+     * @return Whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
      * 
      */
     public Output<Boolean> enableAcceleration() {
         return this.enableAcceleration;
     }
     /**
-     * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
     @Export(name="localIpv4NetworkCidr", refs={String.class}, tree="[0]")
     private Output<String> localIpv4NetworkCidr;
 
     /**
-     * @return The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * @return IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
     public Output<String> localIpv4NetworkCidr() {
         return this.localIpv4NetworkCidr;
     }
     /**
-     * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
     @Export(name="localIpv6NetworkCidr", refs={String.class}, tree="[0]")
     private Output<String> localIpv6NetworkCidr;
 
     /**
-     * @return The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+     * @return IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      * 
      */
     public Output<String> localIpv6NetworkCidr() {
         return this.localIpv6NetworkCidr;
     }
     /**
-     * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+     * Type of VPN endpoint, either a public Site-to-Site VPN or a private Site-to-Site VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`.
      * 
      */
     @Export(name="outsideIpAddressType", refs={String.class}, tree="[0]")
     private Output<String> outsideIpAddressType;
 
     /**
-     * @return Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+     * @return Type of VPN endpoint, either a public Site-to-Site VPN or a private Site-to-Site VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`.
      * 
      */
     public Output<String> outsideIpAddressType() {
@@ -390,42 +390,42 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The IPv4 CIDR on the AWS side of the VPN connection.
+     * IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
     @Export(name="remoteIpv4NetworkCidr", refs={String.class}, tree="[0]")
     private Output<String> remoteIpv4NetworkCidr;
 
     /**
-     * @return The IPv4 CIDR on the AWS side of the VPN connection.
+     * @return IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
     public Output<String> remoteIpv4NetworkCidr() {
         return this.remoteIpv4NetworkCidr;
     }
     /**
-     * The IPv6 CIDR on the AWS side of the VPN connection.
+     * IPv6 CIDR on the AWS side of the VPN connection.
      * 
      */
     @Export(name="remoteIpv6NetworkCidr", refs={String.class}, tree="[0]")
     private Output<String> remoteIpv6NetworkCidr;
 
     /**
-     * @return The IPv6 CIDR on the AWS side of the VPN connection.
+     * @return IPv6 CIDR on the AWS side of the VPN connection.
      * 
      */
     public Output<String> remoteIpv6NetworkCidr() {
         return this.remoteIpv6NetworkCidr;
     }
     /**
-     * The static routes associated with the VPN connection. Detailed below.
+     * Static routes associated with the VPN connection. Detailed below.
      * 
      */
     @Export(name="routes", refs={List.class,VpnConnectionRoute.class}, tree="[0,1]")
     private Output<List<VpnConnectionRoute>> routes;
 
     /**
-     * @return The static routes associated with the VPN connection. Detailed below.
+     * @return Static routes associated with the VPN connection. Detailed below.
      * 
      */
     public Output<List<VpnConnectionRoute>> routes() {
@@ -460,14 +460,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -488,182 +488,182 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.transitGatewayAttachmentId;
     }
     /**
-     * The ID of the EC2 Transit Gateway.
+     * ID of the EC2 Transit Gateway.
      * 
      */
     @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transitGatewayId;
 
     /**
-     * @return The ID of the EC2 Transit Gateway.
+     * @return ID of the EC2 Transit Gateway.
      * 
      */
     public Output<Optional<String>> transitGatewayId() {
         return Codegen.optional(this.transitGatewayId);
     }
     /**
-     * . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+     * Attachment ID of the Transit Gateway attachment to Direct Connect Gateway. Required when `outsideIpAddressType` is set to `PrivateIpv4`. The ID is obtained through a data source only.
      * 
      */
     @Export(name="transportTransitGatewayAttachmentId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> transportTransitGatewayAttachmentId;
 
     /**
-     * @return . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+     * @return Attachment ID of the Transit Gateway attachment to Direct Connect Gateway. Required when `outsideIpAddressType` is set to `PrivateIpv4`. The ID is obtained through a data source only.
      * 
      */
     public Output<Optional<String>> transportTransitGatewayAttachmentId() {
         return Codegen.optional(this.transportTransitGatewayAttachmentId);
     }
     /**
-     * The public IP address of the first VPN tunnel.
+     * Public IP address of the first VPN tunnel.
      * 
      */
     @Export(name="tunnel1Address", refs={String.class}, tree="[0]")
     private Output<String> tunnel1Address;
 
     /**
-     * @return The public IP address of the first VPN tunnel.
+     * @return Public IP address of the first VPN tunnel.
      * 
      */
     public Output<String> tunnel1Address() {
         return this.tunnel1Address;
     }
     /**
-     * The bgp asn number of the first VPN tunnel.
+     * Bgp asn number of the first VPN tunnel.
      * 
      */
     @Export(name="tunnel1BgpAsn", refs={String.class}, tree="[0]")
     private Output<String> tunnel1BgpAsn;
 
     /**
-     * @return The bgp asn number of the first VPN tunnel.
+     * @return Bgp asn number of the first VPN tunnel.
      * 
      */
     public Output<String> tunnel1BgpAsn() {
         return this.tunnel1BgpAsn;
     }
     /**
-     * The bgp holdtime of the first VPN tunnel.
+     * Bgp holdtime of the first VPN tunnel.
      * 
      */
     @Export(name="tunnel1BgpHoldtime", refs={Integer.class}, tree="[0]")
     private Output<Integer> tunnel1BgpHoldtime;
 
     /**
-     * @return The bgp holdtime of the first VPN tunnel.
+     * @return Bgp holdtime of the first VPN tunnel.
      * 
      */
     public Output<Integer> tunnel1BgpHoldtime() {
         return this.tunnel1BgpHoldtime;
     }
     /**
-     * The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
+     * RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
      * 
      */
     @Export(name="tunnel1CgwInsideAddress", refs={String.class}, tree="[0]")
     private Output<String> tunnel1CgwInsideAddress;
 
     /**
-     * @return The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
+     * @return RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
      * 
      */
     public Output<String> tunnel1CgwInsideAddress() {
         return this.tunnel1CgwInsideAddress;
     }
     /**
-     * The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+     * Action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
     @Export(name="tunnel1DpdTimeoutAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tunnel1DpdTimeoutAction;
 
     /**
-     * @return The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+     * @return Action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
     public Output<Optional<String>> tunnel1DpdTimeoutAction() {
         return Codegen.optional(this.tunnel1DpdTimeoutAction);
     }
     /**
-     * The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+     * Number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
     @Export(name="tunnel1DpdTimeoutSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1DpdTimeoutSeconds;
 
     /**
-     * @return The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
+     * @return Number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
     public Output<Optional<Integer>> tunnel1DpdTimeoutSeconds() {
         return Codegen.optional(this.tunnel1DpdTimeoutSeconds);
     }
     /**
-     * Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     * Whether to enable the tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
      * 
      */
     @Export(name="tunnel1EnableTunnelLifecycleControl", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> tunnel1EnableTunnelLifecycleControl;
 
     /**
-     * @return Turn on or off tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
+     * @return Whether to enable the tunnel endpoint lifecycle control feature for the first VPN tunnel. Valid values are `true | false`.
      * 
      */
     public Output<Optional<Boolean>> tunnel1EnableTunnelLifecycleControl() {
         return Codegen.optional(this.tunnel1EnableTunnelLifecycleControl);
     }
     /**
-     * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+     * IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
     @Export(name="tunnel1IkeVersions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tunnel1IkeVersions;
 
     /**
-     * @return The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
+     * @return IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
     public Output<Optional<List<String>>> tunnel1IkeVersions() {
         return Codegen.optional(this.tunnel1IkeVersions);
     }
     /**
-     * The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+     * CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
     @Export(name="tunnel1InsideCidr", refs={String.class}, tree="[0]")
     private Output<String> tunnel1InsideCidr;
 
     /**
-     * @return The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+     * @return CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
     public Output<String> tunnel1InsideCidr() {
         return this.tunnel1InsideCidr;
     }
     /**
-     * The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+     * Range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
     @Export(name="tunnel1InsideIpv6Cidr", refs={String.class}, tree="[0]")
     private Output<String> tunnel1InsideIpv6Cidr;
 
     /**
-     * @return The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+     * @return Range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
     public Output<String> tunnel1InsideIpv6Cidr() {
         return this.tunnel1InsideIpv6Cidr;
     }
     /**
-     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     * Options for logging VPN tunnel activity. See `tunnel1LogOptions` below for more details.
      * 
      */
     @Export(name="tunnel1LogOptions", refs={VpnConnectionTunnel1LogOptions.class}, tree="[0]")
     private Output<VpnConnectionTunnel1LogOptions> tunnel1LogOptions;
 
     /**
-     * @return Options for logging VPN tunnel activity. See Log Options below for more details.
+     * @return Options for logging VPN tunnel activity. See `tunnel1LogOptions` below for more details.
      * 
      */
     public Output<VpnConnectionTunnel1LogOptions> tunnel1LogOptions() {
@@ -712,14 +712,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tunnel1Phase1IntegrityAlgorithms);
     }
     /**
-     * The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+     * Lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
     @Export(name="tunnel1Phase1LifetimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1Phase1LifetimeSeconds;
 
     /**
-     * @return The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+     * @return Lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
     public Output<Optional<Integer>> tunnel1Phase1LifetimeSeconds() {
@@ -768,252 +768,252 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tunnel1Phase2IntegrityAlgorithms);
     }
     /**
-     * The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+     * Lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
     @Export(name="tunnel1Phase2LifetimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1Phase2LifetimeSeconds;
 
     /**
-     * @return The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+     * @return Lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
     public Output<Optional<Integer>> tunnel1Phase2LifetimeSeconds() {
         return Codegen.optional(this.tunnel1Phase2LifetimeSeconds);
     }
     /**
-     * The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+     * Preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
     @Export(name="tunnel1PresharedKey", refs={String.class}, tree="[0]")
     private Output<String> tunnel1PresharedKey;
 
     /**
-     * @return The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+     * @return Preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
     public Output<String> tunnel1PresharedKey() {
         return this.tunnel1PresharedKey;
     }
     /**
-     * The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+     * Percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
     @Export(name="tunnel1RekeyFuzzPercentage", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1RekeyFuzzPercentage;
 
     /**
-     * @return The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+     * @return Percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
     public Output<Optional<Integer>> tunnel1RekeyFuzzPercentage() {
         return Codegen.optional(this.tunnel1RekeyFuzzPercentage);
     }
     /**
-     * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
+     * Margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
      * 
      */
     @Export(name="tunnel1RekeyMarginTimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1RekeyMarginTimeSeconds;
 
     /**
-     * @return The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
+     * @return Margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
      * 
      */
     public Output<Optional<Integer>> tunnel1RekeyMarginTimeSeconds() {
         return Codegen.optional(this.tunnel1RekeyMarginTimeSeconds);
     }
     /**
-     * The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+     * Number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
     @Export(name="tunnel1ReplayWindowSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel1ReplayWindowSize;
 
     /**
-     * @return The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
+     * @return Number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
     public Output<Optional<Integer>> tunnel1ReplayWindowSize() {
         return Codegen.optional(this.tunnel1ReplayWindowSize);
     }
     /**
-     * The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+     * Action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
     @Export(name="tunnel1StartupAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tunnel1StartupAction;
 
     /**
-     * @return The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+     * @return Action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
     public Output<Optional<String>> tunnel1StartupAction() {
         return Codegen.optional(this.tunnel1StartupAction);
     }
     /**
-     * The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
+     * RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
      * 
      */
     @Export(name="tunnel1VgwInsideAddress", refs={String.class}, tree="[0]")
     private Output<String> tunnel1VgwInsideAddress;
 
     /**
-     * @return The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
+     * @return RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
      * 
      */
     public Output<String> tunnel1VgwInsideAddress() {
         return this.tunnel1VgwInsideAddress;
     }
     /**
-     * The public IP address of the second VPN tunnel.
+     * Public IP address of the second VPN tunnel.
      * 
      */
     @Export(name="tunnel2Address", refs={String.class}, tree="[0]")
     private Output<String> tunnel2Address;
 
     /**
-     * @return The public IP address of the second VPN tunnel.
+     * @return Public IP address of the second VPN tunnel.
      * 
      */
     public Output<String> tunnel2Address() {
         return this.tunnel2Address;
     }
     /**
-     * The bgp asn number of the second VPN tunnel.
+     * Bgp asn number of the second VPN tunnel.
      * 
      */
     @Export(name="tunnel2BgpAsn", refs={String.class}, tree="[0]")
     private Output<String> tunnel2BgpAsn;
 
     /**
-     * @return The bgp asn number of the second VPN tunnel.
+     * @return Bgp asn number of the second VPN tunnel.
      * 
      */
     public Output<String> tunnel2BgpAsn() {
         return this.tunnel2BgpAsn;
     }
     /**
-     * The bgp holdtime of the second VPN tunnel.
+     * Bgp holdtime of the second VPN tunnel.
      * 
      */
     @Export(name="tunnel2BgpHoldtime", refs={Integer.class}, tree="[0]")
     private Output<Integer> tunnel2BgpHoldtime;
 
     /**
-     * @return The bgp holdtime of the second VPN tunnel.
+     * @return Bgp holdtime of the second VPN tunnel.
      * 
      */
     public Output<Integer> tunnel2BgpHoldtime() {
         return this.tunnel2BgpHoldtime;
     }
     /**
-     * The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
+     * RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
      * 
      */
     @Export(name="tunnel2CgwInsideAddress", refs={String.class}, tree="[0]")
     private Output<String> tunnel2CgwInsideAddress;
 
     /**
-     * @return The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
+     * @return RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
      * 
      */
     public Output<String> tunnel2CgwInsideAddress() {
         return this.tunnel2CgwInsideAddress;
     }
     /**
-     * The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+     * Action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
     @Export(name="tunnel2DpdTimeoutAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tunnel2DpdTimeoutAction;
 
     /**
-     * @return The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
+     * @return Action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      * 
      */
     public Output<Optional<String>> tunnel2DpdTimeoutAction() {
         return Codegen.optional(this.tunnel2DpdTimeoutAction);
     }
     /**
-     * The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+     * Number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
     @Export(name="tunnel2DpdTimeoutSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2DpdTimeoutSeconds;
 
     /**
-     * @return The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
+     * @return Number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      * 
      */
     public Output<Optional<Integer>> tunnel2DpdTimeoutSeconds() {
         return Codegen.optional(this.tunnel2DpdTimeoutSeconds);
     }
     /**
-     * Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     * Whether to enable the tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
      * 
      */
     @Export(name="tunnel2EnableTunnelLifecycleControl", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> tunnel2EnableTunnelLifecycleControl;
 
     /**
-     * @return Turn on or off tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
+     * @return Whether to enable the tunnel endpoint lifecycle control feature for the second VPN tunnel. Valid values are `true | false`.
      * 
      */
     public Output<Optional<Boolean>> tunnel2EnableTunnelLifecycleControl() {
         return Codegen.optional(this.tunnel2EnableTunnelLifecycleControl);
     }
     /**
-     * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+     * IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
     @Export(name="tunnel2IkeVersions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tunnel2IkeVersions;
 
     /**
-     * @return The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
+     * @return IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      * 
      */
     public Output<Optional<List<String>>> tunnel2IkeVersions() {
         return Codegen.optional(this.tunnel2IkeVersions);
     }
     /**
-     * The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+     * CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
     @Export(name="tunnel2InsideCidr", refs={String.class}, tree="[0]")
     private Output<String> tunnel2InsideCidr;
 
     /**
-     * @return The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
+     * @return CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      * 
      */
     public Output<String> tunnel2InsideCidr() {
         return this.tunnel2InsideCidr;
     }
     /**
-     * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+     * Range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
     @Export(name="tunnel2InsideIpv6Cidr", refs={String.class}, tree="[0]")
     private Output<String> tunnel2InsideIpv6Cidr;
 
     /**
-     * @return The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
+     * @return Range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      * 
      */
     public Output<String> tunnel2InsideIpv6Cidr() {
         return this.tunnel2InsideIpv6Cidr;
     }
     /**
-     * Options for logging VPN tunnel activity. See Log Options below for more details.
+     * Options for logging VPN tunnel activity. See `tunnel2LogOptions` below for more details.
      * 
      */
     @Export(name="tunnel2LogOptions", refs={VpnConnectionTunnel2LogOptions.class}, tree="[0]")
     private Output<VpnConnectionTunnel2LogOptions> tunnel2LogOptions;
 
     /**
-     * @return Options for logging VPN tunnel activity. See Log Options below for more details.
+     * @return Options for logging VPN tunnel activity. See `tunnel2LogOptions` below for more details.
      * 
      */
     public Output<VpnConnectionTunnel2LogOptions> tunnel2LogOptions() {
@@ -1062,14 +1062,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tunnel2Phase1IntegrityAlgorithms);
     }
     /**
-     * The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+     * Lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
     @Export(name="tunnel2Phase1LifetimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2Phase1LifetimeSeconds;
 
     /**
-     * @return The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
+     * @return Lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      * 
      */
     public Output<Optional<Integer>> tunnel2Phase1LifetimeSeconds() {
@@ -1118,98 +1118,98 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tunnel2Phase2IntegrityAlgorithms);
     }
     /**
-     * The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+     * Lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
     @Export(name="tunnel2Phase2LifetimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2Phase2LifetimeSeconds;
 
     /**
-     * @return The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
+     * @return Lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      * 
      */
     public Output<Optional<Integer>> tunnel2Phase2LifetimeSeconds() {
         return Codegen.optional(this.tunnel2Phase2LifetimeSeconds);
     }
     /**
-     * The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+     * Preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
     @Export(name="tunnel2PresharedKey", refs={String.class}, tree="[0]")
     private Output<String> tunnel2PresharedKey;
 
     /**
-     * @return The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
+     * @return Preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      * 
      */
     public Output<String> tunnel2PresharedKey() {
         return this.tunnel2PresharedKey;
     }
     /**
-     * The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+     * Percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
     @Export(name="tunnel2RekeyFuzzPercentage", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2RekeyFuzzPercentage;
 
     /**
-     * @return The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
+     * @return Percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      * 
      */
     public Output<Optional<Integer>> tunnel2RekeyFuzzPercentage() {
         return Codegen.optional(this.tunnel2RekeyFuzzPercentage);
     }
     /**
-     * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
+     * Margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
      * 
      */
     @Export(name="tunnel2RekeyMarginTimeSeconds", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2RekeyMarginTimeSeconds;
 
     /**
-     * @return The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
+     * @return Margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
      * 
      */
     public Output<Optional<Integer>> tunnel2RekeyMarginTimeSeconds() {
         return Codegen.optional(this.tunnel2RekeyMarginTimeSeconds);
     }
     /**
-     * The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+     * Number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
     @Export(name="tunnel2ReplayWindowSize", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> tunnel2ReplayWindowSize;
 
     /**
-     * @return The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
+     * @return Number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
      * 
      */
     public Output<Optional<Integer>> tunnel2ReplayWindowSize() {
         return Codegen.optional(this.tunnel2ReplayWindowSize);
     }
     /**
-     * The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+     * Action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
     @Export(name="tunnel2StartupAction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tunnel2StartupAction;
 
     /**
-     * @return The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
+     * @return Action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      * 
      */
     public Output<Optional<String>> tunnel2StartupAction() {
         return Codegen.optional(this.tunnel2StartupAction);
     }
     /**
-     * The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
+     * RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
      * 
      */
     @Export(name="tunnel2VgwInsideAddress", refs={String.class}, tree="[0]")
     private Output<String> tunnel2VgwInsideAddress;
 
     /**
-     * @return The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
+     * @return RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
      * 
      */
     public Output<String> tunnel2VgwInsideAddress() {
@@ -1244,14 +1244,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.tunnelInsideIpVersion;
     }
     /**
-     * The type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
+     * Type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
+     * @return Type of VPN connection. The only type AWS supports at this time is &#34;ipsec.1&#34;.
      * 
      */
     public Output<String> type() {
@@ -1286,14 +1286,14 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.vpnConcentratorId);
     }
     /**
-     * The ID of the Virtual Private Gateway.
+     * ID of the Virtual Private Gateway.
      * 
      */
     @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpnGatewayId;
 
     /**
-     * @return The ID of the Virtual Private Gateway.
+     * @return ID of the Virtual Private Gateway.
      * 
      */
     public Output<Optional<String>> vpnGatewayId() {

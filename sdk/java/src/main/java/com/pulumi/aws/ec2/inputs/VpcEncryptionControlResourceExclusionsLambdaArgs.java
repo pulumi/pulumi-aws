@@ -15,14 +15,14 @@ public final class VpcEncryptionControlResourceExclusionsLambdaArgs extends com.
     public static final VpcEncryptionControlResourceExclusionsLambdaArgs Empty = new VpcEncryptionControlResourceExclusionsLambdaArgs();
 
     /**
-     * The current state of the VPC Encryption Control.
+     * Encryption enforcement state for peered VPCs.
      * 
      */
     @Import(name="state", required=true)
     private Output<String> state;
 
     /**
-     * @return The current state of the VPC Encryption Control.
+     * @return Encryption enforcement state for peered VPCs.
      * 
      */
     public Output<String> state() {
@@ -30,14 +30,14 @@ public final class VpcEncryptionControlResourceExclusionsLambdaArgs extends com.
     }
 
     /**
-     * A message providing additional information about the state of the VPC Encryption Control.
+     * Message providing additional information about the encryption enforcement state.
      * 
      */
     @Import(name="stateMessage", required=true)
     private Output<String> stateMessage;
 
     /**
-     * @return A message providing additional information about the state of the VPC Encryption Control.
+     * @return Message providing additional information about the encryption enforcement state.
      * 
      */
     public Output<String> stateMessage() {
@@ -70,7 +70,7 @@ public final class VpcEncryptionControlResourceExclusionsLambdaArgs extends com.
         }
 
         /**
-         * @param state The current state of the VPC Encryption Control.
+         * @param state Encryption enforcement state for peered VPCs.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class VpcEncryptionControlResourceExclusionsLambdaArgs extends com.
         }
 
         /**
-         * @param state The current state of the VPC Encryption Control.
+         * @param state Encryption enforcement state for peered VPCs.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class VpcEncryptionControlResourceExclusionsLambdaArgs extends com.
         }
 
         /**
-         * @param stateMessage A message providing additional information about the state of the VPC Encryption Control.
+         * @param stateMessage Message providing additional information about the encryption enforcement state.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class VpcEncryptionControlResourceExclusionsLambdaArgs extends com.
         }
 
         /**
-         * @param stateMessage A message providing additional information about the state of the VPC Encryption Control.
+         * @param stateMessage Message providing additional information about the encryption enforcement state.
          * 
          * @return builder
          * 

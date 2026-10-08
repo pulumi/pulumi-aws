@@ -35,7 +35,7 @@ class CompositeAlarmArgs:
         The set of arguments for constructing a CompositeAlarm resource.
 
         :param pulumi.Input[_builtins.str] alarm_name: The name for the composite alarm. This name must be unique within the region.
-        :param pulumi.Input[_builtins.str] alarm_rule: An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+        :param pulumi.Input[_builtins.str] alarm_rule: Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
         :param pulumi.Input[_builtins.bool] actions_enabled: Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
         :param pulumi.Input['CompositeAlarmActionsSuppressorArgs'] actions_suppressor: Actions will be suppressed if the suppressor alarm is in the ALARM state.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
@@ -80,7 +80,7 @@ class CompositeAlarmArgs:
     @pulumi.getter(name="alarmRule")
     def alarm_rule(self) -> pulumi.Input[_builtins.str]:
         """
-        An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+        Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
         """
         return pulumi.get(self, "alarm_rule")
 
@@ -208,7 +208,7 @@ class _CompositeAlarmState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[_builtins.str] alarm_description: The description for the composite alarm.
         :param pulumi.Input[_builtins.str] alarm_name: The name for the composite alarm. This name must be unique within the region.
-        :param pulumi.Input[_builtins.str] alarm_rule: An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+        :param pulumi.Input[_builtins.str] alarm_rule: Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
         :param pulumi.Input[_builtins.str] arn: The ARN of the composite alarm.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
@@ -305,7 +305,7 @@ class _CompositeAlarmState:
     @pulumi.getter(name="alarmRule")
     def alarm_rule(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+        Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
         """
         return pulumi.get(self, "alarm_rule")
 
@@ -422,11 +422,9 @@ class CompositeAlarm(pulumi.CustomResource):
             },
             alarm_description="This is a composite alarm!",
             alarm_name="example-composite-alarm",
-            alarm_actions=example_aws_sns_topic["arn"],
-            ok_actions=example_aws_sns_topic["arn"],
-            alarm_rule=f\"\"\"ALARM({alpha["alarmName"]}) OR
-        ALARM({bravo["alarmName"]})
-        \"\"\")
+            alarm_actions=[example_aws_sns_topic["arn"]],
+            ok_actions=[example_aws_sns_topic["arn"]],
+            alarm_rule=f"ALARM({alpha['alarmName']}) OR ALARM({bravo['alarmName']})")
         ```
 
         ## Import
@@ -456,7 +454,7 @@ class CompositeAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[_builtins.str] alarm_description: The description for the composite alarm.
         :param pulumi.Input[_builtins.str] alarm_name: The name for the composite alarm. This name must be unique within the region.
-        :param pulumi.Input[_builtins.str] alarm_rule: An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+        :param pulumi.Input[_builtins.str] alarm_rule: Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -487,11 +485,9 @@ class CompositeAlarm(pulumi.CustomResource):
             },
             alarm_description="This is a composite alarm!",
             alarm_name="example-composite-alarm",
-            alarm_actions=example_aws_sns_topic["arn"],
-            ok_actions=example_aws_sns_topic["arn"],
-            alarm_rule=f\"\"\"ALARM({alpha["alarmName"]}) OR
-        ALARM({bravo["alarmName"]})
-        \"\"\")
+            alarm_actions=[example_aws_sns_topic["arn"]],
+            ok_actions=[example_aws_sns_topic["arn"]],
+            alarm_rule=f"ALARM({alpha['alarmName']}) OR ALARM({bravo['alarmName']})")
         ```
 
         ## Import
@@ -598,7 +594,7 @@ class CompositeAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] alarm_actions: The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[_builtins.str] alarm_description: The description for the composite alarm.
         :param pulumi.Input[_builtins.str] alarm_name: The name for the composite alarm. This name must be unique within the region.
-        :param pulumi.Input[_builtins.str] alarm_rule: An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+        :param pulumi.Input[_builtins.str] alarm_rule: Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
         :param pulumi.Input[_builtins.str] arn: The ARN of the composite alarm.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] insufficient_data_actions: The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
@@ -668,7 +664,7 @@ class CompositeAlarm(pulumi.CustomResource):
     @pulumi.getter(name="alarmRule")
     def alarm_rule(self) -> pulumi.Output[_builtins.str]:
         """
-        An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+        Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
         """
         return pulumi.get(self, "alarm_rule")
 

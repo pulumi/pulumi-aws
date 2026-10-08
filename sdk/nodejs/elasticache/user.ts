@@ -34,8 +34,8 @@ import * as utilities from "../utilities";
  *     authenticationMode: {
  *         type: "iam",
  *     },
- *     userId: "testUserId",
- *     userName: "testUserName",
+ *     userId: "testuserid",
+ *     userName: "testuserid",
  *     accessString: "on ~* +@all",
  *     engine: "redis",
  * });
@@ -159,7 +159,7 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly userId: pulumi.Output<string>;
     /**
-     * The username of the user.
+     * The username of the user. For IAM authentication, this value must match `userId`.
      *
      * The following arguments are optional:
      */
@@ -277,7 +277,7 @@ export interface UserState {
      */
     userId?: pulumi.Input<string | undefined>;
     /**
-     * The username of the user.
+     * The username of the user. For IAM authentication, this value must match `userId`.
      *
      * The following arguments are optional:
      */
@@ -330,7 +330,7 @@ export interface UserArgs {
      */
     userId: pulumi.Input<string>;
     /**
-     * The username of the user.
+     * The username of the user. For IAM authentication, this value must match `userId`.
      *
      * The following arguments are optional:
      */

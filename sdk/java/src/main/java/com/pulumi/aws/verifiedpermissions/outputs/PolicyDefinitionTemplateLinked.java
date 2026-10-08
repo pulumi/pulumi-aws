@@ -15,38 +15,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyDefinitionTemplateLinked {
     /**
-     * @return The ID of the template.
+     * @return ID of the template.
      * 
      */
     private String policyTemplateId;
     /**
-     * @return The principal of the template linked policy.
+     * @return Principal of the template linked policy. See Principal below.
      * 
      */
     private @Nullable PolicyDefinitionTemplateLinkedPrincipal principal;
     /**
-     * @return The resource of the template linked policy.
+     * @return Resource of the template linked policy. See Resource below.
      * 
      */
     private @Nullable PolicyDefinitionTemplateLinkedResource resource;
 
     private PolicyDefinitionTemplateLinked() {}
     /**
-     * @return The ID of the template.
+     * @return ID of the template.
      * 
      */
     public String policyTemplateId() {
         return this.policyTemplateId;
     }
     /**
-     * @return The principal of the template linked policy.
+     * @return Principal of the template linked policy. See Principal below.
      * 
      */
     public Optional<PolicyDefinitionTemplateLinkedPrincipal> principal() {
         return Optional.ofNullable(this.principal);
     }
     /**
-     * @return The resource of the template linked policy.
+     * @return Resource of the template linked policy. See Resource below.
      * 
      */
     public Optional<PolicyDefinitionTemplateLinkedResource> resource() {

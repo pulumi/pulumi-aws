@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Glue
     ///         ConnectionProperties = 
     ///         {
     ///             { "CONNECTOR_CLASS_NAME", "net.snowflake.client.jdbc.SnowflakeDriver" },
-    ///             { "CONNECTION_TYPE", "Jdbc" },
+    ///             { "CONNECTOR_TYPE", "Jdbc" },
     ///             { "CONNECTOR_URL", "s3://example/snowflake-jdbc.jar" },
     ///             { "JDBC_CONNECTION_URL", "[[\"default=jdbc:snowflake://example.com/?user=${user}&amp;password=${password}\"],\",\"]" },
     ///         },
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Glue
     ///         ConnectionProperties = 
     ///         {
     ///             { "CONNECTOR_CLASS_NAME", "net.snowflake.client.jdbc.SnowflakeDriver" },
-    ///             { "CONNECTION_TYPE", "Jdbc" },
+    ///             { "CONNECTOR_TYPE", "Jdbc" },
     ///             { "CONNECTOR_URL", "s3://example/snowflake-jdbc.jar" },
     ///             { "JDBC_CONNECTION_URL", "jdbc:snowflake://example.com/?user=${user}&amp;password=${password}" },
     ///             { "SECRET_ID", example.Apply(getSecretResult =&gt; getSecretResult.Name) },

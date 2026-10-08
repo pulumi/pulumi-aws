@@ -234,8 +234,10 @@ class StreamConsumer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kinesis.Stream("example",
-            name="example-stream",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="example-stream")
         example_stream_consumer = aws.kinesis.StreamConsumer("example",
             name="example-consumer",
             stream_arn=example.arn)
@@ -283,8 +285,10 @@ class StreamConsumer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kinesis.Stream("example",
-            name="example-stream",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="example-stream")
         example_stream_consumer = aws.kinesis.StreamConsumer("example",
             name="example-consumer",
             stream_arn=example.arn)

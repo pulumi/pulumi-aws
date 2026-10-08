@@ -60,7 +60,7 @@ class GetPolicyStoreResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The ARN of the Policy Store.
+        ARN of the Policy Store.
         """
         return pulumi.get(self, "arn")
 
@@ -68,7 +68,7 @@ class GetPolicyStoreResult:
     @pulumi.getter(name="createdDate")
     def created_date(self) -> _builtins.str:
         """
-        The date the Policy Store was created.
+        Date the Policy Store was created.
         """
         return pulumi.get(self, "created_date")
 
@@ -83,6 +83,9 @@ class GetPolicyStoreResult:
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
+        """
+        Description of the Policy Store.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -94,7 +97,7 @@ class GetPolicyStoreResult:
     @pulumi.getter(name="lastUpdatedDate")
     def last_updated_date(self) -> _builtins.str:
         """
-        The date the Policy Store was last updated.
+        Date the Policy Store was last updated.
         """
         return pulumi.get(self, "last_updated_date")
 
@@ -115,7 +118,7 @@ class GetPolicyStoreResult:
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> Sequence['outputs.GetPolicyStoreValidationSettingResult']:
         """
-        Validation settings for the policy store.
+        Validation settings for the policy store. See Validation Settings below.
         """
         return pulumi.get(self, "validation_settings")
 
@@ -155,7 +158,7 @@ def get_policy_store(id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str id: The ID of the Policy Store.
+    :param _builtins.str id: ID of the Policy Store.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
@@ -192,7 +195,7 @@ def get_policy_store_output(id: pulumi.Input[Optional[_builtins.str]] = None,
     ```
 
 
-    :param _builtins.str id: The ID of the Policy Store.
+    :param _builtins.str id: ID of the Policy Store.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()

@@ -28,8 +28,11 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var example = new Aws.Kinesis.Stream("example", new()
     ///     {
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "ON_DEMAND",
+    ///         },
     ///         Name = "example-stream",
-    ///         ShardCount = 1,
     ///     });
     /// 
     ///     var exampleStreamConsumer = new Aws.Kinesis.StreamConsumer("example", new()

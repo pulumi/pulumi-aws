@@ -102,11 +102,11 @@ export interface GetVpnConnectionResult {
     readonly preSharedKeyArn: string;
     readonly region: string;
     /**
-     * List of static routes associated with the VPN connection.
+     * List of static routes associated with the VPN connection. See below.
      */
     readonly routes: outputs.ec2.GetVpnConnectionRoute[];
     /**
-     * Current state of the VPN connection.
+     * Current state of the static route.
      */
     readonly state: string;
     /**
@@ -122,7 +122,7 @@ export interface GetVpnConnectionResult {
      */
     readonly type: string;
     /**
-     * List of objects containing information about the VPN tunnel.
+     * List of objects containing information about the VPN tunnel. See below.
      */
     readonly vgwTelemetries: outputs.ec2.GetVpnConnectionVgwTelemetry[];
     /**

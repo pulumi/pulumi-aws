@@ -74,7 +74,7 @@ type KeyPair struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix pulumi.StringOutput `pulumi:"keyNamePrefix"`
@@ -129,7 +129,7 @@ type keyPairState struct {
 	Arn *string `pulumi:"arn"`
 	// MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint *string `pulumi:"fingerprint"`
-	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyName *string `pulumi:"keyName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
@@ -152,7 +152,7 @@ type KeyPairState struct {
 	Arn pulumi.StringPtrInput
 	// MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint pulumi.StringPtrInput
-	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyName pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix pulumi.StringPtrInput
@@ -175,7 +175,7 @@ func (KeyPairState) ElementType() reflect.Type {
 }
 
 type keyPairArgs struct {
-	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyName *string `pulumi:"keyName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
@@ -189,7 +189,7 @@ type keyPairArgs struct {
 
 // The set of arguments for constructing a KeyPair resource.
 type KeyPairArgs struct {
-	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+	// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyName pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 	KeyNamePrefix pulumi.StringPtrInput
@@ -298,7 +298,7 @@ func (o KeyPairOutput) Fingerprint() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
-// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, Terraform will create a unique key name using the prefix `terraform-`.
+// Name for the key pair. If neither `keyName` nor `keyNamePrefix` is provided, the provider will create a unique key name.
 func (o KeyPairOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyName }).(pulumi.StringOutput)
 }

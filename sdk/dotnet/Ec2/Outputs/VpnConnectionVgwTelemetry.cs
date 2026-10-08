@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class VpnConnectionVgwTelemetry
     {
         /// <summary>
-        /// The number of accepted routes.
+        /// Number of accepted routes.
         /// </summary>
         public readonly int? AcceptedRouteCount;
         /// <summary>
@@ -22,15 +22,15 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? CertificateArn;
         /// <summary>
-        /// The date and time of the last change in status.
+        /// Date and time of the last change in status.
         /// </summary>
         public readonly string? LastStatusChange;
         /// <summary>
-        /// The Internet-routable IP address of the virtual private gateway's outside interface.
+        /// Internet-routable IP address of the virtual private gateway's outside interface.
         /// </summary>
         public readonly string? OutsideIpAddress;
         /// <summary>
-        /// The status of the VPN tunnel.
+        /// Status of the VPN tunnel.
         /// </summary>
         public readonly string? Status;
         /// <summary>

@@ -61,8 +61,7 @@ type GetSecurityGroupRulesArgs struct {
 	Filters []GetSecurityGroupRulesFilter `pulumi:"filters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired security group rule.
+	// Map of tags, each pair of which must exactly match a pair on the desired security group rule.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -87,8 +86,7 @@ type GetSecurityGroupRulesOutputArgs struct {
 	Filters GetSecurityGroupRulesFilterArrayInput `pulumi:"filters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired security group rule.
+	// Map of tags, each pair of which must exactly match a pair on the desired security group rule.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

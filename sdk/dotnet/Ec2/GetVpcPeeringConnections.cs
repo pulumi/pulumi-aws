@@ -163,10 +163,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired VPC Peering Connection.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPC peering connections.
+        /// Mapping of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -204,10 +201,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired VPC Peering Connection.
-        /// 
-        /// The arguments of this data source act as filters for querying the available VPC peering connections.
+        /// Mapping of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
         /// </summary>
         public InputMap<string> Tags
         {

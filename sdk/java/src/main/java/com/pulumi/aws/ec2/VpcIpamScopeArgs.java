@@ -18,14 +18,14 @@ public final class VpcIpamScopeArgs extends com.pulumi.resources.ResourceArgs {
     public static final VpcIpamScopeArgs Empty = new VpcIpamScopeArgs();
 
     /**
-     * A description for the scope you&#39;re creating.
+     * Description for the scope you&#39;re creating.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the scope you&#39;re creating.
+     * @return Description for the scope you&#39;re creating.
      * 
      */
     public Optional<Output<String>> description() {
@@ -33,14 +33,14 @@ public final class VpcIpamScopeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the IPAM for which you&#39;re creating this scope.
+     * ID of the IPAM for which you&#39;re creating this scope.
      * 
      */
     @Import(name="ipamId", required=true)
     private Output<String> ipamId;
 
     /**
-     * @return The ID of the IPAM for which you&#39;re creating this scope.
+     * @return ID of the IPAM for which you&#39;re creating this scope.
      * 
      */
     public Output<String> ipamId() {
@@ -105,7 +105,7 @@ public final class VpcIpamScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the scope you&#39;re creating.
+         * @param description Description for the scope you&#39;re creating.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class VpcIpamScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description for the scope you&#39;re creating.
+         * @param description Description for the scope you&#39;re creating.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class VpcIpamScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipamId The ID of the IPAM for which you&#39;re creating this scope.
+         * @param ipamId ID of the IPAM for which you&#39;re creating this scope.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class VpcIpamScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipamId The ID of the IPAM for which you&#39;re creating this scope.
+         * @param ipamId ID of the IPAM for which you&#39;re creating this scope.
          * 
          * @return builder
          * 

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * The VPC Peering Connection data source provides details about
  * a specific VPC peering connection.
  *
+ * The arguments of this data source act as filters for querying the available VPC peering connections. The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -86,11 +88,7 @@ export interface GetVpcPeeringConnectionArgs {
      */
     status?: string;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired VPC Peering Connection.
-     *
-     * The arguments of this data source act as filters for querying the available VPC peering connection.
-     * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+     * Map of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
      */
     tags?: {[key: string]: string};
     /**
@@ -104,8 +102,7 @@ export interface GetVpcPeeringConnectionArgs {
  */
 export interface GetVpcPeeringConnectionResult {
     /**
-     * Configuration block that describes [VPC Peering Connection]
-     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+     * Configuration block that describes [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC. The map contains `allowRemoteVpcDnsResolution`, which is whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
      */
     readonly accepter: {[key: string]: boolean};
     /**
@@ -113,23 +110,23 @@ export interface GetVpcPeeringConnectionResult {
      */
     readonly cidrBlock: string;
     /**
-     * List of objects with IPv4 CIDR blocks of the requester VPC.
+     * List of objects with IPv4 CIDR blocks of the requester VPC. See `cidrBlockSet` Block below.
      */
     readonly cidrBlockSets: outputs.ec2.GetVpcPeeringConnectionCidrBlockSet[];
     readonly filters?: outputs.ec2.GetVpcPeeringConnectionFilter[];
     readonly id: string;
     /**
-     * List of objects with IPv6 CIDR blocks of the requester VPC.
+     * List of objects with IPv6 CIDR blocks of the requester VPC. See `ipv6CidrBlockSet` Block below.
      */
     readonly ipv6CidrBlockSets: outputs.ec2.GetVpcPeeringConnectionIpv6CidrBlockSet[];
     readonly ownerId: string;
     readonly peerCidrBlock: string;
     /**
-     * List of objects with IPv4 CIDR blocks of the accepter VPC.
+     * List of objects with IPv4 CIDR blocks of the accepter VPC. See `peerCidrBlockSet` Block below.
      */
     readonly peerCidrBlockSets: outputs.ec2.GetVpcPeeringConnectionPeerCidrBlockSet[];
     /**
-     * List of objects with IPv6 CIDR blocks of the accepter VPC.
+     * List of objects with IPv6 CIDR blocks of the accepter VPC. See `peerIpv6CidrBlockSet` Block below.
      */
     readonly peerIpv6CidrBlockSets: outputs.ec2.GetVpcPeeringConnectionPeerIpv6CidrBlockSet[];
     readonly peerOwnerId: string;
@@ -145,8 +142,7 @@ export interface GetVpcPeeringConnectionResult {
      */
     readonly region: string;
     /**
-     * Configuration block that describes [VPC Peering Connection]
-     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+     * Configuration block that describes [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC. The map contains `allowRemoteVpcDnsResolution`, which is whether a local VPC can resolve public DNS hostnames to private IP addresses when queried from instances in a peer VPC.
      */
     readonly requester: {[key: string]: boolean};
     /**
@@ -160,6 +156,8 @@ export interface GetVpcPeeringConnectionResult {
 /**
  * The VPC Peering Connection data source provides details about
  * a specific VPC peering connection.
+ *
+ * The arguments of this data source act as filters for querying the available VPC peering connections. The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
  *
  * ## Example Usage
  *
@@ -236,11 +234,7 @@ export interface GetVpcPeeringConnectionOutputArgs {
      */
     status?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired VPC Peering Connection.
-     *
-     * The arguments of this data source act as filters for querying the available VPC peering connection.
-     * The given filters must match exactly one VPC peering connection whose data will be exported as attributes.
+     * Map of tags, each pair of which must exactly match a pair on the desired VPC Peering Connection.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**

@@ -65,28 +65,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions")
 public class VpcBlockPublicAccessOptions extends com.pulumi.resources.CustomResource {
     /**
-     * The AWS account id to which these options apply.
+     * AWS account id to which these options apply.
      * 
      */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
     /**
-     * @return The AWS account id to which these options apply.
+     * @return AWS account id to which these options apply.
      * 
      */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
     /**
-     * The AWS region to which these options apply.
+     * AWS region to which these options apply.
      * 
      */
     @Export(name="awsRegion", refs={String.class}, tree="[0]")
     private Output<String> awsRegion;
 
     /**
-     * @return The AWS region to which these options apply.
+     * @return AWS region to which these options apply.
      * 
      */
     public Output<String> awsRegion() {

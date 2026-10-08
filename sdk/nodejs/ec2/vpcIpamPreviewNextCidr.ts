@@ -66,7 +66,7 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
     }
 
     /**
-     * The previewed CIDR from the pool.
+     * Previewed CIDR from the pool.
      */
     declare public /*out*/ readonly cidr: pulumi.Output<string>;
     /**
@@ -74,11 +74,11 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
      */
     declare public readonly disallowedCidrs: pulumi.Output<string[] | undefined>;
     /**
-     * The ID of the pool to which you want to assign a CIDR.
+     * ID of the pool to which you want to assign a CIDR.
      */
     declare public readonly ipamPoolId: pulumi.Output<string>;
     /**
-     * The netmask length of the CIDR you would like to preview from the IPAM pool.
+     * Netmask length of the CIDR you would like to preview from the IPAM pool.
      */
     declare public readonly netmaskLength: pulumi.Output<number | undefined>;
     /**
@@ -125,7 +125,7 @@ export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
  */
 export interface VpcIpamPreviewNextCidrState {
     /**
-     * The previewed CIDR from the pool.
+     * Previewed CIDR from the pool.
      */
     cidr?: pulumi.Input<string | undefined>;
     /**
@@ -133,11 +133,11 @@ export interface VpcIpamPreviewNextCidrState {
      */
     disallowedCidrs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The ID of the pool to which you want to assign a CIDR.
+     * ID of the pool to which you want to assign a CIDR.
      */
     ipamPoolId?: pulumi.Input<string | undefined>;
     /**
-     * The netmask length of the CIDR you would like to preview from the IPAM pool.
+     * Netmask length of the CIDR you would like to preview from the IPAM pool.
      */
     netmaskLength?: pulumi.Input<number | undefined>;
     /**
@@ -155,11 +155,11 @@ export interface VpcIpamPreviewNextCidrArgs {
      */
     disallowedCidrs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The ID of the pool to which you want to assign a CIDR.
+     * ID of the pool to which you want to assign a CIDR.
      */
     ipamPoolId: pulumi.Input<string>;
     /**
-     * The netmask length of the CIDR you would like to preview from the IPAM pool.
+     * Netmask length of the CIDR you would like to preview from the IPAM pool.
      */
     netmaskLength?: pulumi.Input<number | undefined>;
     /**

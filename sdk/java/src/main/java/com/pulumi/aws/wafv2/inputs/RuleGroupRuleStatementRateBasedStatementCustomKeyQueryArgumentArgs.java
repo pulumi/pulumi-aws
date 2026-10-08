@@ -17,14 +17,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumen
     public static final RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs Empty = new RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs();
 
     /**
-     * A friendly name of the rule group.
+     * The name of the query argument to use.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A friendly name of the rule group.
+     * @return The name of the query argument to use.
      * 
      */
     public Output<String> name() {
@@ -72,7 +72,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumen
         }
 
         /**
-         * @param name A friendly name of the rule group.
+         * @param name The name of the query argument to use.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumen
         }
 
         /**
-         * @param name A friendly name of the rule group.
+         * @param name The name of the query argument to use.
          * 
          * @return builder
          * 

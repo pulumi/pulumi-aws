@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Odb
     public static class GetDbServers
     {
         /// <summary>
-        /// Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
+        /// Data source for managing db servers linked to exadata infrastructure of Oracle Database@AWS.
         /// 
         /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
         /// 
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Odb
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDbServersResult>("aws:odb/getDbServers:getDbServers", args ?? new GetDbServersArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
+        /// Data source for managing db servers linked to exadata infrastructure of Oracle Database@AWS.
         /// 
         /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
         /// 
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Odb
             => global::Pulumi.Deployment.Instance.Invoke<GetDbServersResult>("aws:odb/getDbServers:getDbServers", args ?? new GetDbServersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for manging db servers linked to exadata infrastructure of Oracle Database@AWS.
+        /// Data source for managing db servers linked to exadata infrastructure of Oracle Database@AWS.
         /// 
         /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
         /// 

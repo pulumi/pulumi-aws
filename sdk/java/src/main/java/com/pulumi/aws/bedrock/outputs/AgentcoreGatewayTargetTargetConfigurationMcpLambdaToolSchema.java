@@ -19,7 +19,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema 
      */
     private @Nullable List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload> inlinePayloads;
     /**
-     * @return S3-based tool definition. See `s3` Block below.
+     * @return S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3 s3;
@@ -33,7 +33,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema 
         return this.inlinePayloads == null ? List.of() : this.inlinePayloads;
     }
     /**
-     * @return S3-based tool definition. See `s3` Block below.
+     * @return S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3> s3() {

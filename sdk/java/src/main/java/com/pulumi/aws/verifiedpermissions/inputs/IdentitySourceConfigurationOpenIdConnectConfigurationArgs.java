@@ -19,14 +19,14 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
     public static final IdentitySourceConfigurationOpenIdConnectConfigurationArgs Empty = new IdentitySourceConfigurationOpenIdConnectConfigurationArgs();
 
     /**
-     * A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+     * Descriptive string that you want to prefix to user entities from your OIDC identity provider.
      * 
      */
     @Import(name="entityIdPrefix")
     private @Nullable Output<String> entityIdPrefix;
 
     /**
-     * @return A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+     * @return Descriptive string that you want to prefix to user entities from your OIDC identity provider.
      * 
      */
     public Optional<Output<String>> entityIdPrefix() {
@@ -34,14 +34,14 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
     }
 
     /**
-     * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+     * Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
      * 
      */
     @Import(name="groupConfiguration")
     private @Nullable Output<IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs> groupConfiguration;
 
     /**
-     * @return The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+     * @return Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
      * 
      */
     public Optional<Output<IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs>> groupConfiguration() {
@@ -49,14 +49,14 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
     }
 
     /**
-     * The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+     * Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
      * 
      */
     @Import(name="issuer", required=true)
     private Output<String> issuer;
 
     /**
-     * @return The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+     * @return Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
      * 
      */
     public Output<String> issuer() {
@@ -64,14 +64,14 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
     }
 
     /**
-     * The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+     * Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
      * 
      */
     @Import(name="tokenSelection", required=true)
     private Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs> tokenSelection;
 
     /**
-     * @return The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+     * @return Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
      * 
      */
     public Output<IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs> tokenSelection() {
@@ -106,7 +106,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
         }
 
         /**
-         * @param entityIdPrefix A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+         * @param entityIdPrefix Descriptive string that you want to prefix to user entities from your OIDC identity provider.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
         }
 
         /**
-         * @param entityIdPrefix A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+         * @param entityIdPrefix Descriptive string that you want to prefix to user entities from your OIDC identity provider.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
         }
 
         /**
-         * @param groupConfiguration The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+         * @param groupConfiguration Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
         }
 
         /**
-         * @param groupConfiguration The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+         * @param groupConfiguration Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
         }
 
         /**
-         * @param issuer The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+         * @param issuer Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
         }
 
         /**
-         * @param issuer The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+         * @param issuer Issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
         }
 
         /**
-         * @param tokenSelection The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+         * @param tokenSelection Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationArgs ext
         }
 
         /**
-         * @param tokenSelection The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+         * @param tokenSelection Token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
          * 
          * @return builder
          * 

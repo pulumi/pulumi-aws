@@ -16,18 +16,14 @@ public final class VpcDhcpOptionsAssociationState extends com.pulumi.resources.R
     public static final VpcDhcpOptionsAssociationState Empty = new VpcDhcpOptionsAssociationState();
 
     /**
-     * The ID of the DHCP Options Set to associate to the VPC.
-     * 
-     * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
+     * ID of the DHCP Options Set to associate to the VPC.
      * 
      */
     @Import(name="dhcpOptionsId")
     private @Nullable Output<String> dhcpOptionsId;
 
     /**
-     * @return The ID of the DHCP Options Set to associate to the VPC.
-     * 
-     * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
+     * @return ID of the DHCP Options Set to associate to the VPC.
      * 
      */
     public Optional<Output<String>> dhcpOptionsId() {
@@ -50,14 +46,18 @@ public final class VpcDhcpOptionsAssociationState extends com.pulumi.resources.R
     }
 
     /**
-     * The ID of the VPC to which we would like to associate a DHCP Options Set.
+     * ID of the VPC to which we would like to associate a DHCP Options Set.
+     * 
+     * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC to which we would like to associate a DHCP Options Set.
+     * @return ID of the VPC to which we would like to associate a DHCP Options Set.
+     * 
+     * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -91,9 +91,7 @@ public final class VpcDhcpOptionsAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param dhcpOptionsId The ID of the DHCP Options Set to associate to the VPC.
-         * 
-         * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
+         * @param dhcpOptionsId ID of the DHCP Options Set to associate to the VPC.
          * 
          * @return builder
          * 
@@ -104,9 +102,7 @@ public final class VpcDhcpOptionsAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param dhcpOptionsId The ID of the DHCP Options Set to associate to the VPC.
-         * 
-         * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
+         * @param dhcpOptionsId ID of the DHCP Options Set to associate to the VPC.
          * 
          * @return builder
          * 
@@ -137,7 +133,9 @@ public final class VpcDhcpOptionsAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param vpcId The ID of the VPC to which we would like to associate a DHCP Options Set.
+         * @param vpcId ID of the VPC to which we would like to associate a DHCP Options Set.
+         * 
+         * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
          * 
          * @return builder
          * 
@@ -148,7 +146,9 @@ public final class VpcDhcpOptionsAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param vpcId The ID of the VPC to which we would like to associate a DHCP Options Set.
+         * @param vpcId ID of the VPC to which we would like to associate a DHCP Options Set.
+         * 
+         * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
          * 
          * @return builder
          * 

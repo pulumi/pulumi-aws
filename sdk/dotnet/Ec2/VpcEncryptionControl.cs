@@ -61,53 +61,37 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcEncryptionControl : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Egress-Only Internet Gateways from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Output("egressOnlyInternetGatewayExclusion")]
         public Output<string> EgressOnlyInternetGatewayExclusion { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to exclude Elastic File System (EFS) from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Elastic File System (EFS) from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Output("elasticFileSystemExclusion")]
         public Output<string> ElasticFileSystemExclusion { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to exclude Internet Gateways from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Internet Gateways from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Output("internetGatewayExclusion")]
         public Output<string> InternetGatewayExclusion { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to exclude Lambda Functions from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Lambda Functions from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Output("lambdaExclusion")]
         public Output<string> LambdaExclusion { get; private set; } = null!;
 
         /// <summary>
-        /// Mode to enable for VPC Encryption Control.
-        /// Valid values are `Monitor` or `Enforce`.
+        /// Mode to enable for VPC Encryption Control. Valid values are `Monitor` or `Enforce`.
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to exclude NAT Gateways from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude NAT Gateways from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Output("natGatewayExclusion")]
         public Output<string> NatGatewayExclusion { get; private set; } = null!;
@@ -119,33 +103,31 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// State of exclusions from encryption enforcement.
-        /// Will be `Nil` if `Mode` is `Monitor`.
-        /// See `ResourceExclusions` below
+        /// State of exclusions from encryption enforcement. Will be `Nil` if `Mode` is `Monitor`. See `ResourceExclusions` below.
         /// </summary>
         [Output("resourceExclusions")]
         public Output<Outputs.VpcEncryptionControlResourceExclusions> ResourceExclusions { get; private set; } = null!;
 
         /// <summary>
-        /// The current state of the VPC Encryption Control.
+        /// Encryption enforcement state for peered VPCs.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// A message providing additional information about the state of the VPC Encryption Control.
+        /// Message providing additional information about the encryption enforcement state.
         /// </summary>
         [Output("stateMessage")]
         public Output<string> StateMessage { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -154,16 +136,13 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.VpcEncryptionControlTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to exclude Virtual Private Gateways from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Virtual Private Gateways from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Output("virtualPrivateGatewayExclusion")]
         public Output<string> VirtualPrivateGatewayExclusion { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC the VPC Encryption Control is linked to.
+        /// ID of the VPC the VPC Encryption Control is linked to.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -171,19 +150,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> VpcId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to exclude VPC Lattice from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude VPC Lattice from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Output("vpcLatticeExclusion")]
         public Output<string> VpcLatticeExclusion { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to exclude peered VPCs from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude peered VPCs from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Output("vpcPeeringExclusion")]
         public Output<string> VpcPeeringExclusion { get; private set; } = null!;
@@ -239,53 +212,37 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcEncryptionControlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Egress-Only Internet Gateways from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("egressOnlyInternetGatewayExclusion")]
         public Input<string>? EgressOnlyInternetGatewayExclusion { get; set; }
 
         /// <summary>
-        /// Whether to exclude Elastic File System (EFS) from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Elastic File System (EFS) from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("elasticFileSystemExclusion")]
         public Input<string>? ElasticFileSystemExclusion { get; set; }
 
         /// <summary>
-        /// Whether to exclude Internet Gateways from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Internet Gateways from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("internetGatewayExclusion")]
         public Input<string>? InternetGatewayExclusion { get; set; }
 
         /// <summary>
-        /// Whether to exclude Lambda Functions from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Lambda Functions from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("lambdaExclusion")]
         public Input<string>? LambdaExclusion { get; set; }
 
         /// <summary>
-        /// Mode to enable for VPC Encryption Control.
-        /// Valid values are `Monitor` or `Enforce`.
+        /// Mode to enable for VPC Encryption Control. Valid values are `Monitor` or `Enforce`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
 
         /// <summary>
-        /// Whether to exclude NAT Gateways from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude NAT Gateways from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("natGatewayExclusion")]
         public Input<string>? NatGatewayExclusion { get; set; }
@@ -300,7 +257,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -312,16 +269,13 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.VpcEncryptionControlTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Whether to exclude Virtual Private Gateways from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Virtual Private Gateways from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("virtualPrivateGatewayExclusion")]
         public Input<string>? VirtualPrivateGatewayExclusion { get; set; }
 
         /// <summary>
-        /// The ID of the VPC the VPC Encryption Control is linked to.
+        /// ID of the VPC the VPC Encryption Control is linked to.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -329,19 +283,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string> VpcId { get; set; } = null!;
 
         /// <summary>
-        /// Whether to exclude VPC Lattice from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude VPC Lattice from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("vpcLatticeExclusion")]
         public Input<string>? VpcLatticeExclusion { get; set; }
 
         /// <summary>
-        /// Whether to exclude peered VPCs from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude peered VPCs from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("vpcPeeringExclusion")]
         public Input<string>? VpcPeeringExclusion { get; set; }
@@ -355,53 +303,37 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcEncryptionControlState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to exclude Egress-Only Internet Gateways from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Egress-Only Internet Gateways from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("egressOnlyInternetGatewayExclusion")]
         public Input<string>? EgressOnlyInternetGatewayExclusion { get; set; }
 
         /// <summary>
-        /// Whether to exclude Elastic File System (EFS) from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Elastic File System (EFS) from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("elasticFileSystemExclusion")]
         public Input<string>? ElasticFileSystemExclusion { get; set; }
 
         /// <summary>
-        /// Whether to exclude Internet Gateways from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Internet Gateways from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("internetGatewayExclusion")]
         public Input<string>? InternetGatewayExclusion { get; set; }
 
         /// <summary>
-        /// Whether to exclude Lambda Functions from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Lambda Functions from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("lambdaExclusion")]
         public Input<string>? LambdaExclusion { get; set; }
 
         /// <summary>
-        /// Mode to enable for VPC Encryption Control.
-        /// Valid values are `Monitor` or `Enforce`.
+        /// Mode to enable for VPC Encryption Control. Valid values are `Monitor` or `Enforce`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// Whether to exclude NAT Gateways from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude NAT Gateways from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("natGatewayExclusion")]
         public Input<string>? NatGatewayExclusion { get; set; }
@@ -413,21 +345,19 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// State of exclusions from encryption enforcement.
-        /// Will be `Nil` if `Mode` is `Monitor`.
-        /// See `ResourceExclusions` below
+        /// State of exclusions from encryption enforcement. Will be `Nil` if `Mode` is `Monitor`. See `ResourceExclusions` below.
         /// </summary>
         [Input("resourceExclusions")]
         public Input<Inputs.VpcEncryptionControlResourceExclusionsGetArgs>? ResourceExclusions { get; set; }
 
         /// <summary>
-        /// The current state of the VPC Encryption Control.
+        /// Encryption enforcement state for peered VPCs.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// A message providing additional information about the state of the VPC Encryption Control.
+        /// Message providing additional information about the encryption enforcement state.
         /// </summary>
         [Input("stateMessage")]
         public Input<string>? StateMessage { get; set; }
@@ -436,7 +366,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -448,7 +378,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -460,16 +390,13 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.VpcEncryptionControlTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// Whether to exclude Virtual Private Gateways from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude Virtual Private Gateways from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("virtualPrivateGatewayExclusion")]
         public Input<string>? VirtualPrivateGatewayExclusion { get; set; }
 
         /// <summary>
-        /// The ID of the VPC the VPC Encryption Control is linked to.
+        /// ID of the VPC the VPC Encryption Control is linked to.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -477,19 +404,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? VpcId { get; set; }
 
         /// <summary>
-        /// Whether to exclude VPC Lattice from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude VPC Lattice from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("vpcLatticeExclusion")]
         public Input<string>? VpcLatticeExclusion { get; set; }
 
         /// <summary>
-        /// Whether to exclude peered VPCs from encryption enforcement.
-        /// Valid values are `Disable` or `Enable`.
-        /// Default is `Disable`.
-        /// Only valid when `Mode` is `Enforce`.
+        /// Whether to exclude peered VPCs from encryption enforcement. Valid values are `Disable` or `Enable`. Default is `Disable`. Only valid when `Mode` is `Enforce`.
         /// </summary>
         [Input("vpcPeeringExclusion")]
         public Input<string>? VpcPeeringExclusion { get; set; }

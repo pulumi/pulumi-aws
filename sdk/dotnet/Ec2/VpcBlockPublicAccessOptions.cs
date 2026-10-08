@@ -44,13 +44,13 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcBlockPublicAccessOptions : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS account id to which these options apply.
+        /// AWS account id to which these options apply.
         /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS region to which these options apply.
+        /// AWS region to which these options apply.
         /// </summary>
         [Output("awsRegion")]
         public Output<string> AwsRegion { get; private set; } = null!;
@@ -140,13 +140,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcBlockPublicAccessOptionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account id to which these options apply.
+        /// AWS account id to which these options apply.
         /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// The AWS region to which these options apply.
+        /// AWS region to which these options apply.
         /// </summary>
         [Input("awsRegion")]
         public Input<string>? AwsRegion { get; set; }

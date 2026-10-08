@@ -35,7 +35,7 @@ public final class GetTableResult {
      */
     private String lastUpdatedTime;
     /**
-     * @return Object containing the following attributes to desribe magnetic store writes.
+     * @return Object containing the following attributes to describe magnetic store writes.
      * 
      */
     private List<GetTableMagneticStoreWriteProperty> magneticStoreWriteProperties;
@@ -91,7 +91,7 @@ public final class GetTableResult {
         return this.lastUpdatedTime;
     }
     /**
-     * @return Object containing the following attributes to desribe magnetic store writes.
+     * @return Object containing the following attributes to describe magnetic store writes.
      * 
      */
     public List<GetTableMagneticStoreWriteProperty> magneticStoreWriteProperties() {

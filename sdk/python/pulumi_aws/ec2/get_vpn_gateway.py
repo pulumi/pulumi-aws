@@ -65,6 +65,9 @@ class GetVpnGatewayResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
+        """
+        ARN of the VPN Gateway.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
@@ -133,6 +136,8 @@ def get_vpn_gateway(amazon_side_asn: Optional[_builtins.str] = None,
     The VPN Gateway data source provides details about
     a specific VPN gateway.
 
+    The arguments of this data source act as filters for querying the available VPN gateways. The given filters must match exactly one VPN gateway whose data will be exported as attributes.
+
     ## Example Usage
 
     ```python
@@ -148,17 +153,13 @@ def get_vpn_gateway(amazon_side_asn: Optional[_builtins.str] = None,
 
 
     :param _builtins.str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-           
-           The arguments of this data source act as filters for querying the available VPN gateways.
-           The given filters must match exactly one VPN gateway whose data will be exported as attributes.
     :param _builtins.str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param _builtins.str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
     :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict', 'outputs.GetVpnGatewayFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str id: ID of the specific VPN Gateway to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: State of the specific VPN Gateway to retrieve.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired VPN Gateway.
+    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPN Gateway.
     """
     __args__ = dict()
     __args__['amazonSideAsn'] = amazon_side_asn
@@ -195,6 +196,8 @@ def get_vpn_gateway_output(amazon_side_asn: pulumi.Input[Optional[Optional[_buil
     The VPN Gateway data source provides details about
     a specific VPN gateway.
 
+    The arguments of this data source act as filters for querying the available VPN gateways. The given filters must match exactly one VPN gateway whose data will be exported as attributes.
+
     ## Example Usage
 
     ```python
@@ -210,17 +213,13 @@ def get_vpn_gateway_output(amazon_side_asn: pulumi.Input[Optional[Optional[_buil
 
 
     :param _builtins.str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
-           
-           The arguments of this data source act as filters for querying the available VPN gateways.
-           The given filters must match exactly one VPN gateway whose data will be exported as attributes.
     :param _builtins.str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param _builtins.str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
     :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict', 'outputs.GetVpnGatewayFilterResult']] filters: Custom filter block as described below.
     :param _builtins.str id: ID of the specific VPN Gateway to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: State of the specific VPN Gateway to retrieve.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired VPN Gateway.
+    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPN Gateway.
     """
     __args__ = dict()
     __args__['amazonSideAsn'] = amazon_side_asn

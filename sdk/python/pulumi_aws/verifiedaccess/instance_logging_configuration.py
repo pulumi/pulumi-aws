@@ -27,8 +27,8 @@ class InstanceLoggingConfigurationArgs:
         """
         The set of arguments for constructing a InstanceLoggingConfiguration resource.
 
-        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
+        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: Block that specifies the configuration options for Verified Access instances. Detailed below.
+        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: ID of the Verified Access instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "access_logs", access_logs)
@@ -40,7 +40,7 @@ class InstanceLoggingConfigurationArgs:
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']:
         """
-        A block that specifies the configuration options for Verified Access instances. Detailed below.
+        Block that specifies the configuration options for Verified Access instances. Detailed below.
         """
         return pulumi.get(self, "access_logs")
 
@@ -52,7 +52,7 @@ class InstanceLoggingConfigurationArgs:
     @pulumi.getter(name="verifiedaccessInstanceId")
     def verifiedaccess_instance_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Verified Access instance.
+        ID of the Verified Access instance.
         """
         return pulumi.get(self, "verifiedaccess_instance_id")
 
@@ -82,9 +82,9 @@ class _InstanceLoggingConfigurationState:
         """
         Input properties used for looking up and filtering InstanceLoggingConfiguration resources.
 
-        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
+        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: Block that specifies the configuration options for Verified Access instances. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
+        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: ID of the Verified Access instance.
         """
         if access_logs is not None:
             pulumi.set(__self__, "access_logs", access_logs)
@@ -97,7 +97,7 @@ class _InstanceLoggingConfigurationState:
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsArgs']]:
         """
-        A block that specifies the configuration options for Verified Access instances. Detailed below.
+        Block that specifies the configuration options for Verified Access instances. Detailed below.
         """
         return pulumi.get(self, "access_logs")
 
@@ -121,7 +121,7 @@ class _InstanceLoggingConfigurationState:
     @pulumi.getter(name="verifiedaccessInstanceId")
     def verifiedaccess_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Verified Access instance.
+        ID of the Verified Access instance.
         """
         return pulumi.get(self, "verifiedaccess_instance_id")
 
@@ -257,9 +257,9 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict', 'outputs.InstanceLoggingConfigurationAccessLogs']] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
+        :param pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict', 'outputs.InstanceLoggingConfigurationAccessLogs']] access_logs: Block that specifies the configuration options for Verified Access instances. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
+        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: ID of the Verified Access instance.
         """
         ...
     @overload
@@ -436,9 +436,9 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict', 'outputs.InstanceLoggingConfigurationAccessLogs']] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
+        :param pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict', 'outputs.InstanceLoggingConfigurationAccessLogs']] access_logs: Block that specifies the configuration options for Verified Access instances. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
+        :param pulumi.Input[_builtins.str] verifiedaccess_instance_id: ID of the Verified Access instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -453,7 +453,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="accessLogs")
     def access_logs(self) -> pulumi.Output['outputs.InstanceLoggingConfigurationAccessLogs']:
         """
-        A block that specifies the configuration options for Verified Access instances. Detailed below.
+        Block that specifies the configuration options for Verified Access instances. Detailed below.
         """
         return pulumi.get(self, "access_logs")
 
@@ -469,7 +469,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="verifiedaccessInstanceId")
     def verifiedaccess_instance_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Verified Access instance.
+        ID of the Verified Access instance.
         """
         return pulumi.get(self, "verifiedaccess_instance_id")
 

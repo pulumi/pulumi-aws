@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.StreamStreamModeDetailsArgs;
  * import com.pulumi.aws.dynamodb.KinesisStreamingDestination;
  * import com.pulumi.aws.dynamodb.KinesisStreamingDestinationArgs;
  * import java.util.ArrayList;
@@ -55,8 +56,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStream = new Stream("exampleStream", StreamArgs.builder()
+ *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
+ *                 .streamMode("ON_DEMAND")
+ *                 .build())
  *             .name("order_item_changes")
- *             .shardCount(1)
  *             .build());
  * 
  *         var exampleKinesisStreamingDestination = new KinesisStreamingDestination("exampleKinesisStreamingDestination", KinesisStreamingDestinationArgs.builder()

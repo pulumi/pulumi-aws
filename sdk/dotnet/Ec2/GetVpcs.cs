@@ -244,8 +244,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired vpcs.
+        /// Map of tags, each pair of which must exactly match a pair on the desired vpcs.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -283,8 +282,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired vpcs.
+        /// Map of tags, each pair of which must exactly match a pair on the desired vpcs.
         /// </summary>
         public InputMap<string> Tags
         {

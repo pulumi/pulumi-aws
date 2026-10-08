@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ### Encryption
  * 
- * &gt; *NOTE:* See the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
+ * &gt; *NOTE:* See the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling encryption of data using a customer-managed key for Step Functions State Machines data.
  * 
  * <pre>
  * {@code
@@ -141,14 +141,14 @@ public class Activity extends com.pulumi.resources.CustomResource {
         return this.creationDate;
     }
     /**
-     * Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+     * Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
      * 
      */
     @Export(name="encryptionConfiguration", refs={ActivityEncryptionConfiguration.class}, tree="[0]")
     private Output<ActivityEncryptionConfiguration> encryptionConfiguration;
 
     /**
-     * @return Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
+     * @return Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encryption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
      * 
      */
     public Output<ActivityEncryptionConfiguration> encryptionConfiguration() {

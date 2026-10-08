@@ -16,14 +16,14 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingArgs extends c
     public static final RuleGroupRuleActionCaptchaCustomRequestHandlingArgs Empty = new RuleGroupRuleActionCaptchaCustomRequestHandlingArgs();
 
     /**
-     * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
      */
     @Import(name="insertHeaders", required=true)
     private Output<List<RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * @return `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
      */
     public Output<List<RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
@@ -55,7 +55,7 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingArgs extends c
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * @param insertHeaders `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingArgs extends c
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * @param insertHeaders `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class RuleGroupRuleActionCaptchaCustomRequestHandlingArgs extends c
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * @param insertHeaders `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          * 
          * @return builder
          * 

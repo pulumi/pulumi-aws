@@ -70,16 +70,17 @@ type VpcIpamScope struct {
 
 	// ARN of the scope.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A description for the scope you're creating.
+	// Description for the scope you're creating.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The ARN of the IPAM for which you're creating this scope.
+	// ARN of the IPAM for which you're creating this scope.
 	IpamArn pulumi.StringOutput `pulumi:"ipamArn"`
-	// The ID of the IPAM for which you're creating this scope.
-	IpamId        pulumi.StringOutput `pulumi:"ipamId"`
+	// ID of the IPAM for which you're creating this scope.
+	IpamId pulumi.StringOutput `pulumi:"ipamId"`
+	// Type of the scope.
 	IpamScopeType pulumi.StringOutput `pulumi:"ipamScopeType"`
-	// Defines if the scope is the default scope or not.
+	// Whether the scope is the default scope.
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
-	// The number of pools in the scope.
+	// Number of pools in the scope.
 	PoolCount pulumi.IntOutput `pulumi:"poolCount"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -123,16 +124,17 @@ func GetVpcIpamScope(ctx *pulumi.Context,
 type vpcIpamScopeState struct {
 	// ARN of the scope.
 	Arn *string `pulumi:"arn"`
-	// A description for the scope you're creating.
+	// Description for the scope you're creating.
 	Description *string `pulumi:"description"`
-	// The ARN of the IPAM for which you're creating this scope.
+	// ARN of the IPAM for which you're creating this scope.
 	IpamArn *string `pulumi:"ipamArn"`
-	// The ID of the IPAM for which you're creating this scope.
-	IpamId        *string `pulumi:"ipamId"`
+	// ID of the IPAM for which you're creating this scope.
+	IpamId *string `pulumi:"ipamId"`
+	// Type of the scope.
 	IpamScopeType *string `pulumi:"ipamScopeType"`
-	// Defines if the scope is the default scope or not.
+	// Whether the scope is the default scope.
 	IsDefault *bool `pulumi:"isDefault"`
-	// The number of pools in the scope.
+	// Number of pools in the scope.
 	PoolCount *int `pulumi:"poolCount"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -144,16 +146,17 @@ type vpcIpamScopeState struct {
 type VpcIpamScopeState struct {
 	// ARN of the scope.
 	Arn pulumi.StringPtrInput
-	// A description for the scope you're creating.
+	// Description for the scope you're creating.
 	Description pulumi.StringPtrInput
-	// The ARN of the IPAM for which you're creating this scope.
+	// ARN of the IPAM for which you're creating this scope.
 	IpamArn pulumi.StringPtrInput
-	// The ID of the IPAM for which you're creating this scope.
-	IpamId        pulumi.StringPtrInput
+	// ID of the IPAM for which you're creating this scope.
+	IpamId pulumi.StringPtrInput
+	// Type of the scope.
 	IpamScopeType pulumi.StringPtrInput
-	// Defines if the scope is the default scope or not.
+	// Whether the scope is the default scope.
 	IsDefault pulumi.BoolPtrInput
-	// The number of pools in the scope.
+	// Number of pools in the scope.
 	PoolCount pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -167,9 +170,9 @@ func (VpcIpamScopeState) ElementType() reflect.Type {
 }
 
 type vpcIpamScopeArgs struct {
-	// A description for the scope you're creating.
+	// Description for the scope you're creating.
 	Description *string `pulumi:"description"`
-	// The ID of the IPAM for which you're creating this scope.
+	// ID of the IPAM for which you're creating this scope.
 	IpamId string `pulumi:"ipamId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -179,9 +182,9 @@ type vpcIpamScopeArgs struct {
 
 // The set of arguments for constructing a VpcIpamScope resource.
 type VpcIpamScopeArgs struct {
-	// A description for the scope you're creating.
+	// Description for the scope you're creating.
 	Description pulumi.StringPtrInput
-	// The ID of the IPAM for which you're creating this scope.
+	// ID of the IPAM for which you're creating this scope.
 	IpamId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -281,31 +284,32 @@ func (o VpcIpamScopeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A description for the scope you're creating.
+// Description for the scope you're creating.
 func (o VpcIpamScopeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the IPAM for which you're creating this scope.
+// ARN of the IPAM for which you're creating this scope.
 func (o VpcIpamScopeOutput) IpamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.IpamArn }).(pulumi.StringOutput)
 }
 
-// The ID of the IPAM for which you're creating this scope.
+// ID of the IPAM for which you're creating this scope.
 func (o VpcIpamScopeOutput) IpamId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.IpamId }).(pulumi.StringOutput)
 }
 
+// Type of the scope.
 func (o VpcIpamScopeOutput) IpamScopeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.StringOutput { return v.IpamScopeType }).(pulumi.StringOutput)
 }
 
-// Defines if the scope is the default scope or not.
+// Whether the scope is the default scope.
 func (o VpcIpamScopeOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// The number of pools in the scope.
+// Number of pools in the scope.
 func (o VpcIpamScopeOutput) PoolCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcIpamScope) pulumi.IntOutput { return v.PoolCount }).(pulumi.IntOutput)
 }

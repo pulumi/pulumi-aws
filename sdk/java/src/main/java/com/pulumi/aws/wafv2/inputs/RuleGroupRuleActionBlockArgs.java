@@ -16,14 +16,14 @@ public final class RuleGroupRuleActionBlockArgs extends com.pulumi.resources.Res
     public static final RuleGroupRuleActionBlockArgs Empty = new RuleGroupRuleActionBlockArgs();
 
     /**
-     * Defines a custom response for the web request. See Custom Response below for details.
+     * Custom response for the web request. See Custom Response below for details.
      * 
      */
     @Import(name="customResponse")
     private @Nullable Output<RuleGroupRuleActionBlockCustomResponseArgs> customResponse;
 
     /**
-     * @return Defines a custom response for the web request. See Custom Response below for details.
+     * @return Custom response for the web request. See Custom Response below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleActionBlockCustomResponseArgs>> customResponse() {
@@ -55,7 +55,7 @@ public final class RuleGroupRuleActionBlockArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customResponse Defines a custom response for the web request. See Custom Response below for details.
+         * @param customResponse Custom response for the web request. See Custom Response below for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class RuleGroupRuleActionBlockArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customResponse Defines a custom response for the web request. See Custom Response below for details.
+         * @param customResponse Custom response for the web request. See Custom Response below for details.
          * 
          * @return builder
          * 

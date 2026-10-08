@@ -964,6 +964,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="cloudwatchomni")
+    private @Nullable Output<String> cloudwatchomni;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> cloudwatchomni() {
+        return Optional.ofNullable(this.cloudwatchomni);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="cloudwatchrum")
     private @Nullable Output<String> cloudwatchrum;
 
@@ -2029,6 +2044,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="eventbridgev2")
+    private @Nullable Output<String> eventbridgev2;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> eventbridgev2() {
+        return Optional.ofNullable(this.eventbridgev2);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="events")
     private @Nullable Output<String> events;
 
@@ -2674,6 +2704,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="lambdaweb")
+    private @Nullable Output<String> lambdaweb;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> lambdaweb() {
+        return Optional.ofNullable(this.lambdaweb);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="launchwizard")
     private @Nullable Output<String> launchwizard;
 
@@ -3208,6 +3253,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> networkmonitor() {
         return Optional.ofNullable(this.networkmonitor);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
+    @Import(name="networksecuritymanager")
+    private @Nullable Output<String> networksecuritymanager;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> networksecuritymanager() {
+        return Optional.ofNullable(this.networksecuritymanager);
     }
 
     /**
@@ -4896,6 +4956,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.cloudwatchlog = $.cloudwatchlog;
         this.cloudwatchlogs = $.cloudwatchlogs;
         this.cloudwatchobservabilityaccessmanager = $.cloudwatchobservabilityaccessmanager;
+        this.cloudwatchomni = $.cloudwatchomni;
         this.cloudwatchrum = $.cloudwatchrum;
         this.codeartifact = $.codeartifact;
         this.codebuild = $.codebuild;
@@ -4967,6 +5028,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.emrserverless = $.emrserverless;
         this.es = $.es;
         this.eventbridge = $.eventbridge;
+        this.eventbridgev2 = $.eventbridgev2;
         this.events = $.events;
         this.evidently = $.evidently;
         this.evs = $.evs;
@@ -5010,6 +5072,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.lambda = $.lambda;
         this.lambdacore = $.lambdacore;
         this.lambdamicrovms = $.lambdamicrovms;
+        this.lambdaweb = $.lambdaweb;
         this.launchwizard = $.launchwizard;
         this.lex = $.lex;
         this.lexmodelbuilding = $.lexmodelbuilding;
@@ -5046,6 +5109,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.networkflowmonitor = $.networkflowmonitor;
         this.networkmanager = $.networkmanager;
         this.networkmonitor = $.networkmonitor;
+        this.networksecuritymanager = $.networksecuritymanager;
         this.notifications = $.notifications;
         this.notificationscontacts = $.notificationscontacts;
         this.oam = $.oam;
@@ -6495,6 +6559,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder cloudwatchobservabilityaccessmanager(String cloudwatchobservabilityaccessmanager) {
             return cloudwatchobservabilityaccessmanager(Output.of(cloudwatchobservabilityaccessmanager));
+        }
+
+        /**
+         * @param cloudwatchomni Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudwatchomni(@Nullable Output<String> cloudwatchomni) {
+            $.cloudwatchomni = cloudwatchomni;
+            return this;
+        }
+
+        /**
+         * @param cloudwatchomni Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudwatchomni(String cloudwatchomni) {
+            return cloudwatchomni(Output.of(cloudwatchomni));
         }
 
         /**
@@ -7989,6 +8074,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param eventbridgev2 Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventbridgev2(@Nullable Output<String> eventbridgev2) {
+            $.eventbridgev2 = eventbridgev2;
+            return this;
+        }
+
+        /**
+         * @param eventbridgev2 Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder eventbridgev2(String eventbridgev2) {
+            return eventbridgev2(Output.of(eventbridgev2));
+        }
+
+        /**
          * @param events Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -8892,6 +8998,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param lambdaweb Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdaweb(@Nullable Output<String> lambdaweb) {
+            $.lambdaweb = lambdaweb;
+            return this;
+        }
+
+        /**
+         * @param lambdaweb Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdaweb(String lambdaweb) {
+            return lambdaweb(Output.of(lambdaweb));
+        }
+
+        /**
          * @param launchwizard Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -9645,6 +9772,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder networkmonitor(String networkmonitor) {
             return networkmonitor(Output.of(networkmonitor));
+        }
+
+        /**
+         * @param networksecuritymanager Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networksecuritymanager(@Nullable Output<String> networksecuritymanager) {
+            $.networksecuritymanager = networksecuritymanager;
+            return this;
+        }
+
+        /**
+         * @param networksecuritymanager Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networksecuritymanager(String networksecuritymanager) {
+            return networksecuritymanager(Output.of(networksecuritymanager));
         }
 
         /**

@@ -26,6 +26,10 @@ public final class GetInputResult {
      * 
      */
     private List<String> attachedChannels;
+    /**
+     * @return Destination settings for PUSH type inputs.
+     * 
+     */
     private List<GetInputDestination> destinations;
     private String id;
     /**
@@ -105,6 +109,10 @@ public final class GetInputResult {
     public List<String> attachedChannels() {
         return this.attachedChannels;
     }
+    /**
+     * @return Destination settings for PUSH type inputs.
+     * 
+     */
     public List<GetInputDestination> destinations() {
         return this.destinations;
     }

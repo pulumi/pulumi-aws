@@ -93,56 +93,56 @@ public class VpcIpamResourceDiscovery extends com.pulumi.resources.CustomResourc
         return this.arn;
     }
     /**
-     * A description for the IPAM Resource Discovery.
+     * Description for the IPAM Resource Discovery.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description for the IPAM Resource Discovery.
+     * @return Description for the IPAM Resource Discovery.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The home region of the Resource Discovery
+     * Home region of the Resource Discovery
      * 
      */
     @Export(name="ipamResourceDiscoveryRegion", refs={String.class}, tree="[0]")
     private Output<String> ipamResourceDiscoveryRegion;
 
     /**
-     * @return The home region of the Resource Discovery
+     * @return Home region of the Resource Discovery
      * 
      */
     public Output<String> ipamResourceDiscoveryRegion() {
         return this.ipamResourceDiscoveryRegion;
     }
     /**
-     * A boolean to identify if the Resource Discovery is the accounts default resource discovery
+     * Boolean to identify if the Resource Discovery is the accounts default resource discovery
      * 
      */
     @Export(name="isDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isDefault;
 
     /**
-     * @return A boolean to identify if the Resource Discovery is the accounts default resource discovery
+     * @return Boolean to identify if the Resource Discovery is the accounts default resource discovery
      * 
      */
     public Output<Boolean> isDefault() {
         return this.isDefault;
     }
     /**
-     * Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+     * Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
      * 
      */
     @Export(name="operatingRegions", refs={List.class,VpcIpamResourceDiscoveryOperatingRegion.class}, tree="[0,1]")
     private Output<List<VpcIpamResourceDiscoveryOperatingRegion>> operatingRegions;
 
     /**
-     * @return Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+     * @return Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
      * 
      */
     public Output<List<VpcIpamResourceDiscoveryOperatingRegion>> operatingRegions() {
@@ -163,14 +163,14 @@ public class VpcIpamResourceDiscovery extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.organizationalUnitExclusions);
     }
     /**
-     * The account ID for the account that manages the Resource Discovery
+     * Account ID for the account that manages the Resource Discovery
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
-     * @return The account ID for the account that manages the Resource Discovery
+     * @return Account ID for the account that manages the Resource Discovery
      * 
      */
     public Output<String> ownerId() {
@@ -191,28 +191,28 @@ public class VpcIpamResourceDiscovery extends com.pulumi.resources.CustomResourc
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

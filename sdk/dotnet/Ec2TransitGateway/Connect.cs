@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> TransitGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// The underlaying VPC attachment
+        /// The underlying VPC attachment
         /// </summary>
         [Output("transportAttachmentId")]
         public Output<string> TransportAttachmentId { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string> TransitGatewayId { get; set; } = null!;
 
         /// <summary>
-        /// The underlaying VPC attachment
+        /// The underlying VPC attachment
         /// </summary>
         [Input("transportAttachmentId", required: true)]
         public Input<string> TransportAttachmentId { get; set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string>? TransitGatewayId { get; set; }
 
         /// <summary>
-        /// The underlaying VPC attachment
+        /// The underlying VPC attachment
         /// </summary>
         [Input("transportAttachmentId")]
         public Input<string>? TransportAttachmentId { get; set; }

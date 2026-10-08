@@ -93,14 +93,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The policy document that is associated with this resource.
+     * Policy document that is associated with this resource.
      * 
      */
     @Import(name="policyDocument")
     private @Nullable Output<String> policyDocument;
 
     /**
-     * @return The policy document that is associated with this resource.
+     * @return Policy document that is associated with this resource.
      * 
      */
     public Optional<Output<String>> policyDocument() {
@@ -123,14 +123,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block to use KMS keys for server-side encryption.
+     * Configuration block to use KMS keys for server-side encryption. See below.
      * 
      */
     @Import(name="sseConfiguration")
     private @Nullable Output<GroupSseConfigurationArgs> sseConfiguration;
 
     /**
-     * @return Configuration block to use KMS keys for server-side encryption.
+     * @return Configuration block to use KMS keys for server-side encryption. See below.
      * 
      */
     public Optional<Output<GroupSseConfigurationArgs>> sseConfiguration() {
@@ -160,14 +160,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of this verified acess group.
+     * ARN of this verified access group.
      * 
      */
     @Import(name="verifiedaccessGroupArn")
     private @Nullable Output<String> verifiedaccessGroupArn;
 
     /**
-     * @return ARN of this verified acess group.
+     * @return ARN of this verified access group.
      * 
      */
     public Optional<Output<String>> verifiedaccessGroupArn() {
@@ -190,7 +190,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The id of the verified access instance this group is associated with.
+     * ID of the verified access instance this group is associated with.
      * 
      * The following arguments are optional:
      * 
@@ -199,7 +199,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> verifiedaccessInstanceId;
 
     /**
-     * @return The id of the verified access instance this group is associated with.
+     * @return ID of the verified access instance this group is associated with.
      * 
      * The following arguments are optional:
      * 
@@ -350,7 +350,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyDocument The policy document that is associated with this resource.
+         * @param policyDocument Policy document that is associated with this resource.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policyDocument The policy document that is associated with this resource.
+         * @param policyDocument Policy document that is associated with this resource.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
+         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption. See below.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption.
+         * @param sseConfiguration Configuration block to use KMS keys for server-side encryption. See below.
          * 
          * @return builder
          * 
@@ -443,7 +443,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifiedaccessGroupArn ARN of this verified acess group.
+         * @param verifiedaccessGroupArn ARN of this verified access group.
          * 
          * @return builder
          * 
@@ -454,7 +454,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifiedaccessGroupArn ARN of this verified acess group.
+         * @param verifiedaccessGroupArn ARN of this verified access group.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifiedaccessInstanceId The id of the verified access instance this group is associated with.
+         * @param verifiedaccessInstanceId ID of the verified access instance this group is associated with.
          * 
          * The following arguments are optional:
          * 
@@ -498,7 +498,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param verifiedaccessInstanceId The id of the verified access instance this group is associated with.
+         * @param verifiedaccessInstanceId ID of the verified access instance this group is associated with.
          * 
          * The following arguments are optional:
          * 

@@ -29,12 +29,12 @@ class RouteServerEndpointArgs:
         """
         The set of arguments for constructing a RouteServerEndpoint resource.
 
-        :param pulumi.Input[_builtins.str] route_server_id: The ID of the route server for which to create an endpoint.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which to create the route server endpoint.
+        :param pulumi.Input[_builtins.str] route_server_id: ID of the route server for which to create an endpoint.
+        :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet in which to create the route server endpoint.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "route_server_id", route_server_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -49,7 +49,7 @@ class RouteServerEndpointArgs:
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the route server for which to create an endpoint.
+        ID of the route server for which to create an endpoint.
         """
         return pulumi.get(self, "route_server_id")
 
@@ -61,7 +61,7 @@ class RouteServerEndpointArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the subnet in which to create the route server endpoint.
+        ID of the subnet in which to create the route server endpoint.
 
         The following arguments are optional:
         """
@@ -87,7 +87,7 @@ class RouteServerEndpointArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -122,18 +122,18 @@ class _RouteServerEndpointState:
         """
         Input properties used for looking up and filtering RouteServerEndpoint resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the route server endpoint.
-        :param pulumi.Input[_builtins.str] eni_address: The IP address of the Elastic network interface for the endpoint.
-        :param pulumi.Input[_builtins.str] eni_id: The ID of the Elastic network interface for the endpoint.
+        :param pulumi.Input[_builtins.str] arn: ARN of the route server endpoint.
+        :param pulumi.Input[_builtins.str] eni_address: IP address of the Elastic network interface for the endpoint.
+        :param pulumi.Input[_builtins.str] eni_id: ID of the Elastic network interface for the endpoint.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_endpoint_id: The unique identifier of the route server endpoint.
-        :param pulumi.Input[_builtins.str] route_server_id: The ID of the route server for which to create an endpoint.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which to create the route server endpoint.
+        :param pulumi.Input[_builtins.str] route_server_endpoint_id: Unique identifier of the route server endpoint.
+        :param pulumi.Input[_builtins.str] route_server_id: ID of the route server for which to create an endpoint.
+        :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet in which to create the route server endpoint.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC containing the endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC containing the endpoint.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -162,7 +162,7 @@ class _RouteServerEndpointState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the route server endpoint.
+        ARN of the route server endpoint.
         """
         return pulumi.get(self, "arn")
 
@@ -174,7 +174,7 @@ class _RouteServerEndpointState:
     @pulumi.getter(name="eniAddress")
     def eni_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The IP address of the Elastic network interface for the endpoint.
+        IP address of the Elastic network interface for the endpoint.
         """
         return pulumi.get(self, "eni_address")
 
@@ -186,7 +186,7 @@ class _RouteServerEndpointState:
     @pulumi.getter(name="eniId")
     def eni_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Elastic network interface for the endpoint.
+        ID of the Elastic network interface for the endpoint.
         """
         return pulumi.get(self, "eni_id")
 
@@ -210,7 +210,7 @@ class _RouteServerEndpointState:
     @pulumi.getter(name="routeServerEndpointId")
     def route_server_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique identifier of the route server endpoint.
+        Unique identifier of the route server endpoint.
         """
         return pulumi.get(self, "route_server_endpoint_id")
 
@@ -222,7 +222,7 @@ class _RouteServerEndpointState:
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the route server for which to create an endpoint.
+        ID of the route server for which to create an endpoint.
         """
         return pulumi.get(self, "route_server_id")
 
@@ -234,7 +234,7 @@ class _RouteServerEndpointState:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the subnet in which to create the route server endpoint.
+        ID of the subnet in which to create the route server endpoint.
 
         The following arguments are optional:
         """
@@ -248,7 +248,7 @@ class _RouteServerEndpointState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -260,7 +260,7 @@ class _RouteServerEndpointState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -281,7 +281,7 @@ class _RouteServerEndpointState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC containing the endpoint.
+        ID of the VPC containing the endpoint.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -333,11 +333,11 @@ class RouteServerEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_id: The ID of the route server for which to create an endpoint.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which to create the route server endpoint.
+        :param pulumi.Input[_builtins.str] route_server_id: ID of the route server for which to create an endpoint.
+        :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet in which to create the route server endpoint.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -445,18 +445,18 @@ class RouteServerEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the route server endpoint.
-        :param pulumi.Input[_builtins.str] eni_address: The IP address of the Elastic network interface for the endpoint.
-        :param pulumi.Input[_builtins.str] eni_id: The ID of the Elastic network interface for the endpoint.
+        :param pulumi.Input[_builtins.str] arn: ARN of the route server endpoint.
+        :param pulumi.Input[_builtins.str] eni_address: IP address of the Elastic network interface for the endpoint.
+        :param pulumi.Input[_builtins.str] eni_id: ID of the Elastic network interface for the endpoint.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] route_server_endpoint_id: The unique identifier of the route server endpoint.
-        :param pulumi.Input[_builtins.str] route_server_id: The ID of the route server for which to create an endpoint.
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in which to create the route server endpoint.
+        :param pulumi.Input[_builtins.str] route_server_endpoint_id: Unique identifier of the route server endpoint.
+        :param pulumi.Input[_builtins.str] route_server_id: ID of the route server for which to create an endpoint.
+        :param pulumi.Input[_builtins.str] subnet_id: ID of the subnet in which to create the route server endpoint.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC containing the endpoint.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC containing the endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -479,7 +479,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the route server endpoint.
+        ARN of the route server endpoint.
         """
         return pulumi.get(self, "arn")
 
@@ -487,7 +487,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="eniAddress")
     def eni_address(self) -> pulumi.Output[_builtins.str]:
         """
-        The IP address of the Elastic network interface for the endpoint.
+        IP address of the Elastic network interface for the endpoint.
         """
         return pulumi.get(self, "eni_address")
 
@@ -495,7 +495,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="eniId")
     def eni_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Elastic network interface for the endpoint.
+        ID of the Elastic network interface for the endpoint.
         """
         return pulumi.get(self, "eni_id")
 
@@ -511,7 +511,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="routeServerEndpointId")
     def route_server_endpoint_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The unique identifier of the route server endpoint.
+        Unique identifier of the route server endpoint.
         """
         return pulumi.get(self, "route_server_endpoint_id")
 
@@ -519,7 +519,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the route server for which to create an endpoint.
+        ID of the route server for which to create an endpoint.
         """
         return pulumi.get(self, "route_server_id")
 
@@ -527,7 +527,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the subnet in which to create the route server endpoint.
+        ID of the subnet in which to create the route server endpoint.
 
         The following arguments are optional:
         """
@@ -537,7 +537,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -545,7 +545,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -558,7 +558,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the VPC containing the endpoint.
+        ID of the VPC containing the endpoint.
         """
         return pulumi.get(self, "vpc_id")
 

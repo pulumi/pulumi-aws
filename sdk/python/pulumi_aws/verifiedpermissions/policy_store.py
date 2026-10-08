@@ -29,9 +29,11 @@ class PolicyStoreArgs:
         """
         The set of arguments for constructing a PolicyStore resource.
 
-        :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Validation settings for the policy store.
-        :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-        :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
+        :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Validation settings for the policy store. See Validation Settings below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] deletion_protection: Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        :param pulumi.Input[_builtins.str] description: Description of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -49,7 +51,9 @@ class PolicyStoreArgs:
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> pulumi.Input['PolicyStoreValidationSettingsArgs']:
         """
-        Validation settings for the policy store.
+        Validation settings for the policy store. See Validation Settings below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "validation_settings")
 
@@ -61,7 +65,7 @@ class PolicyStoreArgs:
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -73,7 +77,7 @@ class PolicyStoreArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the Policy Store.
+        Description of the Policy Store.
         """
         return pulumi.get(self, "description")
 
@@ -120,14 +124,16 @@ class _PolicyStoreState:
         """
         Input properties used for looking up and filtering PolicyStore resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Policy Store.
-        :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-        :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
-        :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Policy Store.
+        :param pulumi.Input[_builtins.str] deletion_protection: Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        :param pulumi.Input[_builtins.str] description: Description of the Policy Store.
+        :param pulumi.Input[_builtins.str] policy_store_id: ID of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Validation settings for the policy store.
+        :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Validation settings for the policy store. See Validation Settings below.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -150,7 +156,7 @@ class _PolicyStoreState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Policy Store.
+        ARN of the Policy Store.
         """
         return pulumi.get(self, "arn")
 
@@ -162,7 +168,7 @@ class _PolicyStoreState:
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -174,7 +180,7 @@ class _PolicyStoreState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description of the Policy Store.
+        Description of the Policy Store.
         """
         return pulumi.get(self, "description")
 
@@ -186,7 +192,7 @@ class _PolicyStoreState:
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Policy Store.
+        ID of the Policy Store.
         """
         return pulumi.get(self, "policy_store_id")
 
@@ -234,7 +240,9 @@ class _PolicyStoreState:
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> pulumi.Input[Optional['PolicyStoreValidationSettingsArgs']]:
         """
-        Validation settings for the policy store.
+        Validation settings for the policy store. See Validation Settings below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "validation_settings")
 
@@ -282,11 +290,13 @@ class PolicyStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-        :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
+        :param pulumi.Input[_builtins.str] deletion_protection: Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        :param pulumi.Input[_builtins.str] description: Description of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict', 'outputs.PolicyStoreValidationSettings']] validation_settings: Validation settings for the policy store.
+        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict', 'outputs.PolicyStoreValidationSettings']] validation_settings: Validation settings for the policy store. See Validation Settings below.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -383,14 +393,16 @@ class PolicyStore(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the Policy Store.
-        :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
-        :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
-        :param pulumi.Input[_builtins.str] policy_store_id: The ID of the Policy Store.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Policy Store.
+        :param pulumi.Input[_builtins.str] deletion_protection: Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        :param pulumi.Input[_builtins.str] description: Description of the Policy Store.
+        :param pulumi.Input[_builtins.str] policy_store_id: ID of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict', 'outputs.PolicyStoreValidationSettings']] validation_settings: Validation settings for the policy store.
+        :param pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict', 'outputs.PolicyStoreValidationSettings']] validation_settings: Validation settings for the policy store. See Validation Settings below.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -410,7 +422,7 @@ class PolicyStore(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the Policy Store.
+        ARN of the Policy Store.
         """
         return pulumi.get(self, "arn")
 
@@ -418,7 +430,7 @@ class PolicyStore(pulumi.CustomResource):
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
+        Whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         """
         return pulumi.get(self, "deletion_protection")
 
@@ -426,7 +438,7 @@ class PolicyStore(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description of the Policy Store.
+        Description of the Policy Store.
         """
         return pulumi.get(self, "description")
 
@@ -434,7 +446,7 @@ class PolicyStore(pulumi.CustomResource):
     @pulumi.getter(name="policyStoreId")
     def policy_store_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Policy Store.
+        ID of the Policy Store.
         """
         return pulumi.get(self, "policy_store_id")
 
@@ -466,7 +478,9 @@ class PolicyStore(pulumi.CustomResource):
     @pulumi.getter(name="validationSettings")
     def validation_settings(self) -> pulumi.Output['outputs.PolicyStoreValidationSettings']:
         """
-        Validation settings for the policy store.
+        Validation settings for the policy store. See Validation Settings below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "validation_settings")
 

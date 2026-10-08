@@ -21,14 +21,14 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
     public static final VpcIpamResourceDiscoveryArgs Empty = new VpcIpamResourceDiscoveryArgs();
 
     /**
-     * A description for the IPAM Resource Discovery.
+     * Description for the IPAM Resource Discovery.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description for the IPAM Resource Discovery.
+     * @return Description for the IPAM Resource Discovery.
      * 
      */
     public Optional<Output<String>> description() {
@@ -36,14 +36,14 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+     * Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
      * 
      */
     @Import(name="operatingRegions", required=true)
     private Output<List<VpcIpamResourceDiscoveryOperatingRegionArgs>> operatingRegions;
 
     /**
-     * @return Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+     * @return Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
      * 
      */
     public Output<List<VpcIpamResourceDiscoveryOperatingRegionArgs>> operatingRegions() {
@@ -81,14 +81,14 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -124,7 +124,7 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param description A description for the IPAM Resource Discovery.
+         * @param description Description for the IPAM Resource Discovery.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param description A description for the IPAM Resource Discovery.
+         * @param description Description for the IPAM Resource Discovery.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param operatingRegions Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+         * @param operatingRegions Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param operatingRegions Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+         * @param operatingRegions Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param operatingRegions Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
+         * @param operatingRegions Regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

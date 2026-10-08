@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
     /**
-     * @return Enable or disable BGP logging feature. The default is `false`.
+     * @return Whether to enable the BGP logging feature. The default is `false`.
      * 
      */
     private @Nullable Boolean bgpLogEnabled;
@@ -28,7 +28,7 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
      */
     private @Nullable String bgpLogOutputFormat;
     /**
-     * @return Enable or disable VPN tunnel logging feature. The default is `false`.
+     * @return Whether to enable the VPN tunnel logging feature. The default is `false`.
      * 
      */
     private @Nullable Boolean logEnabled;
@@ -45,7 +45,7 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
 
     private VpnConnectionTunnel2LogOptionsCloudwatchLogOptions() {}
     /**
-     * @return Enable or disable BGP logging feature. The default is `false`.
+     * @return Whether to enable the BGP logging feature. The default is `false`.
      * 
      */
     public Optional<Boolean> bgpLogEnabled() {
@@ -66,7 +66,7 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
         return Optional.ofNullable(this.bgpLogOutputFormat);
     }
     /**
-     * @return Enable or disable VPN tunnel logging feature. The default is `false`.
+     * @return Whether to enable the VPN tunnel logging feature. The default is `false`.
      * 
      */
     public Optional<Boolean> logEnabled() {

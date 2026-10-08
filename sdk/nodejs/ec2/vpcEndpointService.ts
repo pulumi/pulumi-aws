@@ -84,7 +84,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     declare public readonly acceptanceRequired: pulumi.Output<boolean>;
     /**
-     * The ARNs of one or more principals allowed to discover the endpoint service.
+     * ARNs of one or more principals allowed to discover the endpoint service.
      */
     declare public readonly allowedPrincipals: pulumi.Output<string[]>;
     /**
@@ -92,11 +92,11 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A set of Availability Zones in which the service is available.
+     * Set of Availability Zones in which the service is available.
      */
     declare public /*out*/ readonly availabilityZones: pulumi.Output<string[]>;
     /**
-     * A set of DNS names for the service.
+     * Set of DNS names for the service.
      */
     declare public /*out*/ readonly baseEndpointDnsNames: pulumi.Output<string[]>;
     /**
@@ -112,7 +112,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     declare public readonly networkLoadBalancerArns: pulumi.Output<string[] | undefined>;
     /**
-     * The private DNS name for the service.
+     * Private DNS name for the service.
      */
     declare public readonly privateDnsName: pulumi.Output<string>;
     /**
@@ -124,31 +124,31 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The service name.
+     * Service name.
      */
     declare public /*out*/ readonly serviceName: pulumi.Output<string>;
     /**
-     * The service type, `Gateway` or `Interface`.
+     * Service type, `Gateway` or `Interface`.
      */
     declare public /*out*/ readonly serviceType: pulumi.Output<string>;
     /**
-     * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+     * State of the VPC endpoint service.
      */
     declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
-     * The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     * Supported IP address types. The possible values are `ipv4` and `ipv6`.
      */
     declare public readonly supportedIpAddressTypes: pulumi.Output<string[]>;
     /**
-     * The set of regions from which service consumers can access the service.
+     * Set of regions from which service consumers can access the service.
      */
     declare public readonly supportedRegions: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -221,7 +221,7 @@ export interface VpcEndpointServiceState {
      */
     acceptanceRequired?: pulumi.Input<boolean | undefined>;
     /**
-     * The ARNs of one or more principals allowed to discover the endpoint service.
+     * ARNs of one or more principals allowed to discover the endpoint service.
      */
     allowedPrincipals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -229,11 +229,11 @@ export interface VpcEndpointServiceState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A set of Availability Zones in which the service is available.
+     * Set of Availability Zones in which the service is available.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A set of DNS names for the service.
+     * Set of DNS names for the service.
      */
     baseEndpointDnsNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -249,7 +249,7 @@ export interface VpcEndpointServiceState {
      */
     networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The private DNS name for the service.
+     * Private DNS name for the service.
      */
     privateDnsName?: pulumi.Input<string | undefined>;
     /**
@@ -261,31 +261,31 @@ export interface VpcEndpointServiceState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The service name.
+     * Service name.
      */
     serviceName?: pulumi.Input<string | undefined>;
     /**
-     * The service type, `Gateway` or `Interface`.
+     * Service type, `Gateway` or `Interface`.
      */
     serviceType?: pulumi.Input<string | undefined>;
     /**
-     * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+     * State of the VPC endpoint service.
      */
     state?: pulumi.Input<string | undefined>;
     /**
-     * The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     * Supported IP address types. The possible values are `ipv4` and `ipv6`.
      */
     supportedIpAddressTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The set of regions from which service consumers can access the service.
+     * Set of regions from which service consumers can access the service.
      */
     supportedRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -299,7 +299,7 @@ export interface VpcEndpointServiceArgs {
      */
     acceptanceRequired: pulumi.Input<boolean>;
     /**
-     * The ARNs of one or more principals allowed to discover the endpoint service.
+     * ARNs of one or more principals allowed to discover the endpoint service.
      */
     allowedPrincipals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -311,7 +311,7 @@ export interface VpcEndpointServiceArgs {
      */
     networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The private DNS name for the service.
+     * Private DNS name for the service.
      */
     privateDnsName?: pulumi.Input<string | undefined>;
     /**
@@ -319,15 +319,15 @@ export interface VpcEndpointServiceArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     * Supported IP address types. The possible values are `ipv4` and `ipv6`.
      */
     supportedIpAddressTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The set of regions from which service consumers can access the service.
+     * Set of regions from which service consumers can access the service.
      */
     supportedRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

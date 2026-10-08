@@ -47,14 +47,14 @@ public final class VpnConcentratorState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -79,16 +79,12 @@ public final class VpnConcentratorState extends com.pulumi.resources.ResourceArg
     /**
      * ID of the transit gateway to attach the VPN concentrator to.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="transitGatewayId")
     private @Nullable Output<String> transitGatewayId;
 
     /**
      * @return ID of the transit gateway to attach the VPN concentrator to.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> transitGatewayId() {
@@ -98,12 +94,16 @@ public final class VpnConcentratorState extends com.pulumi.resources.ResourceArg
     /**
      * Type of VPN concentrator. Valid value: `ipsec.1`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return Type of VPN concentrator. Valid value: `ipsec.1`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> type() {
@@ -198,7 +198,7 @@ public final class VpnConcentratorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class VpnConcentratorState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -242,8 +242,6 @@ public final class VpnConcentratorState extends com.pulumi.resources.ResourceArg
         /**
          * @param transitGatewayId ID of the transit gateway to attach the VPN concentrator to.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -255,8 +253,6 @@ public final class VpnConcentratorState extends com.pulumi.resources.ResourceArg
         /**
          * @param transitGatewayId ID of the transit gateway to attach the VPN concentrator to.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -266,6 +262,8 @@ public final class VpnConcentratorState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param type Type of VPN concentrator. Valid value: `ipsec.1`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -277,6 +275,8 @@ public final class VpnConcentratorState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param type Type of VPN concentrator. Valid value: `ipsec.1`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

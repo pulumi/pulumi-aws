@@ -151,7 +151,7 @@ import (
 //				ConnectionType: pulumi.String("CUSTOM"),
 //				ConnectionProperties: pulumi.StringMap{
 //					"CONNECTOR_CLASS_NAME": pulumi.String("net.snowflake.client.jdbc.SnowflakeDriver"),
-//					"CONNECTION_TYPE":      pulumi.String("Jdbc"),
+//					"CONNECTOR_TYPE":       pulumi.String("Jdbc"),
 //					"CONNECTOR_URL":        pulumi.String("s3://example/snowflake-jdbc.jar"),
 //					"JDBC_CONNECTION_URL":  pulumi.String("[[\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\"],\",\"]"),
 //				},
@@ -168,7 +168,7 @@ import (
 //				ConnectionType: pulumi.String("CUSTOM"),
 //				ConnectionProperties: pulumi.StringMap{
 //					"CONNECTOR_CLASS_NAME": pulumi.String("net.snowflake.client.jdbc.SnowflakeDriver"),
-//					"CONNECTION_TYPE":      pulumi.String("Jdbc"),
+//					"CONNECTOR_TYPE":       pulumi.String("Jdbc"),
 //					"CONNECTOR_URL":        pulumi.String("s3://example/snowflake-jdbc.jar"),
 //					"JDBC_CONNECTION_URL":  pulumi.String("jdbc:snowflake://example.com/?user=${user}&password=${password}"),
 //					"SECRET_ID":            pulumi.String(example.Name),

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeArtifact
 {
     /// <summary>
-    /// Provides a CodeArtifact Repostory Permissions Policy Resource.
+    /// Provides a CodeArtifact Repository Permissions Policy Resource.
     /// 
     /// ## Example Usage
     /// 

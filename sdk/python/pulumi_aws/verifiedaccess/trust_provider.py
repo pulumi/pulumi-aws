@@ -35,18 +35,19 @@ class TrustProviderArgs:
         """
         The set of arguments for constructing a TrustProvider resource.
 
-        :param pulumi.Input[_builtins.str] policy_reference_name: The identifier to be used when working with policy rules.
-        :param pulumi.Input[_builtins.str] trust_provider_type: The type of trust provider can be either user or device-based.
+        :param pulumi.Input[_builtins.str] policy_reference_name: Identifier to be used when working with policy rules.
+        :param pulumi.Input[_builtins.str] trust_provider_type: Type of trust provider can be either user or device-based.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access trust provider.
-        :param pulumi.Input['TrustProviderDeviceOptionsArgs'] device_options: A block of options for device identity based trust providers.
-        :param pulumi.Input[_builtins.str] device_trust_provider_type: The type of device-based trust provider.
-        :param pulumi.Input['TrustProviderNativeApplicationOidcOptionsArgs'] native_application_oidc_options: The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
-        :param pulumi.Input['TrustProviderOidcOptionsArgs'] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
+        :param pulumi.Input[_builtins.str] description: Description for the AWS Verified Access trust provider.
+        :param pulumi.Input['TrustProviderDeviceOptionsArgs'] device_options: Block of options for device identity based trust providers. See below.
+        :param pulumi.Input[_builtins.str] device_trust_provider_type: Type of device-based trust provider.
+        :param pulumi.Input['TrustProviderNativeApplicationOidcOptionsArgs'] native_application_oidc_options: OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
+        :param pulumi.Input['TrustProviderOidcOptionsArgs'] oidc_options: OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input['TrustProviderSseSpecificationArgs'] sse_specification: Block of options in use for server side encryption. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] user_trust_provider_type: The type of user-based trust provider.
+        :param pulumi.Input[_builtins.str] user_trust_provider_type: Type of user-based trust provider.
         """
         pulumi.set(__self__, "policy_reference_name", policy_reference_name)
         pulumi.set(__self__, "trust_provider_type", trust_provider_type)
@@ -73,7 +74,7 @@ class TrustProviderArgs:
     @pulumi.getter(name="policyReferenceName")
     def policy_reference_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The identifier to be used when working with policy rules.
+        Identifier to be used when working with policy rules.
         """
         return pulumi.get(self, "policy_reference_name")
 
@@ -85,7 +86,7 @@ class TrustProviderArgs:
     @pulumi.getter(name="trustProviderType")
     def trust_provider_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of trust provider can be either user or device-based.
+        Type of trust provider can be either user or device-based.
 
         The following arguments are optional:
         """
@@ -99,7 +100,7 @@ class TrustProviderArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the AWS Verified Access trust provider.
+        Description for the AWS Verified Access trust provider.
         """
         return pulumi.get(self, "description")
 
@@ -111,7 +112,7 @@ class TrustProviderArgs:
     @pulumi.getter(name="deviceOptions")
     def device_options(self) -> pulumi.Input[Optional['TrustProviderDeviceOptionsArgs']]:
         """
-        A block of options for device identity based trust providers.
+        Block of options for device identity based trust providers. See below.
         """
         return pulumi.get(self, "device_options")
 
@@ -123,7 +124,7 @@ class TrustProviderArgs:
     @pulumi.getter(name="deviceTrustProviderType")
     def device_trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of device-based trust provider.
+        Type of device-based trust provider.
         """
         return pulumi.get(self, "device_trust_provider_type")
 
@@ -135,7 +136,7 @@ class TrustProviderArgs:
     @pulumi.getter(name="nativeApplicationOidcOptions")
     def native_application_oidc_options(self) -> pulumi.Input[Optional['TrustProviderNativeApplicationOidcOptionsArgs']]:
         """
-        The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+        OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
         """
         return pulumi.get(self, "native_application_oidc_options")
 
@@ -147,7 +148,7 @@ class TrustProviderArgs:
     @pulumi.getter(name="oidcOptions")
     def oidc_options(self) -> pulumi.Input[Optional['TrustProviderOidcOptionsArgs']]:
         """
-        The OpenID Connect details for an oidc-type, user-identity based trust provider.
+        OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
         """
         return pulumi.get(self, "oidc_options")
 
@@ -170,6 +171,9 @@ class TrustProviderArgs:
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> pulumi.Input[Optional['TrustProviderSseSpecificationArgs']]:
+        """
+        Block of options in use for server side encryption. See below.
+        """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
@@ -192,7 +196,7 @@ class TrustProviderArgs:
     @pulumi.getter(name="userTrustProviderType")
     def user_trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of user-based trust provider.
+        Type of user-based trust provider.
         """
         return pulumi.get(self, "user_trust_provider_type")
 
@@ -219,18 +223,19 @@ class _TrustProviderState:
         """
         Input properties used for looking up and filtering TrustProvider resources.
 
-        :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access trust provider.
-        :param pulumi.Input['TrustProviderDeviceOptionsArgs'] device_options: A block of options for device identity based trust providers.
-        :param pulumi.Input[_builtins.str] device_trust_provider_type: The type of device-based trust provider.
-        :param pulumi.Input['TrustProviderNativeApplicationOidcOptionsArgs'] native_application_oidc_options: The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
-        :param pulumi.Input['TrustProviderOidcOptionsArgs'] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
-        :param pulumi.Input[_builtins.str] policy_reference_name: The identifier to be used when working with policy rules.
+        :param pulumi.Input[_builtins.str] description: Description for the AWS Verified Access trust provider.
+        :param pulumi.Input['TrustProviderDeviceOptionsArgs'] device_options: Block of options for device identity based trust providers. See below.
+        :param pulumi.Input[_builtins.str] device_trust_provider_type: Type of device-based trust provider.
+        :param pulumi.Input['TrustProviderNativeApplicationOidcOptionsArgs'] native_application_oidc_options: OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
+        :param pulumi.Input['TrustProviderOidcOptionsArgs'] oidc_options: OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
+        :param pulumi.Input[_builtins.str] policy_reference_name: Identifier to be used when working with policy rules.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input['TrustProviderSseSpecificationArgs'] sse_specification: Block of options in use for server side encryption. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] trust_provider_type: The type of trust provider can be either user or device-based.
+        :param pulumi.Input[_builtins.str] trust_provider_type: Type of trust provider can be either user or device-based.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] user_trust_provider_type: The type of user-based trust provider.
+        :param pulumi.Input[_builtins.str] user_trust_provider_type: Type of user-based trust provider.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -261,7 +266,7 @@ class _TrustProviderState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A description for the AWS Verified Access trust provider.
+        Description for the AWS Verified Access trust provider.
         """
         return pulumi.get(self, "description")
 
@@ -273,7 +278,7 @@ class _TrustProviderState:
     @pulumi.getter(name="deviceOptions")
     def device_options(self) -> pulumi.Input[Optional['TrustProviderDeviceOptionsArgs']]:
         """
-        A block of options for device identity based trust providers.
+        Block of options for device identity based trust providers. See below.
         """
         return pulumi.get(self, "device_options")
 
@@ -285,7 +290,7 @@ class _TrustProviderState:
     @pulumi.getter(name="deviceTrustProviderType")
     def device_trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of device-based trust provider.
+        Type of device-based trust provider.
         """
         return pulumi.get(self, "device_trust_provider_type")
 
@@ -297,7 +302,7 @@ class _TrustProviderState:
     @pulumi.getter(name="nativeApplicationOidcOptions")
     def native_application_oidc_options(self) -> pulumi.Input[Optional['TrustProviderNativeApplicationOidcOptionsArgs']]:
         """
-        The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+        OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
         """
         return pulumi.get(self, "native_application_oidc_options")
 
@@ -309,7 +314,7 @@ class _TrustProviderState:
     @pulumi.getter(name="oidcOptions")
     def oidc_options(self) -> pulumi.Input[Optional['TrustProviderOidcOptionsArgs']]:
         """
-        The OpenID Connect details for an oidc-type, user-identity based trust provider.
+        OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
         """
         return pulumi.get(self, "oidc_options")
 
@@ -321,7 +326,7 @@ class _TrustProviderState:
     @pulumi.getter(name="policyReferenceName")
     def policy_reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier to be used when working with policy rules.
+        Identifier to be used when working with policy rules.
         """
         return pulumi.get(self, "policy_reference_name")
 
@@ -344,6 +349,9 @@ class _TrustProviderState:
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> pulumi.Input[Optional['TrustProviderSseSpecificationArgs']]:
+        """
+        Block of options in use for server side encryption. See below.
+        """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
@@ -375,7 +383,7 @@ class _TrustProviderState:
     @pulumi.getter(name="trustProviderType")
     def trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of trust provider can be either user or device-based.
+        Type of trust provider can be either user or device-based.
 
         The following arguments are optional:
         """
@@ -389,7 +397,7 @@ class _TrustProviderState:
     @pulumi.getter(name="userTrustProviderType")
     def user_trust_provider_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of user-based trust provider.
+        Type of user-based trust provider.
         """
         return pulumi.get(self, "user_trust_provider_type")
 
@@ -442,18 +450,19 @@ class TrustProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access trust provider.
-        :param pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict', 'outputs.TrustProviderDeviceOptions']] device_options: A block of options for device identity based trust providers.
-        :param pulumi.Input[_builtins.str] device_trust_provider_type: The type of device-based trust provider.
-        :param pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.TrustProviderNativeApplicationOidcOptions']] native_application_oidc_options: The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
-        :param pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict', 'outputs.TrustProviderOidcOptions']] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
-        :param pulumi.Input[_builtins.str] policy_reference_name: The identifier to be used when working with policy rules.
+        :param pulumi.Input[_builtins.str] description: Description for the AWS Verified Access trust provider.
+        :param pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict', 'outputs.TrustProviderDeviceOptions']] device_options: Block of options for device identity based trust providers. See below.
+        :param pulumi.Input[_builtins.str] device_trust_provider_type: Type of device-based trust provider.
+        :param pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.TrustProviderNativeApplicationOidcOptions']] native_application_oidc_options: OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
+        :param pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict', 'outputs.TrustProviderOidcOptions']] oidc_options: OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
+        :param pulumi.Input[_builtins.str] policy_reference_name: Identifier to be used when working with policy rules.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict', 'outputs.TrustProviderSseSpecification']] sse_specification: Block of options in use for server side encryption. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] trust_provider_type: The type of trust provider can be either user or device-based.
+        :param pulumi.Input[_builtins.str] trust_provider_type: Type of trust provider can be either user or device-based.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] user_trust_provider_type: The type of user-based trust provider.
+        :param pulumi.Input[_builtins.str] user_trust_provider_type: Type of user-based trust provider.
         """
         ...
     @overload
@@ -565,18 +574,19 @@ class TrustProvider(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access trust provider.
-        :param pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict', 'outputs.TrustProviderDeviceOptions']] device_options: A block of options for device identity based trust providers.
-        :param pulumi.Input[_builtins.str] device_trust_provider_type: The type of device-based trust provider.
-        :param pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.TrustProviderNativeApplicationOidcOptions']] native_application_oidc_options: The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
-        :param pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict', 'outputs.TrustProviderOidcOptions']] oidc_options: The OpenID Connect details for an oidc-type, user-identity based trust provider.
-        :param pulumi.Input[_builtins.str] policy_reference_name: The identifier to be used when working with policy rules.
+        :param pulumi.Input[_builtins.str] description: Description for the AWS Verified Access trust provider.
+        :param pulumi.Input[Union['TrustProviderDeviceOptionsArgs', 'TrustProviderDeviceOptionsArgsDict', 'outputs.TrustProviderDeviceOptions']] device_options: Block of options for device identity based trust providers. See below.
+        :param pulumi.Input[_builtins.str] device_trust_provider_type: Type of device-based trust provider.
+        :param pulumi.Input[Union['TrustProviderNativeApplicationOidcOptionsArgs', 'TrustProviderNativeApplicationOidcOptionsArgsDict', 'outputs.TrustProviderNativeApplicationOidcOptions']] native_application_oidc_options: OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
+        :param pulumi.Input[Union['TrustProviderOidcOptionsArgs', 'TrustProviderOidcOptionsArgsDict', 'outputs.TrustProviderOidcOptions']] oidc_options: OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
+        :param pulumi.Input[_builtins.str] policy_reference_name: Identifier to be used when working with policy rules.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Union['TrustProviderSseSpecificationArgs', 'TrustProviderSseSpecificationArgsDict', 'outputs.TrustProviderSseSpecification']] sse_specification: Block of options in use for server side encryption. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] trust_provider_type: The type of trust provider can be either user or device-based.
+        :param pulumi.Input[_builtins.str] trust_provider_type: Type of trust provider can be either user or device-based.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] user_trust_provider_type: The type of user-based trust provider.
+        :param pulumi.Input[_builtins.str] user_trust_provider_type: Type of user-based trust provider.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -600,7 +610,7 @@ class TrustProvider(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A description for the AWS Verified Access trust provider.
+        Description for the AWS Verified Access trust provider.
         """
         return pulumi.get(self, "description")
 
@@ -608,7 +618,7 @@ class TrustProvider(pulumi.CustomResource):
     @pulumi.getter(name="deviceOptions")
     def device_options(self) -> pulumi.Output[Optional['outputs.TrustProviderDeviceOptions']]:
         """
-        A block of options for device identity based trust providers.
+        Block of options for device identity based trust providers. See below.
         """
         return pulumi.get(self, "device_options")
 
@@ -616,7 +626,7 @@ class TrustProvider(pulumi.CustomResource):
     @pulumi.getter(name="deviceTrustProviderType")
     def device_trust_provider_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of device-based trust provider.
+        Type of device-based trust provider.
         """
         return pulumi.get(self, "device_trust_provider_type")
 
@@ -624,7 +634,7 @@ class TrustProvider(pulumi.CustomResource):
     @pulumi.getter(name="nativeApplicationOidcOptions")
     def native_application_oidc_options(self) -> pulumi.Output[Optional['outputs.TrustProviderNativeApplicationOidcOptions']]:
         """
-        The OpenID Connect details for an Native Application OIDC, user-identity based trust provider.
+        OpenID Connect details for a Native Application OIDC, user-identity based trust provider. See below.
         """
         return pulumi.get(self, "native_application_oidc_options")
 
@@ -632,7 +642,7 @@ class TrustProvider(pulumi.CustomResource):
     @pulumi.getter(name="oidcOptions")
     def oidc_options(self) -> pulumi.Output[Optional['outputs.TrustProviderOidcOptions']]:
         """
-        The OpenID Connect details for an oidc-type, user-identity based trust provider.
+        OpenID Connect details for an oidc-type, user-identity based trust provider. See below.
         """
         return pulumi.get(self, "oidc_options")
 
@@ -640,7 +650,7 @@ class TrustProvider(pulumi.CustomResource):
     @pulumi.getter(name="policyReferenceName")
     def policy_reference_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The identifier to be used when working with policy rules.
+        Identifier to be used when working with policy rules.
         """
         return pulumi.get(self, "policy_reference_name")
 
@@ -655,6 +665,9 @@ class TrustProvider(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> pulumi.Output['outputs.TrustProviderSseSpecification']:
+        """
+        Block of options in use for server side encryption. See below.
+        """
         return pulumi.get(self, "sse_specification")
 
     @_builtins.property
@@ -674,7 +687,7 @@ class TrustProvider(pulumi.CustomResource):
     @pulumi.getter(name="trustProviderType")
     def trust_provider_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of trust provider can be either user or device-based.
+        Type of trust provider can be either user or device-based.
 
         The following arguments are optional:
         """
@@ -684,7 +697,7 @@ class TrustProvider(pulumi.CustomResource):
     @pulumi.getter(name="userTrustProviderType")
     def user_trust_provider_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of user-based trust provider.
+        Type of user-based trust provider.
         """
         return pulumi.get(self, "user_trust_provider_type")
 

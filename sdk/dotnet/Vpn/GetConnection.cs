@@ -299,11 +299,11 @@ namespace Pulumi.Aws.Vpn
         public readonly string PreSharedKeyArn;
         public readonly string Region;
         /// <summary>
-        /// List of static routes associated with the VPN connection.
+        /// List of static routes associated with the VPN connection. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionRouteResult> Routes;
         /// <summary>
-        /// Current state of the VPN connection.
+        /// Current state of the static route.
         /// </summary>
         public readonly string State;
         /// <summary>
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.Vpn
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// List of objects containing information about the VPN tunnel.
+        /// List of objects containing information about the VPN tunnel. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionVgwTelemetryResult> VgwTelemetries;
         /// <summary>

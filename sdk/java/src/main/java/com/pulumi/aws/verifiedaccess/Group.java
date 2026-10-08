@@ -171,14 +171,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.owner;
     }
     /**
-     * The policy document that is associated with this resource.
+     * Policy document that is associated with this resource.
      * 
      */
     @Export(name="policyDocument", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policyDocument;
 
     /**
-     * @return The policy document that is associated with this resource.
+     * @return Policy document that is associated with this resource.
      * 
      */
     public Output<Optional<String>> policyDocument() {
@@ -199,14 +199,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Configuration block to use KMS keys for server-side encryption.
+     * Configuration block to use KMS keys for server-side encryption. See below.
      * 
      */
     @Export(name="sseConfiguration", refs={GroupSseConfiguration.class}, tree="[0]")
     private Output<GroupSseConfiguration> sseConfiguration;
 
     /**
-     * @return Configuration block to use KMS keys for server-side encryption.
+     * @return Configuration block to use KMS keys for server-side encryption. See below.
      * 
      */
     public Output<GroupSseConfiguration> sseConfiguration() {
@@ -233,14 +233,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * ARN of this verified acess group.
+     * ARN of this verified access group.
      * 
      */
     @Export(name="verifiedaccessGroupArn", refs={String.class}, tree="[0]")
     private Output<String> verifiedaccessGroupArn;
 
     /**
-     * @return ARN of this verified acess group.
+     * @return ARN of this verified access group.
      * 
      */
     public Output<String> verifiedaccessGroupArn() {
@@ -261,7 +261,7 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.verifiedaccessGroupId;
     }
     /**
-     * The id of the verified access instance this group is associated with.
+     * ID of the verified access instance this group is associated with.
      * 
      * The following arguments are optional:
      * 
@@ -270,7 +270,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     private Output<String> verifiedaccessInstanceId;
 
     /**
-     * @return The id of the verified access instance this group is associated with.
+     * @return ID of the verified access instance this group is associated with.
      * 
      * The following arguments are optional:
      * 

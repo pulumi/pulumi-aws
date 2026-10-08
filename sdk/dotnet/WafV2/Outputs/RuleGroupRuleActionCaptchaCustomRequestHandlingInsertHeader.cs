@@ -14,11 +14,11 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader
     {
         /// <summary>
-        /// A friendly name of the rule group.
+        /// Friendly name of the rule group.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The value of the custom header.
+        /// Value of the custom header.
         /// </summary>
         public readonly string Value;
 

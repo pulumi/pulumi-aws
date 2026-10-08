@@ -75,7 +75,7 @@ export class VpcEndpointPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     * Policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
@@ -83,7 +83,7 @@ export class VpcEndpointPolicy extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The VPC Endpoint ID.
+     * VPC Endpoint ID.
      */
     declare public readonly vpcEndpointId: pulumi.Output<string>;
 
@@ -122,7 +122,7 @@ export class VpcEndpointPolicy extends pulumi.CustomResource {
  */
 export interface VpcEndpointPolicyState {
     /**
-     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     * Policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -130,7 +130,7 @@ export interface VpcEndpointPolicyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The VPC Endpoint ID.
+     * VPC Endpoint ID.
      */
     vpcEndpointId?: pulumi.Input<string | undefined>;
 }
@@ -140,7 +140,7 @@ export interface VpcEndpointPolicyState {
  */
 export interface VpcEndpointPolicyArgs {
     /**
-     * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+     * Policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
@@ -148,7 +148,7 @@ export interface VpcEndpointPolicyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The VPC Endpoint ID.
+     * VPC Endpoint ID.
      */
     vpcEndpointId: pulumi.Input<string>;
 }

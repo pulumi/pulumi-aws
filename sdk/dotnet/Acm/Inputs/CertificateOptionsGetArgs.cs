@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Acm.Inputs
     public sealed class CertificateOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+        /// Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details. This argument applies to Amazon-issued and private CA certificates. It **conflicts with** `PrivateKey` / `PrivateKeyWo`, so it cannot be set on imported certificates. Imported certificates are not managed by ACM issuance, so ACM does not control their certificate transparency logging.
         /// </summary>
         [Input("certificateTransparencyLoggingPreference")]
         public Input<string>? CertificateTransparencyLoggingPreference { get; set; }

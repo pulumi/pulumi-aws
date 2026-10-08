@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Iot
         public Output<bool> Active { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean flag to indicate if the certificate should be active for device regisration.
+        /// Boolean flag to indicate if the certificate should be active for device registration.
         /// </summary>
         [Output("allowAutoRegistration")]
         public Output<bool> AllowAutoRegistration { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.Iot
         public Input<bool> Active { get; set; } = null!;
 
         /// <summary>
-        /// Boolean flag to indicate if the certificate should be active for device regisration.
+        /// Boolean flag to indicate if the certificate should be active for device registration.
         /// </summary>
         [Input("allowAutoRegistration", required: true)]
         public Input<bool> AllowAutoRegistration { get; set; } = null!;
@@ -316,7 +316,7 @@ namespace Pulumi.Aws.Iot
         public Input<bool>? Active { get; set; }
 
         /// <summary>
-        /// Boolean flag to indicate if the certificate should be active for device regisration.
+        /// Boolean flag to indicate if the certificate should be active for device registration.
         /// </summary>
         [Input("allowAutoRegistration")]
         public Input<bool>? AllowAutoRegistration { get; set; }

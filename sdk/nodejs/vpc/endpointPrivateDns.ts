@@ -61,7 +61,7 @@ export class EndpointPrivateDns extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+     * Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
      */
     declare public readonly privateDnsEnabled: pulumi.Output<boolean>;
     /**
@@ -111,7 +111,7 @@ export class EndpointPrivateDns extends pulumi.CustomResource {
  */
 export interface EndpointPrivateDnsState {
     /**
-     * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+     * Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
      */
     privateDnsEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -129,7 +129,7 @@ export interface EndpointPrivateDnsState {
  */
 export interface EndpointPrivateDnsArgs {
     /**
-     * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
+     * Whether to associate a private hosted zone with the VPC. Only applicable for `Interface` endpoints.
      */
     privateDnsEnabled: pulumi.Input<boolean>;
     /**

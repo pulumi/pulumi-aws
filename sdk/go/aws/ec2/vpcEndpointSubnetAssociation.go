@@ -61,9 +61,9 @@ type VpcEndpointSubnetAssociation struct {
 
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the subnet to be associated with the VPC endpoint.
+	// ID of the subnet to be associated with the VPC endpoint.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// The ID of the VPC endpoint with which the subnet will be associated.
+	// ID of the VPC endpoint with which the subnet will be associated.
 	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
 }
 
@@ -105,18 +105,18 @@ func GetVpcEndpointSubnetAssociation(ctx *pulumi.Context,
 type vpcEndpointSubnetAssociationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the subnet to be associated with the VPC endpoint.
+	// ID of the subnet to be associated with the VPC endpoint.
 	SubnetId *string `pulumi:"subnetId"`
-	// The ID of the VPC endpoint with which the subnet will be associated.
+	// ID of the VPC endpoint with which the subnet will be associated.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 }
 
 type VpcEndpointSubnetAssociationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the subnet to be associated with the VPC endpoint.
+	// ID of the subnet to be associated with the VPC endpoint.
 	SubnetId pulumi.StringPtrInput
-	// The ID of the VPC endpoint with which the subnet will be associated.
+	// ID of the VPC endpoint with which the subnet will be associated.
 	VpcEndpointId pulumi.StringPtrInput
 }
 
@@ -127,9 +127,9 @@ func (VpcEndpointSubnetAssociationState) ElementType() reflect.Type {
 type vpcEndpointSubnetAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the subnet to be associated with the VPC endpoint.
+	// ID of the subnet to be associated with the VPC endpoint.
 	SubnetId string `pulumi:"subnetId"`
-	// The ID of the VPC endpoint with which the subnet will be associated.
+	// ID of the VPC endpoint with which the subnet will be associated.
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
 }
 
@@ -137,9 +137,9 @@ type vpcEndpointSubnetAssociationArgs struct {
 type VpcEndpointSubnetAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the subnet to be associated with the VPC endpoint.
+	// ID of the subnet to be associated with the VPC endpoint.
 	SubnetId pulumi.StringInput
-	// The ID of the VPC endpoint with which the subnet will be associated.
+	// ID of the VPC endpoint with which the subnet will be associated.
 	VpcEndpointId pulumi.StringInput
 }
 
@@ -235,12 +235,12 @@ func (o VpcEndpointSubnetAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointSubnetAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the subnet to be associated with the VPC endpoint.
+// ID of the subnet to be associated with the VPC endpoint.
 func (o VpcEndpointSubnetAssociationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointSubnetAssociation) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC endpoint with which the subnet will be associated.
+// ID of the VPC endpoint with which the subnet will be associated.
 func (o VpcEndpointSubnetAssociationOutput) VpcEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointSubnetAssociation) pulumi.StringOutput { return v.VpcEndpointId }).(pulumi.StringOutput)
 }

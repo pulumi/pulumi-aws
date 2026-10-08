@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclCaptchaConfig
     {
         /// <summary>
-        /// Defines custom immunity time. See `ImmunityTimeProperty` below for details.
+        /// Custom immunity time. See `ImmunityTimeProperty` below for details.
         /// </summary>
         public readonly Outputs.WebAclCaptchaConfigImmunityTimeProperty? ImmunityTimeProperty;
 

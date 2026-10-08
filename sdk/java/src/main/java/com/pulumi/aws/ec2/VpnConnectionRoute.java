@@ -83,14 +83,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpnConnectionRoute:VpnConnectionRoute")
 public class VpnConnectionRoute extends com.pulumi.resources.CustomResource {
     /**
-     * The CIDR block associated with the local subnet of the customer network.
+     * CIDR block associated with the local subnet of the customer network.
      * 
      */
     @Export(name="destinationCidrBlock", refs={String.class}, tree="[0]")
     private Output<String> destinationCidrBlock;
 
     /**
-     * @return The CIDR block associated with the local subnet of the customer network.
+     * @return CIDR block associated with the local subnet of the customer network.
      * 
      */
     public Output<String> destinationCidrBlock() {
@@ -111,14 +111,14 @@ public class VpnConnectionRoute extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ID of the VPN connection.
+     * ID of the VPN connection.
      * 
      */
     @Export(name="vpnConnectionId", refs={String.class}, tree="[0]")
     private Output<String> vpnConnectionId;
 
     /**
-     * @return The ID of the VPN connection.
+     * @return ID of the VPN connection.
      * 
      */
     public Output<String> vpnConnectionId() {

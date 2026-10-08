@@ -88,9 +88,6 @@ export interface GetOpenZfsSnapshotResult {
      */
     readonly id: string;
     readonly mostRecent?: boolean;
-    /**
-     * Name of the snapshot.
-     */
     readonly name?: string;
     readonly region: string;
     /**

@@ -72,28 +72,28 @@ public class VpnGatewayRoutePropagation extends com.pulumi.resources.CustomResou
         return this.region;
     }
     /**
-     * The id of the `aws.ec2.RouteTable` to propagate routes into.
+     * ID of the `aws.ec2.RouteTable` to propagate routes into.
      * 
      */
     @Export(name="routeTableId", refs={String.class}, tree="[0]")
     private Output<String> routeTableId;
 
     /**
-     * @return The id of the `aws.ec2.RouteTable` to propagate routes into.
+     * @return ID of the `aws.ec2.RouteTable` to propagate routes into.
      * 
      */
     public Output<String> routeTableId() {
         return this.routeTableId;
     }
     /**
-     * The id of the `aws.ec2.VpnGateway` to propagate routes from.
+     * ID of the `aws.ec2.VpnGateway` to propagate routes from.
      * 
      */
     @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
     private Output<String> vpnGatewayId;
 
     /**
-     * @return The id of the `aws.ec2.VpnGateway` to propagate routes from.
+     * @return ID of the `aws.ec2.VpnGateway` to propagate routes from.
      * 
      */
     public Output<String> vpnGatewayId() {

@@ -16,6 +16,23 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AutonomousDatabaseAdminPasswordSource',
+    'AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret',
+    'AutonomousDatabaseCustomerContactsToSendToOci',
+    'AutonomousDatabaseDbToolsDetail',
+    'AutonomousDatabaseLongTermBackupSchedule',
+    'AutonomousDatabaseResourcePoolSummary',
+    'AutonomousDatabaseScheduledOperation',
+    'AutonomousDatabaseSecretsManagerIntegrationTimeouts',
+    'AutonomousDatabaseSourceConfiguration',
+    'AutonomousDatabaseSourceConfigurationCloneToRefreshable',
+    'AutonomousDatabaseSourceConfigurationCrossRegionDataGuard',
+    'AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery',
+    'AutonomousDatabaseSourceConfigurationDatabaseClone',
+    'AutonomousDatabaseSourceConfigurationPointInTimeRestore',
+    'AutonomousDatabaseSourceConfigurationRestoreFromBackup',
+    'AutonomousDatabaseTimeouts',
+    'AutonomousDatabaseTransportableTablespace',
     'CloudAutonomousVmClusterMaintenanceWindow',
     'CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek',
     'CloudAutonomousVmClusterMaintenanceWindowMonth',
@@ -41,6 +58,13 @@ __all__ = [
     'NetworkOciDnsForwardingConfig',
     'NetworkPeeringConnectionTimeouts',
     'NetworkTimeouts',
+    'GetAutonomousDatabaseAdminPasswordSourceResult',
+    'GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretResult',
+    'GetAutonomousDatabaseCustomerContactsToSendToOciResult',
+    'GetAutonomousDatabaseDbToolsDetailResult',
+    'GetAutonomousDatabaseLongTermBackupScheduleResult',
+    'GetAutonomousDatabaseResourcePoolSummaryResult',
+    'GetAutonomousDatabaseScheduledOperationResult',
     'GetCloudAutonomousVmClusterMaintenanceWindowResult',
     'GetCloudAutonomousVmClusterMaintenanceWindowDaysOfWeekResult',
     'GetCloudAutonomousVmClusterMaintenanceWindowMonthResult',
@@ -72,6 +96,1042 @@ __all__ = [
     'GetNetworkPeeringConnectionsOdbPeeringConnectionResult',
     'GetNetworksOdbNetworkResult',
 ]
+
+@pulumi.output_type
+class AutonomousDatabaseAdminPasswordSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerManagedAwsSecret":
+            suggest = "customer_managed_aws_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseAdminPasswordSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseAdminPasswordSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseAdminPasswordSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_managed_aws_secret: Optional['outputs.AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret'] = None):
+        if customer_managed_aws_secret is not None:
+            pulumi.set(__self__, "customer_managed_aws_secret", customer_managed_aws_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="customerManagedAwsSecret")
+    def customer_managed_aws_secret(self) -> Optional['outputs.AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret']:
+        return pulumi.get(self, "customer_managed_aws_secret")
+
+
+@pulumi.output_type
+class AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalIdType":
+            suggest = "external_id_type"
+        elif key == "iamRoleArn":
+            suggest = "iam_role_arn"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 external_id_type: _builtins.str,
+                 iam_role_arn: _builtins.str,
+                 secret_arn: _builtins.str):
+        """
+        :param _builtins.str external_id_type: OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role. Valid values are `database_ocid`, `compartment_ocid`, and `tenant_ocid`.
+        :param _builtins.str iam_role_arn: ARN of the customer-managed IAM role OCI assumes to retrieve the secret. Its trust policy must allow the Oracle-managed service role to assume it.
+        :param _builtins.str secret_arn: ARN of the AWS Secrets Manager secret containing the ADMIN password.
+        """
+        pulumi.set(__self__, "external_id_type", external_id_type)
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="externalIdType")
+    def external_id_type(self) -> _builtins.str:
+        """
+        OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role. Valid values are `database_ocid`, `compartment_ocid`, and `tenant_ocid`.
+        """
+        return pulumi.get(self, "external_id_type")
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> _builtins.str:
+        """
+        ARN of the customer-managed IAM role OCI assumes to retrieve the secret. Its trust policy must allow the Oracle-managed service role to assume it.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        ARN of the AWS Secrets Manager secret containing the ADMIN password.
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class AutonomousDatabaseCustomerContactsToSendToOci(dict):
+    def __init__(__self__, *,
+                 email: _builtins.str):
+        """
+        :param _builtins.str email: Email address that receives operational notifications from OCI.
+        """
+        pulumi.set(__self__, "email", email)
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> _builtins.str:
+        """
+        Email address that receives operational notifications from OCI.
+        """
+        return pulumi.get(self, "email")
+
+
+@pulumi.output_type
+class AutonomousDatabaseDbToolsDetail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeCount":
+            suggest = "compute_count"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "maxIdleTimeInMinutes":
+            suggest = "max_idle_time_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseDbToolsDetail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseDbToolsDetail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseDbToolsDetail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_count: Optional[_builtins.float] = None,
+                 is_enabled: Optional[_builtins.bool] = None,
+                 max_idle_time_in_minutes: Optional[_builtins.int] = None,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.float compute_count: Compute capacity allocated to the database tool.
+        :param _builtins.bool is_enabled: Whether the database tool is enabled.
+        :param _builtins.int max_idle_time_in_minutes: Maximum idle time before the tool is shut down.
+        :param _builtins.str name: Database tool name.
+        """
+        if compute_count is not None:
+            pulumi.set(__self__, "compute_count", compute_count)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if max_idle_time_in_minutes is not None:
+            pulumi.set(__self__, "max_idle_time_in_minutes", max_idle_time_in_minutes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="computeCount")
+    def compute_count(self) -> Optional[_builtins.float]:
+        """
+        Compute capacity allocated to the database tool.
+        """
+        return pulumi.get(self, "compute_count")
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the database tool is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="maxIdleTimeInMinutes")
+    def max_idle_time_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        Maximum idle time before the tool is shut down.
+        """
+        return pulumi.get(self, "max_idle_time_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Database tool name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class AutonomousDatabaseLongTermBackupSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isDisabled":
+            suggest = "is_disabled"
+        elif key == "repeatCadence":
+            suggest = "repeat_cadence"
+        elif key == "retentionPeriodInDays":
+            suggest = "retention_period_in_days"
+        elif key == "timeOfBackup":
+            suggest = "time_of_backup"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseLongTermBackupSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseLongTermBackupSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseLongTermBackupSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_disabled: Optional[_builtins.bool] = None,
+                 repeat_cadence: Optional[_builtins.str] = None,
+                 retention_period_in_days: Optional[_builtins.int] = None,
+                 time_of_backup: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool is_disabled: Whether the long-term backup schedule is disabled.
+        :param _builtins.str repeat_cadence: Backup cadence. Valid values are `ONE_TIME`, `WEEKLY`, `MONTHLY`, and `YEARLY`.
+        :param _builtins.int retention_period_in_days: Backup retention period. Valid values are from `90` through `3650`.
+        :param _builtins.str time_of_backup: RFC3339 timestamp at which the backup is taken.
+        """
+        if is_disabled is not None:
+            pulumi.set(__self__, "is_disabled", is_disabled)
+        if repeat_cadence is not None:
+            pulumi.set(__self__, "repeat_cadence", repeat_cadence)
+        if retention_period_in_days is not None:
+            pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        if time_of_backup is not None:
+            pulumi.set(__self__, "time_of_backup", time_of_backup)
+
+    @_builtins.property
+    @pulumi.getter(name="isDisabled")
+    def is_disabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the long-term backup schedule is disabled.
+        """
+        return pulumi.get(self, "is_disabled")
+
+    @_builtins.property
+    @pulumi.getter(name="repeatCadence")
+    def repeat_cadence(self) -> Optional[_builtins.str]:
+        """
+        Backup cadence. Valid values are `ONE_TIME`, `WEEKLY`, `MONTHLY`, and `YEARLY`.
+        """
+        return pulumi.get(self, "repeat_cadence")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> Optional[_builtins.int]:
+        """
+        Backup retention period. Valid values are from `90` through `3650`.
+        """
+        return pulumi.get(self, "retention_period_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="timeOfBackup")
+    def time_of_backup(self) -> Optional[_builtins.str]:
+        """
+        RFC3339 timestamp at which the backup is taken.
+        """
+        return pulumi.get(self, "time_of_backup")
+
+
+@pulumi.output_type
+class AutonomousDatabaseResourcePoolSummary(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availableComputeCapacity":
+            suggest = "available_compute_capacity"
+        elif key == "availableStorageCapacityInTbs":
+            suggest = "available_storage_capacity_in_tbs"
+        elif key == "isDisabled":
+            suggest = "is_disabled"
+        elif key == "poolSize":
+            suggest = "pool_size"
+        elif key == "poolStorageSizeInTbs":
+            suggest = "pool_storage_size_in_tbs"
+        elif key == "totalComputeCapacity":
+            suggest = "total_compute_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseResourcePoolSummary. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseResourcePoolSummary.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseResourcePoolSummary.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 available_compute_capacity: Optional[_builtins.int] = None,
+                 available_storage_capacity_in_tbs: Optional[_builtins.float] = None,
+                 is_disabled: Optional[_builtins.bool] = None,
+                 pool_size: Optional[_builtins.int] = None,
+                 pool_storage_size_in_tbs: Optional[_builtins.int] = None,
+                 total_compute_capacity: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int available_compute_capacity: Available compute capacity.
+        :param _builtins.float available_storage_capacity_in_tbs: Available storage capacity in TB.
+        :param _builtins.bool is_disabled: Whether the resource pool is disabled.
+        :param _builtins.int pool_size: Number of Autonomous Databases the pool can contain.
+        :param _builtins.int pool_storage_size_in_tbs: Pool storage size in TB.
+        :param _builtins.int total_compute_capacity: Total compute capacity.
+        """
+        if available_compute_capacity is not None:
+            pulumi.set(__self__, "available_compute_capacity", available_compute_capacity)
+        if available_storage_capacity_in_tbs is not None:
+            pulumi.set(__self__, "available_storage_capacity_in_tbs", available_storage_capacity_in_tbs)
+        if is_disabled is not None:
+            pulumi.set(__self__, "is_disabled", is_disabled)
+        if pool_size is not None:
+            pulumi.set(__self__, "pool_size", pool_size)
+        if pool_storage_size_in_tbs is not None:
+            pulumi.set(__self__, "pool_storage_size_in_tbs", pool_storage_size_in_tbs)
+        if total_compute_capacity is not None:
+            pulumi.set(__self__, "total_compute_capacity", total_compute_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="availableComputeCapacity")
+    def available_compute_capacity(self) -> Optional[_builtins.int]:
+        """
+        Available compute capacity.
+        """
+        return pulumi.get(self, "available_compute_capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="availableStorageCapacityInTbs")
+    def available_storage_capacity_in_tbs(self) -> Optional[_builtins.float]:
+        """
+        Available storage capacity in TB.
+        """
+        return pulumi.get(self, "available_storage_capacity_in_tbs")
+
+    @_builtins.property
+    @pulumi.getter(name="isDisabled")
+    def is_disabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether the resource pool is disabled.
+        """
+        return pulumi.get(self, "is_disabled")
+
+    @_builtins.property
+    @pulumi.getter(name="poolSize")
+    def pool_size(self) -> Optional[_builtins.int]:
+        """
+        Number of Autonomous Databases the pool can contain.
+        """
+        return pulumi.get(self, "pool_size")
+
+    @_builtins.property
+    @pulumi.getter(name="poolStorageSizeInTbs")
+    def pool_storage_size_in_tbs(self) -> Optional[_builtins.int]:
+        """
+        Pool storage size in TB.
+        """
+        return pulumi.get(self, "pool_storage_size_in_tbs")
+
+    @_builtins.property
+    @pulumi.getter(name="totalComputeCapacity")
+    def total_compute_capacity(self) -> Optional[_builtins.int]:
+        """
+        Total compute capacity.
+        """
+        return pulumi.get(self, "total_compute_capacity")
+
+
+@pulumi.output_type
+class AutonomousDatabaseScheduledOperation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "scheduledStartTime":
+            suggest = "scheduled_start_time"
+        elif key == "scheduledStopTime":
+            suggest = "scheduled_stop_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseScheduledOperation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseScheduledOperation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseScheduledOperation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_week: _builtins.str,
+                 scheduled_start_time: Optional[_builtins.str] = None,
+                 scheduled_stop_time: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str day_of_week: Day of the week.
+        :param _builtins.str scheduled_start_time: Scheduled start time in UTC.
+        :param _builtins.str scheduled_stop_time: Scheduled stop time in UTC.
+        """
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        if scheduled_start_time is not None:
+            pulumi.set(__self__, "scheduled_start_time", scheduled_start_time)
+        if scheduled_stop_time is not None:
+            pulumi.set(__self__, "scheduled_stop_time", scheduled_stop_time)
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> _builtins.str:
+        """
+        Day of the week.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @_builtins.property
+    @pulumi.getter(name="scheduledStartTime")
+    def scheduled_start_time(self) -> Optional[_builtins.str]:
+        """
+        Scheduled start time in UTC.
+        """
+        return pulumi.get(self, "scheduled_start_time")
+
+    @_builtins.property
+    @pulumi.getter(name="scheduledStopTime")
+    def scheduled_stop_time(self) -> Optional[_builtins.str]:
+        """
+        Scheduled stop time in UTC.
+        """
+        return pulumi.get(self, "scheduled_stop_time")
+
+
+@pulumi.output_type
+class AutonomousDatabaseSecretsManagerIntegrationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class AutonomousDatabaseSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloneToRefreshable":
+            suggest = "clone_to_refreshable"
+        elif key == "crossRegionDataGuard":
+            suggest = "cross_region_data_guard"
+        elif key == "crossRegionDisasterRecovery":
+            suggest = "cross_region_disaster_recovery"
+        elif key == "databaseClone":
+            suggest = "database_clone"
+        elif key == "pointInTimeRestore":
+            suggest = "point_in_time_restore"
+        elif key == "restoreFromBackup":
+            suggest = "restore_from_backup"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 clone_to_refreshable: Optional['outputs.AutonomousDatabaseSourceConfigurationCloneToRefreshable'] = None,
+                 cross_region_data_guard: Optional['outputs.AutonomousDatabaseSourceConfigurationCrossRegionDataGuard'] = None,
+                 cross_region_disaster_recovery: Optional['outputs.AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery'] = None,
+                 database_clone: Optional['outputs.AutonomousDatabaseSourceConfigurationDatabaseClone'] = None,
+                 point_in_time_restore: Optional['outputs.AutonomousDatabaseSourceConfigurationPointInTimeRestore'] = None,
+                 restore_from_backup: Optional['outputs.AutonomousDatabaseSourceConfigurationRestoreFromBackup'] = None):
+        if clone_to_refreshable is not None:
+            pulumi.set(__self__, "clone_to_refreshable", clone_to_refreshable)
+        if cross_region_data_guard is not None:
+            pulumi.set(__self__, "cross_region_data_guard", cross_region_data_guard)
+        if cross_region_disaster_recovery is not None:
+            pulumi.set(__self__, "cross_region_disaster_recovery", cross_region_disaster_recovery)
+        if database_clone is not None:
+            pulumi.set(__self__, "database_clone", database_clone)
+        if point_in_time_restore is not None:
+            pulumi.set(__self__, "point_in_time_restore", point_in_time_restore)
+        if restore_from_backup is not None:
+            pulumi.set(__self__, "restore_from_backup", restore_from_backup)
+
+    @_builtins.property
+    @pulumi.getter(name="cloneToRefreshable")
+    def clone_to_refreshable(self) -> Optional['outputs.AutonomousDatabaseSourceConfigurationCloneToRefreshable']:
+        return pulumi.get(self, "clone_to_refreshable")
+
+    @_builtins.property
+    @pulumi.getter(name="crossRegionDataGuard")
+    def cross_region_data_guard(self) -> Optional['outputs.AutonomousDatabaseSourceConfigurationCrossRegionDataGuard']:
+        return pulumi.get(self, "cross_region_data_guard")
+
+    @_builtins.property
+    @pulumi.getter(name="crossRegionDisasterRecovery")
+    def cross_region_disaster_recovery(self) -> Optional['outputs.AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery']:
+        return pulumi.get(self, "cross_region_disaster_recovery")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseClone")
+    def database_clone(self) -> Optional['outputs.AutonomousDatabaseSourceConfigurationDatabaseClone']:
+        return pulumi.get(self, "database_clone")
+
+    @_builtins.property
+    @pulumi.getter(name="pointInTimeRestore")
+    def point_in_time_restore(self) -> Optional['outputs.AutonomousDatabaseSourceConfigurationPointInTimeRestore']:
+        return pulumi.get(self, "point_in_time_restore")
+
+    @_builtins.property
+    @pulumi.getter(name="restoreFromBackup")
+    def restore_from_backup(self) -> Optional['outputs.AutonomousDatabaseSourceConfigurationRestoreFromBackup']:
+        return pulumi.get(self, "restore_from_backup")
+
+
+@pulumi.output_type
+class AutonomousDatabaseSourceConfigurationCloneToRefreshable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceAutonomousDatabaseId":
+            suggest = "source_autonomous_database_id"
+        elif key == "autoRefreshFrequencyInSeconds":
+            suggest = "auto_refresh_frequency_in_seconds"
+        elif key == "autoRefreshPointLagInSeconds":
+            suggest = "auto_refresh_point_lag_in_seconds"
+        elif key == "cloneType":
+            suggest = "clone_type"
+        elif key == "openMode":
+            suggest = "open_mode"
+        elif key == "refreshableMode":
+            suggest = "refreshable_mode"
+        elif key == "timeOfAutoRefreshStart":
+            suggest = "time_of_auto_refresh_start"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseSourceConfigurationCloneToRefreshable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseSourceConfigurationCloneToRefreshable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseSourceConfigurationCloneToRefreshable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_autonomous_database_id: _builtins.str,
+                 auto_refresh_frequency_in_seconds: Optional[_builtins.int] = None,
+                 auto_refresh_point_lag_in_seconds: Optional[_builtins.int] = None,
+                 clone_type: Optional[_builtins.str] = None,
+                 open_mode: Optional[_builtins.str] = None,
+                 refreshable_mode: Optional[_builtins.str] = None,
+                 time_of_auto_refresh_start: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str source_autonomous_database_id: ID of the source Autonomous Database.
+        :param _builtins.int auto_refresh_frequency_in_seconds: Automatic refresh frequency in seconds.
+        :param _builtins.int auto_refresh_point_lag_in_seconds: Refresh lag in seconds.
+        :param _builtins.str clone_type: Clone type.
+        :param _builtins.str open_mode: Clone open mode.
+        :param _builtins.str refreshable_mode: Refresh mode.
+        :param _builtins.str time_of_auto_refresh_start: RFC3339 automatic refresh start timestamp.
+        """
+        pulumi.set(__self__, "source_autonomous_database_id", source_autonomous_database_id)
+        if auto_refresh_frequency_in_seconds is not None:
+            pulumi.set(__self__, "auto_refresh_frequency_in_seconds", auto_refresh_frequency_in_seconds)
+        if auto_refresh_point_lag_in_seconds is not None:
+            pulumi.set(__self__, "auto_refresh_point_lag_in_seconds", auto_refresh_point_lag_in_seconds)
+        if clone_type is not None:
+            pulumi.set(__self__, "clone_type", clone_type)
+        if open_mode is not None:
+            pulumi.set(__self__, "open_mode", open_mode)
+        if refreshable_mode is not None:
+            pulumi.set(__self__, "refreshable_mode", refreshable_mode)
+        if time_of_auto_refresh_start is not None:
+            pulumi.set(__self__, "time_of_auto_refresh_start", time_of_auto_refresh_start)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAutonomousDatabaseId")
+    def source_autonomous_database_id(self) -> _builtins.str:
+        """
+        ID of the source Autonomous Database.
+        """
+        return pulumi.get(self, "source_autonomous_database_id")
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefreshFrequencyInSeconds")
+    def auto_refresh_frequency_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Automatic refresh frequency in seconds.
+        """
+        return pulumi.get(self, "auto_refresh_frequency_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefreshPointLagInSeconds")
+    def auto_refresh_point_lag_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Refresh lag in seconds.
+        """
+        return pulumi.get(self, "auto_refresh_point_lag_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="cloneType")
+    def clone_type(self) -> Optional[_builtins.str]:
+        """
+        Clone type.
+        """
+        return pulumi.get(self, "clone_type")
+
+    @_builtins.property
+    @pulumi.getter(name="openMode")
+    def open_mode(self) -> Optional[_builtins.str]:
+        """
+        Clone open mode.
+        """
+        return pulumi.get(self, "open_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="refreshableMode")
+    def refreshable_mode(self) -> Optional[_builtins.str]:
+        """
+        Refresh mode.
+        """
+        return pulumi.get(self, "refreshable_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="timeOfAutoRefreshStart")
+    def time_of_auto_refresh_start(self) -> Optional[_builtins.str]:
+        """
+        RFC3339 automatic refresh start timestamp.
+        """
+        return pulumi.get(self, "time_of_auto_refresh_start")
+
+
+@pulumi.output_type
+class AutonomousDatabaseSourceConfigurationCrossRegionDataGuard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceAutonomousDatabaseArn":
+            suggest = "source_autonomous_database_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseSourceConfigurationCrossRegionDataGuard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseSourceConfigurationCrossRegionDataGuard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseSourceConfigurationCrossRegionDataGuard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_autonomous_database_arn: _builtins.str):
+        """
+        :param _builtins.str source_autonomous_database_arn: ARN of the source Autonomous Database.
+        """
+        pulumi.set(__self__, "source_autonomous_database_arn", source_autonomous_database_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAutonomousDatabaseArn")
+    def source_autonomous_database_arn(self) -> _builtins.str:
+        """
+        ARN of the source Autonomous Database.
+        """
+        return pulumi.get(self, "source_autonomous_database_arn")
+
+
+@pulumi.output_type
+class AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "remoteDisasterRecoveryType":
+            suggest = "remote_disaster_recovery_type"
+        elif key == "sourceAutonomousDatabaseArn":
+            suggest = "source_autonomous_database_arn"
+        elif key == "isReplicateAutomaticBackups":
+            suggest = "is_replicate_automatic_backups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 remote_disaster_recovery_type: _builtins.str,
+                 source_autonomous_database_arn: _builtins.str,
+                 is_replicate_automatic_backups: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str remote_disaster_recovery_type: Remote disaster recovery type.
+        :param _builtins.str source_autonomous_database_arn: ARN of the source Autonomous Database.
+        :param _builtins.bool is_replicate_automatic_backups: Whether automatic backups are replicated.
+        """
+        pulumi.set(__self__, "remote_disaster_recovery_type", remote_disaster_recovery_type)
+        pulumi.set(__self__, "source_autonomous_database_arn", source_autonomous_database_arn)
+        if is_replicate_automatic_backups is not None:
+            pulumi.set(__self__, "is_replicate_automatic_backups", is_replicate_automatic_backups)
+
+    @_builtins.property
+    @pulumi.getter(name="remoteDisasterRecoveryType")
+    def remote_disaster_recovery_type(self) -> _builtins.str:
+        """
+        Remote disaster recovery type.
+        """
+        return pulumi.get(self, "remote_disaster_recovery_type")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAutonomousDatabaseArn")
+    def source_autonomous_database_arn(self) -> _builtins.str:
+        """
+        ARN of the source Autonomous Database.
+        """
+        return pulumi.get(self, "source_autonomous_database_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="isReplicateAutomaticBackups")
+    def is_replicate_automatic_backups(self) -> Optional[_builtins.bool]:
+        """
+        Whether automatic backups are replicated.
+        """
+        return pulumi.get(self, "is_replicate_automatic_backups")
+
+
+@pulumi.output_type
+class AutonomousDatabaseSourceConfigurationDatabaseClone(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloneType":
+            suggest = "clone_type"
+        elif key == "sourceAutonomousDatabaseId":
+            suggest = "source_autonomous_database_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseSourceConfigurationDatabaseClone. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseSourceConfigurationDatabaseClone.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseSourceConfigurationDatabaseClone.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 clone_type: _builtins.str,
+                 source_autonomous_database_id: _builtins.str):
+        """
+        :param _builtins.str clone_type: Clone type.
+        :param _builtins.str source_autonomous_database_id: ID of the source Autonomous Database.
+        """
+        pulumi.set(__self__, "clone_type", clone_type)
+        pulumi.set(__self__, "source_autonomous_database_id", source_autonomous_database_id)
+
+    @_builtins.property
+    @pulumi.getter(name="cloneType")
+    def clone_type(self) -> _builtins.str:
+        """
+        Clone type.
+        """
+        return pulumi.get(self, "clone_type")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAutonomousDatabaseId")
+    def source_autonomous_database_id(self) -> _builtins.str:
+        """
+        ID of the source Autonomous Database.
+        """
+        return pulumi.get(self, "source_autonomous_database_id")
+
+
+@pulumi.output_type
+class AutonomousDatabaseSourceConfigurationPointInTimeRestore(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloneType":
+            suggest = "clone_type"
+        elif key == "sourceAutonomousDatabaseId":
+            suggest = "source_autonomous_database_id"
+        elif key == "cloneTableSpaceLists":
+            suggest = "clone_table_space_lists"
+        elif key == "useLatestAvailableBackupTimestamp":
+            suggest = "use_latest_available_backup_timestamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseSourceConfigurationPointInTimeRestore. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseSourceConfigurationPointInTimeRestore.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseSourceConfigurationPointInTimeRestore.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 clone_type: _builtins.str,
+                 source_autonomous_database_id: _builtins.str,
+                 clone_table_space_lists: Optional[Sequence[_builtins.int]] = None,
+                 timestamp: Optional[_builtins.str] = None,
+                 use_latest_available_backup_timestamp: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str clone_type: Clone type.
+        :param _builtins.str source_autonomous_database_id: ID of the source Autonomous Database.
+        :param Sequence[_builtins.int] clone_table_space_lists: List of tablespace IDs to clone.
+        :param _builtins.str timestamp: RFC3339 timestamp to which the database is restored.
+        :param _builtins.bool use_latest_available_backup_timestamp: Whether to use the latest available backup timestamp.
+        """
+        pulumi.set(__self__, "clone_type", clone_type)
+        pulumi.set(__self__, "source_autonomous_database_id", source_autonomous_database_id)
+        if clone_table_space_lists is not None:
+            pulumi.set(__self__, "clone_table_space_lists", clone_table_space_lists)
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+        if use_latest_available_backup_timestamp is not None:
+            pulumi.set(__self__, "use_latest_available_backup_timestamp", use_latest_available_backup_timestamp)
+
+    @_builtins.property
+    @pulumi.getter(name="cloneType")
+    def clone_type(self) -> _builtins.str:
+        """
+        Clone type.
+        """
+        return pulumi.get(self, "clone_type")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceAutonomousDatabaseId")
+    def source_autonomous_database_id(self) -> _builtins.str:
+        """
+        ID of the source Autonomous Database.
+        """
+        return pulumi.get(self, "source_autonomous_database_id")
+
+    @_builtins.property
+    @pulumi.getter(name="cloneTableSpaceLists")
+    def clone_table_space_lists(self) -> Optional[Sequence[_builtins.int]]:
+        """
+        List of tablespace IDs to clone.
+        """
+        return pulumi.get(self, "clone_table_space_lists")
+
+    @_builtins.property
+    @pulumi.getter
+    def timestamp(self) -> Optional[_builtins.str]:
+        """
+        RFC3339 timestamp to which the database is restored.
+        """
+        return pulumi.get(self, "timestamp")
+
+    @_builtins.property
+    @pulumi.getter(name="useLatestAvailableBackupTimestamp")
+    def use_latest_available_backup_timestamp(self) -> Optional[_builtins.bool]:
+        """
+        Whether to use the latest available backup timestamp.
+        """
+        return pulumi.get(self, "use_latest_available_backup_timestamp")
+
+
+@pulumi.output_type
+class AutonomousDatabaseSourceConfigurationRestoreFromBackup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autonomousDatabaseBackupId":
+            suggest = "autonomous_database_backup_id"
+        elif key == "cloneType":
+            suggest = "clone_type"
+        elif key == "cloneTableSpaceLists":
+            suggest = "clone_table_space_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseSourceConfigurationRestoreFromBackup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseSourceConfigurationRestoreFromBackup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseSourceConfigurationRestoreFromBackup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 autonomous_database_backup_id: _builtins.str,
+                 clone_type: _builtins.str,
+                 clone_table_space_lists: Optional[Sequence[_builtins.int]] = None):
+        """
+        :param _builtins.str autonomous_database_backup_id: ID of the Autonomous Database backup.
+        :param _builtins.str clone_type: Clone type.
+        :param Sequence[_builtins.int] clone_table_space_lists: List of tablespace IDs to clone.
+        """
+        pulumi.set(__self__, "autonomous_database_backup_id", autonomous_database_backup_id)
+        pulumi.set(__self__, "clone_type", clone_type)
+        if clone_table_space_lists is not None:
+            pulumi.set(__self__, "clone_table_space_lists", clone_table_space_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="autonomousDatabaseBackupId")
+    def autonomous_database_backup_id(self) -> _builtins.str:
+        """
+        ID of the Autonomous Database backup.
+        """
+        return pulumi.get(self, "autonomous_database_backup_id")
+
+    @_builtins.property
+    @pulumi.getter(name="cloneType")
+    def clone_type(self) -> _builtins.str:
+        """
+        Clone type.
+        """
+        return pulumi.get(self, "clone_type")
+
+    @_builtins.property
+    @pulumi.getter(name="cloneTableSpaceLists")
+    def clone_table_space_lists(self) -> Optional[Sequence[_builtins.int]]:
+        """
+        List of tablespace IDs to clone.
+        """
+        return pulumi.get(self, "clone_table_space_lists")
+
+
+@pulumi.output_type
+class AutonomousDatabaseTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class AutonomousDatabaseTransportableTablespace(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ttsBundleUrl":
+            suggest = "tts_bundle_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutonomousDatabaseTransportableTablespace. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutonomousDatabaseTransportableTablespace.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutonomousDatabaseTransportableTablespace.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tts_bundle_url: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str tts_bundle_url: URL of the transportable tablespace bundle.
+        """
+        if tts_bundle_url is not None:
+            pulumi.set(__self__, "tts_bundle_url", tts_bundle_url)
+
+    @_builtins.property
+    @pulumi.getter(name="ttsBundleUrl")
+    def tts_bundle_url(self) -> Optional[_builtins.str]:
+        """
+        URL of the transportable tablespace bundle.
+        """
+        return pulumi.get(self, "tts_bundle_url")
+
 
 @pulumi.output_type
 class CloudAutonomousVmClusterMaintenanceWindow(dict):
@@ -1452,6 +2512,297 @@ class NetworkTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class GetAutonomousDatabaseAdminPasswordSourceResult(dict):
+    def __init__(__self__, *,
+                 customer_managed_aws_secrets: Sequence['outputs.GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretResult']):
+        """
+        :param Sequence['GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs'] customer_managed_aws_secrets: Customer-managed AWS Secrets Manager configuration.
+        """
+        pulumi.set(__self__, "customer_managed_aws_secrets", customer_managed_aws_secrets)
+
+    @_builtins.property
+    @pulumi.getter(name="customerManagedAwsSecrets")
+    def customer_managed_aws_secrets(self) -> Sequence['outputs.GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretResult']:
+        """
+        Customer-managed AWS Secrets Manager configuration.
+        """
+        return pulumi.get(self, "customer_managed_aws_secrets")
+
+
+@pulumi.output_type
+class GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretResult(dict):
+    def __init__(__self__, *,
+                 external_id_type: _builtins.str,
+                 iam_role_arn: _builtins.str,
+                 secret_arn: _builtins.str):
+        """
+        :param _builtins.str external_id_type: OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role.
+        :param _builtins.str iam_role_arn: ARN of the customer-managed IAM role OCI assumes to retrieve the secret.
+        :param _builtins.str secret_arn: ARN of the AWS Secrets Manager secret containing the ADMIN password.
+        """
+        pulumi.set(__self__, "external_id_type", external_id_type)
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="externalIdType")
+    def external_id_type(self) -> _builtins.str:
+        """
+        OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role.
+        """
+        return pulumi.get(self, "external_id_type")
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> _builtins.str:
+        """
+        ARN of the customer-managed IAM role OCI assumes to retrieve the secret.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        ARN of the AWS Secrets Manager secret containing the ADMIN password.
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class GetAutonomousDatabaseCustomerContactsToSendToOciResult(dict):
+    def __init__(__self__, *,
+                 email: _builtins.str):
+        """
+        :param _builtins.str email: Customer contact email address.
+        """
+        pulumi.set(__self__, "email", email)
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> _builtins.str:
+        """
+        Customer contact email address.
+        """
+        return pulumi.get(self, "email")
+
+
+@pulumi.output_type
+class GetAutonomousDatabaseDbToolsDetailResult(dict):
+    def __init__(__self__, *,
+                 compute_count: _builtins.float,
+                 is_enabled: _builtins.bool,
+                 max_idle_time_in_minutes: _builtins.int,
+                 name: _builtins.str):
+        """
+        :param _builtins.float compute_count: Compute capacity allocated to the database tool.
+        :param _builtins.bool is_enabled: Whether the database tool is enabled.
+        :param _builtins.int max_idle_time_in_minutes: Maximum idle time before the tool is shut down.
+        :param _builtins.str name: Database tool name.
+        """
+        pulumi.set(__self__, "compute_count", compute_count)
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "max_idle_time_in_minutes", max_idle_time_in_minutes)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="computeCount")
+    def compute_count(self) -> _builtins.float:
+        """
+        Compute capacity allocated to the database tool.
+        """
+        return pulumi.get(self, "compute_count")
+
+    @_builtins.property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> _builtins.bool:
+        """
+        Whether the database tool is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="maxIdleTimeInMinutes")
+    def max_idle_time_in_minutes(self) -> _builtins.int:
+        """
+        Maximum idle time before the tool is shut down.
+        """
+        return pulumi.get(self, "max_idle_time_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Database tool name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetAutonomousDatabaseLongTermBackupScheduleResult(dict):
+    def __init__(__self__, *,
+                 is_disabled: _builtins.bool,
+                 repeat_cadence: _builtins.str,
+                 retention_period_in_days: _builtins.int,
+                 time_of_backup: _builtins.str):
+        """
+        :param _builtins.bool is_disabled: Whether the resource pool is disabled.
+        :param _builtins.str repeat_cadence: Backup cadence.
+        :param _builtins.int retention_period_in_days: Backup retention period in days.
+        :param _builtins.str time_of_backup: Backup date and time.
+        """
+        pulumi.set(__self__, "is_disabled", is_disabled)
+        pulumi.set(__self__, "repeat_cadence", repeat_cadence)
+        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        pulumi.set(__self__, "time_of_backup", time_of_backup)
+
+    @_builtins.property
+    @pulumi.getter(name="isDisabled")
+    def is_disabled(self) -> _builtins.bool:
+        """
+        Whether the resource pool is disabled.
+        """
+        return pulumi.get(self, "is_disabled")
+
+    @_builtins.property
+    @pulumi.getter(name="repeatCadence")
+    def repeat_cadence(self) -> _builtins.str:
+        """
+        Backup cadence.
+        """
+        return pulumi.get(self, "repeat_cadence")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriodInDays")
+    def retention_period_in_days(self) -> _builtins.int:
+        """
+        Backup retention period in days.
+        """
+        return pulumi.get(self, "retention_period_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="timeOfBackup")
+    def time_of_backup(self) -> _builtins.str:
+        """
+        Backup date and time.
+        """
+        return pulumi.get(self, "time_of_backup")
+
+
+@pulumi.output_type
+class GetAutonomousDatabaseResourcePoolSummaryResult(dict):
+    def __init__(__self__, *,
+                 available_compute_capacity: _builtins.int,
+                 available_storage_capacity_in_tbs: _builtins.float,
+                 is_disabled: _builtins.bool,
+                 pool_size: _builtins.int,
+                 pool_storage_size_in_tbs: _builtins.int,
+                 total_compute_capacity: _builtins.int):
+        """
+        :param _builtins.int available_compute_capacity: Available compute capacity.
+        :param _builtins.float available_storage_capacity_in_tbs: Available storage capacity in TB.
+        :param _builtins.bool is_disabled: Whether the resource pool is disabled.
+        :param _builtins.int pool_size: Number of databases the pool can contain.
+        :param _builtins.int pool_storage_size_in_tbs: Pool storage size in TB.
+        :param _builtins.int total_compute_capacity: Total compute capacity.
+        """
+        pulumi.set(__self__, "available_compute_capacity", available_compute_capacity)
+        pulumi.set(__self__, "available_storage_capacity_in_tbs", available_storage_capacity_in_tbs)
+        pulumi.set(__self__, "is_disabled", is_disabled)
+        pulumi.set(__self__, "pool_size", pool_size)
+        pulumi.set(__self__, "pool_storage_size_in_tbs", pool_storage_size_in_tbs)
+        pulumi.set(__self__, "total_compute_capacity", total_compute_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="availableComputeCapacity")
+    def available_compute_capacity(self) -> _builtins.int:
+        """
+        Available compute capacity.
+        """
+        return pulumi.get(self, "available_compute_capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="availableStorageCapacityInTbs")
+    def available_storage_capacity_in_tbs(self) -> _builtins.float:
+        """
+        Available storage capacity in TB.
+        """
+        return pulumi.get(self, "available_storage_capacity_in_tbs")
+
+    @_builtins.property
+    @pulumi.getter(name="isDisabled")
+    def is_disabled(self) -> _builtins.bool:
+        """
+        Whether the resource pool is disabled.
+        """
+        return pulumi.get(self, "is_disabled")
+
+    @_builtins.property
+    @pulumi.getter(name="poolSize")
+    def pool_size(self) -> _builtins.int:
+        """
+        Number of databases the pool can contain.
+        """
+        return pulumi.get(self, "pool_size")
+
+    @_builtins.property
+    @pulumi.getter(name="poolStorageSizeInTbs")
+    def pool_storage_size_in_tbs(self) -> _builtins.int:
+        """
+        Pool storage size in TB.
+        """
+        return pulumi.get(self, "pool_storage_size_in_tbs")
+
+    @_builtins.property
+    @pulumi.getter(name="totalComputeCapacity")
+    def total_compute_capacity(self) -> _builtins.int:
+        """
+        Total compute capacity.
+        """
+        return pulumi.get(self, "total_compute_capacity")
+
+
+@pulumi.output_type
+class GetAutonomousDatabaseScheduledOperationResult(dict):
+    def __init__(__self__, *,
+                 day_of_week: _builtins.str,
+                 scheduled_start_time: _builtins.str,
+                 scheduled_stop_time: _builtins.str):
+        """
+        :param _builtins.str day_of_week: Day of the week.
+        :param _builtins.str scheduled_start_time: Scheduled start time in UTC.
+        :param _builtins.str scheduled_stop_time: Scheduled stop time in UTC.
+        """
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "scheduled_start_time", scheduled_start_time)
+        pulumi.set(__self__, "scheduled_stop_time", scheduled_stop_time)
+
+    @_builtins.property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> _builtins.str:
+        """
+        Day of the week.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @_builtins.property
+    @pulumi.getter(name="scheduledStartTime")
+    def scheduled_start_time(self) -> _builtins.str:
+        """
+        Scheduled start time in UTC.
+        """
+        return pulumi.get(self, "scheduled_start_time")
+
+    @_builtins.property
+    @pulumi.getter(name="scheduledStopTime")
+    def scheduled_stop_time(self) -> _builtins.str:
+        """
+        Scheduled stop time in UTC.
+        """
+        return pulumi.get(self, "scheduled_stop_time")
 
 
 @pulumi.output_type

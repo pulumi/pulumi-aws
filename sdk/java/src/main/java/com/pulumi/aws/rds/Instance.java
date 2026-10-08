@@ -305,7 +305,7 @@ import javax.annotation.Nullable;
  *                 "db.m6i.large")
  *             .build());
  * 
- *         // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default paramater group as a source, and set license information.
+ *         // The RDS Db2 instance resource requires licensing information. Create a new parameter group using the default parameter group as a source, and set license information.
  *         var exampleParameterGroup = new ParameterGroup("exampleParameterGroup", ParameterGroupArgs.builder()
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
@@ -1208,14 +1208,14 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.licenseModel;
     }
     /**
-     * Listener connection endpoint for SQL Server Always On. See Endpoint below.
+     * Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
      * 
      */
     @Export(name="listenerEndpoints", refs={List.class,InstanceListenerEndpoint.class}, tree="[0,1]")
     private Output<List<InstanceListenerEndpoint>> listenerEndpoints;
 
     /**
-     * @return Listener connection endpoint for SQL Server Always On. See Endpoint below.
+     * @return Listener connection endpoint for SQL Server Always On. See `listenerEndpoint` Block below.
      * 
      */
     public Output<List<InstanceListenerEndpoint>> listenerEndpoints() {

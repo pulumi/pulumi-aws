@@ -100,8 +100,6 @@ public class VpcEndpointConnectionNotification extends com.pulumi.resources.Cust
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      * 
-     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-     * 
      */
     @Export(name="connectionEvents", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> connectionEvents;
@@ -109,35 +107,33 @@ public class VpcEndpointConnectionNotification extends com.pulumi.resources.Cust
     /**
      * @return One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      * 
-     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
-     * 
      */
     public Output<List<String>> connectionEvents() {
         return this.connectionEvents;
     }
     /**
-     * The ARN of the SNS topic for the notifications.
+     * ARN of the SNS topic for the notifications.
      * 
      */
     @Export(name="connectionNotificationArn", refs={String.class}, tree="[0]")
     private Output<String> connectionNotificationArn;
 
     /**
-     * @return The ARN of the SNS topic for the notifications.
+     * @return ARN of the SNS topic for the notifications.
      * 
      */
     public Output<String> connectionNotificationArn() {
         return this.connectionNotificationArn;
     }
     /**
-     * The type of notification.
+     * Type of notification.
      * 
      */
     @Export(name="notificationType", refs={String.class}, tree="[0]")
     private Output<String> notificationType;
 
     /**
-     * @return The type of notification.
+     * @return Type of notification.
      * 
      */
     public Output<String> notificationType() {
@@ -158,42 +154,46 @@ public class VpcEndpointConnectionNotification extends com.pulumi.resources.Cust
         return this.region;
     }
     /**
-     * The state of the notification.
+     * State of the notification.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The state of the notification.
+     * @return State of the notification.
      * 
      */
     public Output<String> state() {
         return this.state;
     }
     /**
-     * The ID of the VPC Endpoint to receive notifications for.
+     * ID of the VPC Endpoint to receive notifications for.
      * 
      */
     @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcEndpointId;
 
     /**
-     * @return The ID of the VPC Endpoint to receive notifications for.
+     * @return ID of the VPC Endpoint to receive notifications for.
      * 
      */
     public Output<Optional<String>> vpcEndpointId() {
         return Codegen.optional(this.vpcEndpointId);
     }
     /**
-     * The ID of the VPC Endpoint Service to receive notifications for.
+     * ID of the VPC Endpoint Service to receive notifications for.
+     * 
+     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      * 
      */
     @Export(name="vpcEndpointServiceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcEndpointServiceId;
 
     /**
-     * @return The ID of the VPC Endpoint Service to receive notifications for.
+     * @return ID of the VPC Endpoint Service to receive notifications for.
+     * 
+     * &gt; **NOTE:** One of `vpcEndpointServiceId` or `vpcEndpointId` must be specified.
      * 
      */
     public Output<Optional<String>> vpcEndpointServiceId() {

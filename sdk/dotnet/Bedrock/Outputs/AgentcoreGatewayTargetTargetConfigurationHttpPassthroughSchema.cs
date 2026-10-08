@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema
     {
         /// <summary>
-        /// Configuration for the API schema. Supports exactly one of `InlinePayload` or `S3` (see `S3` Block). For HTTP targets, the `InlinePayload` block is documented under its full path (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block).
+        /// Configuration for the API schema. Supports exactly one of `InlinePayload` or `S3`. For HTTP targets, these blocks are documented under their full paths (for example, `target_configuration.http.agentcore_runtime.schema.source.inline_payload` Block and `target_configuration.http.agentcore_runtime.schema.source.s3` Block).
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource Source;
 

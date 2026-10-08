@@ -496,6 +496,29 @@ class Stream(pulumi.CustomResource):
 
         ## Example Usage
 
+        ### On-Demand Mode
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_stream = aws.kinesis.Stream("test_stream",
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="kinesis-test",
+            retention_period=48,
+            shard_level_metrics=[
+                "IncomingBytes",
+                "OutgoingBytes",
+            ],
+            tags={
+                "Environment": "test",
+            })
+        ```
+
+        ### Provisioned Mode
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -565,6 +588,29 @@ class Stream(pulumi.CustomResource):
         For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
 
         ## Example Usage
+
+        ### On-Demand Mode
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_stream = aws.kinesis.Stream("test_stream",
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="kinesis-test",
+            retention_period=48,
+            shard_level_metrics=[
+                "IncomingBytes",
+                "OutgoingBytes",
+            ],
+            tags={
+                "Environment": "test",
+            })
+        ```
+
+        ### Provisioned Mode
 
         ```python
         import pulumi

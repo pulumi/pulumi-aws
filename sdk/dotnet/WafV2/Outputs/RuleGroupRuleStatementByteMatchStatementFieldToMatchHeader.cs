@@ -14,11 +14,11 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader
     {
         /// <summary>
-        /// The filter to use to identify the subset of headers to inspect in a web request. The `MatchPattern` block supports only one of the following arguments:
+        /// Filter to use to identify the subset of headers to inspect in a web request. See `headers.match_pattern` Block below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern MatchPattern;
         /// <summary>
-        /// The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
+        /// Parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         /// </summary>
         public readonly string MatchScope;
         /// <summary>

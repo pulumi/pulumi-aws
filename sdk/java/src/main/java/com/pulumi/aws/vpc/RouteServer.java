@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpc/routeServer:RouteServer")
 public class RouteServer extends com.pulumi.resources.CustomResource {
     /**
-     * The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+     * Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
      * 
      * The following arguments are optional:
      * 
@@ -115,7 +115,7 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
     private Output<Integer> amazonSideAsn;
 
     /**
-     * @return The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+     * @return Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
      * 
      * The following arguments are optional:
      * 
@@ -124,42 +124,42 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
         return this.amazonSideAsn;
     }
     /**
-     * The ARN of the route server.
+     * ARN of the route server.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the route server.
+     * @return ARN of the route server.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+     * Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
      * 
      */
     @Export(name="persistRoutes", refs={String.class}, tree="[0]")
     private Output<String> persistRoutes;
 
     /**
-     * @return Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
+     * @return Whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
      * 
      */
     public Output<String> persistRoutes() {
         return this.persistRoutes;
     }
     /**
-     * The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
+     * Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
      * 
      */
     @Export(name="persistRoutesDuration", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> persistRoutesDuration;
 
     /**
-     * @return The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
+     * @return Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
      * 
      */
     public Output<Optional<Integer>> persistRoutesDuration() {
@@ -180,70 +180,70 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The unique identifier of the route server.
+     * Unique identifier of the route server.
      * 
      */
     @Export(name="routeServerId", refs={String.class}, tree="[0]")
     private Output<String> routeServerId;
 
     /**
-     * @return The unique identifier of the route server.
+     * @return Unique identifier of the route server.
      * 
      */
     public Output<String> routeServerId() {
         return this.routeServerId;
     }
     /**
-     * Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
+     * Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
      * 
      */
     @Export(name="snsNotificationsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> snsNotificationsEnabled;
 
     /**
-     * @return Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
+     * @return Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
      * 
      */
     public Output<Boolean> snsNotificationsEnabled() {
         return this.snsNotificationsEnabled;
     }
     /**
-     * The ARN of the SNS topic where notifications are published.
+     * ARN of the SNS topic where notifications are published.
      * 
      */
     @Export(name="snsTopicArn", refs={String.class}, tree="[0]")
     private Output<String> snsTopicArn;
 
     /**
-     * @return The ARN of the SNS topic where notifications are published.
+     * @return ARN of the SNS topic where notifications are published.
      * 
      */
     public Output<String> snsTopicArn() {
         return this.snsTopicArn;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

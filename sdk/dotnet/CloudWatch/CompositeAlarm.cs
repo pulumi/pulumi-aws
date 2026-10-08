@@ -34,11 +34,15 @@ namespace Pulumi.Aws.CloudWatch
     ///         },
     ///         AlarmDescription = "This is a composite alarm!",
     ///         AlarmName = "example-composite-alarm",
-    ///         AlarmActions = exampleAwsSnsTopic.Arn,
-    ///         OkActions = exampleAwsSnsTopic.Arn,
-    ///         AlarmRule = @$"ALARM({alpha.AlarmName}) OR
-    /// ALARM({bravo.AlarmName})
-    /// ",
+    ///         AlarmActions = new[]
+    ///         {
+    ///             exampleAwsSnsTopic.Arn,
+    ///         },
+    ///         OkActions = new[]
+    ///         {
+    ///             exampleAwsSnsTopic.Arn,
+    ///         },
+    ///         AlarmRule = $"ALARM({alpha.AlarmName}) OR ALARM({bravo.AlarmName})",
     ///     });
     /// 
     /// });
@@ -97,7 +101,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> AlarmName { get; private set; } = null!;
 
         /// <summary>
-        /// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+        /// Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
         /// </summary>
         [Output("alarmRule")]
         public Output<string> AlarmRule { get; private set; } = null!;
@@ -221,7 +225,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string> AlarmName { get; set; } = null!;
 
         /// <summary>
-        /// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+        /// Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
         /// </summary>
         [Input("alarmRule", required: true)]
         public Input<string> AlarmRule { get; set; } = null!;
@@ -313,7 +317,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? AlarmName { get; set; }
 
         /// <summary>
-        /// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
+        /// Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters. Leading and trailing whitespace are not allowed.
         /// </summary>
         [Input("alarmRule")]
         public Input<string>? AlarmRule { get; set; }

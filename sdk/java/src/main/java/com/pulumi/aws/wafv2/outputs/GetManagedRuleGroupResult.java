@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetManagedRuleGroupResult {
     /**
-     * @return Labels that one or more rules in this rule group add to matching web requests. See Labels below for details.
+     * @return Labels that one or more rules in this rule group add to matching web requests. See `availableLabels` Block below for details.
      * 
      */
     private List<GetManagedRuleGroupAvailableLabel> availableLabels;
@@ -28,7 +28,7 @@ public final class GetManagedRuleGroupResult {
      */
     private Integer capacity;
     /**
-     * @return Labels that one or more rules in this rule group match against in label match statements. See Labels below for details.
+     * @return Labels that one or more rules in this rule group match against in label match statements. See `consumedLabels` Block below for details.
      * 
      */
     private List<GetManagedRuleGroupConsumedLabel> consumedLabels;
@@ -59,7 +59,7 @@ public final class GetManagedRuleGroupResult {
 
     private GetManagedRuleGroupResult() {}
     /**
-     * @return Labels that one or more rules in this rule group add to matching web requests. See Labels below for details.
+     * @return Labels that one or more rules in this rule group add to matching web requests. See `availableLabels` Block below for details.
      * 
      */
     public List<GetManagedRuleGroupAvailableLabel> availableLabels() {
@@ -73,7 +73,7 @@ public final class GetManagedRuleGroupResult {
         return this.capacity;
     }
     /**
-     * @return Labels that one or more rules in this rule group match against in label match statements. See Labels below for details.
+     * @return Labels that one or more rules in this rule group match against in label match statements. See `consumedLabels` Block below for details.
      * 
      */
     public List<GetManagedRuleGroupConsumedLabel> consumedLabels() {

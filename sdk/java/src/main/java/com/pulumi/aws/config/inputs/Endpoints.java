@@ -330,6 +330,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String cloudwatchomni;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String cloudwatchrum;
     /**
      * @return Use this to override the default service endpoint URL
@@ -685,6 +690,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String eventbridgev2;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String events;
     /**
      * @return Use this to override the default service endpoint URL
@@ -900,6 +910,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String lambdaweb;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String launchwizard;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1076,6 +1091,11 @@ public final class Endpoints {
      * 
      */
     private @Nullable String networkmonitor;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String networksecuritymanager;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -2063,6 +2083,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> cloudwatchomni() {
+        return Optional.ofNullable(this.cloudwatchomni);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> cloudwatchrum() {
         return Optional.ofNullable(this.cloudwatchrum);
     }
@@ -2560,6 +2587,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> eventbridgev2() {
+        return Optional.ofNullable(this.eventbridgev2);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> events() {
         return Optional.ofNullable(this.events);
     }
@@ -2861,6 +2895,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> lambdaweb() {
+        return Optional.ofNullable(this.lambdaweb);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> launchwizard() {
         return Optional.ofNullable(this.launchwizard);
     }
@@ -3108,6 +3149,13 @@ public final class Endpoints {
      */
     public Optional<String> networkmonitor() {
         return Optional.ofNullable(this.networkmonitor);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> networksecuritymanager() {
+        return Optional.ofNullable(this.networksecuritymanager);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3938,6 +3986,7 @@ public final class Endpoints {
         private @Nullable String cloudwatchlog;
         private @Nullable String cloudwatchlogs;
         private @Nullable String cloudwatchobservabilityaccessmanager;
+        private @Nullable String cloudwatchomni;
         private @Nullable String cloudwatchrum;
         private @Nullable String codeartifact;
         private @Nullable String codebuild;
@@ -4009,6 +4058,7 @@ public final class Endpoints {
         private @Nullable String emrserverless;
         private @Nullable String es;
         private @Nullable String eventbridge;
+        private @Nullable String eventbridgev2;
         private @Nullable String events;
         private @Nullable String evidently;
         private @Nullable String evs;
@@ -4052,6 +4102,7 @@ public final class Endpoints {
         private @Nullable String lambda;
         private @Nullable String lambdacore;
         private @Nullable String lambdamicrovms;
+        private @Nullable String lambdaweb;
         private @Nullable String launchwizard;
         private @Nullable String lex;
         private @Nullable String lexmodelbuilding;
@@ -4088,6 +4139,7 @@ public final class Endpoints {
         private @Nullable String networkflowmonitor;
         private @Nullable String networkmanager;
         private @Nullable String networkmonitor;
+        private @Nullable String networksecuritymanager;
         private @Nullable String notifications;
         private @Nullable String notificationscontacts;
         private @Nullable String oam;
@@ -4262,6 +4314,7 @@ public final class Endpoints {
     	      this.cloudwatchlog = defaults.cloudwatchlog;
     	      this.cloudwatchlogs = defaults.cloudwatchlogs;
     	      this.cloudwatchobservabilityaccessmanager = defaults.cloudwatchobservabilityaccessmanager;
+    	      this.cloudwatchomni = defaults.cloudwatchomni;
     	      this.cloudwatchrum = defaults.cloudwatchrum;
     	      this.codeartifact = defaults.codeartifact;
     	      this.codebuild = defaults.codebuild;
@@ -4333,6 +4386,7 @@ public final class Endpoints {
     	      this.emrserverless = defaults.emrserverless;
     	      this.es = defaults.es;
     	      this.eventbridge = defaults.eventbridge;
+    	      this.eventbridgev2 = defaults.eventbridgev2;
     	      this.events = defaults.events;
     	      this.evidently = defaults.evidently;
     	      this.evs = defaults.evs;
@@ -4376,6 +4430,7 @@ public final class Endpoints {
     	      this.lambda = defaults.lambda;
     	      this.lambdacore = defaults.lambdacore;
     	      this.lambdamicrovms = defaults.lambdamicrovms;
+    	      this.lambdaweb = defaults.lambdaweb;
     	      this.launchwizard = defaults.launchwizard;
     	      this.lex = defaults.lex;
     	      this.lexmodelbuilding = defaults.lexmodelbuilding;
@@ -4412,6 +4467,7 @@ public final class Endpoints {
     	      this.networkflowmonitor = defaults.networkflowmonitor;
     	      this.networkmanager = defaults.networkmanager;
     	      this.networkmonitor = defaults.networkmonitor;
+    	      this.networksecuritymanager = defaults.networksecuritymanager;
     	      this.notifications = defaults.notifications;
     	      this.notificationscontacts = defaults.notificationscontacts;
     	      this.oam = defaults.oam;
@@ -4901,6 +4957,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder cloudwatchomni(@Nullable String cloudwatchomni) {
+
+            this.cloudwatchomni = cloudwatchomni;
+            return this;
+        }
+        @CustomType.Setter
         public Builder cloudwatchrum(@Nullable String cloudwatchrum) {
 
             this.cloudwatchrum = cloudwatchrum;
@@ -5327,6 +5389,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder eventbridgev2(@Nullable String eventbridgev2) {
+
+            this.eventbridgev2 = eventbridgev2;
+            return this;
+        }
+        @CustomType.Setter
         public Builder events(@Nullable String events) {
 
             this.events = events;
@@ -5585,6 +5653,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder lambdaweb(@Nullable String lambdaweb) {
+
+            this.lambdaweb = lambdaweb;
+            return this;
+        }
+        @CustomType.Setter
         public Builder launchwizard(@Nullable String launchwizard) {
 
             this.launchwizard = launchwizard;
@@ -5798,6 +5872,12 @@ public final class Endpoints {
         public Builder networkmonitor(@Nullable String networkmonitor) {
 
             this.networkmonitor = networkmonitor;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder networksecuritymanager(@Nullable String networksecuritymanager) {
+
+            this.networksecuritymanager = networksecuritymanager;
             return this;
         }
         @CustomType.Setter
@@ -6513,6 +6593,7 @@ public final class Endpoints {
             _resultValue.cloudwatchlog = cloudwatchlog;
             _resultValue.cloudwatchlogs = cloudwatchlogs;
             _resultValue.cloudwatchobservabilityaccessmanager = cloudwatchobservabilityaccessmanager;
+            _resultValue.cloudwatchomni = cloudwatchomni;
             _resultValue.cloudwatchrum = cloudwatchrum;
             _resultValue.codeartifact = codeartifact;
             _resultValue.codebuild = codebuild;
@@ -6584,6 +6665,7 @@ public final class Endpoints {
             _resultValue.emrserverless = emrserverless;
             _resultValue.es = es;
             _resultValue.eventbridge = eventbridge;
+            _resultValue.eventbridgev2 = eventbridgev2;
             _resultValue.events = events;
             _resultValue.evidently = evidently;
             _resultValue.evs = evs;
@@ -6627,6 +6709,7 @@ public final class Endpoints {
             _resultValue.lambda = lambda;
             _resultValue.lambdacore = lambdacore;
             _resultValue.lambdamicrovms = lambdamicrovms;
+            _resultValue.lambdaweb = lambdaweb;
             _resultValue.launchwizard = launchwizard;
             _resultValue.lex = lex;
             _resultValue.lexmodelbuilding = lexmodelbuilding;
@@ -6663,6 +6746,7 @@ public final class Endpoints {
             _resultValue.networkflowmonitor = networkflowmonitor;
             _resultValue.networkmanager = networkmanager;
             _resultValue.networkmonitor = networkmonitor;
+            _resultValue.networksecuritymanager = networksecuritymanager;
             _resultValue.notifications = notifications;
             _resultValue.notificationscontacts = notificationscontacts;
             _resultValue.oam = oam;

@@ -279,7 +279,7 @@ class Backup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_windows_file_system = aws.fsx.WindowsFileSystem("example",
-            active_directory_id=eample["id"],
+            active_directory_id=example_aws_directory_service_directory["id"],
             skip_final_backup=True,
             storage_capacity=32,
             subnet_ids=[example1["id"]],
@@ -364,7 +364,7 @@ class Backup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_windows_file_system = aws.fsx.WindowsFileSystem("example",
-            active_directory_id=eample["id"],
+            active_directory_id=example_aws_directory_service_directory["id"],
             skip_final_backup=True,
             storage_capacity=32,
             subnet_ids=[example1["id"]],

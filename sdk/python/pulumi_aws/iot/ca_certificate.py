@@ -33,7 +33,7 @@ class CaCertificateArgs:
         The set of arguments for constructing a CaCertificate resource.
 
         :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active for device authentication.
-        :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
+        :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device registration.
         :param pulumi.Input[_builtins.str] ca_certificate_pem: PEM encoded CA certificate.
         :param pulumi.Input[_builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -72,7 +72,7 @@ class CaCertificateArgs:
     @pulumi.getter(name="allowAutoRegistration")
     def allow_auto_registration(self) -> pulumi.Input[_builtins.bool]:
         """
-        Boolean flag to indicate if the certificate should be active for device regisration.
+        Boolean flag to indicate if the certificate should be active for device registration.
         """
         return pulumi.get(self, "allow_auto_registration")
 
@@ -174,7 +174,7 @@ class _CaCertificateState:
         Input properties used for looking up and filtering CaCertificate resources.
 
         :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active for device authentication.
-        :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
+        :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device registration.
         :param pulumi.Input[_builtins.str] arn: The ARN of the created CA certificate.
         :param pulumi.Input[_builtins.str] ca_certificate_pem: PEM encoded CA certificate.
         :param pulumi.Input[_builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
@@ -231,7 +231,7 @@ class _CaCertificateState:
     @pulumi.getter(name="allowAutoRegistration")
     def allow_auto_registration(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Boolean flag to indicate if the certificate should be active for device regisration.
+        Boolean flag to indicate if the certificate should be active for device registration.
         """
         return pulumi.get(self, "allow_auto_registration")
 
@@ -440,7 +440,7 @@ class CaCertificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active for device authentication.
-        :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
+        :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device registration.
         :param pulumi.Input[_builtins.str] ca_certificate_pem: PEM encoded CA certificate.
         :param pulumi.Input[_builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -588,7 +588,7 @@ class CaCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] active: Boolean flag to indicate if the certificate should be active for device authentication.
-        :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
+        :param pulumi.Input[_builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device registration.
         :param pulumi.Input[_builtins.str] arn: The ARN of the created CA certificate.
         :param pulumi.Input[_builtins.str] ca_certificate_pem: PEM encoded CA certificate.
         :param pulumi.Input[_builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
@@ -633,7 +633,7 @@ class CaCertificate(pulumi.CustomResource):
     @pulumi.getter(name="allowAutoRegistration")
     def allow_auto_registration(self) -> pulumi.Output[_builtins.bool]:
         """
-        Boolean flag to indicate if the certificate should be active for device regisration.
+        Boolean flag to indicate if the certificate should be active for device registration.
         """
         return pulumi.get(self, "allow_auto_registration")
 

@@ -167,28 +167,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation")
 public class VpcIpamPoolCidrAllocation extends com.pulumi.resources.CustomResource {
     /**
-     * The CIDR you want to assign to the pool.
+     * CIDR you want to assign to the pool.
      * 
      */
     @Export(name="cidr", refs={String.class}, tree="[0]")
     private Output<String> cidr;
 
     /**
-     * @return The CIDR you want to assign to the pool.
+     * @return CIDR you want to assign to the pool.
      * 
      */
     public Output<String> cidr() {
         return this.cidr;
     }
     /**
-     * The description for the allocation.
+     * Description for the allocation.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description for the allocation.
+     * @return Description for the allocation.
      * 
      */
     public Output<Optional<String>> description() {
@@ -208,35 +208,43 @@ public class VpcIpamPoolCidrAllocation extends com.pulumi.resources.CustomResour
     public Output<Optional<List<String>>> disallowedCidrs() {
         return Codegen.optional(this.disallowedCidrs);
     }
+    /**
+     * ID of the allocation.
+     * 
+     */
     @Export(name="ipamPoolAllocationId", refs={String.class}, tree="[0]")
     private Output<String> ipamPoolAllocationId;
 
+    /**
+     * @return ID of the allocation.
+     * 
+     */
     public Output<String> ipamPoolAllocationId() {
         return this.ipamPoolAllocationId;
     }
     /**
-     * The ID of the pool to which you want to assign a CIDR.
+     * ID of the pool to which you want to assign a CIDR.
      * 
      */
     @Export(name="ipamPoolId", refs={String.class}, tree="[0]")
     private Output<String> ipamPoolId;
 
     /**
-     * @return The ID of the pool to which you want to assign a CIDR.
+     * @return ID of the pool to which you want to assign a CIDR.
      * 
      */
     public Output<String> ipamPoolId() {
         return this.ipamPoolId;
     }
     /**
-     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+     * Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      * 
      */
     @Export(name="netmaskLength", refs={Integer.class}, tree="[0]")
     private Output<Integer> netmaskLength;
 
     /**
-     * @return The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+     * @return Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      * 
      */
     public Output<Integer> netmaskLength() {
@@ -257,42 +265,42 @@ public class VpcIpamPoolCidrAllocation extends com.pulumi.resources.CustomResour
         return this.region;
     }
     /**
-     * The ID of the resource.
+     * ID of the resource.
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
-     * @return The ID of the resource.
+     * @return ID of the resource.
      * 
      */
     public Output<String> resourceId() {
         return this.resourceId;
     }
     /**
-     * The owner of the resource.
+     * Owner of the resource.
      * 
      */
     @Export(name="resourceOwner", refs={String.class}, tree="[0]")
     private Output<String> resourceOwner;
 
     /**
-     * @return The owner of the resource.
+     * @return Owner of the resource.
      * 
      */
     public Output<String> resourceOwner() {
         return this.resourceOwner;
     }
     /**
-     * The type of the resource.
+     * Type of the resource.
      * 
      */
     @Export(name="resourceType", refs={String.class}, tree="[0]")
     private Output<String> resourceType;
 
     /**
-     * @return The type of the resource.
+     * @return Type of the resource.
      * 
      */
     public Output<String> resourceType() {

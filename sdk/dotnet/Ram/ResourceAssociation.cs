@@ -35,6 +35,18 @@ namespace Pulumi.Aws.Ram
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `ResourceShareArn` (String) ARN of the RAM Resource Share.
+    /// * `ResourceArn` (String) ARN of the resource associated with the RAM Resource Share.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import RAM Resource Associations using their Resource Share ARN and Resource ARN separated by a comma. For example:
     /// 
     /// ```sh

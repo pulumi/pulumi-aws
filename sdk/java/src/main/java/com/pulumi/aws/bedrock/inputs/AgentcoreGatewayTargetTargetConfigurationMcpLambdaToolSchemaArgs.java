@@ -33,14 +33,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
     }
 
     /**
-     * S3-based tool definition. See `s3` Block below.
+     * S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
      * 
      */
     @Import(name="s3")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args> s3;
 
     /**
-     * @return S3-based tool definition. See `s3` Block below.
+     * @return S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args>> s3() {
@@ -104,7 +104,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
         }
 
         /**
-         * @param s3 S3-based tool definition. See `s3` Block below.
+         * @param s3 S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaA
         }
 
         /**
-         * @param s3 S3-based tool definition. See `s3` Block below.
+         * @param s3 S3-based tool definition. See `target_configuration.mcp.lambda.tool_schema.s3` Block below.
          * 
          * @return builder
          * 

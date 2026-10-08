@@ -93,20 +93,20 @@ export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
-     * Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
+     * ID of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
      */
     declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.ec2.VpcBlockPublicAccessExclusionTimeouts | undefined>;
     /**
-     * Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
+     * ID of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
      */
     declare public readonly vpcId: pulumi.Output<string | undefined>;
 
@@ -169,20 +169,20 @@ export interface VpcBlockPublicAccessExclusionState {
      */
     resourceArn?: pulumi.Input<string | undefined>;
     /**
-     * Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
+     * ID of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
      */
     subnetId?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.ec2.VpcBlockPublicAccessExclusionTimeouts | undefined>;
     /**
-     * Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
+     * ID of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }
@@ -202,16 +202,16 @@ export interface VpcBlockPublicAccessExclusionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Id of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
+     * ID of the subnet to which this exclusion applies. Either this or the vpcId needs to be provided.
      */
     subnetId?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the exclusion. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.ec2.VpcBlockPublicAccessExclusionTimeouts | undefined>;
     /**
-     * Id of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
+     * ID of the VPC to which this exclusion applies. Either this or the subnetId needs to be provided.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }

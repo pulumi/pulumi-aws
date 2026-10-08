@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Vpc
     public partial class RouteServer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+        /// Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -81,19 +81,19 @@ namespace Pulumi.Aws.Vpc
         public Output<int> AmazonSideAsn { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the route server.
+        /// ARN of the route server.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `Enable`, `Disable`, `Reset`
+        /// Whether routes should be persisted after all BGP sessions are terminated. Valid values are `Enable`, `Disable`, `Reset`
         /// </summary>
         [Output("persistRoutes")]
         public Output<string> PersistRoutes { get; private set; } = null!;
 
         /// <summary>
-        /// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `PersistRoutes` is enabled.
+        /// Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `PersistRoutes` is enabled.
         /// </summary>
         [Output("persistRoutesDuration")]
         public Output<int?> PersistRoutesDuration { get; private set; } = null!;
@@ -105,31 +105,31 @@ namespace Pulumi.Aws.Vpc
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier of the route server.
+        /// Unique identifier of the route server.
         /// </summary>
         [Output("routeServerId")]
         public Output<string> RouteServerId { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
+        /// Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
         /// </summary>
         [Output("snsNotificationsEnabled")]
         public Output<bool> SnsNotificationsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the SNS topic where notifications are published.
+        /// ARN of the SNS topic where notifications are published.
         /// </summary>
         [Output("snsTopicArn")]
         public Output<string> SnsTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Vpc
     public sealed class RouteServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+        /// Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -192,13 +192,13 @@ namespace Pulumi.Aws.Vpc
         public Input<int> AmazonSideAsn { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `Enable`, `Disable`, `Reset`
+        /// Whether routes should be persisted after all BGP sessions are terminated. Valid values are `Enable`, `Disable`, `Reset`
         /// </summary>
         [Input("persistRoutes")]
         public Input<string>? PersistRoutes { get; set; }
 
         /// <summary>
-        /// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `PersistRoutes` is enabled.
+        /// Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `PersistRoutes` is enabled.
         /// </summary>
         [Input("persistRoutesDuration")]
         public Input<int>? PersistRoutesDuration { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Vpc
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
+        /// Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
         /// </summary>
         [Input("snsNotificationsEnabled")]
         public Input<bool>? SnsNotificationsEnabled { get; set; }
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Vpc
     public sealed class RouteServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
+        /// Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -247,19 +247,19 @@ namespace Pulumi.Aws.Vpc
         public Input<int>? AmazonSideAsn { get; set; }
 
         /// <summary>
-        /// The ARN of the route server.
+        /// ARN of the route server.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `Enable`, `Disable`, `Reset`
+        /// Whether routes should be persisted after all BGP sessions are terminated. Valid values are `Enable`, `Disable`, `Reset`
         /// </summary>
         [Input("persistRoutes")]
         public Input<string>? PersistRoutes { get; set; }
 
         /// <summary>
-        /// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `PersistRoutes` is enabled.
+        /// Number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `PersistRoutes` is enabled.
         /// </summary>
         [Input("persistRoutesDuration")]
         public Input<int>? PersistRoutesDuration { get; set; }
@@ -271,19 +271,19 @@ namespace Pulumi.Aws.Vpc
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The unique identifier of the route server.
+        /// Unique identifier of the route server.
         /// </summary>
         [Input("routeServerId")]
         public Input<string>? RouteServerId { get; set; }
 
         /// <summary>
-        /// Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
+        /// Whether to enable SNS notifications for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS.
         /// </summary>
         [Input("snsNotificationsEnabled")]
         public Input<bool>? SnsNotificationsEnabled { get; set; }
 
         /// <summary>
-        /// The ARN of the SNS topic where notifications are published.
+        /// ARN of the SNS topic where notifications are published.
         /// </summary>
         [Input("snsTopicArn")]
         public Input<string>? SnsTopicArn { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -304,7 +304,7 @@ namespace Pulumi.Aws.Vpc
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

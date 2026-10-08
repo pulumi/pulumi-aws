@@ -19,14 +19,14 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs e
     public static final IdentitySourceConfigurationCognitoUserPoolConfigurationArgs Empty = new IdentitySourceConfigurationCognitoUserPoolConfigurationArgs();
 
     /**
-     * The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+     * Unique application client IDs that are associated with the specified Amazon Cognito user pool.
      * 
      */
     @Import(name="clientIds")
     private @Nullable Output<List<String>> clientIds;
 
     /**
-     * @return The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+     * @return Unique application client IDs that are associated with the specified Amazon Cognito user pool.
      * 
      */
     public Optional<Output<List<String>>> clientIds() {
@@ -34,14 +34,14 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs e
     }
 
     /**
-     * The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+     * Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
      * 
      */
     @Import(name="groupConfiguration")
     private @Nullable Output<IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs> groupConfiguration;
 
     /**
-     * @return The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+     * @return Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
      * 
      */
     public Optional<Output<IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs>> groupConfiguration() {
@@ -90,7 +90,7 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs e
         }
 
         /**
-         * @param clientIds The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+         * @param clientIds Unique application client IDs that are associated with the specified Amazon Cognito user pool.
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs e
         }
 
         /**
-         * @param clientIds The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+         * @param clientIds Unique application client IDs that are associated with the specified Amazon Cognito user pool.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs e
         }
 
         /**
-         * @param clientIds The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+         * @param clientIds Unique application client IDs that are associated with the specified Amazon Cognito user pool.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs e
         }
 
         /**
-         * @param groupConfiguration The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+         * @param groupConfiguration Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs e
         }
 
         /**
-         * @param groupConfiguration The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+         * @param groupConfiguration Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
          * 
          * @return builder
          * 

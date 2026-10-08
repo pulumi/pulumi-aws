@@ -116,7 +116,7 @@ type Firewall struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
 	AvailabilityZoneChangeProtection pulumi.BoolPtrOutput `pulumi:"availabilityZoneChangeProtection"`
-	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
 	AvailabilityZoneMappings FirewallAvailabilityZoneMappingArrayOutput `pulumi:"availabilityZoneMappings"`
 	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection pulumi.BoolPtrOutput `pulumi:"deleteProtection"`
@@ -191,7 +191,7 @@ type firewallState struct {
 	Arn *string `pulumi:"arn"`
 	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
 	AvailabilityZoneChangeProtection *bool `pulumi:"availabilityZoneChangeProtection"`
-	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
 	AvailabilityZoneMappings []FirewallAvailabilityZoneMapping `pulumi:"availabilityZoneMappings"`
 	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -234,7 +234,7 @@ type FirewallState struct {
 	Arn pulumi.StringPtrInput
 	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
 	AvailabilityZoneChangeProtection pulumi.BoolPtrInput
-	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
 	AvailabilityZoneMappings FirewallAvailabilityZoneMappingArrayInput
 	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection pulumi.BoolPtrInput
@@ -279,7 +279,7 @@ func (FirewallState) ElementType() reflect.Type {
 type firewallArgs struct {
 	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
 	AvailabilityZoneChangeProtection *bool `pulumi:"availabilityZoneChangeProtection"`
-	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
 	AvailabilityZoneMappings []FirewallAvailabilityZoneMapping `pulumi:"availabilityZoneMappings"`
 	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection *bool `pulumi:"deleteProtection"`
@@ -313,7 +313,7 @@ type firewallArgs struct {
 type FirewallArgs struct {
 	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
 	AvailabilityZoneChangeProtection pulumi.BoolPtrInput
-	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+	// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
 	AvailabilityZoneMappings FirewallAvailabilityZoneMappingArrayInput
 	// A flag indicating whether the firewall is protected against deletion. Use this setting to protect against accidentally deleting a firewall that is in use. Defaults to `false`.
 	DeleteProtection pulumi.BoolPtrInput
@@ -440,7 +440,7 @@ func (o FirewallOutput) AvailabilityZoneChangeProtection() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.AvailabilityZoneChangeProtection }).(pulumi.BoolPtrOutput)
 }
 
-// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the avaiability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
+// Required when creating a transit gateway-attached firewall. Set of configuration blocks describing the availability availability where you want to create firewall endpoints for a transit gateway-attached firewall.
 func (o FirewallOutput) AvailabilityZoneMappings() FirewallAvailabilityZoneMappingArrayOutput {
 	return o.ApplyT(func(v *Firewall) FirewallAvailabilityZoneMappingArrayOutput { return v.AvailabilityZoneMappings }).(FirewallAvailabilityZoneMappingArrayOutput)
 }

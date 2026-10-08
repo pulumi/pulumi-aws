@@ -17,14 +17,14 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
     public static final VpcNetworkPerformanceMetricSubscriptionArgs Empty = new VpcNetworkPerformanceMetricSubscriptionArgs();
 
     /**
-     * The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+     * Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
      * 
      */
     @Import(name="destination", required=true)
     private Output<String> destination;
 
     /**
-     * @return The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+     * @return Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
      * 
      */
     public Output<String> destination() {
@@ -32,14 +32,14 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
     }
 
     /**
-     * The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+     * Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
      * 
      */
     @Import(name="metric")
     private @Nullable Output<String> metric;
 
     /**
-     * @return The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+     * @return Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
      * 
      */
     public Optional<Output<String>> metric() {
@@ -62,14 +62,14 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
     }
 
     /**
-     * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+     * Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      * 
      */
     @Import(name="source", required=true)
     private Output<String> source;
 
     /**
-     * @return The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+     * @return Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      * 
      */
     public Output<String> source() {
@@ -77,14 +77,14 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
     }
 
     /**
-     * The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+     * Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
      * 
      */
     @Import(name="statistic")
     private @Nullable Output<String> statistic;
 
     /**
-     * @return The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+     * @return Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
      * 
      */
     public Optional<Output<String>> statistic() {
@@ -120,7 +120,7 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
         }
 
         /**
-         * @param destination The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+         * @param destination Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
         }
 
         /**
-         * @param destination The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
+         * @param destination Target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
         }
 
         /**
-         * @param metric The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+         * @param metric Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
         }
 
         /**
-         * @param metric The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+         * @param metric Metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
         }
 
         /**
-         * @param source The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+         * @param source Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
         }
 
         /**
-         * @param source The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
+         * @param source Source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
         }
 
         /**
-         * @param statistic The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+         * @param statistic Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class VpcNetworkPerformanceMetricSubscriptionArgs extends com.pulum
         }
 
         /**
-         * @param statistic The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
+         * @param statistic Statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
          * 
          * @return builder
          * 

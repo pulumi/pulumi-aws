@@ -288,6 +288,8 @@ type AgentcoreAgentRuntime struct {
 	LifecycleConfigurations AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput `pulumi:"lifecycleConfigurations"`
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
 	NetworkConfiguration AgentcoreAgentRuntimeNetworkConfigurationOutput `pulumi:"networkConfiguration"`
+	// Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
 	// Protocol configuration for the agent runtime. See `protocolConfiguration` below.
 	ProtocolConfiguration AgentcoreAgentRuntimeProtocolConfigurationPtrOutput `pulumi:"protocolConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -371,6 +373,8 @@ type agentcoreAgentRuntimeState struct {
 	LifecycleConfigurations []AgentcoreAgentRuntimeLifecycleConfiguration `pulumi:"lifecycleConfigurations"`
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
 	NetworkConfiguration *AgentcoreAgentRuntimeNetworkConfiguration `pulumi:"networkConfiguration"`
+	// Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+	PlatformVersion *string `pulumi:"platformVersion"`
 	// Protocol configuration for the agent runtime. See `protocolConfiguration` below.
 	ProtocolConfiguration *AgentcoreAgentRuntimeProtocolConfiguration `pulumi:"protocolConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -413,6 +417,8 @@ type AgentcoreAgentRuntimeState struct {
 	LifecycleConfigurations AgentcoreAgentRuntimeLifecycleConfigurationArrayInput
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
 	NetworkConfiguration AgentcoreAgentRuntimeNetworkConfigurationPtrInput
+	// Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+	PlatformVersion pulumi.StringPtrInput
 	// Protocol configuration for the agent runtime. See `protocolConfiguration` below.
 	ProtocolConfiguration AgentcoreAgentRuntimeProtocolConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -453,6 +459,8 @@ type agentcoreAgentRuntimeArgs struct {
 	LifecycleConfigurations []AgentcoreAgentRuntimeLifecycleConfiguration `pulumi:"lifecycleConfigurations"`
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
 	NetworkConfiguration AgentcoreAgentRuntimeNetworkConfiguration `pulumi:"networkConfiguration"`
+	// Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+	PlatformVersion *string `pulumi:"platformVersion"`
 	// Protocol configuration for the agent runtime. See `protocolConfiguration` below.
 	ProtocolConfiguration *AgentcoreAgentRuntimeProtocolConfiguration `pulumi:"protocolConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -486,6 +494,8 @@ type AgentcoreAgentRuntimeArgs struct {
 	LifecycleConfigurations AgentcoreAgentRuntimeLifecycleConfigurationArrayInput
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
 	NetworkConfiguration AgentcoreAgentRuntimeNetworkConfigurationInput
+	// Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+	PlatformVersion pulumi.StringPtrInput
 	// Protocol configuration for the agent runtime. See `protocolConfiguration` below.
 	ProtocolConfiguration AgentcoreAgentRuntimeProtocolConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -651,6 +661,11 @@ func (o AgentcoreAgentRuntimeOutput) NetworkConfiguration() AgentcoreAgentRuntim
 	return o.ApplyT(func(v *AgentcoreAgentRuntime) AgentcoreAgentRuntimeNetworkConfigurationOutput {
 		return v.NetworkConfiguration
 	}).(AgentcoreAgentRuntimeNetworkConfigurationOutput)
+}
+
+// Platform version that controls how the agent runtime starts your agent. Valid values: `V1`, `V2`. When omitted, a new agent runtime uses `V1` and an existing agent runtime keeps its current platform version. `V2` restores each instance from a prepared snapshot, which keeps cold starts consistent regardless of image size. On `V2`, creates and updates take minutes rather than seconds, `environmentVariables` has a smaller total size limit, and availability is limited to a subset of Regions. See [Platform versions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html#runtime-platform-versions) for details.
+func (o AgentcoreAgentRuntimeOutput) PlatformVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntime) pulumi.StringOutput { return v.PlatformVersion }).(pulumi.StringOutput)
 }
 
 // Protocol configuration for the agent runtime. See `protocolConfiguration` below.

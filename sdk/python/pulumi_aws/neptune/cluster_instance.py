@@ -48,7 +48,7 @@ class ClusterInstanceArgs:
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the neptune instance is created in.
         :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        :param pulumi.Input[_builtins.str] engine_version: The neptune engine version. Currently configuring this argumnet has no effect.
+        :param pulumi.Input[_builtins.str] engine_version: The neptune engine version. Currently configuring this argument has no effect.
         :param pulumi.Input[_builtins.str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[_builtins.str] neptune_parameter_group_name: The name of the neptune parameter group to associate with this instance.
@@ -177,7 +177,7 @@ class ClusterInstanceArgs:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The neptune engine version. Currently configuring this argumnet has no effect.
+        The neptune engine version. Currently configuring this argument has no effect.
         """
         return pulumi.get(self, "engine_version")
 
@@ -375,7 +375,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[_builtins.str] dbi_resource_id: The region-unique, immutable identifier for the neptune instance.
         :param pulumi.Input[_builtins.str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        :param pulumi.Input[_builtins.str] engine_version: The neptune engine version. Currently configuring this argumnet has no effect.
+        :param pulumi.Input[_builtins.str] engine_version: The neptune engine version. Currently configuring this argument has no effect.
         :param pulumi.Input[_builtins.str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[_builtins.str] instance_class: The instance class to use.
@@ -566,7 +566,7 @@ class _ClusterInstanceState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The neptune engine version. Currently configuring this argumnet has no effect.
+        The neptune engine version. Currently configuring this argument has no effect.
         """
         return pulumi.get(self, "engine_version")
 
@@ -867,7 +867,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the neptune instance is created in.
         :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
         :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        :param pulumi.Input[_builtins.str] engine_version: The neptune engine version. Currently configuring this argumnet has no effect.
+        :param pulumi.Input[_builtins.str] engine_version: The neptune engine version. Currently configuring this argument has no effect.
         :param pulumi.Input[_builtins.str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[_builtins.str] instance_class: The instance class to use.
@@ -1060,7 +1060,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dbi_resource_id: The region-unique, immutable identifier for the neptune instance.
         :param pulumi.Input[_builtins.str] endpoint: The connection endpoint in `address:port` format.
         :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for the neptune instance. Defaults to `neptune`. Valid Values: `neptune`.
-        :param pulumi.Input[_builtins.str] engine_version: The neptune engine version. Currently configuring this argumnet has no effect.
+        :param pulumi.Input[_builtins.str] engine_version: The neptune engine version. Currently configuring this argument has no effect.
         :param pulumi.Input[_builtins.str] identifier: The identifier for the neptune instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[_builtins.str] instance_class: The instance class to use.
@@ -1192,7 +1192,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
         """
-        The neptune engine version. Currently configuring this argumnet has no effect.
+        The neptune engine version. Currently configuring this argument has no effect.
         """
         return pulumi.get(self, "engine_version")
 

@@ -97,7 +97,7 @@ type DocumentClassifier struct {
 	ModelKmsKeyId pulumi.StringPtrOutput `pulumi:"modelKmsKeyId"`
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -115,12 +115,12 @@ type DocumentClassifier struct {
 	// If omitted, the provider will assign a random, unique version name.
 	// If explicitly set to `""`, no version name will be set.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionNamePrefix`.
 	VersionName pulumi.StringOutput `pulumi:"versionName"`
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionName`.
 	VersionNamePrefix pulumi.StringOutput `pulumi:"versionNamePrefix"`
 	// KMS Key used to encrypt storage volumes during job processing.
@@ -189,7 +189,7 @@ type documentClassifierState struct {
 	ModelKmsKeyId *string `pulumi:"modelKmsKeyId"`
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -207,12 +207,12 @@ type documentClassifierState struct {
 	// If omitted, the provider will assign a random, unique version name.
 	// If explicitly set to `""`, no version name will be set.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionNamePrefix`.
 	VersionName *string `pulumi:"versionName"`
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionName`.
 	VersionNamePrefix *string `pulumi:"versionNamePrefix"`
 	// KMS Key used to encrypt storage volumes during job processing.
@@ -243,7 +243,7 @@ type DocumentClassifierState struct {
 	ModelKmsKeyId pulumi.StringPtrInput
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -261,12 +261,12 @@ type DocumentClassifierState struct {
 	// If omitted, the provider will assign a random, unique version name.
 	// If explicitly set to `""`, no version name will be set.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionNamePrefix`.
 	VersionName pulumi.StringPtrInput
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionName`.
 	VersionNamePrefix pulumi.StringPtrInput
 	// KMS Key used to encrypt storage volumes during job processing.
@@ -299,7 +299,7 @@ type documentClassifierArgs struct {
 	ModelKmsKeyId *string `pulumi:"modelKmsKeyId"`
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
@@ -315,12 +315,12 @@ type documentClassifierArgs struct {
 	// If omitted, the provider will assign a random, unique version name.
 	// If explicitly set to `""`, no version name will be set.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionNamePrefix`.
 	VersionName *string `pulumi:"versionName"`
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionName`.
 	VersionNamePrefix *string `pulumi:"versionNamePrefix"`
 	// KMS Key used to encrypt storage volumes during job processing.
@@ -350,7 +350,7 @@ type DocumentClassifierArgs struct {
 	ModelKmsKeyId pulumi.StringPtrInput
 	// Name for the Document Classifier.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
@@ -366,12 +366,12 @@ type DocumentClassifierArgs struct {
 	// If omitted, the provider will assign a random, unique version name.
 	// If explicitly set to `""`, no version name will be set.
 	// Has a maximum length of 63 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionNamePrefix`.
 	VersionName pulumi.StringPtrInput
 	// Creates a unique version name beginning with the specified prefix.
 	// Has a maximum length of 37 characters.
-	// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+	// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 	// Conflicts with `versionName`.
 	VersionNamePrefix pulumi.StringPtrInput
 	// KMS Key used to encrypt storage volumes during job processing.
@@ -506,7 +506,7 @@ func (o DocumentClassifierOutput) ModelKmsKeyId() pulumi.StringPtrOutput {
 
 // Name for the Document Classifier.
 // Has a maximum length of 63 characters.
-// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 //
 // The following arguments are optional:
 func (o DocumentClassifierOutput) Name() pulumi.StringOutput {
@@ -539,7 +539,7 @@ func (o DocumentClassifierOutput) TagsAll() pulumi.StringMapOutput {
 // If omitted, the provider will assign a random, unique version name.
 // If explicitly set to `""`, no version name will be set.
 // Has a maximum length of 63 characters.
-// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 // Conflicts with `versionNamePrefix`.
 func (o DocumentClassifierOutput) VersionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.VersionName }).(pulumi.StringOutput)
@@ -547,7 +547,7 @@ func (o DocumentClassifierOutput) VersionName() pulumi.StringOutput {
 
 // Creates a unique version name beginning with the specified prefix.
 // Has a maximum length of 37 characters.
-// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+// Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 // Conflicts with `versionName`.
 func (o DocumentClassifierOutput) VersionNamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.VersionNamePrefix }).(pulumi.StringOutput)

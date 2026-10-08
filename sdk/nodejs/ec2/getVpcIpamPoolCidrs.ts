@@ -99,7 +99,7 @@ export interface GetVpcIpamPoolCidrsResult {
      */
     readonly id: string;
     /**
-     * The CIDRs provisioned into the IPAM pool, described below.
+     * CIDRs provisioned into the IPAM pool, described below.
      */
     readonly ipamPoolCidrs: outputs.ec2.GetVpcIpamPoolCidrsIpamPoolCidr[];
     readonly ipamPoolId: string;

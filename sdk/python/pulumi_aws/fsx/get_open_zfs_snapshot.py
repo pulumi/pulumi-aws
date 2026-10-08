@@ -100,9 +100,6 @@ class GetOpenZfsSnapshotResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
-        """
-        Name of the snapshot.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property

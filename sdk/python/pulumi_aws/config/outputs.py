@@ -305,6 +305,7 @@ class Endpoints(dict):
                  cloudwatchlog: Optional[_builtins.str] = None,
                  cloudwatchlogs: Optional[_builtins.str] = None,
                  cloudwatchobservabilityaccessmanager: Optional[_builtins.str] = None,
+                 cloudwatchomni: Optional[_builtins.str] = None,
                  cloudwatchrum: Optional[_builtins.str] = None,
                  codeartifact: Optional[_builtins.str] = None,
                  codebuild: Optional[_builtins.str] = None,
@@ -376,6 +377,7 @@ class Endpoints(dict):
                  emrserverless: Optional[_builtins.str] = None,
                  es: Optional[_builtins.str] = None,
                  eventbridge: Optional[_builtins.str] = None,
+                 eventbridgev2: Optional[_builtins.str] = None,
                  events: Optional[_builtins.str] = None,
                  evidently: Optional[_builtins.str] = None,
                  evs: Optional[_builtins.str] = None,
@@ -419,6 +421,7 @@ class Endpoints(dict):
                  lambda_: Optional[_builtins.str] = None,
                  lambdacore: Optional[_builtins.str] = None,
                  lambdamicrovms: Optional[_builtins.str] = None,
+                 lambdaweb: Optional[_builtins.str] = None,
                  launchwizard: Optional[_builtins.str] = None,
                  lex: Optional[_builtins.str] = None,
                  lexmodelbuilding: Optional[_builtins.str] = None,
@@ -455,6 +458,7 @@ class Endpoints(dict):
                  networkflowmonitor: Optional[_builtins.str] = None,
                  networkmanager: Optional[_builtins.str] = None,
                  networkmonitor: Optional[_builtins.str] = None,
+                 networksecuritymanager: Optional[_builtins.str] = None,
                  notifications: Optional[_builtins.str] = None,
                  notificationscontacts: Optional[_builtins.str] = None,
                  oam: Optional[_builtins.str] = None,
@@ -627,6 +631,7 @@ class Endpoints(dict):
         :param _builtins.str cloudwatchlog: Use this to override the default service endpoint URL
         :param _builtins.str cloudwatchlogs: Use this to override the default service endpoint URL
         :param _builtins.str cloudwatchobservabilityaccessmanager: Use this to override the default service endpoint URL
+        :param _builtins.str cloudwatchomni: Use this to override the default service endpoint URL
         :param _builtins.str cloudwatchrum: Use this to override the default service endpoint URL
         :param _builtins.str codeartifact: Use this to override the default service endpoint URL
         :param _builtins.str codebuild: Use this to override the default service endpoint URL
@@ -698,6 +703,7 @@ class Endpoints(dict):
         :param _builtins.str emrserverless: Use this to override the default service endpoint URL
         :param _builtins.str es: Use this to override the default service endpoint URL
         :param _builtins.str eventbridge: Use this to override the default service endpoint URL
+        :param _builtins.str eventbridgev2: Use this to override the default service endpoint URL
         :param _builtins.str events: Use this to override the default service endpoint URL
         :param _builtins.str evidently: Use this to override the default service endpoint URL
         :param _builtins.str evs: Use this to override the default service endpoint URL
@@ -741,6 +747,7 @@ class Endpoints(dict):
         :param _builtins.str lambda_: Use this to override the default service endpoint URL
         :param _builtins.str lambdacore: Use this to override the default service endpoint URL
         :param _builtins.str lambdamicrovms: Use this to override the default service endpoint URL
+        :param _builtins.str lambdaweb: Use this to override the default service endpoint URL
         :param _builtins.str launchwizard: Use this to override the default service endpoint URL
         :param _builtins.str lex: Use this to override the default service endpoint URL
         :param _builtins.str lexmodelbuilding: Use this to override the default service endpoint URL
@@ -777,6 +784,7 @@ class Endpoints(dict):
         :param _builtins.str networkflowmonitor: Use this to override the default service endpoint URL
         :param _builtins.str networkmanager: Use this to override the default service endpoint URL
         :param _builtins.str networkmonitor: Use this to override the default service endpoint URL
+        :param _builtins.str networksecuritymanager: Use this to override the default service endpoint URL
         :param _builtins.str notifications: Use this to override the default service endpoint URL
         :param _builtins.str notificationscontacts: Use this to override the default service endpoint URL
         :param _builtins.str oam: Use this to override the default service endpoint URL
@@ -1012,6 +1020,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "cloudwatchlogs", cloudwatchlogs)
         if cloudwatchobservabilityaccessmanager is not None:
             pulumi.set(__self__, "cloudwatchobservabilityaccessmanager", cloudwatchobservabilityaccessmanager)
+        if cloudwatchomni is not None:
+            pulumi.set(__self__, "cloudwatchomni", cloudwatchomni)
         if cloudwatchrum is not None:
             pulumi.set(__self__, "cloudwatchrum", cloudwatchrum)
         if codeartifact is not None:
@@ -1154,6 +1164,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "es", es)
         if eventbridge is not None:
             pulumi.set(__self__, "eventbridge", eventbridge)
+        if eventbridgev2 is not None:
+            pulumi.set(__self__, "eventbridgev2", eventbridgev2)
         if events is not None:
             pulumi.set(__self__, "events", events)
         if evidently is not None:
@@ -1240,6 +1252,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "lambdacore", lambdacore)
         if lambdamicrovms is not None:
             pulumi.set(__self__, "lambdamicrovms", lambdamicrovms)
+        if lambdaweb is not None:
+            pulumi.set(__self__, "lambdaweb", lambdaweb)
         if launchwizard is not None:
             pulumi.set(__self__, "launchwizard", launchwizard)
         if lex is not None:
@@ -1312,6 +1326,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "networkmanager", networkmanager)
         if networkmonitor is not None:
             pulumi.set(__self__, "networkmonitor", networkmonitor)
+        if networksecuritymanager is not None:
+            pulumi.set(__self__, "networksecuritymanager", networksecuritymanager)
         if notifications is not None:
             pulumi.set(__self__, "notifications", notifications)
         if notificationscontacts is not None:
@@ -2035,6 +2051,14 @@ class Endpoints(dict):
 
     @_builtins.property
     @pulumi.getter
+    def cloudwatchomni(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "cloudwatchomni")
+
+    @_builtins.property
+    @pulumi.getter
     def cloudwatchrum(self) -> Optional[_builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -2603,6 +2627,14 @@ class Endpoints(dict):
 
     @_builtins.property
     @pulumi.getter
+    def eventbridgev2(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "eventbridgev2")
+
+    @_builtins.property
+    @pulumi.getter
     def events(self) -> Optional[_builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -2947,6 +2979,14 @@ class Endpoints(dict):
 
     @_builtins.property
     @pulumi.getter
+    def lambdaweb(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "lambdaweb")
+
+    @_builtins.property
+    @pulumi.getter
     def launchwizard(self) -> Optional[_builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -3232,6 +3272,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "networkmonitor")
+
+    @_builtins.property
+    @pulumi.getter
+    def networksecuritymanager(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "networksecuritymanager")
 
     @_builtins.property
     @pulumi.getter

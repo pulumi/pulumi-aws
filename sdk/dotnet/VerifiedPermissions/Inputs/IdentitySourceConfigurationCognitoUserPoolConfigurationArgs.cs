@@ -16,7 +16,7 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
         private InputList<string>? _clientIds;
 
         /// <summary>
-        /// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+        /// Unique application client IDs that are associated with the specified Amazon Cognito user pool.
         /// </summary>
         public InputList<string> ClientIds
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
         }
 
         /// <summary>
-        /// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+        /// Type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
         /// </summary>
         [Input("groupConfiguration")]
         public Input<Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs>? GroupConfiguration { get; set; }

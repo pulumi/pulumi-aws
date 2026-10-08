@@ -16,14 +16,14 @@ public final class GetPolicyStorePlainArgs extends com.pulumi.resources.InvokeAr
     public static final GetPolicyStorePlainArgs Empty = new GetPolicyStorePlainArgs();
 
     /**
-     * The ID of the Policy Store.
+     * ID of the Policy Store.
      * 
      */
     @Import(name="id", required=true)
     private String id;
 
     /**
-     * @return The ID of the Policy Store.
+     * @return ID of the Policy Store.
      * 
      */
     public String id() {
@@ -71,7 +71,7 @@ public final class GetPolicyStorePlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param id The ID of the Policy Store.
+         * @param id ID of the Policy Store.
          * 
          * @return builder
          * 

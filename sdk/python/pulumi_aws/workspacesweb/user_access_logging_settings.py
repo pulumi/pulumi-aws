@@ -207,8 +207,10 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kinesis.Stream("example",
-            name="amazon-workspaces-web-example-stream",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="amazon-workspaces-web-example-stream")
         example_user_access_logging_settings = aws.workspacesweb.UserAccessLoggingSettings("example", kinesis_stream_arn=example.arn)
         ```
 
@@ -219,8 +221,10 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kinesis.Stream("example",
-            name="example-stream",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="example-stream")
         example_user_access_logging_settings = aws.workspacesweb.UserAccessLoggingSettings("example",
             kinesis_stream_arn=example.arn,
             tags={
@@ -264,8 +268,10 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kinesis.Stream("example",
-            name="amazon-workspaces-web-example-stream",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="amazon-workspaces-web-example-stream")
         example_user_access_logging_settings = aws.workspacesweb.UserAccessLoggingSettings("example", kinesis_stream_arn=example.arn)
         ```
 
@@ -276,8 +282,10 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kinesis.Stream("example",
-            name="example-stream",
-            shard_count=1)
+            stream_mode_details={
+                "stream_mode": "ON_DEMAND",
+            },
+            name="example-stream")
         example_user_access_logging_settings = aws.workspacesweb.UserAccessLoggingSettings("example",
             kinesis_stream_arn=example.arn,
             tags={

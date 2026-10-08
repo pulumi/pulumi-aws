@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclDataProtectionConfigDataProtection
     {
         /// <summary>
-        /// Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+        /// Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
         /// </summary>
         public readonly string Action;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly bool? ExcludeRuleMatchDetails;
         /// <summary>
-        /// Specifies the field type and optional keys to apply the protection behavior to. See `Field` block below for details.
+        /// Field type and optional keys to apply the protection behavior to. See `Field` block below for details.
         /// </summary>
         public readonly Outputs.WebAclDataProtectionConfigDataProtectionField Field;
 

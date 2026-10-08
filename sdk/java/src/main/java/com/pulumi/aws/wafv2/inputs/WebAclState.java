@@ -27,14 +27,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     public static final WebAclState Empty = new WebAclState();
 
     /**
-     * The URL to use in SDK integrations with managed rule groups.
+     * URL to use in SDK integrations with managed rule groups.
      * 
      */
     @Import(name="applicationIntegrationUrl")
     private @Nullable Output<String> applicationIntegrationUrl;
 
     /**
-     * @return The URL to use in SDK integrations with managed rule groups.
+     * @return URL to use in SDK integrations with managed rule groups.
      * 
      */
     public Optional<Output<String>> applicationIntegrationUrl() {
@@ -42,14 +42,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the WAF WebACL.
+     * ARN of the WAF WebACL.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the WAF WebACL.
+     * @return ARN of the WAF WebACL.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -57,14 +57,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+     * Custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      * 
      */
     @Import(name="associationConfig")
     private @Nullable Output<WebAclAssociationConfigArgs> associationConfig;
 
     /**
-     * @return Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+     * @return Custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
      * 
      */
     public Optional<Output<WebAclAssociationConfigArgs>> associationConfig() {
@@ -87,14 +87,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
+     * Configuration for how AWS WAF handles CAPTCHA evaluations at the web ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      * 
      */
     @Import(name="captchaConfig")
     private @Nullable Output<WebAclCaptchaConfigArgs> captchaConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
+     * @return Configuration for how AWS WAF handles CAPTCHA evaluations at the web ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
      * 
      */
     public Optional<Output<WebAclCaptchaConfigArgs>> captchaConfig() {
@@ -102,14 +102,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+     * Configuration for how AWS WAF handles Challenge evaluations at the web ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
      * 
      */
     @Import(name="challengeConfig")
     private @Nullable Output<WebAclChallengeConfigArgs> challengeConfig;
 
     /**
-     * @return Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+     * @return Configuration for how AWS WAF handles Challenge evaluations at the web ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
      * 
      */
     public Optional<Output<WebAclChallengeConfigArgs>> challengeConfig() {
@@ -117,14 +117,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
+     * Custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      * 
      */
     @Import(name="customResponseBodies")
     private @Nullable Output<List<WebAclCustomResponseBodyArgs>> customResponseBodies;
 
     /**
-     * @return Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
+     * @return Custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
      * 
      */
     public Optional<Output<List<WebAclCustomResponseBodyArgs>>> customResponseBodies() {
@@ -132,14 +132,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+     * Data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
      * 
      */
     @Import(name="dataProtectionConfig")
     private @Nullable Output<WebAclDataProtectionConfigArgs> dataProtectionConfig;
 
     /**
-     * @return Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+     * @return Data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
      * 
      */
     public Optional<Output<WebAclDataProtectionConfigArgs>> dataProtectionConfig() {
@@ -259,14 +259,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+     * Scope of the web ACL, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
-     * @return Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+     * @return Scope of the web ACL, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -304,14 +304,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
+     * Domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
      * 
      */
     @Import(name="tokenDomains")
     private @Nullable Output<List<String>> tokenDomains;
 
     /**
-     * @return Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
+     * @return Domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
      * 
      */
     public Optional<Output<List<String>>> tokenDomains() {
@@ -319,14 +319,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+     * Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
      * 
      */
     @Import(name="visibilityConfig")
     private @Nullable Output<WebAclVisibilityConfigArgs> visibilityConfig;
 
     /**
-     * @return Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+     * @return Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
      * 
      */
     public Optional<Output<WebAclVisibilityConfigArgs>> visibilityConfig() {
@@ -378,7 +378,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationIntegrationUrl The URL to use in SDK integrations with managed rule groups.
+         * @param applicationIntegrationUrl URL to use in SDK integrations with managed rule groups.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationIntegrationUrl The URL to use in SDK integrations with managed rule groups.
+         * @param applicationIntegrationUrl URL to use in SDK integrations with managed rule groups.
          * 
          * @return builder
          * 
@@ -399,7 +399,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the WAF WebACL.
+         * @param arn ARN of the WAF WebACL.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the WAF WebACL.
+         * @param arn ARN of the WAF WebACL.
          * 
          * @return builder
          * 
@@ -420,7 +420,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param associationConfig Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+         * @param associationConfig Custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
          * 
          * @return builder
          * 
@@ -431,7 +431,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param associationConfig Specifies custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
+         * @param associationConfig Custom configurations for the associations between the web ACL and protected resources. See `associationConfig` below for details.
          * 
          * @return builder
          * 
@@ -462,7 +462,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
+         * @param captchaConfig Configuration for how AWS WAF handles CAPTCHA evaluations at the web ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param captchaConfig Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
+         * @param captchaConfig Configuration for how AWS WAF handles CAPTCHA evaluations at the web ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captchaConfig` below for details.
          * 
          * @return builder
          * 
@@ -483,7 +483,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+         * @param challengeConfig Configuration for how AWS WAF handles Challenge evaluations at the web ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param challengeConfig Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
+         * @param challengeConfig Configuration for how AWS WAF handles Challenge evaluations at the web ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challengeConfig` below for details.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
+         * @param customResponseBodies Custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
+         * @param customResponseBodies Custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
          * 
          * @return builder
          * 
@@ -525,7 +525,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customResponseBodies Defines custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
+         * @param customResponseBodies Custom response bodies that can be referenced by `customResponse` actions. See `customResponseBody` below for details.
          * 
          * @return builder
          * 
@@ -535,7 +535,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataProtectionConfig Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+         * @param dataProtectionConfig Data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataProtectionConfig Specifies data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
+         * @param dataProtectionConfig Data protection to apply to the web request data for the web ACL. This is a web ACL level data protection option. See `dataProtectionConfig` below for details.
          * 
          * @return builder
          * 
@@ -722,7 +722,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scope Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+         * @param scope Scope of the web ACL, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
          * 
          * @return builder
          * 
@@ -733,7 +733,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scope Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+         * @param scope Scope of the web ACL, either an AWS CloudFront distribution or a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
          * 
          * @return builder
          * 
@@ -785,7 +785,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenDomains Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
+         * @param tokenDomains Domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
          * 
          * @return builder
          * 
@@ -796,7 +796,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenDomains Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
+         * @param tokenDomains Domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
          * 
          * @return builder
          * 
@@ -806,7 +806,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenDomains Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
+         * @param tokenDomains Domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don&#39;t specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource&#39;s host domain plus all domains in the token domain list, including their prefixed subdomains.
          * 
          * @return builder
          * 
@@ -816,7 +816,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+         * @param visibilityConfig Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
          * 
          * @return builder
          * 
@@ -827,7 +827,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param visibilityConfig Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibilityConfig` below for details.
+         * @param visibilityConfig Amazon CloudWatch metrics and web request sample collection configuration. See `visibilityConfig` below for details.
          * 
          * @return builder
          * 

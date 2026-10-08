@@ -153,7 +153,7 @@ type LookupVpcEndpointServiceResult struct {
 	Arn string `pulumi:"arn"`
 	// Availability Zones in which the service is available. Not available for endpoint services in other regions.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The DNS names for the service.
+	// DNS names for the service.
 	BaseEndpointDnsNames []string                      `pulumi:"baseEndpointDnsNames"`
 	Filters              []GetVpcEndpointServiceFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
@@ -178,7 +178,7 @@ type LookupVpcEndpointServiceResult struct {
 	ServiceRegion  string   `pulumi:"serviceRegion"`
 	ServiceRegions []string `pulumi:"serviceRegions"`
 	ServiceType    string   `pulumi:"serviceType"`
-	// The supported IP address types.
+	// Supported IP address types.
 	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -243,7 +243,7 @@ func (o LookupVpcEndpointServiceResultOutput) AvailabilityZones() pulumi.StringA
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// The DNS names for the service.
+// DNS names for the service.
 func (o LookupVpcEndpointServiceResultOutput) BaseEndpointDnsNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []string { return v.BaseEndpointDnsNames }).(pulumi.StringArrayOutput)
 }
@@ -310,7 +310,7 @@ func (o LookupVpcEndpointServiceResultOutput) ServiceType() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.ServiceType }).(pulumi.StringOutput)
 }
 
-// The supported IP address types.
+// Supported IP address types.
 func (o LookupVpcEndpointServiceResultOutput) SupportedIpAddressTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []string { return v.SupportedIpAddressTypes }).(pulumi.StringArrayOutput)
 }

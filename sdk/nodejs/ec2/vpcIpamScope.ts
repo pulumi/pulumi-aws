@@ -66,24 +66,27 @@ export class VpcIpamScope extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * A description for the scope you're creating.
+     * Description for the scope you're creating.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The ARN of the IPAM for which you're creating this scope.
+     * ARN of the IPAM for which you're creating this scope.
      */
     declare public /*out*/ readonly ipamArn: pulumi.Output<string>;
     /**
-     * The ID of the IPAM for which you're creating this scope.
+     * ID of the IPAM for which you're creating this scope.
      */
     declare public readonly ipamId: pulumi.Output<string>;
+    /**
+     * Type of the scope.
+     */
     declare public /*out*/ readonly ipamScopeType: pulumi.Output<string>;
     /**
-     * Defines if the scope is the default scope or not.
+     * Whether the scope is the default scope.
      */
     declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
-     * The number of pools in the scope.
+     * Number of pools in the scope.
      */
     declare public /*out*/ readonly poolCount: pulumi.Output<number>;
     /**
@@ -149,24 +152,27 @@ export interface VpcIpamScopeState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * A description for the scope you're creating.
+     * Description for the scope you're creating.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The ARN of the IPAM for which you're creating this scope.
+     * ARN of the IPAM for which you're creating this scope.
      */
     ipamArn?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the IPAM for which you're creating this scope.
+     * ID of the IPAM for which you're creating this scope.
      */
     ipamId?: pulumi.Input<string | undefined>;
+    /**
+     * Type of the scope.
+     */
     ipamScopeType?: pulumi.Input<string | undefined>;
     /**
-     * Defines if the scope is the default scope or not.
+     * Whether the scope is the default scope.
      */
     isDefault?: pulumi.Input<boolean | undefined>;
     /**
-     * The number of pools in the scope.
+     * Number of pools in the scope.
      */
     poolCount?: pulumi.Input<number | undefined>;
     /**
@@ -185,11 +191,11 @@ export interface VpcIpamScopeState {
  */
 export interface VpcIpamScopeArgs {
     /**
-     * A description for the scope you're creating.
+     * Description for the scope you're creating.
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the IPAM for which you're creating this scope.
+     * ID of the IPAM for which you're creating this scope.
      */
     ipamId: pulumi.Input<string>;
     /**

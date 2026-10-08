@@ -12,6 +12,9 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
 
     public sealed class TrustProviderDeviceOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ID of the tenant application with the device-identity provider.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 

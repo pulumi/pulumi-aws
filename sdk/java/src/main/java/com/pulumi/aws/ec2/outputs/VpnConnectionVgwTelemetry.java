@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VpnConnectionVgwTelemetry {
     /**
-     * @return The number of accepted routes.
+     * @return Number of accepted routes.
      * 
      */
     private @Nullable Integer acceptedRouteCount;
@@ -23,17 +23,17 @@ public final class VpnConnectionVgwTelemetry {
      */
     private @Nullable String certificateArn;
     /**
-     * @return The date and time of the last change in status.
+     * @return Date and time of the last change in status.
      * 
      */
     private @Nullable String lastStatusChange;
     /**
-     * @return The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
+     * @return Internet-routable IP address of the virtual private gateway&#39;s outside interface.
      * 
      */
     private @Nullable String outsideIpAddress;
     /**
-     * @return The status of the VPN tunnel.
+     * @return Status of the VPN tunnel.
      * 
      */
     private @Nullable String status;
@@ -45,7 +45,7 @@ public final class VpnConnectionVgwTelemetry {
 
     private VpnConnectionVgwTelemetry() {}
     /**
-     * @return The number of accepted routes.
+     * @return Number of accepted routes.
      * 
      */
     public Optional<Integer> acceptedRouteCount() {
@@ -59,21 +59,21 @@ public final class VpnConnectionVgwTelemetry {
         return Optional.ofNullable(this.certificateArn);
     }
     /**
-     * @return The date and time of the last change in status.
+     * @return Date and time of the last change in status.
      * 
      */
     public Optional<String> lastStatusChange() {
         return Optional.ofNullable(this.lastStatusChange);
     }
     /**
-     * @return The Internet-routable IP address of the virtual private gateway&#39;s outside interface.
+     * @return Internet-routable IP address of the virtual private gateway&#39;s outside interface.
      * 
      */
     public Optional<String> outsideIpAddress() {
         return Optional.ofNullable(this.outsideIpAddress);
     }
     /**
-     * @return The status of the VPN tunnel.
+     * @return Status of the VPN tunnel.
      * 
      */
     public Optional<String> status() {

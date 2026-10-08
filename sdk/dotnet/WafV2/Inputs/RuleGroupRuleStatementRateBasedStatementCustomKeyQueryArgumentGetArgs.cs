@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A friendly name of the rule group.
+        /// The name of the query argument to use.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -74,7 +74,7 @@ export class DevEnvironment extends pulumi.CustomResource {
      */
     declare public readonly inactivityTimeoutMinutes: pulumi.Output<number | undefined>;
     /**
-     * The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+     * The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
      *
      * The following arguments are optional:
      */
@@ -168,7 +168,7 @@ export interface DevEnvironmentState {
      */
     inactivityTimeoutMinutes?: pulumi.Input<number | undefined>;
     /**
-     * The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+     * The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
      *
      * The following arguments are optional:
      */
@@ -209,7 +209,7 @@ export interface DevEnvironmentArgs {
      */
     inactivityTimeoutMinutes?: pulumi.Input<number | undefined>;
     /**
-     * The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
+     * The Amazon EC2 instance type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
      *
      * The following arguments are optional:
      */

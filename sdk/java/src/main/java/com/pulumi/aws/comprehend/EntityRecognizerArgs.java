@@ -86,7 +86,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
     /**
      * Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * 
      * The following arguments are optional:
      * 
@@ -97,7 +97,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return Name for the Entity Recognizer.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * 
      * The following arguments are optional:
      * 
@@ -142,7 +142,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
      * If omitted, the provider will assign a random, unique version name.
      * If explicitly set to `&#34;&#34;`, no version name will be set.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionNamePrefix`.
      * 
      */
@@ -155,7 +155,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
      * If omitted, the provider will assign a random, unique version name.
      * If explicitly set to `&#34;&#34;`, no version name will be set.
      * Has a maximum length of 63 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionNamePrefix`.
      * 
      */
@@ -166,7 +166,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
     /**
      * Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionName`.
      * 
      */
@@ -176,7 +176,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
     /**
      * @return Creates a unique version name beginning with the specified prefix.
      * Has a maximum length of 37 characters.
-     * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+     * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
      * Conflicts with `versionName`.
      * 
      */
@@ -341,7 +341,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param name Name for the Entity Recognizer.
          * Has a maximum length of 63 characters.
-         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
          * 
          * The following arguments are optional:
          * 
@@ -356,7 +356,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param name Name for the Entity Recognizer.
          * Has a maximum length of 63 characters.
-         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
          * 
          * The following arguments are optional:
          * 
@@ -415,7 +415,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
          * If omitted, the provider will assign a random, unique version name.
          * If explicitly set to `&#34;&#34;`, no version name will be set.
          * Has a maximum length of 63 characters.
-         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
          * Conflicts with `versionNamePrefix`.
          * 
          * @return builder
@@ -432,7 +432,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
          * If omitted, the provider will assign a random, unique version name.
          * If explicitly set to `&#34;&#34;`, no version name will be set.
          * Has a maximum length of 63 characters.
-         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
          * Conflicts with `versionNamePrefix`.
          * 
          * @return builder
@@ -445,7 +445,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param versionNamePrefix Creates a unique version name beginning with the specified prefix.
          * Has a maximum length of 37 characters.
-         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
          * Conflicts with `versionName`.
          * 
          * @return builder
@@ -459,7 +459,7 @@ public final class EntityRecognizerArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param versionNamePrefix Creates a unique version name beginning with the specified prefix.
          * Has a maximum length of 37 characters.
-         * Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+         * Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
          * Conflicts with `versionName`.
          * 
          * @return builder

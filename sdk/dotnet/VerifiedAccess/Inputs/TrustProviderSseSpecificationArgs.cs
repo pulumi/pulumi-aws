@@ -12,9 +12,15 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
 
     public sealed class TrustProviderSseSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether a customer managed key is in use.
+        /// </summary>
         [Input("customerManagedKeyEnabled")]
         public Input<bool>? CustomerManagedKeyEnabled { get; set; }
 
+        /// <summary>
+        /// ARN of the KMS key.
+        /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 

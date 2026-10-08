@@ -54,8 +54,10 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
  * const exampleStream = new aws.kinesis.Stream("example", {
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
  *     name: "ExampleStream",
- *     shardCount: 2,
  * });
  * const example = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("example", {
  *     elements: [

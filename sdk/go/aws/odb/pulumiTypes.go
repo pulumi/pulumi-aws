@@ -13,6 +13,2895 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AutonomousDatabaseAdminPasswordSource struct {
+	CustomerManagedAwsSecret *AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret `pulumi:"customerManagedAwsSecret"`
+}
+
+// AutonomousDatabaseAdminPasswordSourceInput is an input type that accepts AutonomousDatabaseAdminPasswordSourceArgs and AutonomousDatabaseAdminPasswordSourceOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseAdminPasswordSourceInput` via:
+//
+//	AutonomousDatabaseAdminPasswordSourceArgs{...}
+type AutonomousDatabaseAdminPasswordSourceInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseAdminPasswordSourceOutput() AutonomousDatabaseAdminPasswordSourceOutput
+	ToAutonomousDatabaseAdminPasswordSourceOutputWithContext(context.Context) AutonomousDatabaseAdminPasswordSourceOutput
+}
+
+type AutonomousDatabaseAdminPasswordSourceArgs struct {
+	CustomerManagedAwsSecret AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrInput `pulumi:"customerManagedAwsSecret"`
+}
+
+func (AutonomousDatabaseAdminPasswordSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseAdminPasswordSource)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseAdminPasswordSourceArgs) ToAutonomousDatabaseAdminPasswordSourceOutput() AutonomousDatabaseAdminPasswordSourceOutput {
+	return i.ToAutonomousDatabaseAdminPasswordSourceOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseAdminPasswordSourceArgs) ToAutonomousDatabaseAdminPasswordSourceOutputWithContext(ctx context.Context) AutonomousDatabaseAdminPasswordSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseAdminPasswordSourceOutput)
+}
+
+func (i AutonomousDatabaseAdminPasswordSourceArgs) ToAutonomousDatabaseAdminPasswordSourcePtrOutput() AutonomousDatabaseAdminPasswordSourcePtrOutput {
+	return i.ToAutonomousDatabaseAdminPasswordSourcePtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseAdminPasswordSourceArgs) ToAutonomousDatabaseAdminPasswordSourcePtrOutputWithContext(ctx context.Context) AutonomousDatabaseAdminPasswordSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseAdminPasswordSourceOutput).ToAutonomousDatabaseAdminPasswordSourcePtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseAdminPasswordSourcePtrInput is an input type that accepts AutonomousDatabaseAdminPasswordSourceArgs, AutonomousDatabaseAdminPasswordSourcePtr and AutonomousDatabaseAdminPasswordSourcePtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseAdminPasswordSourcePtrInput` via:
+//
+//	        AutonomousDatabaseAdminPasswordSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseAdminPasswordSourcePtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseAdminPasswordSourcePtrOutput() AutonomousDatabaseAdminPasswordSourcePtrOutput
+	ToAutonomousDatabaseAdminPasswordSourcePtrOutputWithContext(context.Context) AutonomousDatabaseAdminPasswordSourcePtrOutput
+}
+
+type autonomousDatabaseAdminPasswordSourcePtrType AutonomousDatabaseAdminPasswordSourceArgs
+
+func AutonomousDatabaseAdminPasswordSourcePtr(v *AutonomousDatabaseAdminPasswordSourceArgs) AutonomousDatabaseAdminPasswordSourcePtrInput {
+	return (*autonomousDatabaseAdminPasswordSourcePtrType)(v)
+}
+
+func (*autonomousDatabaseAdminPasswordSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseAdminPasswordSource)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseAdminPasswordSourcePtrType) ToAutonomousDatabaseAdminPasswordSourcePtrOutput() AutonomousDatabaseAdminPasswordSourcePtrOutput {
+	return i.ToAutonomousDatabaseAdminPasswordSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseAdminPasswordSourcePtrType) ToAutonomousDatabaseAdminPasswordSourcePtrOutputWithContext(ctx context.Context) AutonomousDatabaseAdminPasswordSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseAdminPasswordSourcePtrOutput)
+}
+
+type AutonomousDatabaseAdminPasswordSourceOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseAdminPasswordSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseAdminPasswordSource)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseAdminPasswordSourceOutput) ToAutonomousDatabaseAdminPasswordSourceOutput() AutonomousDatabaseAdminPasswordSourceOutput {
+	return o
+}
+
+func (o AutonomousDatabaseAdminPasswordSourceOutput) ToAutonomousDatabaseAdminPasswordSourceOutputWithContext(ctx context.Context) AutonomousDatabaseAdminPasswordSourceOutput {
+	return o
+}
+
+func (o AutonomousDatabaseAdminPasswordSourceOutput) ToAutonomousDatabaseAdminPasswordSourcePtrOutput() AutonomousDatabaseAdminPasswordSourcePtrOutput {
+	return o.ToAutonomousDatabaseAdminPasswordSourcePtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseAdminPasswordSourceOutput) ToAutonomousDatabaseAdminPasswordSourcePtrOutputWithContext(ctx context.Context) AutonomousDatabaseAdminPasswordSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseAdminPasswordSource) *AutonomousDatabaseAdminPasswordSource {
+		return &v
+	}).(AutonomousDatabaseAdminPasswordSourcePtrOutput)
+}
+
+func (o AutonomousDatabaseAdminPasswordSourceOutput) CustomerManagedAwsSecret() AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseAdminPasswordSource) *AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret {
+		return v.CustomerManagedAwsSecret
+	}).(AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput)
+}
+
+type AutonomousDatabaseAdminPasswordSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseAdminPasswordSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseAdminPasswordSource)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseAdminPasswordSourcePtrOutput) ToAutonomousDatabaseAdminPasswordSourcePtrOutput() AutonomousDatabaseAdminPasswordSourcePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseAdminPasswordSourcePtrOutput) ToAutonomousDatabaseAdminPasswordSourcePtrOutputWithContext(ctx context.Context) AutonomousDatabaseAdminPasswordSourcePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseAdminPasswordSourcePtrOutput) Elem() AutonomousDatabaseAdminPasswordSourceOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseAdminPasswordSource) AutonomousDatabaseAdminPasswordSource {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseAdminPasswordSource
+		return ret
+	}).(AutonomousDatabaseAdminPasswordSourceOutput)
+}
+
+func (o AutonomousDatabaseAdminPasswordSourcePtrOutput) CustomerManagedAwsSecret() AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseAdminPasswordSource) *AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerManagedAwsSecret
+	}).(AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput)
+}
+
+type AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret struct {
+	// OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role. Valid values are `databaseOcid`, `compartmentOcid`, and `tenantOcid`.
+	ExternalIdType string `pulumi:"externalIdType"`
+	// ARN of the customer-managed IAM role OCI assumes to retrieve the secret. Its trust policy must allow the Oracle-managed service role to assume it.
+	IamRoleArn string `pulumi:"iamRoleArn"`
+	// ARN of the AWS Secrets Manager secret containing the ADMIN password.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretInput is an input type that accepts AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs and AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretInput` via:
+//
+//	AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs{...}
+type AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput() AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput
+	ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutputWithContext(context.Context) AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput
+}
+
+type AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs struct {
+	// OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role. Valid values are `databaseOcid`, `compartmentOcid`, and `tenantOcid`.
+	ExternalIdType pulumi.StringInput `pulumi:"externalIdType"`
+	// ARN of the customer-managed IAM role OCI assumes to retrieve the secret. Its trust policy must allow the Oracle-managed service role to assume it.
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
+	// ARN of the AWS Secrets Manager secret containing the ADMIN password.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs) ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput() AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput {
+	return i.ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs) ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutputWithContext(ctx context.Context) AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput)
+}
+
+func (i AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs) ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput() AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput {
+	return i.ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs) ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutputWithContext(ctx context.Context) AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput).ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrInput is an input type that accepts AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs, AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtr and AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrInput` via:
+//
+//	        AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput() AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput
+	ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutputWithContext(context.Context) AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput
+}
+
+type autonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrType AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs
+
+func AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtr(v *AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs) AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrInput {
+	return (*autonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrType)(v)
+}
+
+func (*autonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrType) ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput() AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput {
+	return i.ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrType) ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutputWithContext(ctx context.Context) AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput)
+}
+
+type AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput() AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput {
+	return o
+}
+
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutputWithContext(ctx context.Context) AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput {
+	return o
+}
+
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput() AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput {
+	return o.ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutputWithContext(ctx context.Context) AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret) *AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret {
+		return &v
+	}).(AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput)
+}
+
+// OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role. Valid values are `databaseOcid`, `compartmentOcid`, and `tenantOcid`.
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) ExternalIdType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret) string { return v.ExternalIdType }).(pulumi.StringOutput)
+}
+
+// ARN of the customer-managed IAM role OCI assumes to retrieve the secret. Its trust policy must allow the Oracle-managed service role to assume it.
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) IamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret) string { return v.IamRoleArn }).(pulumi.StringOutput)
+}
+
+// ARN of the AWS Secrets Manager secret containing the ADMIN password.
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput) ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput() AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput) ToAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutputWithContext(ctx context.Context) AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput) Elem() AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret) AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret
+		return ret
+	}).(AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput)
+}
+
+// OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role. Valid values are `databaseOcid`, `compartmentOcid`, and `tenantOcid`.
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput) ExternalIdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExternalIdType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the customer-managed IAM role OCI assumes to retrieve the secret. Its trust policy must allow the Oracle-managed service role to assume it.
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IamRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the AWS Secrets Manager secret containing the ADMIN password.
+func (o AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseCustomerContactsToSendToOci struct {
+	// Email address that receives operational notifications from OCI.
+	Email string `pulumi:"email"`
+}
+
+// AutonomousDatabaseCustomerContactsToSendToOciInput is an input type that accepts AutonomousDatabaseCustomerContactsToSendToOciArgs and AutonomousDatabaseCustomerContactsToSendToOciOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseCustomerContactsToSendToOciInput` via:
+//
+//	AutonomousDatabaseCustomerContactsToSendToOciArgs{...}
+type AutonomousDatabaseCustomerContactsToSendToOciInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseCustomerContactsToSendToOciOutput() AutonomousDatabaseCustomerContactsToSendToOciOutput
+	ToAutonomousDatabaseCustomerContactsToSendToOciOutputWithContext(context.Context) AutonomousDatabaseCustomerContactsToSendToOciOutput
+}
+
+type AutonomousDatabaseCustomerContactsToSendToOciArgs struct {
+	// Email address that receives operational notifications from OCI.
+	Email pulumi.StringInput `pulumi:"email"`
+}
+
+func (AutonomousDatabaseCustomerContactsToSendToOciArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseCustomerContactsToSendToOci)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseCustomerContactsToSendToOciArgs) ToAutonomousDatabaseCustomerContactsToSendToOciOutput() AutonomousDatabaseCustomerContactsToSendToOciOutput {
+	return i.ToAutonomousDatabaseCustomerContactsToSendToOciOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseCustomerContactsToSendToOciArgs) ToAutonomousDatabaseCustomerContactsToSendToOciOutputWithContext(ctx context.Context) AutonomousDatabaseCustomerContactsToSendToOciOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseCustomerContactsToSendToOciOutput)
+}
+
+// AutonomousDatabaseCustomerContactsToSendToOciArrayInput is an input type that accepts AutonomousDatabaseCustomerContactsToSendToOciArray and AutonomousDatabaseCustomerContactsToSendToOciArrayOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseCustomerContactsToSendToOciArrayInput` via:
+//
+//	AutonomousDatabaseCustomerContactsToSendToOciArray{ AutonomousDatabaseCustomerContactsToSendToOciArgs{...} }
+type AutonomousDatabaseCustomerContactsToSendToOciArrayInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseCustomerContactsToSendToOciArrayOutput() AutonomousDatabaseCustomerContactsToSendToOciArrayOutput
+	ToAutonomousDatabaseCustomerContactsToSendToOciArrayOutputWithContext(context.Context) AutonomousDatabaseCustomerContactsToSendToOciArrayOutput
+}
+
+type AutonomousDatabaseCustomerContactsToSendToOciArray []AutonomousDatabaseCustomerContactsToSendToOciInput
+
+func (AutonomousDatabaseCustomerContactsToSendToOciArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutonomousDatabaseCustomerContactsToSendToOci)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseCustomerContactsToSendToOciArray) ToAutonomousDatabaseCustomerContactsToSendToOciArrayOutput() AutonomousDatabaseCustomerContactsToSendToOciArrayOutput {
+	return i.ToAutonomousDatabaseCustomerContactsToSendToOciArrayOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseCustomerContactsToSendToOciArray) ToAutonomousDatabaseCustomerContactsToSendToOciArrayOutputWithContext(ctx context.Context) AutonomousDatabaseCustomerContactsToSendToOciArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseCustomerContactsToSendToOciArrayOutput)
+}
+
+type AutonomousDatabaseCustomerContactsToSendToOciOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseCustomerContactsToSendToOciOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseCustomerContactsToSendToOci)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseCustomerContactsToSendToOciOutput) ToAutonomousDatabaseCustomerContactsToSendToOciOutput() AutonomousDatabaseCustomerContactsToSendToOciOutput {
+	return o
+}
+
+func (o AutonomousDatabaseCustomerContactsToSendToOciOutput) ToAutonomousDatabaseCustomerContactsToSendToOciOutputWithContext(ctx context.Context) AutonomousDatabaseCustomerContactsToSendToOciOutput {
+	return o
+}
+
+// Email address that receives operational notifications from OCI.
+func (o AutonomousDatabaseCustomerContactsToSendToOciOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseCustomerContactsToSendToOci) string { return v.Email }).(pulumi.StringOutput)
+}
+
+type AutonomousDatabaseCustomerContactsToSendToOciArrayOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseCustomerContactsToSendToOciArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutonomousDatabaseCustomerContactsToSendToOci)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseCustomerContactsToSendToOciArrayOutput) ToAutonomousDatabaseCustomerContactsToSendToOciArrayOutput() AutonomousDatabaseCustomerContactsToSendToOciArrayOutput {
+	return o
+}
+
+func (o AutonomousDatabaseCustomerContactsToSendToOciArrayOutput) ToAutonomousDatabaseCustomerContactsToSendToOciArrayOutputWithContext(ctx context.Context) AutonomousDatabaseCustomerContactsToSendToOciArrayOutput {
+	return o
+}
+
+func (o AutonomousDatabaseCustomerContactsToSendToOciArrayOutput) Index(i pulumi.IntInput) AutonomousDatabaseCustomerContactsToSendToOciOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutonomousDatabaseCustomerContactsToSendToOci {
+		return vs[0].([]AutonomousDatabaseCustomerContactsToSendToOci)[vs[1].(int)]
+	}).(AutonomousDatabaseCustomerContactsToSendToOciOutput)
+}
+
+type AutonomousDatabaseDbToolsDetail struct {
+	// Compute capacity allocated to the database tool.
+	ComputeCount *float64 `pulumi:"computeCount"`
+	// Whether the database tool is enabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Maximum idle time before the tool is shut down.
+	MaxIdleTimeInMinutes *int `pulumi:"maxIdleTimeInMinutes"`
+	// Database tool name.
+	Name *string `pulumi:"name"`
+}
+
+// AutonomousDatabaseDbToolsDetailInput is an input type that accepts AutonomousDatabaseDbToolsDetailArgs and AutonomousDatabaseDbToolsDetailOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseDbToolsDetailInput` via:
+//
+//	AutonomousDatabaseDbToolsDetailArgs{...}
+type AutonomousDatabaseDbToolsDetailInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseDbToolsDetailOutput() AutonomousDatabaseDbToolsDetailOutput
+	ToAutonomousDatabaseDbToolsDetailOutputWithContext(context.Context) AutonomousDatabaseDbToolsDetailOutput
+}
+
+type AutonomousDatabaseDbToolsDetailArgs struct {
+	// Compute capacity allocated to the database tool.
+	ComputeCount pulumi.Float64PtrInput `pulumi:"computeCount"`
+	// Whether the database tool is enabled.
+	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
+	// Maximum idle time before the tool is shut down.
+	MaxIdleTimeInMinutes pulumi.IntPtrInput `pulumi:"maxIdleTimeInMinutes"`
+	// Database tool name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (AutonomousDatabaseDbToolsDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseDbToolsDetail)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseDbToolsDetailArgs) ToAutonomousDatabaseDbToolsDetailOutput() AutonomousDatabaseDbToolsDetailOutput {
+	return i.ToAutonomousDatabaseDbToolsDetailOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseDbToolsDetailArgs) ToAutonomousDatabaseDbToolsDetailOutputWithContext(ctx context.Context) AutonomousDatabaseDbToolsDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseDbToolsDetailOutput)
+}
+
+// AutonomousDatabaseDbToolsDetailArrayInput is an input type that accepts AutonomousDatabaseDbToolsDetailArray and AutonomousDatabaseDbToolsDetailArrayOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseDbToolsDetailArrayInput` via:
+//
+//	AutonomousDatabaseDbToolsDetailArray{ AutonomousDatabaseDbToolsDetailArgs{...} }
+type AutonomousDatabaseDbToolsDetailArrayInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseDbToolsDetailArrayOutput() AutonomousDatabaseDbToolsDetailArrayOutput
+	ToAutonomousDatabaseDbToolsDetailArrayOutputWithContext(context.Context) AutonomousDatabaseDbToolsDetailArrayOutput
+}
+
+type AutonomousDatabaseDbToolsDetailArray []AutonomousDatabaseDbToolsDetailInput
+
+func (AutonomousDatabaseDbToolsDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutonomousDatabaseDbToolsDetail)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseDbToolsDetailArray) ToAutonomousDatabaseDbToolsDetailArrayOutput() AutonomousDatabaseDbToolsDetailArrayOutput {
+	return i.ToAutonomousDatabaseDbToolsDetailArrayOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseDbToolsDetailArray) ToAutonomousDatabaseDbToolsDetailArrayOutputWithContext(ctx context.Context) AutonomousDatabaseDbToolsDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseDbToolsDetailArrayOutput)
+}
+
+type AutonomousDatabaseDbToolsDetailOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseDbToolsDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseDbToolsDetail)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseDbToolsDetailOutput) ToAutonomousDatabaseDbToolsDetailOutput() AutonomousDatabaseDbToolsDetailOutput {
+	return o
+}
+
+func (o AutonomousDatabaseDbToolsDetailOutput) ToAutonomousDatabaseDbToolsDetailOutputWithContext(ctx context.Context) AutonomousDatabaseDbToolsDetailOutput {
+	return o
+}
+
+// Compute capacity allocated to the database tool.
+func (o AutonomousDatabaseDbToolsDetailOutput) ComputeCount() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseDbToolsDetail) *float64 { return v.ComputeCount }).(pulumi.Float64PtrOutput)
+}
+
+// Whether the database tool is enabled.
+func (o AutonomousDatabaseDbToolsDetailOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseDbToolsDetail) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Maximum idle time before the tool is shut down.
+func (o AutonomousDatabaseDbToolsDetailOutput) MaxIdleTimeInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseDbToolsDetail) *int { return v.MaxIdleTimeInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Database tool name.
+func (o AutonomousDatabaseDbToolsDetailOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseDbToolsDetail) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseDbToolsDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseDbToolsDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutonomousDatabaseDbToolsDetail)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseDbToolsDetailArrayOutput) ToAutonomousDatabaseDbToolsDetailArrayOutput() AutonomousDatabaseDbToolsDetailArrayOutput {
+	return o
+}
+
+func (o AutonomousDatabaseDbToolsDetailArrayOutput) ToAutonomousDatabaseDbToolsDetailArrayOutputWithContext(ctx context.Context) AutonomousDatabaseDbToolsDetailArrayOutput {
+	return o
+}
+
+func (o AutonomousDatabaseDbToolsDetailArrayOutput) Index(i pulumi.IntInput) AutonomousDatabaseDbToolsDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutonomousDatabaseDbToolsDetail {
+		return vs[0].([]AutonomousDatabaseDbToolsDetail)[vs[1].(int)]
+	}).(AutonomousDatabaseDbToolsDetailOutput)
+}
+
+type AutonomousDatabaseLongTermBackupSchedule struct {
+	// Whether the long-term backup schedule is disabled.
+	IsDisabled *bool `pulumi:"isDisabled"`
+	// Backup cadence. Valid values are `ONE_TIME`, `WEEKLY`, `MONTHLY`, and `YEARLY`.
+	RepeatCadence *string `pulumi:"repeatCadence"`
+	// Backup retention period. Valid values are from `90` through `3650`.
+	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
+	// RFC3339 timestamp at which the backup is taken.
+	TimeOfBackup *string `pulumi:"timeOfBackup"`
+}
+
+// AutonomousDatabaseLongTermBackupScheduleInput is an input type that accepts AutonomousDatabaseLongTermBackupScheduleArgs and AutonomousDatabaseLongTermBackupScheduleOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseLongTermBackupScheduleInput` via:
+//
+//	AutonomousDatabaseLongTermBackupScheduleArgs{...}
+type AutonomousDatabaseLongTermBackupScheduleInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseLongTermBackupScheduleOutput() AutonomousDatabaseLongTermBackupScheduleOutput
+	ToAutonomousDatabaseLongTermBackupScheduleOutputWithContext(context.Context) AutonomousDatabaseLongTermBackupScheduleOutput
+}
+
+type AutonomousDatabaseLongTermBackupScheduleArgs struct {
+	// Whether the long-term backup schedule is disabled.
+	IsDisabled pulumi.BoolPtrInput `pulumi:"isDisabled"`
+	// Backup cadence. Valid values are `ONE_TIME`, `WEEKLY`, `MONTHLY`, and `YEARLY`.
+	RepeatCadence pulumi.StringPtrInput `pulumi:"repeatCadence"`
+	// Backup retention period. Valid values are from `90` through `3650`.
+	RetentionPeriodInDays pulumi.IntPtrInput `pulumi:"retentionPeriodInDays"`
+	// RFC3339 timestamp at which the backup is taken.
+	TimeOfBackup pulumi.StringPtrInput `pulumi:"timeOfBackup"`
+}
+
+func (AutonomousDatabaseLongTermBackupScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseLongTermBackupScheduleArgs) ToAutonomousDatabaseLongTermBackupScheduleOutput() AutonomousDatabaseLongTermBackupScheduleOutput {
+	return i.ToAutonomousDatabaseLongTermBackupScheduleOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseLongTermBackupScheduleArgs) ToAutonomousDatabaseLongTermBackupScheduleOutputWithContext(ctx context.Context) AutonomousDatabaseLongTermBackupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseLongTermBackupScheduleOutput)
+}
+
+func (i AutonomousDatabaseLongTermBackupScheduleArgs) ToAutonomousDatabaseLongTermBackupSchedulePtrOutput() AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return i.ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseLongTermBackupScheduleArgs) ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(ctx context.Context) AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseLongTermBackupScheduleOutput).ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseLongTermBackupSchedulePtrInput is an input type that accepts AutonomousDatabaseLongTermBackupScheduleArgs, AutonomousDatabaseLongTermBackupSchedulePtr and AutonomousDatabaseLongTermBackupSchedulePtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseLongTermBackupSchedulePtrInput` via:
+//
+//	        AutonomousDatabaseLongTermBackupScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseLongTermBackupSchedulePtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseLongTermBackupSchedulePtrOutput() AutonomousDatabaseLongTermBackupSchedulePtrOutput
+	ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(context.Context) AutonomousDatabaseLongTermBackupSchedulePtrOutput
+}
+
+type autonomousDatabaseLongTermBackupSchedulePtrType AutonomousDatabaseLongTermBackupScheduleArgs
+
+func AutonomousDatabaseLongTermBackupSchedulePtr(v *AutonomousDatabaseLongTermBackupScheduleArgs) AutonomousDatabaseLongTermBackupSchedulePtrInput {
+	return (*autonomousDatabaseLongTermBackupSchedulePtrType)(v)
+}
+
+func (*autonomousDatabaseLongTermBackupSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseLongTermBackupSchedulePtrType) ToAutonomousDatabaseLongTermBackupSchedulePtrOutput() AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return i.ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseLongTermBackupSchedulePtrType) ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(ctx context.Context) AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseLongTermBackupSchedulePtrOutput)
+}
+
+type AutonomousDatabaseLongTermBackupScheduleOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseLongTermBackupScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) ToAutonomousDatabaseLongTermBackupScheduleOutput() AutonomousDatabaseLongTermBackupScheduleOutput {
+	return o
+}
+
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) ToAutonomousDatabaseLongTermBackupScheduleOutputWithContext(ctx context.Context) AutonomousDatabaseLongTermBackupScheduleOutput {
+	return o
+}
+
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) ToAutonomousDatabaseLongTermBackupSchedulePtrOutput() AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return o.ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(ctx context.Context) AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseLongTermBackupSchedule) *AutonomousDatabaseLongTermBackupSchedule {
+		return &v
+	}).(AutonomousDatabaseLongTermBackupSchedulePtrOutput)
+}
+
+// Whether the long-term backup schedule is disabled.
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) IsDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseLongTermBackupSchedule) *bool { return v.IsDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// Backup cadence. Valid values are `ONE_TIME`, `WEEKLY`, `MONTHLY`, and `YEARLY`.
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) RepeatCadence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseLongTermBackupSchedule) *string { return v.RepeatCadence }).(pulumi.StringPtrOutput)
+}
+
+// Backup retention period. Valid values are from `90` through `3650`.
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseLongTermBackupSchedule) *int { return v.RetentionPeriodInDays }).(pulumi.IntPtrOutput)
+}
+
+// RFC3339 timestamp at which the backup is taken.
+func (o AutonomousDatabaseLongTermBackupScheduleOutput) TimeOfBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseLongTermBackupSchedule) *string { return v.TimeOfBackup }).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseLongTermBackupSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseLongTermBackupSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) ToAutonomousDatabaseLongTermBackupSchedulePtrOutput() AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) ToAutonomousDatabaseLongTermBackupSchedulePtrOutputWithContext(ctx context.Context) AutonomousDatabaseLongTermBackupSchedulePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) Elem() AutonomousDatabaseLongTermBackupScheduleOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseLongTermBackupSchedule) AutonomousDatabaseLongTermBackupSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseLongTermBackupSchedule
+		return ret
+	}).(AutonomousDatabaseLongTermBackupScheduleOutput)
+}
+
+// Whether the long-term backup schedule is disabled.
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) IsDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseLongTermBackupSchedule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Backup cadence. Valid values are `ONE_TIME`, `WEEKLY`, `MONTHLY`, and `YEARLY`.
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) RepeatCadence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseLongTermBackupSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepeatCadence
+	}).(pulumi.StringPtrOutput)
+}
+
+// Backup retention period. Valid values are from `90` through `3650`.
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseLongTermBackupSchedule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriodInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// RFC3339 timestamp at which the backup is taken.
+func (o AutonomousDatabaseLongTermBackupSchedulePtrOutput) TimeOfBackup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseLongTermBackupSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeOfBackup
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseResourcePoolSummary struct {
+	// Available compute capacity.
+	AvailableComputeCapacity *int `pulumi:"availableComputeCapacity"`
+	// Available storage capacity in TB.
+	AvailableStorageCapacityInTbs *float64 `pulumi:"availableStorageCapacityInTbs"`
+	// Whether the resource pool is disabled.
+	IsDisabled *bool `pulumi:"isDisabled"`
+	// Number of Autonomous Databases the pool can contain.
+	PoolSize *int `pulumi:"poolSize"`
+	// Pool storage size in TB.
+	PoolStorageSizeInTbs *int `pulumi:"poolStorageSizeInTbs"`
+	// Total compute capacity.
+	TotalComputeCapacity *int `pulumi:"totalComputeCapacity"`
+}
+
+// AutonomousDatabaseResourcePoolSummaryInput is an input type that accepts AutonomousDatabaseResourcePoolSummaryArgs and AutonomousDatabaseResourcePoolSummaryOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseResourcePoolSummaryInput` via:
+//
+//	AutonomousDatabaseResourcePoolSummaryArgs{...}
+type AutonomousDatabaseResourcePoolSummaryInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseResourcePoolSummaryOutput() AutonomousDatabaseResourcePoolSummaryOutput
+	ToAutonomousDatabaseResourcePoolSummaryOutputWithContext(context.Context) AutonomousDatabaseResourcePoolSummaryOutput
+}
+
+type AutonomousDatabaseResourcePoolSummaryArgs struct {
+	// Available compute capacity.
+	AvailableComputeCapacity pulumi.IntPtrInput `pulumi:"availableComputeCapacity"`
+	// Available storage capacity in TB.
+	AvailableStorageCapacityInTbs pulumi.Float64PtrInput `pulumi:"availableStorageCapacityInTbs"`
+	// Whether the resource pool is disabled.
+	IsDisabled pulumi.BoolPtrInput `pulumi:"isDisabled"`
+	// Number of Autonomous Databases the pool can contain.
+	PoolSize pulumi.IntPtrInput `pulumi:"poolSize"`
+	// Pool storage size in TB.
+	PoolStorageSizeInTbs pulumi.IntPtrInput `pulumi:"poolStorageSizeInTbs"`
+	// Total compute capacity.
+	TotalComputeCapacity pulumi.IntPtrInput `pulumi:"totalComputeCapacity"`
+}
+
+func (AutonomousDatabaseResourcePoolSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseResourcePoolSummary)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseResourcePoolSummaryArgs) ToAutonomousDatabaseResourcePoolSummaryOutput() AutonomousDatabaseResourcePoolSummaryOutput {
+	return i.ToAutonomousDatabaseResourcePoolSummaryOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseResourcePoolSummaryArgs) ToAutonomousDatabaseResourcePoolSummaryOutputWithContext(ctx context.Context) AutonomousDatabaseResourcePoolSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseResourcePoolSummaryOutput)
+}
+
+func (i AutonomousDatabaseResourcePoolSummaryArgs) ToAutonomousDatabaseResourcePoolSummaryPtrOutput() AutonomousDatabaseResourcePoolSummaryPtrOutput {
+	return i.ToAutonomousDatabaseResourcePoolSummaryPtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseResourcePoolSummaryArgs) ToAutonomousDatabaseResourcePoolSummaryPtrOutputWithContext(ctx context.Context) AutonomousDatabaseResourcePoolSummaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseResourcePoolSummaryOutput).ToAutonomousDatabaseResourcePoolSummaryPtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseResourcePoolSummaryPtrInput is an input type that accepts AutonomousDatabaseResourcePoolSummaryArgs, AutonomousDatabaseResourcePoolSummaryPtr and AutonomousDatabaseResourcePoolSummaryPtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseResourcePoolSummaryPtrInput` via:
+//
+//	        AutonomousDatabaseResourcePoolSummaryArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseResourcePoolSummaryPtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseResourcePoolSummaryPtrOutput() AutonomousDatabaseResourcePoolSummaryPtrOutput
+	ToAutonomousDatabaseResourcePoolSummaryPtrOutputWithContext(context.Context) AutonomousDatabaseResourcePoolSummaryPtrOutput
+}
+
+type autonomousDatabaseResourcePoolSummaryPtrType AutonomousDatabaseResourcePoolSummaryArgs
+
+func AutonomousDatabaseResourcePoolSummaryPtr(v *AutonomousDatabaseResourcePoolSummaryArgs) AutonomousDatabaseResourcePoolSummaryPtrInput {
+	return (*autonomousDatabaseResourcePoolSummaryPtrType)(v)
+}
+
+func (*autonomousDatabaseResourcePoolSummaryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseResourcePoolSummary)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseResourcePoolSummaryPtrType) ToAutonomousDatabaseResourcePoolSummaryPtrOutput() AutonomousDatabaseResourcePoolSummaryPtrOutput {
+	return i.ToAutonomousDatabaseResourcePoolSummaryPtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseResourcePoolSummaryPtrType) ToAutonomousDatabaseResourcePoolSummaryPtrOutputWithContext(ctx context.Context) AutonomousDatabaseResourcePoolSummaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseResourcePoolSummaryPtrOutput)
+}
+
+type AutonomousDatabaseResourcePoolSummaryOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseResourcePoolSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseResourcePoolSummary)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseResourcePoolSummaryOutput) ToAutonomousDatabaseResourcePoolSummaryOutput() AutonomousDatabaseResourcePoolSummaryOutput {
+	return o
+}
+
+func (o AutonomousDatabaseResourcePoolSummaryOutput) ToAutonomousDatabaseResourcePoolSummaryOutputWithContext(ctx context.Context) AutonomousDatabaseResourcePoolSummaryOutput {
+	return o
+}
+
+func (o AutonomousDatabaseResourcePoolSummaryOutput) ToAutonomousDatabaseResourcePoolSummaryPtrOutput() AutonomousDatabaseResourcePoolSummaryPtrOutput {
+	return o.ToAutonomousDatabaseResourcePoolSummaryPtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseResourcePoolSummaryOutput) ToAutonomousDatabaseResourcePoolSummaryPtrOutputWithContext(ctx context.Context) AutonomousDatabaseResourcePoolSummaryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseResourcePoolSummary) *AutonomousDatabaseResourcePoolSummary {
+		return &v
+	}).(AutonomousDatabaseResourcePoolSummaryPtrOutput)
+}
+
+// Available compute capacity.
+func (o AutonomousDatabaseResourcePoolSummaryOutput) AvailableComputeCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseResourcePoolSummary) *int { return v.AvailableComputeCapacity }).(pulumi.IntPtrOutput)
+}
+
+// Available storage capacity in TB.
+func (o AutonomousDatabaseResourcePoolSummaryOutput) AvailableStorageCapacityInTbs() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseResourcePoolSummary) *float64 { return v.AvailableStorageCapacityInTbs }).(pulumi.Float64PtrOutput)
+}
+
+// Whether the resource pool is disabled.
+func (o AutonomousDatabaseResourcePoolSummaryOutput) IsDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseResourcePoolSummary) *bool { return v.IsDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// Number of Autonomous Databases the pool can contain.
+func (o AutonomousDatabaseResourcePoolSummaryOutput) PoolSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseResourcePoolSummary) *int { return v.PoolSize }).(pulumi.IntPtrOutput)
+}
+
+// Pool storage size in TB.
+func (o AutonomousDatabaseResourcePoolSummaryOutput) PoolStorageSizeInTbs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseResourcePoolSummary) *int { return v.PoolStorageSizeInTbs }).(pulumi.IntPtrOutput)
+}
+
+// Total compute capacity.
+func (o AutonomousDatabaseResourcePoolSummaryOutput) TotalComputeCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseResourcePoolSummary) *int { return v.TotalComputeCapacity }).(pulumi.IntPtrOutput)
+}
+
+type AutonomousDatabaseResourcePoolSummaryPtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseResourcePoolSummaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseResourcePoolSummary)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseResourcePoolSummaryPtrOutput) ToAutonomousDatabaseResourcePoolSummaryPtrOutput() AutonomousDatabaseResourcePoolSummaryPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseResourcePoolSummaryPtrOutput) ToAutonomousDatabaseResourcePoolSummaryPtrOutputWithContext(ctx context.Context) AutonomousDatabaseResourcePoolSummaryPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseResourcePoolSummaryPtrOutput) Elem() AutonomousDatabaseResourcePoolSummaryOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseResourcePoolSummary) AutonomousDatabaseResourcePoolSummary {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseResourcePoolSummary
+		return ret
+	}).(AutonomousDatabaseResourcePoolSummaryOutput)
+}
+
+// Available compute capacity.
+func (o AutonomousDatabaseResourcePoolSummaryPtrOutput) AvailableComputeCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseResourcePoolSummary) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AvailableComputeCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+// Available storage capacity in TB.
+func (o AutonomousDatabaseResourcePoolSummaryPtrOutput) AvailableStorageCapacityInTbs() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseResourcePoolSummary) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AvailableStorageCapacityInTbs
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Whether the resource pool is disabled.
+func (o AutonomousDatabaseResourcePoolSummaryPtrOutput) IsDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseResourcePoolSummary) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Number of Autonomous Databases the pool can contain.
+func (o AutonomousDatabaseResourcePoolSummaryPtrOutput) PoolSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseResourcePoolSummary) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PoolSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// Pool storage size in TB.
+func (o AutonomousDatabaseResourcePoolSummaryPtrOutput) PoolStorageSizeInTbs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseResourcePoolSummary) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PoolStorageSizeInTbs
+	}).(pulumi.IntPtrOutput)
+}
+
+// Total compute capacity.
+func (o AutonomousDatabaseResourcePoolSummaryPtrOutput) TotalComputeCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseResourcePoolSummary) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TotalComputeCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+type AutonomousDatabaseScheduledOperation struct {
+	// Day of the week.
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	// Scheduled start time in UTC.
+	ScheduledStartTime *string `pulumi:"scheduledStartTime"`
+	// Scheduled stop time in UTC.
+	ScheduledStopTime *string `pulumi:"scheduledStopTime"`
+}
+
+// AutonomousDatabaseScheduledOperationInput is an input type that accepts AutonomousDatabaseScheduledOperationArgs and AutonomousDatabaseScheduledOperationOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseScheduledOperationInput` via:
+//
+//	AutonomousDatabaseScheduledOperationArgs{...}
+type AutonomousDatabaseScheduledOperationInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseScheduledOperationOutput() AutonomousDatabaseScheduledOperationOutput
+	ToAutonomousDatabaseScheduledOperationOutputWithContext(context.Context) AutonomousDatabaseScheduledOperationOutput
+}
+
+type AutonomousDatabaseScheduledOperationArgs struct {
+	// Day of the week.
+	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+	// Scheduled start time in UTC.
+	ScheduledStartTime pulumi.StringPtrInput `pulumi:"scheduledStartTime"`
+	// Scheduled stop time in UTC.
+	ScheduledStopTime pulumi.StringPtrInput `pulumi:"scheduledStopTime"`
+}
+
+func (AutonomousDatabaseScheduledOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseScheduledOperation)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseScheduledOperationArgs) ToAutonomousDatabaseScheduledOperationOutput() AutonomousDatabaseScheduledOperationOutput {
+	return i.ToAutonomousDatabaseScheduledOperationOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseScheduledOperationArgs) ToAutonomousDatabaseScheduledOperationOutputWithContext(ctx context.Context) AutonomousDatabaseScheduledOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseScheduledOperationOutput)
+}
+
+// AutonomousDatabaseScheduledOperationArrayInput is an input type that accepts AutonomousDatabaseScheduledOperationArray and AutonomousDatabaseScheduledOperationArrayOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseScheduledOperationArrayInput` via:
+//
+//	AutonomousDatabaseScheduledOperationArray{ AutonomousDatabaseScheduledOperationArgs{...} }
+type AutonomousDatabaseScheduledOperationArrayInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseScheduledOperationArrayOutput() AutonomousDatabaseScheduledOperationArrayOutput
+	ToAutonomousDatabaseScheduledOperationArrayOutputWithContext(context.Context) AutonomousDatabaseScheduledOperationArrayOutput
+}
+
+type AutonomousDatabaseScheduledOperationArray []AutonomousDatabaseScheduledOperationInput
+
+func (AutonomousDatabaseScheduledOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutonomousDatabaseScheduledOperation)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseScheduledOperationArray) ToAutonomousDatabaseScheduledOperationArrayOutput() AutonomousDatabaseScheduledOperationArrayOutput {
+	return i.ToAutonomousDatabaseScheduledOperationArrayOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseScheduledOperationArray) ToAutonomousDatabaseScheduledOperationArrayOutputWithContext(ctx context.Context) AutonomousDatabaseScheduledOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseScheduledOperationArrayOutput)
+}
+
+type AutonomousDatabaseScheduledOperationOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseScheduledOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseScheduledOperation)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseScheduledOperationOutput) ToAutonomousDatabaseScheduledOperationOutput() AutonomousDatabaseScheduledOperationOutput {
+	return o
+}
+
+func (o AutonomousDatabaseScheduledOperationOutput) ToAutonomousDatabaseScheduledOperationOutputWithContext(ctx context.Context) AutonomousDatabaseScheduledOperationOutput {
+	return o
+}
+
+// Day of the week.
+func (o AutonomousDatabaseScheduledOperationOutput) DayOfWeek() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseScheduledOperation) string { return v.DayOfWeek }).(pulumi.StringOutput)
+}
+
+// Scheduled start time in UTC.
+func (o AutonomousDatabaseScheduledOperationOutput) ScheduledStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseScheduledOperation) *string { return v.ScheduledStartTime }).(pulumi.StringPtrOutput)
+}
+
+// Scheduled stop time in UTC.
+func (o AutonomousDatabaseScheduledOperationOutput) ScheduledStopTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseScheduledOperation) *string { return v.ScheduledStopTime }).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseScheduledOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseScheduledOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutonomousDatabaseScheduledOperation)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseScheduledOperationArrayOutput) ToAutonomousDatabaseScheduledOperationArrayOutput() AutonomousDatabaseScheduledOperationArrayOutput {
+	return o
+}
+
+func (o AutonomousDatabaseScheduledOperationArrayOutput) ToAutonomousDatabaseScheduledOperationArrayOutputWithContext(ctx context.Context) AutonomousDatabaseScheduledOperationArrayOutput {
+	return o
+}
+
+func (o AutonomousDatabaseScheduledOperationArrayOutput) Index(i pulumi.IntInput) AutonomousDatabaseScheduledOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutonomousDatabaseScheduledOperation {
+		return vs[0].([]AutonomousDatabaseScheduledOperation)[vs[1].(int)]
+	}).(AutonomousDatabaseScheduledOperationOutput)
+}
+
+type AutonomousDatabaseSecretsManagerIntegrationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// AutonomousDatabaseSecretsManagerIntegrationTimeoutsInput is an input type that accepts AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs and AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSecretsManagerIntegrationTimeoutsInput` via:
+//
+//	AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs{...}
+type AutonomousDatabaseSecretsManagerIntegrationTimeoutsInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput() AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput
+	ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsOutputWithContext(context.Context) AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput
+}
+
+type AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSecretsManagerIntegrationTimeouts)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs) ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput() AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput {
+	return i.ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs) ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsOutputWithContext(ctx context.Context) AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput)
+}
+
+func (i AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs) ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput() AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput {
+	return i.ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs) ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput).ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrInput is an input type that accepts AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs, AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtr and AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrInput` via:
+//
+//	        AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput() AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput
+	ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutputWithContext(context.Context) AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput
+}
+
+type autonomousDatabaseSecretsManagerIntegrationTimeoutsPtrType AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs
+
+func AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtr(v *AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs) AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrInput {
+	return (*autonomousDatabaseSecretsManagerIntegrationTimeoutsPtrType)(v)
+}
+
+func (*autonomousDatabaseSecretsManagerIntegrationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSecretsManagerIntegrationTimeouts)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseSecretsManagerIntegrationTimeoutsPtrType) ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput() AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput {
+	return i.ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseSecretsManagerIntegrationTimeoutsPtrType) ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput)
+}
+
+type AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSecretsManagerIntegrationTimeouts)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput) ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput() AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput) ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsOutputWithContext(ctx context.Context) AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput) ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput() AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput {
+	return o.ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput) ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseSecretsManagerIntegrationTimeouts) *AutonomousDatabaseSecretsManagerIntegrationTimeouts {
+		return &v
+	}).(AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSecretsManagerIntegrationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSecretsManagerIntegrationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSecretsManagerIntegrationTimeouts)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput) ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput() AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput) ToAutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput) Elem() AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSecretsManagerIntegrationTimeouts) AutonomousDatabaseSecretsManagerIntegrationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseSecretsManagerIntegrationTimeouts
+		return ret
+	}).(AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSecretsManagerIntegrationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSecretsManagerIntegrationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfiguration struct {
+	CloneToRefreshable          *AutonomousDatabaseSourceConfigurationCloneToRefreshable          `pulumi:"cloneToRefreshable"`
+	CrossRegionDataGuard        *AutonomousDatabaseSourceConfigurationCrossRegionDataGuard        `pulumi:"crossRegionDataGuard"`
+	CrossRegionDisasterRecovery *AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery `pulumi:"crossRegionDisasterRecovery"`
+	DatabaseClone               *AutonomousDatabaseSourceConfigurationDatabaseClone               `pulumi:"databaseClone"`
+	PointInTimeRestore          *AutonomousDatabaseSourceConfigurationPointInTimeRestore          `pulumi:"pointInTimeRestore"`
+	RestoreFromBackup           *AutonomousDatabaseSourceConfigurationRestoreFromBackup           `pulumi:"restoreFromBackup"`
+}
+
+// AutonomousDatabaseSourceConfigurationInput is an input type that accepts AutonomousDatabaseSourceConfigurationArgs and AutonomousDatabaseSourceConfigurationOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationInput` via:
+//
+//	AutonomousDatabaseSourceConfigurationArgs{...}
+type AutonomousDatabaseSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationOutput() AutonomousDatabaseSourceConfigurationOutput
+	ToAutonomousDatabaseSourceConfigurationOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationOutput
+}
+
+type AutonomousDatabaseSourceConfigurationArgs struct {
+	CloneToRefreshable          AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrInput          `pulumi:"cloneToRefreshable"`
+	CrossRegionDataGuard        AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrInput        `pulumi:"crossRegionDataGuard"`
+	CrossRegionDisasterRecovery AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrInput `pulumi:"crossRegionDisasterRecovery"`
+	DatabaseClone               AutonomousDatabaseSourceConfigurationDatabaseClonePtrInput               `pulumi:"databaseClone"`
+	PointInTimeRestore          AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrInput          `pulumi:"pointInTimeRestore"`
+	RestoreFromBackup           AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrInput           `pulumi:"restoreFromBackup"`
+}
+
+func (AutonomousDatabaseSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfiguration)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseSourceConfigurationArgs) ToAutonomousDatabaseSourceConfigurationOutput() AutonomousDatabaseSourceConfigurationOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationArgs) ToAutonomousDatabaseSourceConfigurationOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationOutput)
+}
+
+func (i AutonomousDatabaseSourceConfigurationArgs) ToAutonomousDatabaseSourceConfigurationPtrOutput() AutonomousDatabaseSourceConfigurationPtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationArgs) ToAutonomousDatabaseSourceConfigurationPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationOutput).ToAutonomousDatabaseSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseSourceConfigurationPtrInput is an input type that accepts AutonomousDatabaseSourceConfigurationArgs, AutonomousDatabaseSourceConfigurationPtr and AutonomousDatabaseSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationPtrInput` via:
+//
+//	        AutonomousDatabaseSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationPtrOutput() AutonomousDatabaseSourceConfigurationPtrOutput
+	ToAutonomousDatabaseSourceConfigurationPtrOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationPtrOutput
+}
+
+type autonomousDatabaseSourceConfigurationPtrType AutonomousDatabaseSourceConfigurationArgs
+
+func AutonomousDatabaseSourceConfigurationPtr(v *AutonomousDatabaseSourceConfigurationArgs) AutonomousDatabaseSourceConfigurationPtrInput {
+	return (*autonomousDatabaseSourceConfigurationPtrType)(v)
+}
+
+func (*autonomousDatabaseSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfiguration)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseSourceConfigurationPtrType) ToAutonomousDatabaseSourceConfigurationPtrOutput() AutonomousDatabaseSourceConfigurationPtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseSourceConfigurationPtrType) ToAutonomousDatabaseSourceConfigurationPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfiguration)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationOutput) ToAutonomousDatabaseSourceConfigurationOutput() AutonomousDatabaseSourceConfigurationOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationOutput) ToAutonomousDatabaseSourceConfigurationOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationOutput) ToAutonomousDatabaseSourceConfigurationPtrOutput() AutonomousDatabaseSourceConfigurationPtrOutput {
+	return o.ToAutonomousDatabaseSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseSourceConfigurationOutput) ToAutonomousDatabaseSourceConfigurationPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfiguration {
+		return &v
+	}).(AutonomousDatabaseSourceConfigurationPtrOutput)
+}
+
+func (o AutonomousDatabaseSourceConfigurationOutput) CloneToRefreshable() AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfigurationCloneToRefreshable {
+		return v.CloneToRefreshable
+	}).(AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput)
+}
+
+func (o AutonomousDatabaseSourceConfigurationOutput) CrossRegionDataGuard() AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfigurationCrossRegionDataGuard {
+		return v.CrossRegionDataGuard
+	}).(AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput)
+}
+
+func (o AutonomousDatabaseSourceConfigurationOutput) CrossRegionDisasterRecovery() AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery {
+		return v.CrossRegionDisasterRecovery
+	}).(AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput)
+}
+
+func (o AutonomousDatabaseSourceConfigurationOutput) DatabaseClone() AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfigurationDatabaseClone {
+		return v.DatabaseClone
+	}).(AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput)
+}
+
+func (o AutonomousDatabaseSourceConfigurationOutput) PointInTimeRestore() AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfigurationPointInTimeRestore {
+		return v.PointInTimeRestore
+	}).(AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput)
+}
+
+func (o AutonomousDatabaseSourceConfigurationOutput) RestoreFromBackup() AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfigurationRestoreFromBackup {
+		return v.RestoreFromBackup
+	}).(AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfiguration)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationPtrOutput) ToAutonomousDatabaseSourceConfigurationPtrOutput() AutonomousDatabaseSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationPtrOutput) ToAutonomousDatabaseSourceConfigurationPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationPtrOutput) Elem() AutonomousDatabaseSourceConfigurationOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfiguration) AutonomousDatabaseSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseSourceConfiguration
+		return ret
+	}).(AutonomousDatabaseSourceConfigurationOutput)
+}
+
+func (o AutonomousDatabaseSourceConfigurationPtrOutput) CloneToRefreshable() AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfigurationCloneToRefreshable {
+		if v == nil {
+			return nil
+		}
+		return v.CloneToRefreshable
+	}).(AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput)
+}
+
+func (o AutonomousDatabaseSourceConfigurationPtrOutput) CrossRegionDataGuard() AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfigurationCrossRegionDataGuard {
+		if v == nil {
+			return nil
+		}
+		return v.CrossRegionDataGuard
+	}).(AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput)
+}
+
+func (o AutonomousDatabaseSourceConfigurationPtrOutput) CrossRegionDisasterRecovery() AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery {
+		if v == nil {
+			return nil
+		}
+		return v.CrossRegionDisasterRecovery
+	}).(AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput)
+}
+
+func (o AutonomousDatabaseSourceConfigurationPtrOutput) DatabaseClone() AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfigurationDatabaseClone {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseClone
+	}).(AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput)
+}
+
+func (o AutonomousDatabaseSourceConfigurationPtrOutput) PointInTimeRestore() AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfigurationPointInTimeRestore {
+		if v == nil {
+			return nil
+		}
+		return v.PointInTimeRestore
+	}).(AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput)
+}
+
+func (o AutonomousDatabaseSourceConfigurationPtrOutput) RestoreFromBackup() AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfiguration) *AutonomousDatabaseSourceConfigurationRestoreFromBackup {
+		if v == nil {
+			return nil
+		}
+		return v.RestoreFromBackup
+	}).(AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationCloneToRefreshable struct {
+	// Automatic refresh frequency in seconds.
+	AutoRefreshFrequencyInSeconds *int `pulumi:"autoRefreshFrequencyInSeconds"`
+	// Refresh lag in seconds.
+	AutoRefreshPointLagInSeconds *int `pulumi:"autoRefreshPointLagInSeconds"`
+	// Clone type.
+	CloneType *string `pulumi:"cloneType"`
+	// Clone open mode.
+	OpenMode *string `pulumi:"openMode"`
+	// Refresh mode.
+	RefreshableMode *string `pulumi:"refreshableMode"`
+	// ID of the source Autonomous Database.
+	SourceAutonomousDatabaseId string `pulumi:"sourceAutonomousDatabaseId"`
+	// RFC3339 automatic refresh start timestamp.
+	TimeOfAutoRefreshStart *string `pulumi:"timeOfAutoRefreshStart"`
+}
+
+// AutonomousDatabaseSourceConfigurationCloneToRefreshableInput is an input type that accepts AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs and AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationCloneToRefreshableInput` via:
+//
+//	AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs{...}
+type AutonomousDatabaseSourceConfigurationCloneToRefreshableInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationCloneToRefreshableOutput() AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput
+	ToAutonomousDatabaseSourceConfigurationCloneToRefreshableOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput
+}
+
+type AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs struct {
+	// Automatic refresh frequency in seconds.
+	AutoRefreshFrequencyInSeconds pulumi.IntPtrInput `pulumi:"autoRefreshFrequencyInSeconds"`
+	// Refresh lag in seconds.
+	AutoRefreshPointLagInSeconds pulumi.IntPtrInput `pulumi:"autoRefreshPointLagInSeconds"`
+	// Clone type.
+	CloneType pulumi.StringPtrInput `pulumi:"cloneType"`
+	// Clone open mode.
+	OpenMode pulumi.StringPtrInput `pulumi:"openMode"`
+	// Refresh mode.
+	RefreshableMode pulumi.StringPtrInput `pulumi:"refreshableMode"`
+	// ID of the source Autonomous Database.
+	SourceAutonomousDatabaseId pulumi.StringInput `pulumi:"sourceAutonomousDatabaseId"`
+	// RFC3339 automatic refresh start timestamp.
+	TimeOfAutoRefreshStart pulumi.StringPtrInput `pulumi:"timeOfAutoRefreshStart"`
+}
+
+func (AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfigurationCloneToRefreshable)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs) ToAutonomousDatabaseSourceConfigurationCloneToRefreshableOutput() AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationCloneToRefreshableOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs) ToAutonomousDatabaseSourceConfigurationCloneToRefreshableOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput)
+}
+
+func (i AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs) ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput() AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs) ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput).ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrInput is an input type that accepts AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs, AutonomousDatabaseSourceConfigurationCloneToRefreshablePtr and AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrInput` via:
+//
+//	        AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput() AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput
+	ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput
+}
+
+type autonomousDatabaseSourceConfigurationCloneToRefreshablePtrType AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs
+
+func AutonomousDatabaseSourceConfigurationCloneToRefreshablePtr(v *AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs) AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrInput {
+	return (*autonomousDatabaseSourceConfigurationCloneToRefreshablePtrType)(v)
+}
+
+func (*autonomousDatabaseSourceConfigurationCloneToRefreshablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfigurationCloneToRefreshable)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseSourceConfigurationCloneToRefreshablePtrType) ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput() AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseSourceConfigurationCloneToRefreshablePtrType) ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfigurationCloneToRefreshable)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput) ToAutonomousDatabaseSourceConfigurationCloneToRefreshableOutput() AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput) ToAutonomousDatabaseSourceConfigurationCloneToRefreshableOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput) ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput() AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput {
+	return o.ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput) ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseSourceConfigurationCloneToRefreshable) *AutonomousDatabaseSourceConfigurationCloneToRefreshable {
+		return &v
+	}).(AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput)
+}
+
+// Automatic refresh frequency in seconds.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput) AutoRefreshFrequencyInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationCloneToRefreshable) *int {
+		return v.AutoRefreshFrequencyInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Refresh lag in seconds.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput) AutoRefreshPointLagInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationCloneToRefreshable) *int {
+		return v.AutoRefreshPointLagInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Clone type.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput) CloneType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationCloneToRefreshable) *string { return v.CloneType }).(pulumi.StringPtrOutput)
+}
+
+// Clone open mode.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput) OpenMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationCloneToRefreshable) *string { return v.OpenMode }).(pulumi.StringPtrOutput)
+}
+
+// Refresh mode.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput) RefreshableMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationCloneToRefreshable) *string { return v.RefreshableMode }).(pulumi.StringPtrOutput)
+}
+
+// ID of the source Autonomous Database.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput) SourceAutonomousDatabaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationCloneToRefreshable) string {
+		return v.SourceAutonomousDatabaseId
+	}).(pulumi.StringOutput)
+}
+
+// RFC3339 automatic refresh start timestamp.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput) TimeOfAutoRefreshStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationCloneToRefreshable) *string {
+		return v.TimeOfAutoRefreshStart
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfigurationCloneToRefreshable)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput) ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput() AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput) ToAutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput) Elem() AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCloneToRefreshable) AutonomousDatabaseSourceConfigurationCloneToRefreshable {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseSourceConfigurationCloneToRefreshable
+		return ret
+	}).(AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput)
+}
+
+// Automatic refresh frequency in seconds.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput) AutoRefreshFrequencyInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCloneToRefreshable) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRefreshFrequencyInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Refresh lag in seconds.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput) AutoRefreshPointLagInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCloneToRefreshable) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRefreshPointLagInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Clone type.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput) CloneType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCloneToRefreshable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloneType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Clone open mode.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput) OpenMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCloneToRefreshable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OpenMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Refresh mode.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput) RefreshableMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCloneToRefreshable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshableMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the source Autonomous Database.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput) SourceAutonomousDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCloneToRefreshable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceAutonomousDatabaseId
+	}).(pulumi.StringPtrOutput)
+}
+
+// RFC3339 automatic refresh start timestamp.
+func (o AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput) TimeOfAutoRefreshStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCloneToRefreshable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeOfAutoRefreshStart
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationCrossRegionDataGuard struct {
+	// ARN of the source Autonomous Database.
+	SourceAutonomousDatabaseArn string `pulumi:"sourceAutonomousDatabaseArn"`
+}
+
+// AutonomousDatabaseSourceConfigurationCrossRegionDataGuardInput is an input type that accepts AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs and AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationCrossRegionDataGuardInput` via:
+//
+//	AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs{...}
+type AutonomousDatabaseSourceConfigurationCrossRegionDataGuardInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput() AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput
+	ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput
+}
+
+type AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs struct {
+	// ARN of the source Autonomous Database.
+	SourceAutonomousDatabaseArn pulumi.StringInput `pulumi:"sourceAutonomousDatabaseArn"`
+}
+
+func (AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfigurationCrossRegionDataGuard)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs) ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput() AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs) ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput)
+}
+
+func (i AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs) ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput() AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs) ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput).ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrInput is an input type that accepts AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs, AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtr and AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrInput` via:
+//
+//	        AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput() AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput
+	ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput
+}
+
+type autonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrType AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs
+
+func AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtr(v *AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs) AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrInput {
+	return (*autonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrType)(v)
+}
+
+func (*autonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfigurationCrossRegionDataGuard)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrType) ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput() AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrType) ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfigurationCrossRegionDataGuard)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput) ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput() AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput) ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput) ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput() AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput {
+	return o.ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput) ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseSourceConfigurationCrossRegionDataGuard) *AutonomousDatabaseSourceConfigurationCrossRegionDataGuard {
+		return &v
+	}).(AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput)
+}
+
+// ARN of the source Autonomous Database.
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput) SourceAutonomousDatabaseArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationCrossRegionDataGuard) string {
+		return v.SourceAutonomousDatabaseArn
+	}).(pulumi.StringOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfigurationCrossRegionDataGuard)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput) ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput() AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput) ToAutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput) Elem() AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCrossRegionDataGuard) AutonomousDatabaseSourceConfigurationCrossRegionDataGuard {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseSourceConfigurationCrossRegionDataGuard
+		return ret
+	}).(AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput)
+}
+
+// ARN of the source Autonomous Database.
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput) SourceAutonomousDatabaseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCrossRegionDataGuard) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceAutonomousDatabaseArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery struct {
+	// Whether automatic backups are replicated.
+	IsReplicateAutomaticBackups *bool `pulumi:"isReplicateAutomaticBackups"`
+	// Remote disaster recovery type.
+	RemoteDisasterRecoveryType string `pulumi:"remoteDisasterRecoveryType"`
+	// ARN of the source Autonomous Database.
+	SourceAutonomousDatabaseArn string `pulumi:"sourceAutonomousDatabaseArn"`
+}
+
+// AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryInput is an input type that accepts AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs and AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryInput` via:
+//
+//	AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs{...}
+type AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput() AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput
+	ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput
+}
+
+type AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs struct {
+	// Whether automatic backups are replicated.
+	IsReplicateAutomaticBackups pulumi.BoolPtrInput `pulumi:"isReplicateAutomaticBackups"`
+	// Remote disaster recovery type.
+	RemoteDisasterRecoveryType pulumi.StringInput `pulumi:"remoteDisasterRecoveryType"`
+	// ARN of the source Autonomous Database.
+	SourceAutonomousDatabaseArn pulumi.StringInput `pulumi:"sourceAutonomousDatabaseArn"`
+}
+
+func (AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs) ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput() AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs) ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput)
+}
+
+func (i AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs) ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput() AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs) ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput).ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrInput is an input type that accepts AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs, AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtr and AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrInput` via:
+//
+//	        AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput() AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput
+	ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput
+}
+
+type autonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrType AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs
+
+func AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtr(v *AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs) AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrInput {
+	return (*autonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrType)(v)
+}
+
+func (*autonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrType) ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput() AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrType) ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput) ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput() AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput) ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput) ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput() AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput {
+	return o.ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput) ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery) *AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery {
+		return &v
+	}).(AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput)
+}
+
+// Whether automatic backups are replicated.
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput) IsReplicateAutomaticBackups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery) *bool {
+		return v.IsReplicateAutomaticBackups
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Remote disaster recovery type.
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput) RemoteDisasterRecoveryType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery) string {
+		return v.RemoteDisasterRecoveryType
+	}).(pulumi.StringOutput)
+}
+
+// ARN of the source Autonomous Database.
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput) SourceAutonomousDatabaseArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery) string {
+		return v.SourceAutonomousDatabaseArn
+	}).(pulumi.StringOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput) ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput() AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput) ToAutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput) Elem() AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery) AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery
+		return ret
+	}).(AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput)
+}
+
+// Whether automatic backups are replicated.
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput) IsReplicateAutomaticBackups() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsReplicateAutomaticBackups
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Remote disaster recovery type.
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput) RemoteDisasterRecoveryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RemoteDisasterRecoveryType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the source Autonomous Database.
+func (o AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput) SourceAutonomousDatabaseArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecovery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceAutonomousDatabaseArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationDatabaseClone struct {
+	// Clone type.
+	CloneType string `pulumi:"cloneType"`
+	// ID of the source Autonomous Database.
+	SourceAutonomousDatabaseId string `pulumi:"sourceAutonomousDatabaseId"`
+}
+
+// AutonomousDatabaseSourceConfigurationDatabaseCloneInput is an input type that accepts AutonomousDatabaseSourceConfigurationDatabaseCloneArgs and AutonomousDatabaseSourceConfigurationDatabaseCloneOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationDatabaseCloneInput` via:
+//
+//	AutonomousDatabaseSourceConfigurationDatabaseCloneArgs{...}
+type AutonomousDatabaseSourceConfigurationDatabaseCloneInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationDatabaseCloneOutput() AutonomousDatabaseSourceConfigurationDatabaseCloneOutput
+	ToAutonomousDatabaseSourceConfigurationDatabaseCloneOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationDatabaseCloneOutput
+}
+
+type AutonomousDatabaseSourceConfigurationDatabaseCloneArgs struct {
+	// Clone type.
+	CloneType pulumi.StringInput `pulumi:"cloneType"`
+	// ID of the source Autonomous Database.
+	SourceAutonomousDatabaseId pulumi.StringInput `pulumi:"sourceAutonomousDatabaseId"`
+}
+
+func (AutonomousDatabaseSourceConfigurationDatabaseCloneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfigurationDatabaseClone)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseSourceConfigurationDatabaseCloneArgs) ToAutonomousDatabaseSourceConfigurationDatabaseCloneOutput() AutonomousDatabaseSourceConfigurationDatabaseCloneOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationDatabaseCloneOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationDatabaseCloneArgs) ToAutonomousDatabaseSourceConfigurationDatabaseCloneOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationDatabaseCloneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationDatabaseCloneOutput)
+}
+
+func (i AutonomousDatabaseSourceConfigurationDatabaseCloneArgs) ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput() AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationDatabaseCloneArgs) ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationDatabaseCloneOutput).ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseSourceConfigurationDatabaseClonePtrInput is an input type that accepts AutonomousDatabaseSourceConfigurationDatabaseCloneArgs, AutonomousDatabaseSourceConfigurationDatabaseClonePtr and AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationDatabaseClonePtrInput` via:
+//
+//	        AutonomousDatabaseSourceConfigurationDatabaseCloneArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseSourceConfigurationDatabaseClonePtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput() AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput
+	ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput
+}
+
+type autonomousDatabaseSourceConfigurationDatabaseClonePtrType AutonomousDatabaseSourceConfigurationDatabaseCloneArgs
+
+func AutonomousDatabaseSourceConfigurationDatabaseClonePtr(v *AutonomousDatabaseSourceConfigurationDatabaseCloneArgs) AutonomousDatabaseSourceConfigurationDatabaseClonePtrInput {
+	return (*autonomousDatabaseSourceConfigurationDatabaseClonePtrType)(v)
+}
+
+func (*autonomousDatabaseSourceConfigurationDatabaseClonePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfigurationDatabaseClone)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseSourceConfigurationDatabaseClonePtrType) ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput() AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseSourceConfigurationDatabaseClonePtrType) ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationDatabaseCloneOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationDatabaseCloneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfigurationDatabaseClone)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationDatabaseCloneOutput) ToAutonomousDatabaseSourceConfigurationDatabaseCloneOutput() AutonomousDatabaseSourceConfigurationDatabaseCloneOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationDatabaseCloneOutput) ToAutonomousDatabaseSourceConfigurationDatabaseCloneOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationDatabaseCloneOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationDatabaseCloneOutput) ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput() AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput {
+	return o.ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseSourceConfigurationDatabaseCloneOutput) ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseSourceConfigurationDatabaseClone) *AutonomousDatabaseSourceConfigurationDatabaseClone {
+		return &v
+	}).(AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput)
+}
+
+// Clone type.
+func (o AutonomousDatabaseSourceConfigurationDatabaseCloneOutput) CloneType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationDatabaseClone) string { return v.CloneType }).(pulumi.StringOutput)
+}
+
+// ID of the source Autonomous Database.
+func (o AutonomousDatabaseSourceConfigurationDatabaseCloneOutput) SourceAutonomousDatabaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationDatabaseClone) string { return v.SourceAutonomousDatabaseId }).(pulumi.StringOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfigurationDatabaseClone)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput) ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput() AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput) ToAutonomousDatabaseSourceConfigurationDatabaseClonePtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput) Elem() AutonomousDatabaseSourceConfigurationDatabaseCloneOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationDatabaseClone) AutonomousDatabaseSourceConfigurationDatabaseClone {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseSourceConfigurationDatabaseClone
+		return ret
+	}).(AutonomousDatabaseSourceConfigurationDatabaseCloneOutput)
+}
+
+// Clone type.
+func (o AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput) CloneType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationDatabaseClone) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CloneType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the source Autonomous Database.
+func (o AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput) SourceAutonomousDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationDatabaseClone) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceAutonomousDatabaseId
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationPointInTimeRestore struct {
+	// List of tablespace IDs to clone.
+	CloneTableSpaceLists []int `pulumi:"cloneTableSpaceLists"`
+	// Clone type.
+	CloneType string `pulumi:"cloneType"`
+	// ID of the source Autonomous Database.
+	SourceAutonomousDatabaseId string `pulumi:"sourceAutonomousDatabaseId"`
+	// RFC3339 timestamp to which the database is restored.
+	Timestamp *string `pulumi:"timestamp"`
+	// Whether to use the latest available backup timestamp.
+	UseLatestAvailableBackupTimestamp *bool `pulumi:"useLatestAvailableBackupTimestamp"`
+}
+
+// AutonomousDatabaseSourceConfigurationPointInTimeRestoreInput is an input type that accepts AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs and AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationPointInTimeRestoreInput` via:
+//
+//	AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs{...}
+type AutonomousDatabaseSourceConfigurationPointInTimeRestoreInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput() AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput
+	ToAutonomousDatabaseSourceConfigurationPointInTimeRestoreOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput
+}
+
+type AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs struct {
+	// List of tablespace IDs to clone.
+	CloneTableSpaceLists pulumi.IntArrayInput `pulumi:"cloneTableSpaceLists"`
+	// Clone type.
+	CloneType pulumi.StringInput `pulumi:"cloneType"`
+	// ID of the source Autonomous Database.
+	SourceAutonomousDatabaseId pulumi.StringInput `pulumi:"sourceAutonomousDatabaseId"`
+	// RFC3339 timestamp to which the database is restored.
+	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
+	// Whether to use the latest available backup timestamp.
+	UseLatestAvailableBackupTimestamp pulumi.BoolPtrInput `pulumi:"useLatestAvailableBackupTimestamp"`
+}
+
+func (AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfigurationPointInTimeRestore)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs) ToAutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput() AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationPointInTimeRestoreOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs) ToAutonomousDatabaseSourceConfigurationPointInTimeRestoreOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput)
+}
+
+func (i AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs) ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput() AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs) ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput).ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrInput is an input type that accepts AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs, AutonomousDatabaseSourceConfigurationPointInTimeRestorePtr and AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrInput` via:
+//
+//	        AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput() AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput
+	ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput
+}
+
+type autonomousDatabaseSourceConfigurationPointInTimeRestorePtrType AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs
+
+func AutonomousDatabaseSourceConfigurationPointInTimeRestorePtr(v *AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs) AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrInput {
+	return (*autonomousDatabaseSourceConfigurationPointInTimeRestorePtrType)(v)
+}
+
+func (*autonomousDatabaseSourceConfigurationPointInTimeRestorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfigurationPointInTimeRestore)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseSourceConfigurationPointInTimeRestorePtrType) ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput() AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseSourceConfigurationPointInTimeRestorePtrType) ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfigurationPointInTimeRestore)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput) ToAutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput() AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput) ToAutonomousDatabaseSourceConfigurationPointInTimeRestoreOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput) ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput() AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput {
+	return o.ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput) ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseSourceConfigurationPointInTimeRestore) *AutonomousDatabaseSourceConfigurationPointInTimeRestore {
+		return &v
+	}).(AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput)
+}
+
+// List of tablespace IDs to clone.
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput) CloneTableSpaceLists() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationPointInTimeRestore) []int { return v.CloneTableSpaceLists }).(pulumi.IntArrayOutput)
+}
+
+// Clone type.
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput) CloneType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationPointInTimeRestore) string { return v.CloneType }).(pulumi.StringOutput)
+}
+
+// ID of the source Autonomous Database.
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput) SourceAutonomousDatabaseId() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationPointInTimeRestore) string {
+		return v.SourceAutonomousDatabaseId
+	}).(pulumi.StringOutput)
+}
+
+// RFC3339 timestamp to which the database is restored.
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationPointInTimeRestore) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
+}
+
+// Whether to use the latest available backup timestamp.
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput) UseLatestAvailableBackupTimestamp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationPointInTimeRestore) *bool {
+		return v.UseLatestAvailableBackupTimestamp
+	}).(pulumi.BoolPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfigurationPointInTimeRestore)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput) ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput() AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput) ToAutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput) Elem() AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationPointInTimeRestore) AutonomousDatabaseSourceConfigurationPointInTimeRestore {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseSourceConfigurationPointInTimeRestore
+		return ret
+	}).(AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput)
+}
+
+// List of tablespace IDs to clone.
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput) CloneTableSpaceLists() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationPointInTimeRestore) []int {
+		if v == nil {
+			return nil
+		}
+		return v.CloneTableSpaceLists
+	}).(pulumi.IntArrayOutput)
+}
+
+// Clone type.
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput) CloneType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationPointInTimeRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CloneType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of the source Autonomous Database.
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput) SourceAutonomousDatabaseId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationPointInTimeRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceAutonomousDatabaseId
+	}).(pulumi.StringPtrOutput)
+}
+
+// RFC3339 timestamp to which the database is restored.
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput) Timestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationPointInTimeRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timestamp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to use the latest available backup timestamp.
+func (o AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput) UseLatestAvailableBackupTimestamp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationPointInTimeRestore) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLatestAvailableBackupTimestamp
+	}).(pulumi.BoolPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationRestoreFromBackup struct {
+	// ID of the Autonomous Database backup.
+	AutonomousDatabaseBackupId string `pulumi:"autonomousDatabaseBackupId"`
+	// List of tablespace IDs to clone.
+	CloneTableSpaceLists []int `pulumi:"cloneTableSpaceLists"`
+	// Clone type.
+	CloneType string `pulumi:"cloneType"`
+}
+
+// AutonomousDatabaseSourceConfigurationRestoreFromBackupInput is an input type that accepts AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs and AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationRestoreFromBackupInput` via:
+//
+//	AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs{...}
+type AutonomousDatabaseSourceConfigurationRestoreFromBackupInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationRestoreFromBackupOutput() AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput
+	ToAutonomousDatabaseSourceConfigurationRestoreFromBackupOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput
+}
+
+type AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs struct {
+	// ID of the Autonomous Database backup.
+	AutonomousDatabaseBackupId pulumi.StringInput `pulumi:"autonomousDatabaseBackupId"`
+	// List of tablespace IDs to clone.
+	CloneTableSpaceLists pulumi.IntArrayInput `pulumi:"cloneTableSpaceLists"`
+	// Clone type.
+	CloneType pulumi.StringInput `pulumi:"cloneType"`
+}
+
+func (AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfigurationRestoreFromBackup)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs) ToAutonomousDatabaseSourceConfigurationRestoreFromBackupOutput() AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationRestoreFromBackupOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs) ToAutonomousDatabaseSourceConfigurationRestoreFromBackupOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput)
+}
+
+func (i AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs) ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput() AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs) ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput).ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrInput is an input type that accepts AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs, AutonomousDatabaseSourceConfigurationRestoreFromBackupPtr and AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrInput` via:
+//
+//	        AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput() AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput
+	ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutputWithContext(context.Context) AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput
+}
+
+type autonomousDatabaseSourceConfigurationRestoreFromBackupPtrType AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs
+
+func AutonomousDatabaseSourceConfigurationRestoreFromBackupPtr(v *AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs) AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrInput {
+	return (*autonomousDatabaseSourceConfigurationRestoreFromBackupPtrType)(v)
+}
+
+func (*autonomousDatabaseSourceConfigurationRestoreFromBackupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfigurationRestoreFromBackup)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseSourceConfigurationRestoreFromBackupPtrType) ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput() AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput {
+	return i.ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseSourceConfigurationRestoreFromBackupPtrType) ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseSourceConfigurationRestoreFromBackup)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput) ToAutonomousDatabaseSourceConfigurationRestoreFromBackupOutput() AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput) ToAutonomousDatabaseSourceConfigurationRestoreFromBackupOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput) ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput() AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput {
+	return o.ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput) ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseSourceConfigurationRestoreFromBackup) *AutonomousDatabaseSourceConfigurationRestoreFromBackup {
+		return &v
+	}).(AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput)
+}
+
+// ID of the Autonomous Database backup.
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput) AutonomousDatabaseBackupId() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationRestoreFromBackup) string {
+		return v.AutonomousDatabaseBackupId
+	}).(pulumi.StringOutput)
+}
+
+// List of tablespace IDs to clone.
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput) CloneTableSpaceLists() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationRestoreFromBackup) []int { return v.CloneTableSpaceLists }).(pulumi.IntArrayOutput)
+}
+
+// Clone type.
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput) CloneType() pulumi.StringOutput {
+	return o.ApplyT(func(v AutonomousDatabaseSourceConfigurationRestoreFromBackup) string { return v.CloneType }).(pulumi.StringOutput)
+}
+
+type AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseSourceConfigurationRestoreFromBackup)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput) ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput() AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput) ToAutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutputWithContext(ctx context.Context) AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput) Elem() AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationRestoreFromBackup) AutonomousDatabaseSourceConfigurationRestoreFromBackup {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseSourceConfigurationRestoreFromBackup
+		return ret
+	}).(AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput)
+}
+
+// ID of the Autonomous Database backup.
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput) AutonomousDatabaseBackupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationRestoreFromBackup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AutonomousDatabaseBackupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of tablespace IDs to clone.
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput) CloneTableSpaceLists() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationRestoreFromBackup) []int {
+		if v == nil {
+			return nil
+		}
+		return v.CloneTableSpaceLists
+	}).(pulumi.IntArrayOutput)
+}
+
+// Clone type.
+func (o AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput) CloneType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseSourceConfigurationRestoreFromBackup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CloneType
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// AutonomousDatabaseTimeoutsInput is an input type that accepts AutonomousDatabaseTimeoutsArgs and AutonomousDatabaseTimeoutsOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseTimeoutsInput` via:
+//
+//	AutonomousDatabaseTimeoutsArgs{...}
+type AutonomousDatabaseTimeoutsInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseTimeoutsOutput() AutonomousDatabaseTimeoutsOutput
+	ToAutonomousDatabaseTimeoutsOutputWithContext(context.Context) AutonomousDatabaseTimeoutsOutput
+}
+
+type AutonomousDatabaseTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (AutonomousDatabaseTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseTimeouts)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseTimeoutsArgs) ToAutonomousDatabaseTimeoutsOutput() AutonomousDatabaseTimeoutsOutput {
+	return i.ToAutonomousDatabaseTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseTimeoutsArgs) ToAutonomousDatabaseTimeoutsOutputWithContext(ctx context.Context) AutonomousDatabaseTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseTimeoutsOutput)
+}
+
+func (i AutonomousDatabaseTimeoutsArgs) ToAutonomousDatabaseTimeoutsPtrOutput() AutonomousDatabaseTimeoutsPtrOutput {
+	return i.ToAutonomousDatabaseTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseTimeoutsArgs) ToAutonomousDatabaseTimeoutsPtrOutputWithContext(ctx context.Context) AutonomousDatabaseTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseTimeoutsOutput).ToAutonomousDatabaseTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseTimeoutsPtrInput is an input type that accepts AutonomousDatabaseTimeoutsArgs, AutonomousDatabaseTimeoutsPtr and AutonomousDatabaseTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseTimeoutsPtrInput` via:
+//
+//	        AutonomousDatabaseTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseTimeoutsPtrOutput() AutonomousDatabaseTimeoutsPtrOutput
+	ToAutonomousDatabaseTimeoutsPtrOutputWithContext(context.Context) AutonomousDatabaseTimeoutsPtrOutput
+}
+
+type autonomousDatabaseTimeoutsPtrType AutonomousDatabaseTimeoutsArgs
+
+func AutonomousDatabaseTimeoutsPtr(v *AutonomousDatabaseTimeoutsArgs) AutonomousDatabaseTimeoutsPtrInput {
+	return (*autonomousDatabaseTimeoutsPtrType)(v)
+}
+
+func (*autonomousDatabaseTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseTimeouts)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseTimeoutsPtrType) ToAutonomousDatabaseTimeoutsPtrOutput() AutonomousDatabaseTimeoutsPtrOutput {
+	return i.ToAutonomousDatabaseTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseTimeoutsPtrType) ToAutonomousDatabaseTimeoutsPtrOutputWithContext(ctx context.Context) AutonomousDatabaseTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseTimeoutsPtrOutput)
+}
+
+type AutonomousDatabaseTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseTimeouts)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseTimeoutsOutput) ToAutonomousDatabaseTimeoutsOutput() AutonomousDatabaseTimeoutsOutput {
+	return o
+}
+
+func (o AutonomousDatabaseTimeoutsOutput) ToAutonomousDatabaseTimeoutsOutputWithContext(ctx context.Context) AutonomousDatabaseTimeoutsOutput {
+	return o
+}
+
+func (o AutonomousDatabaseTimeoutsOutput) ToAutonomousDatabaseTimeoutsPtrOutput() AutonomousDatabaseTimeoutsPtrOutput {
+	return o.ToAutonomousDatabaseTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseTimeoutsOutput) ToAutonomousDatabaseTimeoutsPtrOutputWithContext(ctx context.Context) AutonomousDatabaseTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseTimeouts) *AutonomousDatabaseTimeouts {
+		return &v
+	}).(AutonomousDatabaseTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AutonomousDatabaseTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AutonomousDatabaseTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AutonomousDatabaseTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseTimeouts)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseTimeoutsPtrOutput) ToAutonomousDatabaseTimeoutsPtrOutput() AutonomousDatabaseTimeoutsPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseTimeoutsPtrOutput) ToAutonomousDatabaseTimeoutsPtrOutputWithContext(ctx context.Context) AutonomousDatabaseTimeoutsPtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseTimeoutsPtrOutput) Elem() AutonomousDatabaseTimeoutsOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseTimeouts) AutonomousDatabaseTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseTimeouts
+		return ret
+	}).(AutonomousDatabaseTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AutonomousDatabaseTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o AutonomousDatabaseTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AutonomousDatabaseTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseTransportableTablespace struct {
+	// URL of the transportable tablespace bundle.
+	TtsBundleUrl *string `pulumi:"ttsBundleUrl"`
+}
+
+// AutonomousDatabaseTransportableTablespaceInput is an input type that accepts AutonomousDatabaseTransportableTablespaceArgs and AutonomousDatabaseTransportableTablespaceOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseTransportableTablespaceInput` via:
+//
+//	AutonomousDatabaseTransportableTablespaceArgs{...}
+type AutonomousDatabaseTransportableTablespaceInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseTransportableTablespaceOutput() AutonomousDatabaseTransportableTablespaceOutput
+	ToAutonomousDatabaseTransportableTablespaceOutputWithContext(context.Context) AutonomousDatabaseTransportableTablespaceOutput
+}
+
+type AutonomousDatabaseTransportableTablespaceArgs struct {
+	// URL of the transportable tablespace bundle.
+	TtsBundleUrl pulumi.StringPtrInput `pulumi:"ttsBundleUrl"`
+}
+
+func (AutonomousDatabaseTransportableTablespaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseTransportableTablespace)(nil)).Elem()
+}
+
+func (i AutonomousDatabaseTransportableTablespaceArgs) ToAutonomousDatabaseTransportableTablespaceOutput() AutonomousDatabaseTransportableTablespaceOutput {
+	return i.ToAutonomousDatabaseTransportableTablespaceOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseTransportableTablespaceArgs) ToAutonomousDatabaseTransportableTablespaceOutputWithContext(ctx context.Context) AutonomousDatabaseTransportableTablespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseTransportableTablespaceOutput)
+}
+
+func (i AutonomousDatabaseTransportableTablespaceArgs) ToAutonomousDatabaseTransportableTablespacePtrOutput() AutonomousDatabaseTransportableTablespacePtrOutput {
+	return i.ToAutonomousDatabaseTransportableTablespacePtrOutputWithContext(context.Background())
+}
+
+func (i AutonomousDatabaseTransportableTablespaceArgs) ToAutonomousDatabaseTransportableTablespacePtrOutputWithContext(ctx context.Context) AutonomousDatabaseTransportableTablespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseTransportableTablespaceOutput).ToAutonomousDatabaseTransportableTablespacePtrOutputWithContext(ctx)
+}
+
+// AutonomousDatabaseTransportableTablespacePtrInput is an input type that accepts AutonomousDatabaseTransportableTablespaceArgs, AutonomousDatabaseTransportableTablespacePtr and AutonomousDatabaseTransportableTablespacePtrOutput values.
+// You can construct a concrete instance of `AutonomousDatabaseTransportableTablespacePtrInput` via:
+//
+//	        AutonomousDatabaseTransportableTablespaceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutonomousDatabaseTransportableTablespacePtrInput interface {
+	pulumi.Input
+
+	ToAutonomousDatabaseTransportableTablespacePtrOutput() AutonomousDatabaseTransportableTablespacePtrOutput
+	ToAutonomousDatabaseTransportableTablespacePtrOutputWithContext(context.Context) AutonomousDatabaseTransportableTablespacePtrOutput
+}
+
+type autonomousDatabaseTransportableTablespacePtrType AutonomousDatabaseTransportableTablespaceArgs
+
+func AutonomousDatabaseTransportableTablespacePtr(v *AutonomousDatabaseTransportableTablespaceArgs) AutonomousDatabaseTransportableTablespacePtrInput {
+	return (*autonomousDatabaseTransportableTablespacePtrType)(v)
+}
+
+func (*autonomousDatabaseTransportableTablespacePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseTransportableTablespace)(nil)).Elem()
+}
+
+func (i *autonomousDatabaseTransportableTablespacePtrType) ToAutonomousDatabaseTransportableTablespacePtrOutput() AutonomousDatabaseTransportableTablespacePtrOutput {
+	return i.ToAutonomousDatabaseTransportableTablespacePtrOutputWithContext(context.Background())
+}
+
+func (i *autonomousDatabaseTransportableTablespacePtrType) ToAutonomousDatabaseTransportableTablespacePtrOutputWithContext(ctx context.Context) AutonomousDatabaseTransportableTablespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutonomousDatabaseTransportableTablespacePtrOutput)
+}
+
+type AutonomousDatabaseTransportableTablespaceOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseTransportableTablespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutonomousDatabaseTransportableTablespace)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseTransportableTablespaceOutput) ToAutonomousDatabaseTransportableTablespaceOutput() AutonomousDatabaseTransportableTablespaceOutput {
+	return o
+}
+
+func (o AutonomousDatabaseTransportableTablespaceOutput) ToAutonomousDatabaseTransportableTablespaceOutputWithContext(ctx context.Context) AutonomousDatabaseTransportableTablespaceOutput {
+	return o
+}
+
+func (o AutonomousDatabaseTransportableTablespaceOutput) ToAutonomousDatabaseTransportableTablespacePtrOutput() AutonomousDatabaseTransportableTablespacePtrOutput {
+	return o.ToAutonomousDatabaseTransportableTablespacePtrOutputWithContext(context.Background())
+}
+
+func (o AutonomousDatabaseTransportableTablespaceOutput) ToAutonomousDatabaseTransportableTablespacePtrOutputWithContext(ctx context.Context) AutonomousDatabaseTransportableTablespacePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutonomousDatabaseTransportableTablespace) *AutonomousDatabaseTransportableTablespace {
+		return &v
+	}).(AutonomousDatabaseTransportableTablespacePtrOutput)
+}
+
+// URL of the transportable tablespace bundle.
+func (o AutonomousDatabaseTransportableTablespaceOutput) TtsBundleUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutonomousDatabaseTransportableTablespace) *string { return v.TtsBundleUrl }).(pulumi.StringPtrOutput)
+}
+
+type AutonomousDatabaseTransportableTablespacePtrOutput struct{ *pulumi.OutputState }
+
+func (AutonomousDatabaseTransportableTablespacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutonomousDatabaseTransportableTablespace)(nil)).Elem()
+}
+
+func (o AutonomousDatabaseTransportableTablespacePtrOutput) ToAutonomousDatabaseTransportableTablespacePtrOutput() AutonomousDatabaseTransportableTablespacePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseTransportableTablespacePtrOutput) ToAutonomousDatabaseTransportableTablespacePtrOutputWithContext(ctx context.Context) AutonomousDatabaseTransportableTablespacePtrOutput {
+	return o
+}
+
+func (o AutonomousDatabaseTransportableTablespacePtrOutput) Elem() AutonomousDatabaseTransportableTablespaceOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseTransportableTablespace) AutonomousDatabaseTransportableTablespace {
+		if v != nil {
+			return *v
+		}
+		var ret AutonomousDatabaseTransportableTablespace
+		return ret
+	}).(AutonomousDatabaseTransportableTablespaceOutput)
+}
+
+// URL of the transportable tablespace bundle.
+func (o AutonomousDatabaseTransportableTablespacePtrOutput) TtsBundleUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutonomousDatabaseTransportableTablespace) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TtsBundleUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 type CloudAutonomousVmClusterMaintenanceWindow struct {
 	// Days of the week when maintenance can be performed. Changing this will force terraform to create new resource. See `daysOfWeek` Block below.
 	DaysOfWeeks []CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek `pulumi:"daysOfWeeks"`
@@ -3590,6 +6479,824 @@ func (o NetworkTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 		}
 		return v.Update
 	}).(pulumi.StringPtrOutput)
+}
+
+type GetAutonomousDatabaseAdminPasswordSource struct {
+	// Customer-managed AWS Secrets Manager configuration.
+	CustomerManagedAwsSecrets []GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret `pulumi:"customerManagedAwsSecrets"`
+}
+
+// GetAutonomousDatabaseAdminPasswordSourceInput is an input type that accepts GetAutonomousDatabaseAdminPasswordSourceArgs and GetAutonomousDatabaseAdminPasswordSourceOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseAdminPasswordSourceInput` via:
+//
+//	GetAutonomousDatabaseAdminPasswordSourceArgs{...}
+type GetAutonomousDatabaseAdminPasswordSourceInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseAdminPasswordSourceOutput() GetAutonomousDatabaseAdminPasswordSourceOutput
+	ToGetAutonomousDatabaseAdminPasswordSourceOutputWithContext(context.Context) GetAutonomousDatabaseAdminPasswordSourceOutput
+}
+
+type GetAutonomousDatabaseAdminPasswordSourceArgs struct {
+	// Customer-managed AWS Secrets Manager configuration.
+	CustomerManagedAwsSecrets GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayInput `pulumi:"customerManagedAwsSecrets"`
+}
+
+func (GetAutonomousDatabaseAdminPasswordSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseAdminPasswordSource)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseAdminPasswordSourceArgs) ToGetAutonomousDatabaseAdminPasswordSourceOutput() GetAutonomousDatabaseAdminPasswordSourceOutput {
+	return i.ToGetAutonomousDatabaseAdminPasswordSourceOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseAdminPasswordSourceArgs) ToGetAutonomousDatabaseAdminPasswordSourceOutputWithContext(ctx context.Context) GetAutonomousDatabaseAdminPasswordSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseAdminPasswordSourceOutput)
+}
+
+// GetAutonomousDatabaseAdminPasswordSourceArrayInput is an input type that accepts GetAutonomousDatabaseAdminPasswordSourceArray and GetAutonomousDatabaseAdminPasswordSourceArrayOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseAdminPasswordSourceArrayInput` via:
+//
+//	GetAutonomousDatabaseAdminPasswordSourceArray{ GetAutonomousDatabaseAdminPasswordSourceArgs{...} }
+type GetAutonomousDatabaseAdminPasswordSourceArrayInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseAdminPasswordSourceArrayOutput() GetAutonomousDatabaseAdminPasswordSourceArrayOutput
+	ToGetAutonomousDatabaseAdminPasswordSourceArrayOutputWithContext(context.Context) GetAutonomousDatabaseAdminPasswordSourceArrayOutput
+}
+
+type GetAutonomousDatabaseAdminPasswordSourceArray []GetAutonomousDatabaseAdminPasswordSourceInput
+
+func (GetAutonomousDatabaseAdminPasswordSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseAdminPasswordSource)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseAdminPasswordSourceArray) ToGetAutonomousDatabaseAdminPasswordSourceArrayOutput() GetAutonomousDatabaseAdminPasswordSourceArrayOutput {
+	return i.ToGetAutonomousDatabaseAdminPasswordSourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseAdminPasswordSourceArray) ToGetAutonomousDatabaseAdminPasswordSourceArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseAdminPasswordSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseAdminPasswordSourceArrayOutput)
+}
+
+type GetAutonomousDatabaseAdminPasswordSourceOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseAdminPasswordSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseAdminPasswordSource)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseAdminPasswordSourceOutput) ToGetAutonomousDatabaseAdminPasswordSourceOutput() GetAutonomousDatabaseAdminPasswordSourceOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseAdminPasswordSourceOutput) ToGetAutonomousDatabaseAdminPasswordSourceOutputWithContext(ctx context.Context) GetAutonomousDatabaseAdminPasswordSourceOutput {
+	return o
+}
+
+// Customer-managed AWS Secrets Manager configuration.
+func (o GetAutonomousDatabaseAdminPasswordSourceOutput) CustomerManagedAwsSecrets() GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseAdminPasswordSource) []GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret {
+		return v.CustomerManagedAwsSecrets
+	}).(GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput)
+}
+
+type GetAutonomousDatabaseAdminPasswordSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseAdminPasswordSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseAdminPasswordSource)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseAdminPasswordSourceArrayOutput) ToGetAutonomousDatabaseAdminPasswordSourceArrayOutput() GetAutonomousDatabaseAdminPasswordSourceArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseAdminPasswordSourceArrayOutput) ToGetAutonomousDatabaseAdminPasswordSourceArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseAdminPasswordSourceArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseAdminPasswordSourceArrayOutput) Index(i pulumi.IntInput) GetAutonomousDatabaseAdminPasswordSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutonomousDatabaseAdminPasswordSource {
+		return vs[0].([]GetAutonomousDatabaseAdminPasswordSource)[vs[1].(int)]
+	}).(GetAutonomousDatabaseAdminPasswordSourceOutput)
+}
+
+type GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret struct {
+	// OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role.
+	ExternalIdType string `pulumi:"externalIdType"`
+	// ARN of the customer-managed IAM role OCI assumes to retrieve the secret.
+	IamRoleArn string `pulumi:"iamRoleArn"`
+	// ARN of the AWS Secrets Manager secret containing the ADMIN password.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretInput is an input type that accepts GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs and GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretInput` via:
+//
+//	GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs{...}
+type GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput() GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput
+	ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutputWithContext(context.Context) GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput
+}
+
+type GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs struct {
+	// OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role.
+	ExternalIdType pulumi.StringInput `pulumi:"externalIdType"`
+	// ARN of the customer-managed IAM role OCI assumes to retrieve the secret.
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
+	// ARN of the AWS Secrets Manager secret containing the ADMIN password.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs) ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput() GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput {
+	return i.ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs) ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutputWithContext(ctx context.Context) GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput)
+}
+
+// GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayInput is an input type that accepts GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArray and GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayInput` via:
+//
+//	GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArray{ GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs{...} }
+type GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput() GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput
+	ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutputWithContext(context.Context) GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput
+}
+
+type GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArray []GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretInput
+
+func (GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArray) ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput() GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput {
+	return i.ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArray) ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput)
+}
+
+type GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput() GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutputWithContext(ctx context.Context) GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput {
+	return o
+}
+
+// OCI identifier type used as the external ID when OCI assumes the customer-managed IAM role.
+func (o GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) ExternalIdType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret) string {
+		return v.ExternalIdType
+	}).(pulumi.StringOutput)
+}
+
+// ARN of the customer-managed IAM role OCI assumes to retrieve the secret.
+func (o GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) IamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret) string { return v.IamRoleArn }).(pulumi.StringOutput)
+}
+
+// ARN of the AWS Secrets Manager secret containing the ADMIN password.
+func (o GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput) ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput() GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput) ToGetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput) Index(i pulumi.IntInput) GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret {
+		return vs[0].([]GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecret)[vs[1].(int)]
+	}).(GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput)
+}
+
+type GetAutonomousDatabaseCustomerContactsToSendToOci struct {
+	// Customer contact email address.
+	Email string `pulumi:"email"`
+}
+
+// GetAutonomousDatabaseCustomerContactsToSendToOciInput is an input type that accepts GetAutonomousDatabaseCustomerContactsToSendToOciArgs and GetAutonomousDatabaseCustomerContactsToSendToOciOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseCustomerContactsToSendToOciInput` via:
+//
+//	GetAutonomousDatabaseCustomerContactsToSendToOciArgs{...}
+type GetAutonomousDatabaseCustomerContactsToSendToOciInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseCustomerContactsToSendToOciOutput() GetAutonomousDatabaseCustomerContactsToSendToOciOutput
+	ToGetAutonomousDatabaseCustomerContactsToSendToOciOutputWithContext(context.Context) GetAutonomousDatabaseCustomerContactsToSendToOciOutput
+}
+
+type GetAutonomousDatabaseCustomerContactsToSendToOciArgs struct {
+	// Customer contact email address.
+	Email pulumi.StringInput `pulumi:"email"`
+}
+
+func (GetAutonomousDatabaseCustomerContactsToSendToOciArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseCustomerContactsToSendToOci)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseCustomerContactsToSendToOciArgs) ToGetAutonomousDatabaseCustomerContactsToSendToOciOutput() GetAutonomousDatabaseCustomerContactsToSendToOciOutput {
+	return i.ToGetAutonomousDatabaseCustomerContactsToSendToOciOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseCustomerContactsToSendToOciArgs) ToGetAutonomousDatabaseCustomerContactsToSendToOciOutputWithContext(ctx context.Context) GetAutonomousDatabaseCustomerContactsToSendToOciOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseCustomerContactsToSendToOciOutput)
+}
+
+// GetAutonomousDatabaseCustomerContactsToSendToOciArrayInput is an input type that accepts GetAutonomousDatabaseCustomerContactsToSendToOciArray and GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseCustomerContactsToSendToOciArrayInput` via:
+//
+//	GetAutonomousDatabaseCustomerContactsToSendToOciArray{ GetAutonomousDatabaseCustomerContactsToSendToOciArgs{...} }
+type GetAutonomousDatabaseCustomerContactsToSendToOciArrayInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput() GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput
+	ToGetAutonomousDatabaseCustomerContactsToSendToOciArrayOutputWithContext(context.Context) GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput
+}
+
+type GetAutonomousDatabaseCustomerContactsToSendToOciArray []GetAutonomousDatabaseCustomerContactsToSendToOciInput
+
+func (GetAutonomousDatabaseCustomerContactsToSendToOciArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseCustomerContactsToSendToOci)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseCustomerContactsToSendToOciArray) ToGetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput() GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput {
+	return i.ToGetAutonomousDatabaseCustomerContactsToSendToOciArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseCustomerContactsToSendToOciArray) ToGetAutonomousDatabaseCustomerContactsToSendToOciArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput)
+}
+
+type GetAutonomousDatabaseCustomerContactsToSendToOciOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseCustomerContactsToSendToOciOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseCustomerContactsToSendToOci)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseCustomerContactsToSendToOciOutput) ToGetAutonomousDatabaseCustomerContactsToSendToOciOutput() GetAutonomousDatabaseCustomerContactsToSendToOciOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseCustomerContactsToSendToOciOutput) ToGetAutonomousDatabaseCustomerContactsToSendToOciOutputWithContext(ctx context.Context) GetAutonomousDatabaseCustomerContactsToSendToOciOutput {
+	return o
+}
+
+// Customer contact email address.
+func (o GetAutonomousDatabaseCustomerContactsToSendToOciOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseCustomerContactsToSendToOci) string { return v.Email }).(pulumi.StringOutput)
+}
+
+type GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseCustomerContactsToSendToOci)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput) ToGetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput() GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput) ToGetAutonomousDatabaseCustomerContactsToSendToOciArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput) Index(i pulumi.IntInput) GetAutonomousDatabaseCustomerContactsToSendToOciOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutonomousDatabaseCustomerContactsToSendToOci {
+		return vs[0].([]GetAutonomousDatabaseCustomerContactsToSendToOci)[vs[1].(int)]
+	}).(GetAutonomousDatabaseCustomerContactsToSendToOciOutput)
+}
+
+type GetAutonomousDatabaseDbToolsDetail struct {
+	// Compute capacity allocated to the database tool.
+	ComputeCount float64 `pulumi:"computeCount"`
+	// Whether the database tool is enabled.
+	IsEnabled bool `pulumi:"isEnabled"`
+	// Maximum idle time before the tool is shut down.
+	MaxIdleTimeInMinutes int `pulumi:"maxIdleTimeInMinutes"`
+	// Database tool name.
+	Name string `pulumi:"name"`
+}
+
+// GetAutonomousDatabaseDbToolsDetailInput is an input type that accepts GetAutonomousDatabaseDbToolsDetailArgs and GetAutonomousDatabaseDbToolsDetailOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseDbToolsDetailInput` via:
+//
+//	GetAutonomousDatabaseDbToolsDetailArgs{...}
+type GetAutonomousDatabaseDbToolsDetailInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseDbToolsDetailOutput() GetAutonomousDatabaseDbToolsDetailOutput
+	ToGetAutonomousDatabaseDbToolsDetailOutputWithContext(context.Context) GetAutonomousDatabaseDbToolsDetailOutput
+}
+
+type GetAutonomousDatabaseDbToolsDetailArgs struct {
+	// Compute capacity allocated to the database tool.
+	ComputeCount pulumi.Float64Input `pulumi:"computeCount"`
+	// Whether the database tool is enabled.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+	// Maximum idle time before the tool is shut down.
+	MaxIdleTimeInMinutes pulumi.IntInput `pulumi:"maxIdleTimeInMinutes"`
+	// Database tool name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetAutonomousDatabaseDbToolsDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseDbToolsDetail)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseDbToolsDetailArgs) ToGetAutonomousDatabaseDbToolsDetailOutput() GetAutonomousDatabaseDbToolsDetailOutput {
+	return i.ToGetAutonomousDatabaseDbToolsDetailOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseDbToolsDetailArgs) ToGetAutonomousDatabaseDbToolsDetailOutputWithContext(ctx context.Context) GetAutonomousDatabaseDbToolsDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseDbToolsDetailOutput)
+}
+
+// GetAutonomousDatabaseDbToolsDetailArrayInput is an input type that accepts GetAutonomousDatabaseDbToolsDetailArray and GetAutonomousDatabaseDbToolsDetailArrayOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseDbToolsDetailArrayInput` via:
+//
+//	GetAutonomousDatabaseDbToolsDetailArray{ GetAutonomousDatabaseDbToolsDetailArgs{...} }
+type GetAutonomousDatabaseDbToolsDetailArrayInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseDbToolsDetailArrayOutput() GetAutonomousDatabaseDbToolsDetailArrayOutput
+	ToGetAutonomousDatabaseDbToolsDetailArrayOutputWithContext(context.Context) GetAutonomousDatabaseDbToolsDetailArrayOutput
+}
+
+type GetAutonomousDatabaseDbToolsDetailArray []GetAutonomousDatabaseDbToolsDetailInput
+
+func (GetAutonomousDatabaseDbToolsDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseDbToolsDetail)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseDbToolsDetailArray) ToGetAutonomousDatabaseDbToolsDetailArrayOutput() GetAutonomousDatabaseDbToolsDetailArrayOutput {
+	return i.ToGetAutonomousDatabaseDbToolsDetailArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseDbToolsDetailArray) ToGetAutonomousDatabaseDbToolsDetailArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseDbToolsDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseDbToolsDetailArrayOutput)
+}
+
+type GetAutonomousDatabaseDbToolsDetailOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseDbToolsDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseDbToolsDetail)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseDbToolsDetailOutput) ToGetAutonomousDatabaseDbToolsDetailOutput() GetAutonomousDatabaseDbToolsDetailOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseDbToolsDetailOutput) ToGetAutonomousDatabaseDbToolsDetailOutputWithContext(ctx context.Context) GetAutonomousDatabaseDbToolsDetailOutput {
+	return o
+}
+
+// Compute capacity allocated to the database tool.
+func (o GetAutonomousDatabaseDbToolsDetailOutput) ComputeCount() pulumi.Float64Output {
+	return o.ApplyT(func(v GetAutonomousDatabaseDbToolsDetail) float64 { return v.ComputeCount }).(pulumi.Float64Output)
+}
+
+// Whether the database tool is enabled.
+func (o GetAutonomousDatabaseDbToolsDetailOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseDbToolsDetail) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+// Maximum idle time before the tool is shut down.
+func (o GetAutonomousDatabaseDbToolsDetailOutput) MaxIdleTimeInMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseDbToolsDetail) int { return v.MaxIdleTimeInMinutes }).(pulumi.IntOutput)
+}
+
+// Database tool name.
+func (o GetAutonomousDatabaseDbToolsDetailOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseDbToolsDetail) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetAutonomousDatabaseDbToolsDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseDbToolsDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseDbToolsDetail)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseDbToolsDetailArrayOutput) ToGetAutonomousDatabaseDbToolsDetailArrayOutput() GetAutonomousDatabaseDbToolsDetailArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseDbToolsDetailArrayOutput) ToGetAutonomousDatabaseDbToolsDetailArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseDbToolsDetailArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseDbToolsDetailArrayOutput) Index(i pulumi.IntInput) GetAutonomousDatabaseDbToolsDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutonomousDatabaseDbToolsDetail {
+		return vs[0].([]GetAutonomousDatabaseDbToolsDetail)[vs[1].(int)]
+	}).(GetAutonomousDatabaseDbToolsDetailOutput)
+}
+
+type GetAutonomousDatabaseLongTermBackupSchedule struct {
+	// Whether the resource pool is disabled.
+	IsDisabled bool `pulumi:"isDisabled"`
+	// Backup cadence.
+	RepeatCadence string `pulumi:"repeatCadence"`
+	// Backup retention period in days.
+	RetentionPeriodInDays int `pulumi:"retentionPeriodInDays"`
+	// Backup date and time.
+	TimeOfBackup string `pulumi:"timeOfBackup"`
+}
+
+// GetAutonomousDatabaseLongTermBackupScheduleInput is an input type that accepts GetAutonomousDatabaseLongTermBackupScheduleArgs and GetAutonomousDatabaseLongTermBackupScheduleOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseLongTermBackupScheduleInput` via:
+//
+//	GetAutonomousDatabaseLongTermBackupScheduleArgs{...}
+type GetAutonomousDatabaseLongTermBackupScheduleInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseLongTermBackupScheduleOutput() GetAutonomousDatabaseLongTermBackupScheduleOutput
+	ToGetAutonomousDatabaseLongTermBackupScheduleOutputWithContext(context.Context) GetAutonomousDatabaseLongTermBackupScheduleOutput
+}
+
+type GetAutonomousDatabaseLongTermBackupScheduleArgs struct {
+	// Whether the resource pool is disabled.
+	IsDisabled pulumi.BoolInput `pulumi:"isDisabled"`
+	// Backup cadence.
+	RepeatCadence pulumi.StringInput `pulumi:"repeatCadence"`
+	// Backup retention period in days.
+	RetentionPeriodInDays pulumi.IntInput `pulumi:"retentionPeriodInDays"`
+	// Backup date and time.
+	TimeOfBackup pulumi.StringInput `pulumi:"timeOfBackup"`
+}
+
+func (GetAutonomousDatabaseLongTermBackupScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseLongTermBackupScheduleArgs) ToGetAutonomousDatabaseLongTermBackupScheduleOutput() GetAutonomousDatabaseLongTermBackupScheduleOutput {
+	return i.ToGetAutonomousDatabaseLongTermBackupScheduleOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseLongTermBackupScheduleArgs) ToGetAutonomousDatabaseLongTermBackupScheduleOutputWithContext(ctx context.Context) GetAutonomousDatabaseLongTermBackupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseLongTermBackupScheduleOutput)
+}
+
+// GetAutonomousDatabaseLongTermBackupScheduleArrayInput is an input type that accepts GetAutonomousDatabaseLongTermBackupScheduleArray and GetAutonomousDatabaseLongTermBackupScheduleArrayOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseLongTermBackupScheduleArrayInput` via:
+//
+//	GetAutonomousDatabaseLongTermBackupScheduleArray{ GetAutonomousDatabaseLongTermBackupScheduleArgs{...} }
+type GetAutonomousDatabaseLongTermBackupScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutput() GetAutonomousDatabaseLongTermBackupScheduleArrayOutput
+	ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutputWithContext(context.Context) GetAutonomousDatabaseLongTermBackupScheduleArrayOutput
+}
+
+type GetAutonomousDatabaseLongTermBackupScheduleArray []GetAutonomousDatabaseLongTermBackupScheduleInput
+
+func (GetAutonomousDatabaseLongTermBackupScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseLongTermBackupScheduleArray) ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutput() GetAutonomousDatabaseLongTermBackupScheduleArrayOutput {
+	return i.ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseLongTermBackupScheduleArray) ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseLongTermBackupScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseLongTermBackupScheduleArrayOutput)
+}
+
+type GetAutonomousDatabaseLongTermBackupScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseLongTermBackupScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseLongTermBackupScheduleOutput) ToGetAutonomousDatabaseLongTermBackupScheduleOutput() GetAutonomousDatabaseLongTermBackupScheduleOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseLongTermBackupScheduleOutput) ToGetAutonomousDatabaseLongTermBackupScheduleOutputWithContext(ctx context.Context) GetAutonomousDatabaseLongTermBackupScheduleOutput {
+	return o
+}
+
+// Whether the resource pool is disabled.
+func (o GetAutonomousDatabaseLongTermBackupScheduleOutput) IsDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseLongTermBackupSchedule) bool { return v.IsDisabled }).(pulumi.BoolOutput)
+}
+
+// Backup cadence.
+func (o GetAutonomousDatabaseLongTermBackupScheduleOutput) RepeatCadence() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseLongTermBackupSchedule) string { return v.RepeatCadence }).(pulumi.StringOutput)
+}
+
+// Backup retention period in days.
+func (o GetAutonomousDatabaseLongTermBackupScheduleOutput) RetentionPeriodInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseLongTermBackupSchedule) int { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
+}
+
+// Backup date and time.
+func (o GetAutonomousDatabaseLongTermBackupScheduleOutput) TimeOfBackup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseLongTermBackupSchedule) string { return v.TimeOfBackup }).(pulumi.StringOutput)
+}
+
+type GetAutonomousDatabaseLongTermBackupScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseLongTermBackupScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseLongTermBackupSchedule)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseLongTermBackupScheduleArrayOutput) ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutput() GetAutonomousDatabaseLongTermBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseLongTermBackupScheduleArrayOutput) ToGetAutonomousDatabaseLongTermBackupScheduleArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseLongTermBackupScheduleArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseLongTermBackupScheduleArrayOutput) Index(i pulumi.IntInput) GetAutonomousDatabaseLongTermBackupScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutonomousDatabaseLongTermBackupSchedule {
+		return vs[0].([]GetAutonomousDatabaseLongTermBackupSchedule)[vs[1].(int)]
+	}).(GetAutonomousDatabaseLongTermBackupScheduleOutput)
+}
+
+type GetAutonomousDatabaseResourcePoolSummary struct {
+	// Available compute capacity.
+	AvailableComputeCapacity int `pulumi:"availableComputeCapacity"`
+	// Available storage capacity in TB.
+	AvailableStorageCapacityInTbs float64 `pulumi:"availableStorageCapacityInTbs"`
+	// Whether the resource pool is disabled.
+	IsDisabled bool `pulumi:"isDisabled"`
+	// Number of databases the pool can contain.
+	PoolSize int `pulumi:"poolSize"`
+	// Pool storage size in TB.
+	PoolStorageSizeInTbs int `pulumi:"poolStorageSizeInTbs"`
+	// Total compute capacity.
+	TotalComputeCapacity int `pulumi:"totalComputeCapacity"`
+}
+
+// GetAutonomousDatabaseResourcePoolSummaryInput is an input type that accepts GetAutonomousDatabaseResourcePoolSummaryArgs and GetAutonomousDatabaseResourcePoolSummaryOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseResourcePoolSummaryInput` via:
+//
+//	GetAutonomousDatabaseResourcePoolSummaryArgs{...}
+type GetAutonomousDatabaseResourcePoolSummaryInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseResourcePoolSummaryOutput() GetAutonomousDatabaseResourcePoolSummaryOutput
+	ToGetAutonomousDatabaseResourcePoolSummaryOutputWithContext(context.Context) GetAutonomousDatabaseResourcePoolSummaryOutput
+}
+
+type GetAutonomousDatabaseResourcePoolSummaryArgs struct {
+	// Available compute capacity.
+	AvailableComputeCapacity pulumi.IntInput `pulumi:"availableComputeCapacity"`
+	// Available storage capacity in TB.
+	AvailableStorageCapacityInTbs pulumi.Float64Input `pulumi:"availableStorageCapacityInTbs"`
+	// Whether the resource pool is disabled.
+	IsDisabled pulumi.BoolInput `pulumi:"isDisabled"`
+	// Number of databases the pool can contain.
+	PoolSize pulumi.IntInput `pulumi:"poolSize"`
+	// Pool storage size in TB.
+	PoolStorageSizeInTbs pulumi.IntInput `pulumi:"poolStorageSizeInTbs"`
+	// Total compute capacity.
+	TotalComputeCapacity pulumi.IntInput `pulumi:"totalComputeCapacity"`
+}
+
+func (GetAutonomousDatabaseResourcePoolSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseResourcePoolSummary)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseResourcePoolSummaryArgs) ToGetAutonomousDatabaseResourcePoolSummaryOutput() GetAutonomousDatabaseResourcePoolSummaryOutput {
+	return i.ToGetAutonomousDatabaseResourcePoolSummaryOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseResourcePoolSummaryArgs) ToGetAutonomousDatabaseResourcePoolSummaryOutputWithContext(ctx context.Context) GetAutonomousDatabaseResourcePoolSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseResourcePoolSummaryOutput)
+}
+
+// GetAutonomousDatabaseResourcePoolSummaryArrayInput is an input type that accepts GetAutonomousDatabaseResourcePoolSummaryArray and GetAutonomousDatabaseResourcePoolSummaryArrayOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseResourcePoolSummaryArrayInput` via:
+//
+//	GetAutonomousDatabaseResourcePoolSummaryArray{ GetAutonomousDatabaseResourcePoolSummaryArgs{...} }
+type GetAutonomousDatabaseResourcePoolSummaryArrayInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseResourcePoolSummaryArrayOutput() GetAutonomousDatabaseResourcePoolSummaryArrayOutput
+	ToGetAutonomousDatabaseResourcePoolSummaryArrayOutputWithContext(context.Context) GetAutonomousDatabaseResourcePoolSummaryArrayOutput
+}
+
+type GetAutonomousDatabaseResourcePoolSummaryArray []GetAutonomousDatabaseResourcePoolSummaryInput
+
+func (GetAutonomousDatabaseResourcePoolSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseResourcePoolSummary)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseResourcePoolSummaryArray) ToGetAutonomousDatabaseResourcePoolSummaryArrayOutput() GetAutonomousDatabaseResourcePoolSummaryArrayOutput {
+	return i.ToGetAutonomousDatabaseResourcePoolSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseResourcePoolSummaryArray) ToGetAutonomousDatabaseResourcePoolSummaryArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseResourcePoolSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseResourcePoolSummaryArrayOutput)
+}
+
+type GetAutonomousDatabaseResourcePoolSummaryOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseResourcePoolSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseResourcePoolSummary)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseResourcePoolSummaryOutput) ToGetAutonomousDatabaseResourcePoolSummaryOutput() GetAutonomousDatabaseResourcePoolSummaryOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseResourcePoolSummaryOutput) ToGetAutonomousDatabaseResourcePoolSummaryOutputWithContext(ctx context.Context) GetAutonomousDatabaseResourcePoolSummaryOutput {
+	return o
+}
+
+// Available compute capacity.
+func (o GetAutonomousDatabaseResourcePoolSummaryOutput) AvailableComputeCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseResourcePoolSummary) int { return v.AvailableComputeCapacity }).(pulumi.IntOutput)
+}
+
+// Available storage capacity in TB.
+func (o GetAutonomousDatabaseResourcePoolSummaryOutput) AvailableStorageCapacityInTbs() pulumi.Float64Output {
+	return o.ApplyT(func(v GetAutonomousDatabaseResourcePoolSummary) float64 { return v.AvailableStorageCapacityInTbs }).(pulumi.Float64Output)
+}
+
+// Whether the resource pool is disabled.
+func (o GetAutonomousDatabaseResourcePoolSummaryOutput) IsDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseResourcePoolSummary) bool { return v.IsDisabled }).(pulumi.BoolOutput)
+}
+
+// Number of databases the pool can contain.
+func (o GetAutonomousDatabaseResourcePoolSummaryOutput) PoolSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseResourcePoolSummary) int { return v.PoolSize }).(pulumi.IntOutput)
+}
+
+// Pool storage size in TB.
+func (o GetAutonomousDatabaseResourcePoolSummaryOutput) PoolStorageSizeInTbs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseResourcePoolSummary) int { return v.PoolStorageSizeInTbs }).(pulumi.IntOutput)
+}
+
+// Total compute capacity.
+func (o GetAutonomousDatabaseResourcePoolSummaryOutput) TotalComputeCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseResourcePoolSummary) int { return v.TotalComputeCapacity }).(pulumi.IntOutput)
+}
+
+type GetAutonomousDatabaseResourcePoolSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseResourcePoolSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseResourcePoolSummary)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseResourcePoolSummaryArrayOutput) ToGetAutonomousDatabaseResourcePoolSummaryArrayOutput() GetAutonomousDatabaseResourcePoolSummaryArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseResourcePoolSummaryArrayOutput) ToGetAutonomousDatabaseResourcePoolSummaryArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseResourcePoolSummaryArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseResourcePoolSummaryArrayOutput) Index(i pulumi.IntInput) GetAutonomousDatabaseResourcePoolSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutonomousDatabaseResourcePoolSummary {
+		return vs[0].([]GetAutonomousDatabaseResourcePoolSummary)[vs[1].(int)]
+	}).(GetAutonomousDatabaseResourcePoolSummaryOutput)
+}
+
+type GetAutonomousDatabaseScheduledOperation struct {
+	// Day of the week.
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	// Scheduled start time in UTC.
+	ScheduledStartTime string `pulumi:"scheduledStartTime"`
+	// Scheduled stop time in UTC.
+	ScheduledStopTime string `pulumi:"scheduledStopTime"`
+}
+
+// GetAutonomousDatabaseScheduledOperationInput is an input type that accepts GetAutonomousDatabaseScheduledOperationArgs and GetAutonomousDatabaseScheduledOperationOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseScheduledOperationInput` via:
+//
+//	GetAutonomousDatabaseScheduledOperationArgs{...}
+type GetAutonomousDatabaseScheduledOperationInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseScheduledOperationOutput() GetAutonomousDatabaseScheduledOperationOutput
+	ToGetAutonomousDatabaseScheduledOperationOutputWithContext(context.Context) GetAutonomousDatabaseScheduledOperationOutput
+}
+
+type GetAutonomousDatabaseScheduledOperationArgs struct {
+	// Day of the week.
+	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+	// Scheduled start time in UTC.
+	ScheduledStartTime pulumi.StringInput `pulumi:"scheduledStartTime"`
+	// Scheduled stop time in UTC.
+	ScheduledStopTime pulumi.StringInput `pulumi:"scheduledStopTime"`
+}
+
+func (GetAutonomousDatabaseScheduledOperationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseScheduledOperation)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseScheduledOperationArgs) ToGetAutonomousDatabaseScheduledOperationOutput() GetAutonomousDatabaseScheduledOperationOutput {
+	return i.ToGetAutonomousDatabaseScheduledOperationOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseScheduledOperationArgs) ToGetAutonomousDatabaseScheduledOperationOutputWithContext(ctx context.Context) GetAutonomousDatabaseScheduledOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseScheduledOperationOutput)
+}
+
+// GetAutonomousDatabaseScheduledOperationArrayInput is an input type that accepts GetAutonomousDatabaseScheduledOperationArray and GetAutonomousDatabaseScheduledOperationArrayOutput values.
+// You can construct a concrete instance of `GetAutonomousDatabaseScheduledOperationArrayInput` via:
+//
+//	GetAutonomousDatabaseScheduledOperationArray{ GetAutonomousDatabaseScheduledOperationArgs{...} }
+type GetAutonomousDatabaseScheduledOperationArrayInput interface {
+	pulumi.Input
+
+	ToGetAutonomousDatabaseScheduledOperationArrayOutput() GetAutonomousDatabaseScheduledOperationArrayOutput
+	ToGetAutonomousDatabaseScheduledOperationArrayOutputWithContext(context.Context) GetAutonomousDatabaseScheduledOperationArrayOutput
+}
+
+type GetAutonomousDatabaseScheduledOperationArray []GetAutonomousDatabaseScheduledOperationInput
+
+func (GetAutonomousDatabaseScheduledOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseScheduledOperation)(nil)).Elem()
+}
+
+func (i GetAutonomousDatabaseScheduledOperationArray) ToGetAutonomousDatabaseScheduledOperationArrayOutput() GetAutonomousDatabaseScheduledOperationArrayOutput {
+	return i.ToGetAutonomousDatabaseScheduledOperationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutonomousDatabaseScheduledOperationArray) ToGetAutonomousDatabaseScheduledOperationArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseScheduledOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutonomousDatabaseScheduledOperationArrayOutput)
+}
+
+type GetAutonomousDatabaseScheduledOperationOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseScheduledOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutonomousDatabaseScheduledOperation)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseScheduledOperationOutput) ToGetAutonomousDatabaseScheduledOperationOutput() GetAutonomousDatabaseScheduledOperationOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseScheduledOperationOutput) ToGetAutonomousDatabaseScheduledOperationOutputWithContext(ctx context.Context) GetAutonomousDatabaseScheduledOperationOutput {
+	return o
+}
+
+// Day of the week.
+func (o GetAutonomousDatabaseScheduledOperationOutput) DayOfWeek() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseScheduledOperation) string { return v.DayOfWeek }).(pulumi.StringOutput)
+}
+
+// Scheduled start time in UTC.
+func (o GetAutonomousDatabaseScheduledOperationOutput) ScheduledStartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseScheduledOperation) string { return v.ScheduledStartTime }).(pulumi.StringOutput)
+}
+
+// Scheduled stop time in UTC.
+func (o GetAutonomousDatabaseScheduledOperationOutput) ScheduledStopTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutonomousDatabaseScheduledOperation) string { return v.ScheduledStopTime }).(pulumi.StringOutput)
+}
+
+type GetAutonomousDatabaseScheduledOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutonomousDatabaseScheduledOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutonomousDatabaseScheduledOperation)(nil)).Elem()
+}
+
+func (o GetAutonomousDatabaseScheduledOperationArrayOutput) ToGetAutonomousDatabaseScheduledOperationArrayOutput() GetAutonomousDatabaseScheduledOperationArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseScheduledOperationArrayOutput) ToGetAutonomousDatabaseScheduledOperationArrayOutputWithContext(ctx context.Context) GetAutonomousDatabaseScheduledOperationArrayOutput {
+	return o
+}
+
+func (o GetAutonomousDatabaseScheduledOperationArrayOutput) Index(i pulumi.IntInput) GetAutonomousDatabaseScheduledOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutonomousDatabaseScheduledOperation {
+		return vs[0].([]GetAutonomousDatabaseScheduledOperation)[vs[1].(int)]
+	}).(GetAutonomousDatabaseScheduledOperationOutput)
 }
 
 type GetCloudAutonomousVmClusterMaintenanceWindow struct {
@@ -7642,6 +11349,40 @@ func (o GetNetworksOdbNetworkArrayOutput) Index(i pulumi.IntInput) GetNetworksOd
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseAdminPasswordSourceInput)(nil)).Elem(), AutonomousDatabaseAdminPasswordSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseAdminPasswordSourcePtrInput)(nil)).Elem(), AutonomousDatabaseAdminPasswordSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretInput)(nil)).Elem(), AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrInput)(nil)).Elem(), AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseCustomerContactsToSendToOciInput)(nil)).Elem(), AutonomousDatabaseCustomerContactsToSendToOciArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseCustomerContactsToSendToOciArrayInput)(nil)).Elem(), AutonomousDatabaseCustomerContactsToSendToOciArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseDbToolsDetailInput)(nil)).Elem(), AutonomousDatabaseDbToolsDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseDbToolsDetailArrayInput)(nil)).Elem(), AutonomousDatabaseDbToolsDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseLongTermBackupScheduleInput)(nil)).Elem(), AutonomousDatabaseLongTermBackupScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseLongTermBackupSchedulePtrInput)(nil)).Elem(), AutonomousDatabaseLongTermBackupScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseResourcePoolSummaryInput)(nil)).Elem(), AutonomousDatabaseResourcePoolSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseResourcePoolSummaryPtrInput)(nil)).Elem(), AutonomousDatabaseResourcePoolSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseScheduledOperationInput)(nil)).Elem(), AutonomousDatabaseScheduledOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseScheduledOperationArrayInput)(nil)).Elem(), AutonomousDatabaseScheduledOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSecretsManagerIntegrationTimeoutsInput)(nil)).Elem(), AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrInput)(nil)).Elem(), AutonomousDatabaseSecretsManagerIntegrationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationPtrInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationCloneToRefreshableInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationCloneToRefreshableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationCrossRegionDataGuardInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationCrossRegionDataGuardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationDatabaseCloneInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationDatabaseCloneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationDatabaseClonePtrInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationDatabaseCloneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationPointInTimeRestoreInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationPointInTimeRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationRestoreFromBackupInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrInput)(nil)).Elem(), AutonomousDatabaseSourceConfigurationRestoreFromBackupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseTimeoutsInput)(nil)).Elem(), AutonomousDatabaseTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseTimeoutsPtrInput)(nil)).Elem(), AutonomousDatabaseTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseTransportableTablespaceInput)(nil)).Elem(), AutonomousDatabaseTransportableTablespaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutonomousDatabaseTransportableTablespacePtrInput)(nil)).Elem(), AutonomousDatabaseTransportableTablespaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterMaintenanceWindowInput)(nil)).Elem(), CloudAutonomousVmClusterMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterMaintenanceWindowPtrInput)(nil)).Elem(), CloudAutonomousVmClusterMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekInput)(nil)).Elem(), CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs{})
@@ -7692,6 +11433,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkPeeringConnectionTimeoutsPtrInput)(nil)).Elem(), NetworkPeeringConnectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkTimeoutsInput)(nil)).Elem(), NetworkTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkTimeoutsPtrInput)(nil)).Elem(), NetworkTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseAdminPasswordSourceInput)(nil)).Elem(), GetAutonomousDatabaseAdminPasswordSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseAdminPasswordSourceArrayInput)(nil)).Elem(), GetAutonomousDatabaseAdminPasswordSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretInput)(nil)).Elem(), GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayInput)(nil)).Elem(), GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseCustomerContactsToSendToOciInput)(nil)).Elem(), GetAutonomousDatabaseCustomerContactsToSendToOciArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseCustomerContactsToSendToOciArrayInput)(nil)).Elem(), GetAutonomousDatabaseCustomerContactsToSendToOciArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseDbToolsDetailInput)(nil)).Elem(), GetAutonomousDatabaseDbToolsDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseDbToolsDetailArrayInput)(nil)).Elem(), GetAutonomousDatabaseDbToolsDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseLongTermBackupScheduleInput)(nil)).Elem(), GetAutonomousDatabaseLongTermBackupScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseLongTermBackupScheduleArrayInput)(nil)).Elem(), GetAutonomousDatabaseLongTermBackupScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseResourcePoolSummaryInput)(nil)).Elem(), GetAutonomousDatabaseResourcePoolSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseResourcePoolSummaryArrayInput)(nil)).Elem(), GetAutonomousDatabaseResourcePoolSummaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseScheduledOperationInput)(nil)).Elem(), GetAutonomousDatabaseScheduledOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutonomousDatabaseScheduledOperationArrayInput)(nil)).Elem(), GetAutonomousDatabaseScheduledOperationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudAutonomousVmClusterMaintenanceWindowInput)(nil)).Elem(), GetCloudAutonomousVmClusterMaintenanceWindowArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudAutonomousVmClusterMaintenanceWindowArrayInput)(nil)).Elem(), GetCloudAutonomousVmClusterMaintenanceWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudAutonomousVmClusterMaintenanceWindowDaysOfWeekInput)(nil)).Elem(), GetCloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs{})
@@ -7752,6 +11507,40 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkPeeringConnectionsOdbPeeringConnectionArrayInput)(nil)).Elem(), GetNetworkPeeringConnectionsOdbPeeringConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksOdbNetworkInput)(nil)).Elem(), GetNetworksOdbNetworkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworksOdbNetworkArrayInput)(nil)).Elem(), GetNetworksOdbNetworkArray{})
+	pulumi.RegisterOutputType(AutonomousDatabaseAdminPasswordSourceOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseAdminPasswordSourcePtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretPtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseCustomerContactsToSendToOciOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseCustomerContactsToSendToOciArrayOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseDbToolsDetailOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseDbToolsDetailArrayOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseLongTermBackupScheduleOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseLongTermBackupSchedulePtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseResourcePoolSummaryOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseResourcePoolSummaryPtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseScheduledOperationOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseScheduledOperationArrayOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSecretsManagerIntegrationTimeoutsOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSecretsManagerIntegrationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationCloneToRefreshableOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationCloneToRefreshablePtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationCrossRegionDataGuardOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationCrossRegionDataGuardPtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationCrossRegionDisasterRecoveryPtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationDatabaseCloneOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationDatabaseClonePtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationPointInTimeRestoreOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationPointInTimeRestorePtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationRestoreFromBackupOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseSourceConfigurationRestoreFromBackupPtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseTimeoutsOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseTransportableTablespaceOutput{})
+	pulumi.RegisterOutputType(AutonomousDatabaseTransportableTablespacePtrOutput{})
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterMaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekOutput{})
@@ -7802,6 +11591,20 @@ func init() {
 	pulumi.RegisterOutputType(NetworkPeeringConnectionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkTimeoutsOutput{})
 	pulumi.RegisterOutputType(NetworkTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseAdminPasswordSourceOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseAdminPasswordSourceArrayOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseAdminPasswordSourceCustomerManagedAwsSecretArrayOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseCustomerContactsToSendToOciOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseCustomerContactsToSendToOciArrayOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseDbToolsDetailOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseDbToolsDetailArrayOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseLongTermBackupScheduleOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseLongTermBackupScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseResourcePoolSummaryOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseResourcePoolSummaryArrayOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseScheduledOperationOutput{})
+	pulumi.RegisterOutputType(GetAutonomousDatabaseScheduledOperationArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudAutonomousVmClusterMaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(GetCloudAutonomousVmClusterMaintenanceWindowArrayOutput{})
 	pulumi.RegisterOutputType(GetCloudAutonomousVmClusterMaintenanceWindowDaysOfWeekOutput{})

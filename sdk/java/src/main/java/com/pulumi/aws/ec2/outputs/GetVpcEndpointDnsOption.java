@@ -13,12 +13,12 @@ import java.util.Objects;
 @CustomType
 public final class GetVpcEndpointDnsOption {
     /**
-     * @return The DNS records created for the endpoint.
+     * @return DNS records created for the endpoint.
      * 
      */
     private String dnsRecordIpType;
     /**
-     * @return Indicates whether to enable private DNS only for inbound endpoints.
+     * @return Whether to enable private DNS only for inbound endpoints.
      * 
      */
     private Boolean privateDnsOnlyForInboundResolverEndpoint;
@@ -35,14 +35,14 @@ public final class GetVpcEndpointDnsOption {
 
     private GetVpcEndpointDnsOption() {}
     /**
-     * @return The DNS records created for the endpoint.
+     * @return DNS records created for the endpoint.
      * 
      */
     public String dnsRecordIpType() {
         return this.dnsRecordIpType;
     }
     /**
-     * @return Indicates whether to enable private DNS only for inbound endpoints.
+     * @return Whether to enable private DNS only for inbound endpoints.
      * 
      */
     public Boolean privateDnsOnlyForInboundResolverEndpoint() {

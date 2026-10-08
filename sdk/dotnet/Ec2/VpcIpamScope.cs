@@ -64,34 +64,37 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// A description for the scope you're creating.
+        /// Description for the scope you're creating.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the IPAM for which you're creating this scope.
+        /// ARN of the IPAM for which you're creating this scope.
         /// </summary>
         [Output("ipamArn")]
         public Output<string> IpamArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the IPAM for which you're creating this scope.
+        /// ID of the IPAM for which you're creating this scope.
         /// </summary>
         [Output("ipamId")]
         public Output<string> IpamId { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of the scope.
+        /// </summary>
         [Output("ipamScopeType")]
         public Output<string> IpamScopeType { get; private set; } = null!;
 
         /// <summary>
-        /// Defines if the scope is the default scope or not.
+        /// Whether the scope is the default scope.
         /// </summary>
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
 
         /// <summary>
-        /// The number of pools in the scope.
+        /// Number of pools in the scope.
         /// </summary>
         [Output("poolCount")]
         public Output<int> PoolCount { get; private set; } = null!;
@@ -158,13 +161,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description for the scope you're creating.
+        /// Description for the scope you're creating.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the IPAM for which you're creating this scope.
+        /// ID of the IPAM for which you're creating this scope.
         /// </summary>
         [Input("ipamId", required: true)]
         public Input<string> IpamId { get; set; } = null!;
@@ -202,34 +205,37 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// A description for the scope you're creating.
+        /// Description for the scope you're creating.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ARN of the IPAM for which you're creating this scope.
+        /// ARN of the IPAM for which you're creating this scope.
         /// </summary>
         [Input("ipamArn")]
         public Input<string>? IpamArn { get; set; }
 
         /// <summary>
-        /// The ID of the IPAM for which you're creating this scope.
+        /// ID of the IPAM for which you're creating this scope.
         /// </summary>
         [Input("ipamId")]
         public Input<string>? IpamId { get; set; }
 
+        /// <summary>
+        /// Type of the scope.
+        /// </summary>
         [Input("ipamScopeType")]
         public Input<string>? IpamScopeType { get; set; }
 
         /// <summary>
-        /// Defines if the scope is the default scope or not.
+        /// Whether the scope is the default scope.
         /// </summary>
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
 
         /// <summary>
-        /// The number of pools in the scope.
+        /// Number of pools in the scope.
         /// </summary>
         [Input("poolCount")]
         public Input<int>? PoolCount { get; set; }

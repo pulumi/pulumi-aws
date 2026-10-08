@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclDataProtectionConfigDataProtectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies how to protect the field. Valid values are `SUBSTITUTION` or `HASH`.
+        /// Protection behavior to apply to the field. Valid values are `SUBSTITUTION` or `HASH`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<bool>? ExcludeRuleMatchDetails { get; set; }
 
         /// <summary>
-        /// Specifies the field type and optional keys to apply the protection behavior to. See `Field` block below for details.
+        /// Field type and optional keys to apply the protection behavior to. See `Field` block below for details.
         /// </summary>
         [Input("field", required: true)]
         public Input<Inputs.WebAclDataProtectionConfigDataProtectionFieldArgs> Field { get; set; } = null!;

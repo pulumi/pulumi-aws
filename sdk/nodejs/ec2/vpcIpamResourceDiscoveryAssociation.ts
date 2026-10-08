@@ -71,23 +71,23 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ipamArn: pulumi.Output<string>;
     /**
-     * The ID of the IPAM to associate.
+     * ID of the IPAM to associate.
      */
     declare public readonly ipamId: pulumi.Output<string>;
     /**
-     * The home region of the IPAM.
+     * Home region of the IPAM.
      */
     declare public /*out*/ readonly ipamRegion: pulumi.Output<string>;
     /**
-     * The ID of the Resource Discovery to associate.
+     * ID of the Resource Discovery to associate.
      */
     declare public readonly ipamResourceDiscoveryId: pulumi.Output<string>;
     /**
-     * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
+     * Boolean to identify if the Resource Discovery is the accounts default resource discovery.
      */
     declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
-     * The account ID for the account that manages the Resource Discovery
+     * Account ID for the account that manages the Resource Discovery
      */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
@@ -95,15 +95,15 @@ export class VpcIpamResourceDiscoveryAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The lifecycle state of the association when you associate or disassociate a resource discovery.
+     * Lifecycle state of the association when you associate or disassociate a resource discovery.
      */
     declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
-     * A map of tags to add to the IPAM resource discovery association resource.
+     * Map of tags to add to the IPAM resource discovery association resource.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -169,23 +169,23 @@ export interface VpcIpamResourceDiscoveryAssociationState {
      */
     ipamArn?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the IPAM to associate.
+     * ID of the IPAM to associate.
      */
     ipamId?: pulumi.Input<string | undefined>;
     /**
-     * The home region of the IPAM.
+     * Home region of the IPAM.
      */
     ipamRegion?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Resource Discovery to associate.
+     * ID of the Resource Discovery to associate.
      */
     ipamResourceDiscoveryId?: pulumi.Input<string | undefined>;
     /**
-     * A boolean to identify if the Resource Discovery is the accounts default resource discovery.
+     * Boolean to identify if the Resource Discovery is the accounts default resource discovery.
      */
     isDefault?: pulumi.Input<boolean | undefined>;
     /**
-     * The account ID for the account that manages the Resource Discovery
+     * Account ID for the account that manages the Resource Discovery
      */
     ownerId?: pulumi.Input<string | undefined>;
     /**
@@ -193,15 +193,15 @@ export interface VpcIpamResourceDiscoveryAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The lifecycle state of the association when you associate or disassociate a resource discovery.
+     * Lifecycle state of the association when you associate or disassociate a resource discovery.
      */
     state?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to add to the IPAM resource discovery association resource.
+     * Map of tags to add to the IPAM resource discovery association resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -211,11 +211,11 @@ export interface VpcIpamResourceDiscoveryAssociationState {
  */
 export interface VpcIpamResourceDiscoveryAssociationArgs {
     /**
-     * The ID of the IPAM to associate.
+     * ID of the IPAM to associate.
      */
     ipamId: pulumi.Input<string>;
     /**
-     * The ID of the Resource Discovery to associate.
+     * ID of the Resource Discovery to associate.
      */
     ipamResourceDiscoveryId: pulumi.Input<string>;
     /**
@@ -223,7 +223,7 @@ export interface VpcIpamResourceDiscoveryAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to add to the IPAM resource discovery association resource.
+     * Map of tags to add to the IPAM resource discovery association resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

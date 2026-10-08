@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepCustomActionLambdaConfig> CustomActionLambdaConfigs;
         /// <summary>
-        /// Description of the step.
+        /// Description of the plan.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepLambdaEventSourceMappingConfig> LambdaEventSourceMappingConfigs;
         /// <summary>
-        /// Name of the step.
+        /// Name of the plan. Must be unique within the account.
         /// </summary>
         public readonly string Name;
         /// <summary>

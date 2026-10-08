@@ -13,33 +13,89 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EndpointRdsOptions {
+    /**
+     * @return IP port number.
+     * 
+     */
     private @Nullable Integer port;
+    /**
+     * @return Protocol. Currently `tcp` is supported.
+     * 
+     */
     private @Nullable String protocol;
+    /**
+     * @return ARN of the RDS cluster.
+     * 
+     */
     private @Nullable String rdsDbClusterArn;
+    /**
+     * @return ARN of the RDS instance.
+     * 
+     */
     private @Nullable String rdsDbInstanceArn;
+    /**
+     * @return ARN of the RDS proxy.
+     * 
+     */
     private @Nullable String rdsDbProxyArn;
+    /**
+     * @return RDS endpoint.
+     * 
+     */
     private @Nullable String rdsEndpoint;
+    /**
+     * @return IDs of the subnets.
+     * 
+     */
     private @Nullable List<String> subnetIds;
 
     private EndpointRdsOptions() {}
+    /**
+     * @return IP port number.
+     * 
+     */
     public Optional<Integer> port() {
         return Optional.ofNullable(this.port);
     }
+    /**
+     * @return Protocol. Currently `tcp` is supported.
+     * 
+     */
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }
+    /**
+     * @return ARN of the RDS cluster.
+     * 
+     */
     public Optional<String> rdsDbClusterArn() {
         return Optional.ofNullable(this.rdsDbClusterArn);
     }
+    /**
+     * @return ARN of the RDS instance.
+     * 
+     */
     public Optional<String> rdsDbInstanceArn() {
         return Optional.ofNullable(this.rdsDbInstanceArn);
     }
+    /**
+     * @return ARN of the RDS proxy.
+     * 
+     */
     public Optional<String> rdsDbProxyArn() {
         return Optional.ofNullable(this.rdsDbProxyArn);
     }
+    /**
+     * @return RDS endpoint.
+     * 
+     */
     public Optional<String> rdsEndpoint() {
         return Optional.ofNullable(this.rdsEndpoint);
     }
+    /**
+     * @return IDs of the subnets.
+     * 
+     */
     public List<String> subnetIds() {
         return this.subnetIds == null ? List.of() : this.subnetIds;
     }

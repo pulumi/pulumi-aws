@@ -19,6 +19,8 @@ namespace Pulumi.Aws.Ec2
     /// and the accepter can use the `aws.ec2.VpcPeeringConnectionAccepter` resource to "adopt" its side of the
     /// connection into management.
     /// 
+    /// &gt; **Note:** AWS allows a cross-account VPC Peering Connection to be deleted from either the requester's or accepter's side. However, this provider only allows the VPC Peering Connection to be deleted from the requester's side by removing the corresponding `aws.ec2.VpcPeeringConnection` resource from your configuration. Removing a `aws.ec2.VpcPeeringConnectionAccepter` resource from your configuration will remove it from your statefile and management, **but will not destroy the VPC Peering Connection.**
+    /// 
     /// ## Example Usage
     /// 
     /// ### Cross-Account Peering Or Cross-Region Peering AWS Provider v6 (and below)
@@ -155,14 +157,13 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcPeeringConnectionAccepter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The status of the VPC Peering Connection request.
+        /// Status of the VPC Peering Connection request.
         /// </summary>
         [Output("acceptStatus")]
         public Output<string> AcceptStatus { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration block that describes [VPC Peering Connection]
-        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+        /// Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `Accepter` Block below.
         /// </summary>
         [Output("accepter")]
         public Output<Outputs.VpcPeeringConnectionAccepterAccepter> Accepter { get; private set; } = null!;
@@ -174,19 +175,19 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> AutoAccept { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS account ID of the owner of the requester VPC.
+        /// AWS account ID of the owner of the requester VPC.
         /// </summary>
         [Output("peerOwnerId")]
         public Output<string> PeerOwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// The region of the accepter VPC.
+        /// Region of the accepter VPC.
         /// </summary>
         [Output("peerRegion")]
         public Output<string> PeerRegion { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the requester VPC.
+        /// ID of the requester VPC.
         /// </summary>
         [Output("peerVpcId")]
         public Output<string> PeerVpcId { get; private set; } = null!;
@@ -198,32 +199,31 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration block that describes [VPC Peering Connection]
-        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+        /// Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `Requester` Block below.
         /// </summary>
         [Output("requester")]
         public Output<Outputs.VpcPeeringConnectionAccepterRequester> Requester { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the accepter VPC.
+        /// ID of the accepter VPC.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC Peering Connection ID to manage.
+        /// VPC Peering Connection ID to manage.
         /// </summary>
         [Output("vpcPeeringConnectionId")]
         public Output<string> VpcPeeringConnectionId { get; private set; } = null!;
@@ -275,8 +275,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcPeeringConnectionAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A configuration block that describes [VPC Peering Connection]
-        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+        /// Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `Accepter` Block below.
         /// </summary>
         [Input("accepter")]
         public Input<Inputs.VpcPeeringConnectionAccepterAccepterArgs>? Accepter { get; set; }
@@ -294,8 +293,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A configuration block that describes [VPC Peering Connection]
-        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+        /// Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `Requester` Block below.
         /// </summary>
         [Input("requester")]
         public Input<Inputs.VpcPeeringConnectionAccepterRequesterArgs>? Requester { get; set; }
@@ -304,7 +302,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -313,7 +311,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The VPC Peering Connection ID to manage.
+        /// VPC Peering Connection ID to manage.
         /// </summary>
         [Input("vpcPeeringConnectionId", required: true)]
         public Input<string> VpcPeeringConnectionId { get; set; } = null!;
@@ -327,14 +325,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcPeeringConnectionAccepterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The status of the VPC Peering Connection request.
+        /// Status of the VPC Peering Connection request.
         /// </summary>
         [Input("acceptStatus")]
         public Input<string>? AcceptStatus { get; set; }
 
         /// <summary>
-        /// A configuration block that describes [VPC Peering Connection]
-        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+        /// Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `Accepter` Block below.
         /// </summary>
         [Input("accepter")]
         public Input<Inputs.VpcPeeringConnectionAccepterAccepterGetArgs>? Accepter { get; set; }
@@ -346,19 +343,19 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AutoAccept { get; set; }
 
         /// <summary>
-        /// The AWS account ID of the owner of the requester VPC.
+        /// AWS account ID of the owner of the requester VPC.
         /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }
 
         /// <summary>
-        /// The region of the accepter VPC.
+        /// Region of the accepter VPC.
         /// </summary>
         [Input("peerRegion")]
         public Input<string>? PeerRegion { get; set; }
 
         /// <summary>
-        /// The ID of the requester VPC.
+        /// ID of the requester VPC.
         /// </summary>
         [Input("peerVpcId")]
         public Input<string>? PeerVpcId { get; set; }
@@ -370,8 +367,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// A configuration block that describes [VPC Peering Connection]
-        /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+        /// Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `Requester` Block below.
         /// </summary>
         [Input("requester")]
         public Input<Inputs.VpcPeeringConnectionAccepterRequesterGetArgs>? Requester { get; set; }
@@ -380,7 +376,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -392,7 +388,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -401,13 +397,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The ID of the accepter VPC.
+        /// ID of the accepter VPC.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }
 
         /// <summary>
-        /// The VPC Peering Connection ID to manage.
+        /// VPC Peering Connection ID to manage.
         /// </summary>
         [Input("vpcPeeringConnectionId")]
         public Input<string>? VpcPeeringConnectionId { get; set; }

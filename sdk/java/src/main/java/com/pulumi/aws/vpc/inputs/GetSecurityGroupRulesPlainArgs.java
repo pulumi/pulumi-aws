@@ -48,16 +48,14 @@ public final class GetSecurityGroupRulesPlainArgs extends com.pulumi.resources.I
     }
 
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired security group rule.
+     * Map of tags, each pair of which must exactly match a pair on the desired security group rule.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired security group rule.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired security group rule.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -123,8 +121,7 @@ public final class GetSecurityGroupRulesPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired security group rule.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired security group rule.
          * 
          * @return builder
          * 

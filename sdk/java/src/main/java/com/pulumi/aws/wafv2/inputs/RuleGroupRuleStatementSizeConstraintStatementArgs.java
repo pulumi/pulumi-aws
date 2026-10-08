@@ -22,14 +22,14 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
     public static final RuleGroupRuleStatementSizeConstraintStatementArgs Empty = new RuleGroupRuleStatementSizeConstraintStatementArgs();
 
     /**
-     * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+     * Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
      * 
      */
     @Import(name="comparisonOperator", required=true)
     private Output<String> comparisonOperator;
 
     /**
-     * @return The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+     * @return Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
      * 
      */
     public Output<String> comparisonOperator() {
@@ -37,14 +37,14 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
     }
 
     /**
-     * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
     @Import(name="fieldToMatch")
     private @Nullable Output<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs> fieldToMatch;
 
     /**
-     * @return The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+     * @return Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
      * 
      */
     public Optional<Output<RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs>> fieldToMatch() {
@@ -67,14 +67,14 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
     }
 
     /**
-     * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+     * Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
      * 
      */
     @Import(name="size", required=true)
     private Output<Integer> size;
 
     /**
-     * @return The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+     * @return Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
      * 
      */
     public Output<Integer> size() {
@@ -82,18 +82,14 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
     }
 
     /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
+     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
      * 
      */
     @Import(name="textTransformations", required=true)
     private Output<List<RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs>> textTransformations;
 
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-     * At least one required.
-     * See Text Transformation below for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
      * 
      */
     public Output<List<RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs>> textTransformations() {
@@ -129,7 +125,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
         }
 
         /**
-         * @param comparisonOperator The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         * @param comparisonOperator Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
          * 
          * @return builder
          * 
@@ -140,7 +136,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
         }
 
         /**
-         * @param comparisonOperator The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         * @param comparisonOperator Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
          * 
          * @return builder
          * 
@@ -150,7 +146,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
         }
 
         /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          * 
          * @return builder
          * 
@@ -161,7 +157,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
         }
 
         /**
-         * @param fieldToMatch The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         * @param fieldToMatch Part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
          * 
          * @return builder
          * 
@@ -202,7 +198,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
         }
 
         /**
-         * @param size The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         * @param size Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
          * 
          * @return builder
          * 
@@ -213,7 +209,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
         }
 
         /**
-         * @param size The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         * @param size Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
          * 
          * @return builder
          * 
@@ -223,9 +219,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          * 
          * @return builder
          * 
@@ -236,9 +230,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          * 
          * @return builder
          * 
@@ -248,9 +240,7 @@ public final class RuleGroupRuleStatementSizeConstraintStatementArgs extends com
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
-         * At least one required.
-         * See Text Transformation below for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one required. See Text Transformation below for details.
          * 
          * @return builder
          * 

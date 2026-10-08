@@ -33,14 +33,14 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The unique identifier for the route server to be associated.
+     * Unique identifier for the route server to be associated.
      * 
      */
     @Import(name="routeServerId", required=true)
     private Output<String> routeServerId;
 
     /**
-     * @return The unique identifier for the route server to be associated.
+     * @return Unique identifier for the route server to be associated.
      * 
      */
     public Output<String> routeServerId() {
@@ -48,7 +48,7 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the route table to which route server will propagate routes.
+     * ID of the route table to which route server will propagate routes.
      * 
      * The following arguments are optional:
      * 
@@ -57,7 +57,7 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
     private Output<String> routeTableId;
 
     /**
-     * @return The ID of the route table to which route server will propagate routes.
+     * @return ID of the route table to which route server will propagate routes.
      * 
      * The following arguments are optional:
      * 
@@ -122,7 +122,7 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param routeServerId The unique identifier for the route server to be associated.
+         * @param routeServerId Unique identifier for the route server to be associated.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param routeServerId The unique identifier for the route server to be associated.
+         * @param routeServerId Unique identifier for the route server to be associated.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param routeTableId The ID of the route table to which route server will propagate routes.
+         * @param routeTableId ID of the route table to which route server will propagate routes.
          * 
          * The following arguments are optional:
          * 
@@ -156,7 +156,7 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param routeTableId The ID of the route table to which route server will propagate routes.
+         * @param routeTableId ID of the route table to which route server will propagate routes.
          * 
          * The following arguments are optional:
          * 

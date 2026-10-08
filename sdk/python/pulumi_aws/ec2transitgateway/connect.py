@@ -30,7 +30,7 @@ class ConnectArgs:
         The set of arguments for constructing a Connect resource.
 
         :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
-        :param pulumi.Input[_builtins.str] transport_attachment_id: The underlaying VPC attachment
+        :param pulumi.Input[_builtins.str] transport_attachment_id: The underlying VPC attachment
         :param pulumi.Input[_builtins.str] protocol: The tunnel protocol. Valid values: `gre`. Default is `gre`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -66,7 +66,7 @@ class ConnectArgs:
     @pulumi.getter(name="transportAttachmentId")
     def transport_attachment_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The underlaying VPC attachment
+        The underlying VPC attachment
         """
         return pulumi.get(self, "transport_attachment_id")
 
@@ -156,7 +156,7 @@ class _ConnectState:
         :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_association: Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_propagation: Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
-        :param pulumi.Input[_builtins.str] transport_attachment_id: The underlaying VPC attachment
+        :param pulumi.Input[_builtins.str] transport_attachment_id: The underlying VPC attachment
         """
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
@@ -263,7 +263,7 @@ class _ConnectState:
     @pulumi.getter(name="transportAttachmentId")
     def transport_attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The underlaying VPC attachment
+        The underlying VPC attachment
         """
         return pulumi.get(self, "transport_attachment_id")
 
@@ -321,7 +321,7 @@ class Connect(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_association: Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_propagation: Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
-        :param pulumi.Input[_builtins.str] transport_attachment_id: The underlaying VPC attachment
+        :param pulumi.Input[_builtins.str] transport_attachment_id: The underlying VPC attachment
         """
         ...
     @overload
@@ -431,7 +431,7 @@ class Connect(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_association: Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[_builtins.bool] transit_gateway_default_route_table_propagation: Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of EC2 Transit Gateway.
-        :param pulumi.Input[_builtins.str] transport_attachment_id: The underlaying VPC attachment
+        :param pulumi.Input[_builtins.str] transport_attachment_id: The underlying VPC attachment
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -507,7 +507,7 @@ class Connect(pulumi.CustomResource):
     @pulumi.getter(name="transportAttachmentId")
     def transport_attachment_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The underlaying VPC attachment
+        The underlying VPC attachment
         """
         return pulumi.get(self, "transport_attachment_id")
 

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Odb
     public static class GetDbNodes
     {
         /// <summary>
-        /// Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
+        /// Data source for managing db nodes linked to cloud vm cluster of Oracle Database@AWS.
         /// 
         /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
         /// 
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Odb
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDbNodesResult>("aws:odb/getDbNodes:getDbNodes", args ?? new GetDbNodesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
+        /// Data source for managing db nodes linked to cloud vm cluster of Oracle Database@AWS.
         /// 
         /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
         /// 
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Odb
             => global::Pulumi.Deployment.Instance.Invoke<GetDbNodesResult>("aws:odb/getDbNodes:getDbNodes", args ?? new GetDbNodesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for manging db nodes linked to cloud vm cluster of Oracle Database@AWS.
+        /// Data source for managing db nodes linked to cloud vm cluster of Oracle Database@AWS.
         /// 
         /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
         /// 

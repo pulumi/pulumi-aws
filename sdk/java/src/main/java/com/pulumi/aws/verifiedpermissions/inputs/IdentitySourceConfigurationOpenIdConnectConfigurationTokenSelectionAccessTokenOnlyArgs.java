@@ -17,14 +17,14 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
     public static final IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs Empty = new IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs();
 
     /**
-     * The access token aud claim values that you want to accept in your policy store.
+     * Access token aud claim values that you want to accept in your policy store.
      * 
      */
     @Import(name="audiences")
     private @Nullable Output<List<String>> audiences;
 
     /**
-     * @return The access token aud claim values that you want to accept in your policy store.
+     * @return Access token aud claim values that you want to accept in your policy store.
      * 
      */
     public Optional<Output<List<String>>> audiences() {
@@ -32,14 +32,14 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
     }
 
     /**
-     * The claim that determines the principal in OIDC access tokens.
+     * Claim that determines the principal in OIDC access tokens.
      * 
      */
     @Import(name="principalIdClaim")
     private @Nullable Output<String> principalIdClaim;
 
     /**
-     * @return The claim that determines the principal in OIDC access tokens.
+     * @return Claim that determines the principal in OIDC access tokens.
      * 
      */
     public Optional<Output<String>> principalIdClaim() {
@@ -72,7 +72,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param audiences The access token aud claim values that you want to accept in your policy store.
+         * @param audiences Access token aud claim values that you want to accept in your policy store.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param audiences The access token aud claim values that you want to accept in your policy store.
+         * @param audiences Access token aud claim values that you want to accept in your policy store.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param audiences The access token aud claim values that you want to accept in your policy store.
+         * @param audiences Access token aud claim values that you want to accept in your policy store.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param principalIdClaim The claim that determines the principal in OIDC access tokens.
+         * @param principalIdClaim Claim that determines the principal in OIDC access tokens.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSel
         }
 
         /**
-         * @param principalIdClaim The claim that determines the principal in OIDC access tokens.
+         * @param principalIdClaim Claim that determines the principal in OIDC access tokens.
          * 
          * @return builder
          * 

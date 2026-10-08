@@ -33,8 +33,11 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var testStream = new Aws.Kinesis.Stream("test_stream", new()
     ///     {
-    ///         Name = "kinesis-test",
-    ///         ShardCount = 1,
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "ON_DEMAND",
+    ///         },
+    ///         Name = "pulumi-kinesis-test",
     ///     });
     /// 
     ///     var testApplication = new Aws.Kinesis.AnalyticsApplication("test_application", new()
@@ -104,8 +107,11 @@ namespace Pulumi.Aws.Kinesis
     /// 
     ///     var exampleStream = new Aws.Kinesis.Stream("example", new()
     ///     {
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "ON_DEMAND",
+    ///         },
     ///         Name = "example-kinesis-stream",
-    ///         ShardCount = 1,
     ///     });
     /// 
     ///     var exampleFirehoseDeliveryStream = new Aws.Kinesis.FirehoseDeliveryStream("example", new()

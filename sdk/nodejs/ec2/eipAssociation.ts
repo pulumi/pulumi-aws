@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import EIP Assocations using their association IDs. For example:
+ * Using `pulumi import`, import EIP Associations using their association IDs. For example:
  *
  * ```sh
  * $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345

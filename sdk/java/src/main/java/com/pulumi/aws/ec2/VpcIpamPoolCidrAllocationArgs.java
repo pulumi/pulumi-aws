@@ -20,14 +20,14 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
     public static final VpcIpamPoolCidrAllocationArgs Empty = new VpcIpamPoolCidrAllocationArgs();
 
     /**
-     * The CIDR you want to assign to the pool.
+     * CIDR you want to assign to the pool.
      * 
      */
     @Import(name="cidr")
     private @Nullable Output<String> cidr;
 
     /**
-     * @return The CIDR you want to assign to the pool.
+     * @return CIDR you want to assign to the pool.
      * 
      */
     public Optional<Output<String>> cidr() {
@@ -35,14 +35,14 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The description for the allocation.
+     * Description for the allocation.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description for the allocation.
+     * @return Description for the allocation.
      * 
      */
     public Optional<Output<String>> description() {
@@ -65,14 +65,14 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ID of the pool to which you want to assign a CIDR.
+     * ID of the pool to which you want to assign a CIDR.
      * 
      */
     @Import(name="ipamPoolId", required=true)
     private Output<String> ipamPoolId;
 
     /**
-     * @return The ID of the pool to which you want to assign a CIDR.
+     * @return ID of the pool to which you want to assign a CIDR.
      * 
      */
     public Output<String> ipamPoolId() {
@@ -80,14 +80,14 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+     * Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      * 
      */
     @Import(name="netmaskLength")
     private @Nullable Output<Integer> netmaskLength;
 
     /**
-     * @return The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+     * @return Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      * 
      */
     public Optional<Output<Integer>> netmaskLength() {
@@ -155,7 +155,7 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cidr The CIDR you want to assign to the pool.
+         * @param cidr CIDR you want to assign to the pool.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param cidr The CIDR you want to assign to the pool.
+         * @param cidr CIDR you want to assign to the pool.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description The description for the allocation.
+         * @param description Description for the allocation.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param description The description for the allocation.
+         * @param description Description for the allocation.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
+         * @param ipamPoolId ID of the pool to which you want to assign a CIDR.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ipamPoolId The ID of the pool to which you want to assign a CIDR.
+         * @param ipamPoolId ID of the pool to which you want to assign a CIDR.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param netmaskLength The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+         * @param netmaskLength Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class VpcIpamPoolCidrAllocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param netmaskLength The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
+         * @param netmaskLength Netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
          * 
          * @return builder
          * 

@@ -20,14 +20,14 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
     public static final RouteServerPeerArgs Empty = new RouteServerPeerArgs();
 
     /**
-     * The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+     * BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      * 
      */
     @Import(name="bgpOptions", required=true)
     private Output<RouteServerPeerBgpOptionsArgs> bgpOptions;
 
     /**
-     * @return The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+     * @return BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
      * 
      */
     public Output<RouteServerPeerBgpOptionsArgs> bgpOptions() {
@@ -35,14 +35,14 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The IPv4 address of the peer device.
+     * IPv4 address of the peer device.
      * 
      */
     @Import(name="peerAddress", required=true)
     private Output<String> peerAddress;
 
     /**
-     * @return The IPv4 address of the peer device.
+     * @return IPv4 address of the peer device.
      * 
      */
     public Output<String> peerAddress() {
@@ -65,7 +65,7 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The ID of the route server endpoint for which to create a peer.
+     * ID of the route server endpoint for which to create a peer.
      * 
      * The following arguments are optional:
      * 
@@ -74,7 +74,7 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
     private Output<String> routeServerEndpointId;
 
     /**
-     * @return The ID of the route server endpoint for which to create a peer.
+     * @return ID of the route server endpoint for which to create a peer.
      * 
      * The following arguments are optional:
      * 
@@ -84,14 +84,14 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -135,7 +135,7 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bgpOptions The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+         * @param bgpOptions BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param bgpOptions The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+         * @param bgpOptions BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param peerAddress The IPv4 address of the peer device.
+         * @param peerAddress IPv4 address of the peer device.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param peerAddress The IPv4 address of the peer device.
+         * @param peerAddress IPv4 address of the peer device.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routeServerEndpointId The ID of the route server endpoint for which to create a peer.
+         * @param routeServerEndpointId ID of the route server endpoint for which to create a peer.
          * 
          * The following arguments are optional:
          * 
@@ -211,7 +211,7 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param routeServerEndpointId The ID of the route server endpoint for which to create a peer.
+         * @param routeServerEndpointId ID of the route server endpoint for which to create a peer.
          * 
          * The following arguments are optional:
          * 
@@ -223,7 +223,7 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class RuleGroupRuleActionCountCustomRequestHandlingArgs extends com
     public static final RuleGroupRuleActionCountCustomRequestHandlingArgs Empty = new RuleGroupRuleActionCountCustomRequestHandlingArgs();
 
     /**
-     * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
      */
     @Import(name="insertHeaders", required=true)
     private Output<List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs>> insertHeaders;
 
     /**
-     * @return The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+     * @return `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
      * 
      */
     public Output<List<RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs>> insertHeaders() {
@@ -55,7 +55,7 @@ public final class RuleGroupRuleActionCountCustomRequestHandlingArgs extends com
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * @param insertHeaders `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class RuleGroupRuleActionCountCustomRequestHandlingArgs extends com
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * @param insertHeaders `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class RuleGroupRuleActionCountCustomRequestHandlingArgs extends com
         }
 
         /**
-         * @param insertHeaders The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         * @param insertHeaders `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
          * 
          * @return builder
          * 

@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.pinpoint.App;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.StreamStreamModeDetailsArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
@@ -56,8 +57,10 @@ import javax.annotation.Nullable;
  *         var app = new App("app");
  * 
  *         var testStream = new Stream("testStream", StreamArgs.builder()
+ *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
+ *                 .streamMode("ON_DEMAND")
+ *                 .build())
  *             .name("pinpoint-kinesis-test")
- *             .shardCount(1)
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()

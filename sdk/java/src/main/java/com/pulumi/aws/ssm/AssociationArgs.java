@@ -262,7 +262,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     * The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
      * 
      * Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
      * 
@@ -271,7 +271,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Integer> waitForSuccessTimeoutSeconds;
 
     /**
-     * @return The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+     * @return The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
      * 
      * Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
      * 
@@ -677,7 +677,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param waitForSuccessTimeoutSeconds The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+         * @param waitForSuccessTimeoutSeconds The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
          * 
          * Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
          * 
@@ -690,7 +690,7 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param waitForSuccessTimeoutSeconds The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
+         * @param waitForSuccessTimeoutSeconds The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create operation will fail.
          * 
          * Output Location (`outputLocation`) is an S3 bucket where you want to store the results of this association:
          * 

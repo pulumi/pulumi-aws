@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument {
     /**
-     * @return A friendly name of the rule group.
+     * @return The name of the query argument to use.
      * 
      */
     private String name;
@@ -25,7 +25,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumen
 
     private RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument() {}
     /**
-     * @return A friendly name of the rule group.
+     * @return The name of the query argument to use.
      * 
      */
     public String name() {

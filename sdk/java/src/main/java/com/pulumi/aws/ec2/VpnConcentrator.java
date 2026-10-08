@@ -100,14 +100,14 @@ public class VpnConcentrator extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -130,16 +130,12 @@ public class VpnConcentrator extends com.pulumi.resources.CustomResource {
     /**
      * ID of the transit gateway to attach the VPN concentrator to.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="transitGatewayId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayId;
 
     /**
      * @return ID of the transit gateway to attach the VPN concentrator to.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> transitGatewayId() {
@@ -148,12 +144,16 @@ public class VpnConcentrator extends com.pulumi.resources.CustomResource {
     /**
      * Type of VPN concentrator. Valid value: `ipsec.1`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
      * @return Type of VPN concentrator. Valid value: `ipsec.1`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> type() {

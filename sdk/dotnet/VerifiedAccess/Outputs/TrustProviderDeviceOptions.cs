@@ -13,6 +13,9 @@ namespace Pulumi.Aws.VerifiedAccess.Outputs
     [OutputType]
     public sealed class TrustProviderDeviceOptions
     {
+        /// <summary>
+        /// ID of the tenant application with the device-identity provider.
+        /// </summary>
         public readonly string? TenantId;
 
         [OutputConstructor]

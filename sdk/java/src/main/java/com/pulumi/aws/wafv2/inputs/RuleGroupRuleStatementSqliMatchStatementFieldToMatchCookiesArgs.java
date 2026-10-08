@@ -17,14 +17,14 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesAr
     public static final RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesArgs Empty = new RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesArgs();
 
     /**
-     * The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+     * Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
      * 
      */
     @Import(name="matchPatterns", required=true)
     private Output<List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns;
 
     /**
-     * @return The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+     * @return Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
      * 
      */
     public Output<List<RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs>> matchPatterns() {
@@ -32,14 +32,14 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesAr
     }
 
     /**
-     * The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+     * Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
      * 
      */
     @Import(name="matchScope", required=true)
     private Output<String> matchScope;
 
     /**
-     * @return The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+     * @return Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
      * 
      */
     public Output<String> matchScope() {
@@ -88,7 +88,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesAr
         }
 
         /**
-         * @param matchPatterns The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * @param matchPatterns Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesAr
         }
 
         /**
-         * @param matchPatterns The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * @param matchPatterns Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesAr
         }
 
         /**
-         * @param matchPatterns The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+         * @param matchPatterns Filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `includedCookies` or `excludedCookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesAr
         }
 
         /**
-         * @param matchScope The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * @param matchScope Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesAr
         }
 
         /**
-         * @param matchScope The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
+         * @param matchScope Parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
          * 
          * @return builder
          * 

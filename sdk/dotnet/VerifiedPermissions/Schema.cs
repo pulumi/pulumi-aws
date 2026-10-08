@@ -60,19 +60,19 @@ namespace Pulumi.Aws.VerifiedPermissions
     public partial class Schema : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The definition of the schema.
+        /// Definition of the schema. See Definition below.
         /// </summary>
         [Output("definition")]
         public Output<Outputs.SchemaDefinition> Definition { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) Identifies the namespaces of the entities referenced by this schema.
+        /// Namespaces of the entities referenced by this schema.
         /// </summary>
         [Output("namespaces")]
         public Output<ImmutableArray<string>> Namespaces { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Policy Store.
+        /// ID of the Policy Store.
         /// </summary>
         [Output("policyStoreId")]
         public Output<string> PolicyStoreId { get; private set; } = null!;
@@ -130,13 +130,13 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class SchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The definition of the schema.
+        /// Definition of the schema. See Definition below.
         /// </summary>
         [Input("definition", required: true)]
         public Input<Inputs.SchemaDefinitionArgs> Definition { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Policy Store.
+        /// ID of the Policy Store.
         /// </summary>
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.VerifiedPermissions
     public sealed class SchemaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The definition of the schema.
+        /// Definition of the schema. See Definition below.
         /// </summary>
         [Input("definition")]
         public Input<Inputs.SchemaDefinitionGetArgs>? Definition { get; set; }
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         private InputList<string>? _namespaces;
 
         /// <summary>
-        /// (Optional) Identifies the namespaces of the entities referenced by this schema.
+        /// Namespaces of the entities referenced by this schema.
         /// </summary>
         public InputList<string> Namespaces
         {
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         }
 
         /// <summary>
-        /// The ID of the Policy Store.
+        /// ID of the Policy Store.
         /// </summary>
         [Input("policyStoreId")]
         public Input<string>? PolicyStoreId { get; set; }

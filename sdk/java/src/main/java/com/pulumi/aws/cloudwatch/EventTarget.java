@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.EventRuleArgs;
  * import com.pulumi.aws.kinesis.Stream;
  * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.StreamStreamModeDetailsArgs;
  * import com.pulumi.aws.cloudwatch.EventTarget;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventTargetRunCommandTargetArgs;
@@ -87,8 +88,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testStream = new Stream("testStream", StreamArgs.builder()
- *             .name("kinesis-test")
- *             .shardCount(1)
+ *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
+ *                 .streamMode("ON_DEMAND")
+ *                 .build())
+ *             .name("pulumi-kinesis-test")
  *             .build());
  * 
  *         var yada = new EventTarget("yada", EventTargetArgs.builder()
@@ -438,7 +441,7 @@ import javax.annotation.Nullable;
  *                 .headerParameters(Map.of("Env", "Test"))
  *                 .build())
  *             .arn(exampleStage.executionArn().applyValue(_executionArn -> String.format("%s/GET", _executionArn)))
- *             .rule(exampleEventRule.id())
+ *             .rule(exampleEventRule.name())
  *             .build());
  * 
  *     }
@@ -576,7 +579,7 @@ import javax.annotation.Nullable;
  *                 """)
  *                 .build())
  *             .arn(exampleAwsLambdaFunction.arn())
- *             .rule(exampleEventRule.id())
+ *             .rule(exampleEventRule.name())
  *             .build());
  * 
  *     }
@@ -621,7 +624,7 @@ import javax.annotation.Nullable;
  *                 .inputTemplate("\"<instance> is in state <status>\"")
  *                 .build())
  *             .arn(exampleAwsLambdaFunction.arn())
- *             .rule(exampleEventRule.id())
+ *             .rule(exampleEventRule.name())
  *             .build());
  * 
  *     }
@@ -833,7 +836,7 @@ import javax.annotation.Nullable;
  *                 .search("apis")
  *                 .replace("endpoints/graphql-api")
  *                 .build()).applyValue(_invoke -> _invoke.result()))
- *             .rule(invokeAppsyncMutation.id())
+ *             .rule(invokeAppsyncMutation.name())
  *             .roleArn(appsyncMutationRole.arn())
  *             .build());
  * 

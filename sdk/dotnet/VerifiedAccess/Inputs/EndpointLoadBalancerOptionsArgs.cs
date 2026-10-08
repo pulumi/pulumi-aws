@@ -12,25 +12,42 @@ namespace Pulumi.Aws.VerifiedAccess.Inputs
 
     public sealed class EndpointLoadBalancerOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the load balancer.
+        /// </summary>
         [Input("loadBalancerArn")]
         public Input<string>? LoadBalancerArn { get; set; }
 
+        /// <summary>
+        /// IP port number.
+        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         [Input("portRanges")]
         private InputList<Inputs.EndpointLoadBalancerOptionsPortRangeArgs>? _portRanges;
+
+        /// <summary>
+        /// Port ranges. See below.
+        /// </summary>
         public InputList<Inputs.EndpointLoadBalancerOptionsPortRangeArgs> PortRanges
         {
             get => _portRanges ?? (_portRanges = new InputList<Inputs.EndpointLoadBalancerOptionsPortRangeArgs>());
             set => _portRanges = value;
         }
 
+        /// <summary>
+        /// IP protocol.
+        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;
+
+        /// <summary>
+        /// IDs of the subnets.
+        /// </summary>
         public InputList<string> SubnetIds
         {
             get => _subnetIds ?? (_subnetIds = new InputList<string>());

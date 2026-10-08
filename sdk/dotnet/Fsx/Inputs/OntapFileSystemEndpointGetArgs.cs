@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<Inputs.OntapFileSystemEndpointInterclusterGetArgs>? _interclusters;
 
         /// <summary>
-        /// Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+        /// Endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See `endpoints.intercluster` below.
         /// </summary>
         public InputList<Inputs.OntapFileSystemEndpointInterclusterGetArgs> Interclusters
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         private InputList<Inputs.OntapFileSystemEndpointManagementGetArgs>? _managements;
 
         /// <summary>
-        /// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        /// Endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See `endpoints.management` below.
         /// </summary>
         public InputList<Inputs.OntapFileSystemEndpointManagementGetArgs> Managements
         {

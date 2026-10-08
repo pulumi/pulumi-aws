@@ -14685,7 +14685,7 @@ func (o GetLogDataProtectionPolicyDocumentConfigurationPtrOutput) CustomDataIden
 }
 
 type GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier struct {
-	// Name of the custom data idenfitier
+	// Name of the custom data identifier
 	Name string `pulumi:"name"`
 	// Regular expression to match sensitive data
 	Regex string `pulumi:"regex"`
@@ -14703,7 +14703,7 @@ type GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierInput in
 }
 
 type GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs struct {
-	// Name of the custom data idenfitier
+	// Name of the custom data identifier
 	Name pulumi.StringInput `pulumi:"name"`
 	// Regular expression to match sensitive data
 	Regex pulumi.StringInput `pulumi:"regex"`
@@ -14760,7 +14760,7 @@ func (o GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutpu
 	return o
 }
 
-// Name of the custom data idenfitier
+// Name of the custom data identifier
 func (o GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifier) string { return v.Name }).(pulumi.StringOutput)
 }

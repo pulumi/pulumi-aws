@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  *     connectionType: "CUSTOM",
  *     connectionProperties: {
  *         CONNECTOR_CLASS_NAME: "net.snowflake.client.jdbc.SnowflakeDriver",
- *         CONNECTION_TYPE: "Jdbc",
+ *         CONNECTOR_TYPE: "Jdbc",
  *         CONNECTOR_URL: "s3://example/snowflake-jdbc.jar",
  *         JDBC_CONNECTION_URL: "[[\"default=jdbc:snowflake://example.com/?user=${user}&password=${password}\"],\",\"]",
  *     },
@@ -97,7 +97,7 @@ import * as utilities from "../utilities";
  *     connectionType: "CUSTOM",
  *     connectionProperties: {
  *         CONNECTOR_CLASS_NAME: "net.snowflake.client.jdbc.SnowflakeDriver",
- *         CONNECTION_TYPE: "Jdbc",
+ *         CONNECTOR_TYPE: "Jdbc",
  *         CONNECTOR_URL: "s3://example/snowflake-jdbc.jar",
  *         JDBC_CONNECTION_URL: "jdbc:snowflake://example.com/?user=${user}&password=${password}",
  *         SECRET_ID: example.then(example => example.name),

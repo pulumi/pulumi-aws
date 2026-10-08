@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanWorkflow {
     /**
-     * @return Steps in the workflow. See `step` Block for details.
+     * @return Steps in the workflow. See `workflow.step` Block for details.
      * 
      */
     private @Nullable List<PlanWorkflowStep> steps;
@@ -37,7 +37,7 @@ public final class PlanWorkflow {
 
     private PlanWorkflow() {}
     /**
-     * @return Steps in the workflow. See `step` Block for details.
+     * @return Steps in the workflow. See `workflow.step` Block for details.
      * 
      */
     public List<PlanWorkflowStep> steps() {

@@ -31,14 +31,14 @@ public final class VpnGatewayAttachmentState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of the VPC.
+     * ID of the VPC.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The ID of the VPC.
+     * @return ID of the VPC.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -46,14 +46,14 @@ public final class VpnGatewayAttachmentState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of the Virtual Private Gateway.
+     * ID of the Virtual Private Gateway.
      * 
      */
     @Import(name="vpnGatewayId")
     private @Nullable Output<String> vpnGatewayId;
 
     /**
-     * @return The ID of the Virtual Private Gateway.
+     * @return ID of the Virtual Private Gateway.
      * 
      */
     public Optional<Output<String>> vpnGatewayId() {
@@ -108,7 +108,7 @@ public final class VpnGatewayAttachmentState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpcId The ID of the VPC.
+         * @param vpcId ID of the VPC.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class VpnGatewayAttachmentState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpcId The ID of the VPC.
+         * @param vpcId ID of the VPC.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class VpnGatewayAttachmentState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpnGatewayId The ID of the Virtual Private Gateway.
+         * @param vpnGatewayId ID of the Virtual Private Gateway.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class VpnGatewayAttachmentState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpnGatewayId The ID of the Virtual Private Gateway.
+         * @param vpnGatewayId ID of the Virtual Private Gateway.
          * 
          * @return builder
          * 

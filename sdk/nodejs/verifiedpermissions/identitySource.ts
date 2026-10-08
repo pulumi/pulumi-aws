@@ -106,15 +106,15 @@ export class IdentitySource extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+     * Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      */
     declare public readonly configuration: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration>;
     /**
-     * Specifies the ID of the policy store in which you want to store this identity source.
+     * ID of the policy store in which you want to store this identity source.
      */
     declare public readonly policyStoreId: pulumi.Output<string>;
     /**
-     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+     * Namespace and data type of the principals generated for identities authenticated by the new identity source.
      */
     declare public readonly principalEntityType: pulumi.Output<string>;
     /**
@@ -162,15 +162,15 @@ export class IdentitySource extends pulumi.CustomResource {
  */
 export interface IdentitySourceState {
     /**
-     * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+     * Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      */
     configuration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfiguration | undefined>;
     /**
-     * Specifies the ID of the policy store in which you want to store this identity source.
+     * ID of the policy store in which you want to store this identity source.
      */
     policyStoreId?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+     * Namespace and data type of the principals generated for identities authenticated by the new identity source.
      */
     principalEntityType?: pulumi.Input<string | undefined>;
     /**
@@ -184,15 +184,15 @@ export interface IdentitySourceState {
  */
 export interface IdentitySourceArgs {
     /**
-     * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
+     * Details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      */
     configuration: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfiguration>;
     /**
-     * Specifies the ID of the policy store in which you want to store this identity source.
+     * ID of the policy store in which you want to store this identity source.
      */
     policyStoreId: pulumi.Input<string>;
     /**
-     * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+     * Namespace and data type of the principals generated for identities authenticated by the new identity source.
      */
     principalEntityType?: pulumi.Input<string | undefined>;
     /**

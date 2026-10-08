@@ -57,7 +57,7 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the principal to allow permissions.
+     * ARN of the principal to allow permissions.
      */
     declare public readonly principalArn: pulumi.Output<string>;
     /**
@@ -65,7 +65,7 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID of the VPC endpoint service to allow permission.
+     * ID of the VPC endpoint service to allow permission.
      */
     declare public readonly vpcEndpointServiceId: pulumi.Output<string>;
 
@@ -107,7 +107,7 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
  */
 export interface VpcEndpointServiceAllowedPrincipleState {
     /**
-     * The ARN of the principal to allow permissions.
+     * ARN of the principal to allow permissions.
      */
     principalArn?: pulumi.Input<string | undefined>;
     /**
@@ -115,7 +115,7 @@ export interface VpcEndpointServiceAllowedPrincipleState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC endpoint service to allow permission.
+     * ID of the VPC endpoint service to allow permission.
      */
     vpcEndpointServiceId?: pulumi.Input<string | undefined>;
 }
@@ -125,7 +125,7 @@ export interface VpcEndpointServiceAllowedPrincipleState {
  */
 export interface VpcEndpointServiceAllowedPrincipleArgs {
     /**
-     * The ARN of the principal to allow permissions.
+     * ARN of the principal to allow permissions.
      */
     principalArn: pulumi.Input<string>;
     /**
@@ -133,7 +133,7 @@ export interface VpcEndpointServiceAllowedPrincipleArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the VPC endpoint service to allow permission.
+     * ID of the VPC endpoint service to allow permission.
      */
     vpcEndpointServiceId: pulumi.Input<string>;
 }

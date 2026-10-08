@@ -72,9 +72,9 @@ type VpnGatewayAttachment struct {
 
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The ID of the VPC.
+	// ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
-	// The ID of the Virtual Private Gateway.
+	// ID of the Virtual Private Gateway.
 	VpnGatewayId pulumi.StringOutput `pulumi:"vpnGatewayId"`
 }
 
@@ -116,18 +116,18 @@ func GetVpnGatewayAttachment(ctx *pulumi.Context,
 type vpnGatewayAttachmentState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the VPC.
+	// ID of the VPC.
 	VpcId *string `pulumi:"vpcId"`
-	// The ID of the Virtual Private Gateway.
+	// ID of the Virtual Private Gateway.
 	VpnGatewayId *string `pulumi:"vpnGatewayId"`
 }
 
 type VpnGatewayAttachmentState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the VPC.
+	// ID of the VPC.
 	VpcId pulumi.StringPtrInput
-	// The ID of the Virtual Private Gateway.
+	// ID of the Virtual Private Gateway.
 	VpnGatewayId pulumi.StringPtrInput
 }
 
@@ -138,9 +138,9 @@ func (VpnGatewayAttachmentState) ElementType() reflect.Type {
 type vpnGatewayAttachmentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The ID of the VPC.
+	// ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
-	// The ID of the Virtual Private Gateway.
+	// ID of the Virtual Private Gateway.
 	VpnGatewayId string `pulumi:"vpnGatewayId"`
 }
 
@@ -148,9 +148,9 @@ type vpnGatewayAttachmentArgs struct {
 type VpnGatewayAttachmentArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The ID of the VPC.
+	// ID of the VPC.
 	VpcId pulumi.StringInput
-	// The ID of the Virtual Private Gateway.
+	// ID of the Virtual Private Gateway.
 	VpnGatewayId pulumi.StringInput
 }
 
@@ -246,12 +246,12 @@ func (o VpnGatewayAttachmentOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The ID of the VPC.
+// ID of the VPC.
 func (o VpnGatewayAttachmentOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayAttachment) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }
 
-// The ID of the Virtual Private Gateway.
+// ID of the Virtual Private Gateway.
 func (o VpnGatewayAttachmentOutput) VpnGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnGatewayAttachment) pulumi.StringOutput { return v.VpnGatewayId }).(pulumi.StringOutput)
 }

@@ -314,15 +314,15 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string AddressFamily;
         /// <summary>
-        /// A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+        /// Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
         /// </summary>
         public readonly int AllocationDefaultNetmaskLength;
         /// <summary>
-        /// The maximum netmask length that will be required for CIDR allocations in this pool.
+        /// Maximum netmask length that will be required for CIDR allocations in this pool.
         /// </summary>
         public readonly int AllocationMaxNetmaskLength;
         /// <summary>
-        /// The minimum netmask length that will be required for CIDR allocations in this pool.
+        /// Minimum netmask length that will be required for CIDR allocations in this pool.
         /// </summary>
         public readonly int AllocationMinNetmaskLength;
         /// <summary>
@@ -355,14 +355,20 @@ namespace Pulumi.Aws.Ec2
         /// ID of the scope the pool belongs to.
         /// </summary>
         public readonly string IpamScopeId;
+        /// <summary>
+        /// Type of the scope the pool belongs to.
+        /// </summary>
         public readonly string IpamScopeType;
         /// <summary>
         /// Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
         /// </summary>
         public readonly string Locale;
+        /// <summary>
+        /// Depth of pools in your IPAM pool.
+        /// </summary>
         public readonly int PoolDepth;
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+        /// Whether IPv6 pool space is publicly advertisable over the internet.
         /// </summary>
         public readonly bool PubliclyAdvertisable;
         public readonly string Region;
@@ -374,6 +380,9 @@ namespace Pulumi.Aws.Ec2
         /// Resource used to create the resource planning pool.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIpamPoolSourceResourceResult> SourceResources;
+        /// <summary>
+        /// State of the IPAM pool.
+        /// </summary>
         public readonly string State;
         /// <summary>
         /// Map of tags to assigned to the resource.

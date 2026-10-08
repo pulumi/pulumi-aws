@@ -17,8 +17,10 @@ import * as utilities from "../utilities";
  *
  * const app = new aws.pinpoint.App("app", {});
  * const testStream = new aws.kinesis.Stream("test_stream", {
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
  *     name: "pinpoint-kinesis-test",
- *     shardCount: 1,
  * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{

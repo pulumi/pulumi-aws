@@ -31,14 +31,14 @@ public final class VpcEndpointServicePrivateDnsNameConfigurationArgs extends com
     }
 
     /**
-     * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+     * State of the VPC endpoint service.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+     * @return State of the VPC endpoint service.
      * 
      */
     public Optional<Output<String>> state() {
@@ -124,7 +124,7 @@ public final class VpcEndpointServicePrivateDnsNameConfigurationArgs extends com
         }
 
         /**
-         * @param state Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+         * @param state State of the VPC endpoint service.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class VpcEndpointServicePrivateDnsNameConfigurationArgs extends com
         }
 
         /**
-         * @param state Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+         * @param state State of the VPC endpoint service.
          * 
          * @return builder
          * 

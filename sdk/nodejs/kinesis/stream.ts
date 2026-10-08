@@ -15,6 +15,30 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### On-Demand Mode
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testStream = new aws.kinesis.Stream("test_stream", {
+ *     streamModeDetails: {
+ *         streamMode: "ON_DEMAND",
+ *     },
+ *     name: "kinesis-test",
+ *     retentionPeriod: 48,
+ *     shardLevelMetrics: [
+ *         "IncomingBytes",
+ *         "OutgoingBytes",
+ *     ],
+ *     tags: {
+ *         Environment: "test",
+ *     },
+ * });
+ * ```
+ *
+ * ### Provisioned Mode
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";

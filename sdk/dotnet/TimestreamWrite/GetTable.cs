@@ -167,7 +167,7 @@ namespace Pulumi.Aws.TimestreamWrite
         /// </summary>
         public readonly string LastUpdatedTime;
         /// <summary>
-        /// Object containing the following attributes to desribe magnetic store writes.
+        /// Object containing the following attributes to describe magnetic store writes.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTableMagneticStoreWritePropertyResult> MagneticStoreWriteProperties;
         /// <summary>

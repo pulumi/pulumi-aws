@@ -34,10 +34,10 @@ class VpcDhcpOptionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
         :param pulumi.Input[_builtins.str] ipv6_address_preferred_lease_time: How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] netbios_name_servers: List of NETBIOS name servers.
-        :param pulumi.Input[_builtins.str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        :param pulumi.Input[_builtins.str] netbios_node_type: NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ntp_servers: List of NTP servers to configure.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
         """
@@ -110,7 +110,7 @@ class VpcDhcpOptionsArgs:
     @pulumi.getter(name="netbiosNodeType")
     def netbios_node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         """
         return pulumi.get(self, "netbios_node_type")
 
@@ -146,7 +146,7 @@ class VpcDhcpOptionsArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
         > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
         """
@@ -174,19 +174,19 @@ class _VpcDhcpOptionsState:
         """
         Input properties used for looking up and filtering VpcDhcpOptions resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the DHCP Options Set.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DHCP Options Set.
         :param pulumi.Input[_builtins.str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
         :param pulumi.Input[_builtins.str] ipv6_address_preferred_lease_time: How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] netbios_name_servers: List of NETBIOS name servers.
-        :param pulumi.Input[_builtins.str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        :param pulumi.Input[_builtins.str] netbios_node_type: NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ntp_servers: List of NTP servers to configure.
-        :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
+        :param pulumi.Input[_builtins.str] owner_id: ID of the AWS account that owns the DHCP options set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -215,7 +215,7 @@ class _VpcDhcpOptionsState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the DHCP Options Set.
+        ARN of the DHCP Options Set.
         """
         return pulumi.get(self, "arn")
 
@@ -275,7 +275,7 @@ class _VpcDhcpOptionsState:
     @pulumi.getter(name="netbiosNodeType")
     def netbios_node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         """
         return pulumi.get(self, "netbios_node_type")
 
@@ -299,7 +299,7 @@ class _VpcDhcpOptionsState:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the AWS account that owns the DHCP options set.
+        ID of the AWS account that owns the DHCP options set.
         """
         return pulumi.get(self, "owner_id")
 
@@ -323,7 +323,7 @@ class _VpcDhcpOptionsState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
         > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
         """
@@ -337,7 +337,7 @@ class _VpcDhcpOptionsState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -363,6 +363,8 @@ class VpcDhcpOptions(pulumi.CustomResource):
                  __props__=None):
         """
         Provides a VPC DHCP Options resource.
+
+        You can find more technical documentation about DHCP Options Set in the official [AWS User Guide](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html).
 
         ## Example Usage
 
@@ -414,10 +416,10 @@ class VpcDhcpOptions(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
         :param pulumi.Input[_builtins.str] ipv6_address_preferred_lease_time: How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] netbios_name_servers: List of NETBIOS name servers.
-        :param pulumi.Input[_builtins.str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        :param pulumi.Input[_builtins.str] netbios_node_type: NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ntp_servers: List of NTP servers to configure.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
         """
@@ -429,6 +431,8 @@ class VpcDhcpOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a VPC DHCP Options resource.
+
+        You can find more technical documentation about DHCP Options Set in the official [AWS User Guide](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html).
 
         ## Example Usage
 
@@ -545,19 +549,19 @@ class VpcDhcpOptions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the DHCP Options Set.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DHCP Options Set.
         :param pulumi.Input[_builtins.str] domain_name: the suffix domain name to use by default when resolving non Fully Qualified Domain Names. In other words, this is what ends up being the `search` value in the `/etc/resolv.conf` file.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain_name_servers: List of name servers to configure in `/etc/resolv.conf`. If you want to use the default AWS nameservers you should set this to `AmazonProvidedDNS`.
         :param pulumi.Input[_builtins.str] ipv6_address_preferred_lease_time: How frequently, in seconds, a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] netbios_name_servers: List of NETBIOS name servers.
-        :param pulumi.Input[_builtins.str] netbios_node_type: The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        :param pulumi.Input[_builtins.str] netbios_node_type: NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ntp_servers: List of NTP servers to configure.
-        :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
+        :param pulumi.Input[_builtins.str] owner_id: ID of the AWS account that owns the DHCP options set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -580,7 +584,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the DHCP Options Set.
+        ARN of the DHCP Options Set.
         """
         return pulumi.get(self, "arn")
 
@@ -620,7 +624,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
     @pulumi.getter(name="netbiosNodeType")
     def netbios_node_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
+        NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
         """
         return pulumi.get(self, "netbios_node_type")
 
@@ -636,7 +640,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the AWS account that owns the DHCP options set.
+        ID of the AWS account that owns the DHCP options set.
         """
         return pulumi.get(self, "owner_id")
 
@@ -652,7 +656,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 
         > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
         """
@@ -662,7 +666,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

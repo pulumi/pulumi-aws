@@ -31,7 +31,7 @@ export function getDomainIdentity(args: GetDomainIdentityArgs, opts?: pulumi.Inv
  */
 export interface GetDomainIdentityArgs {
     /**
-     * Name of the domain
+     * Name of the domain.
      */
     domain: string;
     /**
@@ -48,9 +48,6 @@ export interface GetDomainIdentityResult {
      * ARN of the domain identity.
      */
     readonly arn: string;
-    /**
-     * Name of the domain
-     */
     readonly domain: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -89,7 +86,7 @@ export function getDomainIdentityOutput(args: GetDomainIdentityOutputArgs, opts?
  */
 export interface GetDomainIdentityOutputArgs {
     /**
-     * Name of the domain
+     * Name of the domain.
      */
     domain: pulumi.Input<string>;
     /**

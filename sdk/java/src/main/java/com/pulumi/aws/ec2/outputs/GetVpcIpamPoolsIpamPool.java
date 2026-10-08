@@ -19,17 +19,17 @@ public final class GetVpcIpamPoolsIpamPool {
      */
     private String addressFamily;
     /**
-     * @return A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+     * @return Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
      * 
      */
     private Integer allocationDefaultNetmaskLength;
     /**
-     * @return The maximum netmask length that will be required for CIDR allocations in this pool.
+     * @return Maximum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
     private Integer allocationMaxNetmaskLength;
     /**
-     * @return The minimum netmask length that will be required for CIDR allocations in this pool.
+     * @return Minimum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
     private Integer allocationMinNetmaskLength;
@@ -68,15 +68,23 @@ public final class GetVpcIpamPoolsIpamPool {
      * 
      */
     private String ipamScopeId;
+    /**
+     * @return Type of the scope the pool belongs to.
+     * 
+     */
     private String ipamScopeType;
     /**
      * @return Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC&#39;s Region.
      * 
      */
     private String locale;
+    /**
+     * @return Depth of pools in your IPAM pool.
+     * 
+     */
     private Integer poolDepth;
     /**
-     * @return Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+     * @return Whether IPv6 pool space is publicly advertisable over the internet.
      * 
      */
     private Boolean publiclyAdvertisable;
@@ -85,6 +93,10 @@ public final class GetVpcIpamPoolsIpamPool {
      * 
      */
     private String sourceIpamPoolId;
+    /**
+     * @return State of the IPAM pool.
+     * 
+     */
     private String state;
     /**
      * @return Map of tags to assigned to the resource.
@@ -101,21 +113,21 @@ public final class GetVpcIpamPoolsIpamPool {
         return this.addressFamily;
     }
     /**
-     * @return A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
+     * @return Default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
      * 
      */
     public Integer allocationDefaultNetmaskLength() {
         return this.allocationDefaultNetmaskLength;
     }
     /**
-     * @return The maximum netmask length that will be required for CIDR allocations in this pool.
+     * @return Maximum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
     public Integer allocationMaxNetmaskLength() {
         return this.allocationMaxNetmaskLength;
     }
     /**
-     * @return The minimum netmask length that will be required for CIDR allocations in this pool.
+     * @return Minimum netmask length that will be required for CIDR allocations in this pool.
      * 
      */
     public Integer allocationMinNetmaskLength() {
@@ -170,6 +182,10 @@ public final class GetVpcIpamPoolsIpamPool {
     public String ipamScopeId() {
         return this.ipamScopeId;
     }
+    /**
+     * @return Type of the scope the pool belongs to.
+     * 
+     */
     public String ipamScopeType() {
         return this.ipamScopeType;
     }
@@ -180,11 +196,15 @@ public final class GetVpcIpamPoolsIpamPool {
     public String locale() {
         return this.locale;
     }
+    /**
+     * @return Depth of pools in your IPAM pool.
+     * 
+     */
     public Integer poolDepth() {
         return this.poolDepth;
     }
     /**
-     * @return Defines whether or not IPv6 pool space is publicly advertisable over the internet.
+     * @return Whether IPv6 pool space is publicly advertisable over the internet.
      * 
      */
     public Boolean publiclyAdvertisable() {
@@ -197,6 +217,10 @@ public final class GetVpcIpamPoolsIpamPool {
     public String sourceIpamPoolId() {
         return this.sourceIpamPoolId;
     }
+    /**
+     * @return State of the IPAM pool.
+     * 
+     */
     public String state() {
         return this.state;
     }

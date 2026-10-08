@@ -76,7 +76,7 @@ export class Experience extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      */
     declare public readonly configuration: pulumi.Output<outputs.kendra.ExperienceConfiguration>;
     /**
@@ -172,7 +172,7 @@ export interface ExperienceState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      */
     configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration | undefined>;
     /**
@@ -218,7 +218,7 @@ export interface ExperienceState {
  */
 export interface ExperienceArgs {
     /**
-     * Configuration information for your Amazon Kendra experience. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+     * Configuration information for your Amazon Kendra experience. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      */
     configuration?: pulumi.Input<inputs.kendra.ExperienceConfiguration | undefined>;
     /**

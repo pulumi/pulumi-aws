@@ -97,50 +97,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/volumeAttachment:VolumeAttachment")
 public class VolumeAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * The device name to expose to the instance (for
-     * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
+     * Device name to expose to the instance (for example, `/dev/sdh` or `xvdh`). See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
      * 
      */
     @Export(name="deviceName", refs={String.class}, tree="[0]")
     private Output<String> deviceName;
 
     /**
-     * @return The device name to expose to the instance (for
-     * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
+     * @return Device name to expose to the instance (for example, `/dev/sdh` or `xvdh`). See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
      * 
      */
     public Output<String> deviceName() {
         return this.deviceName;
     }
     /**
-     * Set to `true` if you want to force the
-     * volume to detach. Useful if previous attempts failed, but use this option only
-     * as a last resort, as this can result in **data loss**. See
-     * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
+     * Whether to force the volume to detach. Useful if previous attempts failed, but use this option only as a last resort, as this can result in **data loss**. See [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
      * 
      */
     @Export(name="forceDetach", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDetach;
 
     /**
-     * @return Set to `true` if you want to force the
-     * volume to detach. Useful if previous attempts failed, but use this option only
-     * as a last resort, as this can result in **data loss**. See
-     * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
+     * @return Whether to force the volume to detach. Useful if previous attempts failed, but use this option only as a last resort, as this can result in **data loss**. See [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
      * 
      */
     public Output<Optional<Boolean>> forceDetach() {
         return Codegen.optional(this.forceDetach);
     }
     /**
-     * ID of the Instance to attach to
+     * ID of the Instance to attach to.
      * 
      */
     @Export(name="instanceId", refs={String.class}, tree="[0]")
     private Output<String> instanceId;
 
     /**
-     * @return ID of the Instance to attach to
+     * @return ID of the Instance to attach to.
      * 
      */
     public Output<String> instanceId() {
@@ -161,52 +153,42 @@ public class VolumeAttachment extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Set this to true if you do not wish
-     * to detach the volume from the instance to which it is attached at destroy
-     * time, and instead just remove the attachment from this provider state. This is
-     * useful when destroying an instance which has volumes created by some other
-     * means attached.
+     * Whether to skip detaching the volume from the instance to which it is attached at destroy time, and instead just remove the attachment from this provider state. This is useful when destroying an instance which has volumes created by some other means attached.
      * 
      */
     @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipDestroy;
 
     /**
-     * @return Set this to true if you do not wish
-     * to detach the volume from the instance to which it is attached at destroy
-     * time, and instead just remove the attachment from this provider state. This is
-     * useful when destroying an instance which has volumes created by some other
-     * means attached.
+     * @return Whether to skip detaching the volume from the instance to which it is attached at destroy time, and instead just remove the attachment from this provider state. This is useful when destroying an instance which has volumes created by some other means attached.
      * 
      */
     public Output<Optional<Boolean>> skipDestroy() {
         return Codegen.optional(this.skipDestroy);
     }
     /**
-     * Set this to true to ensure that the target instance is stopped
-     * before trying to detach the volume. Stops the instance, if it is not already stopped.
+     * Whether to ensure that the target instance is stopped before trying to detach the volume. Stops the instance, if it is not already stopped.
      * 
      */
     @Export(name="stopInstanceBeforeDetaching", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> stopInstanceBeforeDetaching;
 
     /**
-     * @return Set this to true to ensure that the target instance is stopped
-     * before trying to detach the volume. Stops the instance, if it is not already stopped.
+     * @return Whether to ensure that the target instance is stopped before trying to detach the volume. Stops the instance, if it is not already stopped.
      * 
      */
     public Output<Optional<Boolean>> stopInstanceBeforeDetaching() {
         return Codegen.optional(this.stopInstanceBeforeDetaching);
     }
     /**
-     * ID of the Volume to be attached
+     * ID of the Volume to be attached.
      * 
      */
     @Export(name="volumeId", refs={String.class}, tree="[0]")
     private Output<String> volumeId;
 
     /**
-     * @return ID of the Volume to be attached
+     * @return ID of the Volume to be attached.
      * 
      */
     public Output<String> volumeId() {

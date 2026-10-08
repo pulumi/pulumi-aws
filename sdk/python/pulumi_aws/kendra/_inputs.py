@@ -1790,7 +1790,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
 class ExperienceConfigurationArgsDict(TypedDict):
     content_source_configuration: NotRequired[pulumi.Input[Optional['ExperienceConfigurationContentSourceConfigurationArgsDict']]]
     """
-    Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+    Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
     """
     user_identity_configuration: NotRequired[pulumi.Input[Optional['ExperienceConfigurationUserIdentityConfigurationArgsDict']]]
     """
@@ -1803,7 +1803,7 @@ class ExperienceConfigurationArgs:
                  content_source_configuration: pulumi.Input[Optional['ExperienceConfigurationContentSourceConfigurationArgs']] = None,
                  user_identity_configuration: pulumi.Input[Optional['ExperienceConfigurationUserIdentityConfigurationArgs']] = None):
         """
-        :param pulumi.Input['ExperienceConfigurationContentSourceConfigurationArgs'] content_source_configuration: Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param pulumi.Input['ExperienceConfigurationContentSourceConfigurationArgs'] content_source_configuration: Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         :param pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArgs'] user_identity_configuration: AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
         """
         if content_source_configuration is not None:
@@ -1815,7 +1815,7 @@ class ExperienceConfigurationArgs:
     @pulumi.getter(name="contentSourceConfiguration")
     def content_source_configuration(self) -> pulumi.Input[Optional['ExperienceConfigurationContentSourceConfigurationArgs']]:
         """
-        Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+        Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         """
         return pulumi.get(self, "content_source_configuration")
 

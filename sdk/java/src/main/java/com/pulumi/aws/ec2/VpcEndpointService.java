@@ -124,14 +124,14 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
         return this.acceptanceRequired;
     }
     /**
-     * The ARNs of one or more principals allowed to discover the endpoint service.
+     * ARNs of one or more principals allowed to discover the endpoint service.
      * 
      */
     @Export(name="allowedPrincipals", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> allowedPrincipals;
 
     /**
-     * @return The ARNs of one or more principals allowed to discover the endpoint service.
+     * @return ARNs of one or more principals allowed to discover the endpoint service.
      * 
      */
     public Output<List<String>> allowedPrincipals() {
@@ -152,28 +152,28 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * A set of Availability Zones in which the service is available.
+     * Set of Availability Zones in which the service is available.
      * 
      */
     @Export(name="availabilityZones", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> availabilityZones;
 
     /**
-     * @return A set of Availability Zones in which the service is available.
+     * @return Set of Availability Zones in which the service is available.
      * 
      */
     public Output<List<String>> availabilityZones() {
         return this.availabilityZones;
     }
     /**
-     * A set of DNS names for the service.
+     * Set of DNS names for the service.
      * 
      */
     @Export(name="baseEndpointDnsNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> baseEndpointDnsNames;
 
     /**
-     * @return A set of DNS names for the service.
+     * @return Set of DNS names for the service.
      * 
      */
     public Output<List<String>> baseEndpointDnsNames() {
@@ -222,14 +222,14 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.networkLoadBalancerArns);
     }
     /**
-     * The private DNS name for the service.
+     * Private DNS name for the service.
      * 
      */
     @Export(name="privateDnsName", refs={String.class}, tree="[0]")
     private Output<String> privateDnsName;
 
     /**
-     * @return The private DNS name for the service.
+     * @return Private DNS name for the service.
      * 
      */
     public Output<String> privateDnsName() {
@@ -264,98 +264,98 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The service name.
+     * Service name.
      * 
      */
     @Export(name="serviceName", refs={String.class}, tree="[0]")
     private Output<String> serviceName;
 
     /**
-     * @return The service name.
+     * @return Service name.
      * 
      */
     public Output<String> serviceName() {
         return this.serviceName;
     }
     /**
-     * The service type, `Gateway` or `Interface`.
+     * Service type, `Gateway` or `Interface`.
      * 
      */
     @Export(name="serviceType", refs={String.class}, tree="[0]")
     private Output<String> serviceType;
 
     /**
-     * @return The service type, `Gateway` or `Interface`.
+     * @return Service type, `Gateway` or `Interface`.
      * 
      */
     public Output<String> serviceType() {
         return this.serviceType;
     }
     /**
-     * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+     * State of the VPC endpoint service.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+     * @return State of the VPC endpoint service.
      * 
      */
     public Output<String> state() {
         return this.state;
     }
     /**
-     * The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     * Supported IP address types. The possible values are `ipv4` and `ipv6`.
      * 
      */
     @Export(name="supportedIpAddressTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> supportedIpAddressTypes;
 
     /**
-     * @return The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     * @return Supported IP address types. The possible values are `ipv4` and `ipv6`.
      * 
      */
     public Output<List<String>> supportedIpAddressTypes() {
         return this.supportedIpAddressTypes;
     }
     /**
-     * The set of regions from which service consumers can access the service.
+     * Set of regions from which service consumers can access the service.
      * 
      */
     @Export(name="supportedRegions", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> supportedRegions;
 
     /**
-     * @return The set of regions from which service consumers can access the service.
+     * @return Set of regions from which service consumers can access the service.
      * 
      */
     public Output<List<String>> supportedRegions() {
         return this.supportedRegions;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

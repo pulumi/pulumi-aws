@@ -49,7 +49,7 @@ class DocumentClassifierArgs:
                Can be a KMS Key ID or a KMS Key ARN.
         :param pulumi.Input[_builtins.str] name: Name for the Document Classifier.
                Has a maximum length of 63 characters.
-               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
                
                The following arguments are optional:
         :param pulumi.Input['DocumentClassifierOutputDataConfigArgs'] output_data_config: Configuration for the output results of training.
@@ -61,11 +61,11 @@ class DocumentClassifierArgs:
                If omitted, the provider will assign a random, unique version name.
                If explicitly set to `""`, no version name will be set.
                Has a maximum length of 63 characters.
-               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
                Conflicts with `version_name_prefix`.
         :param pulumi.Input[_builtins.str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
                Has a maximum length of 37 characters.
-               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
                Conflicts with `version_name`.
         :param pulumi.Input[_builtins.str] volume_kms_key_id: KMS Key used to encrypt storage volumes during job processing.
                Can be a KMS Key ID or a KMS Key ARN.
@@ -167,7 +167,7 @@ class DocumentClassifierArgs:
         """
         Name for the Document Classifier.
         Has a maximum length of 63 characters.
-        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 
         The following arguments are optional:
         """
@@ -223,7 +223,7 @@ class DocumentClassifierArgs:
         If omitted, the provider will assign a random, unique version name.
         If explicitly set to `""`, no version name will be set.
         Has a maximum length of 63 characters.
-        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         Conflicts with `version_name_prefix`.
         """
         return pulumi.get(self, "version_name")
@@ -238,7 +238,7 @@ class DocumentClassifierArgs:
         """
         Creates a unique version name beginning with the specified prefix.
         Has a maximum length of 37 characters.
-        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         Conflicts with `version_name`.
         """
         return pulumi.get(self, "version_name_prefix")
@@ -308,7 +308,7 @@ class _DocumentClassifierState:
                Can be a KMS Key ID or a KMS Key ARN.
         :param pulumi.Input[_builtins.str] name: Name for the Document Classifier.
                Has a maximum length of 63 characters.
-               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
                
                The following arguments are optional:
         :param pulumi.Input['DocumentClassifierOutputDataConfigArgs'] output_data_config: Configuration for the output results of training.
@@ -321,11 +321,11 @@ class _DocumentClassifierState:
                If omitted, the provider will assign a random, unique version name.
                If explicitly set to `""`, no version name will be set.
                Has a maximum length of 63 characters.
-               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
                Conflicts with `version_name_prefix`.
         :param pulumi.Input[_builtins.str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
                Has a maximum length of 37 characters.
-               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
                Conflicts with `version_name`.
         :param pulumi.Input[_builtins.str] volume_kms_key_id: KMS Key used to encrypt storage volumes during job processing.
                Can be a KMS Key ID or a KMS Key ARN.
@@ -446,7 +446,7 @@ class _DocumentClassifierState:
         """
         Name for the Document Classifier.
         Has a maximum length of 63 characters.
-        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 
         The following arguments are optional:
         """
@@ -514,7 +514,7 @@ class _DocumentClassifierState:
         If omitted, the provider will assign a random, unique version name.
         If explicitly set to `""`, no version name will be set.
         Has a maximum length of 63 characters.
-        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         Conflicts with `version_name_prefix`.
         """
         return pulumi.get(self, "version_name")
@@ -529,7 +529,7 @@ class _DocumentClassifierState:
         """
         Creates a unique version name beginning with the specified prefix.
         Has a maximum length of 37 characters.
-        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         Conflicts with `version_name`.
         """
         return pulumi.get(self, "version_name_prefix")
@@ -637,7 +637,7 @@ class DocumentClassifier(pulumi.CustomResource):
                Can be a KMS Key ID or a KMS Key ARN.
         :param pulumi.Input[_builtins.str] name: Name for the Document Classifier.
                Has a maximum length of 63 characters.
-               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
                
                The following arguments are optional:
         :param pulumi.Input[Union['DocumentClassifierOutputDataConfigArgs', 'DocumentClassifierOutputDataConfigArgsDict', 'outputs.DocumentClassifierOutputDataConfig']] output_data_config: Configuration for the output results of training.
@@ -649,11 +649,11 @@ class DocumentClassifier(pulumi.CustomResource):
                If omitted, the provider will assign a random, unique version name.
                If explicitly set to `""`, no version name will be set.
                Has a maximum length of 63 characters.
-               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
                Conflicts with `version_name_prefix`.
         :param pulumi.Input[_builtins.str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
                Has a maximum length of 37 characters.
-               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
                Conflicts with `version_name`.
         :param pulumi.Input[_builtins.str] volume_kms_key_id: KMS Key used to encrypt storage volumes during job processing.
                Can be a KMS Key ID or a KMS Key ARN.
@@ -807,7 +807,7 @@ class DocumentClassifier(pulumi.CustomResource):
                Can be a KMS Key ID or a KMS Key ARN.
         :param pulumi.Input[_builtins.str] name: Name for the Document Classifier.
                Has a maximum length of 63 characters.
-               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
                
                The following arguments are optional:
         :param pulumi.Input[Union['DocumentClassifierOutputDataConfigArgs', 'DocumentClassifierOutputDataConfigArgsDict', 'outputs.DocumentClassifierOutputDataConfig']] output_data_config: Configuration for the output results of training.
@@ -820,11 +820,11 @@ class DocumentClassifier(pulumi.CustomResource):
                If omitted, the provider will assign a random, unique version name.
                If explicitly set to `""`, no version name will be set.
                Has a maximum length of 63 characters.
-               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
                Conflicts with `version_name_prefix`.
         :param pulumi.Input[_builtins.str] version_name_prefix: Creates a unique version name beginning with the specified prefix.
                Has a maximum length of 37 characters.
-               Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+               Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
                Conflicts with `version_name`.
         :param pulumi.Input[_builtins.str] volume_kms_key_id: KMS Key used to encrypt storage volumes during job processing.
                Can be a KMS Key ID or a KMS Key ARN.
@@ -911,7 +911,7 @@ class DocumentClassifier(pulumi.CustomResource):
         """
         Name for the Document Classifier.
         Has a maximum length of 63 characters.
-        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
 
         The following arguments are optional:
         """
@@ -959,7 +959,7 @@ class DocumentClassifier(pulumi.CustomResource):
         If omitted, the provider will assign a random, unique version name.
         If explicitly set to `""`, no version name will be set.
         Has a maximum length of 63 characters.
-        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         Conflicts with `version_name_prefix`.
         """
         return pulumi.get(self, "version_name")
@@ -970,7 +970,7 @@ class DocumentClassifier(pulumi.CustomResource):
         """
         Creates a unique version name beginning with the specified prefix.
         Has a maximum length of 37 characters.
-        Can contain upper- and lower-case letters, numbers, and hypen (`-`).
+        Can contain upper- and lower-case letters, numbers, and hyphen (`-`).
         Conflicts with `version_name`.
         """
         return pulumi.get(self, "version_name_prefix")

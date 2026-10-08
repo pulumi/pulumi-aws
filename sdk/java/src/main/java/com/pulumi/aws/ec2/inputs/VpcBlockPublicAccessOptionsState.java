@@ -17,14 +17,14 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
     public static final VpcBlockPublicAccessOptionsState Empty = new VpcBlockPublicAccessOptionsState();
 
     /**
-     * The AWS account id to which these options apply.
+     * AWS account id to which these options apply.
      * 
      */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
     /**
-     * @return The AWS account id to which these options apply.
+     * @return AWS account id to which these options apply.
      * 
      */
     public Optional<Output<String>> awsAccountId() {
@@ -32,14 +32,14 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
     }
 
     /**
-     * The AWS region to which these options apply.
+     * AWS region to which these options apply.
      * 
      */
     @Import(name="awsRegion")
     private @Nullable Output<String> awsRegion;
 
     /**
-     * @return The AWS region to which these options apply.
+     * @return AWS region to which these options apply.
      * 
      */
     public Optional<Output<String>> awsRegion() {
@@ -112,7 +112,7 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
         }
 
         /**
-         * @param awsAccountId The AWS account id to which these options apply.
+         * @param awsAccountId AWS account id to which these options apply.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
         }
 
         /**
-         * @param awsAccountId The AWS account id to which these options apply.
+         * @param awsAccountId AWS account id to which these options apply.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
         }
 
         /**
-         * @param awsRegion The AWS region to which these options apply.
+         * @param awsRegion AWS region to which these options apply.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
         }
 
         /**
-         * @param awsRegion The AWS region to which these options apply.
+         * @param awsRegion AWS region to which these options apply.
          * 
          * @return builder
          * 

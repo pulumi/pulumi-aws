@@ -16,58 +16,122 @@ public final class TrustProviderNativeApplicationOidcOptionsArgs extends com.pul
 
     public static final TrustProviderNativeApplicationOidcOptionsArgs Empty = new TrustProviderNativeApplicationOidcOptionsArgs();
 
+    /**
+     * OIDC authorization endpoint.
+     * 
+     */
     @Import(name="authorizationEndpoint")
     private @Nullable Output<String> authorizationEndpoint;
 
+    /**
+     * @return OIDC authorization endpoint.
+     * 
+     */
     public Optional<Output<String>> authorizationEndpoint() {
         return Optional.ofNullable(this.authorizationEndpoint);
     }
 
+    /**
+     * OAuth 2.0 client identifier.
+     * 
+     */
     @Import(name="clientId")
     private @Nullable Output<String> clientId;
 
+    /**
+     * @return OAuth 2.0 client identifier.
+     * 
+     */
     public Optional<Output<String>> clientId() {
         return Optional.ofNullable(this.clientId);
     }
 
+    /**
+     * OAuth 2.0 client secret.
+     * 
+     */
     @Import(name="clientSecret", required=true)
     private Output<String> clientSecret;
 
+    /**
+     * @return OAuth 2.0 client secret.
+     * 
+     */
     public Output<String> clientSecret() {
         return this.clientSecret;
     }
 
+    /**
+     * OIDC issuer identifier of the IdP.
+     * 
+     */
     @Import(name="issuer")
     private @Nullable Output<String> issuer;
 
+    /**
+     * @return OIDC issuer identifier of the IdP.
+     * 
+     */
     public Optional<Output<String>> issuer() {
         return Optional.ofNullable(this.issuer);
     }
 
+    /**
+     * OIDC public signing key endpoint.
+     * 
+     */
     @Import(name="publicSigningKeyEndpoint")
     private @Nullable Output<String> publicSigningKeyEndpoint;
 
+    /**
+     * @return OIDC public signing key endpoint.
+     * 
+     */
     public Optional<Output<String>> publicSigningKeyEndpoint() {
         return Optional.ofNullable(this.publicSigningKeyEndpoint);
     }
 
+    /**
+     * OpenID Connect (OIDC) scope specified.
+     * 
+     */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
+    /**
+     * @return OpenID Connect (OIDC) scope specified.
+     * 
+     */
     public Optional<Output<String>> scope() {
         return Optional.ofNullable(this.scope);
     }
 
+    /**
+     * OIDC token endpoint.
+     * 
+     */
     @Import(name="tokenEndpoint")
     private @Nullable Output<String> tokenEndpoint;
 
+    /**
+     * @return OIDC token endpoint.
+     * 
+     */
     public Optional<Output<String>> tokenEndpoint() {
         return Optional.ofNullable(this.tokenEndpoint);
     }
 
+    /**
+     * OIDC user info endpoint.
+     * 
+     */
     @Import(name="userInfoEndpoint")
     private @Nullable Output<String> userInfoEndpoint;
 
+    /**
+     * @return OIDC user info endpoint.
+     * 
+     */
     public Optional<Output<String>> userInfoEndpoint() {
         return Optional.ofNullable(this.userInfoEndpoint);
     }
@@ -103,74 +167,170 @@ public final class TrustProviderNativeApplicationOidcOptionsArgs extends com.pul
             $ = new TrustProviderNativeApplicationOidcOptionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param authorizationEndpoint OIDC authorization endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizationEndpoint(@Nullable Output<String> authorizationEndpoint) {
             $.authorizationEndpoint = authorizationEndpoint;
             return this;
         }
 
+        /**
+         * @param authorizationEndpoint OIDC authorization endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizationEndpoint(String authorizationEndpoint) {
             return authorizationEndpoint(Output.of(authorizationEndpoint));
         }
 
+        /**
+         * @param clientId OAuth 2.0 client identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(@Nullable Output<String> clientId) {
             $.clientId = clientId;
             return this;
         }
 
+        /**
+         * @param clientId OAuth 2.0 client identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
         }
 
+        /**
+         * @param clientSecret OAuth 2.0 client secret.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(Output<String> clientSecret) {
             $.clientSecret = clientSecret;
             return this;
         }
 
+        /**
+         * @param clientSecret OAuth 2.0 client secret.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSecret(String clientSecret) {
             return clientSecret(Output.of(clientSecret));
         }
 
+        /**
+         * @param issuer OIDC issuer identifier of the IdP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder issuer(@Nullable Output<String> issuer) {
             $.issuer = issuer;
             return this;
         }
 
+        /**
+         * @param issuer OIDC issuer identifier of the IdP.
+         * 
+         * @return builder
+         * 
+         */
         public Builder issuer(String issuer) {
             return issuer(Output.of(issuer));
         }
 
+        /**
+         * @param publicSigningKeyEndpoint OIDC public signing key endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicSigningKeyEndpoint(@Nullable Output<String> publicSigningKeyEndpoint) {
             $.publicSigningKeyEndpoint = publicSigningKeyEndpoint;
             return this;
         }
 
+        /**
+         * @param publicSigningKeyEndpoint OIDC public signing key endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicSigningKeyEndpoint(String publicSigningKeyEndpoint) {
             return publicSigningKeyEndpoint(Output.of(publicSigningKeyEndpoint));
         }
 
+        /**
+         * @param scope OpenID Connect (OIDC) scope specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scope(@Nullable Output<String> scope) {
             $.scope = scope;
             return this;
         }
 
+        /**
+         * @param scope OpenID Connect (OIDC) scope specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scope(String scope) {
             return scope(Output.of(scope));
         }
 
+        /**
+         * @param tokenEndpoint OIDC token endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenEndpoint(@Nullable Output<String> tokenEndpoint) {
             $.tokenEndpoint = tokenEndpoint;
             return this;
         }
 
+        /**
+         * @param tokenEndpoint OIDC token endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tokenEndpoint(String tokenEndpoint) {
             return tokenEndpoint(Output.of(tokenEndpoint));
         }
 
+        /**
+         * @param userInfoEndpoint OIDC user info endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userInfoEndpoint(@Nullable Output<String> userInfoEndpoint) {
             $.userInfoEndpoint = userInfoEndpoint;
             return this;
         }
 
+        /**
+         * @param userInfoEndpoint OIDC user info endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder userInfoEndpoint(String userInfoEndpoint) {
             return userInfoEndpoint(Output.of(userInfoEndpoint));
         }

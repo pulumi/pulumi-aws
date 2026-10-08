@@ -31,14 +31,14 @@ public final class InstanceTrustProviderAttachmentState extends com.pulumi.resou
     }
 
     /**
-     * The ID of the Verified Access instance to attach the Trust Provider to.
+     * ID of the Verified Access instance to attach the Trust Provider to.
      * 
      */
     @Import(name="verifiedaccessInstanceId")
     private @Nullable Output<String> verifiedaccessInstanceId;
 
     /**
-     * @return The ID of the Verified Access instance to attach the Trust Provider to.
+     * @return ID of the Verified Access instance to attach the Trust Provider to.
      * 
      */
     public Optional<Output<String>> verifiedaccessInstanceId() {
@@ -46,14 +46,14 @@ public final class InstanceTrustProviderAttachmentState extends com.pulumi.resou
     }
 
     /**
-     * The ID of the Verified Access trust provider.
+     * ID of the Verified Access trust provider.
      * 
      */
     @Import(name="verifiedaccessTrustProviderId")
     private @Nullable Output<String> verifiedaccessTrustProviderId;
 
     /**
-     * @return The ID of the Verified Access trust provider.
+     * @return ID of the Verified Access trust provider.
      * 
      */
     public Optional<Output<String>> verifiedaccessTrustProviderId() {
@@ -108,7 +108,7 @@ public final class InstanceTrustProviderAttachmentState extends com.pulumi.resou
         }
 
         /**
-         * @param verifiedaccessInstanceId The ID of the Verified Access instance to attach the Trust Provider to.
+         * @param verifiedaccessInstanceId ID of the Verified Access instance to attach the Trust Provider to.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class InstanceTrustProviderAttachmentState extends com.pulumi.resou
         }
 
         /**
-         * @param verifiedaccessInstanceId The ID of the Verified Access instance to attach the Trust Provider to.
+         * @param verifiedaccessInstanceId ID of the Verified Access instance to attach the Trust Provider to.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class InstanceTrustProviderAttachmentState extends com.pulumi.resou
         }
 
         /**
-         * @param verifiedaccessTrustProviderId The ID of the Verified Access trust provider.
+         * @param verifiedaccessTrustProviderId ID of the Verified Access trust provider.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class InstanceTrustProviderAttachmentState extends com.pulumi.resou
         }
 
         /**
-         * @param verifiedaccessTrustProviderId The ID of the Verified Access trust provider.
+         * @param verifiedaccessTrustProviderId ID of the Verified Access trust provider.
          * 
          * @return builder
          * 

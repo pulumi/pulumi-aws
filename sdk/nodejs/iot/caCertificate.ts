@@ -92,7 +92,7 @@ export class CaCertificate extends pulumi.CustomResource {
      */
     declare public readonly active: pulumi.Output<boolean>;
     /**
-     * Boolean flag to indicate if the certificate should be active for device regisration.
+     * Boolean flag to indicate if the certificate should be active for device registration.
      */
     declare public readonly allowAutoRegistration: pulumi.Output<boolean>;
     /**
@@ -208,7 +208,7 @@ export interface CaCertificateState {
      */
     active?: pulumi.Input<boolean | undefined>;
     /**
-     * Boolean flag to indicate if the certificate should be active for device regisration.
+     * Boolean flag to indicate if the certificate should be active for device registration.
      */
     allowAutoRegistration?: pulumi.Input<boolean | undefined>;
     /**
@@ -267,7 +267,7 @@ export interface CaCertificateArgs {
      */
     active: pulumi.Input<boolean>;
     /**
-     * Boolean flag to indicate if the certificate should be active for device regisration.
+     * Boolean flag to indicate if the certificate should be active for device registration.
      */
     allowAutoRegistration: pulumi.Input<boolean>;
     /**

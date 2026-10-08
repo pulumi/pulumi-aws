@@ -38,7 +38,7 @@ public final class GetConnectResult {
      */
     private String transitGatewayId;
     /**
-     * @return The underlaying VPC attachment
+     * @return The underlying VPC attachment
      * 
      */
     private String transportAttachmentId;
@@ -82,7 +82,7 @@ public final class GetConnectResult {
         return this.transitGatewayId;
     }
     /**
-     * @return The underlaying VPC attachment
+     * @return The underlying VPC attachment
      * 
      */
     public String transportAttachmentId() {

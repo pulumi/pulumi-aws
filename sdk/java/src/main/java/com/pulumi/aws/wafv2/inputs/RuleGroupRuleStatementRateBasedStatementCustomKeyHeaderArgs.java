@@ -17,14 +17,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs e
     public static final RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs Empty = new RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs();
 
     /**
-     * A friendly name of the rule group.
+     * The name of the header to use.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A friendly name of the rule group.
+     * @return The name of the header to use.
      * 
      */
     public Output<String> name() {
@@ -32,14 +32,14 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs e
     }
 
     /**
-     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+     * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
      * 
      */
     @Import(name="textTransformations", required=true)
     private Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs>> textTransformations;
 
     /**
-     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+     * @return Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
      * 
      */
     public Output<List<RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs>> textTransformations() {
@@ -72,7 +72,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs e
         }
 
         /**
-         * @param name A friendly name of the rule group.
+         * @param name The name of the header to use.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs e
         }
 
         /**
-         * @param name A friendly name of the rule group.
+         * @param name The name of the header to use.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs e
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs e
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs e
         }
 
         /**
-         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See Text Transformation above for details.
+         * @param textTransformations Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required.  See Text Transformation above for details.
          * 
          * @return builder
          * 

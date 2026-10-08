@@ -17,14 +17,14 @@ public final class ExperienceConfigurationArgs extends com.pulumi.resources.Reso
     public static final ExperienceConfigurationArgs Empty = new ExperienceConfigurationArgs();
 
     /**
-     * Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+     * Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
     @Import(name="contentSourceConfiguration")
     private @Nullable Output<ExperienceConfigurationContentSourceConfigurationArgs> contentSourceConfiguration;
 
     /**
-     * @return Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+     * @return Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
      * 
      */
     public Optional<Output<ExperienceConfigurationContentSourceConfigurationArgs>> contentSourceConfiguration() {
@@ -72,7 +72,7 @@ public final class ExperienceConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param contentSourceConfiguration Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+         * @param contentSourceConfiguration Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ExperienceConfigurationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param contentSourceConfiguration Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. Terraform will only perform drift detection of its value when present in a configuration. Detailed below.
+         * @param contentSourceConfiguration Identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
          * 
          * @return builder
          * 

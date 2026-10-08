@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * and the accepter can use the `aws.ec2.VpcPeeringConnectionAccepter` resource to &#34;adopt&#34; its side of the
  * connection into management.
  * 
+ * &gt; **Note:** AWS allows a cross-account VPC Peering Connection to be deleted from either the requester&#39;s or accepter&#39;s side. However, this provider only allows the VPC Peering Connection to be deleted from the requester&#39;s side by removing the corresponding `aws.ec2.VpcPeeringConnection` resource from your configuration. Removing a `aws.ec2.VpcPeeringConnectionAccepter` resource from your configuration will remove it from your statefile and management, **but will not destroy the VPC Peering Connection.**
+ * 
  * ## Example Usage
  * 
  * ### Cross-Account Peering Or Cross-Region Peering AWS Provider v6 (and below)
@@ -198,30 +200,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter")
 public class VpcPeeringConnectionAccepter extends com.pulumi.resources.CustomResource {
     /**
-     * The status of the VPC Peering Connection request.
+     * Status of the VPC Peering Connection request.
      * 
      */
     @Export(name="acceptStatus", refs={String.class}, tree="[0]")
     private Output<String> acceptStatus;
 
     /**
-     * @return The status of the VPC Peering Connection request.
+     * @return Status of the VPC Peering Connection request.
      * 
      */
     public Output<String> acceptStatus() {
         return this.acceptStatus;
     }
     /**
-     * A configuration block that describes [VPC Peering Connection]
-     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+     * Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
      * 
      */
     @Export(name="accepter", refs={VpcPeeringConnectionAccepterAccepter.class}, tree="[0]")
     private Output<VpcPeeringConnectionAccepterAccepter> accepter;
 
     /**
-     * @return A configuration block that describes [VPC Peering Connection]
-     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
+     * @return Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that accepts the peering connection (a maximum of one). See `accepter` Block below.
      * 
      */
     public Output<VpcPeeringConnectionAccepterAccepter> accepter() {
@@ -242,42 +242,42 @@ public class VpcPeeringConnectionAccepter extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.autoAccept);
     }
     /**
-     * The AWS account ID of the owner of the requester VPC.
+     * AWS account ID of the owner of the requester VPC.
      * 
      */
     @Export(name="peerOwnerId", refs={String.class}, tree="[0]")
     private Output<String> peerOwnerId;
 
     /**
-     * @return The AWS account ID of the owner of the requester VPC.
+     * @return AWS account ID of the owner of the requester VPC.
      * 
      */
     public Output<String> peerOwnerId() {
         return this.peerOwnerId;
     }
     /**
-     * The region of the accepter VPC.
+     * Region of the accepter VPC.
      * 
      */
     @Export(name="peerRegion", refs={String.class}, tree="[0]")
     private Output<String> peerRegion;
 
     /**
-     * @return The region of the accepter VPC.
+     * @return Region of the accepter VPC.
      * 
      */
     public Output<String> peerRegion() {
         return this.peerRegion;
     }
     /**
-     * The ID of the requester VPC.
+     * ID of the requester VPC.
      * 
      */
     @Export(name="peerVpcId", refs={String.class}, tree="[0]")
     private Output<String> peerVpcId;
 
     /**
-     * @return The ID of the requester VPC.
+     * @return ID of the requester VPC.
      * 
      */
     public Output<String> peerVpcId() {
@@ -298,72 +298,70 @@ public class VpcPeeringConnectionAccepter extends com.pulumi.resources.CustomRes
         return this.region;
     }
     /**
-     * A configuration block that describes [VPC Peering Connection]
-     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+     * Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
      * 
      */
     @Export(name="requester", refs={VpcPeeringConnectionAccepterRequester.class}, tree="[0]")
     private Output<VpcPeeringConnectionAccepterRequester> requester;
 
     /**
-     * @return A configuration block that describes [VPC Peering Connection]
-     * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
+     * @return Configuration block for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to set for the VPC that requests the peering connection (a maximum of one). See `requester` Block below.
      * 
      */
     public Output<VpcPeeringConnectionAccepterRequester> requester() {
         return this.requester;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The ID of the accepter VPC.
+     * ID of the accepter VPC.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the accepter VPC.
+     * @return ID of the accepter VPC.
      * 
      */
     public Output<String> vpcId() {
         return this.vpcId;
     }
     /**
-     * The VPC Peering Connection ID to manage.
+     * VPC Peering Connection ID to manage.
      * 
      */
     @Export(name="vpcPeeringConnectionId", refs={String.class}, tree="[0]")
     private Output<String> vpcPeeringConnectionId;
 
     /**
-     * @return The VPC Peering Connection ID to manage.
+     * @return VPC Peering Connection ID to manage.
      * 
      */
     public Output<String> vpcPeeringConnectionId() {

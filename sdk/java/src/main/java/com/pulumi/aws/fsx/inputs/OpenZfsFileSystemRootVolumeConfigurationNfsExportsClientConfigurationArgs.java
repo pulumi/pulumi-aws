@@ -31,14 +31,14 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfi
     }
 
     /**
-     * Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+     * Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
      * 
      */
     @Import(name="options", required=true)
     private Output<List<String>> options;
 
     /**
-     * @return Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+     * @return Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
      * 
      */
     public Output<List<String>> options() {
@@ -92,7 +92,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfi
         }
 
         /**
-         * @param options Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+         * @param options Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfi
         }
 
         /**
-         * @param options Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+         * @param options Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfi
         }
 
         /**
-         * @param options Options to use when mounting the file system. Maximum of 20 items. See the [Linix NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
+         * @param options Options to use when mounting the file system. Maximum of 20 items. See the [Linux NFS exports man page](https://linux.die.net/man/5/exports) for more information. `crossmount` and `sync` are used by default.
          * 
          * @return builder
          * 

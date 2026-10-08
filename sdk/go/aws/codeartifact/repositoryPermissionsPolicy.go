@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeArtifact Repostory Permissions Policy Resource.
+// Provides a CodeArtifact Repository Permissions Policy Resource.
 //
 // ## Example Usage
 //

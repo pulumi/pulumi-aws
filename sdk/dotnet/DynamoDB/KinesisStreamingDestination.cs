@@ -38,8 +38,11 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     ///     var exampleStream = new Aws.Kinesis.Stream("example", new()
     ///     {
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "ON_DEMAND",
+    ///         },
     ///         Name = "order_item_changes",
-    ///         ShardCount = 1,
     ///     });
     /// 
     ///     var exampleKinesisStreamingDestination = new Aws.DynamoDB.KinesisStreamingDestination("example", new()

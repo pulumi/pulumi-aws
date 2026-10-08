@@ -28,8 +28,8 @@ class SecurityGroupVpcAssociationArgs:
         """
         The set of arguments for constructing a SecurityGroupVpcAssociation resource.
 
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to make the association with.
+        :param pulumi.Input[_builtins.str] security_group_id: ID of the security group.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to make the association with.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "security_group_id", security_group_id)
@@ -43,7 +43,7 @@ class SecurityGroupVpcAssociationArgs:
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the security group.
+        ID of the security group.
         """
         return pulumi.get(self, "security_group_id")
 
@@ -55,7 +55,7 @@ class SecurityGroupVpcAssociationArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the VPC to make the association with.
+        ID of the VPC to make the association with.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -97,9 +97,9 @@ class _SecurityGroupVpcAssociationState:
         Input properties used for looking up and filtering SecurityGroupVpcAssociation resources.
 
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
+        :param pulumi.Input[_builtins.str] security_group_id: ID of the security group.
         :param pulumi.Input[_builtins.str] state: State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to make the association with.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to make the association with.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -128,7 +128,7 @@ class _SecurityGroupVpcAssociationState:
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the security group.
+        ID of the security group.
         """
         return pulumi.get(self, "security_group_id")
 
@@ -161,7 +161,7 @@ class _SecurityGroupVpcAssociationState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC to make the association with.
+        ID of the VPC to make the association with.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -219,8 +219,8 @@ class SecurityGroupVpcAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to make the association with.
+        :param pulumi.Input[_builtins.str] security_group_id: ID of the security group.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to make the association with.
         """
         ...
     @overload
@@ -323,9 +323,9 @@ class SecurityGroupVpcAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] security_group_id: The ID of the security group.
+        :param pulumi.Input[_builtins.str] security_group_id: ID of the security group.
         :param pulumi.Input[_builtins.str] state: State of the VPC association. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroupVpcAssociation.html) for possible values.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC to make the association with.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC to make the association with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -350,7 +350,7 @@ class SecurityGroupVpcAssociation(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the security group.
+        ID of the security group.
         """
         return pulumi.get(self, "security_group_id")
 
@@ -371,7 +371,7 @@ class SecurityGroupVpcAssociation(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the VPC to make the association with.
+        ID of the VPC to make the association with.
         """
         return pulumi.get(self, "vpc_id")
 

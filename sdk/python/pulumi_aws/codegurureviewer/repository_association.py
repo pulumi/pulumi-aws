@@ -31,7 +31,7 @@ class RepositoryAssociationArgs:
         :param pulumi.Input['RepositoryAssociationRepositoryArgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
                
                The following arguments are optional:
-        :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
+        :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to associate. Block is documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "repository", repository)
@@ -60,7 +60,7 @@ class RepositoryAssociationArgs:
     @pulumi.getter(name="kmsKeyDetails")
     def kms_key_details(self) -> pulumi.Input[Optional['RepositoryAssociationKmsKeyDetailsArgs']]:
         """
-        An object describing the KMS key to asssociate. Block is documented below.
+        An object describing the KMS key to associate. Block is documented below.
         """
         return pulumi.get(self, "kms_key_details")
 
@@ -113,7 +113,7 @@ class _RepositoryAssociationState:
         :param pulumi.Input[_builtins.str] arn: ARN identifying the repository association.
         :param pulumi.Input[_builtins.str] association_id: The ID of the repository association.
         :param pulumi.Input[_builtins.str] connection_arn: ARN of an AWS CodeStar Connections connection.
-        :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
+        :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to associate. Block is documented below.
         :param pulumi.Input[_builtins.str] name: The name of the repository.
         :param pulumi.Input[_builtins.str] owner: The owner of the repository.
         :param pulumi.Input[_builtins.str] provider_type: The provider type of the repository association.
@@ -193,7 +193,7 @@ class _RepositoryAssociationState:
     @pulumi.getter(name="kmsKeyDetails")
     def kms_key_details(self) -> pulumi.Input[Optional['RepositoryAssociationKmsKeyDetailsArgs']]:
         """
-        An object describing the KMS key to asssociate. Block is documented below.
+        An object describing the KMS key to associate. Block is documented below.
         """
         return pulumi.get(self, "kms_key_details")
 
@@ -353,7 +353,7 @@ class RepositoryAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict', 'outputs.RepositoryAssociationKmsKeyDetails']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
+        :param pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict', 'outputs.RepositoryAssociationKmsKeyDetails']] kms_key_details: An object describing the KMS key to associate. Block is documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict', 'outputs.RepositoryAssociationRepository']] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
                
@@ -468,7 +468,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN identifying the repository association.
         :param pulumi.Input[_builtins.str] association_id: The ID of the repository association.
         :param pulumi.Input[_builtins.str] connection_arn: ARN of an AWS CodeStar Connections connection.
-        :param pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict', 'outputs.RepositoryAssociationKmsKeyDetails']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
+        :param pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict', 'outputs.RepositoryAssociationKmsKeyDetails']] kms_key_details: An object describing the KMS key to associate. Block is documented below.
         :param pulumi.Input[_builtins.str] name: The name of the repository.
         :param pulumi.Input[_builtins.str] owner: The owner of the repository.
         :param pulumi.Input[_builtins.str] provider_type: The provider type of the repository association.
@@ -527,7 +527,7 @@ class RepositoryAssociation(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyDetails")
     def kms_key_details(self) -> pulumi.Output[Optional['outputs.RepositoryAssociationKmsKeyDetails']]:
         """
-        An object describing the KMS key to asssociate. Block is documented below.
+        An object describing the KMS key to associate. Block is documented below.
         """
         return pulumi.get(self, "kms_key_details")
 
